@@ -877,12 +877,21 @@
         // ==========================================
         // 7. MODALES & RESULTADOS
         // ==========================================
+        function escapeHTML(value) {
+            return String(value).replace(/[&<>"']/g, c => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            }[c]));
+        }
+
         function renderIconHTML(iconStr) {
             if (!iconStr) return `<i class="fa-solid fa-dumbbell"></i>`;
             if (iconStr.startsWith('fa-')) {
-                return `<i class="fa-solid ${iconStr}"></i>`;
+                // Solo nombres de clase válidos de Font Awesome
+                return /^fa-[a-z0-9-]+$/.test(iconStr)
+                    ? `<i class="fa-solid ${iconStr}"></i>`
+                    : `<i class="fa-solid fa-dumbbell"></i>`;
             }
-            return `<span>${iconStr}</span>`;
+            return `<span>${escapeHTML(iconStr)}</span>`;
         }
 
         function showResultModal(winner) {
@@ -943,7 +952,7 @@
                                 ${h.reps}
                             </div>
                             <div>
-                                <h4 class="font-bold text-white text-xs">${h.text}</h4>
+                                <h4 class="font-bold text-white text-xs">${escapeHTML(h.text)}</h4>
                                 <span class="text-[10px] text-slate-400 font-medium">${h.time}</span>
                             </div>
                         </div>
@@ -1025,13 +1034,13 @@
             exsContainer.innerHTML = allExercises.map(ex => `
                 <div class="flex items-center justify-between p-2.5 rounded-xl bg-dark-950 border border-slate-800">
                     <label class="flex items-center gap-2 cursor-pointer flex-1">
-                        <input type="checkbox" value="${ex.name}" ${activeExercises.includes(ex.name) ? 'checked' : ''} class="ex-checkbox w-4 h-4 rounded text-brand-500 focus:ring-brand-500 bg-dark-900 border-slate-700">
+                        <input type="checkbox" value="${escapeHTML(ex.name)}" ${activeExercises.includes(ex.name) ? 'checked' : ''} class="ex-checkbox w-4 h-4 rounded text-brand-500 focus:ring-brand-500 bg-dark-900 border-slate-700">
                         <span class="text-xs font-bold text-white flex items-center gap-2">
                             <span class="text-brand-400 w-4 text-center">${renderIconHTML(ex.icon)}</span>
-                            ${ex.name}
+                            ${escapeHTML(ex.name)}
                         </span>
                     </label>
-                    <button onclick="deleteExerciseItem('${ex.id}')" class="text-slate-500 hover:text-red-400 p-1 text-xs transition-colors">
+                    <button onclick="deleteExerciseItem('${escapeHTML(ex.id)}')" class="text-slate-500 hover:text-red-400 p-1 text-xs transition-colors">
                         <i class="fa-solid fa-trash-can"></i>
                     </button>
                 </div>
