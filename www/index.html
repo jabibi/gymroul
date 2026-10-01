@@ -421,8 +421,9 @@
 
         // Dragging state
         let isDragging = false;
-        let startTouchAngle = 0;
-        let startWheelAngle = 0;
+        const MIN_SAMPLE_MS = 4;
+        let lastTouchAngle = 0;
+        let lastSampleAngle = 0;
         let velocitySamples = [];
         let lastPointerTime = 0;
 
@@ -838,30 +839,38 @@
             if (isSpinning) return;
             isDragging = true;
             initAudio();
-            startTouchAngle = getAngleFromCenter(e.clientX, e.clientY);
-            startWheelAngle = currentAngle;
+            lastTouchAngle = getAngleFromCenter(e.clientX, e.clientY);
             velocitySamples = [];
             lastPointerTime = performance.now();
+            lastSampleAngle = currentAngle;
             canvas.setPointerCapture(e.pointerId);
         });
+
+        // Normaliza una diferencia de ángulos a (-π, π] para absorber el salto de atan2 en ±π
+        function normalizeDelta(delta) {
+            while (delta > Math.PI) delta -= 2 * Math.PI;
+            while (delta <= -Math.PI) delta += 2 * Math.PI;
+            return delta;
+        }
 
         canvas.addEventListener('pointermove', (e) => {
             if (!isDragging || isSpinning) return;
             const touchAngle = getAngleFromCenter(e.clientX, e.clientY);
-            const delta = touchAngle - startTouchAngle;
-            const newAngle = startWheelAngle + delta;
+            // Se acumula el incremento entre eventos en vez de la diferencia con el inicio:
+            // así cruzar el eje ±π no genera un salto de 2π ni una velocidad falsa
+            currentAngle += normalizeDelta(touchAngle - lastTouchAngle);
+            lastTouchAngle = touchAngle;
 
             const now = performance.now();
             const dt = now - lastPointerTime;
 
-            if (dt > 0) {
-                const vel = (newAngle - currentAngle) / (dt / 1000);
-                velocitySamples.push({ vel, time: now });
+            // Eventos casi simultáneos darían velocidades desproporcionadas: se acumulan en la siguiente muestra
+            if (dt >= MIN_SAMPLE_MS) {
+                velocitySamples.push({ vel: (currentAngle - lastSampleAngle) / (dt / 1000), time: now });
                 if (velocitySamples.length > 5) velocitySamples.shift();
+                lastPointerTime = now;
+                lastSampleAngle = currentAngle;
             }
-
-            currentAngle = newAngle;
-            lastPointerTime = now;
 
             checkTick();
             drawWheel();
