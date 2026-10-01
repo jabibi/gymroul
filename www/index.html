@@ -411,7 +411,9 @@
         let currentAngle = 0; // rad
         let isSpinning = false;
         let angularVelocity = 0;
-        let friction = 0.982;
+        const FRICTION = 0.982; // factor de rozamiento por cada 1/60 s
+        const FRAME_MS = 1000 / 60;
+        let lastFrameTime = 0;
         let soundEnabled = true;
         let history = [];
         let lastTickIndex = -1;
@@ -881,7 +883,7 @@
                 if (Math.abs(angularVelocityFrame) > 0.02) {
                     isSpinning = true;
                     angularVelocity = Math.sign(angularVelocityFrame) * Math.min(Math.abs(angularVelocityFrame), 0.65);
-                    requestAnimationFrame(animateSpin);
+                    startSpinLoop();
                 }
             }
         });
@@ -899,13 +901,23 @@
             isSpinning = true;
             const dir = Math.random() < 0.5 ? 1 : -1;
             angularVelocity = dir * (0.38 + Math.random() * 0.25);
+            startSpinLoop();
+        }
+
+        function startSpinLoop() {
+            lastFrameTime = performance.now();
             requestAnimationFrame(animateSpin);
         }
 
-        function animateSpin() {
+        // Física basada en tiempo real: misma duración y velocidad a 60, 120 o 144 Hz.
+        // angularVelocity está expresada en rad por fotograma a 60 fps.
+        function animateSpin(now) {
             if (!isSpinning) return;
-            angularVelocity *= friction;
-            currentAngle += angularVelocity;
+            // Se limita el salto de tiempo (pestaña en segundo plano, tirones) a 3 fotogramas
+            const frames = Math.min((now - lastFrameTime) / FRAME_MS, 3);
+            lastFrameTime = now;
+            angularVelocity *= Math.pow(FRICTION, frames);
+            currentAngle += angularVelocity * frames;
 
             checkTick();
             drawWheel();
