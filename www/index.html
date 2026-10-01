@@ -627,7 +627,7 @@
 
         function updateWheelSegments() {
             buildSegments();
-            currentAngle = 0;
+            lastTickIndex = getWinningIndex();
             drawWheel();
             updateLiveIndicator();
         }
@@ -787,11 +787,16 @@
             ctx.lineWidth = 2.5;
             ctx.strokeStyle = "#f97316";
             ctx.stroke();
+        }
 
-            if (activeIndex !== lastTickIndex) {
+        // Sonido y vibración al cruzar de sector; solo lo llaman el arrastre y el giro,
+        // nunca un simple redibujado (resize, cambio de configuración...)
+        function checkTick() {
+            const index = getWinningIndex();
+            if (index !== lastTickIndex) {
                 playTickSound();
                 triggerVibration(10);
-                lastTickIndex = activeIndex;
+                lastTickIndex = index;
             }
         }
 
@@ -812,6 +817,7 @@
             canvas.width = wheelSize * dpr;
             canvas.height = wheelSize * dpr;
             ctx.scale(dpr, dpr);
+            lastTickIndex = getWinningIndex();
             drawWheel();
             updateLiveIndicator();
         }
@@ -852,6 +858,7 @@
             currentAngle = newAngle;
             lastPointerTime = now;
 
+            checkTick();
             drawWheel();
             updateLiveIndicator();
         });
@@ -897,6 +904,7 @@
             angularVelocity *= friction;
             currentAngle += angularVelocity;
 
+            checkTick();
             drawWheel();
             updateLiveIndicator();
 
