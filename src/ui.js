@@ -85,6 +85,23 @@ function closeActiveModal() {
   if (activeModal) closers[activeModal]();
 }
 
+/** @type {HTMLElement | null} */
+let lastFocused = null;
+
+/**
+ * Mueve el foco al modal al abrirlo y lo devuelve al elemento anterior al cerrarlo.
+ * @param {HTMLElement} modal @param {boolean} visible
+ */
+function manageFocus(modal, visible) {
+  if (visible) {
+    lastFocused = /** @type {HTMLElement | null} */ (document.activeElement);
+    modal.querySelector('button')?.focus({ preventScroll: true });
+  } else if (lastFocused) {
+    lastFocused.focus({ preventScroll: true });
+    lastFocused = null;
+  }
+}
+
 /** @param {string} modalId @param {string} cardId @param {boolean} visible */
 function setSheetVisible(modalId, cardId, visible) {
   const modal = $(modalId);
@@ -96,6 +113,7 @@ function setSheetVisible(modalId, cardId, visible) {
   card.classList.toggle('translate-y-0', visible);
   card.classList.toggle('sm:scale-100', visible);
   modal.setAttribute('aria-hidden', String(!visible));
+  manageFocus(modal, visible);
 }
 
 export function initModals() {
@@ -136,6 +154,7 @@ export function showResult(winner) {
   $('resultCard').classList.remove('scale-90');
   $('resultCard').classList.add('scale-100');
   $('resultModal').setAttribute('aria-hidden', 'false');
+  manageFocus($('resultModal'), true);
 
   pendingWinner = winner;
   pushModal('result');
@@ -150,6 +169,7 @@ export function closeResult(completed) {
   $('resultCard').classList.add('scale-90');
   $('resultModal').classList.add('opacity-0', 'pointer-events-none');
   $('resultModal').setAttribute('aria-hidden', 'true');
+  manageFocus($('resultModal'), false);
   dismissModal('result');
 }
 

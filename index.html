@@ -119,7 +119,7 @@
             </div>
 
             <!-- Canvas de la Ruleta -->
-            <canvas id="wheelCanvas" class="w-full h-full cursor-grab active:cursor-grabbing rounded-full touch-none"></canvas>
+            <canvas id="wheelCanvas" role="img" aria-label="Ruleta de ejercicios: gírala con el botón de abajo o arrástrala" class="w-full h-full cursor-grab active:cursor-grabbing rounded-full touch-none"></canvas>
 
             <!-- Botón Central de Giro -->
             <div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-dark-800 via-dark-900 to-dark-950 border-4 border-brand-500 flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:scale-105 active:scale-95 transition-transform z-20 glow-brand">
@@ -136,7 +136,7 @@
     </main>
 
     <!-- Modal de Resultado -->
-    <div id="resultModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div id="resultModal" role="dialog" aria-modal="true" aria-labelledby="winnerText" aria-hidden="true" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
         <div class="glass-card w-full max-w-sm rounded-3xl p-6 text-center transform scale-90 transition-all duration-300 shadow-2xl border border-brand-500/50 glow-brand" id="resultCard">
             <div id="winnerIconContainer" class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
                 <i id="winnerIcon" class="fa-solid fa-fire"></i>
@@ -162,12 +162,12 @@
     </div>
 
     <!-- Modal de Historial -->
-    <div id="historyModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div id="historyModal" role="dialog" aria-modal="true" aria-labelledby="historyTitle" aria-hidden="true" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
         <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-6 max-h-[80vh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-all duration-300 shadow-2xl border border-slate-800" id="historyCard">
             <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-800">
                 <div class="flex items-center gap-2.5">
                     <i class="fa-solid fa-clock-rotate-left text-brand-400 text-lg"></i>
-                    <h3 class="font-black text-lg text-white">Historial de Sesión</h3>
+                    <h3 id="historyTitle" class="font-black text-lg text-white">Historial de Sesión</h3>
                 </div>
                 <button data-action="close-history" aria-label="Cerrar historial" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
@@ -186,12 +186,12 @@
     </div>
 
     <!-- Modal de Configuración & CRUD -->
-    <div id="configModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div id="configModal" role="dialog" aria-modal="true" aria-labelledby="configTitle" aria-hidden="true" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
         <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-6 max-h-[88vh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-all duration-300 shadow-2xl border border-slate-800" id="configCard">
             <div class="flex justify-between items-center mb-3 pb-3 border-b border-slate-800">
                 <div class="flex items-center gap-2.5">
                     <i class="fa-solid fa-sliders text-brand-400 text-lg"></i>
-                    <h3 class="font-black text-lg text-white">Configuración de Ruleta</h3>
+                    <h3 id="configTitle" class="font-black text-lg text-white">Configuración de Ruleta</h3>
                 </div>
                 <button data-action="close-config" aria-label="Cerrar configuración" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
@@ -277,7 +277,7 @@
     </div>
 
     <!-- Mensajes breves -->
-    <div id="toast" class="fixed top-20 inset-x-0 z-[70] flex justify-center px-4 pointer-events-none opacity-0 transition-opacity duration-300">
+    <div id="toast" role="status" aria-live="polite" class="fixed top-20 inset-x-0 z-[70] flex justify-center px-4 pointer-events-none opacity-0 transition-opacity duration-300">
         <div id="toastText" class="glass-card rounded-xl px-4 py-2 text-xs font-bold text-slate-100 border border-brand-500/40 shadow-2xl"></div>
     </div>
 
