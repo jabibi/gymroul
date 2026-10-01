@@ -2,26 +2,72 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidad - GymRoulette</title>
     <style>
         body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #333; }
         h1 { color: #111; }
+        h2 { margin-top: 2em; color: #111; }
+        table { border-collapse: collapse; width: 100%; font-size: 0.95em; }
+        th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; vertical-align: top; }
+        th { background: #f3f3f3; }
     </style>
 </head>
 <body>
     <h1>Política de Privacidad - GymRoulette</h1>
-    <p>Última actualización: Septiembre 2026</p>
+    <p>Última actualización: octubre 2026</p>
 
-    <h2>1. Recopilación de información</h2>
-    <p>GymRoulette no recopila, almacena ni transmite ningún tipo de información personal, identificativa o de ubicación de los usuarios.</p>
+    <p>Esta política describe qué datos trata la aplicación <strong>GymRoulette</strong> (Android, identificador <code>eus.jabibi.gymroul</code>, y su versión web en <code>gymroul.web.app</code>) y cómo se usan.</p>
 
-    <h2>2. Permisos y uso del dispositivo</h2>
-    <p>La aplicación funciona de forma local y no requiere acceso a la cámara, contactos, almacenamiento ni ningún otro recurso sensible del dispositivo.</p>
+    <h2>1. Responsable del tratamiento</h2>
+    <p>
+        Responsable: Javier Melendez (desarrollador independiente, "jabibi").<br>
+        Contacto: <a href="mailto:javimelex@gmail.com">javimelex@gmail.com</a>
+    </p>
 
-    <h2>3. Servicios de terceros</h2>
-    <p>GymRoulette no comparte información con redes publicitarias ni servicios de seguimiento de terceros.</p>
+    <h2>2. Datos que se tratan</h2>
+    <h3>2.1 Datos que permanecen en tu dispositivo</h3>
+    <p>La configuración de la ruleta (ejercicios y repeticiones que creas o activas) se guarda únicamente en el almacenamiento local de tu dispositivo (<code>localStorage</code>). El historial de la sesión solo existe en memoria y se pierde al cerrar la aplicación. Estos datos no se envían a ningún servidor y los eliminas borrando los datos de la aplicación o desinstalándola.</p>
 
-    <h2>4. Contacto</h2>
-    <p>Si tienes alguna duda respecto a esta política de privacidad, puedes contactarnos a través del canal oficial de soporte de la aplicación.</p>
+    <h3>2.2 Datos de analítica (Firebase / Google Analytics)</h3>
+    <p>La aplicación utiliza <strong>Google Analytics para Firebase</strong>, un servicio de Google Ireland Limited / Google LLC, para conocer de forma agregada cómo se usa la app y mejorarla. Este servicio puede recopilar de forma automática:</p>
+    <table>
+        <thead>
+            <tr><th>Dato</th><th>Finalidad</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Identificador de instancia / cliente de la app (identificador pseudónimo generado por Firebase, almacenado en el dispositivo)</td><td>Distinguir usuarios únicos y sesiones sin identificarte personalmente</td></tr>
+            <tr><td>Información del dispositivo y del sistema (modelo, versión del sistema operativo, idioma, versión de la app)</td><td>Compatibilidad y estadísticas</td></tr>
+            <tr><td>Ubicación aproximada (país/región) derivada de la dirección IP; Google no conserva la IP completa</td><td>Estadísticas geográficas agregadas</td></tr>
+            <tr><td>Eventos de uso (primera apertura, inicio de sesión de uso, pantallas vistas, interacciones)</td><td>Análisis de uso y mejora del producto</td></tr>
+        </tbody>
+    </table>
+    <p>GymRoulette <strong>no</strong> recopila nombre, correo electrónico, contactos, fotos, micrófono, cámara, ubicación precisa ni ningún dato de salud o de condición física. La aplicación no tiene cuentas de usuario.</p>
+
+    <h2>3. Base jurídica</h2>
+    <p>El tratamiento de datos de analítica se basa en tu <strong>consentimiento</strong> (art. 6.1.a RGPD y art. 22.2 LSSI), que puedes retirar en cualquier momento. El almacenamiento local de tu configuración es necesario para el funcionamiento de la app.</p>
+
+    <h2>4. Destinatarios y transferencias</h2>
+    <p>Los datos de analítica los procesa Google como encargado del tratamiento. Google puede transferir datos fuera del Espacio Económico Europeo (por ejemplo a Estados Unidos) con las garantías previstas en la normativa (cláusulas contractuales tipo y/o marco de privacidad de datos UE-EE. UU.). Más información en <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a> y <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</p>
+    <p>No vendemos ni compartimos datos con redes publicitarias, ni mostramos anuncios.</p>
+
+    <h2>5. Conservación</h2>
+    <p>Los datos de analítica se conservan durante el periodo de retención configurado en Firebase (como máximo 14 meses) y después se eliminan automáticamente. Los datos locales se conservan hasta que los borres.</p>
+
+    <h2>6. Tus derechos</h2>
+    <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad, así como retirar tu consentimiento, escribiendo a la dirección de contacto indicada arriba. Si consideras que tus derechos no han sido atendidos, puedes reclamar ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es">www.aepd.es</a>).</p>
+    <p>Dado que los datos de analítica están asociados a un identificador pseudónimo del dispositivo, para atender una solicitud podríamos pedirte ese identificador. Puedes además restablecerlo borrando los datos de la aplicación o desinstalándola.</p>
+
+    <h2>7. Permisos del dispositivo</h2>
+    <p>La aplicación solo solicita el permiso de <strong>acceso a Internet</strong> (necesario para cargar recursos y para la analítica). Usa la vibración y el audio del dispositivo para los efectos de la ruleta, sin recopilar información con ello.</p>
+
+    <h2>8. Menores</h2>
+    <p>GymRoulette no está dirigida a menores de 14 años y no recopila a sabiendas datos personales de menores. Si crees que un menor nos ha facilitado datos, contáctanos para eliminarlos.</p>
+
+    <h2>9. Seguridad</h2>
+    <p>Los datos de analítica se transmiten cifrados (HTTPS) a los servidores de Google. Los datos locales quedan protegidos por el aislamiento de aplicaciones del sistema operativo.</p>
+
+    <h2>10. Cambios en esta política</h2>
+    <p>Si la política cambia, publicaremos la nueva versión en esta misma dirección y actualizaremos la fecha indicada al principio.</p>
 </body>
 </html>

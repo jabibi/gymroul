@@ -62,7 +62,7 @@
     </style>
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-analytics.js";
+        import { getAnalytics, setAnalyticsCollectionEnabled } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-analytics.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyCWgc1F8MOgkNAXnZa-3ajW75xILKXGt2c",
@@ -75,7 +75,19 @@
         };
 
         const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+        let analytics = null;
+
+        // Analytics solo se activa con consentimiento explícito del usuario
+        window.applyAnalyticsConsent = (granted) => {
+            window['ga-disable-' + firebaseConfig.measurementId] = !granted;
+            if (granted) {
+                if (!analytics) analytics = getAnalytics(app);
+                setAnalyticsCollectionEnabled(analytics, true);
+            } else if (analytics) {
+                setAnalyticsCollectionEnabled(analytics, false);
+            }
+        };
+        window.dispatchEvent(new Event('analytics-ready'));
     </script>
 </head>
 <body class="bg-dark-950 text-slate-100 h-full flex flex-col justify-between overflow-x-hidden">
@@ -338,9 +350,27 @@
             </div>
 
             <div class="pt-3 border-t border-slate-800 mt-2">
+                <div class="flex justify-between items-center mb-3 text-[11px]">
+                    <a href="privacy.html" target="_blank" rel="noopener" class="text-slate-400 underline">Política de privacidad</a>
+                    <button onclick="showConsentBanner()" class="text-slate-400 underline">Preferencias de analítica</button>
+                </div>
                 <button onclick="saveConfig()" class="w-full py-3 rounded-xl bg-brand-500 text-dark-950 font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30">
                     Aplicar Cambios y Actualizar Ruleta
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aviso de consentimiento de analítica -->
+    <div id="consentBanner" class="hidden fixed bottom-0 inset-x-0 z-[60] p-4">
+        <div class="glass-card max-w-md mx-auto rounded-2xl p-4 border border-brand-500/40 shadow-2xl">
+            <p class="text-xs text-slate-200 leading-relaxed">
+                Usamos Google Analytics para Firebase para medir el uso de la app de forma anónima. ¿Nos permites activarlo?
+                <a href="privacy.html" target="_blank" rel="noopener" class="text-brand-400 underline">Política de privacidad</a>
+            </p>
+            <div class="grid grid-cols-2 gap-2 mt-3">
+                <button onclick="setConsent(false)" class="py-2.5 rounded-xl bg-dark-900 border border-slate-700 font-bold text-xs text-slate-300 active:scale-95">Rechazar</button>
+                <button onclick="setConsent(true)" class="py-2.5 rounded-xl bg-brand-500 text-dark-950 font-black text-xs active:scale-95">Aceptar</button>
             </div>
         </div>
     </div>
@@ -1057,7 +1087,36 @@
         // ==========================================
         // 9. EVENTOS DE CARGA DE PÁGINA
         // ==========================================
+        // Consentimiento de analítica: 'granted' | 'denied' | null (sin decidir)
+        const STORAGE_CONSENT_KEY = 'gymroulette_analytics_consent';
+
+        function getConsent() {
+            try { return localStorage.getItem(STORAGE_CONSENT_KEY); } catch (e) { return null; }
+        }
+
+        function showConsentBanner() {
+            closeConfigModal();
+            document.getElementById('consentBanner').classList.remove('hidden');
+        }
+
+        function setConsent(granted) {
+            try { localStorage.setItem(STORAGE_CONSENT_KEY, granted ? 'granted' : 'denied'); } catch (e) {}
+            document.getElementById('consentBanner').classList.add('hidden');
+            if (window.applyAnalyticsConsent) window.applyAnalyticsConsent(granted);
+        }
+
+        function initConsent() {
+            const consent = getConsent();
+            if (consent === null) {
+                document.getElementById('consentBanner').classList.remove('hidden');
+            } else if (consent === 'granted') {
+                if (window.applyAnalyticsConsent) window.applyAnalyticsConsent(true);
+                else window.addEventListener('analytics-ready', () => window.applyAnalyticsConsent(true), { once: true });
+            }
+        }
+
         window.addEventListener('load', () => {
+            initConsent();
             loadSavedActiveConfig();
             buildSegments();
             setupCanvas();
