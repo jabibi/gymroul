@@ -81,3 +81,6 @@ android/app/release/
 *.keystore
 keystore.properties
 google-services.json
+
+# Salida de la compilación (npm run build); la generan Firebase y Capacitor desde src/
+www/

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-950">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymRoulette - Gasteiz Trainning</title>
+</head>
+<body class="bg-dark-950 text-slate-100 h-full flex flex-col justify-between overflow-x-hidden">
+
+    <header class="w-full py-3.5 px-5 glass-card border-b border-slate-800/80 flex justify-between items-center z-20 sticky top-0">
+        <div class="flex items-center space-x-3">
+            <!-- Nuevo Logotipo Vectorial SVG -->
+            <div class="w-10 h-10 rounded-2xl overflow-hidden flex items-center justify-center shadow-lg shadow-brand-500/20 shrink-0 border border-slate-800">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-full h-full">
+                    <defs>
+                        <radialGradient id="bgGlow" cx="50%" cy="45%" r="65%">
+                            <stop offset="0%" stop-color="#1f2633"/>
+                            <stop offset="60%" stop-color="#0e121a"/>
+                            <stop offset="100%" stop-color="#080a0e"/>
+                        </radialGradient>
+                        <linearGradient id="centerBadge" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="100%" stop-color="#d6dde5"/>
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Fondo -->
+                    <rect width="512" height="512" rx="115" fill="url(#bgGlow)"/>
+
+                    <!-- Anillos y ruleta -->
+                    <circle cx="256" cy="256" r="163" fill="none" stroke="#ff551d" stroke-width="3"/>
+                    <circle cx="256" cy="256" r="150" fill="none" stroke="#141822" stroke-width="22"/>
+
+                    <!-- Sectores -->
+                    <path d="M 256,256 L 203.2,128.5 A 138,138 0 0,1 308.8,128.5 Z" fill="#ff551d"/>
+                    <path d="M 256,256 L 308.8,128.5 A 138,138 0 0,1 383.5,203.2 Z" fill="#242b37"/>
+                    <path d="M 256,256 L 383.5,203.2 A 138,138 0 0,1 383.5,308.8 Z" fill="#ffb11b"/>
+                    <path d="M 256,256 L 383.5,308.8 A 138,138 0 0,1 308.8,383.5 Z" fill="#242b37"/>
+                    <path d="M 256,256 L 308.8,383.5 A 138,138 0 0,1 203.2,383.5 Z" fill="#ff551d"/>
+                    <path d="M 256,256 L 203.2,383.5 A 138,138 0 0,1 128.5,308.8 Z" fill="#242b37"/>
+                    <path d="M 256,256 L 128.5,308.8 A 138,138 0 0,1 128.5,203.2 Z" fill="#ffb11b"/>
+                    <path d="M 256,256 L 128.5,203.2 A 138,138 0 0,1 203.2,128.5 Z" fill="#242b37"/>
+
+                    <circle cx="256" cy="256" r="138" fill="none" stroke="#141822" stroke-width="2"/>
+
+                    <!-- Tachuelas de borde -->
+                    <circle cx="256" cy="107" r="3.5" fill="#ffffff"/>
+                    <circle cx="313" cy="118" r="3" fill="#ffffff"/>
+                    <circle cx="361" cy="151" r="3.5" fill="#8d99ae"/>
+                    <circle cx="394" cy="199" r="3" fill="#ffffff"/>
+                    <circle cx="405" cy="256" r="3.5" fill="#ffffff"/>
+                    <circle cx="394" cy="313" r="3" fill="#ffffff"/>
+                    <circle cx="361" cy="361" r="3.5" fill="#8d99ae"/>
+                    <circle cx="313" cy="394" r="3" fill="#ffffff"/>
+                    <circle cx="256" cy="405" r="3.5" fill="#ffffff"/>
+                    <circle cx="199" cy="394" r="3" fill="#ffffff"/>
+                    <circle cx="151" cy="361" r="3.5" fill="#8d99ae"/>
+                    <circle cx="118" cy="313" r="3" fill="#ffffff"/>
+                    <circle cx="107" cy="256" r="3.5" fill="#ffffff"/>
+                    <circle cx="118" cy="199" r="3" fill="#ffffff"/>
+                    <circle cx="151" cy="151" r="3.5" fill="#8d99ae"/>
+                    <circle cx="199" cy="118" r="3" fill="#ffffff"/>
+
+                    <!-- Centro y Mancuerna -->
+                    <circle cx="256" cy="256" r="54" fill="url(#centerBadge)" stroke="#141822" stroke-width="5"/>
+                    <g transform="translate(256, 256) rotate(-38)">
+                        <rect x="-32" y="-4" width="64" height="8" rx="3" fill="#181d28"/>
+                        <rect x="-24" y="-14" width="6" height="28" rx="2" fill="#181d28"/>
+                        <rect x="-31" y="-19" width="7" height="38" rx="2.5" fill="#181d28"/>
+                        <rect x="-35" y="-10" width="4" height="20" rx="1.5" fill="#181d28"/>
+                        <rect x="18" y="-14" width="6" height="28" rx="2" fill="#181d28"/>
+                        <rect x="24" y="-19" width="7" height="38" rx="2.5" fill="#181d28"/>
+                        <rect x="31" y="-10" width="4" height="20" rx="1.5" fill="#181d28"/>
+                    </g>
+
+                    <!-- Puntero -->
+                    <g>
+                        <path d="M 238,82 L 274,82 L 256,138 Z" fill="#ffffff" stroke="#141822" stroke-width="4" stroke-linejoin="round"/>
+                        <circle cx="256" cy="94" r="4.5" fill="#ff551d"/>
+                    </g>
+                </svg>
+            </div>
+            <div>
+                <h1 class="font-black text-lg tracking-tight bg-gradient-to-r from-white via-slate-200 to-amber-300 bg-clip-text text-transparent">GymRoulette</h1>
+                <p class="text-[10px] text-brand-400 font-bold tracking-widest uppercase">Gasteiz Trainning</p>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-2">
+            <button id="soundToggleBtn" data-action="toggle-sound" aria-label="Activar o desactivar el sonido" class="w-10 h-10 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
+                <i id="soundIcon" class="fa-solid fa-volume-high text-sm text-brand-400"></i>
+            </button>
+            <button data-action="open-history" aria-label="Abrir historial" class="relative w-10 h-10 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
+                <i class="fa-solid fa-clock-rotate-left text-sm"></i>
+                <span id="historyBadge" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-500 text-dark-950 font-black text-[10px] rounded-full flex items-center justify-center hidden border-2 border-dark-950">0</span>
+            </button>
+            <button data-action="open-config" aria-label="Abrir configuración" class="w-10 h-10 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
+                <i class="fa-solid fa-sliders text-sm"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-1 flex flex-col items-center justify-center px-4 py-4 max-w-md mx-auto w-full relative">
+
+        <!-- Indicador de Sector Seleccionado -->
+        <div class="mb-4 text-center">
+            <div id="liveIndicator" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-dark-900/90 border border-brand-500/40 text-xs font-bold text-brand-400 shadow-xl transition-all">
+                <i class="fa-solid fa-arrows-left-right text-slate-400 animate-pulse"></i>
+                <span id="liveIndicatorText" class="tracking-wide">Arrastra la ruleta para girar</span>
+            </div>
+        </div>
+
+        <!-- Contenedor Principal de la Ruleta -->
+        <div class="relative w-[320px] h-[320px] sm:w-[360px] sm:h-[360px] my-1 wheel-shadow">
+
+            <!-- Puntero Superior Naranja -->
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-30 pointer-glow">
+                <div class="w-0 h-0 border-l-[14px] border-l-transparent border-r-[14px] border-r-transparent border-t-[26px] border-t-brand-400"></div>
+            </div>
+
+            <!-- Canvas de la Ruleta -->
+            <canvas id="wheelCanvas" class="w-full h-full cursor-grab active:cursor-grabbing rounded-full touch-none"></canvas>
+
+            <!-- Botón Central de Giro -->
+            <div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-dark-800 via-dark-900 to-dark-950 border-4 border-brand-500 flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:scale-105 active:scale-95 transition-transform z-20 glow-brand">
+                <i class="fa-solid fa-play text-brand-400 text-xl ml-0.5 mb-0.5"></i>
+                <span class="text-[9px] font-black tracking-widest text-slate-200 uppercase">GIRAR</span>
+            </div>
+        </div>
+
+        <div class="w-full mt-6 px-2">
+            <button data-action="spin" id="spinBtn" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-brand-600 via-amber-500 to-brand-500 text-dark-950 font-black text-lg tracking-wide shadow-xl shadow-brand-500/25 hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-3">
+                <i class="fa-solid fa-rotate text-xl"></i> ¡GIRAR RULETA!
+            </button>
+        </div>
+    </main>
+
+    <!-- Modal de Resultado -->
+    <div id="resultModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-card w-full max-w-sm rounded-3xl p-6 text-center transform scale-90 transition-all duration-300 shadow-2xl border border-brand-500/50 glow-brand" id="resultCard">
+            <div id="winnerIconContainer" class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
+                <i id="winnerIcon" class="fa-solid fa-fire"></i>
+            </div>
+            <span class="text-[11px] font-black tracking-widest text-brand-400 uppercase bg-brand-500/10 px-3.5 py-1.5 rounded-full border border-brand-500/20">
+                ¡EJERCICIO SELECCIONADO!
+            </span>
+
+            <h2 id="winnerText" class="text-3xl font-black text-white mt-4 mb-2 tracking-tight">20 Burpee</h2>
+            <p id="winnerDesc" class="text-xs text-slate-300 mb-6 leading-relaxed">
+                ¡Excelente reto! Realiza 20 repeticiones con buena técnica.
+            </p>
+
+            <div class="grid grid-cols-1 gap-3">
+                <button data-action="close-result" data-arg="skip" class="py-3.5 px-4 rounded-xl bg-dark-900 border border-slate-700 font-bold text-xs text-slate-300 hover:bg-dark-800 transition-all active:scale-95">
+                    Saltar este reto
+                </button>
+                <button data-action="close-result" data-arg="done" class="py-3.5 px-4 rounded-xl bg-brand-500 text-dark-950 font-black text-xs hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30 active:scale-95">
+                    ¡Completado!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Historial -->
+    <div id="historyModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-6 max-h-[80vh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-all duration-300 shadow-2xl border border-slate-800" id="historyCard">
+            <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-800">
+                <div class="flex items-center gap-2.5">
+                    <i class="fa-solid fa-clock-rotate-left text-brand-400 text-lg"></i>
+                    <h3 class="font-black text-lg text-white">Historial de Sesión</h3>
+                </div>
+                <button data-action="close-history" aria-label="Cerrar historial" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div id="historyList" class="flex-1 overflow-y-auto space-y-3 pr-1 my-2"></div>
+
+            <div class="pt-3 border-t border-slate-800 flex justify-between items-center mt-2">
+                <span id="totalCompletedText" class="text-xs text-slate-400 font-bold">0 completados</span>
+                <button data-action="clear-history" class="text-xs text-red-400 hover:text-red-300 font-bold px-3 py-1.5 rounded-xl bg-red-500/10 border border-red-500/20 transition-all">
+                    Limpiar historial
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Configuración & CRUD -->
+    <div id="configModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-6 max-h-[88vh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-all duration-300 shadow-2xl border border-slate-800" id="configCard">
+            <div class="flex justify-between items-center mb-3 pb-3 border-b border-slate-800">
+                <div class="flex items-center gap-2.5">
+                    <i class="fa-solid fa-sliders text-brand-400 text-lg"></i>
+                    <h3 class="font-black text-lg text-white">Configuración de Ruleta</h3>
+                </div>
+                <button data-action="close-config" aria-label="Cerrar configuración" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <p class="text-xs text-slate-400 mb-3">Activa, crea o elimina repeticiones y ejercicios:</p>
+
+            <div class="flex-1 overflow-y-auto space-y-5 pr-1 my-1">
+                <!-- Repeticiones Section -->
+                <div class="bg-dark-900/60 p-3 rounded-2xl border border-slate-800">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xs font-black text-slate-200 uppercase tracking-wider">Repeticiones</span>
+                        <div class="space-x-2">
+                            <button data-action="toggle-reps" data-arg="on" class="text-[11px] text-brand-400 font-bold hover:underline">Todas</button>
+                            <span class="text-slate-600">|</span>
+                            <button data-action="toggle-reps" data-arg="off" class="text-[11px] text-slate-400 font-bold hover:underline">Ninguna</button>
+                        </div>
+                    </div>
+                    <div id="repsCheckboxes" class="grid grid-cols-2 gap-2 mb-3"></div>
+
+                    <!-- Formulario Añadir Repetición -->
+                    <div class="flex items-center gap-2 pt-2 border-t border-slate-800/80">
+                        <input type="number" id="newRepInput" placeholder="Ej: 15" min="1" max="500" class="flex-1 px-3 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                        <button data-action="add-rep" class="px-3 py-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all flex items-center gap-1">
+                            <i class="fa-solid fa-plus text-[10px]"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Ejercicios Section -->
+                <div class="bg-dark-900/60 p-3 rounded-2xl border border-slate-800">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xs font-black text-slate-200 uppercase tracking-wider">Ejercicios</span>
+                        <div class="space-x-2">
+                            <button data-action="toggle-exs" data-arg="on" class="text-[11px] text-brand-400 font-bold hover:underline">Todos</button>
+                            <span class="text-slate-600">|</span>
+                            <button data-action="toggle-exs" data-arg="off" class="text-[11px] text-slate-400 font-bold hover:underline">Ninguno</button>
+                        </div>
+                    </div>
+                    <div id="exsCheckboxes" class="space-y-2 mb-3"></div>
+
+                    <!-- Formulario Añadir Ejercicio -->
+                    <div class="pt-2 border-t border-slate-800/80 space-y-2">
+                        <span class="text-[11px] font-bold text-slate-400 block">Añadir nuevo ejercicio:</span>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="text" id="newExName" placeholder="Nombre (ej: Plancha)" class="px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                            <input type="text" id="newExShort" placeholder="Nombre corto" class="px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <select id="newExIconSelect" class="px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500 flex-1">
+                                <option value="fa-dumbbell">🏋️ Pesas / Mancuerna</option>
+                                <option value="fa-fire">🔥 Fuego / Burpee</option>
+                                <option value="fa-person-running">🏃 Carrera / Sprints</option>
+                                <option value="fa-person-walking">🚶 Zancadas / Lunge</option>
+                                <option value="fa-child-reaching">🤸 Flexiones / Plancha</option>
+                                <option value="fa-bolt">⚡ Rayo / Escaladores</option>
+                                <option value="fa-angles-up">⏫ Saltos / Jumps</option>
+                                <option value="fa-heart-pulse">💓 Cardio / Pulsaciones</option>
+                                <option value="fa-stopwatch">⏱️ Cronómetro / Isométrico</option>
+                                <option value="fa-trophy">🏆 Reto / Especial</option>
+                                <option value="custom">✨ Escribir Emoji / Custom...</option>
+                            </select>
+                            <input type="text" id="newExIconCustom" placeholder="Ej: 🔥 o fa-bicycle" class="hidden px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500 flex-1">
+                            <button data-action="add-exercise" class="px-3 py-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all flex items-center gap-1 shrink-0">
+                                <i class="fa-solid fa-plus text-[10px]"></i> Crear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-800 mt-2">
+                <div class="flex justify-between items-center mb-3 text-[11px]">
+                    <a href="privacy.html" target="_blank" rel="noopener" class="text-slate-400 underline">Política de privacidad</a>
+                    <button data-action="show-consent" class="text-slate-400 underline">Preferencias de analítica</button>
+                </div>
+                <button data-action="save-config" class="w-full py-3 rounded-xl bg-brand-500 text-dark-950 font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30">
+                    Aplicar Cambios y Actualizar Ruleta
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mensajes breves -->
+    <div id="toast" class="fixed top-20 inset-x-0 z-[70] flex justify-center px-4 pointer-events-none opacity-0 transition-opacity duration-300">
+        <div id="toastText" class="glass-card rounded-xl px-4 py-2 text-xs font-bold text-slate-100 border border-brand-500/40 shadow-2xl"></div>
+    </div>
+
+    <!-- Aviso de consentimiento de analítica -->
+    <div id="consentBanner" class="hidden fixed bottom-0 inset-x-0 z-[60] p-4">
+        <div class="glass-card max-w-md mx-auto rounded-2xl p-4 border border-brand-500/40 shadow-2xl">
+            <p class="text-xs text-slate-200 leading-relaxed">
+                Usamos Google Analytics para Firebase para medir el uso de la app de forma anónima. ¿Nos permites activarlo?
+                <a href="privacy.html" target="_blank" rel="noopener" class="text-brand-400 underline">Política de privacidad</a>
+            </p>
+            <div class="grid grid-cols-2 gap-2 mt-3">
+                <button data-action="consent" data-arg="deny" class="py-2.5 rounded-xl bg-dark-900 border border-slate-700 font-bold text-xs text-slate-300 active:scale-95">Rechazar</button>
+                <button data-action="consent" data-arg="grant" class="py-2.5 rounded-xl bg-brand-500 text-dark-950 font-black text-xs active:scale-95">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
