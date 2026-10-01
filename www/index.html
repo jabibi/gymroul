@@ -236,8 +236,8 @@
             </p>
 
             <div class="grid grid-cols-1 gap-3">
-                <button onclick="closeResultModal(false)" class="hidden py-3.5 px-4 rounded-xl bg-dark-900 border border-slate-700 font-bold text-xs text-slate-300 hover:bg-dark-800 transition-all active:scale-95">
-                    Volver a girar
+                <button onclick="closeResultModal(false)" class="py-3.5 px-4 rounded-xl bg-dark-900 border border-slate-700 font-bold text-xs text-slate-300 hover:bg-dark-800 transition-all active:scale-95">
+                    Saltar este reto
                 </button>
                 <button onclick="closeResultModal(true)" class="py-3.5 px-4 rounded-xl bg-brand-500 text-dark-950 font-black text-xs hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30 active:scale-95">
                     ¡Completado!
@@ -415,6 +415,7 @@
         let soundEnabled = true;
         let history = [];
         let lastTickIndex = -1;
+        let pendingWinner = null;
 
         // Dragging state
         let isDragging = false;
@@ -961,10 +962,13 @@
             card.classList.remove('scale-90');
             card.classList.add('scale-100');
 
-            addToHistory(winner);
+            pendingWinner = winner;
         }
 
+        // Solo los retos confirmados con "¡Completado!" pasan al historial
         function closeResultModal(completed) {
+            if (completed && pendingWinner) addToHistory(pendingWinner);
+            pendingWinner = null;
             const modal = document.getElementById('resultModal');
             const card = document.getElementById('resultCard');
             card.classList.remove('scale-100');
