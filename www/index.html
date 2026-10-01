@@ -987,6 +987,48 @@
             }[c]));
         }
 
+        // Cada modal abierto añade una entrada al historial del navegador: así el botón
+        // "Atrás" de Android (o del navegador) lo cierra en lugar de salir de la app.
+        // Ojo: la variable global `history` (sesión) oculta a window.history.
+        let activeModal = null;
+        const MODAL_CLOSERS = {
+            result: () => closeResultModal(false),
+            history: () => closeHistoryModal(),
+            config: () => closeConfigModal()
+        };
+
+        function pushModal(name) {
+            if (activeModal === name) return;
+            activeModal = name;
+            window.history.pushState({ modal: name }, '');
+        }
+
+        function dismissModal(name) {
+            if (activeModal !== name) return;
+            activeModal = null;
+            window.history.back();
+        }
+
+        function closeActiveModal() {
+            if (activeModal) MODAL_CLOSERS[activeModal]();
+        }
+
+        window.addEventListener('popstate', () => {
+            const name = activeModal;
+            activeModal = null;
+            if (name) MODAL_CLOSERS[name]();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeActiveModal();
+        });
+
+        // Tocar el fondo cierra historial y configuración (el reto pendiente solo se cierra con sus botones, Esc o Atrás)
+        ['historyModal', 'configModal'].forEach(id => {
+            const modal = document.getElementById(id);
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeActiveModal(); });
+        });
+
         function renderIconHTML(iconStr) {
             if (!iconStr) return `<i class="fa-solid fa-dumbbell"></i>`;
             if (iconStr.startsWith('fa-')) {
@@ -1017,6 +1059,7 @@
             card.classList.add('scale-100');
 
             pendingWinner = winner;
+            pushModal('result');
         }
 
         // Solo los retos confirmados con "¡Completado!" pasan al historial
@@ -1028,6 +1071,7 @@
             card.classList.remove('scale-100');
             card.classList.add('scale-90');
             modal.classList.add('opacity-0', 'pointer-events-none');
+            dismissModal('result');
         }
 
         function addToHistory(winner) {
@@ -1091,6 +1135,7 @@
             modal.classList.remove('opacity-0', 'pointer-events-none');
             card.classList.remove('translate-y-full', 'sm:scale-95');
             card.classList.add('translate-y-0', 'sm:scale-100');
+            pushModal('history');
         }
 
         function closeHistoryModal() {
@@ -1099,6 +1144,7 @@
             card.classList.add('translate-y-full', 'sm:scale-95');
             card.classList.remove('translate-y-0', 'sm:scale-100');
             modal.classList.add('opacity-0', 'pointer-events-none');
+            dismissModal('history');
         }
 
         // ==========================================
@@ -1111,6 +1157,7 @@
             modal.classList.remove('opacity-0', 'pointer-events-none');
             card.classList.remove('translate-y-full', 'sm:scale-95');
             card.classList.add('translate-y-0', 'sm:scale-100');
+            pushModal('config');
         }
 
         function closeConfigModal() {
@@ -1119,6 +1166,7 @@
             card.classList.add('translate-y-full', 'sm:scale-95');
             card.classList.remove('translate-y-0', 'sm:scale-100');
             modal.classList.add('opacity-0', 'pointer-events-none');
+            dismissModal('config');
         }
 
         function renderConfigCheckboxes() {
