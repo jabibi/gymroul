@@ -494,6 +494,12 @@
         // ==========================================
         // 3. FUNCIONES CRUD PARA EJERCICIOS Y REPETICIONES
         // ==========================================
+        // Primer color de la paleta sin usar; si están todos usados, se reutilizan en orden
+        function pickColor(list) {
+            const used = list.map(e => e.color);
+            return COLOR_PALETTE.find(c => !used.includes(c)) || COLOR_PALETTE[list.length % COLOR_PALETTE.length];
+        }
+
         // Devuelve true si se guardó; false si el nombre ya existe o es inválido
         function saveExerciseItem(id, name, shortName, icon, color) {
             name = (name || '').trim();
@@ -513,7 +519,7 @@
                     ? { id, name, shortName: shortName || name, icon: chosenIcon, color: color || item.color }
                     : item);
             } else {
-                list.push({ id: Date.now().toString(), name, shortName: shortName || name, icon: chosenIcon, color: color || '#f97316' });
+                list.push({ id: Date.now().toString(), name, shortName: shortName || name, icon: chosenIcon, color: color || pickColor(list) });
             }
 
             saveExercises(list);
