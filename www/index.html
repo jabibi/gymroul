@@ -427,7 +427,7 @@
         // Canvas & Audio References
         const canvas = document.getElementById('wheelCanvas');
         const ctx = canvas.getContext('2d');
-        let wheelSize = 360;
+        let wheelSize = 0;
         let audioCtx = null;
 
         // ==========================================
@@ -813,10 +813,13 @@
         function setupCanvas() {
             const dpr = window.devicePixelRatio || 1;
             const rect = canvas.getBoundingClientRect();
-            wheelSize = rect.width || 360;
+            const newSize = rect.width || 360;
+            // Un resize que no cambia el tamaño (teclado virtual, barras del navegador) no necesita reconfigurar el canvas
+            if (newSize === wheelSize && canvas.width === Math.round(newSize * dpr)) return;
+            wheelSize = newSize;
             canvas.width = wheelSize * dpr;
             canvas.height = wheelSize * dpr;
-            ctx.scale(dpr, dpr);
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             lastTickIndex = getWinningIndex();
             drawWheel();
             updateLiveIndicator();
