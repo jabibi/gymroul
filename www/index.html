@@ -911,8 +911,12 @@
                     isSpinning = true;
                     angularVelocity = Math.sign(angularVelocityFrame) * Math.min(Math.abs(angularVelocityFrame), 0.65);
                     startSpinLoop();
+                    return;
                 }
             }
+
+            // Arrastre sin inercia (lento o con pausa antes de soltar): el sector bajo el puntero es el resultado
+            onSpinFinished();
         });
 
         canvas.addEventListener('pointercancel', () => { isDragging = false; });
