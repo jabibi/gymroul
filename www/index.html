@@ -207,7 +207,7 @@
             <canvas id="wheelCanvas" class="w-full h-full cursor-grab active:cursor-grabbing rounded-full touch-none"></canvas>
 
             <!-- Botón Central de Giro -->
-            <div onclick="spinWheel()" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-dark-800 via-dark-900 to-dark-950 border-4 border-brand-500 flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:scale-105 active:scale-95 transition-transform z-20 glow-brand">
+            <div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-dark-800 via-dark-900 to-dark-950 border-4 border-brand-500 flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:scale-105 active:scale-95 transition-transform z-20 glow-brand">
                 <i class="fa-solid fa-play text-brand-400 text-xl ml-0.5 mb-0.5"></i>
                 <span class="text-[9px] font-black tracking-widest text-slate-200 uppercase">GIRAR</span>
             </div>
@@ -424,6 +424,11 @@
         const MIN_SAMPLE_MS = 4;
         let lastTouchAngle = 0;
         let lastSampleAngle = 0;
+        let downX = 0;
+        let downY = 0;
+        let dragMoved = false;
+        const TAP_SLOP_PX = 6;
+        const CENTER_BUTTON_RADIUS_PX = 40;
         let velocitySamples = [];
         let lastPointerTime = 0;
 
@@ -843,6 +848,9 @@
             velocitySamples = [];
             lastPointerTime = performance.now();
             lastSampleAngle = currentAngle;
+            downX = e.clientX;
+            downY = e.clientY;
+            dragMoved = false;
             canvas.setPointerCapture(e.pointerId);
         });
 
@@ -855,6 +863,7 @@
 
         canvas.addEventListener('pointermove', (e) => {
             if (!isDragging || isSpinning) return;
+            if (Math.hypot(e.clientX - downX, e.clientY - downY) > TAP_SLOP_PX) dragMoved = true;
             const touchAngle = getAngleFromCenter(e.clientX, e.clientY);
             // Se acumula el incremento entre eventos en vez de la diferencia con el inicio:
             // así cruzar el eje ±π no genera un salto de 2π ni una velocidad falsa
@@ -881,6 +890,15 @@
             if (!isDragging) return;
             isDragging = false;
             try { canvas.releasePointerCapture(e.pointerId); } catch(err) {}
+
+            // Un toque (sin arrastre) sobre el botón central equivale a pulsar GIRAR.
+            // El botón no captura eventos para que el arrastre también pueda empezar sobre él.
+            if (!dragMoved) {
+                const rect = canvas.getBoundingClientRect();
+                const dist = Math.hypot(e.clientX - (rect.left + rect.width / 2), e.clientY - (rect.top + rect.height / 2));
+                if (dist <= CENTER_BUTTON_RADIUS_PX) spinWheel();
+                return;
+            }
 
             const now = performance.now();
             const recentSamples = velocitySamples.filter(s => now - s.time < 100);
