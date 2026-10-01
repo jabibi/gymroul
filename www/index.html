@@ -424,42 +424,66 @@
         // ==========================================
         // 2. CARGA E INICIALIZACIÓN (localStorage)
         // ==========================================
+        // Lectura tolerante de localStorage: datos ausentes, corruptos o con formato
+        // inesperado devuelven el valor por defecto en vez de romper la app
+        function readStorage(key, fallback, isValid) {
+            try {
+                const raw = localStorage.getItem(key);
+                if (raw === null) return fallback;
+                const parsed = JSON.parse(raw);
+                return isValid(parsed) ? parsed : fallback;
+            } catch (e) {
+                return fallback;
+            }
+        }
+
+        function writeStorage(key, value) {
+            try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+        }
+
+        const isExercise = e => e && typeof e.id === 'string' && typeof e.name === 'string' && e.name.trim() !== '';
+        const isExerciseList = l => Array.isArray(l) && l.every(isExercise);
+        const isRepList = l => Array.isArray(l) && l.every(n => Number.isInteger(n) && n > 0);
+        const isStringList = l => Array.isArray(l) && l.every(n => typeof n === 'string');
+
         function getExercises() {
-            const data = localStorage.getItem('gym_exercises');
-            const list = data ? JSON.parse(data) : DEFAULT_EXERCISES;
+            // Copias para no mutar las constantes por defecto al ordenar
+            const list = readStorage('gym_exercises', DEFAULT_EXERCISES, isExerciseList).map(e => ({ ...e }));
             return list.sort((a, b) => a.name.localeCompare(b.name, 'es', { sensitivity: 'base' }));
         }
 
         function getReps() {
-            const data = localStorage.getItem('gym_reps');
-            const list = data ? JSON.parse(data) : DEFAULT_REPS;
+            const list = [...readStorage('gym_reps', DEFAULT_REPS, isRepList)];
             return list.sort((a, b) => a - b);
         }
 
         function saveExercises(list) {
-            localStorage.setItem('gym_exercises', JSON.stringify(list));
+            writeStorage('gym_exercises', list);
             updateWheelSegments();
         }
 
         function saveReps(list) {
-            localStorage.setItem('gym_reps', JSON.stringify(list));
+            writeStorage('gym_reps', list);
             updateWheelSegments();
         }
 
         function loadSavedActiveConfig() {
-            const savedReps = localStorage.getItem(STORAGE_ACTIVE_REPS_KEY);
-            const savedExs = localStorage.getItem(STORAGE_ACTIVE_EXS_KEY);
-
             const allReps = getReps();
             const allExs = getExercises();
 
-            activeReps = savedReps ? JSON.parse(savedReps) : [...allReps];
-            activeExercises = savedExs ? JSON.parse(savedExs) : allExs.map(e => e.name);
+            const savedReps = readStorage(STORAGE_ACTIVE_REPS_KEY, null, isRepList);
+            const savedExs = readStorage(STORAGE_ACTIVE_EXS_KEY, null, isStringList);
+
+            // Se descartan activos que ya no existen en el catálogo
+            activeReps = savedReps ? savedReps.filter(r => allReps.includes(r)) : [...allReps];
+            activeExercises = savedExs
+                ? savedExs.filter(name => allExs.some(e => e.name === name))
+                : allExs.map(e => e.name);
         }
 
         function persistConfig() {
-            localStorage.setItem(STORAGE_ACTIVE_REPS_KEY, JSON.stringify(activeReps));
-            localStorage.setItem(STORAGE_ACTIVE_EXS_KEY, JSON.stringify(activeExercises));
+            writeStorage(STORAGE_ACTIVE_REPS_KEY, activeReps);
+            writeStorage(STORAGE_ACTIVE_EXS_KEY, activeExercises);
         }
 
         // ==========================================
