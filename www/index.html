@@ -361,6 +361,11 @@
         </div>
     </div>
 
+    <!-- Mensajes breves -->
+    <div id="toast" class="fixed top-20 inset-x-0 z-[70] flex justify-center px-4 pointer-events-none opacity-0 transition-opacity duration-300">
+        <div id="toastText" class="glass-card rounded-xl px-4 py-2 text-xs font-bold text-slate-100 border border-brand-500/40 shadow-2xl"></div>
+    </div>
+
     <!-- Aviso de consentimiento de analítica -->
     <div id="consentBanner" class="hidden fixed bottom-0 inset-x-0 z-[60] p-4">
         <div class="glass-card max-w-md mx-auto rounded-2xl p-4 border border-brand-500/40 shadow-2xl">
@@ -489,15 +494,26 @@
         // ==========================================
         // 3. FUNCIONES CRUD PARA EJERCICIOS Y REPETICIONES
         // ==========================================
+        // Devuelve true si se guardó; false si el nombre ya existe o es inválido
         function saveExerciseItem(id, name, shortName, icon, color) {
+            name = (name || '').trim();
+            if (!name) return false;
+
             let list = getExercises();
-            const chosenColor = color || COLOR_PALETTE[Math.floor(Math.random() * COLOR_PALETTE.length)];
+            const duplicated = list.some(item => item.id !== id && item.name.toLowerCase() === name.toLowerCase());
+            if (duplicated) {
+                showToast(`Ya existe un ejercicio llamado "${name}"`);
+                return false;
+            }
+
             const chosenIcon = icon || "fa-dumbbell";
 
             if (id) {
-                list = list.map(item => item.id === id ? { id, name, shortName: shortName || name, icon: chosenIcon, color: chosenColor } : item);
+                list = list.map(item => item.id === id
+                    ? { id, name, shortName: shortName || name, icon: chosenIcon, color: color || item.color }
+                    : item);
             } else {
-                list.push({ id: Date.now().toString(), name, shortName: shortName || name, icon: chosenIcon, color: chosenColor });
+                list.push({ id: Date.now().toString(), name, shortName: shortName || name, icon: chosenIcon, color: color || '#f97316' });
             }
 
             saveExercises(list);
@@ -506,6 +522,7 @@
                 activeExercises.push(name);
                 persistConfig();
             }
+            return true;
         }
 
         function deleteExerciseItem(id) {
@@ -877,6 +894,15 @@
         // ==========================================
         // 7. MODALES & RESULTADOS
         // ==========================================
+        let toastTimer = null;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastText').textContent = message;
+            toast.classList.remove('opacity-0');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.add('opacity-0'), 2500);
+        }
+
         function escapeHTML(value) {
             return String(value).replace(/[&<>"']/g, c => ({
                 '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -1078,12 +1104,13 @@
                     iconValue = iconCustom.value.trim() || 'fa-dumbbell';
                 }
 
-                saveExerciseItem(
+                const saved = saveExerciseItem(
                     null,
                     nameEl.value.trim(),
                     shortEl.value.trim() || nameEl.value.trim(),
                     iconValue
                 );
+                if (!saved) return;
 
                 nameEl.value = '';
                 shortEl.value = '';
