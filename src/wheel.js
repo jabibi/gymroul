@@ -10,7 +10,6 @@ const TWO_PI = 2 * Math.PI;
 const FRICTION = 0.982; // factor de rozamiento por cada 1/60 s
 const FRAME_MS = 1000 / 60;
 const MIN_SAMPLE_MS = 4;
-const TAP_SLOP_PX = 6;
 
 /** @type {HTMLCanvasElement} */ let canvas;
 /** @type {CanvasRenderingContext2D} */ let ctx;
@@ -38,9 +37,6 @@ let isDragging = false;
 let lastTouchAngle = 0;
 let lastSampleAngle = 0;
 let lastPointerTime = 0;
-let downX = 0;
-let downY = 0;
-let dragMoved = false;
 /** @type {{ vel: number, time: number }[]} */
 let velocitySamples = [];
 
@@ -184,17 +180,12 @@ function onPointerDown(e) {
   velocitySamples = [];
   lastPointerTime = performance.now();
   lastSampleAngle = currentAngle;
-  downX = e.clientX;
-  downY = e.clientY;
-  dragMoved = false;
   canvas.setPointerCapture(e.pointerId);
 }
 
 /** @param {PointerEvent} e */
 function onPointerMove(e) {
   if (!isDragging || isSpinning) return;
-  if (Math.hypot(e.clientX - downX, e.clientY - downY) > TAP_SLOP_PX) dragMoved = true;
-
   // Se acumula el incremento entre eventos en vez de la diferencia con el inicio:
   // así cruzar el eje ±π no genera un salto de 2π ni una velocidad falsa
   const touchAngle = angleFromCenter(e);
@@ -222,9 +213,6 @@ function onPointerUp(e) {
   isDragging = false;
   try { canvas.releasePointerCapture(e.pointerId); } catch (err) { /* ya liberado */ }
 
-  // Un simple toque sin arrastre no cuenta como giro ni como resultado
-  if (!dragMoved) return;
-
   const now = performance.now();
   const recent = velocitySamples.filter(s => now - s.time < 100);
   if (recent.length > 0) {
@@ -232,12 +220,9 @@ function onPointerUp(e) {
     const perFrame = avgVel / 60;
     if (Math.abs(perFrame) > 0.02) {
       startSpin(Math.sign(perFrame) * Math.min(Math.abs(perFrame), 0.65));
-      return;
     }
   }
-
-  // Arrastre sin inercia (lento o con pausa antes de soltar): el sector bajo el puntero es el resultado
-  callbacks.onFinish(getActiveSegment());
+  // Sin inercia suficiente la ruleta se queda donde está y no hay resultado
 }
 
 /** @param {number} velocity */
