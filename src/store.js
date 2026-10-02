@@ -15,7 +15,7 @@ export const DEFAULT_EXERCISES = [
   { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'walk', color: '#f97316' },
   { id: '3', name: 'Push-up', shortName: 'Push-up', icon: 'pushup', color: '#f59e0b' },
   { id: '4', name: 'Air Squat', shortName: 'Squat', icon: 'squat', color: '#22c55e' },
-  { id: '5', name: 'Mountain Climbers', shortName: 'Climbers', icon: 'run-fast', color: '#06b6d4' },
+  { id: '5', name: 'Mountain Climbers', shortName: 'Climbers', icon: 'climbers', color: '#06b6d4' },
   { id: '6', name: 'Split Jumps', shortName: 'Split J', icon: 'jump', color: '#8b5cf6' },
 ];
 export const DEFAULT_REPS = [10, 20, 30, 40, 50, 60];
@@ -28,7 +28,7 @@ const KEY_ACTIVE_EXS = 'gymroulette_active_exs';
 const KEY_SCHEMA = 'gym_schema_version';
 
 /** Versión actual del esquema de datos guardados; sube al cambiar su formato */
-export const SCHEMA_VERSION = 4;
+export const SCHEMA_VERSION = 5;
 
 /** Selección activa (se muta con setActive/loadActive) */
 export const active = {
@@ -100,6 +100,12 @@ const MIGRATIONS = {
     const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
     if (!list) return;
     writeStorage(KEY_EXERCISES, list.map(e => (e.id === '1' && e.icon === 'fire' ? { ...e, icon: 'burpee' } : e)));
+  },
+  // v4 -> v5: el Mountain Climbers por defecto (id 5) usa su propio pictograma
+  4: () => {
+    const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
+    if (!list) return;
+    writeStorage(KEY_EXERCISES, list.map(e => (e.id === '5' && e.icon === 'run-fast' ? { ...e, icon: 'climbers' } : e)));
   },
 };
 

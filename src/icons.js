@@ -46,6 +46,7 @@ export const ICON_GROUPS = [
       { id: 'plank', cls: 'icon-[gymroul--plank]', label: 'Plancha', keywords: 'core abdominales isometrico suelo calistenia' },
       { id: 'situp', cls: 'icon-[gymroul--situp]', label: 'Abdominales', keywords: 'sit-up crunch core suelo calistenia' },
       { id: 'burpee', cls: 'icon-[gymroul--burpee]', label: 'Burpee', keywords: 'salto suelo hiit crossfit cardio' },
+      { id: 'climbers', cls: 'icon-[gymroul--climbers]', label: 'Mountain climbers', keywords: 'escaladores escalador rodillas cardio core suelo hiit crossfit' },
       { id: 'squat', cls: 'icon-[gymroul--squat]', label: 'Sentadilla', keywords: 'air squat piernas gluteos cuadriceps calistenia' },
       { id: 'push', cls: 'icon-[game-icons--push]', label: 'Empujar', keywords: 'empuje pared trineo sled push muro' },
       { id: 'cartwheel', cls: 'icon-[game-icons--cartwheel]', label: 'Voltereta', keywords: 'rueda acrobacia gimnasia' },

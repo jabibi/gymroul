@@ -160,6 +160,18 @@ describe('migraciones', () => {
   });
 });
 
+describe('migración v4 -> v5', () => {
+  it('cambia el icono del Mountain Climbers por defecto y respeta otros ejercicios', () => {
+    data.set('gym_schema_version', '4');
+    data.set('gym_exercises', JSON.stringify([
+      { id: '5', name: 'Mountain Climbers', shortName: 'Climbers', icon: 'run-fast', color: '#fff' },
+      { id: '88', name: 'Sprint', shortName: 'Sprint', icon: 'run-fast', color: '#fff' },
+    ]));
+    migrate();
+    expect(JSON.parse(data.get('gym_exercises')).map(e => e.icon)).toEqual(['climbers', 'run-fast']);
+  });
+});
+
 describe('migración v3 -> v4', () => {
   it('cambia la llama del Burpee por defecto por el pictograma de burpee y respeta otros ejercicios', () => {
     data.set('gym_schema_version', '3');

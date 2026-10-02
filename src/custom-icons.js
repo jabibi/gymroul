@@ -24,6 +24,8 @@ export const GYMROUL_ICONS = {
     situp: { body: `<circle cx="7.4" cy="5.6" r="2" fill="currentColor"/><path ${STROKE} d="M7 8.8 10.2 15.6H17.6M17.6 15.6 20 10.4M7.2 9.2l3.8 1.2"/>${GROUND}` },
     // Burpee: salto con los brazos arriba y los pies en el aire
     burpee: { body: `<circle cx="12" cy="3.8" r="2" fill="currentColor"/><path ${STROKE} d="M12 7.2V13M12 8.6 7.6 5.2M12 8.6l4.4-3.4M12 13l-3.4 5M12 13l3.4 5"/>${GROUND}` },
+    // Mountain climbers: plancha alta con una pierna estirada atrás y la rodilla contraria al pecho
+    climbers: { body: `<circle cx="3.8" cy="6.2" r="1.9" fill="currentColor"/><path ${LINE} stroke-width="2" d="M6.4 8 14.2 11.4M7 8.6v10.4M14.2 11.4 21 17.4M14.2 11.4 9.6 13.6 11.6 17.8"/><path ${LINE} stroke-width="1.4" d="M2 20.4h20"/>` },
     // Sentadilla: muslos horizontales, brazos al frente
     squat: { body: `<circle cx="9.6" cy="4.4" r="2" fill="currentColor"/><path ${STROKE} d="M9.8 7.6 8.2 13 14.6 13.4 14 19.4M9.6 9.2l7 .4"/>${GROUND}` },
   },
