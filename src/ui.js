@@ -57,32 +57,40 @@ export function updateLiveIndicator(seg) {
 // Cada modal que se abre añade una entrada al historial del navegador: así el botón
 // "Atrás" de Android (o del navegador) lo cierra en lugar de salir de la app.
 
-/** @typedef {'result' | 'history' | 'config'} ModalName */
-/** @type {ModalName | null} */
-let activeModal = null;
+/** @typedef {'result' | 'history' | 'config' | 'privacy'} ModalName */
+// Pila de modales abiertos (el último es el que está encima): la política de privacidad
+// puede abrirse sobre la configuración y Atrás debe cerrar primero la de arriba
+/** @type {ModalName[]} */
+const modalStack = [];
+// popstate provocados por nuestro propio history.back() al cerrar un modal desde la interfaz:
+// no deben cerrar además el modal que queda debajo
+let ownPops = 0;
 /** @type {Record<ModalName, () => void>} */
 const closers = {
   result: () => closeResult(false),
   history: () => closeHistory(),
   config: () => closeConfig(),
+  privacy: () => closePrivacy(),
 };
 
 /** @param {ModalName} name */
 function pushModal(name) {
-  if (activeModal === name) return;
-  activeModal = name;
+  if (modalStack.includes(name)) return;
+  modalStack.push(name);
   window.history.pushState({ modal: name }, '');
 }
 
 /** @param {ModalName} name */
 function dismissModal(name) {
-  if (activeModal !== name) return;
-  activeModal = null;
+  if (modalStack[modalStack.length - 1] !== name) return;
+  modalStack.pop();
+  ownPops++;
   window.history.back();
 }
 
 function closeActiveModal() {
-  if (activeModal) closers[activeModal]();
+  const name = modalStack[modalStack.length - 1];
+  if (name) closers[name]();
 }
 
 /** @type {HTMLElement | null} */
@@ -118,8 +126,11 @@ function setSheetVisible(modalId, cardId, visible) {
 
 export function initModals() {
   window.addEventListener('popstate', () => {
-    const name = activeModal;
-    activeModal = null;
+    if (ownPops > 0) {
+      ownPops--;
+      return;
+    }
+    const name = modalStack.pop();
     if (name) closers[name]();
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeActiveModal(); });
@@ -326,6 +337,23 @@ export function resetNewExerciseForm() {
 export const readNewRepValue = () => /** @type {HTMLInputElement} */ ($('newRepInput')).value;
 export const clearNewRepValue = () => { /** @type {HTMLInputElement} */ ($('newRepInput')).value = ''; };
 
+// --- Política de privacidad ----------------------------------------------------------
+// Se muestra dentro de la app (iframe) en vez de navegar a privacy.html: así no se sale de la
+// página y el botón Atrás cierra el visor en lugar de cerrar la aplicación.
+
+export function openPrivacy() {
+  const frame = /** @type {HTMLIFrameElement} */ ($('privacyFrame'));
+  if (!frame.getAttribute('src')) frame.setAttribute('src', frame.dataset.src || 'privacy.html');
+  $('privacyModal').classList.remove('hidden');
+  $('privacyModal').querySelector('button')?.focus({ preventScroll: true });
+  pushModal('privacy');
+}
+
+export function closePrivacy() {
+  $('privacyModal').classList.add('hidden');
+  dismissModal('privacy');
+}
+
 // --- Consentimiento ------------------------------------------------------------------
 
 /**
@@ -337,7 +365,7 @@ export const clearNewRepValue = () => { /** @type {HTMLInputElement} */ ($('newR
 export function setConsentGate(visible, rejected = false) {
   $('consentGate').classList.toggle('hidden', !visible);
   $('consentRejected').classList.toggle('hidden', !(visible && rejected));
-  document.querySelectorAll('body > :not(#consentGate):not(script)').forEach(el => {
+  document.querySelectorAll('body > :not(#consentGate):not(#privacyModal):not(script)').forEach(el => {
     /** @type {HTMLElement} */ (el).inert = visible;
   });
   if (visible) /** @type {HTMLElement} */ (document.getElementById('consentAccept')).focus({ preventScroll: true });

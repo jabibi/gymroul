@@ -95,6 +95,8 @@ const actions = {
     ui.closeConfig();
   },
 
+  'open-privacy': () => ui.openPrivacy(),
+  'close-privacy': () => ui.closePrivacy(),
   'show-consent': () => {
     ui.closeConfig();
     ui.setConsentGate(true);
@@ -111,6 +113,7 @@ const actions = {
 document.addEventListener('click', e => {
   const el = /** @type {HTMLElement | null} */ (/** @type {HTMLElement} */ (e.target).closest('[data-action]'));
   if (!el) return;
+  if (el.tagName === 'A') e.preventDefault(); // enlaces con acción: no navegar fuera de la app
   actions[/** @type {string} */ (el.dataset.action)]?.(el.dataset.arg);
 });
 

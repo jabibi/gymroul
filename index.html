@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://firebase.googleapis.com https://firebaseinstallations.googleapis.com; object-src 'none'; base-uri 'self'; form-action 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://firebase.googleapis.com https://firebaseinstallations.googleapis.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
     <title>GymRoulette - Gasteiz Trainning</title>
 </head>
 <body class="bg-dark-950 text-slate-100 h-full flex flex-col justify-between overflow-x-hidden">
@@ -267,7 +267,7 @@
 
             <div class="pt-3 border-t border-slate-800 mt-2">
                 <div class="flex justify-between items-center mb-3 text-[11px]">
-                    <a href="privacy.html" target="_blank" rel="noopener" class="text-slate-400 underline">Política de privacidad</a>
+                    <a href="privacy.html" data-action="open-privacy" class="text-slate-400 underline">Política de privacidad</a>
                     <button data-action="show-consent" class="text-slate-400 underline">Preferencias de analítica</button>
                 </div>
                 <button data-action="save-config" class="w-full py-3 rounded-xl bg-brand-500 text-dark-950 font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30">
@@ -302,8 +302,19 @@
                 <button data-action="consent" data-arg="deny" class="py-3.5 px-4 rounded-xl bg-dark-900 border border-slate-700 font-bold text-xs text-slate-300 hover:bg-dark-800 transition-all active:scale-95">Rechazar</button>
                 <button id="consentAccept" data-action="consent" data-arg="grant" class="py-3.5 px-4 rounded-xl bg-brand-500 text-dark-950 font-black text-xs hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30 active:scale-95">Aceptar</button>
             </div>
-            <a href="privacy.html" target="_blank" rel="noopener" class="inline-block mt-4 text-[11px] text-slate-400 underline">Política de privacidad</a>
+            <a href="privacy.html" data-action="open-privacy" class="inline-block mt-4 text-[11px] text-slate-400 underline">Política de privacidad</a>
         </div>
+    </div>
+
+    <!-- Visor de la política de privacidad (por encima de la pantalla de consentimiento) -->
+    <div id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" class="hidden fixed inset-0 z-[110] bg-dark-950 flex flex-col">
+        <div class="flex justify-between items-center px-5 py-3.5 glass-card border-b border-slate-800/80">
+            <h2 id="privacyTitle" class="font-black text-base text-white">Política de privacidad</h2>
+            <button data-action="close-privacy" aria-label="Cerrar política de privacidad" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <iframe id="privacyFrame" data-src="privacy.html" title="Política de privacidad" class="flex-1 w-full bg-white border-0"></iframe>
     </div>
 
     <script type="module" src="/src/main.js"></script>
