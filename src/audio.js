@@ -1,7 +1,7 @@
 // Sonido (Web Audio) y vibración
 
 import { Capacitor } from '@capacitor/core';
-import { Haptics } from '@capacitor/haptics';
+import { Haptics, ImpactStyle, NotificationType } from '@capacitor/haptics';
 
 /** @type {AudioContext | null} */
 let audioCtx = null;
@@ -67,47 +67,42 @@ export function playWinFanfare() {
   } catch (e) { /* audio no disponible */ }
 }
 
-// Intensidades de la vibración. Un pulso de 10 ms apenas se nota en muchos móviles: el motor
-// necesita unos 25-30 ms para arrancar y entregar algo perceptible.
+// --- Vibración -----------------------------------------------------------------------------
+// En Android se usa el plugin nativo. Haptics.vibrate({ duration }) crea un pulso con amplitud "por
+// defecto" que muchos móviles ignoran o dejan imperceptible; en cambio impact() y notification()
+// usan formas de onda con amplitud explícita (hasta 255) y sí se notan. Por eso todo pasa por esas
+// dos. En la web se mantiene navigator.vibrate.
+
+/** Pulso de la web al cruzar de sector (ms) */
 export const TICK_VIBRATION_MS = 30;
-/** Resultado: tres pulsos crecientes [vibra, pausa, vibra, pausa, vibra] en ms */
+/** Patrón de la web para el resultado: [vibra, pausa, vibra, ...] en ms */
 export const RESULT_VIBRATION = [150, 80, 150, 80, 320];
 /** Con la ruleta rápida los sectores pasan muy seguidos: los pulsos se funden en una vibración continua */
-const MIN_TICK_GAP_MS = 70;
+const MIN_TICK_GAP_MS = 90;
+/** En la app el resultado es una notificación fuerte seguida de dos golpes (ms desde el inicio) */
+const NATIVE_RESULT_FOLLOWUPS_MS = [380, 540];
 
 /** @type {ReturnType<typeof setTimeout>[]} */
-let patternTimers = [];
+let pendingTimers = [];
 let lastTickVibration = 0;
 
-/** @param {number} duration */
-function nativePulse(duration) {
-  Haptics.vibrate({ duration }).catch(() => { /* sin vibrador o desactivado en el sistema */ });
+function ignoreHapticError() { /* sin vibrador o desactivado en el sistema */ }
+
+function nativeImpact() {
+  Haptics.impact({ style: ImpactStyle.Heavy }).catch(ignoreHapticError);
 }
 
-/**
- * Vibración. En la app Android se usa el plugin nativo (Vibrator del sistema), que es más fiable
- * que navigator.vibrate dentro de la WebView; en la web se mantiene navigator.vibrate.
- * @param {number | number[]} pattern duración en ms, o patrón [vibra, pausa, vibra, ...] en ms
- */
-export function vibrate(pattern = TICK_VIBRATION_MS) {
-  patternTimers.forEach(clearTimeout);
-  patternTimers = [];
+function cancelPending() {
+  pendingTimers.forEach(t => clearTimeout(t));
+  pendingTimers = [];
+}
 
-  if (Capacitor.isNativePlatform()) {
-    if (!Array.isArray(pattern)) {
-      nativePulse(pattern);
-      return;
-    }
-    // El plugin solo admite una duración: el patrón se reproduce encadenando pulsos
-    let at = 0;
-    pattern.forEach((ms, i) => {
-      if (i % 2 === 0) patternTimers.push(setTimeout(() => nativePulse(ms), at));
-      at += ms;
-    });
-    return;
-  }
-  if (navigator.vibrate) {
-    try { navigator.vibrate(pattern); } catch (e) { /* vibración no disponible */ }
+/** Vibración corta y fuerte (un golpe). */
+export function vibrate() {
+  cancelPending();
+  if (Capacitor.isNativePlatform()) nativeImpact();
+  else if (navigator.vibrate) {
+    try { navigator.vibrate(TICK_VIBRATION_MS); } catch (e) { /* vibración no disponible */ }
   }
 }
 
@@ -116,5 +111,16 @@ export function vibrateTick() {
   const now = performance.now();
   if (now - lastTickVibration < MIN_TICK_GAP_MS) return;
   lastTickVibration = now;
-  vibrate(TICK_VIBRATION_MS);
+  vibrate();
+}
+
+/** Vibración al mostrar el resultado: claramente más fuerte y larga que la de cada sector. */
+export function vibrateResult() {
+  cancelPending();
+  if (Capacitor.isNativePlatform()) {
+    Haptics.notification({ type: NotificationType.Warning }).catch(ignoreHapticError);
+    NATIVE_RESULT_FOLLOWUPS_MS.forEach(at => pendingTimers.push(setTimeout(nativeImpact, at)));
+  } else if (navigator.vibrate) {
+    try { navigator.vibrate(RESULT_VIBRATION); } catch (e) { /* vibración no disponible */ }
+  }
 }

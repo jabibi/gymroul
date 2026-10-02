@@ -2,7 +2,7 @@
 // Modales, historial, configuración y avisos
 
 import { getExercises, getReps, active } from './store.js';
-import { playWinFanfare, vibrate, RESULT_VIBRATION } from './audio.js';
+import { playWinFanfare, vibrateResult } from './audio.js';
 import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
@@ -160,7 +160,7 @@ export function setCompletedHandler(cb) { onCompleted = cb; }
 /** @param {Segment} winner */
 export function showResult(winner) {
   playWinFanfare();
-  vibrate(RESULT_VIBRATION);
+  vibrateResult();
 
   $('winnerIconContainer').innerHTML = renderIconHTML(winner.icon);
   $('winnerText').textContent = `${winner.reps} ${winner.exercise}`;
