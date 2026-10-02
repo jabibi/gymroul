@@ -11,11 +11,10 @@ const FRICTION = 0.982; // factor de rozamiento por cada 1/60 s
 const FRAME_MS = 1000 / 60;
 const MIN_SAMPLE_MS = 4;
 const TAP_SLOP_PX = 6;
-const CENTER_BUTTON_RADIUS_PX = 40;
 
 /** @type {HTMLCanvasElement} */ let canvas;
 /** @type {CanvasRenderingContext2D} */ let ctx;
-/** @type {{ onChange: () => void, onFinish: (segment: Segment) => void, onCenterTap: () => void }} */
+/** @type {{ onChange: () => void, onFinish: (segment: Segment) => void }} */
 let callbacks;
 
 /** @type {Segment[]} */
@@ -223,14 +222,8 @@ function onPointerUp(e) {
   isDragging = false;
   try { canvas.releasePointerCapture(e.pointerId); } catch (err) { /* ya liberado */ }
 
-  // Un toque (sin arrastre) sobre el botón central equivale a pulsar GIRAR.
-  // El botón no captura eventos para que el arrastre también pueda empezar sobre él.
-  if (!dragMoved) {
-    const rect = canvas.getBoundingClientRect();
-    const dist = Math.hypot(e.clientX - (rect.left + rect.width / 2), e.clientY - (rect.top + rect.height / 2));
-    if (dist <= CENTER_BUTTON_RADIUS_PX) callbacks.onCenterTap();
-    return;
-  }
+  // Un simple toque sin arrastre no cuenta como giro ni como resultado
+  if (!dragMoved) return;
 
   const now = performance.now();
   const recent = velocitySamples.filter(s => now - s.time < 100);
@@ -255,12 +248,14 @@ function startSpin(velocity) {
   requestAnimationFrame(animate);
 }
 
-/** Lanza un giro aleatorio. */
+/**
+ * Lanza un giro en sentido horario con velocidad inicial aleatoria
+ * (en el canvas un ángulo creciente es sentido horario).
+ */
 export function spin() {
   if (isSpinning || segments.length === 0) return;
   initAudio();
-  const dir = Math.random() < 0.5 ? 1 : -1;
-  startSpin(dir * (0.38 + Math.random() * 0.25));
+  startSpin(0.38 + Math.random() * 0.25);
 }
 
 // Física basada en tiempo real: misma duración y velocidad a 60, 120 o 144 Hz

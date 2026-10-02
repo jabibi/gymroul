@@ -123,7 +123,6 @@ function init() {
   initWheel(/** @type {HTMLCanvasElement} */ (document.getElementById('wheelCanvas')), {
     onChange: () => ui.updateLiveIndicator(getActiveSegment()),
     onFinish: handleFinish,
-    onCenterTap: handleSpin,
   });
 
   rebuildWheel();
