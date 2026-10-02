@@ -18,7 +18,7 @@
 
   function initial() {
     var fromUrl = new URLSearchParams(location.search).get('lang');
-    if (fromUrl && codes.indexOf(fromUrl) !== -1) return fromUrl;
+    if (fromUrl) return codes.indexOf(fromUrl) !== -1 ? fromUrl : match([fromUrl]);
     return match(navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en']);
   }
 

@@ -9,8 +9,9 @@ const count = (text, re) => (text.match(re) ?? []).length;
 const flat = doc => JSON.stringify(doc.blocks);
 
 describe('páginas legales multilingües', () => {
-  it('cubren exactamente los idiomas de la app y en el mismo orden', () => {
-    expect(LANGUAGE_ORDER).toEqual(LANGUAGES.map(l => l.code));
+  it('cubren los idiomas de la app y en el mismo orden (las variantes en-GB, es-419 y fr-CA usan la sección de su idioma base)', () => {
+    const variants = ['en-GB', 'es-419', 'fr-CA'];
+    expect(LANGUAGE_ORDER).toEqual(LANGUAGES.map(l => l.code).filter(code => !variants.includes(code)));
   });
 
   for (const [file, page] of Object.entries(LEGAL_PAGES)) {

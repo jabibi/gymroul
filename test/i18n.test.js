@@ -14,8 +14,8 @@ const placeholders = text => [...text.matchAll(/\{(\w+)\}/g)].map(m => m[1]).sor
 afterEach(() => setLanguage(DEFAULT_LANGUAGE, { persist: false }));
 
 describe('idiomas disponibles', () => {
-  it('son los ocho esperados e incluyen las dos variantes del portugués', () => {
-    expect(codes).toEqual(['en', 'es', 'eu', 'gl', 'ca', 'fr', 'pt-BR', 'pt-PT']);
+  it('son los once esperados e incluyen las variantes regionales', () => {
+    expect(codes).toEqual(['en', 'en-GB', 'es', 'es-419', 'eu', 'gl', 'ca', 'fr', 'fr-CA', 'pt-BR', 'pt-PT']);
   });
 });
 
@@ -68,8 +68,8 @@ describe('claves usadas en el marcado y en el código', () => {
 
 describe('detección del idioma', () => {
   const cases = [
-    [['es-ES'], 'es'], [['es-MX', 'en'], 'es'], [['en-GB'], 'en'], [['eu-ES'], 'eu'], [['gl'], 'gl'], [['ca-ES'], 'ca'],
-    [['fr-CA'], 'fr'], [['pt-PT'], 'pt-PT'], [['pt-BR'], 'pt-BR'], [['pt'], 'pt-BR'], [['pt_PT'], 'pt-PT'],
+    [['es-ES'], 'es'], [['es'], 'es'], [['es-MX', 'en'], 'es-419'], [['es-AR'], 'es-419'], [['es-419'], 'es-419'], [['es-CO'], 'es-419'], [['fr-CA'], 'fr-CA'], [['fr-FR'], 'fr'], [['fr-BE'], 'fr'], [['en-GB'], 'en-GB'], [['en-US'], 'en'], [['en-AU'], 'en-GB'], [['en-IE'], 'en-GB'], [['en-IN'], 'en-GB'], [['en-CA'], 'en'], [['en'], 'en'], [['eu-ES'], 'eu'], [['gl'], 'gl'], [['ca-ES'], 'ca'],
+    [['pt-PT'], 'pt-PT'], [['pt-BR'], 'pt-BR'], [['pt'], 'pt-BR'], [['pt_PT'], 'pt-PT'],
     [['de', 'fr'], 'fr'], [['zh-CN'], 'en'], [[], 'en'], [['EU'], 'eu'],
   ];
   for (const [prefs, expected] of cases) {
@@ -87,6 +87,34 @@ describe('traducción', () => {
   it('una clave desconocida devuelve la propia clave y un parámetro ausente no se pierde', () => {
     expect(t('no.existe')).toBe('no.existe');
     expect(t('history.total')).toBe('Completed this session: {n}');
+  });
+
+  it('el inglés británico hereda del estadounidense y solo cambia su vocabulario', () => {
+    setLanguage('en', { persist: false });
+    expect(iconLabel('soccer')).toBe('Soccer');
+    expect(t('doc.credits')).toBe('Credits and licenses');
+    setLanguage('en-GB', { persist: false });
+    expect(iconLabel('soccer')).toBe('Football');
+    expect(iconLabel('tire')).toBe('Tyre');
+    expect(t('doc.credits')).toBe('Credits and licences');
+    expect(t('config.title')).toBe(DICTIONARIES.en.strings['config.title']);
+  });
+
+  it('el español de Latinoamérica y el francés de Canadá heredan de su idioma base', () => {
+    setLanguage('es', { persist: false });
+    expect(t('config.add')).toBe('Añadir');
+    expect(iconLabel('basketball')).toBe('Baloncesto');
+    setLanguage('es-419', { persist: false });
+    expect(t('config.add')).toBe('Agregar');
+    expect(iconLabel('basketball')).toBe('Básquetbol');
+    expect(t('config.title')).toBe(DICTIONARIES.es.strings['config.title']);
+    setLanguage('fr', { persist: false });
+    expect(t('spin.button')).toBe('LANCER LA ROUE\u00a0!');
+    expect(iconLabel('soccer')).toBe('Football');
+    setLanguage('fr-CA', { persist: false });
+    expect(t('spin.button')).toBe('LANCER LA ROUE!');
+    expect(iconLabel('soccer')).toBe('Soccer');
+    expect(t('config.reps')).toBe(DICTIONARIES.fr.strings['config.reps']);
   });
 
   it('el portugués de Portugal hereda lo que no redefine del de Brasil', () => {
