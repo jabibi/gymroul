@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { createRequire } from 'node:module';
+import { GYMROUL_ICONS } from '../src/custom-icons.js';
 import { ICONS, ICON_GROUPS, DEFAULT_ICON, isValidIcon, normalizeIcon, migrateLegacyIcon, searchIcons, LEGACY_ICON_MAP } from '../src/icons.js';
 
 const require = createRequire(import.meta.url);
@@ -13,9 +14,9 @@ describe('catálogo de iconos', () => {
 
   it('cada clase existe de verdad en el paquete de iconos instalado', () => {
     for (const icon of ICONS) {
-      const m = /^icon-\[(mdi|game-icons)--(.+)\]$/.exec(icon.cls);
+      const m = /^icon-\[(mdi|game-icons|gymroul)--(.+)\]$/.exec(icon.cls);
       expect(m, `${icon.id}: formato de clase`).not.toBeNull();
-      const set = require(`@iconify-json/${m[1]}/icons.json`);
+      const set = m[1] === 'gymroul' ? GYMROUL_ICONS : require(`@iconify-json/${m[1]}/icons.json`);
       expect(m[2] in set.icons || m[2] in (set.aliases ?? {}), `${icon.id}: ${m[1]}:${m[2]}`).toBe(true);
     }
   });
@@ -44,5 +45,16 @@ describe('catálogo de iconos', () => {
     }
     expect(searchIcons('')).toHaveLength(ICONS.length);
     expect(searchIcons('zzzz')).toHaveLength(0);
+  });
+});
+
+describe('pictogramas propios', () => {
+  it('son SVG válidos: sin atributos repetidos en ningún elemento', () => {
+    for (const [name, { body }] of Object.entries(GYMROUL_ICONS.icons)) {
+      for (const tag of body.match(/<[^>]+>/g) ?? []) {
+        const attrs = [...tag.matchAll(/\s([a-z-]+)=/g)].map(m => m[1]);
+        expect(new Set(attrs).size, `${name}: ${tag}`).toBe(attrs.length);
+      }
+    }
   });
 });

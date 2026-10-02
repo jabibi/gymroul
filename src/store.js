@@ -13,8 +13,8 @@ export const MAX_REP_VALUE = 500;
 export const DEFAULT_EXERCISES = [
   { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'fire', color: '#ef4444' },
   { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'walk', color: '#f97316' },
-  { id: '3', name: 'Push-up', shortName: 'Push-up', icon: 'push', color: '#f59e0b' },
-  { id: '4', name: 'Air Squat', shortName: 'Squat', icon: 'leg', color: '#22c55e' },
+  { id: '3', name: 'Push-up', shortName: 'Push-up', icon: 'pushup', color: '#f59e0b' },
+  { id: '4', name: 'Air Squat', shortName: 'Squat', icon: 'squat', color: '#22c55e' },
   { id: '5', name: 'Mountain Climbers', shortName: 'Climbers', icon: 'run-fast', color: '#06b6d4' },
   { id: '6', name: 'Split Jumps', shortName: 'Split J', icon: 'jump', color: '#8b5cf6' },
 ];
@@ -28,7 +28,7 @@ const KEY_ACTIVE_EXS = 'gymroulette_active_exs';
 const KEY_SCHEMA = 'gym_schema_version';
 
 /** Versión actual del esquema de datos guardados; sube al cambiar su formato */
-export const SCHEMA_VERSION = 2;
+export const SCHEMA_VERSION = 3;
 
 /** Selección activa (se muta con setActive/loadActive) */
 export const active = {
@@ -84,6 +84,16 @@ const MIGRATIONS = {
   1: () => {
     const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
     if (list) writeStorage(KEY_EXERCISES, list.map(e => ({ ...e, icon: migrateLegacyIcon(e.icon) })));
+  },
+  // v2 -> v3: los ejercicios por defecto (ids 3 y 4) pasan a los nuevos iconos de flexiones y sentadilla
+  2: () => {
+    const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
+    if (!list) return;
+    writeStorage(KEY_EXERCISES, list.map(e => {
+      if (e.id === '3' && e.icon === 'push') return { ...e, icon: 'pushup' };
+      if (e.id === '4' && e.icon === 'leg') return { ...e, icon: 'squat' };
+      return e;
+    }));
   },
 };
 

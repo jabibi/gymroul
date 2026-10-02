@@ -159,3 +159,16 @@ describe('migraciones', () => {
     expect(JSON.parse(data.get('gym_schema_version'))).toBe(SCHEMA_VERSION + 1);
   });
 });
+
+describe('migración v2 -> v3', () => {
+  it('actualiza los iconos de Push-up y Air Squat por defecto, y respeta los demás', () => {
+    data.set('gym_schema_version', '2');
+    data.set('gym_exercises', JSON.stringify([
+      { id: '3', name: 'Push-up', shortName: 'Push-up', icon: 'push', color: '#fff' },
+      { id: '4', name: 'Air Squat', shortName: 'Squat', icon: 'leg', color: '#fff' },
+      { id: '99', name: 'Mío', shortName: 'Mío', icon: 'push', color: '#fff' },
+    ]));
+    migrate();
+    expect(JSON.parse(data.get('gym_exercises')).map(e => e.icon)).toEqual(['pushup', 'squat', 'push']);
+  });
+});

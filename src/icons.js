@@ -5,8 +5,8 @@
 // Tailwind solo genera el CSS de las clases que aparecen literalmente en el código fuente, así
 // que no pueden construirse dinámicamente. Cada icono se compila a una máscara CSS (sin red).
 //
-// Conjuntos: Material Design Icons (mdi, Apache-2.0) y Game Icons (game-icons, CC BY 3.0, ver
-// public/creditos.html).
+// Conjuntos: Material Design Icons (mdi, Apache-2.0), Game Icons (game-icons, CC BY 3.0, ver
+// public/creditos.html) y pictogramas propios (gymroul, src/custom-icons.js).
 
 /**
  * @typedef {{ id: string, cls: string, label: string, keywords: string }} IconDef
@@ -42,7 +42,12 @@ export const ICON_GROUPS = [
       { id: 'gymnastics', cls: 'icon-[mdi--gymnastics]', label: 'Gimnasia', keywords: 'calistenia acrobacia' },
       { id: 'muscle-up', cls: 'icon-[game-icons--muscle-up]', label: 'Muscle-up', keywords: 'dominadas barra calistenia pull-up' },
       { id: 'pull', cls: 'icon-[game-icons--pull]', label: 'Tirón', keywords: 'dominadas remo pull-up calistenia' },
-      { id: 'push', cls: 'icon-[game-icons--push]', label: 'Empuje', keywords: 'flexiones push-up fondos calistenia' },
+      { id: 'pushup', cls: 'icon-[gymroul--pushup]', label: 'Flexiones', keywords: 'push-up pushup suelo pecho triceps calistenia fondos' },
+      { id: 'plank', cls: 'icon-[gymroul--plank]', label: 'Plancha', keywords: 'core abdominales isometrico suelo calistenia' },
+      { id: 'situp', cls: 'icon-[gymroul--situp]', label: 'Abdominales', keywords: 'sit-up crunch core suelo calistenia' },
+      { id: 'burpee', cls: 'icon-[gymroul--burpee]', label: 'Burpee', keywords: 'salto suelo hiit crossfit cardio' },
+      { id: 'squat', cls: 'icon-[gymroul--squat]', label: 'Sentadilla', keywords: 'air squat piernas gluteos cuadriceps calistenia' },
+      { id: 'push', cls: 'icon-[game-icons--push]', label: 'Empujar', keywords: 'empuje pared trineo sled push muro' },
       { id: 'cartwheel', cls: 'icon-[game-icons--cartwheel]', label: 'Voltereta', keywords: 'rueda acrobacia gimnasia' },
       { id: 'handsup', cls: 'icon-[mdi--human-handsup]', label: 'Brazos arriba', keywords: 'estiramiento press overhead' },
       { id: 'balance', cls: 'icon-[game-icons--body-balance]', label: 'Equilibrio', keywords: 'handstand pino plancha core' },
@@ -189,7 +194,7 @@ export const LEGACY_ICON_MAP = {
   'fa-fire': 'fire',
   'fa-person-running': 'run',
   'fa-person-walking': 'walk',
-  'fa-child-reaching': 'push',
+  'fa-child-reaching': 'pushup',
   'fa-bolt': 'bolt',
   'fa-angles-up': 'jump',
   'fa-heart-pulse': 'heart-pulse',
