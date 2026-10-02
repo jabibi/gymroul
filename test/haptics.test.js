@@ -10,50 +10,36 @@ vi.mock('@capacitor/haptics', () => ({
   Haptics: { impact: (...a) => impact(...a), notification: (...a) => notification(...a), vibrate: (...a) => oneShot(...a) },
 }));
 
-const { vibrate, vibrateTick, vibrateResult } = await import('../src/audio.js');
+const audio = await import('../src/audio.js');
 
-describe('vibración nativa', () => {
+describe('vibración del resultado (nativa)', () => {
   beforeEach(() => { vi.useFakeTimers(); impact.mockClear(); notification.mockClear(); oneShot.mockClear(); });
   afterEach(() => { vi.useRealTimers(); });
 
-  it('nunca usa Haptics.vibrate (pulso de amplitud por defecto, que muchos móviles no notan)', () => {
-    vibrate();
-    vibrateTick();
-    vibrateResult();
-    vi.advanceTimersByTime(2000);
-    expect(oneShot).not.toHaveBeenCalled();
-  });
-
-  it('un golpe usa impact con la intensidad máxima', () => {
-    vibrate();
-    expect(impact).toHaveBeenCalledWith({ style: 'HEAVY' });
-  });
-
-  it('el resultado es una notificación fuerte seguida de dos golpes', () => {
-    vibrateResult();
+  it('es una notificación fuerte seguida de dos golpes', () => {
+    audio.vibrateResult();
     expect(notification).toHaveBeenCalledWith({ type: 'WARNING' });
     expect(impact).not.toHaveBeenCalled();
     vi.advanceTimersByTime(2000);
     expect(impact).toHaveBeenCalledTimes(2);
+    expect(impact).toHaveBeenCalledWith({ style: 'HEAVY' });
   });
 
-  it('una vibración nueva cancela los golpes pendientes del resultado', () => {
-    vibrateResult();
-    vi.advanceTimersByTime(100);
-    vibrate();
+  it('nunca usa Haptics.vibrate (pulso de amplitud por defecto, que muchos móviles no notan)', () => {
+    audio.vibrateResult();
     vi.advanceTimersByTime(2000);
-    expect(impact).toHaveBeenCalledTimes(1);
+    expect(oneShot).not.toHaveBeenCalled();
   });
 
-  it('el pulso de sector respeta la separación mínima', () => {
-    const now = vi.spyOn(performance, 'now');
-    now.mockReturnValue(1000);
-    vibrateTick();
-    now.mockReturnValue(1050); // demasiado pronto
-    vibrateTick();
-    now.mockReturnValue(1200);
-    vibrateTick();
+  it('repetirla no acumula golpes pendientes de la anterior', () => {
+    audio.vibrateResult();
+    vi.advanceTimersByTime(100);
+    audio.vibrateResult();
+    vi.advanceTimersByTime(2000);
     expect(impact).toHaveBeenCalledTimes(2);
-    now.mockRestore();
+  });
+
+  it('la ruleta ya no vibra al girar: no se exporta ninguna vibración por sector', () => {
+    expect(audio.vibrateTick).toBeUndefined();
   });
 });
