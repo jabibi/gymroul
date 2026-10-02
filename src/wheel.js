@@ -11,6 +11,9 @@ const FRICTION = 0.982; // factor de rozamiento por cada 1/60 s
 const FRAME_MS = 1000 / 60;
 const MIN_SAMPLE_MS = 4;
 
+/** Color de marca (variable CSS --brand-500), para el aro interior de la ruleta */
+let brandColor = '#22c55e';
+
 /** @type {HTMLCanvasElement} */ let canvas;
 /** @type {CanvasRenderingContext2D} */ let ctx;
 /** @type {{ onChange: () => void, onFinish: (segment: Segment) => void }} */
@@ -134,7 +137,7 @@ function draw() {
   ctx.beginPath();
   ctx.arc(center, center, radius - 4, 0, TWO_PI);
   ctx.lineWidth = 2.5;
-  ctx.strokeStyle = '#f97316';
+  ctx.strokeStyle = brandColor;
   ctx.stroke();
 }
 
@@ -271,6 +274,8 @@ function animate(now) {
  */
 export function initWheel(canvasEl, cbs) {
   canvas = canvasEl;
+  const channels = getComputedStyle(document.documentElement).getPropertyValue('--brand-500').trim();
+  if (channels) brandColor = `rgb(${channels.split(/\s+/).join(',')})`;
   ctx = /** @type {CanvasRenderingContext2D} */ (canvas.getContext('2d'));
   callbacks = cbs;
 

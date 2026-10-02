@@ -4,18 +4,27 @@
 //   npm run icons                       -> lo anterior + capacitor-assets generate --android
 //
 // Un único diseño (la ruleta) con tres presentaciones:
-//   - logo.svg / favicon.svg   cuadrado redondeado con fondo naranja (cabecera de la app y pestaña)
+//   - logo.svg / favicon.svg   cuadrado redondeado con fondo de color (cabecera de la app y pestaña)
 //   - icon-only.png            icono completo a sangre (lanzadores antiguos)
 //   - icon-foreground.png      solo la ruleta, más grande, sobre transparente (icono adaptativo; Android
 //                              lo reduce al 66 % dentro de la zona segura)
-//   - icon-background.png      solo el degradado naranja (icono adaptativo)
+//   - icon-background.png      solo el degradado de fondo (icono adaptativo)
 //   - splash.png               ruleta sobre el fondo oscuro de la app
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 import sharp from 'sharp';
 
 const NAVY = '#111827';
-const ORANGE = '#FF5A1F';
+
+// Tema del logo (el color de la interfaz está en src/style.css, variables --brand-*).
+// Verde: degradado del fondo (luz arriba, sombra abajo), remaches del aro y sombra de la ruleta.
+const THEME = {
+  bgLight: '#86EFAC',
+  bgMid: '#22C55E',
+  bgDark: '#15803D',
+  stud: '#16A34A',
+  shadow: '#052E16',
+};
 // Colores de los sectores: la misma paleta que la ruleta de la app, ordenados para que dos sectores
 // contiguos nunca se parezcan
 const SECTOR_COLORS = ['#EF4444', '#FBBF24', '#22C55E', '#06B6D4', '#8B5CF6', '#F97316', '#3B82F6', '#EC4899'];
@@ -42,19 +51,19 @@ function sectors(radius) {
   return out;
 }
 
-// Ocho remaches naranjas sobre el aro, en el límite de cada sector
+// Ocho remaches sobre el aro, en el límite de cada sector
 function studs() {
   let out = '';
   for (let i = 0; i < 8; i++) {
     const [x, y] = point(187, i * 45);
-    out += `<circle cx="${f(x)}" cy="${f(y)}" r="5.5" fill="${ORANGE}"/>`;
+    out += `<circle cx="${f(x)}" cy="${f(y)}" r="5.5" fill="${THEME.stud}"/>`;
   }
   return out;
 }
 
 const DEFS = `<defs>
   <radialGradient id="bg" cx="0.5" cy="0.3" r="0.9">
-    <stop offset="0" stop-color="#FFC233"/><stop offset="0.55" stop-color="#FF7A1A"/><stop offset="1" stop-color="#E8400C"/>
+    <stop offset="0" stop-color="${THEME.bgLight}"/><stop offset="0.55" stop-color="${THEME.bgMid}"/><stop offset="1" stop-color="${THEME.bgDark}"/>
   </radialGradient>
   <radialGradient id="hub" cx="0.5" cy="0.35" r="0.8">
     <stop offset="0" stop-color="#2B3548"/><stop offset="1" stop-color="#0B0F19"/>
@@ -64,7 +73,7 @@ const DEFS = `<defs>
 
 // La ruleta completa (aro, sectores, buje con mancuerna y puntero), centrada en 256,256 con radio 196
 const WHEEL = `
-  <circle cx="256" cy="268" r="196" fill="#7A1F00" opacity="0.45" filter="url(#shadow)"/>
+  <circle cx="256" cy="268" r="196" fill="${THEME.shadow}" opacity="0.45" filter="url(#shadow)"/>
   <circle cx="256" cy="256" r="196" fill="#FFFFFF"/>
   <circle cx="256" cy="256" r="176" fill="${NAVY}"/>
   ${sectors(172)}

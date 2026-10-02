@@ -12,15 +12,12 @@ export default {
         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
       colors: {
+        // Los valores viven en src/style.css (:root) como canales RGB
         brand: {
-          400: '#ff8a3c',
-          500: '#f97316',
-          600: '#ea580c',
-          900: '#7c2d12',
-        },
-        amber: {
-          400: '#fbbf24',
-          500: '#f59e0b',
+          400: 'rgb(var(--brand-400) / <alpha-value>)',
+          500: 'rgb(var(--brand-500) / <alpha-value>)',
+          600: 'rgb(var(--brand-600) / <alpha-value>)',
+          900: 'rgb(var(--brand-900) / <alpha-value>)',
         },
         dark: {
           800: '#1e293b',
