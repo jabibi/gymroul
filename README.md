@@ -12,7 +12,7 @@ Disponible como aplicación web (Firebase Hosting) y como app Android (Capacitor
 - Selector con ≈100 iconos de muchas disciplinas (fuerza, calistenia, cardio, Hyrox, CrossFit, OCR, artes marciales, yoga, pilates, tai chi, deportes…) con búsqueda; no se admite texto libre ni emojis.
 - Historial de la sesión con los retos completados.
 - La configuración se guarda en `localStorage` (con versión de esquema y migraciones).
-- Funciona sin conexión: Tailwind, los iconos y la fuente van empaquetados.
+- Funciona sin conexión: Tailwind, Font Awesome y la fuente van empaquetados.
 - Firebase Analytics solo se carga si el usuario da su consentimiento.
 
 ## Estructura
@@ -28,7 +28,7 @@ src/
   icons.js             Catálogo cerrado de iconos (≈100) y búsqueda
   audio.js             Sonido y vibración (háptica nativa en Android)
   analytics.js         Consentimiento y carga diferida de Firebase Analytics
-  style.css            Tailwind + fuentes
+  style.css            Tailwind + fuentes + iconos
 public/                privacy.html, borrar-datos.html, creditos.html y 404.html (se copian tal cual al build)
 test/                  Tests con Vitest
 www/                   Salida del build (no versionada; la usan Firebase y Capacitor)
@@ -96,7 +96,7 @@ npx capacitor-assets generate --android
 
 ## Stack
 
-Capacitor 8 · Vite · Tailwind CSS 3 · Iconify (`@iconify/tailwind`: Material Design Icons y Game Icons, para toda la interfaz) · Firebase Hosting y Analytics · Canvas 2D y Web Audio API · Vitest
+Capacitor 8 · Vite · Tailwind CSS 3 · Iconify (`@iconify/tailwind`, MDI y Game Icons) · Firebase Hosting y Analytics · Canvas 2D y Web Audio API · Vitest
 
 ## Iconos de los ejercicios
 
