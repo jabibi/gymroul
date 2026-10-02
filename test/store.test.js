@@ -160,6 +160,18 @@ describe('migraciones', () => {
   });
 });
 
+describe('migración v3 -> v4', () => {
+  it('cambia la llama del Burpee por defecto por el pictograma de burpee y respeta otros ejercicios', () => {
+    data.set('gym_schema_version', '3');
+    data.set('gym_exercises', JSON.stringify([
+      { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'fire', color: '#fff' },
+      { id: '77', name: 'Hiit', shortName: 'Hiit', icon: 'fire', color: '#fff' },
+    ]));
+    migrate();
+    expect(JSON.parse(data.get('gym_exercises')).map(e => e.icon)).toEqual(['burpee', 'fire']);
+  });
+});
+
 describe('migración v2 -> v3', () => {
   it('actualiza los iconos de Push-up y Air Squat por defecto, y respeta los demás', () => {
     data.set('gym_schema_version', '2');

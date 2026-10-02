@@ -11,7 +11,7 @@ export const MAX_REP_VALUE = 500;
 
 /** @type {Exercise[]} */
 export const DEFAULT_EXERCISES = [
-  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'fire', color: '#ef4444' },
+  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'burpee', color: '#ef4444' },
   { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'walk', color: '#f97316' },
   { id: '3', name: 'Push-up', shortName: 'Push-up', icon: 'pushup', color: '#f59e0b' },
   { id: '4', name: 'Air Squat', shortName: 'Squat', icon: 'squat', color: '#22c55e' },
@@ -28,7 +28,7 @@ const KEY_ACTIVE_EXS = 'gymroulette_active_exs';
 const KEY_SCHEMA = 'gym_schema_version';
 
 /** Versión actual del esquema de datos guardados; sube al cambiar su formato */
-export const SCHEMA_VERSION = 3;
+export const SCHEMA_VERSION = 4;
 
 /** Selección activa (se muta con setActive/loadActive) */
 export const active = {
@@ -94,6 +94,12 @@ const MIGRATIONS = {
       if (e.id === '4' && e.icon === 'leg') return { ...e, icon: 'squat' };
       return e;
     }));
+  },
+  // v3 -> v4: el Burpee por defecto (id 1) deja la llama y usa el pictograma de burpee
+  3: () => {
+    const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
+    if (!list) return;
+    writeStorage(KEY_EXERCISES, list.map(e => (e.id === '1' && e.icon === 'fire' ? { ...e, icon: 'burpee' } : e)));
   },
 };
 
