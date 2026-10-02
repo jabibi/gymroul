@@ -16,7 +16,7 @@ export const CONFIG_SEGMENT = /** @type {Segment} */ ({
   exercise: 'Configurar',
   shortName: 'Config',
   color: '#475569',
-  icon: 'fa-gear',
+  icon: 'dumbbell',
 });
 
 /**
@@ -44,7 +44,7 @@ export function generateCombinations(exercises, reps, activeExercises, activeRep
         exercise: ex.name,
         shortName: ex.shortName || ex.name,
         color: ex.color || '#f97316',
-        icon: ex.icon || 'fa-dumbbell',
+        icon: ex.icon || 'dumbbell',
       });
     });
   });

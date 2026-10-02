@@ -67,12 +67,12 @@ describe('selección activa', () => {
 
 describe('ejercicios', () => {
   it('rechaza nombres vacíos y duplicados (sin distinguir mayúsculas)', () => {
-    expect(addExercise({ name: '  ' }).ok).toBe(false);
-    expect(addExercise({ name: 'burpee' }).ok).toBe(false);
+    expect(addExercise({ name: '  ', icon: 'dumbbell' }).ok).toBe(false);
+    expect(addExercise({ name: 'burpee', icon: 'dumbbell' }).ok).toBe(false);
   });
 
   it('crea, activa y elimina un ejercicio', () => {
-    expect(addExercise({ name: 'Plancha', icon: 'fa-stopwatch' }).ok).toBe(true);
+    expect(addExercise({ name: 'Plancha', icon: 'timer' }).ok).toBe(true);
     expect(active.exercises).toContain('Plancha');
     const created = getExercises().find(e => e.name === 'Plancha');
     expect(created.shortName).toBe('Plancha');
@@ -83,9 +83,9 @@ describe('ejercicios', () => {
 
   it('respeta el máximo de ejercicios', () => {
     for (let i = getExercises().length; i < MAX_EXERCISES; i++) {
-      expect(addExercise({ name: `Ej ${i}` }).ok).toBe(true);
+      expect(addExercise({ name: `Ej ${i}`, icon: 'dumbbell' }).ok).toBe(true);
     }
-    expect(addExercise({ name: 'Uno más' }).ok).toBe(false);
+    expect(addExercise({ name: 'Uno más', icon: 'dumbbell' }).ok).toBe(false);
   });
 
   it('pickColor usa primero los colores libres', () => {
@@ -114,7 +114,40 @@ describe('repeticiones', () => {
   });
 });
 
+describe('iconos', () => {
+  it('rechaza iconos fuera del catálogo (emoji, nombres fa-* o texto libre)', () => {
+    for (const icon of ['🔥', 'fa-fire', '<b>x</b>', '', undefined]) {
+      expect(addExercise({ name: 'Prueba', icon }).ok).toBe(false);
+    }
+    expect(getExercises().some(e => e.name === 'Prueba')).toBe(false);
+  });
+
+  it('acepta un icono del catálogo', () => {
+    expect(addExercise({ name: 'Yoga', icon: 'yoga' }).ok).toBe(true);
+    expect(getExercises().find(e => e.name === 'Yoga').icon).toBe('yoga');
+  });
+
+  it('sustituye por el icono por defecto los guardados que no están en el catálogo', () => {
+    data.set('gym_exercises', JSON.stringify([{ id: 'a', name: 'Raro', shortName: 'Raro', icon: '🔥', color: '#fff' }]));
+    expect(getExercises()[0].icon).toBe('dumbbell');
+  });
+});
+
 describe('migraciones', () => {
+  it('v1 -> v2 convierte los iconos antiguos al catálogo', () => {
+    data.set('gym_schema_version', '1');
+    data.set('gym_exercises', JSON.stringify([
+      { id: 'a', name: 'A', shortName: 'A', icon: 'fa-fire', color: '#fff' },
+      { id: 'b', name: 'B', shortName: 'B', icon: 'fa-person-running', color: '#fff' },
+      { id: 'c', name: 'C', shortName: 'C', icon: '🏋️', color: '#fff' },
+      { id: 'd', name: 'D', shortName: 'D', icon: 'fa-bicycle', color: '#fff' },
+    ]));
+    migrate();
+    const stored = JSON.parse(data.get('gym_exercises'));
+    expect(stored.map(e => e.icon)).toEqual(['fire', 'run', 'dumbbell', 'dumbbell']);
+    expect(JSON.parse(data.get('gym_schema_version'))).toBe(SCHEMA_VERSION);
+  });
+
   it('estampa la versión de esquema actual', () => {
     migrate();
     expect(JSON.parse(data.get('gym_schema_version'))).toBe(SCHEMA_VERSION);

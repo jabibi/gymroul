@@ -9,6 +9,7 @@ Disponible como aplicación web (Firebase Hosting) y como app Android (Capacitor
 - Ruleta en `canvas` con física de inercia independiente de la frecuencia de pantalla, sonido de "tick", fanfarria y vibración.
 - Sectores generados automáticamente: repeticiones activas × ejercicios activos (por defecto 6 × 6 = 36).
 - Configuración editable: activar/desactivar, crear y eliminar ejercicios (nombre, nombre corto, icono) y repeticiones (máx. 12 de cada).
+- Selector con ≈100 iconos de muchas disciplinas (fuerza, calistenia, cardio, Hyrox, CrossFit, OCR, artes marciales, yoga, pilates, tai chi, deportes…) con búsqueda; no se admite texto libre ni emojis.
 - Historial de la sesión con los retos completados.
 - La configuración se guarda en `localStorage` (con versión de esquema y migraciones).
 - Funciona sin conexión: Tailwind, Font Awesome y la fuente van empaquetados.
@@ -24,10 +25,11 @@ src/
   wheel-math.js        Lógica pura: sector ganador, combinaciones, normalización de ángulos
   wheel.js             Canvas, física y arrastre
   ui.js                Modales (con soporte de botón Atrás), historial, configuración
-  audio.js             Sonido y vibración
+  icons.js             Catálogo cerrado de iconos (≈100) y búsqueda
+  audio.js             Sonido y vibración (háptica nativa en Android)
   analytics.js         Consentimiento y carga diferida de Firebase Analytics
   style.css            Tailwind + fuentes + iconos
-public/                privacy.html y 404.html (se copian tal cual al build)
+public/                privacy.html, borrar-datos.html, creditos.html y 404.html (se copian tal cual al build)
 test/                  Tests con Vitest
 www/                   Salida del build (no versionada; la usan Firebase y Capacitor)
 android/               Proyecto Android generado por Capacitor
@@ -94,4 +96,15 @@ npx capacitor-assets generate --android
 
 ## Stack
 
-Capacitor 8 · Vite · Tailwind CSS 3 · Firebase Hosting y Analytics · Canvas 2D y Web Audio API · Vitest
+Capacitor 8 · Vite · Tailwind CSS 3 · Iconify (`@iconify/tailwind`, MDI y Game Icons) · Firebase Hosting y Analytics · Canvas 2D y Web Audio API · Vitest
+
+## Iconos de los ejercicios
+
+El catálogo está en [`src/icons.js`](src/icons.js). Para añadir un icono:
+
+1. Busca el nombre en [icones.js.org](https://icones.js.org) (conjuntos `mdi` o `game-icons`).
+2. Añade una entrada con la clase **escrita completa** (`icon-[mdi--karate]`): Tailwind solo genera el CSS de las clases que aparecen literalmente en el código.
+3. Ejecuta `npm test`: comprueba que el icono existe y que los ids no se repiten.
+
+Los iconos se compilan a máscaras CSS durante el build (sin peticiones en ejecución). Las licencias están en [`public/creditos.html`](public/creditos.html); Game Icons es CC BY 3.0 y exige atribución.
+

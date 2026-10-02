@@ -1,6 +1,10 @@
+import { addDynamicIconSelectors } from '@iconify/tailwind';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.js'],
+  // Clases icon-[conjunto--nombre]: máscaras CSS generadas en el build a partir de @iconify-json
+  plugins: [addDynamicIconSelectors()],
   theme: {
     extend: {
       fontFamily: {

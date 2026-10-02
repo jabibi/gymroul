@@ -243,29 +243,26 @@
                             <input type="text" id="newExShort" placeholder="Nombre corto" class="px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
                         </div>
                         <div class="flex items-center gap-2">
-                            <select id="newExIconSelect" class="px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500 flex-1">
-                                <option value="fa-dumbbell">🏋️ Pesas / Mancuerna</option>
-                                <option value="fa-fire">🔥 Fuego / Burpee</option>
-                                <option value="fa-person-running">🏃 Carrera / Sprints</option>
-                                <option value="fa-person-walking">🚶 Zancadas / Lunge</option>
-                                <option value="fa-child-reaching">🤸 Flexiones / Plancha</option>
-                                <option value="fa-bolt">⚡ Rayo / Escaladores</option>
-                                <option value="fa-angles-up">⏫ Saltos / Jumps</option>
-                                <option value="fa-heart-pulse">💓 Cardio / Pulsaciones</option>
-                                <option value="fa-stopwatch">⏱️ Cronómetro / Isométrico</option>
-                                <option value="fa-trophy">🏆 Reto / Especial</option>
-                                <option value="custom">✨ Escribir Emoji / Custom...</option>
-                            </select>
-                            <input type="text" id="newExIconCustom" placeholder="Ej: 🔥 o fa-bicycle" class="hidden px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500 flex-1">
+                            <button type="button" id="iconPickerBtn" data-action="toggle-icon-picker" aria-expanded="false" aria-controls="iconPicker" aria-label="Elegir icono" class="flex-1 min-w-0 flex items-center justify-between gap-2 px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white hover:border-slate-600">
+                                <span id="iconPickerCurrent" class="flex items-center gap-2 min-w-0 truncate"></span>
+                                <i class="fa-solid fa-chevron-down text-[10px] text-slate-500"></i>
+                            </button>
                             <button data-action="add-exercise" class="px-3 py-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all flex items-center gap-1 shrink-0">
                                 <i class="fa-solid fa-plus text-[10px]"></i> Crear
                             </button>
+                        </div>
+
+                        <!-- Selector de iconos: catálogo cerrado, sin texto libre -->
+                        <div id="iconPicker" class="hidden rounded-xl border border-slate-800 bg-dark-950/60 p-2 space-y-2">
+                            <input type="search" id="iconSearch" placeholder="Buscar: yoga, hyrox, boxeo, pesas…" autocomplete="off" aria-label="Buscar icono" class="w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                            <div id="iconGrid" class="grid grid-cols-6 gap-1.5 max-h-52 overflow-y-auto overscroll-contain pr-1"></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex justify-between items-center text-[11px]">
                     <a href="privacy.html" data-action="open-privacy" class="text-slate-400 underline">Política de privacidad</a>
+                    <a href="creditos.html" data-action="open-credits" class="text-slate-400 underline">Créditos</a>
                     <button data-action="show-consent" class="text-slate-400 underline">Preferencias de analítica</button>
                 </div>
             </div>
@@ -307,15 +304,15 @@
         </div>
     </div>
 
-    <!-- Visor de la política de privacidad (por encima de la pantalla de consentimiento) -->
-    <div id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" class="hidden fixed inset-0 z-[110] bg-dark-950 flex flex-col">
+    <!-- Visor de documentos: política de privacidad y créditos (por encima de la pantalla de consentimiento) -->
+    <div id="documentModal" role="dialog" aria-modal="true" aria-labelledby="documentTitle" class="hidden fixed inset-0 z-[110] bg-dark-950 flex flex-col">
         <div class="flex justify-between items-center px-5 py-3.5 glass-card border-b border-slate-800/80">
-            <h2 id="privacyTitle" class="font-black text-base text-white">Política de privacidad</h2>
-            <button data-action="close-privacy" aria-label="Cerrar política de privacidad" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+            <h2 id="documentTitle" class="font-black text-base text-white">Política de privacidad</h2>
+            <button data-action="close-document" aria-label="Cerrar" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
-        <iframe id="privacyFrame" data-src="privacy.html" title="Política de privacidad" class="flex-1 w-full bg-white border-0"></iframe>
+        <iframe id="documentFrame" title="Documento" class="flex-1 w-full bg-white border-0"></iframe>
     </div>
 
     <script type="module" src="/src/main.js"></script>

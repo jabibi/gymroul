@@ -1,6 +1,8 @@
 // @ts-check
 // Catálogo y selección activa de ejercicios/repeticiones, persistidos en localStorage
 
+import { isValidIcon, normalizeIcon, migrateLegacyIcon } from './icons.js';
+
 /** @typedef {import('./wheel-math.js').Exercise} Exercise */
 
 export const MAX_REPS = 12;
@@ -9,12 +11,12 @@ export const MAX_REP_VALUE = 500;
 
 /** @type {Exercise[]} */
 export const DEFAULT_EXERCISES = [
-  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'fa-fire', color: '#ef4444' },
-  { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'fa-person-walking', color: '#f97316' },
-  { id: '3', name: 'Push-up', shortName: 'Push-up', icon: 'fa-child-reaching', color: '#f59e0b' },
-  { id: '4', name: 'Air Squat', shortName: 'Squat', icon: 'fa-person-running', color: '#22c55e' },
-  { id: '5', name: 'Mountain Climbers', shortName: 'Climbers', icon: 'fa-bolt', color: '#06b6d4' },
-  { id: '6', name: 'Split Jumps', shortName: 'Split J', icon: 'fa-angles-up', color: '#8b5cf6' },
+  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'fire', color: '#ef4444' },
+  { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'walk', color: '#f97316' },
+  { id: '3', name: 'Push-up', shortName: 'Push-up', icon: 'push', color: '#f59e0b' },
+  { id: '4', name: 'Air Squat', shortName: 'Squat', icon: 'leg', color: '#22c55e' },
+  { id: '5', name: 'Mountain Climbers', shortName: 'Climbers', icon: 'run-fast', color: '#06b6d4' },
+  { id: '6', name: 'Split Jumps', shortName: 'Split J', icon: 'jump', color: '#8b5cf6' },
 ];
 export const DEFAULT_REPS = [10, 20, 30, 40, 50, 60];
 export const COLOR_PALETTE = ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'];
@@ -26,7 +28,7 @@ const KEY_ACTIVE_EXS = 'gymroulette_active_exs';
 const KEY_SCHEMA = 'gym_schema_version';
 
 /** Versión actual del esquema de datos guardados; sube al cambiar su formato */
-export const SCHEMA_VERSION = 1;
+export const SCHEMA_VERSION = 2;
 
 /** Selección activa (se muta con setActive/loadActive) */
 export const active = {
@@ -78,6 +80,11 @@ const MIGRATIONS = {
     writeStorage(KEY_EXERCISES, readStorage(KEY_EXERCISES, DEFAULT_EXERCISES, isExerciseList));
     writeStorage(KEY_REPS, readStorage(KEY_REPS, DEFAULT_REPS, isRepList));
   },
+  // v1 -> v2: los iconos pasan de nombres de Font Awesome / emojis libres al catálogo cerrado
+  1: () => {
+    const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
+    if (list) writeStorage(KEY_EXERCISES, list.map(e => ({ ...e, icon: migrateLegacyIcon(e.icon) })));
+  },
 };
 
 /** Aplica las migraciones pendientes y fija la versión actual. */
@@ -95,7 +102,8 @@ export function migrate() {
 
 /** @returns {Exercise[]} copia ordenada por nombre (no muta las constantes por defecto) */
 export function getExercises() {
-  const list = readStorage(KEY_EXERCISES, DEFAULT_EXERCISES, isExerciseList).map(e => ({ ...e }));
+  // Cualquier icono fuera del catálogo (datos manipulados o antiguos) se sustituye por el de por defecto
+  const list = readStorage(KEY_EXERCISES, DEFAULT_EXERCISES, isExerciseList).map(e => ({ ...e, icon: normalizeIcon(e.icon) }));
   return list.sort((a, b) => a.name.localeCompare(b.name, 'es', { sensitivity: 'base' }));
 }
 
@@ -152,12 +160,14 @@ export function pickColor(list) {
 
 /**
  * Crea un ejercicio nuevo y lo activa.
- * @param {{ name: string, shortName?: string, icon?: string }} input
+ * @param {{ name: string, shortName?: string, icon: string }} input
  * @returns {{ ok: true } | { ok: false, error: string }}
  */
 export function addExercise({ name, shortName, icon }) {
   name = (name || '').trim();
   if (!name) return { ok: false, error: 'Escribe un nombre para el ejercicio' };
+
+  if (!isValidIcon(icon)) return { ok: false, error: 'Elige un icono de la lista' };
 
   const list = getExercises();
   if (list.some(item => item.name.toLowerCase() === name.toLowerCase())) {
@@ -171,7 +181,7 @@ export function addExercise({ name, shortName, icon }) {
     id: Date.now().toString(),
     name,
     shortName: (shortName || '').trim() || name,
-    icon: icon || 'fa-dumbbell',
+    icon,
     color: pickColor(list),
   });
   saveExercises(list);

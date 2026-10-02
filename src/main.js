@@ -98,8 +98,11 @@ const actions = {
     ui.closeConfig();
   },
 
-  'open-privacy': () => ui.openPrivacy(),
-  'close-privacy': () => ui.closePrivacy(),
+  'open-privacy': () => ui.openDocument('privacy'),
+  'open-credits': () => ui.openDocument('credits'),
+  'close-document': () => ui.closeDocument(),
+  'toggle-icon-picker': () => ui.toggleIconPicker(),
+  'pick-icon': arg => arg && ui.pickIcon(arg),
   'show-consent': () => {
     ui.closeConfig();
     ui.setConsentGate(true);
@@ -129,13 +132,14 @@ if (Capacitor.isNativePlatform()) {
   });
 }
 
-document.getElementById('newExIconSelect')?.addEventListener('change', ui.toggleCustomIconInput);
+document.getElementById('iconSearch')?.addEventListener('input', e => ui.filterIcons(/** @type {HTMLInputElement} */ (e.target).value));
 
 function init() {
   migrate();
   loadActive();
   ui.initModals();
   ui.initKeyboardAvoidance();
+  ui.initIconPicker();
   ui.setCompletedHandler(ui.addToHistory);
 
   initWheel(/** @type {HTMLCanvasElement} */ (document.getElementById('wheelCanvas')), {

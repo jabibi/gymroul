@@ -3,6 +3,7 @@
 
 import { getExercises, getReps, active } from './store.js';
 import { playWinFanfare, vibrate } from './audio.js';
+import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
 
@@ -18,16 +19,13 @@ export function escapeHTML(value) {
   return String(value).replace(/[&<>"']/g, c => entities[c]);
 }
 
-/** @param {string} [iconStr] */
-export function renderIconHTML(iconStr) {
-  if (!iconStr) return '<i class="fa-solid fa-dumbbell"></i>';
-  if (iconStr.startsWith('fa-')) {
-    // Solo nombres de clase válidos de Font Awesome
-    return /^fa-[a-z0-9-]+$/.test(iconStr)
-      ? `<i class="fa-solid ${iconStr}"></i>`
-      : '<i class="fa-solid fa-dumbbell"></i>';
-  }
-  return `<span>${escapeHTML(iconStr)}</span>`;
+/**
+ * HTML del icono (máscara CSS que hereda el color del texto). Cualquier id desconocido se
+ * sustituye por el icono por defecto: nunca se pinta texto libre.
+ * @param {string} [iconId]
+ */
+export function renderIconHTML(iconId) {
+  return `<span class="${getIcon(iconId).cls}" aria-hidden="true"></span>`;
 }
 
 /** @type {ReturnType<typeof setTimeout> | undefined} */
@@ -57,7 +55,7 @@ export function updateLiveIndicator(seg) {
 // Cada modal que se abre añade una entrada al historial del navegador: así el botón
 // "Atrás" de Android (o del navegador) lo cierra en lugar de salir de la app.
 
-/** @typedef {'result' | 'history' | 'config' | 'privacy'} ModalName */
+/** @typedef {'result' | 'history' | 'config' | 'document'} ModalName */
 // Pila de modales abiertos (el último es el que está encima): la política de privacidad
 // puede abrirse sobre la configuración y Atrás debe cerrar primero la de arriba
 /** @type {ModalName[]} */
@@ -70,7 +68,7 @@ const closers = {
   result: () => closeResult(false),
   history: () => closeHistory(),
   config: () => closeConfig(),
-  privacy: () => closePrivacy(),
+  document: () => closeDocument(),
 };
 
 /** @param {ModalName} name */
@@ -273,7 +271,7 @@ export function renderConfig() {
       <label class="flex items-center gap-2 cursor-pointer flex-1">
         <input type="checkbox" value="${escapeHTML(ex.name)}" ${active.exercises.includes(ex.name) ? 'checked' : ''} class="ex-checkbox w-4 h-4 rounded text-brand-500 focus:ring-brand-500 bg-dark-900 border-slate-700">
         <span class="text-xs font-bold text-white flex items-center gap-2">
-          <span class="text-brand-400 w-4 text-center">${renderIconHTML(ex.icon)}</span>
+          <span class="text-brand-400 text-lg flex items-center">${renderIconHTML(ex.icon)}</span>
           ${escapeHTML(ex.name)}
         </span>
       </label>
@@ -310,34 +308,76 @@ export function readCheckedConfig() {
   return { reps, exercises };
 }
 
-export function toggleCustomIconInput() {
-  const select = /** @type {HTMLSelectElement} */ ($('newExIconSelect'));
-  const custom = /** @type {HTMLInputElement} */ ($('newExIconCustom'));
-  if (select.value === 'custom') {
-    custom.classList.remove('hidden');
-    custom.focus();
-  } else {
-    custom.classList.add('hidden');
+// --- Selector de iconos ----------------------------------------------------------------
+// Solo se puede elegir un icono del catálogo cerrado (src/icons.js); no hay entrada de texto libre.
+
+let selectedIcon = DEFAULT_ICON;
+
+function updateIconButton() {
+  const icon = getIcon(selectedIcon);
+  $('iconPickerCurrent').innerHTML = `<span class="text-brand-400 text-xl flex items-center">${renderIconHTML(icon.id)}</span><span>${escapeHTML(icon.label)}</span>`;
+}
+
+/** @param {string} [query] */
+function renderIconGrid(query = '') {
+  const matches = new Set(searchIcons(query).map(i => i.id));
+  const html = ICON_GROUPS.map(group => {
+    const icons = group.icons.filter(i => matches.has(i.id));
+    if (icons.length === 0) return '';
+    return `
+      <div class="col-span-full text-[10px] font-black uppercase tracking-wider text-slate-500 mt-2 first:mt-0">${escapeHTML(group.name)}</div>
+      ${icons.map(i => `
+        <button type="button" data-action="pick-icon" data-arg="${escapeHTML(i.id)}" title="${escapeHTML(i.label)}" aria-label="${escapeHTML(i.label)}" aria-pressed="${i.id === selectedIcon}"
+          class="aspect-square rounded-xl flex items-center justify-center text-xl border transition-colors ${i.id === selectedIcon ? 'bg-brand-500/25 border-brand-500 text-brand-400' : 'bg-dark-950 border-slate-800 text-slate-300 hover:border-slate-600'}">
+          ${renderIconHTML(i.id)}
+        </button>`).join('')}`;
+  }).join('');
+  $('iconGrid').innerHTML = html || '<p class="col-span-full text-center text-xs text-slate-500 py-4">No hay iconos para esa búsqueda</p>';
+}
+
+export function toggleIconPicker() {
+  const panel = $('iconPicker');
+  const open = panel.classList.contains('hidden');
+  panel.classList.toggle('hidden', !open);
+  $('iconPickerBtn').setAttribute('aria-expanded', String(open));
+  if (open) {
+    /** @type {HTMLInputElement} */ ($('iconSearch')).value = '';
+    renderIconGrid();
   }
+}
+
+/** @param {string} id */
+export function pickIcon(id) {
+  if (!isValidIcon(id)) return;
+  selectedIcon = id;
+  updateIconButton();
+  $('iconPicker').classList.add('hidden');
+  $('iconPickerBtn').setAttribute('aria-expanded', 'false');
+}
+
+/** @param {string} query */
+export function filterIcons(query) {
+  renderIconGrid(query);
 }
 
 /** Lee el formulario de nuevo ejercicio. */
 export function readNewExerciseForm() {
   const name = /** @type {HTMLInputElement} */ ($('newExName')).value.trim();
   const short = /** @type {HTMLInputElement} */ ($('newExShort')).value.trim();
-  const select = /** @type {HTMLSelectElement} */ ($('newExIconSelect'));
-  const custom = /** @type {HTMLInputElement} */ ($('newExIconCustom'));
-  const icon = select.value === 'custom' ? (custom.value.trim() || 'fa-dumbbell') : select.value;
-  return { name, shortName: short || name, icon };
+  return { name, shortName: short || name, icon: selectedIcon };
 }
 
 export function resetNewExerciseForm() {
   /** @type {HTMLInputElement} */ ($('newExName')).value = '';
   /** @type {HTMLInputElement} */ ($('newExShort')).value = '';
-  /** @type {HTMLSelectElement} */ ($('newExIconSelect')).value = 'fa-dumbbell';
-  const custom = /** @type {HTMLInputElement} */ ($('newExIconCustom'));
-  custom.value = '';
-  custom.classList.add('hidden');
+  selectedIcon = DEFAULT_ICON;
+  updateIconButton();
+  $('iconPicker').classList.add('hidden');
+  $('iconPickerBtn').setAttribute('aria-expanded', 'false');
+}
+
+export function initIconPicker() {
+  updateIconButton();
 }
 
 export const readNewRepValue = () => /** @type {HTMLInputElement} */ ($('newRepInput')).value;
@@ -387,21 +427,31 @@ export function initKeyboardAvoidance() {
   window.visualViewport?.addEventListener('resize', scheduleReveal);
 }
 
-// --- Política de privacidad ----------------------------------------------------------
-// Se muestra dentro de la app (iframe) en vez de navegar a privacy.html: así no se sale de la
-// página y el botón Atrás cierra el visor en lugar de cerrar la aplicación.
+// --- Documentos (política de privacidad, créditos) ----------------------------------------
+// Se muestran dentro de la app (iframe) en vez de navegar a la página: así no se sale de la
+// aplicación y el botón Atrás cierra el visor en lugar de cerrar la app.
 
-export function openPrivacy() {
-  const frame = /** @type {HTMLIFrameElement} */ ($('privacyFrame'));
-  if (!frame.getAttribute('src')) frame.setAttribute('src', frame.dataset.src || 'privacy.html');
-  $('privacyModal').classList.remove('hidden');
-  $('privacyModal').querySelector('button')?.focus({ preventScroll: true });
-  pushModal('privacy');
+/** @type {Record<'privacy' | 'credits', { src: string, title: string }>} */
+const DOCUMENTS = {
+  privacy: { src: 'privacy.html', title: 'Política de privacidad' },
+  credits: { src: 'creditos.html', title: 'Créditos y licencias' },
+};
+
+/** @param {'privacy' | 'credits'} kind */
+export function openDocument(kind) {
+  const doc = DOCUMENTS[kind];
+  const frame = /** @type {HTMLIFrameElement} */ ($('documentFrame'));
+  if (frame.getAttribute('src') !== doc.src) frame.setAttribute('src', doc.src);
+  frame.title = doc.title;
+  $('documentTitle').textContent = doc.title;
+  $('documentModal').classList.remove('hidden');
+  $('documentModal').querySelector('button')?.focus({ preventScroll: true });
+  pushModal('document');
 }
 
-export function closePrivacy() {
-  $('privacyModal').classList.add('hidden');
-  dismissModal('privacy');
+export function closeDocument() {
+  $('documentModal').classList.add('hidden');
+  dismissModal('document');
 }
 
 // --- Consentimiento ------------------------------------------------------------------
@@ -415,7 +465,7 @@ export function closePrivacy() {
 export function setConsentGate(visible, rejected = false) {
   $('consentGate').classList.toggle('hidden', !visible);
   $('consentRejected').classList.toggle('hidden', !(visible && rejected));
-  document.querySelectorAll('body > :not(#consentGate):not(#privacyModal):not(script)').forEach(el => {
+  document.querySelectorAll('body > :not(#consentGate):not(#documentModal):not(script)').forEach(el => {
     /** @type {HTMLElement} */ (el).inert = visible;
   });
   if (visible) /** @type {HTMLElement} */ (document.getElementById('consentAccept')).focus({ preventScroll: true });
