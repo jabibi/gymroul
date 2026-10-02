@@ -1,0 +1,7 @@
+Novedades de la versión 1.0.7:
+• Nuevo logo y nuevo estilo verde en toda la app.
+• Más de 100 iconos para tus ejercicios (fuerza, calistenia, yoga, boxeo, hyrox, crossfit…) con buscador, e iconos propios de flexiones, plancha, burpee y mountain climbers.
+• La app vibra al salir el resultado.
+• El gesto Atrás vuelve a la pantalla anterior en lugar de cerrar la app.
+• El teclado ya no tapa los campos al crear ejercicios.
+• Correcciones de errores y mejoras de rendimiento.
