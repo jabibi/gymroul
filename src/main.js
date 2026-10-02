@@ -1,6 +1,9 @@
 // @ts-check
 import './style.css';
 
+import { Capacitor } from '@capacitor/core';
+import { App as CapacitorApp } from '@capacitor/app';
+
 import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize } from './wheel.js';
 import { generateCombinations, CONFIG_SEGMENT } from './wheel-math.js';
 import {
@@ -116,6 +119,15 @@ document.addEventListener('click', e => {
   if (el.tagName === 'A') e.preventDefault(); // enlaces con acción: no navegar fuera de la app
   actions[/** @type {string} */ (el.dataset.action)]?.(el.dataset.arg);
 });
+
+// En Android la WebView no siempre conserva el historial de pushState, así que el botón/gesto
+// Atrás se gestiona aquí: vuelve al paso anterior (cierra el modal de encima) y solo sale de
+// la app cuando no queda nada que cerrar.
+if (Capacitor.isNativePlatform()) {
+  CapacitorApp.addListener('backButton', () => {
+    if (!ui.closeActiveModal()) CapacitorApp.exitApp();
+  });
+}
 
 document.getElementById('newExIconSelect')?.addEventListener('change', ui.toggleCustomIconInput);
 

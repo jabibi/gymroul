@@ -88,9 +88,15 @@ function dismissModal(name) {
   window.history.back();
 }
 
-function closeActiveModal() {
+/**
+ * Cierra el modal que está encima (equivale a "volver al paso anterior").
+ * @returns {boolean} true si había alguno abierto
+ */
+export function closeActiveModal() {
   const name = modalStack[modalStack.length - 1];
-  if (name) closers[name]();
+  if (!name) return false;
+  closers[name]();
+  return true;
 }
 
 /** @type {HTMLElement | null} */
