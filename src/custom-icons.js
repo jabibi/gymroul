@@ -1,7 +1,7 @@
 // @ts-check
 // Pictogramas propios (conjunto "gymroul") para ejercicios de suelo que no existen en MDI ni Game Icons.
 // Vista lateral, trazo redondeado y cabeza rellena. Las usa @iconify/tailwind como cualquier otro
-// conjunto: clase icon-[gymroul--nombre]. Se importa desde tailwind.config.js, por eso no depende
+// conjunto, con la clase de prefijo icon y entre corchetes gymroul, dos guiones y el nombre. Se importa desde tailwind.config.js, por eso no depende
 // de nada del navegador.
 
 // Atributos comunes del trazo; el grosor va aparte para no repetir el atributo (un SVG con

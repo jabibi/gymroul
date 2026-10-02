@@ -4,7 +4,7 @@ import { GYMROUL_ICONS } from './src/custom-icons.js';
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.js'],
-  // Clases icon-[conjunto--nombre]: máscaras CSS generadas en el build a partir de @iconify-json
+  // Clases de iconos (prefijo icon, conjunto y nombre separados por dos guiones): máscaras CSS generadas en el build a partir de @iconify-json
   plugins: [addDynamicIconSelectors({ iconSets: { gymroul: GYMROUL_ICONS } })],
   theme: {
     extend: {

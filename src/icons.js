@@ -3,7 +3,7 @@
 // Las etiquetas visibles y las palabras clave de búsqueda NO están aquí: viven en cada idioma
 // (src/i18n/locales/*.js, tabla "icons") para poder traducirlas.
 //
-// Cada entrada lleva la clase de @iconify/tailwind ESCRITA COMPLETA (icon-[conjunto--nombre]):
+// Cada entrada lleva la clase de @iconify/tailwind ESCRITA COMPLETA (prefijo icon, el conjunto y el nombre entre corchetes, separados por dos guiones):
 // Tailwind solo genera el CSS de las clases que aparecen literalmente en el código fuente, así
 // que no pueden construirse dinámicamente. Cada icono se compila a una máscara CSS (sin red).
 //
