@@ -4,82 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://firebase.googleapis.com https://firebaseinstallations.googleapis.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <title>GymRoulette - Gasteiz Trainning</title>
 </head>
 <body class="bg-dark-950 text-slate-100 h-full flex flex-col justify-between overflow-x-hidden">
 
     <header class="w-full py-3.5 px-5 glass-card border-b border-slate-800/80 flex justify-between items-center z-20 sticky top-0">
         <div class="flex items-center space-x-3">
-            <!-- Nuevo Logotipo Vectorial SVG -->
-            <div class="w-10 h-10 rounded-2xl overflow-hidden flex items-center justify-center shadow-lg shadow-brand-500/20 shrink-0 border border-slate-800">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-full h-full">
-                    <defs>
-                        <radialGradient id="bgGlow" cx="50%" cy="45%" r="65%">
-                            <stop offset="0%" stop-color="#1f2633"/>
-                            <stop offset="60%" stop-color="#0e121a"/>
-                            <stop offset="100%" stop-color="#080a0e"/>
-                        </radialGradient>
-                        <linearGradient id="centerBadge" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#ffffff"/>
-                            <stop offset="100%" stop-color="#d6dde5"/>
-                        </linearGradient>
-                    </defs>
-
-                    <!-- Fondo -->
-                    <rect width="512" height="512" rx="115" fill="url(#bgGlow)"/>
-
-                    <!-- Anillos y ruleta -->
-                    <circle cx="256" cy="256" r="163" fill="none" stroke="#ff551d" stroke-width="3"/>
-                    <circle cx="256" cy="256" r="150" fill="none" stroke="#141822" stroke-width="22"/>
-
-                    <!-- Sectores -->
-                    <path d="M 256,256 L 203.2,128.5 A 138,138 0 0,1 308.8,128.5 Z" fill="#ff551d"/>
-                    <path d="M 256,256 L 308.8,128.5 A 138,138 0 0,1 383.5,203.2 Z" fill="#242b37"/>
-                    <path d="M 256,256 L 383.5,203.2 A 138,138 0 0,1 383.5,308.8 Z" fill="#ffb11b"/>
-                    <path d="M 256,256 L 383.5,308.8 A 138,138 0 0,1 308.8,383.5 Z" fill="#242b37"/>
-                    <path d="M 256,256 L 308.8,383.5 A 138,138 0 0,1 203.2,383.5 Z" fill="#ff551d"/>
-                    <path d="M 256,256 L 203.2,383.5 A 138,138 0 0,1 128.5,308.8 Z" fill="#242b37"/>
-                    <path d="M 256,256 L 128.5,308.8 A 138,138 0 0,1 128.5,203.2 Z" fill="#ffb11b"/>
-                    <path d="M 256,256 L 128.5,203.2 A 138,138 0 0,1 203.2,128.5 Z" fill="#242b37"/>
-
-                    <circle cx="256" cy="256" r="138" fill="none" stroke="#141822" stroke-width="2"/>
-
-                    <!-- Tachuelas de borde -->
-                    <circle cx="256" cy="107" r="3.5" fill="#ffffff"/>
-                    <circle cx="313" cy="118" r="3" fill="#ffffff"/>
-                    <circle cx="361" cy="151" r="3.5" fill="#8d99ae"/>
-                    <circle cx="394" cy="199" r="3" fill="#ffffff"/>
-                    <circle cx="405" cy="256" r="3.5" fill="#ffffff"/>
-                    <circle cx="394" cy="313" r="3" fill="#ffffff"/>
-                    <circle cx="361" cy="361" r="3.5" fill="#8d99ae"/>
-                    <circle cx="313" cy="394" r="3" fill="#ffffff"/>
-                    <circle cx="256" cy="405" r="3.5" fill="#ffffff"/>
-                    <circle cx="199" cy="394" r="3" fill="#ffffff"/>
-                    <circle cx="151" cy="361" r="3.5" fill="#8d99ae"/>
-                    <circle cx="118" cy="313" r="3" fill="#ffffff"/>
-                    <circle cx="107" cy="256" r="3.5" fill="#ffffff"/>
-                    <circle cx="118" cy="199" r="3" fill="#ffffff"/>
-                    <circle cx="151" cy="151" r="3.5" fill="#8d99ae"/>
-                    <circle cx="199" cy="118" r="3" fill="#ffffff"/>
-
-                    <!-- Centro y Mancuerna -->
-                    <circle cx="256" cy="256" r="54" fill="url(#centerBadge)" stroke="#141822" stroke-width="5"/>
-                    <g transform="translate(256, 256) rotate(-38)">
-                        <rect x="-32" y="-4" width="64" height="8" rx="3" fill="#181d28"/>
-                        <rect x="-24" y="-14" width="6" height="28" rx="2" fill="#181d28"/>
-                        <rect x="-31" y="-19" width="7" height="38" rx="2.5" fill="#181d28"/>
-                        <rect x="-35" y="-10" width="4" height="20" rx="1.5" fill="#181d28"/>
-                        <rect x="18" y="-14" width="6" height="28" rx="2" fill="#181d28"/>
-                        <rect x="24" y="-19" width="7" height="38" rx="2.5" fill="#181d28"/>
-                        <rect x="31" y="-10" width="4" height="20" rx="1.5" fill="#181d28"/>
-                    </g>
-
-                    <!-- Puntero -->
-                    <g>
-                        <path d="M 238,82 L 274,82 L 256,138 Z" fill="#ffffff" stroke="#141822" stroke-width="4" stroke-linejoin="round"/>
-                        <circle cx="256" cy="94" r="4.5" fill="#ff551d"/>
-                    </g>
-                </svg>
+            <div class="w-10 h-10 rounded-2xl overflow-hidden shadow-lg shadow-brand-500/30 shrink-0">
+                <img src="favicon.svg" alt="" width="40" height="40" class="w-full h-full">
             </div>
             <div>
                 <h1 class="font-black text-lg tracking-tight bg-gradient-to-r from-white via-slate-200 to-amber-300 bg-clip-text text-transparent">GymRoulette</h1>

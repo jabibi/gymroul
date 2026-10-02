@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit -p jsconfig.json",
     "cap:sync": "cap sync android",
     "deploy": "npm run build && firebase deploy --only hosting",
-    "build:android": "npm run build && npm run cap:sync"
+    "build:android": "npm run build && npm run cap:sync",
+    "icons": "node scripts/build-icons.mjs && capacitor-assets generate --android"
   },
   "keywords": [],
   "type": "module",

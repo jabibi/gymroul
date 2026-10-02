@@ -31,6 +31,8 @@ src/
   style.css            Tailwind + fuentes + iconos
 public/                privacy.html, borrar-datos.html, creditos.html y 404.html (se copian tal cual al build)
 test/                  Tests con Vitest
+scripts/               build-icons.mjs: genera el logo y los recursos de iconos/splash
+assets/                Logo y PNG de iconos/splash generados (fuente: scripts/build-icons.mjs)
 www/                   Salida del build (no versionada; la usan Firebase y Capacitor)
 android/               Proyecto Android generado por Capacitor
 firebase.json          Hosting: cabeceras de seguridad y caché
@@ -82,11 +84,13 @@ Generar el bundle de release (la firma no está configurada en el repositorio; u
 cd android && ./gradlew bundleRelease
 ```
 
-Regenerar iconos y splash desde `assets/icon.png`:
+Regenerar el logo, los iconos del lanzador y la pantalla de bienvenida:
 
 ```bash
-npx capacitor-assets generate --android
+npm run icons
 ```
+
+Un solo diseño (la ruleta) vive en [`scripts/build-icons.mjs`](scripts/build-icons.mjs). El script escribe en `assets/` los PNG que consume `@capacitor/assets` (`icon-only`, `icon-foreground`, `icon-background`, `splash` y `splash-dark`), más `assets/logo.svg` y `public/favicon.svg` (cabecera de la app y pestaña del navegador), y a continuación ejecuta `capacitor-assets generate --android`. Para cambiar colores o forma del logo, edita ese script, no los PNG. Después, `npm run build:android` para llevarlo a la app.
 
 ## Seguridad y privacidad
 
