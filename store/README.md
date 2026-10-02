@@ -1,45 +1,69 @@
 # Recursos de la ficha de Google Play
 
-Todo lo necesario para la ficha de GymRoulette, en español. Los gráficos se generan solos desde la app y los textos están escritos a mano.
+Una carpeta por idioma de Play Console, con **título, descripción breve, descripción completa, novedades de la versión,
+gráfico de funciones y capturas de teléfono** de ese idioma. El icono es el mismo para todos. Este archivo lo genera
+`npm run store`; el texto de cada ficha está en [`listing.mjs`](listing.mjs).
 
 ```
 store/
-├── graficos/
-│   ├── icon.png                              Icono de la aplicación, 512 x 512
-│   └── grafico-de-funciones-1024x500.png     Gráfico de funciones, 1024 x 500
-├── capturas-telefono/                        Capturas de teléfono, 1080 x 1920 (9:16)
-│   ├── 01-ruleta.png
-│   ├── 02-resultado.png
-│   ├── 03-historial.png
-│   ├── 04-configuracion.png
-│   ├── 05-selector-de-iconos.png
-│   └── 06-busqueda-de-iconos.png
-└── textos/
-    ├── titulo.txt                  (11 de 30 caracteres)
-    ├── descripcion-corta.txt       (75 de 80)
-    ├── descripcion-completa.txt    (1923 de 4000)
-    ├── notas-de-la-version.txt     (474 de 500)
-    └── datos-de-la-ficha.md        Enlaces, clasificación y Seguridad de los datos
+├── icon.png                                 Icono de la aplicación, 512 x 512 (común a todos los idiomas)
+├── datos-de-la-ficha.md                     Enlaces, clasificación y Seguridad de los datos
+├── listing.mjs                              Fuente de los textos de cada idioma
+└── <idioma de Play>/                        en-US, en-GB, es-ES, es-419, eu-ES, gl-ES, ca, fr-FR, fr-CA, pt-BR, pt-PT
+    ├── grafico-de-funciones-1024x500.png    Gráfico de funciones con el texto traducido
+    ├── capturas-telefono/                   Seis capturas 1080 x 1920 (9:16) con la app en ese idioma
+    └── textos/
+        ├── titulo.txt                       Nombre de la aplicación
+        ├── descripcion-corta.txt            Descripción breve
+        ├── descripcion-completa.txt         Descripción completa
+        └── notas-de-la-version.txt          Novedades de esta versión
 ```
 
-## Dónde sube cada cosa en Play Console
+## Idiomas y longitud de los textos
+| Carpeta | Idioma en Play Console | Descripción breve | Descripción completa | Novedades |
+|---|---|---|---|---|
+| `en-US` | Inglés (Estados Unidos) | 68/80 | 1968/4000 | 424/500 |
+| `en-GB` | Inglés (Reino Unido) | 68/80 | 1968/4000 | 424/500 |
+| `es-ES` | Español (España) | 75/80 | 2094/4000 | 489/500 |
+| `es-419` | Español (Latinoamérica) | 75/80 | 2100/4000 | 489/500 |
+| `eu-ES` | Euskera | 74/80 | 2187/4000 | 486/500 |
+| `gl-ES` | Gallego | 76/80 | 2066/4000 | 475/500 |
+| `ca` | Catalán | 74/80 | 2066/4000 | 464/500 |
+| `fr-FR` | Francés (Francia) | 77/80 | 2247/4000 | 478/500 |
+| `fr-CA` | Francés (Canadá) | 77/80 | 2249/4000 | 478/500 |
+| `pt-BR` | Portugués (Brasil) | 75/80 | 2062/4000 | 433/500 |
+| `pt-PT` | Portugués (Portugal) | 75/80 | 2099/4000 | 466/500 |
+
+## Dónde sube cada archivo en Play Console
+En **Presencia en Google Play Store → Fichas de Play Store**, elige el idioma arriba (*Gestionar idiomas* para añadirlos) y rellena:
+
 | Archivo | Campo de la consola |
 |---|---|
-| `graficos/icon.png` | Ficha de Play Store principal → Icono de la aplicación |
-| `graficos/grafico-de-funciones-1024x500.png` | Ficha de Play Store principal → Gráfico de funciones |
-| `capturas-telefono/*.png` | Recursos para teléfono → Capturas de pantalla de teléfonos (entre 2 y 8) |
-| `textos/titulo.txt` | Nombre de la aplicación |
-| `textos/descripcion-corta.txt` | Breve descripción |
-| `textos/descripcion-completa.txt` | Descripción completa |
-| `textos/notas-de-la-version.txt` | Novedades de esta versión (en la pantalla de la versión) |
+| `icon.png` | Recursos visuales comunes → Icono de la aplicación |
+| `<idioma>/textos/titulo.txt` | Nombre de la aplicación |
+| `<idioma>/textos/descripcion-corta.txt` | Descripción breve |
+| `<idioma>/textos/descripcion-completa.txt` | Descripción completa |
+| `<idioma>/grafico-de-funciones-1024x500.png` | Gráfico de funciones |
+| `<idioma>/capturas-telefono/*.png` | Capturas de pantalla de teléfonos (entre 2 y 8) |
+| `<idioma>/textos/notas-de-la-version.txt` | Novedades de esta versión (al crear la versión; hay que pegarlas por idioma) |
+
+Recomendación: deja **en-US** como idioma predeterminado, porque es el que ve quien tenga un idioma que no hayas añadido.
 
 ## Requisitos de Google Play que cumplen
 - Icono: PNG de 32 bits con canal alfa, 512 x 512 px, menos de 1 MB.
 - Gráfico de funciones: PNG sin canal alfa, 1024 x 500 px.
 - Capturas de teléfono: PNG sin canal alfa, relación 9:16 y lados entre 320 y 3840 px, menos de 8 MB cada una.
+- Título hasta 30 caracteres, descripción breve hasta 80, completa hasta 4000 y novedades hasta 500 (lo comprueba `npm test`).
 
-## Regenerar los gráficos
+## Regenerar
 ```bash
-npm run store
+npm run store                                  # todos los idiomas
+npm run store -- --only=es-ES,en-US            # solo algunos (códigos de Play)
 ```
-Compila la app y la renderiza con Chrome sin interfaz y sin red: no se envía nada a Google Analytics. Si Chrome no está en `/usr/bin/google-chrome`, indica su ruta con `CHROME_PATH=/ruta/a/chrome npm run store`. Las capturas son siempre de la app real; si cambias la interfaz, vuelve a ejecutarlo.
+Compila la app y la renderiza con Chrome sin interfaz y sin red: no se envía nada a Google Analytics. Si Chrome no está en
+`/usr/bin/google-chrome`, indica su ruta con `CHROME_PATH=/ruta/a/chrome npm run store`. Las capturas son de la app real y salen en
+el idioma de cada ficha; si cambias la interfaz o los textos, vuelve a ejecutarlo.
+
+## Revisión de las traducciones
+Las traducciones al euskera, gallego y catalán, y los textos legales de todos los idiomas, conviene que los revise una persona
+nativa antes de publicar. Las páginas de privacidad no son asesoramiento jurídico.

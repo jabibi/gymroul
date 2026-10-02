@@ -5,11 +5,12 @@
 |---|---|
 | Política de privacidad | https://gymroul.web.app/privacy.html |
 | Eliminación de datos | https://gymroul.web.app/borrar-datos.html |
+| Créditos | https://gymroul.web.app/creditos.html |
 | Correo de contacto | javimelex@gmail.com |
 | Identificador de la app | eus.jabibi.gymroul |
 | Versión | 1.0.7 (versionCode 7) |
 
-Las dos páginas existen solo después de desplegar la web (`npm run deploy`).
+Las páginas existen solo después de desplegar la web (`npm run deploy`). Cada una contiene los ocho idiomas y muestra el del navegador del visitante, con un selector arriba; la misma URL vale para todas las fichas. Se puede forzar uno con `?lang=eu`.
 
 ## Clasificación
 - Categoría actual en la consola: Aplicación de entretenimiento. «Salud y bienestar» también encaja si prefieres esa.

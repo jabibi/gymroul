@@ -10,6 +10,7 @@ Disponible como aplicación web (Firebase Hosting) y como app Android (Capacitor
 - Sectores generados automáticamente: repeticiones activas × ejercicios activos (por defecto 6 × 6 = 36).
 - Configuración editable: activar/desactivar, crear y eliminar ejercicios (nombre, nombre corto, icono) y repeticiones (máx. 12 de cada).
 - Selector con ≈100 iconos de muchas disciplinas (fuerza, calistenia, cardio, Hyrox, CrossFit, OCR, artes marciales, yoga, pilates, tai chi, deportes…) con búsqueda; no se admite texto libre ni emojis.
+- Interfaz en 11 idiomas: inglés (EE. UU. y Reino Unido), español (España y Latinoamérica), euskera, gallego, catalán, francés (Francia y Canadá) y portugués (Brasil y Portugal). Se elige según el dispositivo y se puede cambiar en Configuración.
 - Historial de la sesión con los retos completados.
 - La configuración se guarda en `localStorage` (con versión de esquema y migraciones).
 - Funciona sin conexión: Tailwind, Font Awesome y la fuente van empaquetados.
@@ -26,12 +27,15 @@ src/
   wheel.js             Canvas, física y arrastre
   ui.js                Modales (con soporte de botón Atrás), historial, configuración
   icons.js             Catálogo cerrado de iconos (≈100) y búsqueda
+  i18n/                Idiomas: índice, detección y locales/ (un archivo por idioma; las variantes regionales solo redefinen lo que cambia)
   audio.js             Sonido y vibración (háptica nativa en Android)
   analytics.js         Consentimiento y carga diferida de Firebase Analytics
   style.css            Tailwind + fuentes + iconos
-public/                privacy.html, borrar-datos.html, creditos.html y 404.html (se copian tal cual al build)
+legal/                 Contenido de las páginas legales por idioma (fuente de public/*.html)
+public/                Páginas legales generadas (privacy, borrar-datos, creditos, 404), legal.js, favicon
+store/                 Ficha de Google Play por idioma: textos, gráfico de funciones y capturas (npm run store)
 test/                  Tests con Vitest
-scripts/               build-icons.mjs: genera el logo y los recursos de iconos/splash
+scripts/               build-icons.mjs (logo e iconos), build-legal.mjs (páginas legales), build-store-assets.mjs (ficha de Play)
 assets/                Logo y PNG de iconos/splash generados (fuente: scripts/build-icons.mjs)
 www/                   Salida del build (no versionada; la usan Firebase y Capacitor)
 android/               Proyecto Android generado por Capacitor
@@ -111,4 +115,18 @@ El catálogo está en [`src/icons.js`](src/icons.js). Para añadir un icono:
 3. Ejecuta `npm test`: comprueba que el icono existe y que los ids no se repiten.
 
 Los iconos se compilan a máscaras CSS durante el build (sin peticiones en ejecución). Las licencias están en [`public/creditos.html`](public/creditos.html); Game Icons es CC BY 3.0 y exige atribución.
+
+## Idiomas
+
+Los textos de la interfaz están en `src/i18n/locales/<idioma>.js` (el inglés es la fuente de verdad y el respaldo). Para añadir o cambiar un texto:
+
+1. Añade la clave en `en.js` y úsala con `t('clave')` en el código o con `data-i18n="clave"` en `index.html`.
+2. Tradúcela en todos los idiomas; `npm test` falla si falta alguna clave, si cambian los parámetros `{x}` o si falta la etiqueta de algún icono.
+3. Las variantes regionales (`en-GB`, `es-419`, `fr-CA`, `pt-PT`) heredan de su idioma base: solo hay que escribir lo que difiere.
+
+El buscador de iconos mira las etiquetas y palabras clave de **todos** los idiomas, así que «boxeo», «boxing» y «boxe» encuentran el mismo icono.
+
+Las páginas legales (`legal/*.mjs` → `public/*.html`) contienen todos los idiomas en cada página y muestran el que pide `?lang=` o el del navegador. Tras editarlas, `npm run legal` (o `npm run build`) las regenera.
+
+La ficha de Google Play de cada idioma, con sus capturas, se genera con `npm run store`; ver [`store/README.md`](store/README.md).
 
