@@ -53,7 +53,8 @@ npm run dev
 | `npm run build` | Compila la app a `www/` |
 | `npm test` | Ejecuta los tests (Vitest) |
 | `npm run typecheck` | Comprueba los tipos JSDoc con `tsc` |
-| `npm run cap:sync` | `build` + `cap sync android` |
+| `npm run cap:sync` | Solo `cap sync android` (copia `www/` al proyecto Android, sin compilar) |
+| `npm run build:android` | `build` + `cap:sync`: compila en `www/` y sincroniza Android |
 | `npm run deploy` | `build` + `firebase deploy --only hosting` |
 
 ## Despliegue web
@@ -66,10 +67,10 @@ El proyecto de Firebase por defecto es `gymroul` (ver `.firebaserc`).
 
 ## App Android
 
-Tras cualquier cambio, sincroniza la copia de Android (compila primero):
+Tras cualquier cambio, compila y sincroniza la copia de Android:
 
 ```bash
-npm run cap:sync
+npm run build:android
 npx cap open android
 ```
 

@@ -8,8 +8,9 @@
     "build": "vite build",
     "test": "vitest run",
     "typecheck": "tsc --noEmit -p jsconfig.json",
-    "cap:sync": "npm run build && cap sync android",
-    "deploy": "npm run build && firebase deploy --only hosting"
+    "cap:sync": "cap sync android",
+    "deploy": "npm run build && firebase deploy --only hosting",
+    "build:android": "npm run build && npm run cap:sync"
   },
   "keywords": [],
   "type": "module",
