@@ -1,5 +1,8 @@
 // Sonido (Web Audio) y vibración
 
+import { Capacitor } from '@capacitor/core';
+import { Haptics, NotificationType } from '@capacitor/haptics';
+
 /** @type {AudioContext | null} */
 let audioCtx = null;
 let soundEnabled = true;
@@ -64,8 +67,19 @@ export function playWinFanfare() {
   } catch (e) { /* audio no disponible */ }
 }
 
-/** @param {number | number[]} pattern */
+/**
+ * Vibración. En la app Android se usa el plugin nativo (Vibrator del sistema), que es más fiable
+ * que navigator.vibrate dentro de la WebView; en la web se mantiene navigator.vibrate.
+ * @param {number | number[]} pattern duración en ms o patrón (se interpreta como "éxito")
+ */
 export function vibrate(pattern = 15) {
+  if (Capacitor.isNativePlatform()) {
+    const action = Array.isArray(pattern)
+      ? Haptics.notification({ type: NotificationType.Success })
+      : Haptics.vibrate({ duration: pattern });
+    action.catch(() => { /* sin vibrador o desactivado en el sistema */ });
+    return;
+  }
   if (navigator.vibrate) {
     try { navigator.vibrate(pattern); } catch (e) { /* vibración no disponible */ }
   }
