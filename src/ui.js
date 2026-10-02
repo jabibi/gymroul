@@ -101,13 +101,14 @@ export function closeActiveModal() {
 let lastFocused = null;
 
 /**
- * Mueve el foco al modal al abrirlo y lo devuelve al elemento anterior al cerrarlo.
+ * Mueve el foco al propio diálogo (no a un botón: el anillo de foco quedaba pintado en el primer
+ * botón) al abrirlo y lo devuelve al elemento anterior al cerrarlo.
  * @param {HTMLElement} modal @param {boolean} visible
  */
 function manageFocus(modal, visible) {
   if (visible) {
     lastFocused = /** @type {HTMLElement | null} */ (document.activeElement);
-    modal.querySelector('button')?.focus({ preventScroll: true });
+    modal.focus({ preventScroll: true });
   } else if (lastFocused) {
     lastFocused.focus({ preventScroll: true });
     lastFocused = null;
@@ -445,7 +446,7 @@ export function openDocument(kind) {
   frame.title = doc.title;
   $('documentTitle').textContent = doc.title;
   $('documentModal').classList.remove('hidden');
-  $('documentModal').querySelector('button')?.focus({ preventScroll: true });
+  $('documentModal').focus({ preventScroll: true });
   pushModal('document');
 }
 
@@ -468,5 +469,5 @@ export function setConsentGate(visible, rejected = false) {
   document.querySelectorAll('body > :not(#consentGate):not(#documentModal):not(script)').forEach(el => {
     /** @type {HTMLElement} */ (el).inert = visible;
   });
-  if (visible) /** @type {HTMLElement} */ (document.getElementById('consentAccept')).focus({ preventScroll: true });
+  if (visible) $('consentGate').focus({ preventScroll: true });
 }

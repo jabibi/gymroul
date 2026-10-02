@@ -137,7 +137,7 @@
     </main>
 
     <!-- Modal de Resultado -->
-    <div id="resultModal" role="dialog" aria-modal="true" aria-labelledby="winnerText" aria-hidden="true" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div id="resultModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="winnerText" aria-hidden="true" class="outline-none fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
         <div class="glass-card w-full max-w-sm rounded-3xl p-6 text-center transform scale-90 transition-transform duration-300 shadow-2xl border border-brand-500/50 glow-brand" id="resultCard">
             <div id="winnerIconContainer" class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
                 <i id="winnerIcon" class="fa-solid fa-fire"></i>
@@ -163,7 +163,7 @@
     </div>
 
     <!-- Modal de Historial -->
-    <div id="historyModal" role="dialog" aria-modal="true" aria-labelledby="historyTitle" aria-hidden="true" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div id="historyModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="historyTitle" aria-hidden="true" class="outline-none fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
         <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-6 max-h-[80dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="historyCard">
             <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-800">
                 <div class="flex items-center gap-2.5">
@@ -187,7 +187,7 @@
     </div>
 
     <!-- Modal de Configuración & CRUD -->
-    <div id="configModal" role="dialog" aria-modal="true" aria-labelledby="configTitle" aria-hidden="true" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div id="configModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="configTitle" aria-hidden="true" class="outline-none fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
         <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 sm:p-6 max-h-[calc(100dvh-0.5rem)] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="configCard">
             <div class="flex justify-between items-center mb-3 pb-3 border-b border-slate-800">
                 <div class="flex items-center gap-2.5">
@@ -281,7 +281,7 @@
     </div>
 
     <!-- Consentimiento obligatorio: mientras esté visible, el resto de la app queda oculto y bloqueado -->
-    <div id="consentGate" role="dialog" aria-modal="true" aria-labelledby="consentTitle" class="hidden fixed inset-0 z-[100] bg-dark-950 flex items-center justify-center p-4">
+    <div id="consentGate" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="consentTitle" class="outline-none hidden fixed inset-0 z-[100] bg-dark-950 flex items-center justify-center p-4">
         <div class="glass-card w-full max-w-sm rounded-3xl p-6 text-center shadow-2xl border border-brand-500/50 glow-brand">
             <div class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
                 <i class="fa-solid fa-chart-line"></i>
@@ -305,7 +305,7 @@
     </div>
 
     <!-- Visor de documentos: política de privacidad y créditos (por encima de la pantalla de consentimiento) -->
-    <div id="documentModal" role="dialog" aria-modal="true" aria-labelledby="documentTitle" class="hidden fixed inset-0 z-[110] bg-dark-950 flex flex-col">
+    <div id="documentModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="documentTitle" class="outline-none hidden fixed inset-0 z-[110] bg-dark-950 flex flex-col">
         <div class="flex justify-between items-center px-5 py-3.5 glass-card border-b border-slate-800/80">
             <h2 id="documentTitle" class="font-black text-base text-white">Política de privacidad</h2>
             <button data-action="close-document" aria-label="Cerrar" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
