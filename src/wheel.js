@@ -1,7 +1,8 @@
 // @ts-check
 // Render (canvas), física y arrastre de la ruleta
 
-import { getWinningIndex, normalizeDelta } from './wheel-math.js';
+import { getWinningIndex, normalizeDelta, CONFIG_SEGMENT } from './wheel-math.js';
+import { t } from './i18n/index.js';
 import { initAudio, playTickSound } from './audio.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
@@ -94,7 +95,9 @@ function buildCache() {
     c.font = `800 ${fontSize}px 'Plus Jakarta Sans', sans-serif`;
     c.shadowColor = 'rgba(0, 0, 0, 0.9)';
     c.shadowBlur = 4;
-    const label = total >= 24 ? `${segments[i].reps} ${segments[i].shortName}` : segments[i].text;
+    const label = segments[i] === CONFIG_SEGMENT
+      ? t('wheel.setup')
+      : total >= 24 ? `${segments[i].reps} ${segments[i].shortName}` : segments[i].text;
     c.fillText(label, radius - 16, 0);
     c.restore();
   }
@@ -149,6 +152,12 @@ function checkTick() {
     playTickSound();
     lastTickIndex = index;
   }
+}
+
+/** Vuelve a dibujar las etiquetas (p. ej. al cambiar de idioma el sector de configuración). */
+export function refreshLabels() {
+  cacheDirty = true;
+  draw();
 }
 
 export function resize() {

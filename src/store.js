@@ -3,7 +3,12 @@
 
 import { isValidIcon, normalizeIcon, migrateLegacyIcon } from './icons.js';
 
-/** @typedef {import('./wheel-math.js').Exercise} Exercise */
+/**
+ * @typedef {import('./wheel-math.js').Exercise} Exercise
+ * Error traducible: la clave (src/i18n/locales/*.js, 'error.*') y sus parámetros
+ * @typedef {{ key: string, params?: Record<string, string | number> }} StoreError
+ * @typedef {{ ok: true } | { ok: false, error: StoreError }} StoreResult
+ */
 
 export const MAX_REPS = 12;
 export const MAX_EXERCISES = 12;
@@ -183,20 +188,20 @@ export function pickColor(list) {
 /**
  * Crea un ejercicio nuevo y lo activa.
  * @param {{ name: string, shortName?: string, icon: string }} input
- * @returns {{ ok: true } | { ok: false, error: string }}
+ * @returns {StoreResult}
  */
 export function addExercise({ name, shortName, icon }) {
   name = (name || '').trim();
-  if (!name) return { ok: false, error: 'Escribe un nombre para el ejercicio' };
+  if (!name) return { ok: false, error: { key: 'error.nameRequired' } };
 
-  if (!isValidIcon(icon)) return { ok: false, error: 'Elige un icono de la lista' };
+  if (!isValidIcon(icon)) return { ok: false, error: { key: 'error.iconRequired' } };
 
   const list = getExercises();
   if (list.some(item => item.name.toLowerCase() === name.toLowerCase())) {
-    return { ok: false, error: `Ya existe un ejercicio llamado "${name}"` };
+    return { ok: false, error: { key: 'error.duplicateExercise', params: { name } } };
   }
   if (list.length >= MAX_EXERCISES) {
-    return { ok: false, error: `Máximo ${MAX_EXERCISES} ejercicios` };
+    return { ok: false, error: { key: 'error.maxExercises', params: { max: MAX_EXERCISES } } };
   }
 
   list.push({
@@ -228,16 +233,16 @@ export function removeExercise(id) {
 
 /**
  * @param {string | number} value
- * @returns {{ ok: true } | { ok: false, error: string }}
+ * @returns {StoreResult}
  */
 export function addRep(value) {
   const num = parseInt(String(value), 10);
   if (isNaN(num) || num <= 0 || num > MAX_REP_VALUE) {
-    return { ok: false, error: `Introduce un número entre 1 y ${MAX_REP_VALUE}` };
+    return { ok: false, error: { key: 'error.repRange', params: { max: MAX_REP_VALUE } } };
   }
   const list = getReps();
-  if (list.includes(num)) return { ok: false, error: `Ya existe la repetición ${num}` };
-  if (list.length >= MAX_REPS) return { ok: false, error: `Máximo ${MAX_REPS} repeticiones` };
+  if (list.includes(num)) return { ok: false, error: { key: 'error.duplicateRep', params: { n: num } } };
+  if (list.length >= MAX_REPS) return { ok: false, error: { key: 'error.maxReps', params: { max: MAX_REPS } } };
 
   list.push(num);
   saveReps(list);

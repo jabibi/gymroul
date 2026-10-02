@@ -4,6 +4,7 @@
 import { getExercises, getReps, active } from './store.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
 import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
+import { t, getLanguage, getLanguageTag, groupName, iconLabel, LANGUAGES } from './i18n/index.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
 
@@ -48,7 +49,7 @@ export function setSoundIcon(enabled) {
 /** @param {Segment | undefined} seg */
 export function updateLiveIndicator(seg) {
   if (!seg) return;
-  $('liveIndicatorText').textContent = seg.reps > 0 ? `👉 ${seg.reps} ${seg.exercise} 👈` : '👉 Configurar Ruleta 👈';
+  $('liveIndicatorText').textContent = seg.reps > 0 ? `👉 ${seg.reps} ${seg.exercise} 👈` : `👉 ${t('live.configure')} 👈`;
 }
 
 // --- Modales con soporte del botón Atrás -----------------------------------------------
@@ -164,7 +165,7 @@ export function showResult(winner) {
 
   $('winnerIconContainer').innerHTML = renderIconHTML(winner.icon);
   $('winnerText').textContent = `${winner.reps} ${winner.exercise}`;
-  $('winnerDesc').textContent = `¡Excelente reto! Realiza ${winner.reps} repeticiones de ${winner.exercise} con perfecta técnica.`;
+  $('winnerDesc').textContent = t('result.desc', { reps: winner.reps, exercise: winner.exercise });
 
   $('resultModal').classList.remove('opacity-0', 'pointer-events-none');
   $('resultCard').classList.remove('scale-90');
@@ -176,7 +177,7 @@ export function showResult(winner) {
   pushModal('result');
 }
 
-// Solo los retos confirmados con "¡Completado!" pasan al historial
+// Solo los retos confirmados con el botón de completado pasan al historial
 /** @param {boolean} completed */
 export function closeResult(completed) {
   if (completed && pendingWinner) onCompleted?.(pendingWinner);
@@ -201,7 +202,7 @@ export function addToHistory(winner) {
     text: `${winner.reps} ${winner.exercise}`,
     reps: winner.reps,
     exercise: winner.exercise,
-    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    time: new Date().toLocaleTimeString(getLanguageTag(), { hour: '2-digit', minute: '2-digit' }),
   });
   renderHistory();
 }
@@ -218,18 +219,18 @@ export function renderHistory() {
 
   if (sessionHistory.length === 0) {
     badge.classList.add('hidden');
-    total.textContent = '0 completados';
+    total.textContent = t('history.total', { n: 0 });
     listEl.innerHTML = `
       <div class="text-center py-8 text-slate-500 text-xs">
         <i class="fa-solid fa-clipboard-list text-2xl mb-2 block opacity-40"></i>
-        Aún no has registrado ejercicios hoy. ¡Gira la ruleta!
+        ${escapeHTML(t('history.empty'))}
       </div>`;
     return;
   }
 
   badge.textContent = String(sessionHistory.length);
   badge.classList.remove('hidden');
-  total.textContent = `${sessionHistory.length} completados en sesión`;
+  total.textContent = t('history.total', { n: sessionHistory.length });
   listEl.innerHTML = sessionHistory.map(h => `
     <div class="bg-dark-900 border border-slate-800 rounded-2xl p-3 flex justify-between items-center">
       <div class="flex items-center gap-3">
@@ -239,7 +240,7 @@ export function renderHistory() {
           <span class="text-[10px] text-slate-400 font-medium">${escapeHTML(h.time)}</span>
         </div>
       </div>
-      <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black border border-emerald-500/20">¡Completado!</span>
+      <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black border border-emerald-500/20">${escapeHTML(t('history.done'))}</span>
     </div>`).join('');
 }
 
@@ -260,9 +261,9 @@ export function renderConfig() {
     <div class="flex items-center justify-between p-2 rounded-xl bg-dark-950 border border-slate-800">
       <label class="flex items-center gap-2 cursor-pointer flex-1">
         <input type="checkbox" value="${rep}" ${active.reps.includes(rep) ? 'checked' : ''} class="rep-checkbox w-4 h-4 rounded text-brand-500 focus:ring-brand-500 bg-dark-900 border-slate-700">
-        <span class="text-xs font-bold text-white">${rep} reps</span>
+        <span class="text-xs font-bold text-white">${escapeHTML(t('config.repLabel', { n: rep }))}</span>
       </label>
-      <button data-action="delete-rep" data-arg="${rep}" aria-label="Eliminar ${rep} repeticiones" class="text-slate-500 hover:text-red-400 p-1 text-xs transition-colors">
+      <button data-action="delete-rep" data-arg="${rep}" aria-label="${escapeHTML(t('config.deleteRep', { n: rep }))}" class="text-slate-500 hover:text-red-400 p-1 text-xs transition-colors">
         <i class="fa-solid fa-trash-can"></i>
       </button>
     </div>`).join('');
@@ -276,7 +277,7 @@ export function renderConfig() {
           ${escapeHTML(ex.name)}
         </span>
       </label>
-      <button data-action="delete-exercise" data-arg="${escapeHTML(ex.id)}" aria-label="Eliminar ${escapeHTML(ex.name)}" class="text-slate-500 hover:text-red-400 p-1 text-xs transition-colors">
+      <button data-action="delete-exercise" data-arg="${escapeHTML(ex.id)}" aria-label="${escapeHTML(t('config.deleteExercise', { name: ex.name }))}" class="text-slate-500 hover:text-red-400 p-1 text-xs transition-colors">
         <i class="fa-solid fa-trash-can"></i>
       </button>
     </div>`).join('');
@@ -316,7 +317,7 @@ let selectedIcon = DEFAULT_ICON;
 
 function updateIconButton() {
   const icon = getIcon(selectedIcon);
-  $('iconPickerCurrent').innerHTML = `<span class="text-brand-400 text-xl flex items-center">${renderIconHTML(icon.id)}</span><span>${escapeHTML(icon.label)}</span>`;
+  $('iconPickerCurrent').innerHTML = `<span class="text-brand-400 text-xl flex items-center">${renderIconHTML(icon.id)}</span><span>${escapeHTML(iconLabel(icon.id))}</span>`;
 }
 
 /** @param {string} [query] */
@@ -326,14 +327,14 @@ function renderIconGrid(query = '') {
     const icons = group.icons.filter(i => matches.has(i.id));
     if (icons.length === 0) return '';
     return `
-      <div class="col-span-full text-[10px] font-black uppercase tracking-wider text-slate-500 mt-2 first:mt-0">${escapeHTML(group.name)}</div>
+      <div class="col-span-full text-[10px] font-black uppercase tracking-wider text-slate-500 mt-2 first:mt-0">${escapeHTML(groupName(group.id))}</div>
       ${icons.map(i => `
-        <button type="button" data-action="pick-icon" data-arg="${escapeHTML(i.id)}" title="${escapeHTML(i.label)}" aria-label="${escapeHTML(i.label)}" aria-pressed="${i.id === selectedIcon}"
+        <button type="button" data-action="pick-icon" data-arg="${escapeHTML(i.id)}" title="${escapeHTML(iconLabel(i.id))}" aria-label="${escapeHTML(iconLabel(i.id))}" aria-pressed="${i.id === selectedIcon}"
           class="aspect-square rounded-xl flex items-center justify-center text-xl border transition-colors ${i.id === selectedIcon ? 'bg-brand-500/25 border-brand-500 text-brand-400' : 'bg-dark-950 border-slate-800 text-slate-300 hover:border-slate-600'}">
           ${renderIconHTML(i.id)}
         </button>`).join('')}`;
   }).join('');
-  $('iconGrid').innerHTML = html || '<p class="col-span-full text-center text-xs text-slate-500 py-4">No hay iconos para esa búsqueda</p>';
+  $('iconGrid').innerHTML = html || `<p class="col-span-full text-center text-xs text-slate-500 py-4">${escapeHTML(t('config.noIcons'))}</p>`;
 }
 
 export function toggleIconPicker() {
@@ -432,25 +433,37 @@ export function initKeyboardAvoidance() {
 // Se muestran dentro de la app (iframe) en vez de navegar a la página: así no se sale de la
 // aplicación y el botón Atrás cierra el visor en lugar de cerrar la app.
 
-/** @type {Record<'privacy' | 'credits', { src: string, title: string }>} */
-const DOCUMENTS = {
-  privacy: { src: 'privacy.html', title: 'Política de privacidad' },
-  credits: { src: 'creditos.html', title: 'Créditos y licencias' },
-};
+/** Las páginas legales contienen todos los idiomas y muestran el que indica ?lang= */
+const DOCUMENTS = /** @type {const} */ ({
+  privacy: { page: 'privacy.html', titleKey: 'doc.privacy' },
+  credits: { page: 'creditos.html', titleKey: 'doc.credits' },
+});
 
-/** @param {'privacy' | 'credits'} kind */
-export function openDocument(kind) {
-  const doc = DOCUMENTS[kind];
+/** @type {keyof typeof DOCUMENTS | null} */
+let openedDocument = null;
+
+/** Rellena el visor (título, marco y URL) con el documento abierto en el idioma activo. */
+function renderDocument() {
+  if (!openedDocument) return;
+  const doc = DOCUMENTS[openedDocument];
+  const src = `${doc.page}?lang=${getLanguage()}`;
   const frame = /** @type {HTMLIFrameElement} */ ($('documentFrame'));
-  if (frame.getAttribute('src') !== doc.src) frame.setAttribute('src', doc.src);
-  frame.title = doc.title;
-  $('documentTitle').textContent = doc.title;
+  if (frame.getAttribute('src') !== src) frame.setAttribute('src', src);
+  frame.title = t(doc.titleKey);
+  $('documentTitle').textContent = t(doc.titleKey);
+}
+
+/** @param {keyof typeof DOCUMENTS} kind */
+export function openDocument(kind) {
+  openedDocument = kind;
+  renderDocument();
   $('documentModal').classList.remove('hidden');
   $('documentModal').focus({ preventScroll: true });
   pushModal('document');
 }
 
 export function closeDocument() {
+  openedDocument = null;
   $('documentModal').classList.add('hidden');
   dismissModal('document');
 }
@@ -470,4 +483,27 @@ export function setConsentGate(visible, rejected = false) {
     /** @type {HTMLElement} */ (el).inert = visible;
   });
   if (visible) $('consentGate').focus({ preventScroll: true });
+}
+
+// --- Idioma --------------------------------------------------------------------------
+
+/** Rellena todos los selectores de idioma (configuración y pantalla de consentimiento) y los sincroniza. */
+export function renderLanguageSelectors() {
+  document.querySelectorAll('select.lang-select').forEach(el => {
+    const select = /** @type {HTMLSelectElement} */ (el);
+    if (select.options.length !== LANGUAGES.length) {
+      select.innerHTML = LANGUAGES.map(l => `<option value="${l.code}">${escapeHTML(l.name)}</option>`).join('');
+    }
+    select.value = getLanguage();
+  });
+}
+
+/** Vuelve a pintar lo que se genera por código cuando cambia el idioma (el marcado fijo lo hace applyTranslations). */
+export function refreshLanguage() {
+  renderLanguageSelectors();
+  renderConfig();
+  renderHistory();
+  updateIconButton();
+  if (!$('iconPicker').classList.contains('hidden')) renderIconGrid(/** @type {HTMLInputElement} */ ($('iconSearch')).value);
+  renderDocument();
 }

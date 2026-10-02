@@ -21,14 +21,14 @@
         </div>
 
         <div class="flex items-center space-x-2">
-            <button id="soundToggleBtn" data-action="toggle-sound" aria-label="Activar o desactivar el sonido" class="w-10 h-10 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
+            <button id="soundToggleBtn" data-action="toggle-sound" aria-label="Turn sound on or off" data-i18n-aria-label="header.sound" class="w-10 h-10 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
                 <i id="soundIcon" class="fa-solid fa-volume-high text-sm text-brand-400"></i>
             </button>
-            <button data-action="open-history" aria-label="Abrir historial" class="relative w-10 h-10 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
+            <button data-action="open-history" aria-label="Open history" data-i18n-aria-label="header.history" class="relative w-10 h-10 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
                 <i class="fa-solid fa-clock-rotate-left text-sm"></i>
                 <span id="historyBadge" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-500 text-dark-950 font-black text-[10px] rounded-full flex items-center justify-center hidden border-2 border-dark-950">0</span>
             </button>
-            <button data-action="open-config" aria-label="Abrir configuración" class="w-10 h-10 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
+            <button data-action="open-config" aria-label="Open settings" data-i18n-aria-label="header.settings" class="w-10 h-10 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
                 <i class="fa-solid fa-sliders text-sm"></i>
             </button>
         </div>
@@ -40,7 +40,7 @@
         <div class="mb-4 text-center">
             <div id="liveIndicator" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-dark-900/90 border border-brand-500/40 text-xs font-bold text-brand-400 shadow-xl transition-all">
                 <i class="fa-solid fa-arrows-left-right text-slate-400 animate-pulse"></i>
-                <span id="liveIndicatorText" class="tracking-wide">Arrastra la ruleta para girar</span>
+                <span id="liveIndicatorText" class="tracking-wide" data-i18n="live.drag">Drag the wheel to spin</span>
             </div>
         </div>
 
@@ -53,18 +53,18 @@
             </div>
 
             <!-- Canvas de la Ruleta -->
-            <canvas id="wheelCanvas" role="img" aria-label="Ruleta de ejercicios: gírala con el botón de abajo o arrástrala" class="w-full h-full cursor-grab active:cursor-grabbing rounded-full touch-none"></canvas>
+            <canvas id="wheelCanvas" role="img" aria-label="Exercise wheel: spin it with the button below or drag it" data-i18n-aria-label="wheel.aria" class="w-full h-full cursor-grab active:cursor-grabbing rounded-full touch-none"></canvas>
 
             <!-- Botón Central de Giro -->
-            <button type="button" data-action="spin" aria-label="Girar la ruleta" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-dark-800 via-dark-900 to-dark-950 border-4 border-brand-500 flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:scale-105 active:scale-95 transition-transform z-20 glow-brand">
+            <button type="button" data-action="spin" aria-label="Spin the wheel" data-i18n-aria-label="wheel.centerAria" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-dark-800 via-dark-900 to-dark-950 border-4 border-brand-500 flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:scale-105 active:scale-95 transition-transform z-20 glow-brand">
                 <i class="fa-solid fa-play text-brand-400 text-xl ml-0.5 mb-0.5"></i>
-                <span class="text-[9px] font-black tracking-widest text-slate-200 uppercase">GIRAR</span>
+                <span class="text-[9px] font-black tracking-widest text-slate-200 uppercase" data-i18n="wheel.center">SPIN</span>
             </button>
         </div>
 
         <div class="w-full mt-6 px-2">
             <button data-action="spin" id="spinBtn" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 text-dark-950 font-black text-lg tracking-wide shadow-xl shadow-brand-500/25 hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-3">
-                <i class="fa-solid fa-rotate text-xl"></i> ¡GIRAR RULETA!
+                <i class="fa-solid fa-rotate text-xl"></i> <span data-i18n="spin.button">SPIN THE WHEEL!</span>
             </button>
         </div>
     </main>
@@ -75,21 +75,21 @@
             <div id="winnerIconContainer" class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
                 <i id="winnerIcon" class="fa-solid fa-fire"></i>
             </div>
-            <span class="text-[11px] font-black tracking-widest text-brand-400 uppercase bg-brand-500/10 px-3.5 py-1.5 rounded-full border border-brand-500/20">
-                ¡EJERCICIO SELECCIONADO!
+            <span class="text-[11px] font-black tracking-widest text-brand-400 uppercase bg-brand-500/10 px-3.5 py-1.5 rounded-full border border-brand-500/20" data-i18n="result.badge">
+                EXERCISE SELECTED!
             </span>
 
             <h2 id="winnerText" class="text-3xl font-black text-white mt-4 mb-2 tracking-tight">20 Burpee</h2>
             <p id="winnerDesc" class="text-xs text-slate-300 mb-6 leading-relaxed">
-                ¡Excelente reto! Realiza 20 repeticiones con buena técnica.
+                
             </p>
 
             <div class="grid grid-cols-1 gap-3">
-                <button data-action="close-result" data-arg="skip" class="py-3.5 px-4 rounded-xl bg-dark-900 border border-slate-700 font-bold text-xs text-slate-300 hover:bg-dark-800 transition-all active:scale-95">
-                    Saltar este reto
+                <button data-action="close-result" data-arg="skip" class="py-3.5 px-4 rounded-xl bg-dark-900 border border-slate-700 font-bold text-xs text-slate-300 hover:bg-dark-800 transition-all active:scale-95" data-i18n="result.skip">
+                    Skip this challenge
                 </button>
-                <button data-action="close-result" data-arg="done" class="py-3.5 px-4 rounded-xl bg-brand-500 text-dark-950 font-black text-xs hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30 active:scale-95">
-                    ¡Completado!
+                <button data-action="close-result" data-arg="done" class="py-3.5 px-4 rounded-xl bg-brand-500 text-dark-950 font-black text-xs hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30 active:scale-95" data-i18n="result.done">
+                    Done!
                 </button>
             </div>
         </div>
@@ -101,9 +101,9 @@
             <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-800">
                 <div class="flex items-center gap-2.5">
                     <i class="fa-solid fa-clock-rotate-left text-brand-400 text-lg"></i>
-                    <h3 id="historyTitle" class="font-black text-lg text-white">Historial de Sesión</h3>
+                    <h3 id="historyTitle" class="font-black text-lg text-white" data-i18n="history.title">Session history</h3>
                 </div>
-                <button data-action="close-history" aria-label="Cerrar historial" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <button data-action="close-history" aria-label="Close history" data-i18n-aria-label="history.close" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -112,8 +112,8 @@
 
             <div class="pt-3 border-t border-slate-800 flex justify-between items-center mt-2">
                 <span id="totalCompletedText" class="text-xs text-slate-400 font-bold">0 completados</span>
-                <button data-action="clear-history" class="text-xs text-red-400 hover:text-red-300 font-bold px-3 py-1.5 rounded-xl bg-red-500/10 border border-red-500/20 transition-all">
-                    Limpiar historial
+                <button data-action="clear-history" class="text-xs text-red-400 hover:text-red-300 font-bold px-3 py-1.5 rounded-xl bg-red-500/10 border border-red-500/20 transition-all" data-i18n="history.clear">
+                    Clear history
                 </button>
             </div>
         </div>
@@ -125,33 +125,33 @@
             <div class="flex justify-between items-center mb-3 pb-3 border-b border-slate-800">
                 <div class="flex items-center gap-2.5">
                     <i class="fa-solid fa-sliders text-brand-400 text-lg"></i>
-                    <h3 id="configTitle" class="font-black text-lg text-white">Configuración de Ruleta</h3>
+                    <h3 id="configTitle" class="font-black text-lg text-white" data-i18n="config.title">Wheel settings</h3>
                 </div>
-                <button data-action="close-config" aria-label="Cerrar configuración" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <button data-action="close-config" aria-label="Close settings" data-i18n-aria-label="config.close" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
             <div class="flex-1 overflow-y-auto space-y-5 pr-1 my-1">
-                <p class="text-xs text-slate-400">Activa, crea o elimina repeticiones y ejercicios:</p>
+                <p class="text-xs text-slate-400" data-i18n="config.intro">Turn reps and exercises on or off, or create and delete them:</p>
 
                 <!-- Repeticiones Section -->
                 <div class="bg-dark-900/60 p-3 rounded-2xl border border-slate-800">
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-xs font-black text-slate-200 uppercase tracking-wider">Repeticiones</span>
+                        <span class="text-xs font-black text-slate-200 uppercase tracking-wider" data-i18n="config.reps">Reps</span>
                         <div class="space-x-2">
-                            <button data-action="toggle-reps" data-arg="on" class="text-[11px] text-brand-400 font-bold hover:underline">Todas</button>
+                            <button data-action="toggle-reps" data-arg="on" class="text-[11px] text-brand-400 font-bold hover:underline" data-i18n="config.repsAll">All</button>
                             <span class="text-slate-600">|</span>
-                            <button data-action="toggle-reps" data-arg="off" class="text-[11px] text-slate-400 font-bold hover:underline">Ninguna</button>
+                            <button data-action="toggle-reps" data-arg="off" class="text-[11px] text-slate-400 font-bold hover:underline" data-i18n="config.repsNone">None</button>
                         </div>
                     </div>
                     <div id="repsCheckboxes" class="grid grid-cols-2 gap-2 mb-3"></div>
 
                     <!-- Formulario Añadir Repetición -->
                     <div class="flex items-center gap-2 pt-2 border-t border-slate-800/80">
-                        <input type="number" id="newRepInput" placeholder="Ej: 15" min="1" max="500" class="flex-1 px-3 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                        <input type="number" id="newRepInput" placeholder="E.g. 15" data-i18n-placeholder="config.repPlaceholder" min="1" max="500" class="flex-1 px-3 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
                         <button data-action="add-rep" class="px-3 py-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all flex items-center gap-1">
-                            <i class="fa-solid fa-plus text-[10px]"></i> Añadir
+                            <i class="fa-solid fa-plus text-[10px]"></i> <span data-i18n="config.add">Add</span>
                         </button>
                     </div>
                 </div>
@@ -159,50 +159,56 @@
                 <!-- Ejercicios Section -->
                 <div class="bg-dark-900/60 p-3 rounded-2xl border border-slate-800">
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-xs font-black text-slate-200 uppercase tracking-wider">Ejercicios</span>
+                        <span class="text-xs font-black text-slate-200 uppercase tracking-wider" data-i18n="config.exercises">Exercises</span>
                         <div class="space-x-2">
-                            <button data-action="toggle-exs" data-arg="on" class="text-[11px] text-brand-400 font-bold hover:underline">Todos</button>
+                            <button data-action="toggle-exs" data-arg="on" class="text-[11px] text-brand-400 font-bold hover:underline" data-i18n="config.exsAll">All</button>
                             <span class="text-slate-600">|</span>
-                            <button data-action="toggle-exs" data-arg="off" class="text-[11px] text-slate-400 font-bold hover:underline">Ninguno</button>
+                            <button data-action="toggle-exs" data-arg="off" class="text-[11px] text-slate-400 font-bold hover:underline" data-i18n="config.exsNone">None</button>
                         </div>
                     </div>
                     <div id="exsCheckboxes" class="space-y-2 mb-3"></div>
 
                     <!-- Formulario Añadir Ejercicio -->
                     <div class="pt-2 border-t border-slate-800/80 space-y-2">
-                        <span class="text-[11px] font-bold text-slate-400 block">Añadir nuevo ejercicio:</span>
+                        <span class="text-[11px] font-bold text-slate-400 block" data-i18n="config.addExercise">Add a new exercise:</span>
                         <div class="grid grid-cols-2 gap-2">
-                            <input type="text" id="newExName" placeholder="Nombre (ej: Plancha)" class="px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
-                            <input type="text" id="newExShort" placeholder="Nombre corto" class="px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                            <input type="text" id="newExName" placeholder="Name (e.g. Plank)" data-i18n-placeholder="config.namePlaceholder" class="px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                            <input type="text" id="newExShort" placeholder="Short name" data-i18n-placeholder="config.shortPlaceholder" class="px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
                         </div>
                         <div class="flex items-center gap-2">
-                            <button type="button" id="iconPickerBtn" data-action="toggle-icon-picker" aria-expanded="false" aria-controls="iconPicker" aria-label="Elegir icono" class="flex-1 min-w-0 flex items-center justify-between gap-2 px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white hover:border-slate-600">
+                            <button type="button" id="iconPickerBtn" data-action="toggle-icon-picker" aria-expanded="false" aria-controls="iconPicker" aria-label="Choose icon" data-i18n-aria-label="config.chooseIcon" class="flex-1 min-w-0 flex items-center justify-between gap-2 px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white hover:border-slate-600">
                                 <span id="iconPickerCurrent" class="flex items-center gap-2 min-w-0 truncate"></span>
                                 <i class="fa-solid fa-chevron-down text-[10px] text-slate-500"></i>
                             </button>
                             <button data-action="add-exercise" class="px-3 py-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all flex items-center gap-1 shrink-0">
-                                <i class="fa-solid fa-plus text-[10px]"></i> Crear
+                                <i class="fa-solid fa-plus text-[10px]"></i> <span data-i18n="config.create">Create</span>
                             </button>
                         </div>
 
                         <!-- Selector de iconos: catálogo cerrado, sin texto libre -->
                         <div id="iconPicker" class="hidden rounded-xl border border-slate-800 bg-dark-950/60 p-2 space-y-2">
-                            <input type="search" id="iconSearch" placeholder="Buscar: yoga, hyrox, boxeo, pesas…" autocomplete="off" aria-label="Buscar icono" class="w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                            <input type="search" id="iconSearch" placeholder="Search: yoga, hyrox, boxing, weights…" data-i18n-placeholder="config.searchPlaceholder" autocomplete="off" aria-label="Search icon" data-i18n-aria-label="config.searchAria" class="w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
                             <div id="iconGrid" class="grid grid-cols-6 gap-1.5 max-h-52 overflow-y-auto overscroll-contain pr-1"></div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Idioma -->
+                <label class="flex items-center justify-between gap-3 bg-dark-900/60 p-3 rounded-2xl border border-slate-800">
+                    <span class="text-xs font-black text-slate-200 uppercase tracking-wider" data-i18n="config.language">Language</span>
+                    <select class="lang-select px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500" data-i18n-aria-label="config.language" aria-label="Language"></select>
+                </label>
+
                 <div class="flex justify-between items-center text-[11px]">
-                    <a href="privacy.html" data-action="open-privacy" class="text-slate-400 underline">Política de privacidad</a>
-                    <a href="creditos.html" data-action="open-credits" class="text-slate-400 underline">Créditos</a>
-                    <button data-action="show-consent" class="text-slate-400 underline">Preferencias de analítica</button>
+                    <a href="privacy.html" data-action="open-privacy" class="text-slate-400 underline" data-i18n="config.privacy">Privacy policy</a>
+                    <a href="creditos.html" data-action="open-credits" class="text-slate-400 underline" data-i18n="config.credits">Credits</a>
+                    <button data-action="show-consent" class="text-slate-400 underline" data-i18n="config.analytics">Analytics preferences</button>
                 </div>
             </div>
 
             <div class="pt-3 border-t border-slate-800 mt-2">
-                <button data-action="save-config" class="w-full py-3 rounded-xl bg-brand-500 text-dark-950 font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30">
-                    Aplicar Cambios y Actualizar Ruleta
+                <button data-action="save-config" class="w-full py-3 rounded-xl bg-brand-500 text-dark-950 font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30" data-i18n="config.apply">
+                    Apply changes and update wheel
                 </button>
             </div>
         </div>
@@ -219,29 +225,32 @@
             <div class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
                 <i class="fa-solid fa-chart-line"></i>
             </div>
-            <h2 id="consentTitle" class="text-xl font-black text-white mb-3 tracking-tight">Google Analytics</h2>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                GymRoulette utiliza Google Analytics para medir de forma anónima el uso de la aplicación.
+            <h2 id="consentTitle" class="text-xl font-black text-white mb-3 tracking-tight" data-i18n="consent.title">Google Analytics</h2>
+            <p class="text-xs text-slate-300 leading-relaxed" data-i18n="consent.text">
+                GymRoulette uses Google Analytics to measure how the app is used, anonymously.
             </p>
-            <p class="text-xs text-slate-100 font-bold leading-relaxed mt-3">
-                Solo podrás usar la aplicación si pulsas «Aceptar». Si rechazas, no podrás acceder a ella.
+            <p class="text-xs text-slate-100 font-bold leading-relaxed mt-3" data-i18n="consent.required">
+                You can only use the app if you tap “Accept”. If you decline, you will not be able to access it.
             </p>
-            <p id="consentRejected" class="hidden text-xs text-red-300 font-bold leading-relaxed mt-3 p-3 rounded-xl bg-red-500/10 border border-red-500/30" role="alert">
-                Has rechazado Google Analytics, por lo que no puedes usar la aplicación. Pulsa «Aceptar» si quieres continuar.
+            <p id="consentRejected" class="hidden text-xs text-red-300 font-bold leading-relaxed mt-3 p-3 rounded-xl bg-red-500/10 border border-red-500/30" role="alert" data-i18n="consent.rejected">
+                You declined Google Analytics, so you cannot use the app. Tap “Accept” if you want to continue.
             </p>
             <div class="grid grid-cols-2 gap-3 mt-5">
-                <button data-action="consent" data-arg="deny" class="py-3.5 px-4 rounded-xl bg-dark-900 border border-slate-700 font-bold text-xs text-slate-300 hover:bg-dark-800 transition-all active:scale-95">Rechazar</button>
-                <button id="consentAccept" data-action="consent" data-arg="grant" class="py-3.5 px-4 rounded-xl bg-brand-500 text-dark-950 font-black text-xs hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30 active:scale-95">Aceptar</button>
+                <button data-action="consent" data-arg="deny" class="py-3.5 px-4 rounded-xl bg-dark-900 border border-slate-700 font-bold text-xs text-slate-300 hover:bg-dark-800 transition-all active:scale-95" data-i18n="consent.deny">Decline</button>
+                <button id="consentAccept" data-action="consent" data-arg="grant" class="py-3.5 px-4 rounded-xl bg-brand-500 text-dark-950 font-black text-xs hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30 active:scale-95" data-i18n="consent.grant">Accept</button>
             </div>
-            <a href="privacy.html" data-action="open-privacy" class="inline-block mt-4 text-[11px] text-slate-400 underline">Política de privacidad</a>
+            <div class="mt-4">
+                <select class="lang-select px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500" data-i18n-aria-label="config.language" aria-label="Language"></select>
+            </div>
+            <a href="privacy.html" data-action="open-privacy" class="inline-block mt-3 text-[11px] text-slate-400 underline" data-i18n="config.privacy">Privacy policy</a>
         </div>
     </div>
 
     <!-- Visor de documentos: política de privacidad y créditos (por encima de la pantalla de consentimiento) -->
     <div id="documentModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="documentTitle" class="outline-none hidden fixed inset-0 z-[110] bg-dark-950 flex flex-col">
         <div class="flex justify-between items-center px-5 py-3.5 glass-card border-b border-slate-800/80">
-            <h2 id="documentTitle" class="font-black text-base text-white">Política de privacidad</h2>
-            <button data-action="close-document" aria-label="Cerrar" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+            <h2 id="documentTitle" class="font-black text-base text-white">Privacy policy</h2>
+            <button data-action="close-document" aria-label="Close" data-i18n-aria-label="doc.close" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>

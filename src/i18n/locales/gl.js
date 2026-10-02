@@ -1,0 +1,202 @@
+// Galego
+export default {
+  strings: {
+    'app.title': 'GymRoulette - Gasteiz Trainning',
+
+    'header.sound': 'Activar ou desactivar o son',
+    'header.history': 'Abrir historial',
+    'header.settings': 'Abrir configuración',
+
+    'live.drag': 'Arrastra a ruleta para xirar',
+    'live.configure': 'Configurar a ruleta',
+    'wheel.aria': 'Ruleta de exercicios: xírea co botón de abaixo ou arrástraa',
+    'wheel.centerAria': 'Xirar a ruleta',
+    'wheel.center': 'XIRAR',
+    'wheel.setup': 'Configurar',
+    'spin.button': 'XIRAR A RULETA!',
+
+    'result.badge': 'EXERCICIO SELECCIONADO!',
+    'result.desc': 'Excelente reto! Fai {reps} repeticións de {exercise} cunha técnica perfecta.',
+    'result.skip': 'Saltar este reto',
+    'result.done': 'Completado!',
+
+    'history.title': 'Historial da sesión',
+    'history.close': 'Pechar historial',
+    'history.empty': 'Aínda non rexistraches exercicios hoxe. Xira a ruleta!',
+    'history.total': 'Completados na sesión: {n}',
+    'history.done': 'Completado!',
+    'history.clear': 'Limpar historial',
+
+    'config.title': 'Configuración da ruleta',
+    'config.close': 'Pechar configuración',
+    'config.intro': 'Activa, crea ou elimina repeticións e exercicios:',
+    'config.reps': 'Repeticións',
+    'config.repsAll': 'Todas',
+    'config.repsNone': 'Ningunha',
+    'config.repPlaceholder': 'Ex.: 15',
+    'config.add': 'Engadir',
+    'config.exercises': 'Exercicios',
+    'config.exsAll': 'Todos',
+    'config.exsNone': 'Ningún',
+    'config.addExercise': 'Engadir novo exercicio:',
+    'config.namePlaceholder': 'Nome (ex.: Prancha)',
+    'config.shortPlaceholder': 'Nome curto',
+    'config.chooseIcon': 'Escoller icona',
+    'config.create': 'Crear',
+    'config.searchPlaceholder': 'Buscar: yoga, hyrox, boxeo, pesas…',
+    'config.searchAria': 'Buscar icona',
+    'config.noIcons': 'Non hai iconas para esa busca',
+    'config.privacy': 'Política de privacidade',
+    'config.credits': 'Créditos',
+    'config.analytics': 'Preferencias de analítica',
+    'config.apply': 'Aplicar os cambios e actualizar a ruleta',
+    'config.language': 'Idioma',
+    'config.repLabel': '{n} reps',
+    'config.deleteRep': 'Eliminar {n} repeticións',
+    'config.deleteExercise': 'Eliminar {name}',
+
+    'error.nameRequired': 'Escribe un nome para o exercicio',
+    'error.iconRequired': 'Escolle unha icona da lista',
+    'error.duplicateExercise': 'Xa existe un exercicio chamado "{name}"',
+    'error.maxExercises': 'Máximo {max} exercicios',
+    'error.repRange': 'Introduce un número entre 1 e {max}',
+    'error.duplicateRep': 'Xa existe a repetición {n}',
+    'error.maxReps': 'Máximo {max} repeticións',
+
+    'consent.title': 'Google Analytics',
+    'consent.text': 'GymRoulette utiliza Google Analytics para medir de forma anónima o uso da aplicación.',
+    'consent.required': 'Só poderás usar a aplicación se premes «Aceptar». Se rexeitas, non poderás acceder a ela.',
+    'consent.rejected': 'Rexeitaches Google Analytics, polo que non podes usar a aplicación. Preme «Aceptar» se queres continuar.',
+    'consent.deny': 'Rexeitar',
+    'consent.grant': 'Aceptar',
+    'consent.privacy': 'Política de privacidade',
+
+    'doc.privacy': 'Política de privacidade',
+    'doc.credits': 'Créditos e licenzas',
+    'doc.close': 'Pechar',
+  },
+
+  groups: {
+    strength: 'Forza e pesas',
+    calisthenics: 'Calistenia e ximnasia',
+    cardio: 'Cardio e resistencia',
+    martial: 'Artes marciais e combate',
+    mindbody: 'Mente e corpo',
+    sports: 'Deportes',
+    outdoor: 'Auga, montaña e aire libre',
+    challenges: 'Obstáculos e retos',
+  },
+
+  icons: `
+dumbbell | Mancorna | pesas ximnasio musculación forza
+kettlebell | Kettlebell | pesa rusa crossfit swing
+weight-lifter | Halterofilia | levantamento barra press crossfit snatch clean
+lift-up | Levantar peso | press militar jerk barra arriba
+lift-down | Peso abaixo | peso morto deadlift agachamento barra
+weight | Peso | disco carga quilos
+bench | Banco | press banca remo
+anvil | Xunque | forza potencia strongman
+hammer | Martelo | sledgehammer crossfit golpe pneumático
+tire | Pneumático | tire flip crossfit strongman
+sandbag | Saco de area | sandbag hyrox lunges bolsa carga
+arm-flex | Bíceps | brazos curl músculo forza
+arm | Brazo | tríceps ombreiros fondos
+leg | Pernas | agachamento squat zancada glúteos cuádriceps
+boulder | Rocha | pedra atlas stone strongman
+rock | Pedra | atlas stone ocr carga
+gymnastics | Ximnasia | calistenia acrobacia
+muscle-up | Muscle-up | dominadas barra calistenia pull-up
+pull | Tirón | dominadas remo pull-up calistenia
+pushup | Flexións | push-up pushup chan peito tríceps calistenia fondos
+plank | Prancha | core abdominais isométrico chan calistenia
+situp | Abdominais | sit-up crunch core chan calistenia
+burpee | Burpee | salto chan hiit crossfit cardio
+climbers | Mountain climbers | escaladores xeonllos cardio core chan hiit crossfit
+squat | Agachamento | air squat pernas glúteos cuádriceps calistenia
+push | Empurrar | empuxe parede trineo sled push muro
+cartwheel | Roda | acrobacia ximnasia
+handsup | Brazos arriba | estiramento press overhead
+balance | Equilibrio | handstand pino prancha core
+jump-rope | Corda de saltar | comba saltar double unders crossfit
+jump | Salto | box jump saltos burpee broad jumps split jumps pliometría
+ladder | Escaleira | axilidade trepa ocr
+stairs | Escaleiras | subir chanzos grada cardio
+rope | Corda | battle rope trepa cordas crossfit ocr
+run | Correr | carreira running trote
+run-fast | Carreira rápida | sprint velocidade escaladores mountain climbers
+sprint | Sprint | velocidade series atletismo
+walk | Camiñar | zancadas lunges marcha paseo
+hiking | Sendeirismo | montaña trekking camiñada
+sneaker | Zapatillas | correr running calzado
+footprint | Pasos | pegadas marcha camiñada
+bike | Bicicleta | ciclismo spinning cardio
+bike-fast | Ciclismo rápido | assault bike velocidade
+rowing | Remo | remar ergómetro hyrox crossfit
+skierg | Esquí de fondo | skierg hyrox esquí ergómetro
+heart-pulse | Pulsacións | cardio corazón saúde
+fire | Lume | burpee intenso queimar calorías hiit
+bolt | Raio | explosivo potencia enerxía rápido
+timer | Cronómetro | tempo isométrico prancha emom
+hourglass | Temporizador | tabata intervalos descanso
+infinity | Infinito | amrap sen parar resistencia
+repeat | Series | repeticións circuíto roldas
+karate | Karate | kimono dojo artes marciais xudo taekwondo
+boxing | Boxeo | luva sparring kickboxing
+mma | MMA | artes marciais mixtas loita combate
+high-kick | Patada alta | taekwondo kickboxing karate patadas
+kick | Patada | golpe kickboxing muay thai
+punch | Puñada | golpe boxeo directo
+punching-bag | Saco de boxeo | golpes adestramento boxeo
+fist | Puño | kung fu karate forza
+ninja | Ninja | artes marciais ninjutsu axilidade
+sword | Espadas | kendo esgrima loita
+fencing | Esgrima | espada florete
+shield | Defensa | autodefensa protección
+yoga | Yoga | asanas estiramento flexibilidade pilates
+meditation | Meditación | respiración mindfulness relaxación
+lotus | Loto | yoga meditación zen
+yin-yang | Yin yang | tai chi taichi equilibrio qigong
+spa | Relaxación | pilates stretching recuperación benestar
+flower | Flor | pilates yoga calma
+tortoise | Tartaruga | lento tai chi control tempo
+hand-heart | Benestar | saúde coidado respiración
+soccer | Fútbol | balón fútbol
+basketball | Baloncesto | basket balón wall ball
+volleyball | Voleibol | vóley balón
+tennis | Tenis | raqueta pelota pádel
+table-tennis | Tenis de mesa | ping pong
+badminton | Bádminton | raqueta volante
+rugby | Rugby | balón
+football | Fútbol americano | balón
+handball | Balonmán | balón
+baseball | Béisbol | bate pelota
+golf | Golf | pau bola
+hockey | Hóckey | pau disco
+bowling | Bolos | bola
+archery | Tiro con arco | diana puntería precisión
+target | Diana | obxectivo precisión reto
+skate | Skate | patinete monopatín
+roller-skate | Patinaxe | patíns
+swim | Natación | nadar piscina crol
+pool | Piscina | auga nadar aquagym
+waves | Ondas | auga mar aquagym
+surf | Surf | ondas táboa
+kayak | Kayak | piragua remo
+sailing | Vela | barco
+diving | Mergullo | apnea submarinismo
+climbing | Escalada | trepar rocha boulder ocr
+terrain | Montaña | trail costas sendeirismo
+ski | Esquí | neve alpino
+snowboard | Snowboard | neve táboa
+sled | Trineo | sled push pull hyrox arrastre empuxe
+horse | Hípica | cabalo equitación
+fence | Valado | obstáculo ocr salto muro
+flag | Meta | final carreira ocr hyrox chegada
+trophy | Trofeo | reto especial campión
+medal | Medalla | logro premio
+dice | Dados | azar aleatorio sorpresa
+star | Estrela | favorito especial
+rocket | Foguete | explosivo despegue potencia
+tractor | Tractor | arrastre pneumático strongman
+`,
+};

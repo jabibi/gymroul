@@ -4,7 +4,7 @@ import './style.css';
 import { Capacitor } from '@capacitor/core';
 import { App as CapacitorApp } from '@capacitor/app';
 
-import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize } from './wheel.js';
+import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, refreshLabels } from './wheel.js';
 import { generateCombinations, CONFIG_SEGMENT } from './wheel-math.js';
 import {
   migrate, loadActive, getExercises, getReps, active, setActive,
@@ -13,6 +13,7 @@ import {
 import { toggleSound, initAudio } from './audio.js';
 import { getConsent, setConsent, applyConsent } from './analytics.js';
 import * as ui from './ui.js';
+import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from './i18n/index.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
 
@@ -46,9 +47,17 @@ function handleFinish(winner) {
   ui.showResult(winner);
 }
 
-/** @param {{ ok: boolean, error?: string }} result */
+/** @param {import('./store.js').StoreResult} result */
 function reportError(result) {
-  if (!result.ok && 'error' in result && result.error) ui.showToast(result.error);
+  if (!result.ok) ui.showToast(t(result.error.key, result.error.params));
+}
+
+/** Aplica el idioma activo a todo: marcado fijo, textos generados por código, ruleta y visor. */
+function applyLanguage() {
+  applyTranslations();
+  ui.refreshLanguage();
+  refreshLabels();
+  ui.updateLiveIndicator(getActiveSegment());
 }
 
 /** @type {Record<string, (arg: string | undefined) => void>} */
@@ -132,14 +141,25 @@ if (Capacitor.isNativePlatform()) {
   });
 }
 
+document.addEventListener('change', e => {
+  const target = /** @type {HTMLElement} */ (e.target);
+  if (!target.matches('select.lang-select')) return;
+  const code = /** @type {HTMLSelectElement} */ (target).value;
+  if (isSupported(code) && setLanguage(code)) applyLanguage();
+});
+
 document.getElementById('iconSearch')?.addEventListener('input', e => ui.filterIcons(/** @type {HTMLInputElement} */ (e.target).value));
 
 function init() {
+  // El idioma elegido a mano se guarda; el detectado del dispositivo no, para seguir sus cambios
+  setLanguage(detectLanguage(), { persist: false });
+  applyTranslations();
   migrate();
   loadActive();
   ui.initModals();
   ui.initKeyboardAvoidance();
   ui.initIconPicker();
+  ui.renderLanguageSelectors();
   ui.setCompletedHandler(ui.addToHistory);
 
   initWheel(/** @type {HTMLCanvasElement} */ (document.getElementById('wheelCanvas')), {
