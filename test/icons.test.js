@@ -46,3 +46,11 @@ describe('catálogo de iconos', () => {
     expect(searchIcons('zzzz')).toHaveLength(0);
   });
 });
+
+describe('iconos de la interfaz', () => {
+  it('no queda ningún icono de Font Awesome en el marcado ni en el código', async () => {
+    const { readFileSync, readdirSync } = await import('node:fs');
+    const files = ['index.html', ...readdirSync('src').filter(f => f.endsWith('.js') && f !== 'icons.js').map(f => `src/${f}`)];
+    for (const f of files) expect(readFileSync(f, 'utf8'), f).not.toMatch(/fa-solid|fa-regular|fa-brands/);
+  });
+});

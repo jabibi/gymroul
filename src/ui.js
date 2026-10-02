@@ -41,8 +41,8 @@ export function showToast(message) {
 /** @param {boolean} enabled */
 export function setSoundIcon(enabled) {
   $('soundIcon').className = enabled
-    ? 'fa-solid fa-volume-high text-sm text-brand-400'
-    : 'fa-solid fa-volume-xmark text-sm text-slate-500';
+    ? 'icon-[mdi--volume-high] text-sm text-brand-400'
+    : 'icon-[mdi--volume-off] text-sm text-slate-500';
 }
 
 /** @param {Segment | undefined} seg */
@@ -101,13 +101,14 @@ export function closeActiveModal() {
 let lastFocused = null;
 
 /**
- * Mueve el foco al modal al abrirlo y lo devuelve al elemento anterior al cerrarlo.
+ * Mueve el foco al propio diálogo (no a un botón: el anillo de foco quedaba pintado en el primer
+ * botón) al abrirlo y lo devuelve al elemento anterior al cerrarlo.
  * @param {HTMLElement} modal @param {boolean} visible
  */
 function manageFocus(modal, visible) {
   if (visible) {
     lastFocused = /** @type {HTMLElement | null} */ (document.activeElement);
-    modal.querySelector('button')?.focus({ preventScroll: true });
+    modal.focus({ preventScroll: true });
   } else if (lastFocused) {
     lastFocused.focus({ preventScroll: true });
     lastFocused = null;
@@ -220,7 +221,7 @@ export function renderHistory() {
     total.textContent = '0 completados';
     listEl.innerHTML = `
       <div class="text-center py-8 text-slate-500 text-xs">
-        <i class="fa-solid fa-clipboard-list text-2xl mb-2 block opacity-40"></i>
+        <span class="icon-[mdi--clipboard-list-outline] text-2xl mb-2 block opacity-40 mx-auto" aria-hidden="true"></span>
         Aún no has registrado ejercicios hoy. ¡Gira la ruleta!
       </div>`;
     return;
@@ -262,7 +263,7 @@ export function renderConfig() {
         <span class="text-xs font-bold text-white">${rep} reps</span>
       </label>
       <button data-action="delete-rep" data-arg="${rep}" aria-label="Eliminar ${rep} repeticiones" class="text-slate-500 hover:text-red-400 p-1 text-xs transition-colors">
-        <i class="fa-solid fa-trash-can"></i>
+        <span class="icon-[mdi--trash-can-outline]" aria-hidden="true"></span>
       </button>
     </div>`).join('');
 
@@ -276,7 +277,7 @@ export function renderConfig() {
         </span>
       </label>
       <button data-action="delete-exercise" data-arg="${escapeHTML(ex.id)}" aria-label="Eliminar ${escapeHTML(ex.name)}" class="text-slate-500 hover:text-red-400 p-1 text-xs transition-colors">
-        <i class="fa-solid fa-trash-can"></i>
+        <span class="icon-[mdi--trash-can-outline]" aria-hidden="true"></span>
       </button>
     </div>`).join('');
 }
@@ -445,7 +446,7 @@ export function openDocument(kind) {
   frame.title = doc.title;
   $('documentTitle').textContent = doc.title;
   $('documentModal').classList.remove('hidden');
-  $('documentModal').querySelector('button')?.focus({ preventScroll: true });
+  $('documentModal').focus({ preventScroll: true });
   pushModal('document');
 }
 
@@ -468,5 +469,5 @@ export function setConsentGate(visible, rejected = false) {
   document.querySelectorAll('body > :not(#consentGate):not(#documentModal):not(script)').forEach(el => {
     /** @type {HTMLElement} */ (el).inert = visible;
   });
-  if (visible) /** @type {HTMLElement} */ (document.getElementById('consentAccept')).focus({ preventScroll: true });
+  if (visible) $('consentGate').focus({ preventScroll: true });
 }
