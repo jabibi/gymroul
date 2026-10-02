@@ -135,6 +135,7 @@ function init() {
   migrate();
   loadActive();
   ui.initModals();
+  ui.initKeyboardAvoidance();
   ui.setCompletedHandler(ui.addToHistory);
 
   initWheel(/** @type {HTMLCanvasElement} */ (document.getElementById('wheelCanvas')), {

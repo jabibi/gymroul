@@ -343,6 +343,32 @@ export function resetNewExerciseForm() {
 export const readNewRepValue = () => /** @type {HTMLInputElement} */ ($('newRepInput')).value;
 export const clearNewRepValue = () => { /** @type {HTMLInputElement} */ ($('newRepInput')).value = ''; };
 
+// --- Teclado virtual -----------------------------------------------------------------
+// Al abrirse el teclado el viewport se reduce y el campo con foco puede quedar tapado (o el
+// scroll volver arriba). Se vuelve a centrar el campo activo cuando el teclado termina de
+// aparecer y cada vez que cambia el tamaño visible.
+
+const TEXT_FIELDS = 'input:not([type=checkbox]):not([type=radio]), textarea, select';
+
+function revealFocusedField() {
+  const el = document.activeElement;
+  if (el instanceof HTMLElement && el.matches(TEXT_FIELDS)) {
+    el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
+}
+
+export function initKeyboardAvoidance() {
+  // El teclado tarda unos cientos de ms en abrirse: se reintenta cuando ya ha cambiado el viewport
+  document.addEventListener('focusin', e => {
+    if (e.target instanceof HTMLElement && e.target.matches(TEXT_FIELDS)) {
+      setTimeout(revealFocusedField, 100);
+      setTimeout(revealFocusedField, 400);
+    }
+  });
+  window.visualViewport?.addEventListener('resize', () => setTimeout(revealFocusedField, 50));
+  window.addEventListener('resize', () => setTimeout(revealFocusedField, 50));
+}
+
 // --- Política de privacidad ----------------------------------------------------------
 // Se muestra dentro de la app (iframe) en vez de navegar a privacy.html: así no se sale de la
 // página y el botón Atrás cierra el visor en lugar de cerrar la aplicación.
