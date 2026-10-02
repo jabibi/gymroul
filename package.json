@@ -5,14 +5,15 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/build-legal.mjs && vite build",
     "test": "vitest run",
     "typecheck": "tsc --noEmit -p jsconfig.json",
     "cap:sync": "cap sync android",
     "deploy": "npm run build && firebase deploy --only hosting",
     "build:android": "npm run build && npm run cap:sync",
     "icons": "node scripts/build-icons.mjs && capacitor-assets generate --android",
-    "store": "npm run build && node scripts/build-store-assets.mjs"
+    "store": "npm run build && node scripts/build-store-assets.mjs",
+    "legal": "node scripts/build-legal.mjs"
   },
   "keywords": [],
   "type": "module",

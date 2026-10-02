@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eliminación de datos - GymRoulette</title>
+    <title>Data Deletion - GymRoulette</title>
     <style>
         body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #333; }
         h1 { color: #111; }
@@ -11,43 +11,150 @@
         table { border-collapse: collapse; width: 100%; font-size: 0.95em; }
         th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; vertical-align: top; }
         th { background: #f3f3f3; }
+        nav.langs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5em; }
+        nav.langs button { font: inherit; font-size: 0.85em; padding: 4px 10px; border: 1px solid #bbb; border-radius: 999px; background: #fff; color: #333; cursor: pointer; }
+        nav.langs button[aria-pressed="true"] { background: #15803d; border-color: #15803d; color: #fff; }
+        section[data-lang] + section[data-lang] { margin-top: 3em; padding-top: 2em; border-top: 2px solid #ddd; }
     </style>
+    <script src="legal.js" defer></script>
 </head>
 <body>
-    <h1>Eliminación de datos - GymRoulette</h1>
-    <p>Última actualización: octubre 2026</p>
+<nav class="langs" id="langNav" aria-label="Language"></nav>
 
-    <p>Esta página explica cómo solicitar la eliminación de los datos asociados a la aplicación <strong>GymRoulette</strong> (Android, <code>eus.jabibi.gymroul</code>, y su versión web), desarrollada por Javier Melendez ("jabibi"). GymRoulette no tiene cuentas de usuario: no se almacena ningún nombre, correo ni contraseña.</p>
+<section lang="en" data-lang="en" data-name="English" data-title="Data Deletion - GymRoulette">
+<h1>Data Deletion - GymRoulette</h1>
+<p>Last updated: October 2026</p>
+<p>This page explains how to request deletion of the data associated with the <strong>GymRoulette</strong> app (Android, <code>eus.jabibi.gymroul</code>, and its web version), developed by Javier Melendez ("jabibi"). GymRoulette has no user accounts: no name, email or password is stored.</p>
+<h2>1. Data stored on your device</h2>
+<p>Your exercise and rep settings are stored only on your device and are never sent to our servers. To delete them:</p>
+<ol><li><strong>Android:</strong> Settings &gt; Apps &gt; GymRoulette &gt; Storage &gt; <em>Clear data</em>, or uninstall the app.</li><li><strong>Web:</strong> clear the site data for <code>gymroul.web.app</code> in your browser settings.</li></ol>
+<p>This also removes your Google Analytics choice and resets the app's anonymous identifier, so later usage data is not linked to earlier data.</p>
+<h2>2. Analytics data (Google Analytics)</h2>
+<p>If you accepted Google Analytics, Google may keep usage data associated with an anonymous identifier of your installation. To request its deletion:</p>
+<ol><li>Write to <a href="mailto:javimelex@gmail.com?subject=Data%20deletion%20-%20GymRoulette">javimelex@gmail.com</a> with the subject "Data deletion - GymRoulette".</li><li>State your device model, Android version and the approximate dates you used the app.</li><li>We will reply within one month.</li></ol>
+<p>Because the identifier is anonymous and not linked to your identity, in some cases it may not be possible to locate your specific data. In that case, the data is deleted automatically when the retention period shown below ends.</p>
+<h2>3. What is deleted and what is kept</h2>
+<table><thead><tr><th>Data</th><th>What happens</th><th>Time frame</th></tr></thead><tbody><tr><td>Wheel settings (on your device)</td><td>Deleted when you clear data or uninstall</td><td>Immediate</td></tr><tr><td>Installation identifier, device data, approximate location and usage events (Google Analytics)</td><td>Deleted on your request when they can be located; otherwise deleted automatically</td><td>Reply within one month; 14-month maximum retention</td></tr><tr><td>Copy of your email and request</td><td>Kept only as long as needed to handle the request and prove it was handled</td><td>Up to 12 months after it is resolved</td></tr></tbody></table>
+<p>More information on how your data is processed in the <a href="privacy.html">Privacy policy</a>.</p>
+</section>
 
-    <h2>1. Datos guardados en tu dispositivo</h2>
-    <p>Tu configuración de ejercicios y repeticiones se guarda solo en tu dispositivo y nunca se envía a nuestros servidores. Para eliminarla:</p>
-    <ol>
-        <li><strong>Android:</strong> Ajustes &gt; Aplicaciones &gt; GymRoulette &gt; Almacenamiento &gt; <em>Borrar datos</em>, o desinstala la aplicación.</li>
-        <li><strong>Web:</strong> borra los datos del sitio <code>gymroul.web.app</code> desde los ajustes de tu navegador.</li>
-    </ol>
-    <p>Esto también elimina tu elección sobre Google Analytics y restablece el identificador anónimo de la aplicación, por lo que los datos de uso posteriores no se vinculan a los anteriores.</p>
+<section lang="es" data-lang="es" data-name="Español" data-title="Eliminación de datos - GymRoulette">
+<h1>Eliminación de datos - GymRoulette</h1>
+<p>Última actualización: octubre 2026</p>
+<p>Esta página explica cómo solicitar la eliminación de los datos asociados a la aplicación <strong>GymRoulette</strong> (Android, <code>eus.jabibi.gymroul</code>, y su versión web), desarrollada por Javier Melendez ("jabibi"). GymRoulette no tiene cuentas de usuario: no se almacena ningún nombre, correo ni contraseña.</p>
+<h2>1. Datos guardados en tu dispositivo</h2>
+<p>Tu configuración de ejercicios y repeticiones se guarda solo en tu dispositivo y nunca se envía a nuestros servidores. Para eliminarla:</p>
+<ol><li><strong>Android:</strong> Ajustes &gt; Aplicaciones &gt; GymRoulette &gt; Almacenamiento &gt; <em>Borrar datos</em>, o desinstala la aplicación.</li><li><strong>Web:</strong> borra los datos del sitio <code>gymroul.web.app</code> desde los ajustes de tu navegador.</li></ol>
+<p>Esto también elimina tu elección sobre Google Analytics y restablece el identificador anónimo de la aplicación, por lo que los datos de uso posteriores no se vinculan a los anteriores.</p>
+<h2>2. Datos de analítica (Google Analytics)</h2>
+<p>Si aceptaste Google Analytics, Google puede conservar datos de uso asociados a un identificador anónimo de tu instalación. Para solicitar su eliminación:</p>
+<ol><li>Escribe a <a href="mailto:javimelex@gmail.com?subject=Eliminaci%C3%B3n%20de%20datos%20-%20GymRoulette">javimelex@gmail.com</a> con el asunto "Eliminación de datos - GymRoulette".</li><li>Indica el modelo de dispositivo, la versión de Android y las fechas aproximadas en las que usaste la aplicación.</li><li>Responderemos en un plazo máximo de un mes.</li></ol>
+<p>Como el identificador es anónimo y no está vinculado a tu identidad, en algunos casos puede no ser posible localizar tus datos concretos. En ese supuesto, los datos se eliminan automáticamente al terminar el periodo de retención indicado abajo.</p>
+<h2>3. Qué se elimina y qué se conserva</h2>
+<table><thead><tr><th>Datos</th><th>Qué ocurre</th><th>Plazo</th></tr></thead><tbody><tr><td>Configuración de la ruleta (en tu dispositivo)</td><td>Se elimina al borrar los datos o desinstalar</td><td>Inmediato</td></tr><tr><td>Identificador de instalación, datos del dispositivo, ubicación aproximada y eventos de uso (Google Analytics)</td><td>Se eliminan a petición tuya cuando se puedan localizar; si no, se eliminan automáticamente</td><td>Respuesta en un mes; retención máxima de 14 meses</td></tr><tr><td>Copia de tu correo y solicitud</td><td>Se conservan solo el tiempo necesario para atender la solicitud y acreditar su cumplimiento</td><td>Hasta 12 meses tras resolverla</td></tr></tbody></table>
+<p>Más información sobre el tratamiento de tus datos en la <a href="privacy.html">Política de privacidad</a>.</p>
+</section>
 
-    <h2>2. Datos de analítica (Google Analytics)</h2>
-    <p>Si aceptaste Google Analytics, Google puede conservar datos de uso asociados a un identificador anónimo de tu instalación. Para solicitar su eliminación:</p>
-    <ol>
-        <li>Escribe a <a href="mailto:javimelex@gmail.com?subject=Eliminaci%C3%B3n%20de%20datos%20-%20GymRoulette">javimelex@gmail.com</a> con el asunto "Eliminación de datos - GymRoulette".</li>
-        <li>Indica el modelo de dispositivo, la versión de Android y las fechas aproximadas en las que usaste la aplicación.</li>
-        <li>Responderemos en un plazo máximo de un mes.</li>
-    </ol>
-    <p>Como el identificador es anónimo y no está vinculado a tu identidad, en algunos casos puede no ser posible localizar tus datos concretos. En ese supuesto, los datos se eliminan automáticamente al terminar el periodo de retención indicado abajo.</p>
+<section lang="eu" data-lang="eu" data-name="Euskara" data-title="Datuen ezabaketa - GymRoulette">
+<h1>Datuen ezabaketa - GymRoulette</h1>
+<p>Azken eguneratzea: 2026ko urria</p>
+<p>Orri honek azaltzen du nola eskatu <strong>GymRoulette</strong> aplikazioari (Android, <code>eus.jabibi.gymroul</code>, eta bere web bertsioa) lotutako datuak ezabatzea; Javier Melendez-ek ("jabibi") garatua. GymRoulette-k ez du erabiltzaile-konturik: ez da izenik, posta elektronikorik edo pasahitzik gordetzen.</p>
+<h2>1. Zure gailuan gordetako datuak</h2>
+<p>Zure ariketen eta errepikapenen konfigurazioa zure gailuan soilik gordetzen da eta ez da inoiz gure zerbitzarietara bidaltzen. Ezabatzeko:</p>
+<ol><li><strong>Android:</strong> Ezarpenak &gt; Aplikazioak &gt; GymRoulette &gt; Biltegiratzea &gt; <em>Garbitu datuak</em>, edo desinstalatu aplikazioa.</li><li><strong>Web:</strong> ezabatu <code>gymroul.web.app</code> guneko datuak zure nabigatzailearen ezarpenetatik.</li></ol>
+<p>Honek Google Analytics-i buruzko zure aukera ere ezabatzen du eta aplikazioaren identifikatzaile anonimoa berrezartzen du; beraz, geroko erabilera-datuak ez dira aurrekoei lotzen.</p>
+<h2>2. Analitika-datuak (Google Analytics)</h2>
+<p>Google Analytics onartu baduzu, Google-k zure instalazioaren identifikatzaile anonimo bati lotutako erabilera-datuak gorde ditzake. Ezabatzea eskatzeko:</p>
+<ol><li>Idatzi <a href="mailto:javimelex@gmail.com?subject=Datuen%20ezabaketa%20-%20GymRoulette">javimelex@gmail.com</a> helbidera "Datuen ezabaketa - GymRoulette" gaiarekin.</li><li>Adierazi zure gailuaren eredua, Android bertsioa eta aplikazioa gutxi gorabehera noiz erabili zenuen.</li><li>Hilabeteko gehieneko epean erantzungo dugu.</li></ol>
+<p>Identifikatzailea anonimoa denez eta zure identitatera lotuta ez dagoenez, kasu batzuetan agian ezingo dira zure datu zehatzak aurkitu. Kasu horretan, datuak automatikoki ezabatzen dira behean adierazitako atxikitze-epea amaitzean.</p>
+<h2>3. Zer ezabatzen den eta zer gordetzen den</h2>
+<table><thead><tr><th>Datuak</th><th>Zer gertatzen da</th><th>Epea</th></tr></thead><tbody><tr><td>Gurpilaren konfigurazioa (zure gailuan)</td><td>Datuak garbitzean edo desinstalatzean ezabatzen da</td><td>Berehala</td></tr><tr><td>Instalazioaren identifikatzailea, gailuaren datuak, gutxi gorabeherako kokapena eta erabilera-gertaerak (Google Analytics)</td><td>Zuk eskatuta ezabatzen dira aurkitu ahal direnean; bestela, automatikoki ezabatzen dira</td><td>Erantzuna hilabete batean; gehienez 14 hilabeteko atxikitzea</td></tr><tr><td>Zure posta elektronikoaren eta eskaeraren kopia</td><td>Eskaera bideratzeko eta bete dela frogatzeko behar den denboran soilik gordetzen dira</td><td>Ebatzi eta 12 hilabetera arte</td></tr></tbody></table>
+<p>Zure datuen tratamenduari buruzko informazio gehiago <a href="privacy.html">Pribatutasun-politikan</a>.</p>
+</section>
 
-    <h2>3. Qué se elimina y qué se conserva</h2>
-    <table>
-        <thead>
-            <tr><th>Datos</th><th>Qué ocurre</th><th>Plazo</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Configuración de la ruleta (en tu dispositivo)</td><td>Se elimina al borrar los datos o desinstalar</td><td>Inmediato</td></tr>
-            <tr><td>Identificador de instalación, datos del dispositivo, ubicación aproximada y eventos de uso (Google Analytics)</td><td>Se eliminan a petición tuya cuando se puedan localizar; si no, se eliminan automáticamente</td><td>Respuesta en un mes; retención máxima de 14 meses</td></tr>
-            <tr><td>Copia de tu correo y solicitud</td><td>Se conservan solo el tiempo necesario para atender la solicitud y acreditar su cumplimiento</td><td>Hasta 12 meses tras resolverla</td></tr>
-        </tbody>
-    </table>
+<section lang="gl" data-lang="gl" data-name="Galego" data-title="Eliminación de datos - GymRoulette">
+<h1>Eliminación de datos - GymRoulette</h1>
+<p>Última actualización: outubro de 2026</p>
+<p>Esta páxina explica como solicitar a eliminación dos datos asociados á aplicación <strong>GymRoulette</strong> (Android, <code>eus.jabibi.gymroul</code>, e a súa versión web), desenvolvida por Javier Melendez ("jabibi"). GymRoulette non ten contas de usuario: non se almacena ningún nome, correo nin contrasinal.</p>
+<h2>1. Datos gardados no teu dispositivo</h2>
+<p>A túa configuración de exercicios e repeticións gárdase só no teu dispositivo e nunca se envía aos nosos servidores. Para eliminala:</p>
+<ol><li><strong>Android:</strong> Axustes &gt; Aplicacións &gt; GymRoulette &gt; Almacenamento &gt; <em>Borrar datos</em>, ou desinstala a aplicación.</li><li><strong>Web:</strong> borra os datos do sitio <code>gymroul.web.app</code> desde os axustes do teu navegador.</li></ol>
+<p>Isto tamén elimina a túa elección sobre Google Analytics e restablece o identificador anónimo da aplicación, polo que os datos de uso posteriores non se vinculan aos anteriores.</p>
+<h2>2. Datos de analítica (Google Analytics)</h2>
+<p>Se aceptaches Google Analytics, Google pode conservar datos de uso asociados a un identificador anónimo da túa instalación. Para solicitar a súa eliminación:</p>
+<ol><li>Escribe a <a href="mailto:javimelex@gmail.com?subject=Eliminaci%C3%B3n%20de%20datos%20-%20GymRoulette">javimelex@gmail.com</a> co asunto "Eliminación de datos - GymRoulette".</li><li>Indica o modelo de dispositivo, a versión de Android e as datas aproximadas nas que usaches a aplicación.</li><li>Responderemos nun prazo máximo dun mes.</li></ol>
+<p>Como o identificador é anónimo e non está vinculado á túa identidade, nalgúns casos pode non ser posible localizar os teus datos concretos. Nese caso, os datos elimínanse automaticamente ao terminar o período de retención indicado abaixo.</p>
+<h2>3. Que se elimina e que se conserva</h2>
+<table><thead><tr><th>Datos</th><th>Que ocorre</th><th>Prazo</th></tr></thead><tbody><tr><td>Configuración da ruleta (no teu dispositivo)</td><td>Elimínase ao borrar os datos ou desinstalar</td><td>Inmediato</td></tr><tr><td>Identificador de instalación, datos do dispositivo, localización aproximada e eventos de uso (Google Analytics)</td><td>Elimínanse a petición túa cando se poidan localizar; se non, elimínanse automaticamente</td><td>Resposta nun mes; retención máxima de 14 meses</td></tr><tr><td>Copia do teu correo e solicitude</td><td>Consérvanse só o tempo necesario para atender a solicitude e acreditar o seu cumprimento</td><td>Ata 12 meses despois de resolvela</td></tr></tbody></table>
+<p>Máis información sobre o tratamento dos teus datos na <a href="privacy.html">Política de privacidade</a>.</p>
+</section>
 
-    <p>Más información sobre el tratamiento de tus datos en la <a href="privacy.html">Política de privacidad</a>.</p>
+<section lang="ca" data-lang="ca" data-name="Català" data-title="Eliminació de dades - GymRoulette">
+<h1>Eliminació de dades - GymRoulette</h1>
+<p>Darrera actualització: octubre de 2026</p>
+<p>Aquesta pàgina explica com sol·licitar l'eliminació de les dades associades a l'aplicació <strong>GymRoulette</strong> (Android, <code>eus.jabibi.gymroul</code>, i la seva versió web), desenvolupada per Javier Melendez ("jabibi"). GymRoulette no té comptes d'usuari: no s'emmagatzema cap nom, correu ni contrasenya.</p>
+<h2>1. Dades desades al teu dispositiu</h2>
+<p>La teva configuració d'exercicis i repeticions es desa només al teu dispositiu i mai no s'envia als nostres servidors. Per eliminar-la:</p>
+<ol><li><strong>Android:</strong> Configuració &gt; Aplicacions &gt; GymRoulette &gt; Emmagatzematge &gt; <em>Esborra les dades</em>, o desinstal·la l'aplicació.</li><li><strong>Web:</strong> esborra les dades del lloc <code>gymroul.web.app</code> des de la configuració del teu navegador.</li></ol>
+<p>Això també elimina la teva elecció sobre Google Analytics i restableix l'identificador anònim de l'aplicació, de manera que les dades d'ús posteriors no es vinculen a les anteriors.</p>
+<h2>2. Dades d'analítica (Google Analytics)</h2>
+<p>Si vas acceptar Google Analytics, Google pot conservar dades d'ús associades a un identificador anònim de la teva instal·lació. Per sol·licitar-ne l'eliminació:</p>
+<ol><li>Escriu a <a href="mailto:javimelex@gmail.com?subject=Eliminaci%C3%B3%20de%20dades%20-%20GymRoulette">javimelex@gmail.com</a> amb l'assumpte "Eliminació de dades - GymRoulette".</li><li>Indica el model de dispositiu, la versió d'Android i les dates aproximades en què vas utilitzar l'aplicació.</li><li>Respondrem en un termini màxim d'un mes.</li></ol>
+<p>Com que l'identificador és anònim i no està vinculat a la teva identitat, en alguns casos pot no ser possible localitzar les teves dades concretes. En aquest cas, les dades s'eliminen automàticament en acabar el període de retenció indicat a sota.</p>
+<h2>3. Què s'elimina i què es conserva</h2>
+<table><thead><tr><th>Dades</th><th>Què passa</th><th>Termini</th></tr></thead><tbody><tr><td>Configuració de la ruleta (al teu dispositiu)</td><td>S'elimina en esborrar les dades o desinstal·lar</td><td>Immediat</td></tr><tr><td>Identificador d'instal·lació, dades del dispositiu, ubicació aproximada i esdeveniments d'ús (Google Analytics)</td><td>S'eliminen a petició teva quan es puguin localitzar; si no, s'eliminen automàticament</td><td>Resposta en un mes; retenció màxima de 14 mesos</td></tr><tr><td>Còpia del teu correu i sol·licitud</td><td>Es conserven només el temps necessari per atendre la sol·licitud i acreditar-ne el compliment</td><td>Fins a 12 mesos després de resoldre-la</td></tr></tbody></table>
+<p>Més informació sobre el tractament de les teves dades a la <a href="privacy.html">Política de privadesa</a>.</p>
+</section>
+
+<section lang="fr" data-lang="fr" data-name="Français" data-title="Suppression des données - GymRoulette">
+<h1>Suppression des données - GymRoulette</h1>
+<p>Dernière mise à jour : octobre 2026</p>
+<p>Cette page explique comment demander la suppression des données associées à l'application <strong>GymRoulette</strong> (Android, <code>eus.jabibi.gymroul</code>, et sa version web), développée par Javier Melendez (« jabibi »). GymRoulette n'a pas de comptes utilisateur : aucun nom, e-mail ni mot de passe n'est enregistré.</p>
+<h2>1. Données enregistrées sur ton appareil</h2>
+<p>Ta configuration d'exercices et de répétitions est enregistrée uniquement sur ton appareil et n'est jamais envoyée à nos serveurs. Pour la supprimer :</p>
+<ol><li><strong>Android :</strong> Paramètres &gt; Applications &gt; GymRoulette &gt; Stockage &gt; <em>Effacer les données</em>, ou désinstalle l'application.</li><li><strong>Web :</strong> efface les données du site <code>gymroul.web.app</code> dans les paramètres de ton navigateur.</li></ol>
+<p>Cela supprime aussi ton choix concernant Google Analytics et réinitialise l'identifiant anonyme de l'application ; les données d'utilisation ultérieures ne sont donc pas liées aux précédentes.</p>
+<h2>2. Données d'analyse (Google Analytics)</h2>
+<p>Si tu as accepté Google Analytics, Google peut conserver des données d'utilisation associées à un identifiant anonyme de ton installation. Pour en demander la suppression :</p>
+<ol><li>Écris à <a href="mailto:javimelex@gmail.com?subject=Suppression%20des%20donn%C3%A9es%20-%20GymRoulette">javimelex@gmail.com</a> avec l'objet « Suppression des données - GymRoulette ».</li><li>Indique le modèle de ton appareil, la version d'Android et les dates approximatives auxquelles tu as utilisé l'application.</li><li>Nous répondrons dans un délai maximum d'un mois.</li></ol>
+<p>L'identifiant étant anonyme et non lié à ton identité, il peut arriver qu'il soit impossible de localiser tes données précises. Dans ce cas, les données sont supprimées automatiquement à la fin de la durée de conservation indiquée ci-dessous.</p>
+<h2>3. Ce qui est supprimé et ce qui est conservé</h2>
+<table><thead><tr><th>Données</th><th>Ce qui se passe</th><th>Délai</th></tr></thead><tbody><tr><td>Configuration de la roue (sur ton appareil)</td><td>Supprimée lorsque tu effaces les données ou désinstalles l'application</td><td>Immédiat</td></tr><tr><td>Identifiant d'installation, données de l'appareil, localisation approximative et événements d'utilisation (Google Analytics)</td><td>Supprimés à ta demande lorsqu'ils peuvent être localisés ; sinon, supprimés automatiquement</td><td>Réponse sous un mois ; conservation maximale de 14 mois</td></tr><tr><td>Copie de ton e-mail et de la demande</td><td>Conservées uniquement le temps nécessaire pour traiter la demande et prouver qu'elle a été traitée</td><td>Jusqu'à 12 mois après sa résolution</td></tr></tbody></table>
+<p>Plus d'informations sur le traitement de tes données dans la <a href="privacy.html">Politique de confidentialité</a>.</p>
+</section>
+
+<section lang="pt-BR" data-lang="pt-BR" data-name="Português (Brasil)" data-title="Exclusão de dados - GymRoulette">
+<h1>Exclusão de dados - GymRoulette</h1>
+<p>Última atualização: outubro de 2026</p>
+<p>Esta página explica como solicitar a exclusão dos dados associados ao aplicativo <strong>GymRoulette</strong> (Android, <code>eus.jabibi.gymroul</code>, e sua versão web), desenvolvido por Javier Melendez ("jabibi"). O GymRoulette não tem contas de usuário: nenhum nome, e-mail ou senha é armazenado.</p>
+<h2>1. Dados guardados no seu dispositivo</h2>
+<p>A configuração dos seus exercícios e repetições é guardada apenas no seu dispositivo e nunca é enviada aos nossos servidores. Para excluí-la:</p>
+<ol><li><strong>Android:</strong> Configurações &gt; Apps &gt; GymRoulette &gt; Armazenamento &gt; <em>Limpar dados</em>, ou desinstale o aplicativo.</li><li><strong>Web:</strong> apague os dados do site <code>gymroul.web.app</code> nas configurações do seu navegador.</li></ol>
+<p>Isso também remove sua escolha sobre o Google Analytics e redefine o identificador anônimo do aplicativo, de modo que os dados de uso posteriores não ficam vinculados aos anteriores.</p>
+<h2>2. Dados de análise (Google Analytics)</h2>
+<p>Se você aceitou o Google Analytics, o Google pode manter dados de uso associados a um identificador anônimo da sua instalação. Para solicitar a exclusão:</p>
+<ol><li>Escreva para <a href="mailto:javimelex@gmail.com?subject=Exclus%C3%A3o%20de%20dados%20-%20GymRoulette">javimelex@gmail.com</a> com o assunto "Exclusão de dados - GymRoulette".</li><li>Informe o modelo do dispositivo, a versão do Android e as datas aproximadas em que você usou o aplicativo.</li><li>Responderemos em até um mês.</li></ol>
+<p>Como o identificador é anônimo e não está vinculado à sua identidade, em alguns casos pode não ser possível localizar seus dados específicos. Nesse caso, os dados são excluídos automaticamente ao fim do período de retenção indicado abaixo.</p>
+<h2>3. O que é excluído e o que é mantido</h2>
+<table><thead><tr><th>Dados</th><th>O que acontece</th><th>Prazo</th></tr></thead><tbody><tr><td>Configuração da roleta (no seu dispositivo)</td><td>Excluída ao limpar os dados ou desinstalar</td><td>Imediato</td></tr><tr><td>Identificador de instalação, dados do dispositivo, localização aproximada e eventos de uso (Google Analytics)</td><td>Excluídos a seu pedido quando puderem ser localizados; caso contrário, excluídos automaticamente</td><td>Resposta em um mês; retenção máxima de 14 meses</td></tr><tr><td>Cópia do seu e-mail e da solicitação</td><td>Mantidas apenas pelo tempo necessário para atender à solicitação e comprovar seu cumprimento</td><td>Até 12 meses após a resolução</td></tr></tbody></table>
+<p>Mais informações sobre o tratamento dos seus dados na <a href="privacy.html">Política de privacidade</a>.</p>
+</section>
+
+<section lang="pt-PT" data-lang="pt-PT" data-name="Português (Portugal)" data-title="Eliminação de dados - GymRoulette">
+<h1>Eliminação de dados - GymRoulette</h1>
+<p>Última atualização: outubro de 2026</p>
+<p>Esta página explica como solicitar a eliminação dos dados associados à aplicação <strong>GymRoulette</strong> (Android, <code>eus.jabibi.gymroul</code>, e a sua versão web), desenvolvida por Javier Melendez ("jabibi"). O GymRoulette não tem contas de utilizador: não é armazenado nenhum nome, e-mail ou palavra-passe.</p>
+<h2>1. Dados guardados no teu dispositivo</h2>
+<p>A configuração dos teus exercícios e repetições é guardada apenas no teu dispositivo e nunca é enviada para os nossos servidores. Para a eliminar:</p>
+<ol><li><strong>Android:</strong> Definições &gt; Aplicações &gt; GymRoulette &gt; Armazenamento &gt; <em>Limpar dados</em>, ou desinstala a aplicação.</li><li><strong>Web:</strong> apaga os dados do site <code>gymroul.web.app</code> nas definições do teu navegador.</li></ol>
+<p>Isto também remove a tua escolha sobre o Google Analytics e repõe o identificador anónimo da aplicação, pelo que os dados de utilização posteriores não ficam associados aos anteriores.</p>
+<h2>2. Dados de análise (Google Analytics)</h2>
+<p>Se aceitaste o Google Analytics, a Google pode manter dados de utilização associados a um identificador anónimo da tua instalação. Para solicitar a sua eliminação:</p>
+<ol><li>Escreve para <a href="mailto:javimelex@gmail.com?subject=Elimina%C3%A7%C3%A3o%20de%20dados%20-%20GymRoulette">javimelex@gmail.com</a> com o assunto "Eliminação de dados - GymRoulette".</li><li>Indica o modelo do dispositivo, a versão do Android e as datas aproximadas em que utilizaste a aplicação.</li><li>Responderemos no prazo máximo de um mês.</li></ol>
+<p>Como o identificador é anónimo e não está associado à tua identidade, em alguns casos pode não ser possível localizar os teus dados concretos. Nesse caso, os dados são eliminados automaticamente no fim do período de retenção indicado abaixo.</p>
+<h2>3. O que é eliminado e o que é conservado</h2>
+<table><thead><tr><th>Dados</th><th>O que acontece</th><th>Prazo</th></tr></thead><tbody><tr><td>Configuração da roleta (no teu dispositivo)</td><td>Eliminada ao limpar os dados ou desinstalar</td><td>Imediato</td></tr><tr><td>Identificador de instalação, dados do dispositivo, localização aproximada e eventos de utilização (Google Analytics)</td><td>Eliminados a teu pedido quando for possível localizá-los; caso contrário, eliminados automaticamente</td><td>Resposta num mês; retenção máxima de 14 meses</td></tr><tr><td>Cópia do teu e-mail e do pedido</td><td>Conservadas apenas pelo tempo necessário para tratar o pedido e comprovar o seu cumprimento</td><td>Até 12 meses após a resolução</td></tr></tbody></table>
+<p>Mais informações sobre o tratamento dos teus dados na <a href="privacy.html">Política de privacidade</a>.</p>
+</section>
 </body>
 </html>
