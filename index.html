@@ -138,7 +138,7 @@
 
     <!-- Modal de Resultado -->
     <div id="resultModal" role="dialog" aria-modal="true" aria-labelledby="winnerText" aria-hidden="true" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
-        <div class="glass-card w-full max-w-sm rounded-3xl p-6 text-center transform scale-90 transition-all duration-300 shadow-2xl border border-brand-500/50 glow-brand" id="resultCard">
+        <div class="glass-card w-full max-w-sm rounded-3xl p-6 text-center transform scale-90 transition-transform duration-300 shadow-2xl border border-brand-500/50 glow-brand" id="resultCard">
             <div id="winnerIconContainer" class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
                 <i id="winnerIcon" class="fa-solid fa-fire"></i>
             </div>
@@ -164,7 +164,7 @@
 
     <!-- Modal de Historial -->
     <div id="historyModal" role="dialog" aria-modal="true" aria-labelledby="historyTitle" aria-hidden="true" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
-        <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-6 max-h-[80dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-all duration-300 shadow-2xl border border-slate-800" id="historyCard">
+        <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-6 max-h-[80dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="historyCard">
             <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-800">
                 <div class="flex items-center gap-2.5">
                     <i class="fa-solid fa-clock-rotate-left text-brand-400 text-lg"></i>
@@ -188,7 +188,7 @@
 
     <!-- Modal de Configuración & CRUD -->
     <div id="configModal" role="dialog" aria-modal="true" aria-labelledby="configTitle" aria-hidden="true" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
-        <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-6 max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-all duration-300 shadow-2xl border border-slate-800" id="configCard">
+        <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 sm:p-6 max-h-[calc(100dvh-0.5rem)] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="configCard">
             <div class="flex justify-between items-center mb-3 pb-3 border-b border-slate-800">
                 <div class="flex items-center gap-2.5">
                     <i class="fa-solid fa-sliders text-brand-400 text-lg"></i>
@@ -199,9 +199,9 @@
                 </button>
             </div>
 
-            <p class="text-xs text-slate-400 mb-3">Activa, crea o elimina repeticiones y ejercicios:</p>
-
             <div class="flex-1 overflow-y-auto space-y-5 pr-1 my-1">
+                <p class="text-xs text-slate-400">Activa, crea o elimina repeticiones y ejercicios:</p>
+
                 <!-- Repeticiones Section -->
                 <div class="bg-dark-900/60 p-3 rounded-2xl border border-slate-800">
                     <div class="flex justify-between items-center mb-2">
@@ -263,13 +263,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="pt-3 border-t border-slate-800 mt-2">
-                <div class="flex justify-between items-center mb-3 text-[11px]">
+                <div class="flex justify-between items-center text-[11px]">
                     <a href="privacy.html" data-action="open-privacy" class="text-slate-400 underline">Política de privacidad</a>
                     <button data-action="show-consent" class="text-slate-400 underline">Preferencias de analítica</button>
                 </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-800 mt-2">
                 <button data-action="save-config" class="w-full py-3 rounded-xl bg-brand-500 text-dark-950 font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30">
                     Aplicar Cambios y Actualizar Ruleta
                 </button>
