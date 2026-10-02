@@ -1,4 +1,6 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { buildReleaseNotes, RELEASE_NOTES_ORDER } from '../scripts/build-release-notes.mjs';
 import { LISTINGS, STORE_LOCALES, LIMITS } from '../store/listing.mjs';
 import { LANGUAGES } from '../src/i18n/index.js';
 
@@ -42,4 +44,27 @@ describe('ficha de Google Play', () => {
       });
     });
   }
+});
+
+describe('notas de la versión en un único archivo', () => {
+  const file = readFileSync('store/notas-de-la-version.txt', 'utf8');
+
+  it('está al día con store/listing.mjs (ejecuta npm run release-notes si falla)', () => {
+    expect(file).toBe(buildReleaseNotes());
+  });
+
+  it('tiene una etiqueta por idioma de Play, en el orden de la plantilla de Google', () => {
+    const tags = [...file.matchAll(/^<([A-Za-z0-9-]+)>$/gm)].map(m => m[1]);
+    expect(tags).toEqual(RELEASE_NOTES_ORDER);
+    expect([...tags].sort()).toEqual(STORE_LOCALES.map(l => l.play).sort());
+  });
+
+  it('cada idioma cumple el límite de 500 caracteres y las etiquetas se cierran', () => {
+    for (const play of RELEASE_NOTES_ORDER) {
+      const match = file.match(new RegExp(`<${play}>\\n([\\s\\S]*?)\\n</${play}>`));
+      expect(match, play).not.toBeNull();
+      expect(match[1].length, play).toBeLessThanOrEqual(LIMITS.notes);
+      expect(match[1].trim(), play).not.toBe('');
+    }
+  });
 });

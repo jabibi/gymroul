@@ -12,8 +12,9 @@
     "deploy": "npm run build && firebase deploy --only hosting",
     "build:android": "npm run build && npm run cap:sync",
     "icons": "node scripts/build-icons.mjs && capacitor-assets generate --android",
-    "store": "npm run build && node scripts/build-store-assets.mjs",
-    "legal": "node scripts/build-legal.mjs"
+    "store": "npm run build && node scripts/build-store-assets.mjs && node scripts/build-release-notes.mjs",
+    "legal": "node scripts/build-legal.mjs",
+    "release-notes": "node scripts/build-release-notes.mjs"
   },
   "keywords": [],
   "type": "module",

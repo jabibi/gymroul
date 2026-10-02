@@ -158,6 +158,7 @@ gráfico de funciones y capturas de teléfono** de ese idioma. El icono es el mi
 \`\`\`
 store/
 ├── icon.png                                 Icono de la aplicación, 512 x 512 (común a todos los idiomas)
+├── notas-de-la-version.txt                  Novedades de TODOS los idiomas en el formato único que pide Play
 ├── datos-de-la-ficha.md                     Enlaces, clasificación y Seguridad de los datos
 ├── listing.mjs                              Fuente de los textos de cada idioma
 └── <idioma de Play>/                        ${STORE_LOCALES.map(l => l.play).join(', ')}
@@ -186,7 +187,7 @@ En **Presencia en Google Play Store → Fichas de Play Store**, elige el idioma 
 | \`<idioma>/textos/descripcion-completa.txt\` | Descripción completa |
 | \`<idioma>/grafico-de-funciones-1024x500.png\` | Gráfico de funciones |
 | \`<idioma>/capturas-telefono/*.png\` | Capturas de pantalla de teléfonos (entre 2 y 8) |
-| \`<idioma>/textos/notas-de-la-version.txt\` | Novedades de esta versión (al crear la versión; hay que pegarlas por idioma) |
+| \`notas-de-la-version.txt\` | Novedades de esta versión: se pega **entero** en el cuadro de novedades al crear la versión (un bloque por idioma, con la etiqueta del código de Play) |
 
 Recomendación: deja **en-US** como idioma predeterminado, porque es el que ve quien tenga un idioma que no hayas añadido.
 
