@@ -15,8 +15,10 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import sharp from 'sharp';
 
 const NAVY = '#111827';
-const CREAM = '#FFF4DC';
 const ORANGE = '#FF5A1F';
+// Colores de los sectores: la misma paleta que la ruleta de la app, ordenados para que dos sectores
+// contiguos nunca se parezcan
+const SECTOR_COLORS = ['#EF4444', '#FBBF24', '#22C55E', '#06B6D4', '#8B5CF6', '#F97316', '#3B82F6', '#EC4899'];
 const APP_BG = '#020617';
 
 const point = (r, deg) => {
@@ -25,13 +27,17 @@ const point = (r, deg) => {
 };
 const f = n => n.toFixed(2);
 
-// Ocho sectores alternos (azul marino / crema) de 45° cada uno
+// Ocho sectores de 45° con la paleta de la app, separados por finas líneas azul marino
 function sectors(radius) {
   let out = '';
   for (let i = 0; i < 8; i++) {
     const [x1, y1] = point(radius, i * 45);
     const [x2, y2] = point(radius, (i + 1) * 45);
-    out += `<path d="M256,256 L${f(x1)},${f(y1)} A${radius},${radius} 0 0 1 ${f(x2)},${f(y2)} Z" fill="${i % 2 ? CREAM : NAVY}"/>`;
+    out += `<path d="M256,256 L${f(x1)},${f(y1)} A${radius},${radius} 0 0 1 ${f(x2)},${f(y2)} Z" fill="${SECTOR_COLORS[i]}"/>`;
+  }
+  for (let i = 0; i < 8; i++) {
+    const [x, y] = point(radius, i * 45);
+    out += `<line x1="256" y1="256" x2="${f(x)}" y2="${f(y)}" stroke="${NAVY}" stroke-width="4"/>`;
   }
   return out;
 }
@@ -51,7 +57,7 @@ const DEFS = `<defs>
     <stop offset="0" stop-color="#FFC233"/><stop offset="0.55" stop-color="#FF7A1A"/><stop offset="1" stop-color="#E8400C"/>
   </radialGradient>
   <radialGradient id="hub" cx="0.5" cy="0.35" r="0.8">
-    <stop offset="0" stop-color="#FF9A3C"/><stop offset="1" stop-color="#EA4A0C"/>
+    <stop offset="0" stop-color="#2B3548"/><stop offset="1" stop-color="#0B0F19"/>
   </radialGradient>
   <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="9"/></filter>
 </defs>`;
