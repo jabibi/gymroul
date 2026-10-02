@@ -1,7 +1,7 @@
 // Sonido (Web Audio) y vibración
 
 import { Capacitor } from '@capacitor/core';
-import { Haptics, NotificationType } from '@capacitor/haptics';
+import { Haptics } from '@capacitor/haptics';
 
 /** @type {AudioContext | null} */
 let audioCtx = null;
@@ -67,20 +67,54 @@ export function playWinFanfare() {
   } catch (e) { /* audio no disponible */ }
 }
 
+// Intensidades de la vibración. Un pulso de 10 ms apenas se nota en muchos móviles: el motor
+// necesita unos 25-30 ms para arrancar y entregar algo perceptible.
+export const TICK_VIBRATION_MS = 30;
+/** Resultado: tres pulsos crecientes [vibra, pausa, vibra, pausa, vibra] en ms */
+export const RESULT_VIBRATION = [150, 80, 150, 80, 320];
+/** Con la ruleta rápida los sectores pasan muy seguidos: los pulsos se funden en una vibración continua */
+const MIN_TICK_GAP_MS = 70;
+
+/** @type {ReturnType<typeof setTimeout>[]} */
+let patternTimers = [];
+let lastTickVibration = 0;
+
+/** @param {number} duration */
+function nativePulse(duration) {
+  Haptics.vibrate({ duration }).catch(() => { /* sin vibrador o desactivado en el sistema */ });
+}
+
 /**
  * Vibración. En la app Android se usa el plugin nativo (Vibrator del sistema), que es más fiable
  * que navigator.vibrate dentro de la WebView; en la web se mantiene navigator.vibrate.
- * @param {number | number[]} pattern duración en ms o patrón (se interpreta como "éxito")
+ * @param {number | number[]} pattern duración en ms, o patrón [vibra, pausa, vibra, ...] en ms
  */
-export function vibrate(pattern = 15) {
+export function vibrate(pattern = TICK_VIBRATION_MS) {
+  patternTimers.forEach(clearTimeout);
+  patternTimers = [];
+
   if (Capacitor.isNativePlatform()) {
-    const action = Array.isArray(pattern)
-      ? Haptics.notification({ type: NotificationType.Success })
-      : Haptics.vibrate({ duration: pattern });
-    action.catch(() => { /* sin vibrador o desactivado en el sistema */ });
+    if (!Array.isArray(pattern)) {
+      nativePulse(pattern);
+      return;
+    }
+    // El plugin solo admite una duración: el patrón se reproduce encadenando pulsos
+    let at = 0;
+    pattern.forEach((ms, i) => {
+      if (i % 2 === 0) patternTimers.push(setTimeout(() => nativePulse(ms), at));
+      at += ms;
+    });
     return;
   }
   if (navigator.vibrate) {
     try { navigator.vibrate(pattern); } catch (e) { /* vibración no disponible */ }
   }
+}
+
+/** Pulso al cruzar de sector, con una separación mínima entre pulsos. */
+export function vibrateTick() {
+  const now = performance.now();
+  if (now - lastTickVibration < MIN_TICK_GAP_MS) return;
+  lastTickVibration = now;
+  vibrate(TICK_VIBRATION_MS);
 }

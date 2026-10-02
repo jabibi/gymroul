@@ -2,7 +2,7 @@
 // Render (canvas), física y arrastre de la ruleta
 
 import { getWinningIndex, normalizeDelta } from './wheel-math.js';
-import { initAudio, playTickSound, vibrate } from './audio.js';
+import { initAudio, playTickSound, vibrateTick } from './audio.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
 
@@ -144,7 +144,7 @@ function checkTick() {
   const index = getActiveIndex();
   if (index !== lastTickIndex) {
     playTickSound();
-    vibrate(10);
+    vibrateTick();
     lastTickIndex = index;
   }
 }
