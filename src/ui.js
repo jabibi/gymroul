@@ -328,7 +328,17 @@ export const clearNewRepValue = () => { /** @type {HTMLInputElement} */ ($('newR
 
 // --- Consentimiento ------------------------------------------------------------------
 
-/** @param {boolean} visible */
-export function setConsentBannerVisible(visible) {
-  $('consentBanner').classList.toggle('hidden', !visible);
+/**
+ * Muestra u oculta la pantalla de consentimiento. Mientras está visible el resto de la app
+ * queda inerte (sin foco, clics ni lectores de pantalla) además de tapado por el fondo opaco.
+ * @param {boolean} visible
+ * @param {boolean} [rejected] mostrar el aviso de que rechazar impide usar la app
+ */
+export function setConsentGate(visible, rejected = false) {
+  $('consentGate').classList.toggle('hidden', !visible);
+  $('consentRejected').classList.toggle('hidden', !(visible && rejected));
+  document.querySelectorAll('body > :not(#consentGate):not(script)').forEach(el => {
+    /** @type {HTMLElement} */ (el).inert = visible;
+  });
+  if (visible) /** @type {HTMLElement} */ (document.getElementById('consentAccept')).focus({ preventScroll: true });
 }

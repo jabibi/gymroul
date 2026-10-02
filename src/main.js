@@ -97,11 +97,13 @@ const actions = {
 
   'show-consent': () => {
     ui.closeConfig();
-    ui.setConsentBannerVisible(true);
+    ui.setConsentGate(true);
   },
+  // Aceptar desbloquea la app; rechazar la mantiene bloqueada
   'consent': arg => {
-    ui.setConsentBannerVisible(false);
-    setConsent(arg === 'grant');
+    const granted = arg === 'grant';
+    setConsent(granted);
+    ui.setConsentGate(!granted, !granted);
   },
 };
 
@@ -129,9 +131,9 @@ function init() {
   resize();
   ui.renderHistory();
 
-  const consent = getConsent();
-  if (consent === null) ui.setConsentBannerVisible(true);
-  else if (consent === 'granted') applyConsent(true);
+  // Sin consentimiento previo la app no se puede usar
+  if (getConsent() === 'granted') applyConsent(true);
+  else ui.setConsentGate(true);
 }
 
 init();
