@@ -344,29 +344,47 @@ export const readNewRepValue = () => /** @type {HTMLInputElement} */ ($('newRepI
 export const clearNewRepValue = () => { /** @type {HTMLInputElement} */ ($('newRepInput')).value = ''; };
 
 // --- Teclado virtual -----------------------------------------------------------------
-// Al abrirse el teclado el viewport se reduce y el campo con foco puede quedar tapado (o el
-// scroll volver arriba). Se vuelve a centrar el campo activo cuando el teclado termina de
-// aparecer y cada vez que cambia el tamaño visible.
+// Al abrirse el teclado el viewport se reduce y el campo con foco puede quedar tapado. Se hace
+// un único ajuste, sin animación, y solo si el campo no está ya completamente visible; varios
+// desplazamientos suaves encadenados se pisaban entre sí y producían un efecto de rebote.
 
 const TEXT_FIELDS = 'input:not([type=checkbox]):not([type=radio]), textarea, select';
+const REVEAL_MARGIN_PX = 12;
+const KEYBOARD_SETTLE_MS = 250;
+
+/** @type {ReturnType<typeof setTimeout> | undefined} */
+let revealTimer;
 
 function revealFocusedField() {
   const el = document.activeElement;
-  if (el instanceof HTMLElement && el.matches(TEXT_FIELDS)) {
-    el.scrollIntoView({ block: 'center', behavior: 'smooth' });
-  }
+  if (!(el instanceof HTMLElement) || !el.matches(TEXT_FIELDS)) return;
+
+  const vv = window.visualViewport;
+  const viewportBottom = (vv ? vv.offsetTop + vv.height : window.innerHeight) - REVEAL_MARGIN_PX;
+  const scroller = el.closest('.overflow-y-auto');
+  const box = scroller ? scroller.getBoundingClientRect() : null;
+
+  const top = (box ? Math.max(box.top, 0) : 0) + REVEAL_MARGIN_PX;
+  const bottom = box ? Math.min(box.bottom - REVEAL_MARGIN_PX, viewportBottom) : viewportBottom;
+  const rect = el.getBoundingClientRect();
+  if (rect.top >= top && rect.bottom <= bottom) return; // ya se ve: no tocar nada
+
+  const delta = rect.top < top ? rect.top - top : rect.bottom - bottom;
+  if (scroller) scroller.scrollTop += delta;
+  else window.scrollBy(0, delta);
+}
+
+/** Reprograma el ajuste: solo se ejecuta cuando el viewport lleva un rato sin cambiar. */
+function scheduleReveal() {
+  clearTimeout(revealTimer);
+  revealTimer = setTimeout(revealFocusedField, KEYBOARD_SETTLE_MS);
 }
 
 export function initKeyboardAvoidance() {
-  // El teclado tarda unos cientos de ms en abrirse: se reintenta cuando ya ha cambiado el viewport
   document.addEventListener('focusin', e => {
-    if (e.target instanceof HTMLElement && e.target.matches(TEXT_FIELDS)) {
-      setTimeout(revealFocusedField, 100);
-      setTimeout(revealFocusedField, 400);
-    }
+    if (e.target instanceof HTMLElement && e.target.matches(TEXT_FIELDS)) scheduleReveal();
   });
-  window.visualViewport?.addEventListener('resize', () => setTimeout(revealFocusedField, 50));
-  window.addEventListener('resize', () => setTimeout(revealFocusedField, 50));
+  window.visualViewport?.addEventListener('resize', scheduleReveal);
 }
 
 // --- Política de privacidad ----------------------------------------------------------
