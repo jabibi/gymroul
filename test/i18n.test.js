@@ -186,6 +186,15 @@ describe('consentimiento de analítica opcional', () => {
     expect(html).toContain('data-i18n="consent.grant"');
   });
 
+  it('el título es cercano (no es "Google Analytics") y la mención técnica queda en el cuerpo', () => {
+    for (const code of codes) {
+      expect(DICTIONARIES[code].strings['consent.title'], code).not.toMatch(/analytics/i);
+      expect(DICTIONARIES[code].strings['consent.text'], code).toContain('Google Analytics');
+      expect(DICTIONARIES[code].strings['consent.optionalLead'], code).toBeTruthy();
+    }
+    expect(html).toContain('data-i18n="consent.optionalLead"');
+  });
+
   it('Aceptar y Rechazar tienen exactamente el mismo estilo (mismo peso visual)', () => {
     const classes = key => html.match(new RegExp(`<button[^>]*class="([^"]*)"[^>]*data-i18n="${key}"`))?.[1];
     expect(classes('consent.deny')).toBeTruthy();

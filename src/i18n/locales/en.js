@@ -63,9 +63,10 @@ export default {
     'error.duplicateRep': '{n} reps already exists',
     'error.maxReps': 'Maximum {max} rep options',
 
-    'consent.title': 'Google Analytics',
+    'consent.title': 'Help us improve?',
     'consent.text': 'GymRoulette uses Google Analytics to measure how the app is used, anonymously.',
-    'consent.optional': 'It is optional: you can use the app either way, and change your choice any time in Settings.',
+    'consent.optionalLead': 'It is optional:',
+    'consent.optional': 'you can use the app either way, and change your choice any time in Settings.',
     'consent.deny': 'Decline',
     'consent.grant': 'Accept',
     'consent.privacy': 'Privacy policy',

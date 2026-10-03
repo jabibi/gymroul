@@ -63,9 +63,10 @@ export default {
     'error.duplicateRep': 'Ja existeix la repetició {n}',
     'error.maxReps': 'Màxim {max} repeticions',
 
-    'consent.title': 'Google Analytics',
+    'consent.title': 'Ens ajudes a millorar?',
     'consent.text': "GymRoulette utilitza Google Analytics per mesurar de manera anònima l'ús de l'aplicació.",
-    'consent.optional': "És opcional: pots utilitzar l'aplicació de qualsevol manera i canviar la teva elecció quan vulguis a Configuració.",
+    'consent.optionalLead': 'És opcional:',
+    'consent.optional': "pots utilitzar l'aplicació de qualsevol manera i canviar la teva elecció quan vulguis a Configuració.",
     'consent.deny': 'Rebutja',
     'consent.grant': 'Accepta',
     'consent.privacy': 'Política de privadesa',
