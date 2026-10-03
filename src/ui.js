@@ -46,10 +46,32 @@ export function setSoundIcon(enabled) {
     : 'fa-solid fa-volume-xmark text-sm text-slate-500';
 }
 
-/** @param {Segment | undefined} seg */
-export function updateLiveIndicator(seg) {
+/**
+ * Marcador del sector bajo el puntero: [icono del ejercicio] [cantidad] nombre. Sin ejercicios activos
+ * muestra un engranaje y "Configurar ruleta".
+ * @param {Segment | undefined} seg
+ * @param {boolean} [spinningFast] la ruleta gira deprisa: el texto se desenfoca
+ */
+export function updateLiveIndicator(seg, spinningFast = false) {
   if (!seg) return;
-  $('liveIndicatorText').textContent = seg.reps > 0 ? `👉 ${seg.reps} ${seg.exercise} 👈` : `👉 ${t('live.configure')} 👈`;
+  const marker = $('liveIndicator');
+  const hasExercise = seg.reps > 0;
+  $('liveIndicatorIcon').innerHTML = hasExercise ? renderIconHTML(seg.icon) : '<i class="fa-solid fa-gear text-base" aria-hidden="true"></i>';
+  const badge = $('liveIndicatorBadge');
+  badge.textContent = hasExercise ? String(seg.reps) : '';
+  badge.classList.toggle('hidden', !hasExercise);
+  $('liveIndicatorText').textContent = hasExercise ? seg.exercise : t('live.configure');
+  marker.setAttribute('aria-label', hasExercise ? `${seg.reps} ${seg.exercise}` : t('live.configure'));
+  marker.classList.toggle('is-spinning', spinningFast);
+}
+
+/** Rebote y destello del marcador al detenerse la ruleta sobre un sector. */
+export function pulseIndicator() {
+  const marker = $('liveIndicator');
+  marker.classList.remove('is-landed');
+  void marker.offsetWidth; // reinicia la animación aunque ya estuviera puesta
+  marker.classList.add('is-landed');
+  marker.addEventListener('animationend', () => marker.classList.remove('is-landed'), { once: true });
 }
 
 // --- Modales con soporte del botón Atrás -----------------------------------------------

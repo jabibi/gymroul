@@ -4,7 +4,7 @@ import './style.css';
 import { Capacitor } from '@capacitor/core';
 import { App as CapacitorApp } from '@capacitor/app';
 
-import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, refreshLabels } from './wheel.js';
+import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, refreshLabels, getSpinSpeed } from './wheel.js';
 import { generateCombinations, CONFIG_SEGMENT } from './wheel-math.js';
 import {
   migrate, loadActive, getExercises, getReps, active, setActive,
@@ -32,8 +32,19 @@ function redirectIfUnconfigured() {
   return false;
 }
 
+/** Por encima de esta velocidad (rad/fotograma) los nombres pasan tan deprisa que el marcador se desenfoca */
+const BLUR_SPEED = 0.1;
+/** Pausa entre que la ruleta se detiene y aparece el resultado: deja ver el rebote del marcador */
+const RESULT_DELAY_MS = 600;
+let resultPending = false;
+
+/** Refresca el marcador del sector activo (con desenfoque si la ruleta gira deprisa). */
+function refreshMarker() {
+  ui.updateLiveIndicator(getActiveSegment(), getSpinSpeed() > BLUR_SPEED);
+}
+
 function handleSpin() {
-  if (redirectIfUnconfigured()) return;
+  if (resultPending || redirectIfUnconfigured()) return;
   initAudio();
   spin();
 }
@@ -44,7 +55,13 @@ function handleFinish(winner) {
     ui.openConfig();
     return;
   }
-  ui.showResult(winner);
+  // Primero rebota el marcador sobre el sector ganador y, un instante después, aparece el resultado
+  resultPending = true;
+  ui.pulseIndicator();
+  setTimeout(() => {
+    resultPending = false;
+    ui.showResult(winner);
+  }, RESULT_DELAY_MS);
 }
 
 /** @param {import('./store.js').StoreResult} result */
@@ -57,7 +74,7 @@ function applyLanguage() {
   applyTranslations();
   ui.refreshLanguage();
   refreshLabels();
-  ui.updateLiveIndicator(getActiveSegment());
+  refreshMarker();
 }
 
 /** @type {Record<string, (arg: string | undefined) => void>} */
@@ -159,7 +176,7 @@ function init() {
   ui.setCompletedHandler(ui.addToHistory);
 
   initWheel(/** @type {HTMLCanvasElement} */ (document.getElementById('wheelCanvas')), {
-    onChange: () => ui.updateLiveIndicator(getActiveSegment()),
+    onChange: refreshMarker,
     onFinish: handleFinish,
   });
 

@@ -37,19 +37,29 @@
     <main class="flex-1 flex flex-col items-center justify-center px-4 py-4 max-w-md mx-auto w-full relative">
 
         <!-- Indicador de Sector Seleccionado -->
-        <div class="mb-4 text-center">
-            <div id="liveIndicator" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-dark-900/90 border border-brand-500/40 text-xs font-bold text-brand-400 shadow-xl transition-all">
-                <i class="fa-solid fa-arrows-left-right text-slate-400 animate-pulse"></i>
-                <span id="liveIndicatorText" class="tracking-wide" data-i18n="live.drag">Drag the wheel to spin</span>
+        <!-- Un único marcador: [icono] [cantidad] ejercicio, sobre la púa de la ruleta -->
+        <div class="flex justify-center">
+            <div id="liveIndicator" role="img" class="live-marker relative flex items-center justify-center gap-3 min-w-[260px] max-w-full h-[52px] px-2.5 rounded-full border-2 border-brand-500 font-bold text-white">
+                <span id="liveIndicatorIcon" class="w-9 h-9 shrink-0 rounded-full bg-brand-500/15 border border-brand-500/30 text-brand-400 flex items-center justify-center text-xl"></span>
+                <span id="liveIndicatorBadge" class="hidden px-2.5 py-0.5 rounded-lg bg-brand-500 text-dark-950 font-black text-[1.1rem] leading-tight tabular-nums"></span>
+                <span id="liveIndicatorText" class="min-w-0 truncate text-[18px] tracking-wide" data-i18n="live.drag">Drag the wheel to spin</span>
             </div>
         </div>
 
         <!-- Contenedor Principal de la Ruleta -->
-        <div class="relative w-[320px] h-[320px] sm:w-[360px] sm:h-[360px] my-1 wheel-shadow">
+        <div class="relative w-[320px] h-[320px] sm:w-[360px] sm:h-[360px] mt-3 mb-1 wheel-shadow">
 
-            <!-- Puntero Superior Naranja -->
-            <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-30 pointer-glow">
-                <div class="w-0 h-0 border-l-[14px] border-l-transparent border-r-[14px] border-r-transparent border-t-[26px] border-t-brand-400"></div>
+            <!-- Púa superior: lengüeta que se apoya sobre el borde de la ruleta, como la de una ruleta física (la punta entra 9 px en el aro exterior) -->
+            <div class="absolute -top-[6px] left-1/2 -translate-x-1/2 z-30 pointer-glow" aria-hidden="true">
+                <svg width="48" height="24" viewBox="0 0 48 24" class="block">
+                    <defs>
+                        <linearGradient id="pointerGradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0" class="pointer-stop-base"/>
+                            <stop offset="1" class="pointer-stop-tip"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M2 0 H46 C46 10 34 20 24 24 C14 20 2 10 2 0 Z" fill="url(#pointerGradient)"/>
+                </svg>
             </div>
 
             <!-- Canvas de la Ruleta -->

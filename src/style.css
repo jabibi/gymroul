@@ -39,9 +39,43 @@ input, textarea {
 .glow-brand {
     box-shadow: 0 0 30px rgb(var(--brand-500) / 0.35);
 }
+/* Púa: sombra paralela sobre la ruleta (profundidad) y halo verde en la punta */
 .pointer-glow {
-    filter: drop-shadow(0 4px 10px rgb(var(--brand-500) / 0.8));
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 6px rgb(var(--brand-400) / 0.55));
 }
+.pointer-stop-base { stop-color: rgb(var(--brand-600)); }
+.pointer-stop-tip { stop-color: rgb(var(--brand-400)); }
 .wheel-shadow {
     filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.85));
+}
+
+/* Marcador del sector activo: resplandor verde, separado de la púa de la ruleta. */
+.live-marker {
+    background-color: rgba(17, 24, 39, 0.85);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 24px rgb(var(--brand-500) / 0.4);
+}
+/* Mientras la ruleta gira deprisa, el nombre cambia tan rápido que se desenfoca */
+.live-marker #liveIndicatorBadge,
+.live-marker #liveIndicatorText {
+    transition: filter 0.25s ease-out;
+}
+.live-marker.is-spinning #liveIndicatorBadge,
+.live-marker.is-spinning #liveIndicatorText {
+    filter: blur(1.2px);
+}
+/* Al detenerse: rebote ligero y destello en el borde */
+@keyframes marker-pop {
+    0%   { transform: scale(1); box-shadow: 0 0 24px rgb(var(--brand-500) / 0.4); border-color: rgb(var(--brand-500)); }
+    40%  { transform: scale(1.07); box-shadow: 0 0 36px rgb(var(--brand-400) / 0.9); border-color: rgb(var(--brand-400)); }
+    100% { transform: scale(1); box-shadow: 0 0 24px rgb(var(--brand-500) / 0.4); border-color: rgb(var(--brand-500)); }
+}
+.live-marker.is-landed {
+    animation: marker-pop 0.55s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+    .live-marker.is-landed { animation: none; }
+    .live-marker.is-spinning #liveIndicatorBadge,
+    .live-marker.is-spinning #liveIndicatorText { filter: none; }
 }
