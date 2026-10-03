@@ -67,6 +67,7 @@ const STEPS_STYLE = `
         .btn-primary { background: #2563eb; color: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.05); }
         .btn-primary:hover { background: #1d4ed8; }
         .inline-link { color: #2563eb; font-weight: 500; }
+        .gg-btn { display: inline-block; font: 500 14px Roboto, 'Google Sans', Arial, sans-serif; color: #1a73e8; background: #fff; border: 1px solid #dadce0; border-radius: 4px; padding: 8px 22px; user-select: none; cursor: default; }
         .tip { font-size: 0.9em; background: #f1f5f9; border-radius: 8px; padding: 8px 12px; }
         .thanks { margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; text-align: center; color: #64748b; font-weight: 500; }
         .thanks p { margin: 0; }
