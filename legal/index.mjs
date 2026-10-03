@@ -3,6 +3,7 @@ import privacy from './privacy.mjs';
 import dataDeletion from './data-deletion.mjs';
 import credits from './credits.mjs';
 import notFound from './not-found.mjs';
+import closedTesting from './closed-testing.mjs';
 
 export const LANGUAGE_ORDER = ['en', 'es', 'eu', 'gl', 'ca', 'fr', 'pt-BR', 'pt-PT'];
 
@@ -23,4 +24,8 @@ export const LEGAL_PAGES = {
   'borrar-datos.html': dataDeletion,
   'creditos.html': credits,
   '404.html': notFound,
+  'pruebas-cerradas.html': closedTesting,
 };
+
+/** Páginas con un diseño propio (tarjeta con pasos numerados) en lugar del documento legal sencillo. */
+export const STEPS_PAGES = ['pruebas-cerradas.html'];

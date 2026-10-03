@@ -58,6 +58,22 @@ describe('páginas legales multilingües', () => {
     }
   });
 
+  describe('pruebas-cerradas.html', () => {
+    const page = LEGAL_PAGES['pruebas-cerradas.html'];
+    for (const code of LANGUAGE_ORDER) {
+      it(`${code}: cuatro pasos, enlaces al grupo y a Google Play, correo y los 14 días`, () => {
+        const doc = page[code];
+        expect(doc.blocks.filter(([type]) => type === 'step'), code).toHaveLength(4);
+        expect(doc.blocks[0][0]).toBe('h1');
+        expect(doc.blocks.at(-1)[0]).toBe('thanks');
+        const text = flat(doc);
+        for (const fact of ['https://groups.google.com/g/jabibi', 'https://play.google.com/store/apps/details?id=eus.jabibi.gymroul', `mailto:${CONTACT_EMAIL}`, '14']) {
+          expect(text, fact).toContain(fact);
+        }
+      });
+    }
+  });
+
   it('los HTML publicados en public/ coinciden con el contenido (ejecuta npm run legal si falla)', () => {
     for (const [file, html] of Object.entries(buildLegalFiles())) {
       expect(readFileSync(`public/${file}`, 'utf8'), file).toBe(html);

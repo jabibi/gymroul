@@ -32,7 +32,7 @@ src/
   analytics.js         Consentimiento y carga diferida de Firebase Analytics
   style.css            Tailwind + fuentes + iconos
 legal/                 Contenido de las páginas legales por idioma (fuente de public/*.html)
-public/                Páginas legales generadas (privacy, borrar-datos, creditos, 404), legal.js, favicon
+public/                Páginas multilingües generadas (privacy, borrar-datos, creditos, 404, pruebas-cerradas), legal.js, favicon
 store/                 Ficha de Google Play por idioma: textos, gráfico de funciones y capturas (npm run store)
 test/                  Tests con Vitest
 scripts/               build-icons.mjs (logo e iconos), build-legal.mjs (páginas legales), build-store-assets.mjs (ficha de Play)
@@ -126,7 +126,7 @@ Los textos de la interfaz están en `src/i18n/locales/<idioma>.js` (el inglés e
 
 El buscador de iconos mira las etiquetas y palabras clave de **todos** los idiomas, así que «boxeo», «boxing» y «boxe» encuentran el mismo icono.
 
-Las páginas legales (`legal/*.mjs` → `public/*.html`) contienen todos los idiomas en cada página y muestran el que pide `?lang=` o el del navegador. Tras editarlas, `npm run legal` (o `npm run build`) las regenera.
+Las páginas legales (`legal/*.mjs` → `public/*.html`) contienen todos los idiomas en cada página y muestran el que pide `?lang=` o el del navegador (inglés si no hay coincidencia). Tras editarlas, `npm run legal` (o `npm run build`) las regenera. `pruebas-cerradas.html` es la invitación para los testers de la prueba cerrada de Google Play; tiene un diseño propio con pasos numerados.
 
 La ficha de Google Play de cada idioma, con sus capturas, se genera con `npm run store`; ver [`store/README.md`](store/README.md).
 
