@@ -8,6 +8,7 @@ gráfico de funciones y capturas de teléfono** de ese idioma. El icono es el mi
 store/
 ├── icon.png                                 Icono de la aplicación, 512 x 512 (común a todos los idiomas)
 ├── notas-de-la-version.txt                  Novedades de TODOS los idiomas en el formato único que pide Play
+├── importar-traducciones.csv                Título y descripciones de TODOS los idiomas para «Importar un archivo» (npm run store)
 ├── datos-de-la-ficha.md                     Enlaces, clasificación y Seguridad de los datos
 ├── listing.mjs                              Fuente de los textos de cada idioma
 └── <idioma de Play>/                        en-US, en-GB, es-ES, es-419, eu-ES, gl-ES, ca, fr-FR, fr-CA, pt-BR, pt-PT
@@ -23,17 +24,17 @@ store/
 ## Idiomas y longitud de los textos
 | Carpeta | Idioma en Play Console | Descripción breve | Descripción completa | Novedades |
 |---|---|---|---|---|
-| `en-US` | Inglés (Estados Unidos) | 68/80 | 1981/4000 | 439/500 |
-| `en-GB` | Inglés (Reino Unido) | 68/80 | 1981/4000 | 439/500 |
-| `es-ES` | Español (España) | 75/80 | 2095/4000 | 491/500 |
-| `es-419` | Español (Latinoamérica) | 75/80 | 2101/4000 | 491/500 |
-| `eu-ES` | Euskera | 74/80 | 2199/4000 | 482/500 |
-| `gl-ES` | Gallego | 76/80 | 2062/4000 | 487/500 |
-| `ca` | Catalán | 74/80 | 2073/4000 | 477/500 |
-| `fr-FR` | Francés (Francia) | 77/80 | 2272/4000 | 491/500 |
-| `fr-CA` | Francés (Canadá) | 77/80 | 2274/4000 | 493/500 |
-| `pt-BR` | Portugués (Brasil) | 75/80 | 2067/4000 | 463/500 |
-| `pt-PT` | Portugués (Portugal) | 75/80 | 2103/4000 | 497/500 |
+| `en-US` | Inglés (Estados Unidos) | 68/80 | 2058/4000 | 439/500 |
+| `en-GB` | Inglés (Reino Unido) | 68/80 | 2058/4000 | 439/500 |
+| `es-ES` | Español (España) | 75/80 | 2172/4000 | 491/500 |
+| `es-419` | Español (Latinoamérica) | 75/80 | 2178/4000 | 491/500 |
+| `eu-ES` | Euskera | 74/80 | 2276/4000 | 482/500 |
+| `gl-ES` | Gallego | 76/80 | 2139/4000 | 487/500 |
+| `ca` | Catalán | 74/80 | 2150/4000 | 477/500 |
+| `fr-FR` | Francés (Francia) | 77/80 | 2349/4000 | 491/500 |
+| `fr-CA` | Francés (Canadá) | 77/80 | 2351/4000 | 493/500 |
+| `pt-BR` | Portugués (Brasil) | 75/80 | 2144/4000 | 463/500 |
+| `pt-PT` | Portugués (Portugal) | 75/80 | 2180/4000 | 497/500 |
 
 ## Dónde sube cada archivo en Play Console
 En **Presencia en Google Play Store → Fichas de Play Store**, elige el idioma arriba (*Gestionar idiomas* para añadirlos) y rellena:

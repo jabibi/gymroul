@@ -2,32 +2,32 @@ Sem vontade de decidir o que treinar hoje? Gire a roleta e deixe o GymRoulette e
 
 O GymRoulette é uma roleta de exercícios: cada setor combina um número de repetições com um exercício (por exemplo, “20 Burpee”) e, ao girá-la, propõe um desafio aleatório para treinar em casa, na academia ou ao ar livre. Pensada para dar variedade aos seus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicação.
 
-COMO FUNCIONA
+<b>COMO FUNCIONA</b>
 • Toque em “Girar roleta” ou lance a roleta com o dedo.
 • Quando ela para, você vê o seu desafio: repetições e exercício.
 • Marque como concluído ou pule e gire de novo.
 • Veja no histórico os desafios que você concluiu na sessão.
 
-VOCÊ DECIDE O QUE ENTRA NA ROLETA
+<b>VOCÊ DECIDE O QUE ENTRA NA ROLETA</b>
 • Ative ou desative os exercícios e as repetições que quiser.
 • Crie seus próprios exercícios com nome, nome curto e ícone.
 • Adicione ou remova repetições para ajustar a dificuldade.
 • A roleta se adapta às suas configurações, que ficam salvas no seu dispositivo.
 
-MAIS DE 100 ÍCONES PARA SEUS EXERCÍCIOS
+<b>MAIS DE 100 ÍCONES PARA SEUS EXERCÍCIOS</b>
 Escolha entre mais de 100 ícones de muitas modalidades, com busca: força e pesos, calistenia, cardio, yoga, pilates, tai chi, boxe, caratê e outras artes marciais, hyrox, crossfit, corridas de obstáculos, esportes, água e montanha. Inclui pictogramas próprios de flexões, prancha, abdominais, burpee, agachamento e mountain climbers.
 
-NO SEU IDIOMA
+<b>NO SEU IDIOMA</b>
 English, Español, Euskara, Galego, Català, Français e Português (Brasil e Portugal). O app segue o idioma do seu celular e você pode mudá-lo em Configurações.
 
-DETALHES QUE FAZEM DIFERENÇA
-• Som da roleta e vibração quando o resultado aparece.
-• Visual escuro e confortável para usar na academia.
-• Sem cadastro nem contas de usuário.
-• Sem anúncios.
-• Funciona sem conexão.
+<b>DETALHES QUE FAZEM DIFERENÇA</b>
+• <b>Som da roleta e vibração</b> quando o resultado aparece.
+• <b>Visual escuro</b> e confortável para usar na academia.
+• <b>Sem cadastro</b> nem contas de usuário.
+• <b>Sem anúncios.</b>
+• <b>Funciona sem conexão.</b>
 
-PRIVACIDADE
+<b>PRIVACIDADE</b>
 Suas configurações ficam salvas apenas no seu dispositivo. A análise do Google Analytics, que mede de forma anônima como o app é usado, é opcional: você escolhe se aceita e pode mudar quando quiser em Configurações. Você pode ler a política de privacidade dentro do app.
 
 Gire a roleta e vá treinar!

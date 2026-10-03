@@ -159,6 +159,7 @@ gráfico de funciones y capturas de teléfono** de ese idioma. El icono es el mi
 store/
 ├── icon.png                                 Icono de la aplicación, 512 x 512 (común a todos los idiomas)
 ├── notas-de-la-version.txt                  Novedades de TODOS los idiomas en el formato único que pide Play
+├── importar-traducciones.csv                Título y descripciones de TODOS los idiomas para «Importar un archivo» (npm run store)
 ├── datos-de-la-ficha.md                     Enlaces, clasificación y Seguridad de los datos
 ├── listing.mjs                              Fuente de los textos de cada idioma
 └── <idioma de Play>/                        ${STORE_LOCALES.map(l => l.play).join(', ')}

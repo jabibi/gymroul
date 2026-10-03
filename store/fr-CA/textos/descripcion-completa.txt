@@ -2,32 +2,32 @@ Pas envie de décider quoi t'entraîner aujourd'hui? Fais tourner la roue et lai
 
 GymRoulette est une roue d'exercices : chaque secteur associe un nombre de répétitions à un exercice (par exemple « 20 Burpee ») et, quand tu la fais tourner, elle te propose un défi au hasard pour t'entraîner à la maison, en salle ou en plein air. Pensée pour varier tes séances, pour des circuits, des défis entre amis et pour tous ceux qui veulent s'entraîner sans se compliquer la vie.
 
-COMMENT ÇA MARCHE
+<b>COMMENT ÇA MARCHE</b>
 • Appuie sur « Lancer la roue » ou lance-la d'un geste du doigt.
 • Quand elle s'arrête, tu vois ton défi : répétitions et exercice.
 • Marque-le comme terminé ou passe-le et relance la roue.
 • Consulte l'historique des défis terminés pendant la séance.
 
-C'EST TOI QUI CHOISIS CE QUI EST SUR LA ROUE
+<b>C'EST TOI QUI CHOISIS CE QUI EST SUR LA ROUE</b>
 • Active ou désactive les exercices et les répétitions que tu veux.
 • Crée tes propres exercices avec un nom, un nom court et une icône.
 • Ajoute ou supprime des répétitions pour régler la difficulté.
 • La roue s'adapte à tes réglages, enregistrés sur ton appareil.
 
-PLUS DE 100 ICÔNES POUR TES EXERCICES
+<b>PLUS DE 100 ICÔNES POUR TES EXERCICES</b>
 Choisis parmi plus de 100 icônes de nombreuses disciplines, avec recherche : force et poids, callisthénie, cardio, yoga, pilates, tai chi, boxe, karaté et autres arts martiaux, hyrox, crossfit, courses d'obstacles, sports, eau et montagne. Avec des pictogrammes originaux pour les pompes, le gainage, les abdominaux, le burpee, le squat et les mountain climbers.
 
-DANS TA LANGUE
+<b>DANS TA LANGUE</b>
 English, Español, Euskara, Galego, Català, Français et Português (Brasil et Portugal). L'application suit la langue de ton téléphone et tu peux la changer dans les Paramètres.
 
-DE BONS PETITS DÉTAILS
-• Sons de la roue et vibration à l'apparition du résultat.
-• Un design sombre, agréable à l'œil en salle.
-• Sans inscription ni compte utilisateur.
-• Sans publicité.
-• Fonctionne hors connexion.
+<b>DE BONS PETITS DÉTAILS</b>
+• <b>Sons de la roue et vibration</b> à l'apparition du résultat.
+• <b>Un design sombre</b>, agréable à l'œil en salle.
+• <b>Sans inscription</b> ni compte utilisateur.
+• <b>Sans publicité.</b>
+• <b>Fonctionne hors connexion.</b>
 
-CONFIDENTIALITÉ
+<b>CONFIDENTIALITÉ</b>
 Tes réglages sont enregistrés uniquement sur ton appareil. L'analyse Google Analytics, qui mesure de façon anonyme l'utilisation de l'application, est facultative : tu choisis de l'accepter ou non et tu peux changer d'avis à tout moment dans les Paramètres. Tu peux consulter la politique de confidentialité dans l'application.
 
 Lance la roue et c'est parti!

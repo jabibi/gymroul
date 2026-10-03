@@ -2,32 +2,32 @@ Sen ganas de decidir que adestrar hoxe? Xira a ruleta e deixa que GymRoulette es
 
 GymRoulette é unha ruleta de exercicios: cada sector combina un número de repeticións cun exercicio (por exemplo, «20 Burpee») e, ao xirala, proponche un reto aleatorio para adestrar na casa, no ximnasio ou ao aire libre. Pensada para darlle variedade ás túas sesións, para circuítos, para retos con amizades e para quen quere adestrar sen complicarse.
 
-COMO FUNCIONA
+<b>COMO FUNCIONA</b>
 • Preme «Xirar a ruleta» ou lanza a ruleta co dedo.
 • Cando se detén, ves o teu reto: repeticións e exercicio.
 • Márcao como completado ou sáltao e volve xirar.
 • Consulta no historial os retos que completaches na sesión.
 
-TI DECIDES QUE HAI NA RULETA
+<b>TI DECIDES QUE HAI NA RULETA</b>
 • Activa ou desactiva os exercicios e as repeticións que queiras.
 • Crea os teus propios exercicios con nome, nome curto e icona.
 • Engade ou elimina repeticións para axustar a dificultade.
 • A ruleta adáptase á túa configuración, que se garda no teu dispositivo.
 
-MÁIS DE 100 ICONAS PARA OS TEUS EXERCICIOS
+<b>MÁIS DE 100 ICONAS PARA OS TEUS EXERCICIOS</b>
 Escolle entre máis de 100 iconas de moitas disciplinas, con buscador: forza e pesas, calistenia, cardio, yoga, pilates, tai chi, boxeo, karate e outras artes marciais, hyrox, crossfit, carreiras de obstáculos, deportes, auga e montaña. Inclúe pictogramas propios de flexións, prancha, abdominais, burpee, agachamento e mountain climbers.
 
-NO TEU IDIOMA
+<b>NO TEU IDIOMA</b>
 English, Español, Euskara, Galego, Català, Français e Português (Brasil e Portugal). A app segue o idioma do teu móbil e podes cambialo en Configuración.
 
-DETALLES QUE SE AGRADECEN
-• Son de ruleta e vibración ao saír o resultado.
-• Deseño escuro e cómodo para usar no ximnasio.
-• Sen rexistro nin contas de usuario.
-• Sen anuncios.
-• Funciona sen conexión.
+<b>DETALLES QUE SE AGRADECEN</b>
+• <b>Son de ruleta e vibración</b> ao saír o resultado.
+• <b>Deseño escuro</b> e cómodo para usar no ximnasio.
+• <b>Sen rexistro</b> nin contas de usuario.
+• <b>Sen anuncios.</b>
+• <b>Funciona sen conexión.</b>
 
-PRIVACIDADE
+<b>PRIVACIDADE</b>
 A túa configuración gárdase unicamente no teu dispositivo. A analítica de Google Analytics, que mide de forma anónima como se utiliza a aplicación, é opcional: ti elixes se aceptala e podes cambialo cando queiras en Configuración. Podes consultar a política de privacidade dentro da app.
 
 Xira a ruleta e a adestrar!

@@ -2,32 +2,32 @@ Sem vontade de decidir o que treinar hoje? Gira a roleta e deixa o GymRoulette e
 
 O GymRoulette é uma roleta de exercícios: cada setor combina um número de repetições com um exercício (por exemplo, “20 Burpee”) e, ao girá-la, propõe-te um desafio aleatório para treinares em casa, no ginásio ou ao ar livre. Pensada para dar variedade aos teus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicações.
 
-COMO FUNCIONA
+<b>COMO FUNCIONA</b>
 • Toca em “Girar roleta” ou lança a roleta com o dedo.
 • Quando pára, vês o teu desafio: repetições e exercício.
 • Marca-o como concluído ou salta-o e gira outra vez.
 • Consulta no histórico os desafios que concluíste na sessão.
 
-TU DECIDES O QUE ENTRA NA ROLETA
+<b>TU DECIDES O QUE ENTRA NA ROLETA</b>
 • Ativa ou desativa os exercícios e as repetições que quiseres.
 • Cria os teus próprios exercícios com nome, nome curto e ícone.
 • Adiciona ou remove repetições para ajustar a dificuldade.
 • A roleta adapta-se às tuas definições, que ficam guardadas no teu dispositivo.
 
-MAIS DE 100 ÍCONES PARA OS TEUS EXERCÍCIOS
+<b>MAIS DE 100 ÍCONES PARA OS TEUS EXERCÍCIOS</b>
 Escolhe entre mais de 100 ícones de muitas modalidades, com pesquisa: força e pesos, calistenia, cardio, yoga, pilates, tai chi, boxe, karaté e outras artes marciais, hyrox, crossfit, corridas de obstáculos, desportos, água e montanha. Inclui pictogramas próprios de flexões, prancha, abdominais, burpee, agachamento e mountain climbers.
 
-NO TEU IDIOMA
+<b>NO TEU IDIOMA</b>
 English, Español, Euskara, Galego, Català, Français e Português (Brasil e Portugal). A aplicação segue o idioma do teu telemóvel e podes alterá-lo em Definições.
 
-DETALHES QUE FAZEM DIFERENÇA
-• Som da roleta e vibração quando aparece o resultado.
-• Visual escuro e confortável para usar no ginásio.
-• Sem registo nem contas de utilizador.
-• Sem anúncios.
-• Funciona sem ligação.
+<b>DETALHES QUE FAZEM DIFERENÇA</b>
+• <b>Som da roleta e vibração</b> quando aparece o resultado.
+• <b>Visual escuro</b> e confortável para usar no ginásio.
+• <b>Sem registo</b> nem contas de utilizador.
+• <b>Sem anúncios.</b>
+• <b>Funciona sem ligação.</b>
 
-PRIVACIDADE
+<b>PRIVACIDADE</b>
 As tuas definições ficam guardadas apenas no teu dispositivo. A análise do Google Analytics, que mede de forma anónima como a aplicação é utilizada, é opcional: tu escolhes se a aceitas e podes alterar quando quiseres em Definições. Podes ler a política de privacidade dentro da aplicação.
 
 Gira a roleta e vai treinar!

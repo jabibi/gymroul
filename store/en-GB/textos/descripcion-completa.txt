@@ -2,32 +2,32 @@ Can't decide what to train today? Spin the wheel and let GymRoulette choose for 
 
 GymRoulette is an exercise wheel: each segment combines a number of reps with an exercise (for example, “20 Burpee”), and when you spin it, it gives you a random challenge to train at home, at the gym or outdoors. Made to add variety to your sessions, for circuits, for challenges with friends, and for anyone who wants to work out without overthinking it.
 
-HOW IT WORKS
+<b>HOW IT WORKS</b>
 • Tap “Spin the wheel” or fling the wheel with your finger.
 • When it stops, you see your challenge: reps and exercise.
 • Mark it as done or skip it and spin again.
 • Check the history for the challenges you completed during the session.
 
-YOU DECIDE WHAT'S ON THE WHEEL
+<b>YOU DECIDE WHAT'S ON THE WHEEL</b>
 • Turn the exercises and reps you want on or off.
 • Create your own exercises with a name, a short name and an icon.
 • Add or remove reps to adjust the difficulty.
 • The wheel adapts to your settings, which are saved on your device.
 
-MORE THAN 100 ICONS FOR YOUR EXERCISES
+<b>MORE THAN 100 ICONS FOR YOUR EXERCISES</b>
 Choose from more than 100 icons across many disciplines, with search: strength and weights, calisthenics, cardio, yoga, pilates, tai chi, boxing, karate and other martial arts, hyrox, crossfit, obstacle races, sports, water and mountain. Includes our own pictograms for push-ups, plank, sit-ups, burpee, squat and mountain climbers.
 
-IN YOUR LANGUAGE
+<b>IN YOUR LANGUAGE</b>
 English, Español, Euskara, Galego, Català, Français and Português (Brasil and Portugal). The app follows your phone's language, and you can change it in Settings.
 
-NICE DETAILS
-• Wheel sounds and vibration when the result comes up.
-• A dark design that's easy on the eyes at the gym.
-• No sign-up or user accounts.
-• No ads.
-• Works offline.
+<b>NICE DETAILS</b>
+• <b>Wheel sounds and vibration</b> when the result comes up.
+• <b>A dark design</b> that's easy on the eyes at the gym.
+• <b>No sign-up</b> or user accounts.
+• <b>No ads.</b>
+• <b>Works offline.</b>
 
-PRIVACY
+<b>PRIVACY</b>
 Your settings are stored only on your device. Google Analytics, which measures anonymously how the app is used, is optional: you choose whether to accept it and can change that any time in Settings. You can read the privacy policy inside the app.
 
 Spin the wheel and let's train!
