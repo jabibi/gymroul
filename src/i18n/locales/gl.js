@@ -65,7 +65,7 @@ export default {
 
     'consent.title': 'Google Analytics',
     'consent.text': 'GymRoulette utiliza Google Analytics para medir de forma anónima o uso da aplicación.',
-    'consent.rejected': 'Rexeitaches Google Analytics, polo que non podes usar a aplicación. Preme «Aceptar» se queres continuar.',
+    'consent.optional': 'É opcional: podes usar a aplicación en calquera caso e cambiar a túa elección cando queiras en Configuración.',
     'consent.deny': 'Rexeitar',
     'consent.grant': 'Aceptar',
     'consent.privacy': 'Política de privacidade',

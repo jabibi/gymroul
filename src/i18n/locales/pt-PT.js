@@ -25,7 +25,7 @@ export default {
     'error.repRange': 'Introduz um número entre 1 e {max}',
 
     'consent.text': 'O GymRoulette utiliza o Google Analytics para medir a utilização da aplicação de forma anónima.',
-    'consent.rejected': 'Recusaste o Google Analytics, pelo que não podes utilizar a aplicação. Toca em “Aceitar” se quiseres continuar.',
+    'consent.optional': 'É opcional: podes utilizar a aplicação em qualquer dos casos e alterar a tua escolha quando quiseres em Definições.',
   },
 
   groups: {

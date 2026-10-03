@@ -168,3 +168,32 @@ describe('errores del almacén', () => {
     expect(addExercise({ name: 'X', icon: '🔥' }).error.key).toBe('error.iconRequired');
   });
 });
+
+describe('consentimiento de analítica opcional', () => {
+  const html = readFileSync('index.html', 'utf8');
+  const main = readFileSync('src/main.js', 'utf8');
+
+  it('no hay textos ni elementos que condicionen el uso de la app a aceptar', () => {
+    expect(html).not.toContain('consentRejected');
+    for (const code of codes) {
+      for (const key of ['consent.required', 'consent.rejected']) expect(DICTIONARIES[code].strings[key], `${code}:${key}`).toBeUndefined();
+    }
+  });
+
+  it('todos los idiomas explican que es opcional y los dos botones existen', () => {
+    for (const code of codes) expect(DICTIONARIES[code].strings['consent.optional'], code).toBeTruthy();
+    expect(html).toContain('data-i18n="consent.deny"');
+    expect(html).toContain('data-i18n="consent.grant"');
+  });
+
+  it('Aceptar y Rechazar tienen exactamente el mismo estilo (mismo peso visual)', () => {
+    const classes = key => html.match(new RegExp(`<button[^>]*class="([^"]*)"[^>]*data-i18n="${key}"`))?.[1];
+    expect(classes('consent.deny')).toBeTruthy();
+    expect(classes('consent.deny')).toBe(classes('consent.grant'));
+  });
+
+  it('solo se pregunta cuando no hay decisión previa: rechazar o aceptar no bloquean la app', () => {
+    expect(main).toMatch(/consent === null\) ui\.setConsentGate\(true\)/);
+    expect(main).toMatch(/setConsent\(arg === 'grant'\);\s*ui\.hideConsent\(\)/);
+  });
+});

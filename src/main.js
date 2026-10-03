@@ -112,15 +112,11 @@ const actions = {
   'close-document': () => ui.closeDocument(),
   'toggle-icon-picker': () => ui.toggleIconPicker(),
   'pick-icon': arg => arg && ui.pickIcon(arg),
-  'show-consent': () => {
-    ui.closeConfig();
-    ui.setConsentGate(true);
-  },
-  // Aceptar desbloquea la app; rechazar la mantiene bloqueada
+  'show-consent': () => ui.showConsentFromSettings(),
+  // La analítica es opcional: tanto Aceptar como Rechazar dejan usar la app; la elección se puede cambiar en Configuración
   'consent': arg => {
-    const granted = arg === 'grant';
-    setConsent(granted);
-    ui.setConsentGate(!granted, !granted);
+    setConsent(arg === 'grant');
+    ui.hideConsent();
   },
 };
 
@@ -171,9 +167,10 @@ function init() {
   resize();
   ui.renderHistory();
 
-  // Sin consentimiento previo la app no se puede usar
-  if (getConsent() === 'granted') applyConsent(true);
-  else ui.setConsentGate(true);
+  // Solo se pregunta si el usuario aún no ha decidido; rechazar no impide usar la app y Google Analytics no se carga
+  const consent = getConsent();
+  if (consent === 'granted') applyConsent(true);
+  else if (consent === null) ui.setConsentGate(true);
 }
 
 init();

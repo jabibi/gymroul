@@ -29,7 +29,7 @@ export default {
       ['p', 'GymRoulette does <strong>not</strong> collect your name, email address, contacts, photos, microphone, camera, precise location, or any health or fitness data. The app has no user accounts.'],
 
       ['h2', '3. Legal basis'],
-      ['p', 'Processing of analytics data is based on your <strong>consent</strong> (Article 6(1)(a) GDPR and Article 22(2) of the Spanish LSSI). You are asked for it the first time you open the app; using the app requires accepting it, and you can withdraw it at any time from Settings &gt; Analytics preferences, after which you will no longer be able to use the app. Local storage of your settings is necessary for the app to work.'],
+      ['p', 'Processing of analytics data is based on your <strong>consent</strong> (Article 6(1)(a) GDPR and Article 22(2) of the Spanish LSSI). You are asked for it the first time you open the app. It is <strong>optional</strong>: you can decline and still use the whole app, and you can change or withdraw your choice at any time from Settings &gt; Analytics preferences. If you decline, Google Analytics is not loaded and no analytics data is collected. Local storage of your settings is necessary for the app to work.'],
 
       ['h2', '4. Recipients and transfers'],
       ['p', `Analytics data is processed by Google as a data processor. Google may transfer data outside the European Economic Area (for example to the United States) under the safeguards provided by law (standard contractual clauses and/or the EU-US Data Privacy Framework). More information at ${FIREBASE_PRIVACY} and ${GOOGLE_PRIVACY}.`],
@@ -80,7 +80,7 @@ export default {
       ['p', 'GymRoulette <strong>no</strong> recopila nombre, correo electrónico, contactos, fotos, micrófono, cámara, ubicación precisa ni ningún dato de salud o de condición física. La aplicación no tiene cuentas de usuario.'],
 
       ['h2', '3. Base jurídica'],
-      ['p', 'El tratamiento de datos de analítica se basa en tu <strong>consentimiento</strong> (art. 6.1.a RGPD y art. 22.2 LSSI). Al abrir la aplicación por primera vez se te solicita; el uso de la aplicación requiere aceptarlo, y puedes retirarlo en cualquier momento desde Configuración &gt; Preferencias de analítica, tras lo cual no podrás seguir usando la aplicación. El almacenamiento local de tu configuración es necesario para el funcionamiento de la app.'],
+      ['p', 'El tratamiento de datos de analítica se basa en tu <strong>consentimiento</strong> (art. 6.1.a RGPD y art. 22.2 LSSI). Se te solicita al abrir la aplicación por primera vez. Es <strong>opcional</strong>: puedes rechazarlo y usar toda la aplicación igualmente, y puedes cambiar o retirar tu elección en cualquier momento desde Configuración &gt; Preferencias de analítica. Si lo rechazas, Google Analytics no se carga y no se recopila ningún dato de analítica. El almacenamiento local de tu configuración es necesario para el funcionamiento de la app.'],
 
       ['h2', '4. Destinatarios y transferencias'],
       ['p', `Los datos de analítica los procesa Google como encargado del tratamiento. Google puede transferir datos fuera del Espacio Económico Europeo (por ejemplo a Estados Unidos) con las garantías previstas en la normativa (cláusulas contractuales tipo y/o marco de privacidad de datos UE-EE. UU.). Más información en ${FIREBASE_PRIVACY} y ${GOOGLE_PRIVACY}.`],
@@ -131,7 +131,7 @@ export default {
       ['p', 'GymRoulette-k <strong>ez</strong> du biltzen izenik, posta elektronikorik, kontakturik, argazkirik, mikrofonorik, kamerarik, kokapen zehatzik, ezta osasun- edo kondizio fisikoko daturik ere. Aplikazioak ez du erabiltzaile-konturik.'],
 
       ['h2', '3. Oinarri juridikoa'],
-      ['p', 'Analitika-datuen tratamendua zure <strong>baimenean</strong> oinarritzen da (Datuak Babesteko Erregelamendu Orokorraren 6.1.a artikulua eta Espainiako LSSIren 22.2 artikulua). Aplikazioa lehen aldiz irekitzean eskatzen zaizu; aplikazioa erabiltzeko onartu behar da, eta edonoiz kendu dezakezu Ezarpenak &gt; Analitika-hobespenak atalean; ondoren, ezingo duzu aplikazioa erabiltzen jarraitu. Zure ezarpenen biltegiratze lokala beharrezkoa da aplikazioak funtziona dezan.'],
+      ['p', 'Analitika-datuen tratamendua zure <strong>baimenean</strong> oinarritzen da (Datuak Babesteko Erregelamendu Orokorraren 6.1.a artikulua eta Espainiako LSSIren 22.2 artikulua). Aplikazioa lehen aldiz irekitzean eskatzen zaizu. <strong>Aukerakoa</strong> da: ukatu dezakezu eta aplikazio osoa erabiltzen jarraitu, eta zure aukera edonoiz alda edo kendu dezakezu Ezarpenak &gt; Analitika-hobespenak atalean. Ukatzen baduzu, Google Analytics ez da kargatzen eta ez da analitika-daturik biltzen. Zure ezarpenen biltegiratze lokala beharrezkoa da aplikazioak funtziona dezan.'],
 
       ['h2', '4. Hartzaileak eta transferentziak'],
       ['p', `Analitika-datuak Google-k tratatzen ditu, tratamenduaren eragile gisa. Google-k datuak Europako Esparru Ekonomikotik kanpo transferi ditzake (adibidez, Estatu Batuetara), arauak aurreikusten dituen bermeekin (kontratu-klausula estandarrak eta/edo EB-AEB Datuen Pribatutasun Esparrua). Informazio gehiago: ${FIREBASE_PRIVACY} eta ${GOOGLE_PRIVACY}.`],
@@ -182,7 +182,7 @@ export default {
       ['p', 'GymRoulette <strong>non</strong> recolle nome, correo electrónico, contactos, fotos, micrófono, cámara, localización precisa nin ningún dato de saúde ou de condición física. A aplicación non ten contas de usuario.'],
 
       ['h2', '3. Base xurídica'],
-      ['p', 'O tratamento de datos de analítica baséase no teu <strong>consentimento</strong> (art. 6.1.a RXPD e art. 22.2 LSSI). Ao abrir a aplicación por primeira vez solicítaseche; o uso da aplicación require aceptalo, e podes retiralo en calquera momento desde Configuración &gt; Preferencias de analítica, tras o que non poderás seguir usando a aplicación. O almacenamento local da túa configuración é necesario para o funcionamento da app.'],
+      ['p', 'O tratamento de datos de analítica baséase no teu <strong>consentimento</strong> (art. 6.1.a RXPD e art. 22.2 LSSI). Ao abrir a aplicación por primeira vez solicítaseche. É <strong>opcional</strong>: podes rexeitalo e usar toda a aplicación igualmente, e podes cambiar ou retirar a túa elección en calquera momento desde Configuración &gt; Preferencias de analítica. Se o rexeitas, Google Analytics non se carga e non se recolle ningún dato de analítica. O almacenamento local da túa configuración é necesario para o funcionamento da app.'],
 
       ['h2', '4. Destinatarios e transferencias'],
       ['p', `Os datos de analítica trátaos Google como encargado do tratamento. Google pode transferir datos fóra do Espazo Económico Europeo (por exemplo, aos Estados Unidos) coas garantías previstas na normativa (cláusulas contractuais tipo e/ou marco de privacidade de datos UE-EUA). Máis información en ${FIREBASE_PRIVACY} e ${GOOGLE_PRIVACY}.`],
@@ -233,7 +233,7 @@ export default {
       ['p', 'GymRoulette <strong>no</strong> recopila nom, correu electrònic, contactes, fotos, micròfon, càmera, ubicació precisa ni cap dada de salut o de condició física. L\'aplicació no té comptes d\'usuari.'],
 
       ['h2', '3. Base jurídica'],
-      ['p', 'El tractament de dades d\'analítica es basa en el teu <strong>consentiment</strong> (art. 6.1.a RGPD i art. 22.2 LSSI). En obrir l\'aplicació per primera vegada se\'t demana; l\'ús de l\'aplicació requereix acceptar-lo, i el pots retirar en qualsevol moment des de Configuració &gt; Preferències d\'analítica, després del qual no podràs continuar utilitzant l\'aplicació. L\'emmagatzematge local de la teva configuració és necessari per al funcionament de l\'app.'],
+      ['p', 'El tractament de dades d\'analítica es basa en el teu <strong>consentiment</strong> (art. 6.1.a RGPD i art. 22.2 LSSI). En obrir l\'aplicació per primera vegada se\'t demana. És <strong>opcional</strong>: pots rebutjar-lo i utilitzar tota l\'aplicació igualment, i pots canviar o retirar la teva elecció en qualsevol moment des de Configuració &gt; Preferències d\'analítica. Si el rebutges, Google Analytics no es carrega i no es recopila cap dada d\'analítica. L\'emmagatzematge local de la teva configuració és necessari per al funcionament de l\'app.'],
 
       ['h2', '4. Destinataris i transferències'],
       ['p', `Les dades d'analítica les processa Google com a encarregat del tractament. Google pot transferir dades fora de l'Espai Econòmic Europeu (per exemple, als Estats Units) amb les garanties previstes a la normativa (clàusules contractuals tipus i/o marc de privadesa de dades UE-EUA). Més informació a ${FIREBASE_PRIVACY} i ${GOOGLE_PRIVACY}.`],
@@ -284,7 +284,7 @@ export default {
       ['p', 'GymRoulette ne collecte <strong>ni</strong> nom, adresse e-mail, contacts, photos, microphone, caméra, localisation précise, ni aucune donnée de santé ou de condition physique. L\'application n\'a pas de comptes utilisateur.'],
 
       ['h2', '3. Base juridique'],
-      ['p', 'Le traitement des données d\'analyse repose sur ton <strong>consentement</strong> (article 6, paragraphe 1, point a du RGPD et article 22.2 de la LSSI espagnole). Il t\'est demandé à la première ouverture de l\'application ; l\'utiliser exige de l\'accepter, et tu peux le retirer à tout moment depuis Réglages &gt; Préférences d\'analyse, après quoi tu ne pourras plus utiliser l\'application. Le stockage local de tes réglages est nécessaire au fonctionnement de l\'application.'],
+      ['p', 'Le traitement des données d\'analyse repose sur ton <strong>consentement</strong> (article 6, paragraphe 1, point a du RGPD et article 22.2 de la LSSI espagnole). Il t\'est demandé à la première ouverture de l\'application. Il est <strong>facultatif</strong> : tu peux le refuser et utiliser toute l\'application quand même, et tu peux modifier ou retirer ton choix à tout moment depuis Réglages &gt; Préférences d\'analyse. Si tu refuses, Google Analytics n\'est pas chargé et aucune donnée d\'analyse n\'est collectée. Le stockage local de tes réglages est nécessaire au fonctionnement de l\'application.'],
 
       ['h2', '4. Destinataires et transferts'],
       ['p', `Les données d'analyse sont traitées par Google en tant que sous-traitant. Google peut transférer des données en dehors de l'Espace économique européen (par exemple vers les États-Unis) avec les garanties prévues par la réglementation (clauses contractuelles types et/ou cadre de protection des données UE-États-Unis). Plus d'informations sur ${FIREBASE_PRIVACY} et ${GOOGLE_PRIVACY}.`],
@@ -335,7 +335,7 @@ export default {
       ['p', 'O GymRoulette <strong>não</strong> coleta nome, e-mail, contatos, fotos, microfone, câmera, localização precisa nem qualquer dado de saúde ou condicionamento físico. O aplicativo não tem contas de usuário.'],
 
       ['h2', '3. Base legal'],
-      ['p', 'O tratamento dos dados de análise baseia-se no seu <strong>consentimento</strong> (art. 6.1.a do GDPR e art. 22.2 da LSSI espanhola; no Brasil, art. 7º, I, da LGPD). Ele é solicitado na primeira vez que você abre o aplicativo; usar o aplicativo exige aceitá-lo, e você pode retirá-lo a qualquer momento em Configurações &gt; Preferências de análise, após o que não poderá mais usar o aplicativo. O armazenamento local das suas configurações é necessário para o funcionamento do app.'],
+      ['p', 'O tratamento dos dados de análise baseia-se no seu <strong>consentimento</strong> (art. 6.1.a do GDPR e art. 22.2 da LSSI espanhola; no Brasil, art. 7º, I, da LGPD). Ele é solicitado na primeira vez que você abre o aplicativo. É <strong>opcional</strong>: você pode recusá-lo e usar todo o aplicativo mesmo assim, e pode mudar ou retirar sua escolha a qualquer momento em Configurações &gt; Preferências de análise. Se recusar, o Google Analytics não é carregado e nenhum dado de análise é coletado. O armazenamento local das suas configurações é necessário para o funcionamento do app.'],
 
       ['h2', '4. Destinatários e transferências'],
       ['p', `Os dados de análise são processados pelo Google como operador. O Google pode transferir dados para fora do Espaço Econômico Europeu e do Brasil (por exemplo, para os Estados Unidos) com as garantias previstas na legislação (cláusulas contratuais padrão e/ou estrutura de privacidade de dados UE-EUA). Mais informações em ${FIREBASE_PRIVACY} e ${GOOGLE_PRIVACY}.`],
@@ -386,7 +386,7 @@ export default {
       ['p', 'O GymRoulette <strong>não</strong> recolhe nome, e-mail, contactos, fotografias, microfone, câmara, localização precisa nem quaisquer dados de saúde ou de condição física. A aplicação não tem contas de utilizador.'],
 
       ['h2', '3. Base jurídica'],
-      ['p', 'O tratamento dos dados de análise baseia-se no teu <strong>consentimento</strong> (art. 6.º, n.º 1, alínea a), do RGPD e art. 22.º, n.º 2, da LSSI espanhola). É-te pedido na primeira vez que abres a aplicação; utilizá-la exige aceitá-lo, e podes retirá-lo a qualquer momento em Definições &gt; Preferências de análise, após o que deixarás de poder utilizar a aplicação. O armazenamento local das tuas definições é necessário para o funcionamento da aplicação.'],
+      ['p', 'O tratamento dos dados de análise baseia-se no teu <strong>consentimento</strong> (art. 6.º, n.º 1, alínea a), do RGPD e art. 22.º, n.º 2, da LSSI espanhola). É-te pedido na primeira vez que abres a aplicação. É <strong>opcional</strong>: podes recusá-lo e utilizar toda a aplicação na mesma, e podes alterar ou retirar a tua escolha a qualquer momento em Definições &gt; Preferências de análise. Se recusares, o Google Analytics não é carregado e não é recolhido nenhum dado de análise. O armazenamento local das tuas definições é necessário para o funcionamento da aplicação.'],
 
       ['h2', '4. Destinatários e transferências'],
       ['p', `Os dados de análise são tratados pela Google na qualidade de subcontratante. A Google pode transferir dados para fora do Espaço Económico Europeu (por exemplo, para os Estados Unidos) com as garantias previstas na legislação (cláusulas contratuais-tipo e/ou quadro de privacidade de dados UE-EUA). Mais informações em ${FIREBASE_PRIVACY} e ${GOOGLE_PRIVACY}.`],

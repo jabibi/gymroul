@@ -28,6 +28,6 @@ DETALLES QUE SE AGRADECEN
 • Funciona sin conexión.
 
 PRIVACIDAD
-Tu configuración se guarda únicamente en tu dispositivo. Para usar la aplicación es necesario aceptar el uso de Google Analytics, que mide de forma anónima cómo se utiliza la aplicación. Puedes consultar la política de privacidad dentro de la app y retirar tu consentimiento desde Configuración.
+Tu configuración se guarda únicamente en tu dispositivo. La analítica de Google Analytics, que mide de forma anónima cómo se utiliza la aplicación, es opcional: tú eliges si aceptarla y puedes cambiarlo cuando quieras en Configuración. Puedes consultar la política de privacidad dentro de la app.
 
 ¡Gira la ruleta y a entrenar!

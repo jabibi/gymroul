@@ -28,6 +28,6 @@ NICE DETAILS
 • Works offline.
 
 PRIVACY
-Your settings are stored only on your device. To use the app you need to accept Google Analytics, which measures anonymously how the app is used. You can read the privacy policy inside the app and withdraw your consent from Settings.
+Your settings are stored only on your device. Google Analytics, which measures anonymously how the app is used, is optional: you choose whether to accept it and can change that any time in Settings. You can read the privacy policy inside the app.
 
 Spin the wheel and let's train!

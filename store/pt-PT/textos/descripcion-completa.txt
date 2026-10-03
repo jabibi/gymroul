@@ -28,6 +28,6 @@ DETALHES QUE FAZEM DIFERENÇA
 • Funciona sem ligação.
 
 PRIVACIDADE
-As tuas definições ficam guardadas apenas no teu dispositivo. Para utilizar a aplicação é necessário aceitar o Google Analytics, que mede de forma anónima como a aplicação é utilizada. Podes ler a política de privacidade dentro da aplicação e retirar o teu consentimento em Definições.
+As tuas definições ficam guardadas apenas no teu dispositivo. A análise do Google Analytics, que mede de forma anónima como a aplicação é utilizada, é opcional: tu escolhes se a aceitas e podes alterar quando quiseres em Definições. Podes ler a política de privacidade dentro da aplicação.
 
 Gira a roleta e vai treinar!

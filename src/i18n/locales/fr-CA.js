@@ -3,6 +3,7 @@
 // ("paramètres", "courriel", "espadrilles", "soccer"). Se combina con fr.js en src/i18n/index.js.
 export default {
   strings: {
+    'consent.optional': "C'est facultatif : tu peux utiliser l'application dans les deux cas et changer ton choix à tout moment dans les Paramètres.",
     'header.settings': 'Ouvrir les paramètres',
 
     'wheel.setup': 'Paramètres',

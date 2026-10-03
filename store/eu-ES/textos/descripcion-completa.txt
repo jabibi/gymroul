@@ -28,6 +28,6 @@ XEHETASUN POLITAK
 • Konexiorik gabe ere funtzionatzen du.
 
 PRIBATUTASUNA
-Zure ezarpenak zure gailuan soilik gordetzen dira. Aplikazioa erabiltzeko Google Analytics onartu behar da, aplikazioa nola erabiltzen den modu anonimoan neurtzen duena. Pribatutasun-politika aplikazioaren barruan kontsulta dezakezu eta zure baimena Ezarpenetatik kendu.
+Zure ezarpenak zure gailuan soilik gordetzen dira. Google Analytics-ek, aplikazioa nola erabiltzen den modu anonimoan neurtzen duenak, aukerakoa da: zuk erabakitzen duzu onartzea eta noiznahi alda dezakezu Ezarpenetan. Pribatutasun-politika aplikazioaren barruan kontsulta dezakezu.
 
 Biratu gurpila eta entrenatzera!

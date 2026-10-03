@@ -64,7 +64,7 @@ NICE DETAILS
 • Works offline.
 
 PRIVACY
-Your settings are stored only on your device. To use the app you need to accept Google Analytics, which measures anonymously how the app is used. You can read the privacy policy inside the app and withdraw your consent from Settings.
+Your settings are stored only on your device. Google Analytics, which measures anonymously how the app is used, is optional: you choose whether to accept it and can change that any time in Settings. You can read the privacy policy inside the app.
 
 Spin the wheel and let's train!`,
   },
@@ -111,7 +111,7 @@ DETALLES QUE SE AGRADECEN
 • Funciona sin conexión.
 
 PRIVACIDAD
-Tu configuración se guarda únicamente en tu dispositivo. Para usar la aplicación es necesario aceptar el uso de Google Analytics, que mide de forma anónima cómo se utiliza la aplicación. Puedes consultar la política de privacidad dentro de la app y retirar tu consentimiento desde Configuración.
+Tu configuración se guarda únicamente en tu dispositivo. La analítica de Google Analytics, que mide de forma anónima cómo se utiliza la aplicación, es opcional: tú eliges si aceptarla y puedes cambiarlo cuando quieras en Configuración. Puedes consultar la política de privacidad dentro de la app.
 
 ¡Gira la ruleta y a entrenar!`,
   },
@@ -158,7 +158,7 @@ XEHETASUN POLITAK
 • Konexiorik gabe ere funtzionatzen du.
 
 PRIBATUTASUNA
-Zure ezarpenak zure gailuan soilik gordetzen dira. Aplikazioa erabiltzeko Google Analytics onartu behar da, aplikazioa nola erabiltzen den modu anonimoan neurtzen duena. Pribatutasun-politika aplikazioaren barruan kontsulta dezakezu eta zure baimena Ezarpenetatik kendu.
+Zure ezarpenak zure gailuan soilik gordetzen dira. Google Analytics-ek, aplikazioa nola erabiltzen den modu anonimoan neurtzen duenak, aukerakoa da: zuk erabakitzen duzu onartzea eta noiznahi alda dezakezu Ezarpenetan. Pribatutasun-politika aplikazioaren barruan kontsulta dezakezu.
 
 Biratu gurpila eta entrenatzera!`,
   },
@@ -205,7 +205,7 @@ DETALLES QUE SE AGRADECEN
 • Funciona sen conexión.
 
 PRIVACIDADE
-A túa configuración gárdase unicamente no teu dispositivo. Para usar a aplicación é necesario aceptar o uso de Google Analytics, que mide de forma anónima como se utiliza a aplicación. Podes consultar a política de privacidade dentro da app e retirar o teu consentimento desde Configuración.
+A túa configuración gárdase unicamente no teu dispositivo. A analítica de Google Analytics, que mide de forma anónima como se utiliza a aplicación, é opcional: ti elixes se aceptala e podes cambialo cando queiras en Configuración. Podes consultar a política de privacidade dentro da app.
 
 Xira a ruleta e a adestrar!`,
   },
@@ -252,7 +252,7 @@ DETALLS QUE S'AGRAEIXEN
 • Funciona sense connexió.
 
 PRIVADESA
-La teva configuració es desa únicament al teu dispositiu. Per utilitzar l'aplicació cal acceptar l'ús de Google Analytics, que mesura de manera anònima com s'utilitza l'aplicació. Pots consultar la política de privadesa dins de l'app i retirar el teu consentiment des de Configuració.
+La teva configuració es desa únicament al teu dispositiu. L'analítica de Google Analytics, que mesura de manera anònima com s'utilitza l'aplicació, és opcional: tu decideixes si acceptar-la i ho pots canviar quan vulguis a Configuració. Pots consultar la política de privadesa dins de l'app.
 
 Gira la ruleta i a entrenar!`,
   },
@@ -299,7 +299,7 @@ DE BONS PETITS DÉTAILS
 • Fonctionne hors connexion.
 
 CONFIDENTIALITÉ
-Tes réglages sont enregistrés uniquement sur ton appareil. Pour utiliser l'application, il faut accepter Google Analytics, qui mesure de façon anonyme l'utilisation de l'application. Tu peux consulter la politique de confidentialité dans l'application et retirer ton consentement depuis les Réglages.
+Tes réglages sont enregistrés uniquement sur ton appareil. L'analyse Google Analytics, qui mesure de façon anonyme l'utilisation de l'application, est facultative : tu choisis de l'accepter ou non et tu peux changer d'avis à tout moment dans les Réglages. Tu peux consulter la politique de confidentialité dans l'application.
 
 Lance la roue et c'est parti !`,
   },
@@ -346,7 +346,7 @@ DETALHES QUE FAZEM DIFERENÇA
 • Funciona sem conexão.
 
 PRIVACIDADE
-Suas configurações ficam salvas apenas no seu dispositivo. Para usar o aplicativo é preciso aceitar o Google Analytics, que mede de forma anônima como o app é usado. Você pode ler a política de privacidade dentro do app e retirar seu consentimento em Configurações.
+Suas configurações ficam salvas apenas no seu dispositivo. A análise do Google Analytics, que mede de forma anônima como o app é usado, é opcional: você escolhe se aceita e pode mudar quando quiser em Configurações. Você pode ler a política de privacidade dentro do app.
 
 Gire a roleta e vá treinar!`,
   },
@@ -393,7 +393,7 @@ DETALHES QUE FAZEM DIFERENÇA
 • Funciona sem ligação.
 
 PRIVACIDADE
-As tuas definições ficam guardadas apenas no teu dispositivo. Para utilizar a aplicação é necessário aceitar o Google Analytics, que mede de forma anónima como a aplicação é utilizada. Podes ler a política de privacidade dentro da aplicação e retirar o teu consentimento em Definições.
+As tuas definições ficam guardadas apenas no teu dispositivo. A análise do Google Analytics, que mede de forma anónima como a aplicação é utilizada, é opcional: tu escolhes se a aceitas e podes alterar quando quiseres em Definições. Podes ler a política de privacidade dentro da aplicação.
 
 Gira a roleta e vai treinar!`,
   },

@@ -28,6 +28,6 @@ DETALLES QUE SE AGRADECEN
 • Funciona sen conexión.
 
 PRIVACIDADE
-A túa configuración gárdase unicamente no teu dispositivo. Para usar a aplicación é necesario aceptar o uso de Google Analytics, que mide de forma anónima como se utiliza a aplicación. Podes consultar a política de privacidade dentro da app e retirar o teu consentimento desde Configuración.
+A túa configuración gárdase unicamente no teu dispositivo. A analítica de Google Analytics, que mide de forma anónima como se utiliza a aplicación, é opcional: ti elixes se aceptala e podes cambialo cando queiras en Configuración. Podes consultar a política de privacidade dentro da app.
 
 Xira a ruleta e a adestrar!

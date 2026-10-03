@@ -28,6 +28,6 @@ DETALHES QUE FAZEM DIFERENÇA
 • Funciona sem conexão.
 
 PRIVACIDADE
-Suas configurações ficam salvas apenas no seu dispositivo. Para usar o aplicativo é preciso aceitar o Google Analytics, que mede de forma anônima como o app é usado. Você pode ler a política de privacidade dentro do app e retirar seu consentimento em Configurações.
+Suas configurações ficam salvas apenas no seu dispositivo. A análise do Google Analytics, que mede de forma anônima como o app é usado, é opcional: você escolhe se aceita e pode mudar quando quiser em Configurações. Você pode ler a política de privacidade dentro do app.
 
 Gire a roleta e vá treinar!

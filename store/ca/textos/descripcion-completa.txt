@@ -28,6 +28,6 @@ DETALLS QUE S'AGRAEIXEN
 • Funciona sense connexió.
 
 PRIVADESA
-La teva configuració es desa únicament al teu dispositiu. Per utilitzar l'aplicació cal acceptar l'ús de Google Analytics, que mesura de manera anònima com s'utilitza l'aplicació. Pots consultar la política de privadesa dins de l'app i retirar el teu consentiment des de Configuració.
+La teva configuració es desa únicament al teu dispositiu. L'analítica de Google Analytics, que mesura de manera anònima com s'utilitza l'aplicació, és opcional: tu decideixes si acceptar-la i ho pots canviar quan vulguis a Configuració. Pots consultar la política de privadesa dins de l'app.
 
 Gira la ruleta i a entrenar!

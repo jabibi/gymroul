@@ -8,7 +8,6 @@ export default {
 
     'error.repRange': 'Ingresa un número entre 1 y {max}',
 
-    'consent.rejected': 'Has rechazado Google Analytics, por lo que no puedes usar la aplicación. Presiona «Aceptar» si quieres continuar.',
   },
 
   groups: {},

@@ -56,7 +56,7 @@ export function updateLiveIndicator(seg) {
 // Cada modal que se abre añade una entrada al historial del navegador: así el botón
 // "Atrás" de Android (o del navegador) lo cierra en lugar de salir de la app.
 
-/** @typedef {'result' | 'history' | 'config' | 'document'} ModalName */
+/** @typedef {'result' | 'history' | 'config' | 'document' | 'consent'} ModalName */
 // Pila de modales abiertos (el último es el que está encima): la política de privacidad
 // puede abrirse sobre la configuración y Atrás debe cerrar primero la de arriba
 /** @type {ModalName[]} */
@@ -70,6 +70,7 @@ const closers = {
   history: () => closeHistory(),
   config: () => closeConfig(),
   document: () => closeDocument(),
+  consent: () => hideConsent(),
 };
 
 /** @param {ModalName} name */
@@ -474,15 +475,28 @@ export function closeDocument() {
  * Muestra u oculta la pantalla de consentimiento. Mientras está visible el resto de la app
  * queda inerte (sin foco, clics ni lectores de pantalla) además de tapado por el fondo opaco.
  * @param {boolean} visible
- * @param {boolean} [rejected] mostrar el aviso de que rechazar impide usar la app
  */
-export function setConsentGate(visible, rejected = false) {
+export function setConsentGate(visible) {
   $('consentGate').classList.toggle('hidden', !visible);
-  $('consentRejected').classList.toggle('hidden', !(visible && rejected));
   document.querySelectorAll('body > :not(#consentGate):not(#documentModal):not(script)').forEach(el => {
     /** @type {HTMLElement} */ (el).inert = visible;
   });
   if (visible) $('consentGate').focus({ preventScroll: true });
+}
+
+/**
+ * Reabre la pantalla de consentimiento desde Configuración (cambiar o retirar la elección). Entra en la pila del
+ * botón Atrás: Atrás la cierra sin decidir y deja Configuración debajo.
+ */
+export function showConsentFromSettings() {
+  setConsentGate(true);
+  pushModal('consent');
+}
+
+/** Cierra la pantalla de consentimiento (tras elegir, o con Atrás si se abrió desde Configuración). */
+export function hideConsent() {
+  setConsentGate(false);
+  dismissModal('consent');
 }
 
 // --- Idioma --------------------------------------------------------------------------

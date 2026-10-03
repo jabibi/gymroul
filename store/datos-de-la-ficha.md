@@ -19,7 +19,9 @@ Las páginas existen solo después de desplegar la web (`npm run deploy`). Cada 
 - Cuentas de usuario: la app no permite crear cuentas.
 
 ## Seguridad de los datos
-Se recopilan, no se comparten, son obligatorios, no se procesan de forma efímera y la finalidad es «Análisis». Cifrados en tránsito. Eliminación solicitable por correo y desde la página de eliminación de datos.
+Se recopilan, no se comparten, **los usuarios pueden elegir si se recogen** (la analítica es opcional: Rechazar no impide usar la app y entonces no se carga Google Analytics), no se procesan de forma efímera y la finalidad es «Análisis». Cifrados en tránsito. Eliminación solicitable por correo y desde la página de eliminación de datos.
+
+> En Play Console, en cada tipo de datos, la pregunta *¿Son estos datos necesarios para usar tu aplicación o pueden los usuarios elegir si se recogen?* debe responderse **«Los usuarios pueden elegir si se recogen estos datos o no»**.
 
 | Categoría | Tipo |
 |---|---|

@@ -28,6 +28,6 @@ DE BONS PETITS DÉTAILS
 • Fonctionne hors connexion.
 
 CONFIDENTIALITÉ
-Tes réglages sont enregistrés uniquement sur ton appareil. Pour utiliser l'application, il faut accepter Google Analytics, qui mesure de façon anonyme l'utilisation de l'application. Tu peux consulter la politique de confidentialité dans l'application et retirer ton consentement depuis les Réglages.
+Tes réglages sont enregistrés uniquement sur ton appareil. L'analyse Google Analytics, qui mesure de façon anonyme l'utilisation de l'application, est facultative : tu choisis de l'accepter ou non et tu peux changer d'avis à tout moment dans les Réglages. Tu peux consulter la politique de confidentialité dans l'application.
 
 Lance la roue et c'est parti !
