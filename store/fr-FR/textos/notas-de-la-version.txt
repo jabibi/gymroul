@@ -1,8 +1,8 @@
 Nouveautés :
 • Désormais en English, Español, Euskara, Galego, Català, Français et Português.
-• Nouveau logo et nouveau style vert.
-• Plus de 100 icônes pour tes exercices avec recherche, dont de nouvelles pour les pompes, le gainage, le burpee et les mountain climbers.
+• Nouveau logo et style vert.
+• Plus de 100 icônes avec recherche, dont de nouvelles pour pompes, gainage, burpee et mountain climbers.
 • L'application vibre quand le résultat apparaît.
 • Le geste Retour revient à l'écran précédent au lieu de fermer l'application.
-• Le clavier ne cache plus les champs.
+• Les statistiques d'utilisation sont désormais facultatives : tu choisis dans les Réglages.
 • Corrections de bugs et améliorations.

@@ -4,5 +4,5 @@ What's new:
 • 100+ exercise icons with search, including new ones for push-ups, plank, burpee and mountain climbers.
 • Vibration when your result comes up.
 • The back gesture goes to the previous screen instead of closing the app.
-• The keyboard no longer covers input fields.
+• Usage statistics are now optional: you choose in Settings.
 • Bug fixes and improvements.

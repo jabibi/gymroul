@@ -4,5 +4,5 @@ Novetats:
 • Més de 100 icones per als teus exercicis amb cercador, incloses noves de flexions, planxa, burpee i mountain climbers.
 • L'app vibra quan surt el resultat.
 • El gest Enrere torna a la pantalla anterior en lloc de tancar l'app.
-• El teclat ja no tapa els camps en crear exercicis.
+• L'analítica d'ús ara és opcional: tu decideixes a Configuració.
 • Correcció d'errors i millores de rendiment.

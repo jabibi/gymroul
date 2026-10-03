@@ -4,5 +4,5 @@ Novidades:
 • Máis de 100 iconas para os teus exercicios con buscador, incluídas novas de flexións, prancha, burpee e mountain climbers.
 • A app vibra ao saír o resultado.
 • O xesto Atrás volve á pantalla anterior en lugar de pechar a app.
-• O teclado xa non tapa os campos ao crear exercicios.
+• A analítica de uso agora é opcional: ti elixes en Configuración.
 • Corrección de erros e melloras de rendemento.

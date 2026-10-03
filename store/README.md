@@ -23,17 +23,17 @@ store/
 ## Idiomas y longitud de los textos
 | Carpeta | Idioma en Play Console | Descripción breve | Descripción completa | Novedades |
 |---|---|---|---|---|
-| `en-US` | Inglés (Estados Unidos) | 68/80 | 1981/4000 | 424/500 |
-| `en-GB` | Inglés (Reino Unido) | 68/80 | 1981/4000 | 424/500 |
-| `es-ES` | Español (España) | 75/80 | 2095/4000 | 489/500 |
-| `es-419` | Español (Latinoamérica) | 75/80 | 2101/4000 | 489/500 |
-| `eu-ES` | Euskera | 74/80 | 2199/4000 | 486/500 |
-| `gl-ES` | Gallego | 76/80 | 2062/4000 | 475/500 |
-| `ca` | Catalán | 74/80 | 2073/4000 | 464/500 |
-| `fr-FR` | Francés (Francia) | 77/80 | 2272/4000 | 478/500 |
-| `fr-CA` | Francés (Canadá) | 77/80 | 2274/4000 | 478/500 |
-| `pt-BR` | Portugués (Brasil) | 75/80 | 2067/4000 | 433/500 |
-| `pt-PT` | Portugués (Portugal) | 75/80 | 2103/4000 | 466/500 |
+| `en-US` | Inglés (Estados Unidos) | 68/80 | 1981/4000 | 439/500 |
+| `en-GB` | Inglés (Reino Unido) | 68/80 | 1981/4000 | 439/500 |
+| `es-ES` | Español (España) | 75/80 | 2095/4000 | 491/500 |
+| `es-419` | Español (Latinoamérica) | 75/80 | 2101/4000 | 491/500 |
+| `eu-ES` | Euskera | 74/80 | 2199/4000 | 482/500 |
+| `gl-ES` | Gallego | 76/80 | 2062/4000 | 487/500 |
+| `ca` | Catalán | 74/80 | 2073/4000 | 477/500 |
+| `fr-FR` | Francés (Francia) | 77/80 | 2272/4000 | 491/500 |
+| `fr-CA` | Francés (Canadá) | 77/80 | 2274/4000 | 493/500 |
+| `pt-BR` | Portugués (Brasil) | 75/80 | 2067/4000 | 463/500 |
+| `pt-PT` | Portugués (Portugal) | 75/80 | 2103/4000 | 497/500 |
 
 ## Dónde sube cada archivo en Play Console
 En **Presencia en Google Play Store → Fichas de Play Store**, elige el idioma arriba (*Gestionar idiomas* para añadirlos) y rellena:

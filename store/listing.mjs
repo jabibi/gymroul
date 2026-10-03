@@ -32,7 +32,7 @@ export const LISTINGS = {
 • 100+ exercise icons with search, including new ones for push-ups, plank, burpee and mountain climbers.
 • Vibration when your result comes up.
 • The back gesture goes to the previous screen instead of closing the app.
-• The keyboard no longer covers input fields.
+• Usage statistics are now optional: you choose in Settings.
 • Bug fixes and improvements.`,
     full: `Can't decide what to train today? Spin the wheel and let GymRoulette choose for you.
 
@@ -74,12 +74,12 @@ Spin the wheel and let's train!`,
     short: 'Gira la ruleta y recibe un reto de ejercicio al azar para tu entrenamiento.',
     banner: { line1: '¡Gira la ruleta', line2: 'y a entrenar!', tagline: 'Ejercicios aleatorios para retarte cada día', button: '¡GIRAR RULETA!' },
     notes: `Novedades:
-• Ahora disponible en español, English, Euskara, Galego, Català, Français y Português.
+• Ahora en español, English, Euskara, Galego, Català, Français y Português.
 • Nuevo logo y nuevo estilo verde en toda la app.
 • Más de 100 iconos para tus ejercicios con buscador, incluidos nuevos de flexiones, plancha, burpee y mountain climbers.
 • La app vibra al salir el resultado.
 • El gesto Atrás vuelve a la pantalla anterior en lugar de cerrar la app.
-• El teclado ya no tapa los campos al crear ejercicios.
+• La analítica de uso ahora es opcional: tú eliges en Configuración.
 • Correcciones de errores y mejoras de rendimiento.`,
     full: `¿Sin ganas de decidir qué entrenar hoy? Gira la ruleta y deja que GymRoulette elija por ti.
 
@@ -123,10 +123,10 @@ Tu configuración se guarda únicamente en tu dispositivo. La analítica de Goog
     notes: `Berritasunak:
 • Orain English, Español, Euskara, Galego, Català, Français eta Português hizkuntzetan.
 • Logo berria eta estilo berdea.
-• 100 ikono baino gehiago zure ariketetarako, bilatzailearekin; flexioenak, plantxarenak, burpee-renak eta mountain climbers-enak barne.
+• 100 ikono baino gehiago bilatzailearekin, flexio, plantxa, burpee eta mountain climbers-enak barne.
 • Aplikazioak bibratzen du emaitza ateratzen denean.
 • Atzera keinuak aurreko pantailara itzultzen zaitu, aplikazioa itxi beharrean.
-• Teklatuak ez ditu jada eremuak estaltzen.
+• Erabilera-analitika aukerakoa da orain: zuk aukeratzen duzu Ezarpenetan.
 • Akatsen zuzenketak eta hobekuntzak.`,
     full: `Ez dakizu gaur zer entrenatu? Biratu gurpila eta utzi GymRoulette-ri zure ordez aukeratzen.
 
@@ -173,7 +173,7 @@ Biratu gurpila eta entrenatzera!`,
 • Máis de 100 iconas para os teus exercicios con buscador, incluídas novas de flexións, prancha, burpee e mountain climbers.
 • A app vibra ao saír o resultado.
 • O xesto Atrás volve á pantalla anterior en lugar de pechar a app.
-• O teclado xa non tapa os campos ao crear exercicios.
+• A analítica de uso agora é opcional: ti elixes en Configuración.
 • Corrección de erros e melloras de rendemento.`,
     full: `Sen ganas de decidir que adestrar hoxe? Xira a ruleta e deixa que GymRoulette escolla por ti.
 
@@ -220,7 +220,7 @@ Xira a ruleta e a adestrar!`,
 • Més de 100 icones per als teus exercicis amb cercador, incloses noves de flexions, planxa, burpee i mountain climbers.
 • L'app vibra quan surt el resultat.
 • El gest Enrere torna a la pantalla anterior en lloc de tancar l'app.
-• El teclat ja no tapa els camps en crear exercicis.
+• L'analítica d'ús ara és opcional: tu decideixes a Configuració.
 • Correcció d'errors i millores de rendiment.`,
     full: `No tens ganes de decidir què entrenar avui? Gira la ruleta i deixa que GymRoulette triï per tu.
 
@@ -263,11 +263,11 @@ Gira la ruleta i a entrenar!`,
     banner: { line1: 'Lance la roue', line2: "et c'est parti !", tagline: 'Des exercices au hasard pour te défier chaque jour', button: 'LANCER LA ROUE !' },
     notes: `Nouveautés :
 • Désormais en English, Español, Euskara, Galego, Català, Français et Português.
-• Nouveau logo et nouveau style vert.
-• Plus de 100 icônes pour tes exercices avec recherche, dont de nouvelles pour les pompes, le gainage, le burpee et les mountain climbers.
+• Nouveau logo et style vert.
+• Plus de 100 icônes avec recherche, dont de nouvelles pour pompes, gainage, burpee et mountain climbers.
 • L'application vibre quand le résultat apparaît.
 • Le geste Retour revient à l'écran précédent au lieu de fermer l'application.
-• Le clavier ne cache plus les champs.
+• Les statistiques d'utilisation sont désormais facultatives : tu choisis dans les Réglages.
 • Corrections de bugs et améliorations.`,
     full: `Pas envie de décider quoi t'entraîner aujourd'hui ? Fais tourner la roue et laisse GymRoulette choisir pour toi.
 
@@ -314,7 +314,7 @@ Lance la roue et c'est parti !`,
 • Mais de 100 ícones para seus exercícios com busca, incluindo novos de flexões, prancha, burpee e mountain climbers.
 • O app vibra quando o resultado aparece.
 • O gesto de voltar retorna à tela anterior em vez de fechar o app.
-• O teclado não cobre mais os campos.
+• A análise de uso agora é opcional: você escolhe em Configurações.
 • Correções de erros e melhorias.`,
     full: `Sem vontade de decidir o que treinar hoje? Gire a roleta e deixe o GymRoulette escolher por você.
 
@@ -357,11 +357,11 @@ Gire a roleta e vá treinar!`,
     banner: { line1: 'Gira a roleta', line2: 'e vai treinar!', tagline: 'Exercícios aleatórios para te desafiares todos os dias', button: 'GIRAR ROLETA!' },
     notes: `Novidades:
 • Agora em English, Español, Euskara, Galego, Català, Français e Português.
-• Novo logótipo e novo estilo verde em toda a aplicação.
+• Novo logótipo e estilo verde em toda a aplicação.
 • Mais de 100 ícones para os teus exercícios com pesquisa, incluindo novos de flexões, prancha, burpee e mountain climbers.
 • A aplicação vibra quando aparece o resultado.
 • O gesto de voltar atrás regressa ao ecrã anterior em vez de fechar a aplicação.
-• O teclado já não tapa os campos.
+• A análise de utilização é agora opcional: tu escolhes em Definições.
 • Correções de erros e melhorias.`,
     full: `Sem vontade de decidir o que treinar hoje? Gira a roleta e deixa o GymRoulette escolher por ti.
 
