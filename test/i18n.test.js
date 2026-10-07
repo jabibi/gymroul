@@ -14,8 +14,8 @@ const placeholders = text => [...text.matchAll(/\{(\w+)\}/g)].map(m => m[1]).sor
 afterEach(() => setLanguage(DEFAULT_LANGUAGE, { persist: false }));
 
 describe('idiomas disponibles', () => {
-  it('son los trece esperados e incluyen las variantes regionales', () => {
-    expect(codes).toEqual(['en', 'en-GB', 'es', 'es-419', 'eu', 'gl', 'ca', 'fr', 'fr-CA', 'de', 'it', 'pt-BR', 'pt-PT']);
+  it('son los diecisiete esperados e incluyen las variantes regionales', () => {
+    expect(codes).toEqual(['en', 'en-GB', 'en-AU', 'es', 'es-419', 'eu', 'gl', 'ca', 'fr', 'fr-CA', 'de', 'it', 'pl', 'hi', 'tr', 'pt-BR', 'pt-PT']);
   });
 });
 
@@ -68,9 +68,9 @@ describe('claves usadas en el marcado y en el código', () => {
 
 describe('detección del idioma', () => {
   const cases = [
-    [['es-ES'], 'es'], [['es'], 'es'], [['es-MX', 'en'], 'es-419'], [['es-AR'], 'es-419'], [['es-419'], 'es-419'], [['es-CO'], 'es-419'], [['fr-CA'], 'fr-CA'], [['fr-FR'], 'fr'], [['fr-BE'], 'fr'], [['en-GB'], 'en-GB'], [['en-US'], 'en'], [['en-AU'], 'en-GB'], [['en-IE'], 'en-GB'], [['en-IN'], 'en-GB'], [['en-CA'], 'en'], [['en'], 'en'], [['eu-ES'], 'eu'], [['gl'], 'gl'], [['ca-ES'], 'ca'],
+    [['es-ES'], 'es'], [['es'], 'es'], [['es-MX', 'en'], 'es-419'], [['es-AR'], 'es-419'], [['es-419'], 'es-419'], [['es-CO'], 'es-419'], [['fr-CA'], 'fr-CA'], [['fr-FR'], 'fr'], [['fr-BE'], 'fr'], [['en-GB'], 'en-GB'], [['en-US'], 'en'], [['en-AU'], 'en-AU'], [['en-NZ'], 'en-GB'], [['en-IE'], 'en-GB'], [['en-IN'], 'en-GB'], [['en-CA'], 'en'], [['en'], 'en'], [['eu-ES'], 'eu'], [['gl'], 'gl'], [['ca-ES'], 'ca'],
     [['pt-PT'], 'pt-PT'], [['pt-BR'], 'pt-BR'], [['pt'], 'pt-BR'], [['pt_PT'], 'pt-PT'],
-    [['de', 'fr'], 'de'], [['de-AT'], 'de'], [['de-CH'], 'de'], [['it-IT'], 'it'], [['it-CH'], 'it'], [['zh-CN', 'it'], 'it'], [['zh-CN'], 'en'], [[], 'en'], [['EU'], 'eu'],
+    [['de', 'fr'], 'de'], [['de-AT'], 'de'], [['de-CH'], 'de'], [['it-IT'], 'it'], [['it-CH'], 'it'], [['zh-CN', 'it'], 'it'], [['pl-PL'], 'pl'], [['pl'], 'pl'], [['hi-IN'], 'hi'], [['hi'], 'hi'], [['tr-TR'], 'tr'], [['tr'], 'tr'], [['zh-CN', 'tr'], 'tr'], [['zh-CN'], 'en'], [[], 'en'], [['EU'], 'eu'],
   ];
   for (const [prefs, expected] of cases) {
     it(`${JSON.stringify(prefs)} -> ${expected}`, () => expect(matchLanguage(prefs)).toBe(expected));
@@ -169,40 +169,39 @@ describe('errores del almacén', () => {
   });
 });
 
-describe('consentimiento de analítica opcional', () => {
+describe('introducción de la primera apertura', () => {
   const html = readFileSync('index.html', 'utf8');
   const main = readFileSync('src/main.js', 'utf8');
+  const introKeys = Object.keys(DICTIONARIES.en.strings).filter(k => k.startsWith('intro.'));
 
-  it('no hay textos ni elementos que condicionen el uso de la app a aceptar', () => {
-    expect(html).not.toContain('consentRejected');
+  it('todos los idiomas traducen la introducción y no queda texto de consentimiento', () => {
+    expect(introKeys.length).toBeGreaterThanOrEqual(14);
     for (const code of codes) {
-      for (const key of ['consent.required', 'consent.rejected']) expect(DICTIONARIES[code].strings[key], `${code}:${key}`).toBeUndefined();
+      for (const key of introKeys) expect(DICTIONARIES[code].strings[key], `${code}:${key}`).toBeTruthy();
+      expect(Object.keys(DICTIONARIES[code].strings).filter(k => k.startsWith('consent.') || k === 'config.analytics'), code).toEqual([]);
     }
   });
 
-  it('todos los idiomas explican que es opcional y los dos botones existen', () => {
-    for (const code of codes) expect(DICTIONARIES[code].strings['consent.optional'], code).toBeTruthy();
-    expect(html).toContain('data-i18n="consent.deny"');
-    expect(html).toContain('data-i18n="consent.grant"');
-  });
-
-  it('el título es cercano (no es "Google Analytics") y la mención técnica queda en el cuerpo', () => {
-    for (const code of codes) {
-      expect(DICTIONARIES[code].strings['consent.title'], code).not.toMatch(/analytics/i);
-      expect(DICTIONARIES[code].strings['consent.text'], code).toContain('Google Analytics');
-      expect(DICTIONARIES[code].strings['consent.optionalLead'], code).toBeTruthy();
+  it('el marcado usa solo claves que existen y Skip está arriba', () => {
+    for (const key of html.match(/data-i18n(?:-aria-label)?="intro\.[\w.]+"/g)?.map(m => m.split('"')[1]) ?? []) {
+      expect(DICTIONARIES.en.strings[key], key).toBeTruthy();
     }
-    expect(html).toContain('data-i18n="consent.optionalLead"');
+    expect(html).toContain('data-action="intro-skip"');
+    expect(html.indexOf('data-action="intro-skip"')).toBeLessThan(html.indexOf('data-intro-slide="0"'));
+    expect(DICTIONARIES.en.strings['intro.skip']).toBe('Skip');
   });
 
-  it('Aceptar y Rechazar tienen exactamente el mismo estilo (mismo peso visual)', () => {
-    const classes = key => html.match(new RegExp(`<button[^>]*class="([^"]*)"[^>]*data-i18n="${key}"`))?.[1];
-    expect(classes('consent.deny')).toBeTruthy();
-    expect(classes('consent.deny')).toBe(classes('consent.grant'));
+  it('la introducción tiene dos diapositivas y no queda rastro de analítica en la app', () => {
+    expect(html.match(/data-intro-slide="\d"/g)).toHaveLength(2);
+    expect(html).not.toMatch(/consent|analytics|googletagmanager|google-analytics/i);
+    expect(main).not.toMatch(/consent|analytics/i);
   });
 
-  it('solo se pregunta cuando no hay decisión previa: rechazar o aceptar no bloquean la app', () => {
-    expect(main).toMatch(/consent === null\) ui\.setConsentGate\(true\)/);
-    expect(main).toMatch(/setConsent\(arg === 'grant'\);\s*ui\.hideConsent\(\)/);
+  it('Atrás en Android cierra primero los documentos y después retrocede en la introducción', () => {
+    expect(main).toMatch(/ui\.closeActiveModal\(\) \|\| ui\.introBack\(\)/);
+  });
+
+  it('solo se muestra si aún no se ha visto', () => {
+    expect(main).toMatch(/if \(!hasSeenIntro\(\)\) ui\.showIntro\(\)/);
   });
 });
