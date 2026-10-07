@@ -37,6 +37,19 @@ Sustituye al diálogo de aceptar o rechazar la analítica, que deja de existir.
 - Revisar la declaración de «Seguridad de los datos» en Play Console: sin datos recopilados ni compartidos.
 - Versión sugerida: 1.12 (subir `package.json`: `version`, `versionCode` y `versionCodename`).
 
+## Nuevos idiomas: polaco, hindi, turco e inglés de Australia
+
+Mismo alcance que el alemán y el italiano: toda la aplicación, la ficha de Google Play y las páginas legales.
+
+- Códigos: `pl` (Polski), `hi` (हिन्दी), `tr` (Türkçe) y `en-AU`.
+- `en-AU` es una variante regional como `en-GB`: solo redefine lo que difiere de `en.js` (por ejemplo `Add`/`Create`, ortografía y vocabulario australiano). Va en la app y en la ficha de Play, pero no en las páginas legales.
+- Pasarían a ser 17 idiomas en la app y en la ficha de Play, y 13 en las páginas legales.
+- Un idioma nuevo hay que añadirlo en `src/i18n/index.js`, `store/listing.mjs` y `legal/index.mjs` (los tres sitios de `CLAUDE.md`), además de `scripts/build-release-notes.mjs`, `test/i18n.test.js` y `test/store-listing.test.js`.
+- Hindi: comprobar que la tipografía de la app y el Chromium que genera las capturas (`npm run store`) tienen glifos devanagari, para no ver recuadros vacíos. Las etiquetas del catálogo de iconos son largas en este idioma, así que revisar los desbordes en Configuración.
+- Turco: cuidar las mayúsculas (`İ`/`ı`) en los títulos en mayúsculas de la interfaz.
+- Revisión por hablantes nativos de todos los textos antes de publicar, igual que con alemán e italiano.
+- Versión sugerida: la siguiente que se publique (subir `version`, `versionCode` y `versionCodename` en `package.json`).
+
 ## Ideas sin fecha
 
 _Apunta aquí lo que aún no tiene versión asignada._
