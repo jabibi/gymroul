@@ -1,8 +1,8 @@
 {
   "name": "gymroul",
-  "version": "1.10.0",
-  "versionCode": 10,
-  "versionCodename": "Warm-up",
+  "version": "1.11.0",
+  "versionCode": 11,
+  "versionCodename": "SloMo",
   "description": "GymRoulette: ruleta de ejercicios (web + Android con Capacitor)",
   "main": "index.js",
   "scripts": {

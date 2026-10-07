@@ -15,6 +15,8 @@ export const STORE_LOCALES = [
   { app: 'ca', play: 'ca', name: 'Catalán' },
   { app: 'fr', play: 'fr-FR', name: 'Francés (Francia)' },
   { app: 'fr-CA', play: 'fr-CA', name: 'Francés (Canadá)' },
+  { app: 'de', play: 'de-DE', name: 'Alemán' },
+  { app: 'it', play: 'it-IT', name: 'Italiano' },
   { app: 'pt-BR', play: 'pt-BR', name: 'Portugués (Brasil)' },
   { app: 'pt-PT', play: 'pt-PT', name: 'Portugués (Portugal)' },
 ];
@@ -27,12 +29,7 @@ export const LISTINGS = {
     short: 'Spin the wheel and get a random exercise challenge for your workout.',
     banner: { line1: 'Spin the wheel', line2: 'and get training!', tagline: 'Random exercises to challenge you every day', button: 'SPIN THE WHEEL!' },
     notes: `What's new:
-• Now in English, Español, Euskara, Galego, Català, Français and Português.
-• New logo and green look across the app.
-• 100+ exercise icons with search, including new ones for push-ups, plank, burpee and mountain climbers.
-• Vibration when your result comes up.
-• The back gesture goes to the previous screen instead of closing the app.
-• Usage statistics are now optional: you choose in Settings.
+• Now also in Deutsch and Italiano.
 • Bug fixes and improvements.`,
     full: `Can't decide what to train today? Spin the wheel and let GymRoulette choose for you.
 
@@ -54,7 +51,7 @@ GymRoulette is an exercise wheel: each segment combines a number of reps with an
 Choose from more than 100 icons across many disciplines, with search: strength and weights, calisthenics, cardio, yoga, pilates, tai chi, boxing, karate and other martial arts, hyrox, crossfit, obstacle races, sports, water and mountain. Includes our own pictograms for push-ups, plank, sit-ups, burpee, squat and mountain climbers.
 
 <b>IN YOUR LANGUAGE</b>
-English, Español, Euskara, Galego, Català, Français and Português (Brasil and Portugal). The app follows your phone's language, and you can change it in Settings.
+English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano and Português (Brasil and Portugal). The app follows your phone's language, and you can change it in Settings.
 
 <b>NICE DETAILS</b>
 • <b>Wheel sounds and vibration</b> when the result comes up.
@@ -74,13 +71,8 @@ Spin the wheel and let's train!`,
     short: 'Gira la ruleta y recibe un reto de ejercicio al azar para tu entrenamiento.',
     banner: { line1: '¡Gira la ruleta', line2: 'y a entrenar!', tagline: 'Ejercicios aleatorios para retarte cada día', button: '¡GIRAR RULETA!' },
     notes: `Novedades:
-• Ahora en español, English, Euskara, Galego, Català, Français y Português.
-• Nuevo logo y nuevo estilo verde en toda la app.
-• Más de 100 iconos para tus ejercicios con buscador, incluidos nuevos de flexiones, plancha, burpee y mountain climbers.
-• La app vibra al salir el resultado.
-• El gesto Atrás vuelve a la pantalla anterior en lugar de cerrar la app.
-• La analítica de uso ahora es opcional: tú eliges en Configuración.
-• Correcciones de errores y mejoras de rendimiento.`,
+• Ahora también en Deutsch e Italiano.
+• Correcciones de errores y mejoras.`,
     full: `¿Sin ganas de decidir qué entrenar hoy? Gira la ruleta y deja que GymRoulette elija por ti.
 
 GymRoulette es una ruleta de ejercicios: cada sector combina un número de repeticiones con un ejercicio (por ejemplo, «20 Burpee») y, al girarla, te propone un reto aleatorio para entrenar en casa, en el gimnasio o al aire libre. Pensada para dar variedad a tus sesiones, para circuitos, para retos con amigos y para quien quiere entrenar sin complicarse.
@@ -101,7 +93,7 @@ GymRoulette es una ruleta de ejercicios: cada sector combina un número de repet
 Elige entre más de 100 iconos de muchas disciplinas, con buscador: fuerza y pesas, calistenia, cardio, yoga, pilates, tai chi, boxeo, karate y otras artes marciales, hyrox, crossfit, carreras de obstáculos, deportes, agua y montaña. Incluye pictogramas propios de flexiones, plancha, abdominales, burpee, sentadilla y mountain climbers.
 
 <b>EN TU IDIOMA</b>
-English, Español, Euskara, Galego, Català, Français y Português (Brasil y Portugal). La app sigue el idioma de tu móvil y puedes cambiarlo en Configuración.
+English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano y Português (Brasil y Portugal). La app sigue el idioma de tu móvil y puedes cambiarlo en Configuración.
 
 <b>DETALLES QUE SE AGRADECEN</b>
 • <b>Sonido de ruleta y vibración</b> al salir el resultado.
@@ -121,12 +113,7 @@ Tu configuración se guarda únicamente en tu dispositivo. La analítica de Goog
     short: 'Biratu gurpila eta jaso ausazko ariketa-erronka bat zure entrenamendurako.',
     banner: { line1: 'Biratu gurpila', line2: 'eta entrenatzera!', tagline: 'Ausazko ariketak egunero zure burua probatzeko', button: 'BIRATU GURPILA!' },
     notes: `Berritasunak:
-• Orain English, Español, Euskara, Galego, Català, Français eta Português hizkuntzetan.
-• Logo berria eta estilo berdea.
-• 100 ikono baino gehiago bilatzailearekin, flexio, plantxa, burpee eta mountain climbers-enak barne.
-• Aplikazioak bibratzen du emaitza ateratzen denean.
-• Atzera keinuak aurreko pantailara itzultzen zaitu, aplikazioa itxi beharrean.
-• Erabilera-analitika aukerakoa da orain: zuk aukeratzen duzu Ezarpenetan.
+• Orain Deutsch eta Italiano hizkuntzetan ere.
 • Akatsen zuzenketak eta hobekuntzak.`,
     full: `Ez dakizu gaur zer entrenatu? Biratu gurpila eta utzi GymRoulette-ri zure ordez aukeratzen.
 
@@ -148,7 +135,7 @@ GymRoulette ariketen gurpila da: sektore bakoitzak errepikapen kopuru bat ariket
 Aukeratu 100 ikono baino gehiagoren artean, disziplina askotakoak eta bilatzailearekin: indarra eta pisuak, kalistenia, kardioa, yoga, pilates, tai chi, boxeoa, karatea eta beste borroka-arte batzuk, hyrox, crossfit, oztopo-lasterketak, kirolak, ura eta mendia. Flexioen, plantxaren, abdominalen, burpee-ren, squat-aren eta mountain climbers-en piktograma propioak ditu.
 
 <b>ZURE HIZKUNTZAN</b>
-English, Español, Euskara, Galego, Català, Français eta Português (Brasil eta Portugal). Aplikazioa zure telefonoaren hizkuntzara egokitzen da, eta Ezarpenetan alda dezakezu.
+English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano eta Português (Brasil eta Portugal). Aplikazioa zure telefonoaren hizkuntzara egokitzen da, eta Ezarpenetan alda dezakezu.
 
 <b>XEHETASUN POLITAK</b>
 • <b>Gurpilaren soinuak eta bibrazioa</b> emaitza ateratzen denean.
@@ -168,13 +155,8 @@ Biratu gurpila eta entrenatzera!`,
     short: 'Xira a ruleta e recibe un reto de exercicio ao chou para o teu adestramento.',
     banner: { line1: 'Xira a ruleta', line2: 'e a adestrar!', tagline: 'Exercicios aleatorios para retarte cada día', button: 'XIRAR A RULETA!' },
     notes: `Novidades:
-• Agora dispoñible en English, Español, Euskara, Galego, Català, Français e Português.
-• Novo logo e novo estilo verde en toda a app.
-• Máis de 100 iconas para os teus exercicios con buscador, incluídas novas de flexións, prancha, burpee e mountain climbers.
-• A app vibra ao saír o resultado.
-• O xesto Atrás volve á pantalla anterior en lugar de pechar a app.
-• A analítica de uso agora é opcional: ti elixes en Configuración.
-• Corrección de erros e melloras de rendemento.`,
+• Agora tamén en Deutsch e Italiano.
+• Corrección de erros e melloras.`,
     full: `Sen ganas de decidir que adestrar hoxe? Xira a ruleta e deixa que GymRoulette escolla por ti.
 
 GymRoulette é unha ruleta de exercicios: cada sector combina un número de repeticións cun exercicio (por exemplo, «20 Burpee») e, ao xirala, proponche un reto aleatorio para adestrar na casa, no ximnasio ou ao aire libre. Pensada para darlle variedade ás túas sesións, para circuítos, para retos con amizades e para quen quere adestrar sen complicarse.
@@ -195,7 +177,7 @@ GymRoulette é unha ruleta de exercicios: cada sector combina un número de repe
 Escolle entre máis de 100 iconas de moitas disciplinas, con buscador: forza e pesas, calistenia, cardio, yoga, pilates, tai chi, boxeo, karate e outras artes marciais, hyrox, crossfit, carreiras de obstáculos, deportes, auga e montaña. Inclúe pictogramas propios de flexións, prancha, abdominais, burpee, agachamento e mountain climbers.
 
 <b>NO TEU IDIOMA</b>
-English, Español, Euskara, Galego, Català, Français e Português (Brasil e Portugal). A app segue o idioma do teu móbil e podes cambialo en Configuración.
+English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano e Português (Brasil e Portugal). A app segue o idioma do teu móbil e podes cambialo en Configuración.
 
 <b>DETALLES QUE SE AGRADECEN</b>
 • <b>Son de ruleta e vibración</b> ao saír o resultado.
@@ -215,13 +197,8 @@ Xira a ruleta e a adestrar!`,
     short: "Gira la ruleta i rep un repte d'exercici a l'atzar per al teu entrenament.",
     banner: { line1: 'Gira la ruleta', line2: 'i a entrenar!', tagline: 'Exercicis aleatoris per reptar-te cada dia', button: 'GIRA LA RULETA!' },
     notes: `Novetats:
-• Ara disponible en English, Español, Euskara, Galego, Català, Français i Português.
-• Nou logo i nou estil verd a tota l'app.
-• Més de 100 icones per als teus exercicis amb cercador, incloses noves de flexions, planxa, burpee i mountain climbers.
-• L'app vibra quan surt el resultat.
-• El gest Enrere torna a la pantalla anterior en lloc de tancar l'app.
-• L'analítica d'ús ara és opcional: tu decideixes a Configuració.
-• Correcció d'errors i millores de rendiment.`,
+• Ara també en Deutsch i Italiano.
+• Correcció d'errors i millores.`,
     full: `No tens ganes de decidir què entrenar avui? Gira la ruleta i deixa que GymRoulette triï per tu.
 
 GymRoulette és una ruleta d'exercicis: cada sector combina un nombre de repeticions amb un exercici (per exemple, «20 Burpee») i, en girar-la, et proposa un repte aleatori per entrenar a casa, al gimnàs o a l'aire lliure. Pensada per donar varietat a les teves sessions, per a circuits, per a reptes amb amics i per a qui vol entrenar sense complicar-se.
@@ -242,7 +219,7 @@ GymRoulette és una ruleta d'exercicis: cada sector combina un nombre de repetic
 Tria entre més de 100 icones de moltes disciplines, amb cercador: força i pesos, calistènia, cardio, ioga, pilates, tai-txi, boxa, karate i altres arts marcials, hyrox, crossfit, curses d'obstacles, esports, aigua i muntanya. Inclou pictogrames propis de flexions, planxa, abdominals, burpee, esquat i mountain climbers.
 
 <b>EN EL TEU IDIOMA</b>
-English, Español, Euskara, Galego, Català, Français i Português (Brasil i Portugal). L'app segueix l'idioma del teu mòbil i el pots canviar a Configuració.
+English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano i Português (Brasil i Portugal). L'app segueix l'idioma del teu mòbil i el pots canviar a Configuració.
 
 <b>DETALLS QUE S'AGRAEIXEN</b>
 • <b>So de ruleta i vibració</b> quan surt el resultat.
@@ -262,12 +239,7 @@ Gira la ruleta i a entrenar!`,
     short: "Fais tourner la roue et reçois un défi d'exercice au hasard pour t'entraîner.",
     banner: { line1: 'Lance la roue', line2: "et c'est parti !", tagline: 'Des exercices au hasard pour te défier chaque jour', button: 'LANCER LA ROUE !' },
     notes: `Nouveautés :
-• Désormais en English, Español, Euskara, Galego, Català, Français et Português.
-• Nouveau logo et style vert.
-• Plus de 100 icônes avec recherche, dont de nouvelles pour pompes, gainage, burpee et mountain climbers.
-• L'application vibre quand le résultat apparaît.
-• Le geste Retour revient à l'écran précédent au lieu de fermer l'application.
-• Les statistiques d'utilisation sont désormais facultatives : tu choisis dans les Réglages.
+• Désormais aussi en Deutsch et Italiano.
 • Corrections de bugs et améliorations.`,
     full: `Pas envie de décider quoi t'entraîner aujourd'hui ? Fais tourner la roue et laisse GymRoulette choisir pour toi.
 
@@ -289,7 +261,7 @@ GymRoulette est une roue d'exercices : chaque secteur associe un nombre de rép�
 Choisis parmi plus de 100 icônes de nombreuses disciplines, avec recherche : force et poids, callisthénie, cardio, yoga, pilates, tai chi, boxe, karaté et autres arts martiaux, hyrox, crossfit, courses d'obstacles, sports, eau et montagne. Avec des pictogrammes originaux pour les pompes, le gainage, les abdominaux, le burpee, le squat et les mountain climbers.
 
 <b>DANS TA LANGUE</b>
-English, Español, Euskara, Galego, Català, Français et Português (Brasil et Portugal). L'application suit la langue de ton téléphone et tu peux la changer dans les Réglages.
+English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano et Português (Brasil et Portugal). L'application suit la langue de ton téléphone et tu peux la changer dans les Réglages.
 
 <b>DE BONS PETITS DÉTAILS</b>
 • <b>Sons de la roue et vibration</b> à l'apparition du résultat.
@@ -304,17 +276,96 @@ Tes réglages sont enregistrés uniquement sur ton appareil. L'analyse Google An
 Lance la roue et c'est parti !`,
   },
 
+  de: {
+    title: 'GymRoulette',
+    short: 'Dreh das Rad und erhalte eine zufällige Übungsaufgabe für dein Training.',
+    banner: { line1: 'Dreh das Rad', line2: 'und ab ins Training!', tagline: 'Zufällige Übungen, die dich jeden Tag fordern', button: 'RAD DREHEN!' },
+    notes: `Neu in dieser Version:
+• Jetzt auch in Deutsch und Italiano.
+• Fehlerbehebungen und Verbesserungen.`,
+    full: `Keine Lust zu entscheiden, was du heute trainierst? Dreh das Rad und lass GymRoulette für dich wählen.
+
+GymRoulette ist ein Übungsrad: Jedes Segment verbindet eine Anzahl Wiederholungen mit einer Übung (zum Beispiel „20 Burpee“) und gibt dir beim Drehen eine zufällige Aufgabe für dein Training zu Hause, im Fitnessstudio oder draußen. Gemacht, um Abwechslung in deine Einheiten zu bringen, für Zirkeltraining, für Challenges mit Freunden und für alle, die einfach trainieren wollen, ohne lange zu überlegen.
+
+<b>SO FUNKTIONIERT'S</b>
+• Tippe auf „Rad drehen“ oder wirf das Rad mit dem Finger an.
+• Sobald es stehen bleibt, siehst du deine Aufgabe: Wiederholungen und Übung.
+• Hake sie als erledigt ab oder überspring sie und dreh erneut.
+• Im Verlauf siehst du die Aufgaben, die du in der Einheit geschafft hast.
+
+<b>DU BESTIMMST, WAS AUF DEM RAD IST</b>
+• Schalte die Übungen und Wiederholungen, die du willst, ein oder aus.
+• Erstelle eigene Übungen mit Name, Kurzname und Symbol.
+• Füge Wiederholungen hinzu oder entferne sie, um den Schwierigkeitsgrad anzupassen.
+• Das Rad passt sich deinen Einstellungen an, die auf deinem Gerät gespeichert werden.
+
+<b>ÜBER 100 SYMBOLE FÜR DEINE ÜBUNGEN</b>
+Wähle mit Suchfunktion aus über 100 Symbolen aus vielen Disziplinen: Kraft und Gewichte, Calisthenics, Cardio, Yoga, Pilates, Tai-Chi, Boxen, Karate und andere Kampfkünste, Hyrox, CrossFit, Hindernisläufe, Sport, Wasser und Berge. Mit eigenen Piktogrammen für Liegestütze, Unterarmstütz, Sit-ups, Burpee, Kniebeuge und Mountain Climbers.
+
+<b>IN DEINER SPRACHE</b>
+English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano und Português (Brasil und Portugal). Die App folgt der Sprache deines Handys, und du kannst sie in den Einstellungen ändern.
+
+<b>PRAKTISCHE DETAILS</b>
+• <b>Raddrehgeräusche und Vibration</b>, wenn das Ergebnis erscheint.
+• <b>Dunkles Design</b>, angenehm für die Augen im Fitnessstudio.
+• <b>Ohne Registrierung</b> und ohne Benutzerkonten.
+• <b>Ohne Werbung.</b>
+• <b>Funktioniert offline.</b>
+
+<b>DATENSCHUTZ</b>
+Deine Einstellungen werden nur auf deinem Gerät gespeichert. Google Analytics, das anonym misst, wie die App genutzt wird, ist optional: Du entscheidest, ob du zustimmst, und kannst das jederzeit in den Einstellungen ändern. Die Datenschutzerklärung findest du in der App.
+
+Dreh das Rad und ab ins Training!`,
+  },
+
+  it: {
+    title: 'GymRoulette',
+    short: 'Gira la ruota e ricevi una sfida di esercizio casuale per il tuo allenamento.',
+    banner: { line1: 'Gira la ruota', line2: 'e allenati!', tagline: 'Esercizi casuali per metterti alla prova ogni giorno', button: 'GIRA LA RUOTA!' },
+    notes: `Novità:
+• Ora anche in Deutsch e Italiano.
+• Correzioni di errori e miglioramenti.`,
+    full: `Non hai voglia di decidere cosa allenare oggi? Gira la ruota e lascia scegliere a GymRoulette.
+
+GymRoulette è una ruota di esercizi: ogni settore abbina un numero di ripetizioni a un esercizio (per esempio «20 Burpee») e, quando la fai girare, ti propone una sfida casuale per allenarti a casa, in palestra o all'aperto. Pensata per dare varietà alle tue sessioni, per i circuiti, per le sfide con gli amici e per chi vuole allenarsi senza complicarsi la vita.
+
+<b>COME FUNZIONA</b>
+• Tocca «Gira la ruota» o lancia la ruota con il dito.
+• Quando si ferma, vedi la tua sfida: ripetizioni ed esercizio.
+• Segnala come completata oppure saltala e gira di nuovo.
+• Consulta la cronologia per vedere le sfide completate durante la sessione.
+
+<b>DECIDI TU COSA C'È SULLA RUOTA</b>
+• Attiva o disattiva gli esercizi e le ripetizioni che vuoi.
+• Crea i tuoi esercizi con nome, nome breve e icona.
+• Aggiungi o rimuovi ripetizioni per regolare la difficoltà.
+• La ruota si adatta alle tue impostazioni, che vengono salvate sul tuo dispositivo.
+
+<b>OLTRE 100 ICONE PER I TUOI ESERCIZI</b>
+Scegli tra più di 100 icone di tante discipline, con ricerca: forza e pesi, calisthenics, cardio, yoga, pilates, tai chi, boxe, karate e altre arti marziali, hyrox, crossfit, corse a ostacoli, sport, acqua e montagna. Include pittogrammi esclusivi per flessioni, plank, addominali, burpee, squat e mountain climber.
+
+<b>NELLA TUA LINGUA</b>
+English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano e Português (Brasil e Portugal). L'app segue la lingua del tuo telefono e puoi cambiarla nelle Impostazioni.
+
+<b>DETTAGLI CHE FANNO LA DIFFERENZA</b>
+• <b>Suoni della ruota e vibrazione</b> quando esce il risultato.
+• <b>Design scuro</b> e comodo per la palestra.
+• <b>Senza registrazione</b> né account utente.
+• <b>Senza pubblicità.</b>
+• <b>Funziona offline.</b>
+
+<b>PRIVACY</b>
+Le tue impostazioni vengono salvate solo sul tuo dispositivo. Google Analytics, che misura in forma anonima come viene usata l'app, è facoltativo: sei tu a scegliere se accettarlo e puoi cambiare idea in qualsiasi momento nelle Impostazioni. Puoi leggere l'informativa sulla privacy nell'app.
+
+Gira la ruota e allenati!`,
+  },
+
   'pt-BR': {
     title: 'GymRoulette',
     short: 'Gire a roleta e receba um desafio de exercício aleatório para o seu treino.',
     banner: { line1: 'Gire a roleta', line2: 'e vá treinar!', tagline: 'Exercícios aleatórios para te desafiar todo dia', button: 'GIRAR ROLETA!' },
     notes: `Novidades:
-• Agora em English, Español, Euskara, Galego, Català, Français e Português.
-• Novo logo e novo visual verde em todo o app.
-• Mais de 100 ícones para seus exercícios com busca, incluindo novos de flexões, prancha, burpee e mountain climbers.
-• O app vibra quando o resultado aparece.
-• O gesto de voltar retorna à tela anterior em vez de fechar o app.
-• A análise de uso agora é opcional: você escolhe em Configurações.
+• Agora também em Deutsch e Italiano.
 • Correções de erros e melhorias.`,
     full: `Sem vontade de decidir o que treinar hoje? Gire a roleta e deixe o GymRoulette escolher por você.
 
@@ -336,7 +387,7 @@ O GymRoulette é uma roleta de exercícios: cada setor combina um número de rep
 Escolha entre mais de 100 ícones de muitas modalidades, com busca: força e pesos, calistenia, cardio, yoga, pilates, tai chi, boxe, caratê e outras artes marciais, hyrox, crossfit, corridas de obstáculos, esportes, água e montanha. Inclui pictogramas próprios de flexões, prancha, abdominais, burpee, agachamento e mountain climbers.
 
 <b>NO SEU IDIOMA</b>
-English, Español, Euskara, Galego, Català, Français e Português (Brasil e Portugal). O app segue o idioma do seu celular e você pode mudá-lo em Configurações.
+English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano e Português (Brasil e Portugal). O app segue o idioma do seu celular e você pode mudá-lo em Configurações.
 
 <b>DETALHES QUE FAZEM DIFERENÇA</b>
 • <b>Som da roleta e vibração</b> quando o resultado aparece.
@@ -356,12 +407,7 @@ Gire a roleta e vá treinar!`,
     short: 'Gira a roleta e recebe um desafio de exercício aleatório para o teu treino.',
     banner: { line1: 'Gira a roleta', line2: 'e vai treinar!', tagline: 'Exercícios aleatórios para te desafiares todos os dias', button: 'GIRAR ROLETA!' },
     notes: `Novidades:
-• Agora em English, Español, Euskara, Galego, Català, Français e Português.
-• Novo logótipo e estilo verde em toda a aplicação.
-• Mais de 100 ícones para os teus exercícios com pesquisa, incluindo novos de flexões, prancha, burpee e mountain climbers.
-• A aplicação vibra quando aparece o resultado.
-• O gesto de voltar atrás regressa ao ecrã anterior em vez de fechar a aplicação.
-• A análise de utilização é agora opcional: tu escolhes em Definições.
+• Agora também em Deutsch e Italiano.
 • Correções de erros e melhorias.`,
     full: `Sem vontade de decidir o que treinar hoje? Gira a roleta e deixa o GymRoulette escolher por ti.
 
@@ -383,7 +429,7 @@ O GymRoulette é uma roleta de exercícios: cada setor combina um número de rep
 Escolhe entre mais de 100 ícones de muitas modalidades, com pesquisa: força e pesos, calistenia, cardio, yoga, pilates, tai chi, boxe, karaté e outras artes marciais, hyrox, crossfit, corridas de obstáculos, desportos, água e montanha. Inclui pictogramas próprios de flexões, prancha, abdominais, burpee, agachamento e mountain climbers.
 
 <b>NO TEU IDIOMA</b>
-English, Español, Euskara, Galego, Català, Français e Português (Brasil e Portugal). A aplicação segue o idioma do teu telemóvel e podes alterá-lo em Definições.
+English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano e Português (Brasil e Portugal). A aplicação segue o idioma do teu telemóvel e podes alterá-lo em Definições.
 
 <b>DETALHES QUE FAZEM DIFERENÇA</b>
 • <b>Som da roleta e vibração</b> quando aparece o resultado.

@@ -1,8 +1,3 @@
 Novidades:
-• Agora em English, Español, Euskara, Galego, Català, Français e Português.
-• Novo logo e novo visual verde em todo o app.
-• Mais de 100 ícones para seus exercícios com busca, incluindo novos de flexões, prancha, burpee e mountain climbers.
-• O app vibra quando o resultado aparece.
-• O gesto de voltar retorna à tela anterior em vez de fechar o app.
-• A análise de uso agora é opcional: você escolhe em Configurações.
+• Agora também em Deutsch e Italiano.
 • Correções de erros e melhorias.

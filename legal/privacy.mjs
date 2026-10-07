@@ -311,6 +311,108 @@ export default {
     ],
   },
 
+  de: {
+    title: 'Datenschutzerklärung - GymRoulette',
+    blocks: [
+      ['h1', 'Datenschutzerklärung - GymRoulette'],
+      ['p', 'Zuletzt aktualisiert: Oktober 2026'],
+      ['p', `Diese Datenschutzerklärung beschreibt, welche Daten die App <strong>GymRoulette</strong> (Android, Kennung ${APP_ID}, und ihre Webversion unter ${WEB}) verarbeitet und wie sie verwendet werden.`],
+
+      ['h2', '1. Verantwortlicher'],
+      ['p', `Verantwortlicher: Javier Melendez (unabhängiger Entwickler, „jabibi“).<br>Kontakt: ${MAIL}`],
+
+      ['h2', '2. Verarbeitete Daten'],
+      ['h3', '2.1 Daten, die auf Ihrem Gerät bleiben'],
+      ['p', 'Die Einstellungen Ihres Rads (die Übungen und Wiederholungen, die Sie erstellen oder aktivieren) werden ausschließlich im lokalen Speicher Ihres Geräts (<code>localStorage</code>) abgelegt. Der Verlauf der Sitzung existiert nur im Arbeitsspeicher und geht beim Schließen der App verloren. Diese Daten werden an keinen Server gesendet; Sie entfernen sie, indem Sie die Daten der App löschen oder sie deinstallieren.'],
+      ['h3', '2.2 Analysedaten (Google Analytics)'],
+      ['p', 'Die App verwendet <strong>Google Analytics</strong>, einen Dienst der Google Ireland Limited / Google LLC, um aggregiert zu verstehen, wie die App genutzt wird, und um sie zu verbessern. Google Analytics funktioniert über Firebase, die Google-Plattform, die auch die Webversion der App hostet. Dieser Dienst kann automatisch Folgendes erfassen:'],
+      ['table', ['Daten', 'Zweck'], [
+        ['App-Instanz- bzw. Client-Kennung (eine von Firebase erzeugte pseudonyme Kennung, die auf dem Gerät gespeichert wird)', 'Unterscheidung einzelner Nutzer und Sitzungen, ohne Sie persönlich zu identifizieren'],
+        ['Geräte- und Systeminformationen (Modell, Betriebssystemversion, Sprache, App-Version)', 'Kompatibilität und Statistiken'],
+        ['Ungefährer Standort (Land/Region), abgeleitet aus der IP-Adresse; Google speichert die vollständige IP-Adresse nicht', 'Aggregierte geografische Statistiken'],
+        ['Nutzungsereignisse (erster Start, Beginn einer Nutzungssitzung, angezeigte Bildschirme, Interaktionen)', 'Nutzungsanalyse und Produktverbesserung'],
+      ]],
+      ['p', 'GymRoulette erfasst <strong>weder</strong> Ihren Namen, Ihre E-Mail-Adresse, Kontakte, Fotos, Mikrofon, Kamera, genauen Standort <strong>noch</strong> Gesundheits- oder Fitnessdaten. Die App hat keine Benutzerkonten.'],
+
+      ['h2', '3. Rechtsgrundlage'],
+      ['p', 'Die Verarbeitung der Analysedaten beruht auf Ihrer <strong>Einwilligung</strong> (Art. 6 Abs. 1 Buchst. a DSGVO und Art. 22 Abs. 2 des spanischen LSSI). Sie werden beim ersten Öffnen der App danach gefragt. Die Einwilligung ist <strong>freiwillig</strong>: Sie können sie ablehnen und trotzdem die gesamte App nutzen, und Sie können Ihre Entscheidung jederzeit unter Einstellungen &gt; Analyse-Einstellungen ändern oder widerrufen. Wenn Sie ablehnen, wird Google Analytics nicht geladen und es werden keine Analysedaten erfasst. Die lokale Speicherung Ihrer Einstellungen ist für den Betrieb der App erforderlich.'],
+
+      ['h2', '4. Empfänger und Übermittlungen'],
+      ['p', `Die Analysedaten werden von Google als Auftragsverarbeiter verarbeitet. Google kann Daten außerhalb des Europäischen Wirtschaftsraums (zum Beispiel in die Vereinigten Staaten) übermitteln, und zwar mit den gesetzlich vorgesehenen Garantien (Standardvertragsklauseln und/oder das EU-US-Datenschutzrahmenabkommen). Weitere Informationen unter ${FIREBASE_PRIVACY} und ${GOOGLE_PRIVACY}.`],
+      ['p', 'Wir verkaufen keine Daten und geben keine Daten an Werbenetzwerke weiter, und wir zeigen keine Werbung an.'],
+
+      ['h2', '5. Speicherdauer'],
+      ['p', 'Die Analysedaten werden für die in Firebase konfigurierte Aufbewahrungsdauer (höchstens 14 Monate) gespeichert und danach automatisch gelöscht. Lokale Daten bleiben gespeichert, bis Sie sie löschen.'],
+
+      ['h2', '6. Ihre Rechte'],
+      ['p', `Sie können Ihre Rechte auf Auskunft, Berichtigung, Löschung, Widerspruch, Einschränkung und Datenübertragbarkeit ausüben sowie Ihre Einwilligung widerrufen, indem Sie an die oben genannte Kontaktadresse schreiben. Anleitungen zum Löschen Ihrer Daten finden Sie unter ${link}. Wenn Sie der Ansicht sind, dass Ihre Rechte nicht gewahrt wurden, können Sie sich bei Ihrer Datenschutzaufsichtsbehörde beschweren (in Spanien bei der Spanischen Datenschutzbehörde: ${AEPD}).`],
+      ['p', 'Da die Analysedaten mit einer pseudonymen Gerätekennung verknüpft sind, können wir Sie zur Bearbeitung einer Anfrage um diese Kennung bitten. Sie können sie auch zurücksetzen, indem Sie die Daten der App löschen oder sie deinstallieren.'],
+
+      ['h2', '7. Geräteberechtigungen'],
+      ['p', 'Die App fordert nur zwei Berechtigungen an: <strong>Internetzugriff</strong> (für die Analyse erforderlich) und <strong>Vibration</strong> (für die Effekte des Rads). Beide sind normale Berechtigungen, die Ihre Bestätigung nicht erfordern, und über sie werden keine Informationen erfasst. Die Audioausgabe des Geräts wird nur verwendet, um die Geräusche des Rads abzuspielen.'],
+
+      ['h2', '8. Kinder'],
+      ['p', 'GymRoulette richtet sich nicht an Kinder unter 14 Jahren und erfasst wissentlich keine personenbezogenen Daten von Minderjährigen. Wenn Sie glauben, dass uns ein Minderjähriger Daten übermittelt hat, kontaktieren Sie uns, damit wir sie löschen.'],
+
+      ['h2', '9. Sicherheit'],
+      ['p', 'Die Analysedaten werden verschlüsselt (HTTPS) an die Server von Google übertragen. Lokale Daten sind durch die Anwendungsisolierung des Betriebssystems geschützt.'],
+
+      ['h2', '10. Änderungen dieser Datenschutzerklärung'],
+      ['p', 'Wenn sich die Datenschutzerklärung ändert, veröffentlichen wir die neue Fassung unter derselben Adresse und aktualisieren das oben angegebene Datum.'],
+    ],
+  },
+
+  it: {
+    title: 'Informativa sulla privacy - GymRoulette',
+    blocks: [
+      ['h1', 'Informativa sulla privacy - GymRoulette'],
+      ['p', 'Ultimo aggiornamento: ottobre 2026'],
+      ['p', `Questa informativa descrive quali dati tratta l'app <strong>GymRoulette</strong> (Android, identificativo ${APP_ID}, e la sua versione web su ${WEB}) e come vengono utilizzati.`],
+
+      ['h2', '1. Titolare del trattamento'],
+      ['p', `Titolare: Javier Melendez (sviluppatore indipendente, «jabibi»).<br>Contatto: ${MAIL}`],
+
+      ['h2', '2. Dati trattati'],
+      ['h3', '2.1 Dati che restano sul tuo dispositivo'],
+      ['p', 'Le impostazioni della ruota (gli esercizi e le ripetizioni che crei o attivi) vengono salvate esclusivamente nella memoria locale del tuo dispositivo (<code>localStorage</code>). La cronologia della sessione esiste solo in memoria e va persa alla chiusura dell\'app. Questi dati non vengono inviati ad alcun server e li rimuovi cancellando i dati dell\'app o disinstallandola.'],
+      ['h3', '2.2 Dati di analisi (Google Analytics)'],
+      ['p', 'L\'app utilizza <strong>Google Analytics</strong>, un servizio di Google Ireland Limited / Google LLC, per capire in forma aggregata come viene usata l\'app e per migliorarla. Google Analytics funziona tramite Firebase, la piattaforma di Google che ospita anche la versione web dell\'app. Questo servizio può raccogliere automaticamente:'],
+      ['table', ['Dato', 'Finalità'], [
+        ['Identificativo di istanza / client dell\'app (un identificativo pseudonimo generato da Firebase e memorizzato sul dispositivo)', 'Distinguere utenti e sessioni univoci senza identificarti personalmente'],
+        ['Informazioni sul dispositivo e sul sistema (modello, versione del sistema operativo, lingua, versione dell\'app)', 'Compatibilità e statistiche'],
+        ['Posizione approssimativa (paese/regione) derivata dall\'indirizzo IP; Google non conserva l\'IP completo', 'Statistiche geografiche aggregate'],
+        ['Eventi di utilizzo (prima apertura, inizio della sessione di utilizzo, schermate visualizzate, interazioni)', 'Analisi dell\'utilizzo e miglioramento del prodotto'],
+      ]],
+      ['p', 'GymRoulette <strong>non</strong> raccoglie il tuo nome, indirizzo e-mail, contatti, foto, microfono, fotocamera, posizione precisa né alcun dato relativo alla salute o alla forma fisica. L\'app non ha account utente.'],
+
+      ['h2', '3. Base giuridica'],
+      ['p', 'Il trattamento dei dati di analisi si basa sul tuo <strong>consenso</strong> (art. 6, par. 1, lett. a, del GDPR e art. 22, comma 2, della LSSI spagnola). Ti viene richiesto la prima volta che apri l\'app. È <strong>facoltativo</strong>: puoi rifiutarlo e usare comunque l\'intera app, e puoi modificare o revocare la tua scelta in qualsiasi momento da Impostazioni &gt; Preferenze di analisi. Se rifiuti, Google Analytics non viene caricato e non viene raccolto alcun dato di analisi. La memorizzazione locale delle tue impostazioni è necessaria per il funzionamento dell\'app.'],
+
+      ['h2', '4. Destinatari e trasferimenti'],
+      ['p', `I dati di analisi sono trattati da Google in qualità di responsabile del trattamento. Google può trasferire dati al di fuori dello Spazio economico europeo (ad esempio verso gli Stati Uniti) con le garanzie previste dalla normativa (clausole contrattuali tipo e/o quadro UE-USA per la protezione dei dati). Maggiori informazioni su ${FIREBASE_PRIVACY} e ${GOOGLE_PRIVACY}.`],
+      ['p', 'Non vendiamo né condividiamo dati con reti pubblicitarie e non mostriamo annunci.'],
+
+      ['h2', '5. Conservazione'],
+      ['p', 'I dati di analisi vengono conservati per il periodo di conservazione configurato in Firebase (al massimo 14 mesi) e poi eliminati automaticamente. I dati locali vengono conservati finché non li cancelli.'],
+
+      ['h2', '6. I tuoi diritti'],
+      ['p', `Puoi esercitare i tuoi diritti di accesso, rettifica, cancellazione, opposizione, limitazione e portabilità, nonché revocare il tuo consenso, scrivendo all'indirizzo di contatto indicato sopra. Le istruzioni per eliminare i tuoi dati si trovano su ${link}. Se ritieni che i tuoi diritti non siano stati rispettati, puoi presentare un reclamo alla tua autorità di protezione dei dati (in Italia, il Garante per la protezione dei dati personali; in Spagna, l'Agenzia spagnola per la protezione dei dati: ${AEPD}).`],
+      ['p', 'Poiché i dati di analisi sono associati a un identificativo pseudonimo del dispositivo, per gestire una richiesta potremmo chiederti tale identificativo. Puoi anche reimpostarlo cancellando i dati dell\'app o disinstallandola.'],
+
+      ['h2', '7. Autorizzazioni del dispositivo'],
+      ['p', 'L\'app richiede solo due autorizzazioni: <strong>accesso a Internet</strong> (necessario per l\'analisi) e <strong>vibrazione</strong> (per gli effetti della ruota). Entrambe sono autorizzazioni normali che non richiedono la tua conferma e tramite esse non viene raccolta alcuna informazione. L\'audio del dispositivo viene usato solo per riprodurre i suoni della ruota.'],
+
+      ['h2', '8. Minori'],
+      ['p', 'GymRoulette non è rivolta ai minori di 14 anni e non raccoglie consapevolmente dati personali di minori. Se ritieni che un minore ci abbia fornito dei dati, contattaci e li elimineremo.'],
+
+      ['h2', '9. Sicurezza'],
+      ['p', 'I dati di analisi vengono trasmessi in forma cifrata (HTTPS) ai server di Google. I dati locali sono protetti dall\'isolamento delle app del sistema operativo.'],
+
+      ['h2', '10. Modifiche a questa informativa'],
+      ['p', 'Se l\'informativa cambia, pubblicheremo la nuova versione allo stesso indirizzo e aggiorneremo la data indicata all\'inizio.'],
+    ],
+  },
+
   'pt-BR': {
     title: 'Política de Privacidade - GymRoulette',
     blocks: [

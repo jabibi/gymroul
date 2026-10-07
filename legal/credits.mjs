@@ -119,4 +119,32 @@ export default {
     ['h2', 'Tipografia'],
     ['ul', ['<strong>Plus Jakarta Sans</strong>, licença SIL Open Font License 1.1.']],
   ] },
+  de: { title: 'Danksagungen und Lizenzen - GymRoulette', blocks: [
+    ['h1', 'Danksagungen und Lizenzen'],
+    ['p', 'GymRoulette verwendet die folgenden Ressourcen von Dritten. Vielen Dank an die Urheber.'],
+    ['h2', 'Symbole der Übungen'],
+    ['ul', [
+      `<strong>Material Design Icons</strong> (Pictogrammers), Lizenz ${mdi}. ${mdiSite}`,
+      '<strong>Eigene Piktogramme</strong> von GymRoulette (Liegestütze, Unterarmstütz, Sit-ups, Burpee, Mountain Climbers und Kniebeuge).',
+      `<strong>Game Icons</strong> (${gameSite}), Symbole von Lorc, Delapouite und weiteren Mitwirkenden, Lizenz ${ccBy3}. Einige Symbole wurden umgefärbt und in der Größe angepasst.`,
+    ]],
+    ['h2', 'Symbole der Oberfläche'],
+    ['ul', [`<strong>Font Awesome Free</strong>, Symbole unter ${ccBy4}, Schriften unter SIL OFL 1.1 und Code unter MIT. ${faSite}`]],
+    ['h2', 'Typografie'],
+    ['ul', ['<strong>Plus Jakarta Sans</strong>, Lizenz SIL Open Font License 1.1.']],
+  ] },
+  it: { title: 'Crediti e licenze - GymRoulette', blocks: [
+    ['h1', 'Crediti e licenze'],
+    ['p', 'GymRoulette utilizza le seguenti risorse di terze parti. Grazie ai loro autori.'],
+    ['h2', 'Icone degli esercizi'],
+    ['ul', [
+      `<strong>Material Design Icons</strong> (Pictogrammers), licenza ${mdi}. ${mdiSite}`,
+      '<strong>Pittogrammi propri</strong> di GymRoulette (flessioni, plank, addominali, burpee, mountain climbers e squat).',
+      `<strong>Game Icons</strong> (${gameSite}), icone di Lorc, Delapouite e altri collaboratori, licenza ${ccBy3}. Alcune icone sono state ricolorate e ridimensionate.`,
+    ]],
+    ['h2', 'Icone dell\'interfaccia'],
+    ['ul', [`<strong>Font Awesome Free</strong>, icone con licenza ${ccBy4}, font con licenza SIL OFL 1.1 e codice con licenza MIT. ${faSite}`]],
+    ['h2', 'Tipografia'],
+    ['ul', ['<strong>Plus Jakarta Sans</strong>, licenza SIL Open Font License 1.1.']],
+  ] },
 };

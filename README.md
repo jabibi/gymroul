@@ -10,11 +10,15 @@ Disponible como aplicación web (Firebase Hosting) y como app Android (Capacitor
 - Sectores generados automáticamente: repeticiones activas × ejercicios activos (por defecto 6 × 6 = 36).
 - Configuración editable: activar/desactivar, crear y eliminar ejercicios (nombre, nombre corto, icono) y repeticiones (máx. 12 de cada).
 - Selector con ≈100 iconos de muchas disciplinas (fuerza, calistenia, cardio, Hyrox, CrossFit, OCR, artes marciales, yoga, pilates, tai chi, deportes…) con búsqueda; no se admite texto libre ni emojis.
-- Interfaz en 11 idiomas: inglés (EE. UU. y Reino Unido), español (España y Latinoamérica), euskera, gallego, catalán, francés (Francia y Canadá) y portugués (Brasil y Portugal). Se elige según el dispositivo y se puede cambiar en Configuración.
+- Interfaz en 13 idiomas: inglés (EE. UU. y Reino Unido), español (España y Latinoamérica), euskera, gallego, catalán, francés (Francia y Canadá), alemán, italiano y portugués (Brasil y Portugal). Se elige según el dispositivo y se puede cambiar en Configuración.
 - Historial de la sesión con los retos completados.
 - La configuración se guarda en `localStorage` (con versión de esquema y migraciones).
 - Funciona sin conexión: Tailwind, Font Awesome y la fuente van empaquetados.
 - Firebase Analytics solo se carga si el usuario da su consentimiento.
+
+## Hoja de ruta
+
+Los próximos objetivos (como eliminar por completo Firebase Analytics y estrenar una introducción de dos diapositivas) están en [`ROADMAP.md`](ROADMAP.md).
 
 ## Estructura
 
@@ -31,6 +35,7 @@ src/
   audio.js             Sonido y vibración (háptica nativa en Android)
   analytics.js         Consentimiento y carga diferida de Firebase Analytics
   style.css            Tailwind + fuentes + iconos
+ROADMAP.md             Objetivos de las próximas versiones
 legal/                 Contenido de las páginas legales por idioma (fuente de public/*.html)
 public/                Páginas multilingües generadas (privacy, borrar-datos, creditos, 404, pruebas-cerradas), legal.js, favicon
 store/                 Ficha de Google Play por idioma: textos, gráfico de funciones y capturas (npm run store)

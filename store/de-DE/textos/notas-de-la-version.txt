@@ -1,0 +1,3 @@
+Neu in dieser Version:
+• Jetzt auch in Deutsch und Italiano.
+• Fehlerbehebungen und Verbesserungen.

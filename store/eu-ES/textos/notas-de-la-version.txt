@@ -1,8 +1,3 @@
 Berritasunak:
-• Orain English, Español, Euskara, Galego, Català, Français eta Português hizkuntzetan.
-• Logo berria eta estilo berdea.
-• 100 ikono baino gehiago bilatzailearekin, flexio, plantxa, burpee eta mountain climbers-enak barne.
-• Aplikazioak bibratzen du emaitza ateratzen denean.
-• Atzera keinuak aurreko pantailara itzultzen zaitu, aplikazioa itxi beharrean.
-• Erabilera-analitika aukerakoa da orain: zuk aukeratzen duzu Ezarpenetan.
+• Orain Deutsch eta Italiano hizkuntzetan ere.
 • Akatsen zuzenketak eta hobekuntzak.

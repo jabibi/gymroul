@@ -14,8 +14,8 @@ const placeholders = text => [...text.matchAll(/\{(\w+)\}/g)].map(m => m[1]).sor
 afterEach(() => setLanguage(DEFAULT_LANGUAGE, { persist: false }));
 
 describe('idiomas disponibles', () => {
-  it('son los once esperados e incluyen las variantes regionales', () => {
-    expect(codes).toEqual(['en', 'en-GB', 'es', 'es-419', 'eu', 'gl', 'ca', 'fr', 'fr-CA', 'pt-BR', 'pt-PT']);
+  it('son los trece esperados e incluyen las variantes regionales', () => {
+    expect(codes).toEqual(['en', 'en-GB', 'es', 'es-419', 'eu', 'gl', 'ca', 'fr', 'fr-CA', 'de', 'it', 'pt-BR', 'pt-PT']);
   });
 });
 
@@ -70,7 +70,7 @@ describe('detección del idioma', () => {
   const cases = [
     [['es-ES'], 'es'], [['es'], 'es'], [['es-MX', 'en'], 'es-419'], [['es-AR'], 'es-419'], [['es-419'], 'es-419'], [['es-CO'], 'es-419'], [['fr-CA'], 'fr-CA'], [['fr-FR'], 'fr'], [['fr-BE'], 'fr'], [['en-GB'], 'en-GB'], [['en-US'], 'en'], [['en-AU'], 'en-GB'], [['en-IE'], 'en-GB'], [['en-IN'], 'en-GB'], [['en-CA'], 'en'], [['en'], 'en'], [['eu-ES'], 'eu'], [['gl'], 'gl'], [['ca-ES'], 'ca'],
     [['pt-PT'], 'pt-PT'], [['pt-BR'], 'pt-BR'], [['pt'], 'pt-BR'], [['pt_PT'], 'pt-PT'],
-    [['de', 'fr'], 'fr'], [['zh-CN'], 'en'], [[], 'en'], [['EU'], 'eu'],
+    [['de', 'fr'], 'de'], [['de-AT'], 'de'], [['de-CH'], 'de'], [['it-IT'], 'it'], [['it-CH'], 'it'], [['zh-CN', 'it'], 'it'], [['zh-CN'], 'en'], [[], 'en'], [['EU'], 'eu'],
   ];
   for (const [prefs, expected] of cases) {
     it(`${JSON.stringify(prefs)} -> ${expected}`, () => expect(matchLanguage(prefs)).toBe(expected));
@@ -135,7 +135,7 @@ describe('traducción', () => {
   });
 
   it('rechaza idiomas no soportados', () => {
-    expect(setLanguage(/** @type {any} */ ('de'), { persist: false })).toBe(false);
+    expect(setLanguage(/** @type {any} */ ('ja'), { persist: false })).toBe(false);
     expect(getLanguage()).toBe('en');
   });
 });

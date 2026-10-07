@@ -18,7 +18,7 @@ GymRoulette is an exercise wheel: each segment combines a number of reps with an
 Choose from more than 100 icons across many disciplines, with search: strength and weights, calisthenics, cardio, yoga, pilates, tai chi, boxing, karate and other martial arts, hyrox, crossfit, obstacle races, sports, water and mountain. Includes our own pictograms for push-ups, plank, sit-ups, burpee, squat and mountain climbers.
 
 <b>IN YOUR LANGUAGE</b>
-English, Español, Euskara, Galego, Català, Français and Português (Brasil and Portugal). The app follows your phone's language, and you can change it in Settings.
+English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano and Português (Brasil and Portugal). The app follows your phone's language, and you can change it in Settings.
 
 <b>NICE DETAILS</b>
 • <b>Wheel sounds and vibration</b> when the result comes up.

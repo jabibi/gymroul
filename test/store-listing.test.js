@@ -40,7 +40,7 @@ describe('ficha de Google Play', () => {
 
       it('la descripción completa cita la privacidad y los idiomas disponibles', () => {
         expect(listing.full).toContain('Google Analytics');
-        for (const name of ['English', 'Español', 'Euskara', 'Galego', 'Català', 'Français', 'Português']) expect(listing.full, name).toContain(name);
+        for (const name of ['English', 'Español', 'Euskara', 'Galego', 'Català', 'Français', 'Deutsch', 'Italiano', 'Português']) expect(listing.full, name).toContain(name);
       });
     });
   }

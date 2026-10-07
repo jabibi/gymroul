@@ -15,6 +15,8 @@ import eu from './locales/eu.js';
 import gl from './locales/gl.js';
 import ca from './locales/ca.js';
 import fr from './locales/fr.js';
+import de from './locales/de.js';
+import it from './locales/it.js';
 import frCA from './locales/fr-CA.js';
 import ptBR from './locales/pt-BR.js';
 import ptPT from './locales/pt-PT.js';
@@ -22,7 +24,7 @@ import { parseIconTable } from './icon-table.js';
 
 /**
  * @typedef {{ strings: Record<string, string>, groups?: Record<string, string>, icons?: string }} LocaleData
- * @typedef {'en' | 'en-GB' | 'es' | 'es-419' | 'eu' | 'gl' | 'ca' | 'fr' | 'fr-CA' | 'pt-BR' | 'pt-PT'} LanguageCode
+ * @typedef {'en' | 'en-GB' | 'es' | 'es-419' | 'eu' | 'gl' | 'ca' | 'fr' | 'fr-CA' | 'de' | 'it' | 'pt-BR' | 'pt-PT'} LanguageCode
  */
 
 /** Idiomas disponibles, con su nombre en el propio idioma y la etiqueta BCP 47 para fechas y horas */
@@ -36,6 +38,8 @@ export const LANGUAGES = /** @type {{ code: LanguageCode, name: string, tag: str
   { code: 'ca', name: 'Català', tag: 'ca' },
   { code: 'fr', name: 'Français (France)', tag: 'fr-FR' },
   { code: 'fr-CA', name: 'Français (Canada)', tag: 'fr-CA' },
+  { code: 'de', name: 'Deutsch', tag: 'de-DE' },
+  { code: 'it', name: 'Italiano', tag: 'it-IT' },
   { code: 'pt-BR', name: 'Português (Brasil)', tag: 'pt-BR' },
   { code: 'pt-PT', name: 'Português (Portugal)', tag: 'pt-PT' },
 ]);
@@ -62,7 +66,7 @@ function mergeTables(/** @type {string} */ a, /** @type {string} */ b) {
 
 /** @type {Record<LanguageCode, LocaleData>} */
 export const DICTIONARIES = {
-  en, es, eu, gl, ca, fr,
+  en, es, eu, gl, ca, fr, de, it,
   'en-GB': extend(en, enGB),
   'es-419': extend(es, es419),
   'fr-CA': extend(fr, frCA),
