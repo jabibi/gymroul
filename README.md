@@ -34,8 +34,9 @@ src/
 legal/                 Contenido de las páginas legales por idioma (fuente de public/*.html)
 public/                Páginas multilingües generadas (privacy, borrar-datos, creditos, 404, pruebas-cerradas), legal.js, favicon
 store/                 Ficha de Google Play por idioma: textos, gráfico de funciones y capturas (npm run store)
-test/                  Tests con Vitest
-scripts/               build-icons.mjs (logo e iconos), build-legal.mjs (páginas legales), build-store-assets.mjs (ficha de Play)
+test/                  Tests con Vitest (lógica, i18n, iconos, páginas legales y ficha de Play)
+CLAUDE.md              Guía para trabajar con Claude Code en el repositorio
+scripts/               build-icons.mjs (logo e iconos), build-legal.mjs (páginas legales), build-store-assets.mjs (capturas de Play), build-release-notes.mjs (novedades), build-listing-csv.mjs (CSV de la ficha)
 assets/                Logo y PNG de iconos/splash generados (fuente: scripts/build-icons.mjs)
 www/                   Salida del build (no versionada; la usan Firebase y Capacitor)
 android/               Proyecto Android generado por Capacitor
@@ -63,6 +64,10 @@ npm run dev
 | `npm run typecheck` | Comprueba los tipos JSDoc con `tsc` |
 | `npm run cap:sync` | Solo `cap sync android` (copia `www/` al proyecto Android, sin compilar) |
 | `npm run build:android` | `build` + `cap:sync`: compila en `www/` y sincroniza Android |
+| `npm run store` | `build` + capturas, novedades y CSV de la ficha de Play |
+| `npm run release-notes` | Solo novedades de la versión y CSV de la ficha |
+| `npm run legal` | Regenera las páginas legales de `public/` |
+| `npm run icons` | Regenera logo, iconos y pantalla de bienvenida |
 | `npm run deploy` | `build` + `firebase deploy --only hosting` |
 
 ## Despliegue web
@@ -73,6 +78,10 @@ npm run deploy
 
 El proyecto de Firebase por defecto es `gymroul` (ver `.firebaserc`).
 
+## Versión
+
+La única fuente es `package.json`: `version` (semver; la app muestra `major.minor`), `versionCode` (entero que crece en cada subida a Play) y `versionCodename`. `android/app/build.gradle` las lee de ahí, así que no hay que tocar Gradle al publicar. Tras subirla, ejecuta `npm run release-notes` y actualiza `store/datos-de-la-ficha.md`.
+
 ## App Android
 
 Tras cualquier cambio, compila y sincroniza la copia de Android:
@@ -82,7 +91,7 @@ npm run build:android
 npx cap open android
 ```
 
-Generar el bundle de release (la firma no está configurada en el repositorio; usa tu propio keystore, que no debe subirse):
+Generar el bundle de release (la firma no está configurada en el repositorio; usa tu propio keystore, que no debe subirse, y no añadas contraseñas a `build.gradle`):
 
 ```bash
 cd android && ./gradlew bundleRelease
