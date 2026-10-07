@@ -8,6 +8,8 @@ export default {
 
     'error.repRange': 'Ingresa un número entre 1 y {max}',
 
+    'intro.how.spin': 'Presiona “Girar la ruleta” o lanza la ruleta con el dedo.',
+
   },
 
   groups: {},

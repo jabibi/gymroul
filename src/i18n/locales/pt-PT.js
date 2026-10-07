@@ -2,7 +2,6 @@
 // Se combina con él en src/i18n/index.js.
 export default {
   strings: {
-    'consent.title': 'Queres ajudar-nos a melhorar?',
     'header.settings': 'Abrir definições',
 
     'live.drag': 'Arrasta a roleta para girar',
@@ -26,9 +25,14 @@ export default {
     'error.iconRequired': 'Escolhe um ícone da lista',
     'error.repRange': 'Introduz um número entre 1 e {max}',
 
-    'consent.text': 'O GymRoulette utiliza o Google Analytics para medir a utilização da aplicação de forma anónima.',
-    'consent.optionalLead': 'É opcional:',
-    'consent.optional': 'podes utilizar a aplicação em qualquer dos casos e alterar a tua escolha quando quiseres em Definições.',
+    'intro.skip': 'Saltar',
+    'intro.next': 'Seguinte',
+    'intro.how.spin': 'Toca em “Girar roleta” ou lança a roleta com o dedo.',
+    'intro.how.result': 'Quando parar, recebes um desafio: algumas repetições de um exercício.',
+    'intro.how.done': 'Marca-o como concluído ou salta-o, e gira novamente.',
+    'intro.private.noTrackers': 'Sem rastreadores: nada sai do teu dispositivo.',
+    'intro.private.noLocation': 'Sem acesso à tua localização.',
+
   },
 
   groups: {

@@ -1,7 +1,7 @@
 // @ts-check
 // Modales, historial, configuración y avisos
 
-import { getExercises, getReps, active } from './store.js';
+import { getExercises, getReps, active, markIntroSeen } from './store.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
 import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
 import { t, getLanguage, getLanguageTag, groupName, iconLabel, LANGUAGES } from './i18n/index.js';
@@ -78,7 +78,7 @@ export function pulseIndicator() {
 // Cada modal que se abre añade una entrada al historial del navegador: así el botón
 // "Atrás" de Android (o del navegador) lo cierra en lugar de salir de la app.
 
-/** @typedef {'result' | 'history' | 'config' | 'document' | 'consent'} ModalName */
+/** @typedef {'result' | 'history' | 'config' | 'document'} ModalName */
 // Pila de modales abiertos (el último es el que está encima): la política de privacidad
 // puede abrirse sobre la configuración y Atrás debe cerrar primero la de arriba
 /** @type {ModalName[]} */
@@ -92,7 +92,6 @@ const closers = {
   history: () => closeHistory(),
   config: () => closeConfig(),
   document: () => closeDocument(),
-  consent: () => hideConsent(),
 };
 
 /** @param {ModalName} name */
@@ -491,39 +490,73 @@ export function closeDocument() {
   dismissModal('document');
 }
 
-// --- Consentimiento ------------------------------------------------------------------
+// --- Introducción de la primera apertura --------------------------------------------
+
+const INTRO_SLIDES = 2;
+let introSlide = 0;
 
 /**
- * Muestra u oculta la pantalla de consentimiento. Mientras está visible el resto de la app
- * queda inerte (sin foco, clics ni lectores de pantalla) además de tapado por el fondo opaco.
+ * Muestra u oculta la introducción. Mientras está visible el resto de la app queda inerte
+ * (sin foco, clics ni lectores de pantalla) además de tapado por el fondo opaco.
  * @param {boolean} visible
  */
-export function setConsentGate(visible) {
-  $('consentGate').classList.toggle('hidden', !visible);
-  document.querySelectorAll('body > :not(#consentGate):not(#documentModal):not(script)').forEach(el => {
+function setIntroGate(visible) {
+  $('introGate').classList.toggle('hidden', !visible);
+  document.querySelectorAll('body > :not(#introGate):not(#documentModal):not(script)').forEach(el => {
     /** @type {HTMLElement} */ (el).inert = visible;
   });
-  if (visible) $('consentGate').focus({ preventScroll: true });
+  if (visible) $('introGate').focus({ preventScroll: true });
+}
+
+/** @param {number} index */
+function showIntroSlide(index) {
+  introSlide = Math.max(0, Math.min(INTRO_SLIDES - 1, index));
+  document.querySelectorAll('[data-intro-slide]').forEach(el => {
+    el.classList.toggle('hidden', Number(/** @type {HTMLElement} */ (el).dataset.introSlide) !== introSlide);
+  });
+  document.querySelectorAll('[data-intro-dot]').forEach(el => {
+    const active = Number(/** @type {HTMLElement} */ (el).dataset.introDot) === introSlide;
+    el.classList.toggle('bg-brand-500', active);
+    el.classList.toggle('bg-slate-700', !active);
+    if (active) el.setAttribute('aria-current', 'step');
+    else el.removeAttribute('aria-current');
+  });
+  const last = introSlide === INTRO_SLIDES - 1;
+  $('introNext').classList.toggle('hidden', last);
+  $('introStart').classList.toggle('hidden', !last);
+}
+
+/** Abre la introducción en su primera diapositiva. */
+export function showIntro() {
+  showIntroSlide(0);
+  setIntroGate(true);
+}
+
+/** Pasa a la siguiente diapositiva; en la última cierra la introducción. */
+export function introNext() {
+  if (introSlide >= INTRO_SLIDES - 1) hideIntro();
+  else showIntroSlide(introSlide + 1);
 }
 
 /**
- * Reabre la pantalla de consentimiento desde Configuración (cambiar o retirar la elección). Entra en la pila del
- * botón Atrás: Atrás la cierra sin decidir y deja Configuración debajo.
+ * Atrás en la introducción: vuelve a la diapositiva anterior.
+ * @returns {boolean} false si no está visible o ya está en la primera (el llamador decide, p. ej. salir de la app)
  */
-export function showConsentFromSettings() {
-  setConsentGate(true);
-  pushModal('consent');
+export function introBack() {
+  if ($('introGate').classList.contains('hidden') || introSlide === 0) return false;
+  showIntroSlide(introSlide - 1);
+  return true;
 }
 
-/** Cierra la pantalla de consentimiento (tras elegir, o con Atrás si se abrió desde Configuración). */
-export function hideConsent() {
-  setConsentGate(false);
-  dismissModal('consent');
+/** Cierra la introducción (Skip o fin) y recuerda que ya se vio. */
+export function hideIntro() {
+  setIntroGate(false);
+  markIntroSeen();
 }
 
 // --- Idioma --------------------------------------------------------------------------
 
-/** Rellena todos los selectores de idioma (configuración y pantalla de consentimiento) y los sincroniza. */
+/** Rellena todos los selectores de idioma (configuración e introducción) y los sincroniza. */
 export function renderLanguageSelectors() {
   document.querySelectorAll('select.lang-select').forEach(el => {
     const select = /** @type {HTMLSelectElement} */ (el);

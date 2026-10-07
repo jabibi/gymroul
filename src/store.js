@@ -31,9 +31,12 @@ const KEY_REPS = 'gym_reps';
 const KEY_ACTIVE_REPS = 'gymroulette_active_reps';
 const KEY_ACTIVE_EXS = 'gymroulette_active_exs';
 const KEY_SCHEMA = 'gym_schema_version';
+const KEY_INTRO_SEEN = 'gymroulette_intro_seen';
+// Clave de la analítica opcional que ya no existe (se borra en la migración v5 -> v6)
+const KEY_LEGACY_ANALYTICS_CONSENT = 'gymroulette_analytics_consent';
 
 /** Versión actual del esquema de datos guardados; sube al cambiar su formato */
-export const SCHEMA_VERSION = 5;
+export const SCHEMA_VERSION = 6;
 
 /** Selección activa (se muta con setActive/loadActive) */
 export const active = {
@@ -112,6 +115,10 @@ const MIGRATIONS = {
     if (!list) return;
     writeStorage(KEY_EXERCISES, list.map(e => (e.id === '5' && e.icon === 'run-fast' ? { ...e, icon: 'climbers' } : e)));
   },
+  // v5 -> v6: la app ya no tiene analítica; se borra la elección de consentimiento que guardaban las versiones anteriores
+  5: () => {
+    try { localStorage.removeItem(KEY_LEGACY_ANALYTICS_CONSENT); } catch (e) { /* ignorado */ }
+  },
 };
 
 /** Aplica las migraciones pendientes y fija la versión actual. */
@@ -123,6 +130,17 @@ export function migrate() {
     version++;
   }
   writeStorage(KEY_SCHEMA, SCHEMA_VERSION);
+}
+
+// --- Introducción de la primera apertura ---------------------------------------------
+
+/** @returns {boolean} true si el usuario ya vio (o saltó) la introducción */
+export function hasSeenIntro() {
+  return readStorage(KEY_INTRO_SEEN, false, v => v === true);
+}
+
+export function markIntroSeen() {
+  writeStorage(KEY_INTRO_SEEN, true);
 }
 
 // --- Catálogo ------------------------------------------------------------------------
