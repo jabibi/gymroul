@@ -1,3 +1,5 @@
 Novità:
-• Ora anche in Deutsch e Italiano.
+• Ora anche in Polski, हिन्दी, Türkçe e English (Australia).
+• 100% offline: nessuna analisi, nessun tracker e nessuna autorizzazione a Internet.
+• Nuova introduzione al primo avvio: come funziona la ruota e cosa fa (e cosa non fa) l'app con i tuoi dati.
 • Correzioni di errori e miglioramenti.

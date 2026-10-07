@@ -1,3 +1,5 @@
 What's new:
-• Now also in Deutsch and Italiano.
+• Now also in Polski, हिन्दी, Türkçe and English (Australia).
+• 100% offline: no analytics, no trackers and no Internet permission.
+• New introduction on first launch: how the wheel works and what the app does (and doesn't do) with your data.
 • Bug fixes and improvements.

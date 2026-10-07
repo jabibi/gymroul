@@ -18,16 +18,17 @@ O GymRoulette é uma roleta de exercícios: cada setor combina um número de rep
 Escolhe entre mais de 100 ícones de muitas modalidades, com pesquisa: força e pesos, calistenia, cardio, yoga, pilates, tai chi, boxe, karaté e outras artes marciais, hyrox, crossfit, corridas de obstáculos, desportos, água e montanha. Inclui pictogramas próprios de flexões, prancha, abdominais, burpee, agachamento e mountain climbers.
 
 <b>NO TEU IDIOMA</b>
-English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano e Português (Brasil e Portugal). A aplicação segue o idioma do teu telemóvel e podes alterá-lo em Definições.
+English (EUA, Reino Unido e Austrália), Español (Espanha e América Latina), Euskara, Galego, Català, Français (França e Canadá), Deutsch, Italiano, Polski, हिन्दी, Türkçe e Português (Brasil e Portugal). A aplicação segue o idioma do teu telemóvel e podes alterá-lo em Definições.
 
 <b>DETALHES QUE FAZEM DIFERENÇA</b>
 • <b>Som da roleta e vibração</b> quando aparece o resultado.
 • <b>Visual escuro</b> e confortável para usar no ginásio.
 • <b>Sem registo</b> nem contas de utilizador.
 • <b>Sem anúncios.</b>
-• <b>Funciona sem ligação.</b>
+• <b>100% offline</b>: não precisa de ligação à Internet.
+• <b>Sem rastreadores</b> nem cookies desnecessários, e nunca pede a tua localização.
 
 <b>PRIVACIDADE</b>
-As tuas definições ficam guardadas apenas no teu dispositivo. A análise do Google Analytics, que mede de forma anónima como a aplicação é utilizada, é opcional: tu escolhes se a aceitas e podes alterar quando quiseres em Definições. Podes ler a política de privacidade dentro da aplicação.
+O GymRoulette é totalmente offline e não recolhe quaisquer dados: sem análise, sem rastreadores, sem anúncios e sem acesso à tua localização. As tuas definições ficam guardadas apenas no teu dispositivo. Podes ler a política de privacidade dentro da aplicação.
 
 Gira a roleta e vai treinar!

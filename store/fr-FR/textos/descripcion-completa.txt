@@ -18,16 +18,17 @@ GymRoulette est une roue d'exercices : chaque secteur associe un nombre de rép�
 Choisis parmi plus de 100 icônes de nombreuses disciplines, avec recherche : force et poids, callisthénie, cardio, yoga, pilates, tai chi, boxe, karaté et autres arts martiaux, hyrox, crossfit, courses d'obstacles, sports, eau et montagne. Avec des pictogrammes originaux pour les pompes, le gainage, les abdominaux, le burpee, le squat et les mountain climbers.
 
 <b>DANS TA LANGUE</b>
-English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano et Português (Brasil et Portugal). L'application suit la langue de ton téléphone et tu peux la changer dans les Réglages.
+English (États-Unis, Royaume-Uni et Australie), Español (Espagne et Amérique latine), Euskara, Galego, Català, Français (France et Canada), Deutsch, Italiano, Polski, हिन्दी, Türkçe et Português (Brasil et Portugal). L'application suit la langue de ton téléphone et tu peux la changer dans les Réglages.
 
 <b>DE BONS PETITS DÉTAILS</b>
 • <b>Sons de la roue et vibration</b> à l'apparition du résultat.
 • <b>Un design sombre</b>, agréable à l'œil en salle.
 • <b>Sans inscription</b> ni compte utilisateur.
 • <b>Sans publicité.</b>
-• <b>Fonctionne hors connexion.</b>
+• <b>100 % hors connexion</b> : aucune connexion Internet nécessaire.
+• <b>Sans traceurs</b> ni cookies superflus, et elle ne demande jamais ta localisation.
 
 <b>CONFIDENTIALITÉ</b>
-Tes réglages sont enregistrés uniquement sur ton appareil. L'analyse Google Analytics, qui mesure de façon anonyme l'utilisation de l'application, est facultative : tu choisis de l'accepter ou non et tu peux changer d'avis à tout moment dans les Réglages. Tu peux consulter la politique de confidentialité dans l'application.
+GymRoulette fonctionne entièrement hors connexion et ne collecte aucune donnée : pas d'analyse, pas de traceurs, pas de publicité et aucun accès à ta localisation. Tes réglages sont enregistrés uniquement sur ton appareil. Tu peux consulter la politique de confidentialité dans l'application.
 
 Lance la roue et c'est parti !

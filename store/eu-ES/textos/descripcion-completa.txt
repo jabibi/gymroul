@@ -18,16 +18,17 @@ GymRoulette ariketen gurpila da: sektore bakoitzak errepikapen kopuru bat ariket
 Aukeratu 100 ikono baino gehiagoren artean, disziplina askotakoak eta bilatzailearekin: indarra eta pisuak, kalistenia, kardioa, yoga, pilates, tai chi, boxeoa, karatea eta beste borroka-arte batzuk, hyrox, crossfit, oztopo-lasterketak, kirolak, ura eta mendia. Flexioen, plantxaren, abdominalen, burpee-ren, squat-aren eta mountain climbers-en piktograma propioak ditu.
 
 <b>ZURE HIZKUNTZAN</b>
-English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano eta Português (Brasil eta Portugal). Aplikazioa zure telefonoaren hizkuntzara egokitzen da, eta Ezarpenetan alda dezakezu.
+English (AEB, Erresuma Batua eta Australia), Español (Espainia eta Latinoamerika), Euskara, Galego, Català, Français (Frantzia eta Kanada), Deutsch, Italiano, Polski, हिन्दी, Türkçe eta Português (Brasil eta Portugal). Aplikazioa zure telefonoaren hizkuntzara egokitzen da, eta Ezarpenetan alda dezakezu.
 
 <b>XEHETASUN POLITAK</b>
 • <b>Gurpilaren soinuak eta bibrazioa</b> emaitza ateratzen denean.
 • <b>Diseinu iluna</b>, gimnasioan begientzat erosoa.
 • <b>Izen-emate edo erabiltzaile-konturik gabe</b>.
 • <b>Iragarkirik gabe.</b>
-• <b>Konexiorik gabe ere funtzionatzen du.</b>
+• <b>% 100 konexiorik gabe</b>: ez du Interneteko konexiorik behar.
+• <b>Aztarnarik gabe</b> eta beharrezkoak ez diren cookierik gabe, eta ez dizu inoiz kokapena eskatzen.
 
 <b>PRIBATUTASUNA</b>
-Zure ezarpenak zure gailuan soilik gordetzen dira. Google Analytics-ek, aplikazioa nola erabiltzen den modu anonimoan neurtzen duenak, aukerakoa da: zuk erabakitzen duzu onartzea eta noiznahi alda dezakezu Ezarpenetan. Pribatutasun-politika aplikazioaren barruan kontsulta dezakezu.
+GymRoulette erabat konexiorik gabe dabil eta ez du daturik biltzen: analitikarik, aztarnarik, iragarkirik eta zure kokapenerako sarbiderik gabe. Zure ezarpenak zure gailuan soilik gordetzen dira. Pribatutasun-politika aplikazioaren barruan kontsulta dezakezu.
 
 Biratu gurpila eta entrenatzera!

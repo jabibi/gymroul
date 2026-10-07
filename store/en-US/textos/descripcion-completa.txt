@@ -18,16 +18,17 @@ GymRoulette is an exercise wheel: each segment combines a number of reps with an
 Choose from more than 100 icons across many disciplines, with search: strength and weights, calisthenics, cardio, yoga, pilates, tai chi, boxing, karate and other martial arts, hyrox, crossfit, obstacle races, sports, water and mountain. Includes our own pictograms for push-ups, plank, sit-ups, burpee, squat and mountain climbers.
 
 <b>IN YOUR LANGUAGE</b>
-English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano and Português (Brasil and Portugal). The app follows your phone's language, and you can change it in Settings.
+English (US, UK and Australia), Español (Spain and Latin America), Euskara, Galego, Català, Français (France and Canada), Deutsch, Italiano, Polski, हिन्दी, Türkçe and Português (Brasil and Portugal). The app follows your phone's language, and you can change it in Settings.
 
 <b>NICE DETAILS</b>
 • <b>Wheel sounds and vibration</b> when the result comes up.
 • <b>A dark design</b> that's easy on the eyes at the gym.
 • <b>No sign-up</b> or user accounts.
 • <b>No ads.</b>
-• <b>Works offline.</b>
+• <b>100% offline</b>: it doesn't need an Internet connection.
+• <b>No trackers</b> and no unnecessary cookies, and it never asks for your location.
 
 <b>PRIVACY</b>
-Your settings are stored only on your device. Google Analytics, which measures anonymously how the app is used, is optional: you choose whether to accept it and can change that any time in Settings. You can read the privacy policy inside the app.
+GymRoulette is completely offline and collects no data: no analytics, no trackers, no ads and no access to your location. Your settings are stored only on your device. You can read the privacy policy inside the app.
 
 Spin the wheel and let's train!

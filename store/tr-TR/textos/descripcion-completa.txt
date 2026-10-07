@@ -1,0 +1,34 @@
+Bugün ne çalışacağına karar veremiyor musun? Çarkı çevir, GymRoulette senin yerine seçsin.
+
+GymRoulette bir egzersiz çarkıdır: her dilim bir tekrar sayısını bir egzersizle birleştirir (örneğin “20 Burpee”) ve çevirdiğinde sana evde, spor salonunda veya açık havada yapabileceğin rastgele bir meydan okuma sunar. Antrenmanlarına çeşitlilik katmak, devreler, arkadaşlarınla meydan okumalar ve fazla düşünmeden spor yapmak isteyen herkes için tasarlandı.
+
+<b>NASIL ÇALIŞIR</b>
+• “Çarkı çevir” düğmesine dokun ya da çarkı parmağınla fırlat.
+• Çark durunca meydan okumanı görürsün: tekrar sayısı ve egzersiz.
+• Tamamlandı olarak işaretle ya da geç ve yeniden çevir.
+• Geçmişten oturum boyunca tamamladığın meydan okumalara göz at.
+
+<b>ÇARKTA NELER OLACAĞINA SEN KARAR VERİRSİN</b>
+• İstediğin egzersizleri ve tekrarları aç ya da kapat.
+• Ad, kısa ad ve simgeyle kendi egzersizlerini oluştur.
+• Zorluğu ayarlamak için tekrar ekle ya da çıkar.
+• Çark ayarlarına uyum sağlar; ayarların cihazında saklanır.
+
+<b>EGZERSİZLERİN İÇİN 100'DEN FAZLA SİMGE</b>
+Aramalı simge listesinden birçok disiplin arasında seçim yap: kuvvet ve ağırlıklar, calisthenics, kardiyo, yoga, pilates, tai chi, boks, karate ve diğer dövüş sanatları, hyrox, crossfit, engelli koşular, sporlar, su ve dağ. Şınav, plank, mekik, burpee, squat ve mountain climbers için kendi piktogramlarımız da var.
+
+<b>KENDİ DİLİNDE</b>
+English (ABD, Birleşik Krallık ve Avustralya), Español (İspanya ve Latin Amerika), Euskara, Galego, Català, Français (Fransa ve Kanada), Deutsch, Italiano, Polski, हिन्दी, Türkçe ve Português (Brezilya ve Portekiz). Uygulama telefonunun diline uyar; dilini Ayarlar'dan değiştirebilirsin.
+
+<b>GÜZEL DETAYLAR</b>
+• Sonuç çıkınca <b>çark sesleri ve titreşim</b>.
+• Spor salonunda gözlerini yormayan <b>koyu bir tasarım</b>.
+• <b>Kayıt yok</b>, kullanıcı hesabı yok.
+• <b>Reklam yok.</b>
+• <b>%100 çevrimdışı</b>: İnternet bağlantısı gerektirmez.
+• <b>İzleyici yok</b>, gereksiz çerez yok ve konumunu asla istemez.
+
+<b>GİZLİLİK</b>
+GymRoulette tamamen çevrimdışıdır ve hiçbir veri toplamaz: analiz yok, izleyici yok, reklam yok ve konumuna erişim yok. Ayarların yalnızca cihazında saklanır. Gizlilik politikasını uygulamanın içinden okuyabilirsin.
+
+Çarkı çevir, antrenmana başlayalım!
