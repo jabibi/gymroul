@@ -33,7 +33,6 @@
     "@capacitor/assets": "^3.0.5",
     "@capacitor/cli": "^8.5.2",
     "@iconify-json/game-icons": "^1.2.4",
-    "@iconify-json/lucide": "^1.2.138",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify/tailwind": "^1.2.0",
     "autoprefixer": "^10.6.1",
