@@ -68,11 +68,14 @@ export function playWinFanfare() {
 }
 
 // --- Vibración -----------------------------------------------------------------------------
-// Solo vibra el resultado (la ruleta al girar no vibra). En Android se usa el plugin nativo:
+// Vibran el inicio del giro (un toque corto de éxito) y el resultado (notificación fuerte y dos golpes);
+// durante el giro no vibra. Son deliberadamente distintos para poder reconocerlos sin mirar. En Android se usa el plugin nativo:
 // Haptics.vibrate({ duration }) crea un pulso con amplitud "por defecto" que muchos móviles ignoran,
 // mientras que impact() y notification() usan formas de onda con amplitud explícita (hasta 255) y sí
 // se notan; por eso se usan estas dos. En la web se mantiene navigator.vibrate.
 
+/** Patrón de la web para el inicio del giro: un único toque corto */
+export const SPIN_START_VIBRATION = [45];
 /** Patrón de la web para el resultado: [vibra, pausa, vibra, ...] en ms */
 export const RESULT_VIBRATION = [150, 80, 150, 80, 320];
 /** En la app el resultado es una notificación fuerte seguida de dos golpes (ms desde el inicio) */
@@ -96,5 +99,14 @@ export function vibrateResult() {
     NATIVE_RESULT_FOLLOWUPS_MS.forEach(at => pendingTimers.push(setTimeout(nativeImpact, at)));
   } else if (navigator.vibrate) {
     try { navigator.vibrate(RESULT_VIBRATION); } catch (e) { /* vibración no disponible */ }
+  }
+}
+
+/** Vibración al iniciar el giro: un toque corto de tipo éxito, muy distinto al patrón del resultado. */
+export function vibrateSpinStart() {
+  if (Capacitor.isNativePlatform()) {
+    Haptics.notification({ type: NotificationType.Success }).catch(ignoreHapticError);
+  } else if (navigator.vibrate) {
+    try { navigator.vibrate(SPIN_START_VIBRATION); } catch (e) { /* vibración no disponible */ }
   }
 }

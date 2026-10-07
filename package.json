@@ -1,8 +1,8 @@
 {
   "name": "gymroul",
-  "version": "1.11.0",
-  "versionCode": 11,
-  "versionCodename": "SloMo",
+  "version": "1.12.0",
+  "versionCode": 12,
+  "versionCodename": "Dynamic-Stretches",
   "description": "GymRoulette: ruleta de ejercicios (web + Android con Capacitor)",
   "main": "index.js",
   "scripts": {

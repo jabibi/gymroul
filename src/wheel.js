@@ -3,7 +3,7 @@
 
 import { getWinningIndex, normalizeDelta, CONFIG_SEGMENT } from './wheel-math.js';
 import { t } from './i18n/index.js';
-import { initAudio, playTickSound } from './audio.js';
+import { initAudio, playTickSound, vibrateSpinStart } from './audio.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
 
@@ -241,6 +241,7 @@ function onPointerUp(e) {
 /** @param {number} velocity */
 function startSpin(velocity) {
   isSpinning = true;
+  vibrateSpinStart();
   angularVelocity = velocity;
   lastFrameTime = performance.now();
   requestAnimationFrame(animate);
