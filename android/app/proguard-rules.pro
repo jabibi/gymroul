@@ -19,3 +19,6 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Reempaqueta las clases ofuscadas en el paquete raíz (menor DEX); optimización de R8 que pide Play Console.
+-repackageclasses ''
