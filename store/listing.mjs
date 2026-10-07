@@ -6,23 +6,23 @@
 
 /** Código de idioma de la app -> carpeta / idioma de Play Console y nombre que muestra la consola. */
 export const STORE_LOCALES = [
+  { app: 'ca', play: 'ca', name: 'Catalán' },
+  { app: 'de', play: 'de-DE', name: 'Alemán' },
   { app: 'en', play: 'en-US', name: 'Inglés (Estados Unidos)' },
   { app: 'en-GB', play: 'en-GB', name: 'Inglés (Reino Unido)' },
   { app: 'en-AU', play: 'en-AU', name: 'Inglés (Australia)' },
   { app: 'es', play: 'es-ES', name: 'Español (España)' },
   { app: 'es-419', play: 'es-419', name: 'Español (Latinoamérica)' },
   { app: 'eu', play: 'eu-ES', name: 'Euskera' },
-  { app: 'gl', play: 'gl-ES', name: 'Gallego' },
-  { app: 'ca', play: 'ca', name: 'Catalán' },
   { app: 'fr', play: 'fr-FR', name: 'Francés (Francia)' },
   { app: 'fr-CA', play: 'fr-CA', name: 'Francés (Canadá)' },
-  { app: 'de', play: 'de-DE', name: 'Alemán' },
+  { app: 'gl', play: 'gl-ES', name: 'Gallego' },
+  { app: 'hi', play: 'hi-IN', name: 'Hindi' },
   { app: 'it', play: 'it-IT', name: 'Italiano' },
   { app: 'pl', play: 'pl-PL', name: 'Polaco' },
-  { app: 'hi', play: 'hi-IN', name: 'Hindi' },
-  { app: 'tr', play: 'tr-TR', name: 'Turco' },
   { app: 'pt-BR', play: 'pt-BR', name: 'Portugués (Brasil)' },
   { app: 'pt-PT', play: 'pt-PT', name: 'Portugués (Portugal)' },
+  { app: 'tr', play: 'tr-TR', name: 'Turco' },
 ];
 
 export const LIMITS = { title: 30, short: 80, full: 4000, notes: 500 };

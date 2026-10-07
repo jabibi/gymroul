@@ -31,25 +31,28 @@ import { parseIconTable } from './icon-table.js';
  * @typedef {'en' | 'en-GB' | 'en-AU' | 'es' | 'es-419' | 'eu' | 'gl' | 'ca' | 'fr' | 'fr-CA' | 'de' | 'it' | 'pl' | 'hi' | 'tr' | 'pt-BR' | 'pt-PT'} LanguageCode
  */
 
-/** Idiomas disponibles, con su nombre en el propio idioma y la etiqueta BCP 47 para fechas y horas */
+/**
+ * Idiomas disponibles, con su nombre en el propio idioma y la etiqueta BCP 47 para fechas y horas.
+ * Van por orden alfabético del nombre (hindi, por «Hindi»), con las variantes regionales junto a su idioma base.
+ */
 export const LANGUAGES = /** @type {{ code: LanguageCode, name: string, tag: string }[]} */ ([
+  { code: 'ca', name: 'Català', tag: 'ca' },
+  { code: 'de', name: 'Deutsch', tag: 'de-DE' },
   { code: 'en', name: 'English (US)', tag: 'en-US' },
   { code: 'en-GB', name: 'English (UK)', tag: 'en-GB' },
   { code: 'en-AU', name: 'English (Australia)', tag: 'en-AU' },
   { code: 'es', name: 'Español (España)', tag: 'es-ES' },
   { code: 'es-419', name: 'Español (Latinoamérica)', tag: 'es-419' },
   { code: 'eu', name: 'Euskara', tag: 'eu' },
-  { code: 'gl', name: 'Galego', tag: 'gl' },
-  { code: 'ca', name: 'Català', tag: 'ca' },
   { code: 'fr', name: 'Français (France)', tag: 'fr-FR' },
   { code: 'fr-CA', name: 'Français (Canada)', tag: 'fr-CA' },
-  { code: 'de', name: 'Deutsch', tag: 'de-DE' },
+  { code: 'gl', name: 'Galego', tag: 'gl' },
+  { code: 'hi', name: 'हिन्दी', tag: 'hi-IN' },
   { code: 'it', name: 'Italiano', tag: 'it-IT' },
   { code: 'pl', name: 'Polski', tag: 'pl-PL' },
-  { code: 'hi', name: 'हिन्दी', tag: 'hi-IN' },
-  { code: 'tr', name: 'Türkçe', tag: 'tr-TR' },
   { code: 'pt-BR', name: 'Português (Brasil)', tag: 'pt-BR' },
   { code: 'pt-PT', name: 'Português (Portugal)', tag: 'pt-PT' },
+  { code: 'tr', name: 'Türkçe', tag: 'tr-TR' },
 ]);
 
 export const DEFAULT_LANGUAGE = /** @type {LanguageCode} */ ('en');
