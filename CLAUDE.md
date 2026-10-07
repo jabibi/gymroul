@@ -13,7 +13,7 @@ npm run build:android  # build + cap sync android
 npm run store        # ficha de Google Play (capturas, notas, CSV); requiere Chromium vía puppeteer-core
 ```
 
-CI (`.github/workflows/ci.yml`) ejecuta `typecheck`, `test` y `build`. Antes de dar algo por terminado, pasa los tres.
+CI (`.github/workflows/ci.yml`) ejecuta `typecheck`, `test` y `build`, y en un job aparte compila el Android (`assembleRelease` y `bundleRelease`). Antes de dar algo por terminado, pasa los tres.
 
 ## Estructura
 
