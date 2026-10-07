@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+// Única fuente de la versión: package.json (version, versionCode y versionCodename)
+def appPackage = new groovy.json.JsonSlurper().parse(file('../../package.json'))
+def (versionMajor, versionMinor) = appPackage.version.tokenize('.')
+
 android {
     namespace = "eus.jabibi.gymroul"
     compileSdk = rootProject.ext.compileSdkVersion
@@ -7,9 +11,8 @@ android {
         applicationId "eus.jabibi.gymroul"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 10
-        versionName "1.10 (Warm-up)"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        versionCode appPackage.versionCode
+        versionName "${versionMajor}.${versionMinor} (${appPackage.versionCodename})"
         aaptOptions {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
@@ -35,9 +38,6 @@ dependencies {
     implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
     implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
     implementation project(':capacitor-android')
-    testImplementation "junit:junit:$junitVersion"
-    androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
     implementation project(':capacitor-cordova-android-plugins')
 }
 
