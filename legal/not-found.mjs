@@ -10,4 +10,6 @@ export default {
   fr: page('Page introuvable - GymRoulette', "La page que tu cherches n'existe pas.", 'Retour à GymRoulette'),
   'pt-BR': page('Página não encontrada - GymRoulette', 'A página que você procura não existe.', 'Voltar ao GymRoulette'),
   'pt-PT': page('Página não encontrada - GymRoulette', 'A página que procuras não existe.', 'Voltar ao GymRoulette'),
+  de: page('Seite nicht gefunden - GymRoulette', 'Die Seite, die du suchst, existiert nicht.', 'Zurück zu GymRoulette'),
+  it: page('Pagina non trovata - GymRoulette', 'La pagina che stai cercando non esiste.', 'Torna a GymRoulette'),
 };

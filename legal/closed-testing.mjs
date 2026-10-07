@@ -93,4 +93,24 @@ export default {
     ['step', 'Dá-nos a tua opinião e comunica erros', `<p>O objetivo desta fase é encontrar falhas e melhorar. Partilha a tua experiência e diz-nos o que funciona bem e o que falha:</p><ul><li>Deixando os teus comentários e avaliação diretamente no <strong>Google Play</strong>.</li><li>Enviando um e-mail para: ${mail}.</li></ul>`],
     ['thanks', 'Muito obrigado pelo teu tempo e pela tua colaboração!'],
   ] },
+
+  de: { title: 'Geschlossener Test - GymRoulette', blocks: [
+    ['h1', 'Hilf mir, GymRoulette zu testen!'],
+    ['lead', 'Folge diesen Schritten, um am 14-tägigen geschlossenen Test auf Google Play teilzunehmen und uns bei der Veröffentlichung der App zu helfen.'],
+    ['step', 'Tritt der Testergruppe bei', `<p>Um Zugriff auf den Download zu erhalten, musst du zuerst unserer Google-Gruppe beitreten. Verwende dafür das Google-Konto, das du normalerweise auf deinem Handy nutzt.</p>${btnGroup('👉 Zur Google-Gruppe')}${joinHint('Klicke auf der Gruppenseite oben neben dem Gruppennamen auf die Schaltfläche <strong>„Gruppe beitreten“</strong>. So sieht sie aus (der Text kann je nach Sprache deines Google-Kontos leicht abweichen):', 'Gruppe beitreten')}`],
+    ['step', 'Lade die App herunter und installiere sie', `<p>Sobald du in der Gruppe bist, verwende <strong>dasselbe Google-Konto</strong>, um den Store zu öffnen und GymRoulette auf dein Android-Gerät herunterzuladen.</p>${btnPlay('📱 Bei Google Play herunterladen')}${tip('Tipp: Beim ersten Öffnen der App siehst du einen Google-Analytics-Bildschirm. Wähle „Akzeptieren“ oder „Ablehnen“: Die App funktioniert in beiden Fällen gleich.')}`],
+    ['step', 'Teste sie 14 Tage lang', '<p>Google verlangt für neue Entwicklerkonten einen gründlichen Test. Es ist unerlässlich, dass du die App installiert lässt und sie mit Unterbrechungen mindestens 14 Tage in Folge nutzt.</p>'],
+    ['step', 'Gib uns Feedback und melde Fehler', `<p>Ziel dieser Phase ist es, Fehler zu finden und die App zu verbessern. Teile deine Erfahrungen und sag uns, was gut funktioniert und was nicht:</p><ul><li>Indem du deine Kommentare und Bewertung direkt auf <strong>Google Play</strong> hinterlässt.</li><li>Indem du eine E-Mail sendest an: ${mail}.</li></ul>`],
+    ['thanks', 'Vielen Dank für deine Zeit und deine Unterstützung!'],
+  ] },
+
+  it: { title: 'Test chiuso - GymRoulette', blocks: [
+    ['h1', 'Aiutami a testare GymRoulette!'],
+    ['lead', 'Segui questi passaggi per partecipare al programma di test chiuso di 14 giorni su Google Play e aiutarci a pubblicare l\'app.'],
+    ['step', 'Unisciti al gruppo di tester', `<p>Per avere accesso al download, devi prima unirti al nostro gruppo Google. Usa l'account Google che utilizzi di solito sul tuo telefono.</p>${btnGroup('👉 Vai al gruppo Google')}${joinHint('Nella pagina del gruppo, premi il pulsante <strong>«Partecipa al gruppo»</strong>, accanto al nome del gruppo, in alto. Appare così (il testo può variare leggermente a seconda della lingua del tuo account Google):', 'Partecipa al gruppo')}`],
+    ['step', 'Scarica e installa l\'app', `<p>Una volta entrato nel gruppo, usa <strong>lo stesso account Google</strong> per accedere allo store e scaricare GymRoulette sul tuo dispositivo Android.</p>${btnPlay('📱 Scarica su Google Play')}${tip('Suggerimento: alla prima apertura dell\'app vedrai una schermata di Google Analytics. Scegli «Accetta» o «Rifiuta»: l\'app funziona allo stesso modo in entrambi i casi.')}`],
+    ['step', 'Provala per 14 giorni', '<p>Google richiede un test rigoroso per i nuovi account sviluppatore. È indispensabile che tu mantenga l\'app installata e la usi in modo saltuario per almeno 14 giorni consecutivi.</p>'],
+    ['step', 'Dacci la tua opinione e segnala gli errori', `<p>L'obiettivo di questa fase è trovare difetti e migliorare. Condividi la tua esperienza e dicci cosa funziona bene e cosa no:</p><ul><li>Lasciando i tuoi commenti e la tua valutazione direttamente su <strong>Google Play</strong>.</li><li>Inviando un'e-mail a: ${mail}.</li></ul>`],
+    ['thanks', 'Grazie mille per il tuo tempo e la tua collaborazione!'],
+  ] },
 };
