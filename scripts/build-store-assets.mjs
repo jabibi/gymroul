@@ -115,22 +115,31 @@ async function buildBanner(listing, wheel, path) {
     .brand b{font-weight:800;font-size:34px;letter-spacing:-.5px;line-height:1}
     .brand b span{color:rgb(${green})}
     .brand small{display:block;font-weight:800;font-size:12px;letter-spacing:3px;color:rgb(74 222 128);margin-top:6px}
-    h1{position:absolute;left:64px;top:168px;width:470px;font-weight:800;font-size:56px;line-height:1.08;letter-spacing:-1.5px}
-    h1 span{color:rgb(${green});display:block}
-    p{position:absolute;left:64px;top:318px;width:470px;font-weight:700;font-size:21px;line-height:1.3;color:#cbd5e1}
+    .copy{position:absolute;left:64px;top:168px;width:470px}
+    h1{font-weight:800;font-size:56px;line-height:1.08;letter-spacing:-1.5px}
+    h1 span{display:block;white-space:nowrap}
+    h1 span + span{color:rgb(${green})}
+    p{margin-top:26px;font-weight:700;font-size:21px;line-height:1.3;color:#cbd5e1}
     .btn{position:absolute;left:64px;top:392px;padding:16px 32px;border-radius:18px;font-weight:800;font-size:22px;color:#020617;
       background:linear-gradient(90deg,rgb(22 163 74),rgb(74 222 128));box-shadow:0 10px 30px rgb(${green} / .4)}
     .wheel{position:absolute;left:${WHEEL_LEFT - wheel.PAD.side * K}px;top:${WHEEL_TOP - wheel.PAD.top * K}px;width:${(wheel.box.width + wheel.PAD.side * 2) * K}px;height:auto}
   </style>
   <div class="brand"><img src="${logo}"><div><b>Gym<span>Roulette</span></b><small>GASTEIZ TRAINNING</small></div></div>
-  <h1>${esc(b.line1)}<span>${esc(b.line2)}</span></h1>
-  <p>${esc(b.tagline)}</p>
+  <div class="copy"><h1><span>${esc(b.line1)}</span><span>${esc(b.line2)}</span></h1>
+  <p>${esc(b.tagline)}</p></div>
   <div class="btn">${esc(b.button)}</div>
   <img class="wheel" src="${wheelUri}">`;
   const page = await browser.newPage();
   await page.setViewport({ width: 1024, height: 500, deviceScaleFactor: 1 });
   await page.setContent(html, { waitUntil: 'load' });
   await page.evaluate(() => document.fonts.ready);
+  // Cada línea del titular va en una sola línea: si algún idioma no cabe en 470 px, se reduce la letra
+  await page.evaluate(() => {
+    const h1 = document.querySelector('h1');
+    const lines = [...h1.children];
+    let size = 56;
+    while (size > 36 && lines.some(l => l.scrollWidth > 470)) h1.style.fontSize = `${--size}px`;
+  });
   await wait(300);
   await savePng(await page.screenshot(), path);
   await page.close();

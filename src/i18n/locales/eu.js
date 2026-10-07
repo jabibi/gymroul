@@ -49,7 +49,7 @@ export default {
     'config.privacy': 'Pribatutasun-politika',
     'config.credits': 'Kredituak',
     'config.analytics': 'Analitika-hobespenak',
-    'config.apply': 'Aplikatu aldaketak eta eguneratu gurpila',
+    'config.apply': 'Gorde aldaketak',
     'config.language': 'Hizkuntza',
     'config.repLabel': '{n} errep.',
     'config.deleteRep': 'Ezabatu {n} errepikapen',

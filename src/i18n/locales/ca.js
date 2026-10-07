@@ -49,7 +49,7 @@ export default {
     'config.privacy': 'Política de privadesa',
     'config.credits': 'Crèdits',
     'config.analytics': "Preferències d'analítica",
-    'config.apply': 'Aplica els canvis i actualitza la ruleta',
+    'config.apply': 'Desa els canvis',
     'config.language': 'Idioma',
     'config.repLabel': '{n} reps',
     'config.deleteRep': 'Elimina {n} repeticions',

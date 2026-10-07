@@ -14,6 +14,7 @@ export default {
     'history.empty': 'Ainda não registaste exercícios hoje. Gira a roleta!',
 
     'config.close': 'Fechar definições',
+    'config.apply': 'Guardar alterações',
     'config.intro': 'Ativa, cria ou elimina repetições e exercícios:',
     'config.searchPlaceholder': 'Pesquisar: yoga, hyrox, boxe, pesos…',
     'config.searchAria': 'Pesquisar ícone',

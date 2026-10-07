@@ -49,7 +49,7 @@ export default {
     'config.privacy': 'Datenschutzerklärung',
     'config.credits': 'Danksagungen',
     'config.analytics': 'Analyse-Einstellungen',
-    'config.apply': 'Änderungen übernehmen und Rad aktualisieren',
+    'config.apply': 'Änderungen speichern',
     'config.language': 'Sprache',
     'config.repLabel': '{n} Wdh.',
     'config.deleteRep': '{n} Wiederholungen löschen',

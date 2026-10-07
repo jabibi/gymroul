@@ -49,7 +49,7 @@ export default {
     'config.privacy': 'Privacy policy',
     'config.credits': 'Credits',
     'config.analytics': 'Analytics preferences',
-    'config.apply': 'Apply changes and update wheel',
+    'config.apply': 'Save changes',
     'config.language': 'Language',
     'config.repLabel': '{n} reps',
     'config.deleteRep': 'Delete {n} reps',
