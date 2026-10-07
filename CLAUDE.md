@@ -1,0 +1,45 @@
+# CLAUDE.md
+
+GymRoulette: ruleta de ejercicios. Una sola base de código para web (Firebase Hosting) y Android (Capacitor 8). JavaScript con tipos JSDoc (sin framework), Vite, Tailwind 3 y Vitest. Todo el texto de cara al usuario, los comentarios y los commits están en español.
+
+## Comandos
+
+```bash
+npm run dev          # Vite
+npm run typecheck    # tsc sobre JSDoc (jsconfig.json)
+npm test             # Vitest (test/)
+npm run build        # build-legal + vite build -> www/
+npm run build:android  # build + cap sync android
+npm run store        # ficha de Google Play (capturas, notas, CSV); requiere Chromium vía puppeteer-core
+```
+
+CI (`.github/workflows/ci.yml`) ejecuta `typecheck`, `test` y `build`. Antes de dar algo por terminado, pasa los tres.
+
+## Estructura
+
+- `src/main.js`: arranque; los eventos se conectan por delegación con `data-action` en `index.html`.
+- `src/wheel-math.js`: lógica pura (sector ganador, combinaciones, ángulos). Es lo que más se testea; mantenla sin DOM.
+- `src/wheel.js`: canvas, física de inercia (independiente de la frecuencia de pantalla) y arrastre.
+- `src/store.js`: catálogo y selección en `localStorage` con versión de esquema y migraciones. Si cambias la forma de los datos guardados, sube la versión y añade la migración.
+- `src/ui.js`: modales (con botón Atrás), historial y configuración.
+- `src/icons.js`: catálogo cerrado de iconos.
+- `src/i18n/`: `locales/en.js` es la fuente de verdad; las variantes regionales (`en-GB`, `es-419`, `fr-CA`, `pt-PT`) solo redefinen lo que difiere. Son 13 idiomas en la app y en la ficha de Play (`store/listing.mjs`); las páginas legales tienen 10 (sin variantes regionales, `legal/index.mjs`). Un idioma nuevo hay que añadirlo en los tres sitios.
+- `src/analytics.js`: Firebase Analytics, cargado con `import()` solo si hay consentimiento. No lo importes de forma estática.
+- `legal/*.mjs` -> `public/*.html` (generadas por `scripts/build-legal.mjs`). Edita `legal/`, no `public/`.
+- `store/`: ficha de Play por idioma (generada). `assets/` e iconos de Android: generados por `npm run icons`; edita `scripts/build-icons.mjs`, no los PNG.
+- `www/` es la salida del build y no se versiona. `android/` lo genera Capacitor, pero `app/build.gradle` y `MainActivity` son propios.
+
+## Reglas que no son obvias
+
+- **Iconos**: la clase de Tailwind debe aparecer literal (`icon-[mdi--karate]`); si se compone con una cadena, no se genera el CSS. Hay que añadir etiquetas del icono en todos los idiomas.
+- **Textos**: toda clave nueva va en `en.js` y en todos los idiomas, con `t('clave')` o `data-i18n`. `npm test` falla si falta alguna o si cambian los parámetros `{x}`.
+- **Tailwind**: no escribas ejemplos de clases en comentarios; el escáner los detecta y emite avisos.
+- **CSP estricta** (`firebase.json`): sin scripts ni estilos en línea nuevos que requieran `unsafe-inline`.
+- **Versión**: la única fuente es `package.json` (`version`, `versionCode`, `versionCodename`). `android/app/build.gradle` la lee de ahí y compone el `versionName` como `major.minor (codename)`. Al publicar, sube las tres, ejecuta `npm run release-notes` y actualiza `store/datos-de-la-ficha.md`.
+- `ROADMAP.md` recoge los objetivos de las próximas versiones; consúltalo antes de tocar analítica o la primera apertura.
+- Máximo 12 ejercicios y 12 repeticiones; los sectores son repeticiones activas x ejercicios activos.
+- No subas keystores, `google-services.json` ni credenciales. La firma de release se configura en local.
+
+## Commits
+
+Mensajes en español con prefijo entre corchetes: `[ADD]`, `[IMP]`, `[FIX]`. Primera línea corta; en el cuerpo, el porqué. No incluyas líneas `Co-Authored-By` ni atribuciones a herramientas en commits ni en descripciones o comentarios de PR.
