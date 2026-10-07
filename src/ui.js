@@ -458,7 +458,7 @@ export function initKeyboardAvoidance() {
 /** Las páginas legales contienen todos los idiomas y muestran el que indica ?lang= */
 const DOCUMENTS = /** @type {const} */ ({
   privacy: { page: 'privacy.html', titleKey: 'doc.privacy' },
-  credits: { page: 'creditos.html', titleKey: 'doc.credits' },
+  credits: { page: 'credits.html', titleKey: 'doc.credits' },
 });
 
 /** @type {keyof typeof DOCUMENTS | null} */

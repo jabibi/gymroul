@@ -26,11 +26,11 @@ export const LANGUAGE_NAMES = {
 /** Nombre del archivo publicado en public/ -> contenido por idioma. Las URLs ya declaradas en Play no cambian. */
 export const LEGAL_PAGES = {
   'privacy.html': privacy,
-  'borrar-datos.html': dataDeletion,
-  'creditos.html': credits,
+  'data-deletion.html': dataDeletion,
+  'credits.html': credits,
   '404.html': notFound,
-  'pruebas-cerradas.html': closedTesting,
+  'closed-testing.html': closedTesting,
 };
 
 /** Páginas con un diseño propio (tarjeta con pasos numerados) en lugar del documento legal sencillo. */
-export const STEPS_PAGES = ['pruebas-cerradas.html'];
+export const STEPS_PAGES = ['closed-testing.html'];

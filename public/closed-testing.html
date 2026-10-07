@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Closed Testing - GymRoulette</title>
     <style>
+        .brand { display: flex; align-items: center; gap: 16px; margin: 0 0 1.4em; }
+        .brand img { width: 64px; height: 64px; border-radius: 16px; box-shadow: 0 4px 14px rgba(15,23,42,.18); flex: none; }
+        .brand-name { font-size: 1.75rem; line-height: 1.15; font-weight: 700; color: #0f172a; margin: 0; }
+        .brand-id { font-size: 0.95rem; color: #64748b; margin: 2px 0 0; overflow-wrap: anywhere; }
         body { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; margin: 0; padding: 24px; background: #f8fafc; color: #1e293b; line-height: 1.5; -webkit-font-smoothing: antialiased; }
         .wrap { max-width: 42rem; margin: 0 auto; }
         nav.langs { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 1.2em; }
@@ -40,6 +44,7 @@
 </head>
 <body>
 <div class="wrap">
+<div class="brand"><img src="favicon.svg" width="64" height="64" alt=""><div><p class="brand-name">GymRoulette</p><p class="brand-id">eus.jabibi.gymroul</p></div></div>
 <nav class="langs" id="langNav" aria-label="Language"></nav>
 
 <section lang="ca" data-lang="ca" data-name="Català" data-title="Proves tancades - GymRoulette">

@@ -2,7 +2,7 @@
 // Si cambias algo, cámbialo en TODOS los idiomas: el test de paridad comprueba que tengan la misma estructura.
 import { MAIL, FIREBASE_PRIVACY, GOOGLE_PRIVACY, AEPD, APP_ID, WEB } from './common.mjs';
 
-const link = '<a href="borrar-datos.html">borrar-datos.html</a>';
+const link = '<a href="data-deletion.html">data-deletion.html</a>';
 
 export default {
   en: {
