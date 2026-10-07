@@ -8,10 +8,9 @@ import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, re
 import { generateCombinations, CONFIG_SEGMENT } from './wheel-math.js';
 import {
   migrate, loadActive, getExercises, getReps, active, setActive,
-  addExercise, removeExercise, addRep, removeRep,
+  addExercise, removeExercise, addRep, removeRep, hasSeenIntro,
 } from './store.js';
 import { toggleSound, initAudio } from './audio.js';
-import { getConsent, setConsent, applyConsent } from './analytics.js';
 import * as ui from './ui.js';
 import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from './i18n/index.js';
 
@@ -129,12 +128,8 @@ const actions = {
   'close-document': () => ui.closeDocument(),
   'toggle-icon-picker': () => ui.toggleIconPicker(),
   'pick-icon': arg => arg && ui.pickIcon(arg),
-  'show-consent': () => ui.showConsentFromSettings(),
-  // La analítica es opcional: tanto Aceptar como Rechazar dejan usar la app; la elección se puede cambiar en Configuración
-  'consent': arg => {
-    setConsent(arg === 'grant');
-    ui.hideConsent();
-  },
+  'intro-next': () => ui.introNext(),
+  'intro-skip': () => ui.hideIntro(),
 };
 
 // Delegación de eventos: el HTML usa data-action en lugar de onclick inline (compatible con CSP estricta)
@@ -150,7 +145,9 @@ document.addEventListener('click', e => {
 // la app cuando no queda nada que cerrar.
 if (Capacitor.isNativePlatform()) {
   CapacitorApp.addListener('backButton', () => {
-    if (!ui.closeActiveModal()) CapacitorApp.exitApp();
+    // Primero se cierra el visor de documentos (puede abrirse sobre la introducción); después Atrás retrocede en la introducción
+    if (ui.closeActiveModal() || ui.introBack()) return;
+    CapacitorApp.exitApp();
   });
 }
 
@@ -184,10 +181,8 @@ function init() {
   resize();
   ui.renderHistory();
 
-  // Solo se pregunta si el usuario aún no ha decidido; rechazar no impide usar la app y Google Analytics no se carga
-  const consent = getConsent();
-  if (consent === 'granted') applyConsent(true);
-  else if (consent === null) ui.setConsentGate(true);
+  // La introducción solo se muestra la primera vez (o tras una actualización desde una versión sin ella)
+  if (!hasSeenIntro()) ui.showIntro();
 }
 
 init();

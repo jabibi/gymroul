@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import {
   readStorage, getExercises, getReps, loadActive, active, migrate, SCHEMA_VERSION,
-  addExercise, removeExercise, addRep, removeRep, DEFAULT_EXERCISES, DEFAULT_REPS, MAX_REPS, MAX_EXERCISES, pickColor, COLOR_PALETTE,
+  addExercise, removeExercise, addRep, removeRep, hasSeenIntro, markIntroSeen, DEFAULT_EXERCISES, DEFAULT_REPS, MAX_REPS, MAX_EXERCISES, pickColor, COLOR_PALETTE,
 } from '../src/store.js';
 
 function installLocalStorage() {
@@ -157,6 +157,37 @@ describe('migraciones', () => {
     data.set('gym_schema_version', String(SCHEMA_VERSION + 1));
     migrate();
     expect(JSON.parse(data.get('gym_schema_version'))).toBe(SCHEMA_VERSION + 1);
+  });
+});
+
+describe('migración v5 -> v6', () => {
+  it('borra la elección de analítica de versiones anteriores y conserva el resto', () => {
+    data.set('gym_schema_version', '5');
+    data.set('gymroulette_analytics_consent', 'granted');
+    data.set('gym_reps', JSON.stringify([10, 20]));
+    migrate();
+    expect(data.has('gymroulette_analytics_consent')).toBe(false);
+    expect(JSON.parse(data.get('gym_reps'))).toEqual([10, 20]);
+  });
+
+  it('también limpia la clave si el usuario rechazó la analítica', () => {
+    data.set('gym_schema_version', '5');
+    data.set('gymroulette_analytics_consent', 'denied');
+    migrate();
+    expect(data.has('gymroulette_analytics_consent')).toBe(false);
+  });
+});
+
+describe('introducción de la primera apertura', () => {
+  it('no se ha visto hasta que se marca, y queda recordada', () => {
+    expect(hasSeenIntro()).toBe(false);
+    markIntroSeen();
+    expect(hasSeenIntro()).toBe(true);
+  });
+
+  it('un valor corrupto cuenta como no visto', () => {
+    data.set('gymroulette_intro_seen', 'quizá');
+    expect(hasSeenIntro()).toBe(false);
   });
 });
 
