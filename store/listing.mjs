@@ -30,6 +30,8 @@ export const LISTINGS = {
     banner: { line1: 'Spin the wheel', line2: 'and get training!', tagline: 'Random exercises to challenge you every day', button: 'SPIN THE WHEEL!' },
     notes: `What's new:
 • Now also in Deutsch and Italiano.
+• The phone now vibrates when the spin starts.
+• Shorter "Save changes" button.
 • Bug fixes and improvements.`,
     full: `Can't decide what to train today? Spin the wheel and let GymRoulette choose for you.
 
@@ -72,6 +74,8 @@ Spin the wheel and let's train!`,
     banner: { line1: '¡Gira la ruleta', line2: 'y a entrenar!', tagline: 'Ejercicios aleatorios para retarte cada día', button: '¡GIRAR RULETA!' },
     notes: `Novedades:
 • Ahora también en Deutsch e Italiano.
+• El móvil vibra al iniciar el giro.
+• Botón «Guardar cambios» más corto.
 • Correcciones de errores y mejoras.`,
     full: `¿Sin ganas de decidir qué entrenar hoy? Gira la ruleta y deja que GymRoulette elija por ti.
 
@@ -114,6 +118,8 @@ Tu configuración se guarda únicamente en tu dispositivo. La analítica de Goog
     banner: { line1: 'Biratu gurpila', line2: 'eta entrenatzera!', tagline: 'Ausazko ariketak egunero zure burua probatzeko', button: 'BIRATU GURPILA!' },
     notes: `Berritasunak:
 • Orain Deutsch eta Italiano hizkuntzetan ere.
+• Biraketa hasterakoan telefonoak dar-dar egiten du.
+• «Gorde aldaketak» botoia laburragoa.
 • Akatsen zuzenketak eta hobekuntzak.`,
     full: `Ez dakizu gaur zer entrenatu? Biratu gurpila eta utzi GymRoulette-ri zure ordez aukeratzen.
 
@@ -156,6 +162,8 @@ Biratu gurpila eta entrenatzera!`,
     banner: { line1: 'Xira a ruleta', line2: 'e a adestrar!', tagline: 'Exercicios aleatorios para retarte cada día', button: 'XIRAR A RULETA!' },
     notes: `Novidades:
 • Agora tamén en Deutsch e Italiano.
+• O móbil vibra ao iniciar o xiro.
+• Botón «Gardar os cambios» máis curto.
 • Corrección de erros e melloras.`,
     full: `Sen ganas de decidir que adestrar hoxe? Xira a ruleta e deixa que GymRoulette escolla por ti.
 
@@ -198,6 +206,8 @@ Xira a ruleta e a adestrar!`,
     banner: { line1: 'Gira la ruleta', line2: 'i a entrenar!', tagline: 'Exercicis aleatoris per reptar-te cada dia', button: 'GIRA LA RULETA!' },
     notes: `Novetats:
 • Ara també en Deutsch i Italiano.
+• El mòbil vibra en iniciar el gir.
+• Botó «Desa els canvis» més curt.
 • Correcció d'errors i millores.`,
     full: `No tens ganes de decidir què entrenar avui? Gira la ruleta i deixa que GymRoulette triï per tu.
 
@@ -240,6 +250,8 @@ Gira la ruleta i a entrenar!`,
     banner: { line1: 'Lance la roue', line2: "et c'est parti !", tagline: 'Des exercices au hasard pour te défier chaque jour', button: 'LANCER LA ROUE !' },
     notes: `Nouveautés :
 • Désormais aussi en Deutsch et Italiano.
+• Le téléphone vibre au début du tour.
+• Bouton « Enregistrer les modifications » plus court.
 • Corrections de bugs et améliorations.`,
     full: `Pas envie de décider quoi t'entraîner aujourd'hui ? Fais tourner la roue et laisse GymRoulette choisir pour toi.
 
@@ -282,6 +294,8 @@ Lance la roue et c'est parti !`,
     banner: { line1: 'Dreh das Rad', line2: 'und ab ins Training!', tagline: 'Zufällige Übungen, die dich jeden Tag fordern', button: 'RAD DREHEN!' },
     notes: `Neu in dieser Version:
 • Jetzt auch in Deutsch und Italiano.
+• Das Handy vibriert jetzt beim Start der Drehung.
+• Kürzerer Button „Änderungen speichern“.
 • Fehlerbehebungen und Verbesserungen.`,
     full: `Keine Lust zu entscheiden, was du heute trainierst? Dreh das Rad und lass GymRoulette für dich wählen.
 
@@ -324,6 +338,8 @@ Dreh das Rad und ab ins Training!`,
     banner: { line1: 'Gira la ruota', line2: 'e allenati!', tagline: 'Esercizi casuali per metterti alla prova ogni giorno', button: 'GIRA LA RUOTA!' },
     notes: `Novità:
 • Ora anche in Deutsch e Italiano.
+• Il telefono ora vibra all'inizio del giro.
+• Pulsante «Salva le modifiche» più corto.
 • Correzioni di errori e miglioramenti.`,
     full: `Non hai voglia di decidere cosa allenare oggi? Gira la ruota e lascia scegliere a GymRoulette.
 
@@ -366,6 +382,8 @@ Gira la ruota e allenati!`,
     banner: { line1: 'Gire a roleta', line2: 'e vá treinar!', tagline: 'Exercícios aleatórios para te desafiar todo dia', button: 'GIRAR ROLETA!' },
     notes: `Novidades:
 • Agora também em Deutsch e Italiano.
+• O celular vibra ao iniciar o giro.
+• Botão «Salvar alterações» mais curto.
 • Correções de erros e melhorias.`,
     full: `Sem vontade de decidir o que treinar hoje? Gire a roleta e deixe o GymRoulette escolher por você.
 
@@ -408,6 +426,8 @@ Gire a roleta e vá treinar!`,
     banner: { line1: 'Gira a roleta', line2: 'e vai treinar!', tagline: 'Exercícios aleatórios para te desafiares todos os dias', button: 'GIRAR ROLETA!' },
     notes: `Novidades:
 • Agora também em Deutsch e Italiano.
+• O telemóvel vibra ao iniciar o giro.
+• Botão «Guardar alterações» mais curto.
 • Correções de erros e melhorias.`,
     full: `Sem vontade de decidir o que treinar hoje? Gira a roleta e deixa o GymRoulette escolher por ti.
 

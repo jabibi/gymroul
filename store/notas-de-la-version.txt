@@ -1,65 +1,91 @@
 <en-US>
 What's new:
 • Now also in Deutsch and Italiano.
+• The phone now vibrates when the spin starts.
+• Shorter "Save changes" button.
 • Bug fixes and improvements.
 </en-US>
 <ca>
 Novetats:
 • Ara també en Deutsch i Italiano.
+• El mòbil vibra en iniciar el gir.
+• Botó «Desa els canvis» més curt.
 • Correcció d'errors i millores.
 </ca>
 <de-DE>
 Neu in dieser Version:
 • Jetzt auch in Deutsch und Italiano.
+• Das Handy vibriert jetzt beim Start der Drehung.
+• Kürzerer Button „Änderungen speichern“.
 • Fehlerbehebungen und Verbesserungen.
 </de-DE>
 <en-GB>
 What's new:
 • Now also in Deutsch and Italiano.
+• The phone now vibrates when the spin starts.
+• Shorter "Save changes" button.
 • Bug fixes and improvements.
 </en-GB>
 <es-419>
 Novedades:
 • Ahora también en Deutsch e Italiano.
+• El móvil vibra al iniciar el giro.
+• Botón «Guardar cambios» más corto.
 • Correcciones de errores y mejoras.
 </es-419>
 <es-ES>
 Novedades:
 • Ahora también en Deutsch e Italiano.
+• El móvil vibra al iniciar el giro.
+• Botón «Guardar cambios» más corto.
 • Correcciones de errores y mejoras.
 </es-ES>
 <eu-ES>
 Berritasunak:
 • Orain Deutsch eta Italiano hizkuntzetan ere.
+• Biraketa hasterakoan telefonoak dar-dar egiten du.
+• «Gorde aldaketak» botoia laburragoa.
 • Akatsen zuzenketak eta hobekuntzak.
 </eu-ES>
 <fr-CA>
 Nouveautés :
 • Désormais aussi en Deutsch et Italiano.
+• Le téléphone vibre au début du tour.
+• Bouton « Enregistrer les modifications » plus court.
 • Corrections de bugs et améliorations.
 </fr-CA>
 <fr-FR>
 Nouveautés :
 • Désormais aussi en Deutsch et Italiano.
+• Le téléphone vibre au début du tour.
+• Bouton « Enregistrer les modifications » plus court.
 • Corrections de bugs et améliorations.
 </fr-FR>
 <gl-ES>
 Novidades:
 • Agora tamén en Deutsch e Italiano.
+• O móbil vibra ao iniciar o xiro.
+• Botón «Gardar os cambios» máis curto.
 • Corrección de erros e melloras.
 </gl-ES>
 <it-IT>
 Novità:
 • Ora anche in Deutsch e Italiano.
+• Il telefono ora vibra all'inizio del giro.
+• Pulsante «Salva le modifiche» più corto.
 • Correzioni di errori e miglioramenti.
 </it-IT>
 <pt-BR>
 Novidades:
 • Agora também em Deutsch e Italiano.
+• O celular vibra ao iniciar o giro.
+• Botão «Salvar alterações» mais curto.
 • Correções de erros e melhorias.
 </pt-BR>
 <pt-PT>
 Novidades:
 • Agora também em Deutsch e Italiano.
+• O telemóvel vibra ao iniciar o giro.
+• Botão «Guardar alterações» mais curto.
 • Correções de erros e melhorias.
 </pt-PT>
