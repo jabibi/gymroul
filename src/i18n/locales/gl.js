@@ -67,7 +67,7 @@ export default {
     'intro.start': 'Comezar',
     'intro.steps': 'Introdución',
     'intro.how.title': 'Como funciona a ruleta',
-    'intro.how.spin': 'Preme “Xirar a ruleta” ou lanza a ruleta co dedo.',
+    'intro.how.spin': 'Preme “XIRAR A RULETA!” ou lanza a ruleta co dedo.',
     'intro.how.result': 'Ao deterse, tócache un reto: unhas repeticións dun exercicio.',
     'intro.how.done': 'Márcao como completado ou sáltao, e volve xirar.',
     'intro.private.title': 'Sen conexión e privada',

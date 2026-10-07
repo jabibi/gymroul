@@ -67,7 +67,7 @@ export default {
     'intro.start': 'Comença',
     'intro.steps': 'Introducció',
     'intro.how.title': 'Com funciona la ruleta',
-    'intro.how.spin': 'Toca “Gira la ruleta” o llança la ruleta amb el dit.',
+    'intro.how.spin': 'Toca “GIRA LA RULETA!” o llança la ruleta amb el dit.',
     'intro.how.result': 'Quan s’atura, et toca un repte: unes repeticions d’un exercici.',
     'intro.how.done': 'Marca’l com a completat o salta’l, i torna a girar.',
     'intro.private.title': 'Sense connexió i privada',

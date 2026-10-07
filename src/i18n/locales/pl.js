@@ -67,7 +67,7 @@ export default {
     'intro.start': 'Zaczynamy',
     'intro.steps': 'Wprowadzenie',
     'intro.how.title': 'Jak działa koło',
-    'intro.how.spin': 'Naciśnij „Zakręć kołem” albo szarpnij koło palcem.',
+    'intro.how.spin': 'Naciśnij „ZAKRĘĆ KOŁEM!” albo szarpnij koło palcem.',
     'intro.how.result': 'Gdy się zatrzyma, dostajesz wyzwanie: kilka powtórzeń ćwiczenia.',
     'intro.how.done': 'Oznacz je jako zrobione albo pomiń, a potem kręć dalej.',
     'intro.private.title': 'Offline i prywatnie',

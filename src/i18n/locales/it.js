@@ -67,7 +67,7 @@ export default {
     'intro.start': 'Inizia',
     'intro.steps': 'Introduzione',
     'intro.how.title': 'Come funziona la ruota',
-    'intro.how.spin': 'Tocca «Gira la ruota» oppure lancia la ruota con il dito.',
+    'intro.how.spin': 'Tocca «GIRA LA RUOTA!» oppure lancia la ruota con il dito.',
     'intro.how.result': 'Quando si ferma, ottieni una sfida: alcune ripetizioni di un esercizio.',
     'intro.how.done': 'Segnala come fatta o saltala, poi gira di nuovo.',
     'intro.private.title': 'Offline e privata',

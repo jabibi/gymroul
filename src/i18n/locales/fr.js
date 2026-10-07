@@ -67,7 +67,7 @@ export default {
     'intro.start': 'C’est parti',
     'intro.steps': 'Introduction',
     'intro.how.title': 'Comment fonctionne la roue',
-    'intro.how.spin': 'Appuie sur « Lancer la roue » ou lance la roue avec le doigt.',
+    'intro.how.spin': 'Appuie sur « LANCER LA ROUE ! » ou lance la roue avec le doigt.',
     'intro.how.result': 'Quand elle s’arrête, tu obtiens un défi : quelques répétitions d’un exercice.',
     'intro.how.done': 'Marque-le comme terminé ou passe-le, puis relance la roue.',
     'intro.private.title': 'Hors ligne et privé',

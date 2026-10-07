@@ -67,7 +67,7 @@ export default {
     'intro.start': 'Los geht’s',
     'intro.steps': 'Einführung',
     'intro.how.title': 'So funktioniert das Rad',
-    'intro.how.spin': 'Tippe auf „Rad drehen“ oder wirf das Rad mit dem Finger an.',
+    'intro.how.spin': 'Tippe auf „RAD DREHEN!“ oder wirf das Rad mit dem Finger an.',
     'intro.how.result': 'Wenn es stehen bleibt, bekommst du eine Herausforderung: ein paar Wiederholungen einer Übung.',
     'intro.how.done': 'Hak sie als geschafft ab oder überspringe sie und dreh erneut.',
     'intro.private.title': 'Offline und privat',

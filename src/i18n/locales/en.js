@@ -67,7 +67,7 @@ export default {
     'intro.start': 'Get started',
     'intro.steps': 'Introduction',
     'intro.how.title': 'How the wheel works',
-    'intro.how.spin': 'Tap “Spin the wheel” or fling the wheel with your finger.',
+    'intro.how.spin': 'Tap “SPIN THE WHEEL!” or fling the wheel with your finger.',
     'intro.how.result': 'When it stops, you get a challenge: some reps of an exercise.',
     'intro.how.done': 'Mark it as done or skip it, then spin again.',
     'intro.private.title': 'Offline and private',

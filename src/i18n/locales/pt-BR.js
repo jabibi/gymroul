@@ -67,7 +67,7 @@ export default {
     'intro.start': 'Começar',
     'intro.steps': 'Introdução',
     'intro.how.title': 'Como a roleta funciona',
-    'intro.how.spin': 'Toque em “Girar roleta” ou lance a roleta com o dedo.',
+    'intro.how.spin': 'Toque em “GIRAR ROLETA!” ou lance a roleta com o dedo.',
     'intro.how.result': 'Quando parar, você recebe um desafio: algumas repetições de um exercício.',
     'intro.how.done': 'Marque como concluído ou pule, e gire novamente.',
     'intro.private.title': 'Offline e privado',

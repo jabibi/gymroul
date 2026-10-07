@@ -67,7 +67,7 @@ export default {
     'intro.start': 'Hasi',
     'intro.steps': 'Sarrera',
     'intro.how.title': 'Nola funtzionatzen du gurpilak',
-    'intro.how.spin': 'Sakatu “Biratu gurpila” edo bota gurpila hatzarekin.',
+    'intro.how.spin': 'Sakatu “BIRATU GURPILA!” edo bota gurpila hatzarekin.',
     'intro.how.result': 'Gelditzean, erronka bat egokituko zaizu: ariketa baten errepikapen batzuk.',
     'intro.how.done': 'Markatu eginda bezala edo saltatu, eta biratu berriro.',
     'intro.private.title': 'Konexiorik gabe eta pribatua',

@@ -3,7 +3,7 @@ Sen ganas de decidir que adestrar hoxe? Xira a ruleta e deixa que GymRoulette es
 GymRoulette é unha ruleta de exercicios: cada sector combina un número de repeticións cun exercicio (por exemplo, «20 Burpee») e, ao xirala, proponche un reto aleatorio para adestrar na casa, no ximnasio ou ao aire libre. Pensada para darlle variedade ás túas sesións, para circuítos, para retos con amizades e para quen quere adestrar sen complicarse.
 
 <b>COMO FUNCIONA</b>
-• Preme «Xirar a ruleta» ou lanza a ruleta co dedo.
+• Preme “XIRAR A RULETA!” ou lanza a ruleta co dedo.
 • Cando se detén, ves o teu reto: repeticións e exercicio.
 • Márcao como completado ou sáltao e volve xirar.
 • Consulta no historial os retos que completaches na sesión.

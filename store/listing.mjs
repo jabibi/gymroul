@@ -42,7 +42,7 @@ export const LISTINGS = {
 GymRoulette is an exercise wheel: each segment combines a number of reps with an exercise (for example, “20 Burpee”), and when you spin it, it gives you a random challenge to train at home, at the gym or outdoors. Made to add variety to your sessions, for circuits, for challenges with friends, and for anyone who wants to work out without overthinking it.
 
 <b>HOW IT WORKS</b>
-• Tap “Spin the wheel” or fling the wheel with your finger.
+• Tap “SPIN THE WHEEL!” or fling the wheel with your finger.
 • When it stops, you see your challenge: reps and exercise.
 • Mark it as done or skip it and spin again.
 • Check the history for the challenges you completed during the session.
@@ -87,7 +87,7 @@ Spin the wheel and let's train!`,
 GymRoulette es una ruleta de ejercicios: cada sector combina un número de repeticiones con un ejercicio (por ejemplo, «20 Burpee») y, al girarla, te propone un reto aleatorio para entrenar en casa, en el gimnasio o al aire libre. Pensada para dar variedad a tus sesiones, para circuitos, para retos con amigos y para quien quiere entrenar sin complicarse.
 
 <b>CÓMO FUNCIONA</b>
-• Pulsa «Girar ruleta» o lanza la ruleta con el dedo.
+• Pulsa “¡GIRAR RULETA!” o lanza la ruleta con el dedo.
 • Cuando se detiene, ves tu reto: repeticiones y ejercicio.
 • Márcalo como completado o sáltalo y vuelve a girar.
 • Consulta en el historial los retos que has completado en la sesión.
@@ -132,7 +132,7 @@ GymRoulette funciona totalmente sin conexión y no recopila ningún dato: sin an
 GymRoulette ariketen gurpila da: sektore bakoitzak errepikapen kopuru bat ariketa batekin uztartzen du (adibidez, «20 Burpee»), eta biratzean ausazko erronka bat proposatzen dizu etxean, gimnasioan edo kanpoan entrenatzeko. Zure saioei aniztasuna emateko pentsatua dago, zirkuituetarako, lagunekin erronkak egiteko eta konplikatu gabe entrenatu nahi duenarentzat.
 
 <b>NOLA FUNTZIONATZEN DU</b>
-• Sakatu «Biratu gurpila» edo bota gurpila hatzarekin.
+• Sakatu “BIRATU GURPILA!” edo bota gurpila hatzarekin.
 • Gelditzen denean, zure erronka ikusiko duzu: errepikapenak eta ariketa.
 • Markatu egin duzula edo saltatu eta biratu berriro.
 • Begiratu historian saioan zehar egin dituzun erronkak.
@@ -177,7 +177,7 @@ Biratu gurpila eta entrenatzera!`,
 GymRoulette é unha ruleta de exercicios: cada sector combina un número de repeticións cun exercicio (por exemplo, «20 Burpee») e, ao xirala, proponche un reto aleatorio para adestrar na casa, no ximnasio ou ao aire libre. Pensada para darlle variedade ás túas sesións, para circuítos, para retos con amizades e para quen quere adestrar sen complicarse.
 
 <b>COMO FUNCIONA</b>
-• Preme «Xirar a ruleta» ou lanza a ruleta co dedo.
+• Preme “XIRAR A RULETA!” ou lanza a ruleta co dedo.
 • Cando se detén, ves o teu reto: repeticións e exercicio.
 • Márcao como completado ou sáltao e volve xirar.
 • Consulta no historial os retos que completaches na sesión.
@@ -222,7 +222,7 @@ Xira a ruleta e a adestrar!`,
 GymRoulette és una ruleta d'exercicis: cada sector combina un nombre de repeticions amb un exercici (per exemple, «20 Burpee») i, en girar-la, et proposa un repte aleatori per entrenar a casa, al gimnàs o a l'aire lliure. Pensada per donar varietat a les teves sessions, per a circuits, per a reptes amb amics i per a qui vol entrenar sense complicar-se.
 
 <b>COM FUNCIONA</b>
-• Prem «Gira la ruleta» o llança la ruleta amb el dit.
+• Prem “GIRA LA RULETA!” o llança la ruleta amb el dit.
 • Quan s'atura, veus el teu repte: repeticions i exercici.
 • Marca'l com a completat o salta'l i torna a girar.
 • Consulta a l'historial els reptes que has completat a la sessió.
@@ -267,7 +267,7 @@ Gira la ruleta i a entrenar!`,
 GymRoulette est une roue d'exercices : chaque secteur associe un nombre de répétitions à un exercice (par exemple « 20 Burpee ») et, quand tu la fais tourner, elle te propose un défi au hasard pour t'entraîner à la maison, en salle ou en plein air. Pensée pour varier tes séances, pour des circuits, des défis entre amis et pour tous ceux qui veulent s'entraîner sans se compliquer la vie.
 
 <b>COMMENT ÇA MARCHE</b>
-• Appuie sur « Lancer la roue » ou lance-la d'un geste du doigt.
+• Appuie sur « LANCER LA ROUE ! » ou lance-la d'un geste du doigt.
 • Quand elle s'arrête, tu vois ton défi : répétitions et exercice.
 • Marque-le comme terminé ou passe-le et relance la roue.
 • Consulte l'historique des défis terminés pendant la séance.
@@ -312,7 +312,7 @@ Lance la roue et c'est parti !`,
 GymRoulette ist ein Übungsrad: Jedes Segment verbindet eine Anzahl Wiederholungen mit einer Übung (zum Beispiel „20 Burpee“) und gibt dir beim Drehen eine zufällige Aufgabe für dein Training zu Hause, im Fitnessstudio oder draußen. Gemacht, um Abwechslung in deine Einheiten zu bringen, für Zirkeltraining, für Challenges mit Freunden und für alle, die einfach trainieren wollen, ohne lange zu überlegen.
 
 <b>SO FUNKTIONIERT'S</b>
-• Tippe auf „Rad drehen“ oder wirf das Rad mit dem Finger an.
+• Tippe auf „RAD DREHEN!“ oder wirf das Rad mit dem Finger an.
 • Sobald es stehen bleibt, siehst du deine Aufgabe: Wiederholungen und Übung.
 • Hake sie als erledigt ab oder überspring sie und dreh erneut.
 • Im Verlauf siehst du die Aufgaben, die du in der Einheit geschafft hast.
@@ -357,7 +357,7 @@ Dreh das Rad und ab ins Training!`,
 GymRoulette è una ruota di esercizi: ogni settore abbina un numero di ripetizioni a un esercizio (per esempio «20 Burpee») e, quando la fai girare, ti propone una sfida casuale per allenarti a casa, in palestra o all'aperto. Pensata per dare varietà alle tue sessioni, per i circuiti, per le sfide con gli amici e per chi vuole allenarsi senza complicarsi la vita.
 
 <b>COME FUNZIONA</b>
-• Tocca «Gira la ruota» o lancia la ruota con il dito.
+• Tocca «GIRA LA RUOTA!» o lancia la ruota con il dito.
 • Quando si ferma, vedi la tua sfida: ripetizioni ed esercizio.
 • Segnala come completata oppure saltala e gira di nuovo.
 • Consulta la cronologia per vedere le sfide completate durante la sessione.
@@ -402,7 +402,7 @@ Gira la ruota e allenati!`,
 O GymRoulette é uma roleta de exercícios: cada setor combina um número de repetições com um exercício (por exemplo, “20 Burpee”) e, ao girá-la, propõe um desafio aleatório para treinar em casa, na academia ou ao ar livre. Pensada para dar variedade aos seus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicação.
 
 <b>COMO FUNCIONA</b>
-• Toque em “Girar roleta” ou lance a roleta com o dedo.
+• Toque em “GIRAR ROLETA!” ou lance a roleta com o dedo.
 • Quando ela para, você vê o seu desafio: repetições e exercício.
 • Marque como concluído ou pule e gire de novo.
 • Veja no histórico os desafios que você concluiu na sessão.
@@ -447,7 +447,7 @@ Gire a roleta e vá treinar!`,
 O GymRoulette é uma roleta de exercícios: cada setor combina um número de repetições com um exercício (por exemplo, “20 Burpee”) e, ao girá-la, propõe-te um desafio aleatório para treinares em casa, no ginásio ou ao ar livre. Pensada para dar variedade aos teus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicações.
 
 <b>COMO FUNCIONA</b>
-• Toca em “Girar roleta” ou lança a roleta com o dedo.
+• Toca em “GIRAR ROLETA!” ou lança a roleta com o dedo.
 • Quando pára, vês o teu desafio: repetições e exercício.
 • Marca-o como concluído ou salta-o e gira outra vez.
 • Consulta no histórico os desafios que concluíste na sessão.
@@ -481,7 +481,7 @@ Gira a roleta e vai treinar!`,
   pl: {
     title: 'GymRoulette',
     short: 'Zakręć kołem i dostań losowe wyzwanie ćwiczeniowe do swojego treningu.',
-    banner: { line1: 'Zakręć kołem', line2: 'i ruszaj na trening!', tagline: 'Losowe ćwiczenia, które rzucają ci wyzwanie każdego dnia', button: 'KRĘĆ KOŁEM!' },
+    banner: { line1: 'Zakręć kołem', line2: 'i ruszaj na trening!', tagline: 'Losowe ćwiczenia, które rzucają ci wyzwanie każdego dnia', button: 'ZAKRĘĆ KOŁEM!' },
     notes: `Co nowego:
 • Teraz także w językach Polski, हिन्दी, Türkçe i English (Australia).
 • 100% offline: bez analityki, bez trackerów i bez uprawnienia do Internetu.
@@ -492,7 +492,7 @@ Gira a roleta e vai treinar!`,
 GymRoulette to koło ćwiczeń: każdy sektor łączy liczbę powtórzeń z ćwiczeniem (na przykład „20 Burpee”), a gdy je zakręcisz, wylosuje dla ciebie wyzwanie do wykonania w domu, na siłowni lub na świeżym powietrzu. Stworzona, by wnieść różnorodność do twoich treningów, do obwodów, do wyzwań ze znajomymi i dla każdego, kto chce poćwiczyć bez zbędnego główkowania.
 
 <b>JAK TO DZIAŁA</b>
-• Naciśnij „Zakręć kołem” albo szarpnij koło palcem.
+• Naciśnij „ZAKRĘĆ KOŁEM!” albo szarpnij koło palcem.
 • Gdy się zatrzyma, zobaczysz swoje wyzwanie: powtórzenia i ćwiczenie.
 • Oznacz je jako zrobione albo pomiń i zakręć ponownie.
 • W historii sprawdzisz wyzwania, które wykonałeś podczas sesji.
@@ -537,7 +537,7 @@ Zakręć kołem i trenujemy!`,
 GymRoulette एक्सरसाइज़ का चक्र है: हर खंड में रेप्स की एक संख्या और एक एक्सरसाइज़ होती है (जैसे “20 बर्पी”), और इसे घुमाने पर यह आपको घर पर, जिम में या खुली हवा में वर्कआउट करने के लिए कोई भी एक चुनौती देता है। इसे आपके सेशन में विविधता लाने, सर्किट, दोस्तों के साथ चुनौतियों और उन सभी के लिए बनाया गया है जो ज़्यादा सोचे बिना वर्कआउट करना चाहते हैं।
 
 <b>यह कैसे काम करता है</b>
-• “चक्र घुमाएँ” दबाएँ या उँगली से चक्र को घुमा दें।
+• “चक्र घुमाएँ!” दबाएँ या उँगली से चक्र को घुमा दें।
 • रुकने पर आपको अपनी चुनौती दिखती है: रेप्स और एक्सरसाइज़।
 • उसे पूरा हुआ चिह्नित करें या छोड़ दें और फिर घुमाएँ।
 • इतिहास में देखें कि सेशन में आपने कौन-सी चुनौतियाँ पूरी कीं।
@@ -582,7 +582,7 @@ GymRoulette पूरी तरह ऑफ़लाइन है और कोई
 GymRoulette bir egzersiz çarkıdır: her dilim bir tekrar sayısını bir egzersizle birleştirir (örneğin “20 Burpee”) ve çevirdiğinde sana evde, spor salonunda veya açık havada yapabileceğin rastgele bir meydan okuma sunar. Antrenmanlarına çeşitlilik katmak, devreler, arkadaşlarınla meydan okumalar ve fazla düşünmeden spor yapmak isteyen herkes için tasarlandı.
 
 <b>NASIL ÇALIŞIR</b>
-• “Çarkı çevir” düğmesine dokun ya da çarkı parmağınla fırlat.
+• “ÇARKI ÇEVİR!” düğmesine dokun ya da çarkı parmağınla fırlat.
 • Çark durunca meydan okumanı görürsün: tekrar sayısı ve egzersiz.
 • Tamamlandı olarak işaretle ya da geç ve yeniden çevir.
 • Geçmişten oturum boyunca tamamladığın meydan okumalara göz at.

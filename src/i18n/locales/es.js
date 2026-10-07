@@ -67,7 +67,7 @@ export default {
     'intro.start': 'Empezar',
     'intro.steps': 'Introducción',
     'intro.how.title': 'Cómo funciona la ruleta',
-    'intro.how.spin': 'Pulsa “Girar la ruleta” o lanza la ruleta con el dedo.',
+    'intro.how.spin': 'Pulsa “¡GIRAR RULETA!” o lanza la ruleta con el dedo.',
     'intro.how.result': 'Al detenerse, te toca un reto: unas repeticiones de un ejercicio.',
     'intro.how.done': 'Márcalo como completado o sáltalo, y vuelve a girar.',
     'intro.private.title': 'Sin conexión y privada',

@@ -3,7 +3,7 @@ Nie wiesz, co dziś trenować? Zakręć kołem i pozwól, by GymRoulette wybrał
 GymRoulette to koło ćwiczeń: każdy sektor łączy liczbę powtórzeń z ćwiczeniem (na przykład „20 Burpee”), a gdy je zakręcisz, wylosuje dla ciebie wyzwanie do wykonania w domu, na siłowni lub na świeżym powietrzu. Stworzona, by wnieść różnorodność do twoich treningów, do obwodów, do wyzwań ze znajomymi i dla każdego, kto chce poćwiczyć bez zbędnego główkowania.
 
 <b>JAK TO DZIAŁA</b>
-• Naciśnij „Zakręć kołem” albo szarpnij koło palcem.
+• Naciśnij „ZAKRĘĆ KOŁEM!” albo szarpnij koło palcem.
 • Gdy się zatrzyma, zobaczysz swoje wyzwanie: powtórzenia i ćwiczenie.
 • Oznacz je jako zrobione albo pomiń i zakręć ponownie.
 • W historii sprawdzisz wyzwania, które wykonałeś podczas sesji.

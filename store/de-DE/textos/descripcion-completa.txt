@@ -3,7 +3,7 @@ Keine Lust zu entscheiden, was du heute trainierst? Dreh das Rad und lass GymRou
 GymRoulette ist ein Übungsrad: Jedes Segment verbindet eine Anzahl Wiederholungen mit einer Übung (zum Beispiel „20 Burpee“) und gibt dir beim Drehen eine zufällige Aufgabe für dein Training zu Hause, im Fitnessstudio oder draußen. Gemacht, um Abwechslung in deine Einheiten zu bringen, für Zirkeltraining, für Challenges mit Freunden und für alle, die einfach trainieren wollen, ohne lange zu überlegen.
 
 <b>SO FUNKTIONIERT'S</b>
-• Tippe auf „Rad drehen“ oder wirf das Rad mit dem Finger an.
+• Tippe auf „RAD DREHEN!“ oder wirf das Rad mit dem Finger an.
 • Sobald es stehen bleibt, siehst du deine Aufgabe: Wiederholungen und Übung.
 • Hake sie als erledigt ab oder überspring sie und dreh erneut.
 • Im Verlauf siehst du die Aufgaben, die du in der Einheit geschafft hast.

@@ -67,7 +67,7 @@ export default {
     'intro.start': 'Başla',
     'intro.steps': 'Tanıtım',
     'intro.how.title': 'Çark nasıl çalışır?',
-    'intro.how.spin': '“Çarkı çevir” düğmesine dokun ya da çarkı parmağınla fırlat.',
+    'intro.how.spin': '“ÇARKI ÇEVİR!” düğmesine dokun ya da çarkı parmağınla fırlat.',
     'intro.how.result': 'Çark durunca bir meydan okuma alırsın: bir egzersizin birkaç tekrarı.',
     'intro.how.done': 'Tamamlandı olarak işaretle ya da geç, sonra yeniden çevir.',
     'intro.private.title': 'Çevrimdışı ve gizli',

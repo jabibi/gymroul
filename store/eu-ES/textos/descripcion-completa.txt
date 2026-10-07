@@ -3,7 +3,7 @@ Ez dakizu gaur zer entrenatu? Biratu gurpila eta utzi GymRoulette-ri zure ordez 
 GymRoulette ariketen gurpila da: sektore bakoitzak errepikapen kopuru bat ariketa batekin uztartzen du (adibidez, «20 Burpee»), eta biratzean ausazko erronka bat proposatzen dizu etxean, gimnasioan edo kanpoan entrenatzeko. Zure saioei aniztasuna emateko pentsatua dago, zirkuituetarako, lagunekin erronkak egiteko eta konplikatu gabe entrenatu nahi duenarentzat.
 
 <b>NOLA FUNTZIONATZEN DU</b>
-• Sakatu «Biratu gurpila» edo bota gurpila hatzarekin.
+• Sakatu “BIRATU GURPILA!” edo bota gurpila hatzarekin.
 • Gelditzen denean, zure erronka ikusiko duzu: errepikapenak eta ariketa.
 • Markatu egin duzula edo saltatu eta biratu berriro.
 • Begiratu historian saioan zehar egin dituzun erronkak.

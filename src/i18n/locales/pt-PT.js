@@ -27,7 +27,7 @@ export default {
 
     'intro.skip': 'Saltar',
     'intro.next': 'Seguinte',
-    'intro.how.spin': 'Toca em “Girar roleta” ou lança a roleta com o dedo.',
+    'intro.how.spin': 'Toca em “GIRAR ROLETA!” ou lança a roleta com o dedo.',
     'intro.how.result': 'Quando parar, recebes um desafio: algumas repetições de um exercício.',
     'intro.how.done': 'Marca-o como concluído ou salta-o, e gira novamente.',
     'intro.private.noTrackers': 'Sem rastreadores: nada sai do teu dispositivo.',
