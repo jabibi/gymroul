@@ -508,12 +508,46 @@ function setIntroGate(visible) {
   if (visible) $('introGate').focus({ preventScroll: true });
 }
 
+const SLIDE_OUT_MS = 140;
+const SLIDE_IN_MS = 200;
+const SLIDE_OFFSET = '48px';
+/** Cada cambio invalida los anteriores para que deslizar rápido varias veces no deje diapositivas a medias */
+let slideChange = 0;
+
 /** @param {number} index */
 function showIntroSlide(index) {
+  const previous = introSlide;
   introSlide = Math.max(0, Math.min(INTRO_SLIDES - 1, index));
-  document.querySelectorAll('[data-intro-slide]').forEach(el => {
-    el.classList.toggle('hidden', Number(/** @type {HTMLElement} */ (el).dataset.introSlide) !== introSlide);
+  const slides = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[data-intro-slide]'));
+  const show = () => slides.forEach(el => {
+    el.classList.toggle('hidden', Number(el.dataset.introSlide) !== introSlide);
   });
+  const change = ++slideChange;
+  slides.forEach(el => el.getAnimations().forEach(a => a.cancel()));
+  const outgoing = Array.from(slides).find(el => !el.classList.contains('hidden'));
+  const animated = typeof outgoing?.animate === 'function' && introSlide !== previous &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!animated || !outgoing) {
+    show();
+  } else {
+    // La que sale se desliza hacia el lado contrario al gesto y la nueva entra desde ese lado
+    const sign = introSlide > previous ? 1 : -1;
+    outgoing.animate(
+      [{ opacity: 1, transform: 'translateX(0)' }, { opacity: 0, transform: `translateX(calc(${-sign} * ${SLIDE_OFFSET}))` }],
+      { duration: SLIDE_OUT_MS, easing: 'ease-in', fill: 'forwards' },
+    );
+    // Un temporizador (y no animation.finished) para que el cambio no dependa de que se pinte la animación
+    setTimeout(() => {
+      if (change !== slideChange) return;
+      outgoing.getAnimations().forEach(a => a.cancel());
+      show();
+      const incoming = Array.from(slides).find(el => !el.classList.contains('hidden'));
+      incoming?.animate(
+        [{ opacity: 0, transform: `translateX(calc(${sign} * ${SLIDE_OFFSET}))` }, { opacity: 1, transform: 'translateX(0)' }],
+        { duration: SLIDE_IN_MS, easing: 'ease-out' },
+      );
+    }, SLIDE_OUT_MS);
+  }
   document.querySelectorAll('[data-intro-dot]').forEach(el => {
     const active = Number(/** @type {HTMLElement} */ (el).dataset.introDot) === introSlide;
     el.classList.toggle('bg-brand-500', active);
@@ -536,6 +570,15 @@ export function showIntro() {
 export function introNext() {
   if (introSlide >= INTRO_SLIDES - 1) hideIntro();
   else showIntroSlide(introSlide + 1);
+}
+
+/**
+ * Desliza la introducción: izquierda avanza y derecha retrocede. A diferencia de introNext, no la cierra
+ * al llegar a la última diapositiva (para eso están Empezar y Skip).
+ * @param {'left' | 'right'} direction
+ */
+export function introSwipe(direction) {
+  showIntroSlide(introSlide + (direction === 'left' ? 1 : -1));
 }
 
 /**

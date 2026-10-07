@@ -12,6 +12,7 @@ import {
 } from './store.js';
 import { toggleSound, initAudio } from './audio.js';
 import * as ui from './ui.js';
+import { swipeDirection } from './swipe.js';
 import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from './i18n/index.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
@@ -139,6 +140,21 @@ document.addEventListener('click', e => {
   if (el.tagName === 'A') e.preventDefault(); // enlaces con acción: no navegar fuera de la app
   actions[/** @type {string} */ (el.dataset.action)]?.(el.dataset.arg);
 });
+
+// Introducción: deslizar a la izquierda pasa a la diapositiva siguiente y a la derecha a la anterior
+const introGate = document.getElementById('introGate');
+/** @type {{ id: number, x: number, y: number } | null} */
+let introTouch = null;
+introGate?.addEventListener('pointerdown', e => {
+  introTouch = /** @type {HTMLElement} */ (e.target).closest('select') ? null : { id: e.pointerId, x: e.clientX, y: e.clientY };
+});
+introGate?.addEventListener('pointerup', e => {
+  if (!introTouch || introTouch.id !== e.pointerId) return;
+  const direction = swipeDirection(e.clientX - introTouch.x, e.clientY - introTouch.y);
+  introTouch = null;
+  if (direction) ui.introSwipe(direction);
+});
+introGate?.addEventListener('pointercancel', () => { introTouch = null; });
 
 // En Android la WebView no siempre conserva el historial de pushState, así que el botón/gesto
 // Atrás se gestiona aquí: vuelve al paso anterior (cierra el modal de encima) y solo sale de
