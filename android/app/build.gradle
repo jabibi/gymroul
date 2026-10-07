@@ -2,10 +2,13 @@ apply plugin: 'com.android.application'
 
 // Única fuente de la versión: package.json (version, versionCode y versionCodename)
 def appPackage = new groovy.json.JsonSlurper().parse(file('../../package.json'))
-['version', 'versionCode', 'versionCodename'].each { campo ->
-    if (appPackage[campo] == null) {
-        throw new GradleException("Falta el campo '${campo}' en package.json: es la única fuente de la versión de la app")
+['version', 'versionCode', 'versionCodename'].each { field ->
+    if (appPackage[field] == null) {
+        throw new GradleException("Missing '${field}' in package.json: it is the single source of the app version")
     }
+}
+if (!(appPackage.version ==~ /\d+\.\d+\.\d+/)) {
+    throw new GradleException("Invalid 'version' in package.json: '${appPackage.version}' (expected MAJOR.MINOR.PATCH, e.g. 1.10.0)")
 }
 def (versionMajor, versionMinor) = appPackage.version.tokenize('.')
 
