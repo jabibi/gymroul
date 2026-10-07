@@ -1,0 +1,5 @@
+Yenilikler:
+• Artık Polski, हिन्दी, Türkçe ve English (Australia) dillerinde de.
+• %100 çevrimdışı: analiz yok, izleyici yok, İnternet izni yok.
+• İlk açılışta yeni tanıtım: çarkın nasıl çalıştığı ve uygulamanın verilerinle neler yapıp neler yapmadığı.
+• Hata düzeltmeleri ve iyileştirmeler.

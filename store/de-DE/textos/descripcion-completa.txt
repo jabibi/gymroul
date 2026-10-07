@@ -18,16 +18,17 @@ GymRoulette ist ein Übungsrad: Jedes Segment verbindet eine Anzahl Wiederholung
 Wähle mit Suchfunktion aus über 100 Symbolen aus vielen Disziplinen: Kraft und Gewichte, Calisthenics, Cardio, Yoga, Pilates, Tai-Chi, Boxen, Karate und andere Kampfkünste, Hyrox, CrossFit, Hindernisläufe, Sport, Wasser und Berge. Mit eigenen Piktogrammen für Liegestütze, Unterarmstütz, Sit-ups, Burpee, Kniebeuge und Mountain Climbers.
 
 <b>IN DEINER SPRACHE</b>
-English, Español, Euskara, Galego, Català, Français, Deutsch, Italiano und Português (Brasil und Portugal). Die App folgt der Sprache deines Handys, und du kannst sie in den Einstellungen ändern.
+English (USA, Großbritannien und Australien), Español (Spanien und Lateinamerika), Euskara, Galego, Català, Français (Frankreich und Kanada), Deutsch, Italiano, Polski, हिन्दी, Türkçe und Português (Brasil und Portugal). Die App folgt der Sprache deines Handys, und du kannst sie in den Einstellungen ändern.
 
 <b>PRAKTISCHE DETAILS</b>
 • <b>Raddrehgeräusche und Vibration</b>, wenn das Ergebnis erscheint.
 • <b>Dunkles Design</b>, angenehm für die Augen im Fitnessstudio.
 • <b>Ohne Registrierung</b> und ohne Benutzerkonten.
 • <b>Ohne Werbung.</b>
-• <b>Funktioniert offline.</b>
+• <b>100 % offline</b>: sie braucht keine Internetverbindung.
+• <b>Keine Tracker</b> und keine unnötigen Cookies, und sie fragt nie nach deinem Standort.
 
 <b>DATENSCHUTZ</b>
-Deine Einstellungen werden nur auf deinem Gerät gespeichert. Google Analytics, das anonym misst, wie die App genutzt wird, ist optional: Du entscheidest, ob du zustimmst, und kannst das jederzeit in den Einstellungen ändern. Die Datenschutzerklärung findest du in der App.
+GymRoulette funktioniert vollständig offline und erfasst keine Daten: keine Analyse, keine Tracker, keine Werbung und kein Zugriff auf deinen Standort. Deine Einstellungen werden nur auf deinem Gerät gespeichert. Die Datenschutzerklärung findest du in der App.
 
 Dreh das Rad und ab ins Training!

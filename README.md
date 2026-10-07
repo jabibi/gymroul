@@ -10,15 +10,16 @@ Disponible como aplicación web (Firebase Hosting) y como app Android (Capacitor
 - Sectores generados automáticamente: repeticiones activas × ejercicios activos (por defecto 6 × 6 = 36).
 - Configuración editable: activar/desactivar, crear y eliminar ejercicios (nombre, nombre corto, icono) y repeticiones (máx. 12 de cada).
 - Selector con ≈100 iconos de muchas disciplinas (fuerza, calistenia, cardio, Hyrox, CrossFit, OCR, artes marciales, yoga, pilates, tai chi, deportes…) con búsqueda; no se admite texto libre ni emojis.
-- Interfaz en 13 idiomas: inglés (EE. UU. y Reino Unido), español (España y Latinoamérica), euskera, gallego, catalán, francés (Francia y Canadá), alemán, italiano y portugués (Brasil y Portugal). Se elige según el dispositivo y se puede cambiar en Configuración.
+- Interfaz en 17 idiomas: inglés (EE. UU., Reino Unido y Australia), español (España y Latinoamérica), euskera, gallego, catalán, francés (Francia y Canadá), alemán, italiano, polaco, hindi, turco y portugués (Brasil y Portugal). Se elige según el dispositivo y se puede cambiar en Configuración.
 - Historial de la sesión con los retos completados.
 - La configuración se guarda en `localStorage` (con versión de esquema y migraciones).
-- Funciona sin conexión: Tailwind, Font Awesome y la fuente van empaquetados.
-- Firebase Analytics solo se carga si el usuario da su consentimiento.
+- Funciona sin conexión: Tailwind, Font Awesome y la fuente van empaquetados. La app de Android no declara el permiso de Internet.
+- Sin analítica, sin anuncios, sin rastreadores y sin acceso a la ubicación: no envía ningún dato fuera del dispositivo.
+- Introducción de dos diapositivas en la primera apertura (cómo funciona la ruleta y qué hace la app con tus datos); se puede saltar con `Skip`.
 
 ## Hoja de ruta
 
-Los próximos objetivos (como eliminar por completo Firebase Analytics y estrenar una introducción de dos diapositivas) están en [`ROADMAP.md`](ROADMAP.md).
+Los objetivos de las próximas versiones están en [`ROADMAP.md`](ROADMAP.md).
 
 ## Estructura
 
@@ -33,7 +34,6 @@ src/
   icons.js             Catálogo cerrado de iconos (≈100) y búsqueda
   i18n/                Idiomas: índice, detección y locales/ (un archivo por idioma; las variantes regionales solo redefinen lo que cambia)
   audio.js             Sonido y vibración (háptica nativa en Android)
-  analytics.js         Consentimiento y carga diferida de Firebase Analytics
   style.css            Tailwind + fuentes + iconos
 ROADMAP.md             Objetivos de las próximas versiones
 legal/                 Contenido de las páginas legales por idioma (fuente de public/*.html)
@@ -112,13 +112,13 @@ Un solo diseño (la ruleta) vive en [`scripts/build-icons.mjs`](scripts/build-ic
 
 ## Seguridad y privacidad
 
-- Content-Security-Policy estricta (sin `unsafe-inline`/`unsafe-eval` en scripts) y cabeceras de seguridad en `firebase.json`.
-- La clave de API de Firebase del cliente no es secreta, pero conviene restringirla en Google Cloud Console (*APIs y servicios → Credenciales*) por referentes HTTP (`gymroul.web.app`, `gymroul.firebaseapp.com`) y por aplicación Android (`eus.jabibi.gymroul`).
+- Content-Security-Policy estricta en `index.html` (solo `'self'`; sin `unsafe-inline`/`unsafe-eval` en scripts) y cabeceras de seguridad en `firebase.json`.
+- No hay claves ni SDK de terceros en el cliente: la app no contacta con ningún servidor.
 - Política de privacidad: [`public/privacy.html`](public/privacy.html).
 
 ## Stack
 
-Capacitor 8 · Vite · Tailwind CSS 3 · Iconify (`@iconify/tailwind`, MDI y Game Icons) · Firebase Hosting y Analytics · Canvas 2D y Web Audio API · Vitest
+Capacitor 8 · Vite · Tailwind CSS 3 · Iconify (`@iconify/tailwind`, MDI y Game Icons) · Firebase Hosting · Canvas 2D y Web Audio API · Vitest
 
 ## Iconos de los ejercicios
 

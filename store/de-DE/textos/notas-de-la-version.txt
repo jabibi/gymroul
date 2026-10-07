@@ -1,3 +1,5 @@
 Neu in dieser Version:
-• Jetzt auch in Deutsch und Italiano.
+• Jetzt auch in Polski, हिन्दी, Türkçe und English (Australien).
+• 100 % offline: keine Analyse, keine Tracker und keine Internet-Berechtigung.
+• Neue Einführung beim ersten Start: wie das Rad funktioniert und was die App mit deinen Daten macht (und was nicht).
 • Fehlerbehebungen und Verbesserungen.

@@ -1,91 +1,119 @@
 <en-US>
 What's new:
-• Now also in Deutsch and Italiano.
-• The phone now vibrates when the spin starts.
-• Shorter "Save changes" button.
+• Now also in Polski, हिन्दी, Türkçe and English (Australia).
+• 100% offline: no analytics, no trackers and no Internet permission.
+• New introduction on first launch: how the wheel works and what the app does (and doesn't do) with your data.
 • Bug fixes and improvements.
 </en-US>
 <ca>
 Novetats:
-• Ara també en Deutsch i Italiano.
-• El mòbil vibra en iniciar el gir.
-• Botó «Desa els canvis» més curt.
+• Ara també en Polski, हिन्दी, Türkçe i English (Australia).
+• 100 % sense connexió: sense analítica, sense rastrejadors i sense permís d'Internet.
+• Nova introducció en el primer inici: com funciona la ruleta i què fa (i què no fa) l'app amb les teves dades.
 • Correcció d'errors i millores.
 </ca>
 <de-DE>
 Neu in dieser Version:
-• Jetzt auch in Deutsch und Italiano.
-• Das Handy vibriert jetzt beim Start der Drehung.
-• Kürzerer Button „Änderungen speichern“.
+• Jetzt auch in Polski, हिन्दी, Türkçe und English (Australien).
+• 100 % offline: keine Analyse, keine Tracker und keine Internet-Berechtigung.
+• Neue Einführung beim ersten Start: wie das Rad funktioniert und was die App mit deinen Daten macht (und was nicht).
 • Fehlerbehebungen und Verbesserungen.
 </de-DE>
+<en-AU>
+What's new:
+• Now also in Polski, हिन्दी, Türkçe and English (Australia).
+• 100% offline: no analytics, no trackers and no Internet permission.
+• New introduction on first launch: how the wheel works and what the app does (and doesn't do) with your data.
+• Bug fixes and improvements.
+</en-AU>
 <en-GB>
 What's new:
-• Now also in Deutsch and Italiano.
-• The phone now vibrates when the spin starts.
-• Shorter "Save changes" button.
+• Now also in Polski, हिन्दी, Türkçe and English (Australia).
+• 100% offline: no analytics, no trackers and no Internet permission.
+• New introduction on first launch: how the wheel works and what the app does (and doesn't do) with your data.
 • Bug fixes and improvements.
 </en-GB>
 <es-419>
 Novedades:
-• Ahora también en Deutsch e Italiano.
-• El móvil vibra al iniciar el giro.
-• Botón «Guardar cambios» más corto.
+• Ahora también en Polski, हिन्दी, Türkçe y English (Australia).
+• 100 % sin conexión: sin analítica, sin rastreadores y sin permiso de Internet.
+• Nueva introducción en la primera apertura: cómo funciona la ruleta y qué hace (y qué no hace) la app con tus datos.
 • Correcciones de errores y mejoras.
 </es-419>
 <es-ES>
 Novedades:
-• Ahora también en Deutsch e Italiano.
-• El móvil vibra al iniciar el giro.
-• Botón «Guardar cambios» más corto.
+• Ahora también en Polski, हिन्दी, Türkçe y English (Australia).
+• 100 % sin conexión: sin analítica, sin rastreadores y sin permiso de Internet.
+• Nueva introducción en la primera apertura: cómo funciona la ruleta y qué hace (y qué no hace) la app con tus datos.
 • Correcciones de errores y mejoras.
 </es-ES>
 <eu-ES>
 Berritasunak:
-• Orain Deutsch eta Italiano hizkuntzetan ere.
-• Biraketa hasterakoan telefonoak dar-dar egiten du.
-• «Gorde aldaketak» botoia laburragoa.
+• Orain Polski, हिन्दी, Türkçe eta English (Australia) hizkuntzetan ere.
+• % 100 konexiorik gabe: analitikarik, aztarnarik eta Interneterako baimenik gabe.
+• Sarrera berria lehen irekieran: gurpilak nola funtzionatzen duen eta aplikazioak zure datuekin zer egiten duen (eta zer ez).
 • Akatsen zuzenketak eta hobekuntzak.
 </eu-ES>
 <fr-CA>
 Nouveautés :
-• Désormais aussi en Deutsch et Italiano.
-• Le téléphone vibre au début du tour.
-• Bouton « Enregistrer les modifications » plus court.
+• Désormais aussi en Polski, हिन्दी, Türkçe et English (Australie).
+• 100 % hors connexion : sans analyse, sans traceurs et sans autorisation Internet.
+• Nouvelle introduction au premier lancement : comment fonctionne la roue et ce que l'application fait (et ne fait pas) de tes données.
 • Corrections de bugs et améliorations.
 </fr-CA>
 <fr-FR>
 Nouveautés :
-• Désormais aussi en Deutsch et Italiano.
-• Le téléphone vibre au début du tour.
-• Bouton « Enregistrer les modifications » plus court.
+• Désormais aussi en Polski, हिन्दी, Türkçe et English (Australie).
+• 100 % hors connexion : sans analyse, sans traceurs et sans autorisation Internet.
+• Nouvelle introduction au premier lancement : comment fonctionne la roue et ce que l'application fait (et ne fait pas) de tes données.
 • Corrections de bugs et améliorations.
 </fr-FR>
 <gl-ES>
 Novidades:
-• Agora tamén en Deutsch e Italiano.
-• O móbil vibra ao iniciar o xiro.
-• Botón «Gardar os cambios» máis curto.
+• Agora tamén en Polski, हिन्दी, Türkçe e English (Australia).
+• 100 % sen conexión: sen analítica, sen rastreadores e sen permiso de Internet.
+• Nova introdución no primeiro inicio: como funciona a ruleta e que fai (e que non fai) a app cos teus datos.
 • Corrección de erros e melloras.
 </gl-ES>
+<hi-IN>
+नया क्या है:
+• अब Polski, हिन्दी, Türkçe और English (Australia) में भी।
+• 100% ऑफ़लाइन: कोई एनालिटिक्स नहीं, कोई ट्रैकर नहीं और इंटरनेट की अनुमति नहीं।
+• पहली बार खोलने पर नया परिचय: चक्र कैसे काम करता है और ऐप आपके डेटा के साथ क्या करता है (और क्या नहीं करता)।
+• गड़बड़ियाँ ठीक की गईं और सुधार।
+</hi-IN>
 <it-IT>
 Novità:
-• Ora anche in Deutsch e Italiano.
-• Il telefono ora vibra all'inizio del giro.
-• Pulsante «Salva le modifiche» più corto.
+• Ora anche in Polski, हिन्दी, Türkçe e English (Australia).
+• 100% offline: nessuna analisi, nessun tracker e nessuna autorizzazione a Internet.
+• Nuova introduzione al primo avvio: come funziona la ruota e cosa fa (e cosa non fa) l'app con i tuoi dati.
 • Correzioni di errori e miglioramenti.
 </it-IT>
+<pl-PL>
+Co nowego:
+• Teraz także w językach Polski, हिन्दी, Türkçe i English (Australia).
+• 100% offline: bez analityki, bez trackerów i bez uprawnienia do Internetu.
+• Nowe wprowadzenie przy pierwszym uruchomieniu: jak działa koło i co aplikacja robi (a czego nie robi) z twoimi danymi.
+• Poprawki błędów i ulepszenia.
+</pl-PL>
 <pt-BR>
 Novidades:
-• Agora também em Deutsch e Italiano.
-• O celular vibra ao iniciar o giro.
-• Botão «Salvar alterações» mais curto.
+• Agora também em Polski, हिन्दी, Türkçe e English (Australia).
+• 100% offline: sem análise, sem rastreadores e sem permissão de Internet.
+• Nova introdução na primeira abertura: como a roleta funciona e o que o app faz (e não faz) com seus dados.
 • Correções de erros e melhorias.
 </pt-BR>
 <pt-PT>
 Novidades:
-• Agora também em Deutsch e Italiano.
-• O telemóvel vibra ao iniciar o giro.
-• Botão «Guardar alterações» mais curto.
+• Agora também em Polski, हिन्दी, Türkçe e English (Australia).
+• 100% offline: sem análise, sem rastreadores e sem permissão de Internet.
+• Nova introdução na primeira abertura: como a roleta funciona e o que a aplicação faz (e não faz) com os teus dados.
 • Correções de erros e melhorias.
 </pt-PT>
+<tr-TR>
+Yenilikler:
+• Artık Polski, हिन्दी, Türkçe ve English (Australia) dillerinde de.
+• %100 çevrimdışı: analiz yok, izleyici yok, İnternet izni yok.
+• İlk açılışta yeni tanıtım: çarkın nasıl çalıştığı ve uygulamanın verilerinle neler yapıp neler yapmadığı.
+• Hata düzeltmeleri ve iyileştirmeler.
+</tr-TR>

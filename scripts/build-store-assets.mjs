@@ -50,7 +50,9 @@ async function openApp(appLang, { intro = false } = {}) {
   await page.setRequestInterception(true);
   page.on('request', req => (req.url().startsWith(BASE) || req.url().startsWith('data:') ? req.continue() : req.abort()));
   await page.evaluateOnNewDocument(skipIntro => {
+    // Todas las páginas comparten el almacenamiento del navegador: se fija o se borra la marca en cada una
     if (skipIntro) localStorage.setItem('gymroulette_intro_seen', 'true'); // sin la introducción de la primera apertura
+    else localStorage.removeItem('gymroulette_intro_seen');
     Math.random = () => 0.5; // giros reproducibles
   }, !intro);
   await page.goto(`${BASE}?lang=${appLang}`, { waitUntil: 'networkidle0' });

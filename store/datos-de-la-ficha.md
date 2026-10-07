@@ -8,9 +8,9 @@
 | Créditos | https://gymroul.web.app/creditos.html |
 | Correo de contacto | javimelex@gmail.com |
 | Identificador de la app | eus.jabibi.gymroul |
-| Versión | 1.12 (Dynamic-Stretches) (versionCode 12); se define en `package.json` |
+| Versión | 1.13 (the 13th) (versionCode 13); se define en `package.json` |
 
-Las páginas existen solo después de desplegar la web (`npm run deploy`). Cada una contiene los diez idiomas y muestra el del navegador del visitante, con un selector arriba; la misma URL vale para todas las fichas. Se puede forzar uno con `?lang=eu`.
+Las páginas existen solo después de desplegar la web (`npm run deploy`). Cada una contiene los trece idiomas y muestra el del navegador del visitante, con un selector arriba; la misma URL vale para todas las fichas. Se puede forzar uno con `?lang=eu`.
 
 ## Clasificación
 - Categoría actual en la consola: Aplicación de entretenimiento. «Salud y bienestar» también encaja si prefieres esa.
@@ -19,17 +19,13 @@ Las páginas existen solo después de desplegar la web (`npm run deploy`). Cada 
 - Cuentas de usuario: la app no permite crear cuentas.
 
 ## Seguridad de los datos
-Se recopilan, no se comparten, **los usuarios pueden elegir si se recogen** (la analítica es opcional: Rechazar no impide usar la app y entonces no se carga Google Analytics), no se procesan de forma efímera y la finalidad es «Análisis». Cifrados en tránsito. Eliminación solicitable por correo y desde la página de eliminación de datos.
+Desde la 1.13 la app **no recopila ni comparte ningún dato** (sin analítica, sin anuncios, sin SDK de terceros, sin permiso de Internet). En Play Console:
 
-> En Play Console, en cada tipo de datos, la pregunta *¿Son estos datos necesarios para usar tu aplicación o pueden los usuarios elegir si se recogen?* debe responderse **«Los usuarios pueden elegir si se recogen estos datos o no»**.
+- ¿Tu aplicación recopila o comparte alguno de los tipos de datos de usuario necesarios? **No**.
+- Todas las categorías, sin marcar (ubicación, actividad en aplicaciones, IDs de dispositivo u otros ID, etc.).
+- Política de privacidad: la URL de arriba (ya explica que las versiones anteriores a la 1.13 tenían Google Analytics opcional).
 
-| Categoría | Tipo |
-|---|---|
-| Ubicación | Ubicación aproximada |
-| Actividad en aplicaciones | Interacciones con la aplicación |
-| IDs de dispositivo o de otro tipo | ID de dispositivo u otros ID |
-
-El resto de categorías, sin marcar.
+> Los datos que recogieron las versiones anteriores a la 1.13 en Google Analytics (si el usuario los aceptó) siguen en Google un máximo de 14 meses y se pueden solicitar eliminar desde la página de eliminación de datos. Al actualizar la declaración, Play puede tardar en reflejar el cambio.
 
 ## Permisos de la app
-INTERNET (analítica) y VIBRATE (vibración del resultado).
+Solo VIBRATE (vibración del resultado). Desde la 1.13 la app **no** declara INTERNET: no se conecta a ningún servidor.

@@ -38,9 +38,10 @@ describe('ficha de Google Play', () => {
         }
       });
 
-      it('la descripción completa cita la privacidad y los idiomas disponibles', () => {
-        expect(listing.full).toContain('Google Analytics');
-        for (const name of ['English', 'Español', 'Euskara', 'Galego', 'Català', 'Français', 'Deutsch', 'Italiano', 'Português']) expect(listing.full, name).toContain(name);
+      it('la descripción completa ya no menciona Google Analytics y cita los idiomas disponibles', () => {
+        expect(listing.full).not.toContain('Google Analytics');
+        expect(listing.notes).not.toContain('Google Analytics');
+        for (const name of ['English', 'Español', 'Euskara', 'Galego', 'Català', 'Français', 'Deutsch', 'Italiano', 'Polski', 'हिन्दी', 'Türkçe', 'Português']) expect(listing.full, name).toContain(name);
       });
     });
   }

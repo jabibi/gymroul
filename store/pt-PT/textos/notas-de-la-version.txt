@@ -1,3 +1,5 @@
 Novidades:
-• Agora também em Deutsch e Italiano.
+• Agora também em Polski, हिन्दी, Türkçe e English (Australia).
+• 100% offline: sem análise, sem rastreadores e sem permissão de Internet.
+• Nova introdução na primeira abertura: como a roleta funciona e o que a aplicação faz (e não faz) com os teus dados.
 • Correções de erros e melhorias.
