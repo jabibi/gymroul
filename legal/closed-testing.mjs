@@ -1,4 +1,4 @@
-// Página de invitación a la prueba cerrada de Google Play (pruebas-cerradas.html).
+// Página de invitación a la prueba cerrada de Google Play (closed-testing.html).
 // Bloques: ['h1', título], ['lead', introducción], ['step', título, cuerpo en HTML]... y ['thanks', despedida].
 // El cuerpo de cada paso es HTML (párrafos, botones <a class="btn ...">, listas); se numeran solos.
 import { CONTACT_EMAIL } from './common.mjs';

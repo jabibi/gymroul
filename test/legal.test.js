@@ -47,19 +47,19 @@ describe('páginas legales multilingües', () => {
     for (const code of LANGUAGE_ORDER) {
       it(`${code}: privacidad`, () => {
         const text = flat(LEGAL_PAGES['privacy.html'][code]);
-        for (const fact of [CONTACT_EMAIL, 'eus.jabibi.gymroul', 'gymroul.web.app', '14', 'Google Analytics', 'Firebase', 'borrar-datos.html', 'aepd.es']) {
+        for (const fact of [CONTACT_EMAIL, 'eus.jabibi.gymroul', 'gymroul.web.app', '14', 'Google Analytics', 'Firebase', 'data-deletion.html', 'aepd.es']) {
           expect(text, fact).toContain(fact);
         }
       });
       it(`${code}: eliminación de datos`, () => {
-        const text = flat(LEGAL_PAGES['borrar-datos.html'][code]);
+        const text = flat(LEGAL_PAGES['data-deletion.html'][code]);
         for (const fact of [CONTACT_EMAIL, 'subject=', 'privacy.html', '12', '14', 'gymroul.web.app']) expect(text, fact).toContain(fact);
       });
     }
   });
 
-  describe('pruebas-cerradas.html', () => {
-    const page = LEGAL_PAGES['pruebas-cerradas.html'];
+  describe('closed-testing.html', () => {
+    const page = LEGAL_PAGES['closed-testing.html'];
     for (const code of LANGUAGE_ORDER) {
       it(`${code}: cuatro pasos, enlaces al grupo y a Google Play, correo y los 14 días`, () => {
         const doc = page[code];
@@ -72,6 +72,21 @@ describe('páginas legales multilingües', () => {
         }
       });
     }
+  });
+
+  it('los archivos tienen nombre en inglés y las direcciones antiguas se redirigen (301)', () => {
+    expect(Object.keys(LEGAL_PAGES).sort()).toEqual(['404.html', 'closed-testing.html', 'credits.html', 'data-deletion.html', 'privacy.html']);
+    const { redirects } = JSON.parse(readFileSync('firebase.json', 'utf8')).hosting;
+    expect(redirects.map(r => [r.source, r.destination, r.type]).sort()).toEqual([
+      ['/borrar-datos.html', '/data-deletion.html', 301],
+      ['/creditos.html', '/credits.html', 301],
+      ['/pruebas-cerradas.html', '/closed-testing.html', 301],
+    ]);
+  });
+
+  it('la página de pruebas cerradas lleva en la cabecera el icono, el nombre y el identificador de la app', () => {
+    const html = readFileSync('public/closed-testing.html', 'utf8');
+    expect(html).toMatch(/<div class="brand"><img src="favicon.svg"[^>]*><div><p class="brand-name">GymRoulette<\/p><p class="brand-id">eus\.jabibi\.gymroul<\/p>/);
   });
 
   it('los HTML publicados en public/ coinciden con el contenido (ejecuta npm run legal si falla)', () => {

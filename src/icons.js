@@ -8,7 +8,7 @@
 // que no pueden construirse dinámicamente. Cada icono se compila a una máscara CSS (sin red).
 //
 // Conjuntos: Material Design Icons (mdi, Apache-2.0), Game Icons (game-icons, CC BY 3.0, ver
-// public/creditos.html) y pictogramas propios (gymroul, src/custom-icons.js).
+// public/credits.html) y pictogramas propios (gymroul, src/custom-icons.js).
 
 /**
  * @typedef {{ id: string, cls: string }} IconDef

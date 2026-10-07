@@ -6,6 +6,11 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "redirects": [
+      { "source": "/borrar-datos.html", "destination": "/data-deletion.html", "type": 301 },
+      { "source": "/creditos.html", "destination": "/credits.html", "type": 301 },
+      { "source": "/pruebas-cerradas.html", "destination": "/closed-testing.html", "type": 301 }
+    ],
     "headers": [
       {
         "source": "**",

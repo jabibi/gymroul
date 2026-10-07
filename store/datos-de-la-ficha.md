@@ -4,8 +4,8 @@
 | Campo | Valor |
 |---|---|
 | Política de privacidad | https://gymroul.web.app/privacy.html |
-| Eliminación de datos | https://gymroul.web.app/borrar-datos.html |
-| Créditos | https://gymroul.web.app/creditos.html |
+| Eliminación de datos | https://gymroul.web.app/data-deletion.html |
+| Créditos | https://gymroul.web.app/credits.html |
 | Correo de contacto | javimelex@gmail.com |
 | Identificador de la app | eus.jabibi.gymroul |
 | Versión | 1.13 (the 13th) (versionCode 13); se define en `package.json` |

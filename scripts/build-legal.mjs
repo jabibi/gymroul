@@ -1,16 +1,19 @@
-// Genera las páginas multilingües (public/privacy.html, borrar-datos.html, creditos.html, 404.html y
-// pruebas-cerradas.html) a
-// partir del contenido por idioma de legal/*.mjs.
+// Genera las páginas multilingües (public/privacy.html, data-deletion.html, credits.html, 404.html y
+// closed-testing.html) a partir del contenido por idioma de legal/*.mjs.
 //
 // Cada página contiene TODOS los idiomas, uno por <section data-lang>. public/legal.js muestra el que
 // indica ?lang=, o el del navegador, y ofrece un selector. Sin JavaScript se ven todos, uno tras otro
-// (inglés primero). Las direcciones públicas no cambian, así que las URLs ya enviadas a Google Play
-// siguen valiendo.
+// (inglés primero). Los nombres de archivo están en inglés. Las direcciones antiguas (borrar-datos.html,
+// creditos.html y pruebas-cerradas.html) siguen valiendo porque firebase.json las redirige (301).
 //
 //   node scripts/build-legal.mjs          (también lo ejecuta npm run build)
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { LEGAL_PAGES, LANGUAGE_ORDER, LANGUAGE_NAMES, STEPS_PAGES } from '../legal/index.mjs';
+
+/** Identificador de la aplicación que se muestra en la cabecera de la página de pruebas cerradas. */
+const APP_NAME = 'GymRoulette';
+const APP_PACKAGE = 'eus.jabibi.gymroul';
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -43,6 +46,10 @@ function renderSteps(blocks) {
 }
 
 const STEPS_STYLE = `
+        .brand { display: flex; align-items: center; gap: 16px; margin: 0 0 1.4em; }
+        .brand img { width: 64px; height: 64px; border-radius: 16px; box-shadow: 0 4px 14px rgba(15,23,42,.18); flex: none; }
+        .brand-name { font-size: 1.75rem; line-height: 1.15; font-weight: 700; color: #0f172a; margin: 0; }
+        .brand-id { font-size: 0.95rem; color: #64748b; margin: 2px 0 0; overflow-wrap: anywhere; }
         body { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; margin: 0; padding: 24px; background: #f8fafc; color: #1e293b; line-height: 1.5; -webkit-font-smoothing: antialiased; }
         .wrap { max-width: 42rem; margin: 0 auto; }
         nav.langs { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 1.2em; }
@@ -106,7 +113,7 @@ function renderPage(file, page) {
     <script src="legal.js" defer></script>
 </head>
 <body>
-${steps ? '<div class="wrap">\n' : ''}<nav class="langs" id="langNav" aria-label="Language"></nav>
+${steps ? `<div class="wrap">\n<div class="brand"><img src="favicon.svg" width="64" height="64" alt=""><div><p class="brand-name">${APP_NAME}</p><p class="brand-id">${APP_PACKAGE}</p></div></div>\n` : ''}<nav class="langs" id="langNav" aria-label="Language"></nav>
 
 ${sections}${steps ? '\n</div>' : ''}
 </body>

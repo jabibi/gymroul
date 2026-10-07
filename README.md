@@ -128,7 +128,7 @@ El catálogo está en [`src/icons.js`](src/icons.js). Para añadir un icono:
 2. Añade una entrada con la clase **escrita completa** (`icon-[mdi--karate]`): Tailwind solo genera el CSS de las clases que aparecen literalmente en el código.
 3. Ejecuta `npm test`: comprueba que el icono existe y que los ids no se repiten.
 
-Los iconos se compilan a máscaras CSS durante el build (sin peticiones en ejecución). Las licencias están en [`public/creditos.html`](public/creditos.html); Game Icons es CC BY 3.0 y exige atribución.
+Los iconos se compilan a máscaras CSS durante el build (sin peticiones en ejecución). Las licencias están en [`public/credits.html`](public/credits.html); Game Icons es CC BY 3.0 y exige atribución.
 
 ## Idiomas
 
@@ -140,7 +140,7 @@ Los textos de la interfaz están en `src/i18n/locales/<idioma>.js` (el inglés e
 
 El buscador de iconos mira las etiquetas y palabras clave de **todos** los idiomas, así que «boxeo», «boxing» y «boxe» encuentran el mismo icono.
 
-Las páginas legales (`legal/*.mjs` → `public/*.html`) contienen todos los idiomas en cada página y muestran el que pide `?lang=` o el del navegador (inglés si no hay coincidencia). Tras editarlas, `npm run legal` (o `npm run build`) las regenera. `pruebas-cerradas.html` es la invitación para los testers de la prueba cerrada de Google Play; tiene un diseño propio con pasos numerados.
+Las páginas legales (`legal/*.mjs` → `public/*.html`) contienen todos los idiomas en cada página y muestran el que pide `?lang=` o el del navegador (inglés si no hay coincidencia). Tras editarlas, `npm run legal` (o `npm run build`) las regenera. `closed-testing.html` es la invitación para los testers de la prueba cerrada de Google Play; tiene un diseño propio con pasos numerados.
 
 La ficha de Google Play de cada idioma, con sus capturas, se genera con `npm run store`; ver [`store/README.md`](store/README.md).
 
