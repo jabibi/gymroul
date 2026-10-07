@@ -147,4 +147,49 @@ export default {
     ['h2', 'Tipografia'],
     ['ul', ['<strong>Plus Jakarta Sans</strong>, licenza SIL Open Font License 1.1.']],
   ] },
+  pl: { title: 'Podziękowania i licencje - GymRoulette', blocks: [
+    ['h1', 'Podziękowania i licencje'],
+    ['p', 'GymRoulette korzysta z następujących zasobów podmiotów trzecich. Dziękujemy ich autorom.'],
+    ['h2', 'Ikony ćwiczeń'],
+    ['ul', [
+      `<strong>Material Design Icons</strong> (Pictogrammers), licencja ${mdi}. ${mdiSite}`,
+      '<strong>Własne piktogramy GymRoulette</strong> (pompki, deska, brzuszki, burpee, wspinaczka w podporze i przysiad).',
+      `<strong>Game Icons</strong> (${gameSite}), ikony autorstwa Lorc, Delapouite i innych współtwórców, licencja ${ccBy3}. Niektóre ikony zostały przekolorowane i zmieniono ich rozmiar.`,
+    ]],
+    ['h2', 'Ikony interfejsu'],
+    ['ul', [`<strong>Font Awesome Free</strong>, ikony na licencji ${ccBy4}, czcionki na licencji SIL OFL 1.1, a kod na licencji MIT. ${faSite}`]],
+    ['h2', 'Typografia'],
+    ['ul', ['<strong>Plus Jakarta Sans</strong>, licencja SIL Open Font License 1.1.']],
+  ] },
+
+  hi: { title: 'श्रेय और लाइसेंस - GymRoulette', blocks: [
+    ['h1', 'श्रेय और लाइसेंस'],
+    ['p', 'GymRoulette नीचे दिए गए थर्ड-पार्टी संसाधनों का उपयोग करता है। उनके रचनाकारों का धन्यवाद।'],
+    ['h2', 'एक्सरसाइज़ के आइकन'],
+    ['ul', [
+      `<strong>Material Design Icons</strong> (Pictogrammers), ${mdi} लाइसेंस। ${mdiSite}`,
+      '<strong>GymRoulette के अपने चित्रसंकेत</strong> (पुश-अप, प्लैंक, सिट-अप, बर्पी, माउंटेन क्लाइंबर और स्क्वाट)।',
+      `<strong>Game Icons</strong> (${gameSite}), Lorc, Delapouite और अन्य योगदानकर्ताओं के आइकन, ${ccBy3} लाइसेंस। कुछ आइकन का रंग और आकार बदला गया है।`,
+    ]],
+    ['h2', 'इंटरफ़ेस के आइकन'],
+    ['ul', [`<strong>Font Awesome Free</strong>, आइकन ${ccBy4} के अंतर्गत, फ़ॉन्ट SIL OFL 1.1 के अंतर्गत और कोड MIT के अंतर्गत। ${faSite}`]],
+    ['h2', 'टाइपोग्राफ़ी'],
+    ['ul', ['<strong>Plus Jakarta Sans</strong>, SIL Open Font License 1.1 लाइसेंस।']],
+  ] },
+
+  tr: { title: 'Katkıda bulunanlar ve lisanslar - GymRoulette', blocks: [
+    ['h1', 'Katkıda bulunanlar ve lisanslar'],
+    ['p', 'GymRoulette aşağıdaki üçüncü taraf kaynakları kullanır. Yazarlarına teşekkürler.'],
+    ['h2', 'Egzersiz simgeleri'],
+    ['ul', [
+      `<strong>Material Design Icons</strong> (Pictogrammers), ${mdi} lisansı. ${mdiSite}`,
+      '<strong>GymRoulette\'in kendi piktogramları</strong> (şınav, plank, mekik, burpee, mountain climbers ve squat).',
+      `<strong>Game Icons</strong> (${gameSite}), Lorc, Delapouite ve diğer katkıda bulunanlara ait simgeler, ${ccBy3} lisansı. Bazı simgelerin rengi değiştirilmiş ve boyutu ayarlanmıştır.`,
+    ]],
+    ['h2', 'Arayüz simgeleri'],
+    ['ul', [`<strong>Font Awesome Free</strong>, simgeler ${ccBy4} altında, yazı tipleri SIL OFL 1.1 altında ve kod MIT altında. ${faSite}`]],
+    ['h2', 'Tipografi'],
+    ['ul', ['<strong>Plus Jakarta Sans</strong>, SIL Open Font License 1.1.']],
+  ] },
+
 };

@@ -9,6 +9,7 @@
 
 import en from './locales/en.js';
 import enGB from './locales/en-GB.js';
+import enAU from './locales/en-AU.js';
 import es from './locales/es.js';
 import es419 from './locales/es-419.js';
 import eu from './locales/eu.js';
@@ -17,6 +18,9 @@ import ca from './locales/ca.js';
 import fr from './locales/fr.js';
 import de from './locales/de.js';
 import it from './locales/it.js';
+import pl from './locales/pl.js';
+import hi from './locales/hi.js';
+import tr from './locales/tr.js';
 import frCA from './locales/fr-CA.js';
 import ptBR from './locales/pt-BR.js';
 import ptPT from './locales/pt-PT.js';
@@ -24,13 +28,14 @@ import { parseIconTable } from './icon-table.js';
 
 /**
  * @typedef {{ strings: Record<string, string>, groups?: Record<string, string>, icons?: string }} LocaleData
- * @typedef {'en' | 'en-GB' | 'es' | 'es-419' | 'eu' | 'gl' | 'ca' | 'fr' | 'fr-CA' | 'de' | 'it' | 'pt-BR' | 'pt-PT'} LanguageCode
+ * @typedef {'en' | 'en-GB' | 'en-AU' | 'es' | 'es-419' | 'eu' | 'gl' | 'ca' | 'fr' | 'fr-CA' | 'de' | 'it' | 'pl' | 'hi' | 'tr' | 'pt-BR' | 'pt-PT'} LanguageCode
  */
 
 /** Idiomas disponibles, con su nombre en el propio idioma y la etiqueta BCP 47 para fechas y horas */
 export const LANGUAGES = /** @type {{ code: LanguageCode, name: string, tag: string }[]} */ ([
   { code: 'en', name: 'English (US)', tag: 'en-US' },
   { code: 'en-GB', name: 'English (UK)', tag: 'en-GB' },
+  { code: 'en-AU', name: 'English (Australia)', tag: 'en-AU' },
   { code: 'es', name: 'Español (España)', tag: 'es-ES' },
   { code: 'es-419', name: 'Español (Latinoamérica)', tag: 'es-419' },
   { code: 'eu', name: 'Euskara', tag: 'eu' },
@@ -40,6 +45,9 @@ export const LANGUAGES = /** @type {{ code: LanguageCode, name: string, tag: str
   { code: 'fr-CA', name: 'Français (Canada)', tag: 'fr-CA' },
   { code: 'de', name: 'Deutsch', tag: 'de-DE' },
   { code: 'it', name: 'Italiano', tag: 'it-IT' },
+  { code: 'pl', name: 'Polski', tag: 'pl-PL' },
+  { code: 'hi', name: 'हिन्दी', tag: 'hi-IN' },
+  { code: 'tr', name: 'Türkçe', tag: 'tr-TR' },
   { code: 'pt-BR', name: 'Português (Brasil)', tag: 'pt-BR' },
   { code: 'pt-PT', name: 'Português (Portugal)', tag: 'pt-PT' },
 ]);
@@ -48,7 +56,7 @@ export const DEFAULT_LANGUAGE = /** @type {LanguageCode} */ ('en');
 export const STORAGE_LANGUAGE_KEY = 'gymroulette_language';
 
 /**
- * Las variantes regionales (pt-PT, en-GB, es-419, fr-CA) heredan de su idioma base y solo redefinen lo que cambia.
+ * Las variantes regionales (pt-PT, en-GB, en-AU, es-419, fr-CA) heredan de su idioma base y solo redefinen lo que cambia.
  * @param {LocaleData} base @param {LocaleData} over
  * @returns {LocaleData}
  */
@@ -66,8 +74,9 @@ function mergeTables(/** @type {string} */ a, /** @type {string} */ b) {
 
 /** @type {Record<LanguageCode, LocaleData>} */
 export const DICTIONARIES = {
-  en, es, eu, gl, ca, fr, de, it,
+  en, es, eu, gl, ca, fr, de, it, pl, hi, tr,
   'en-GB': extend(en, enGB),
+  'en-AU': extend(en, enAU),
   'es-419': extend(es, es419),
   'fr-CA': extend(fr, frCA),
   'pt-BR': ptBR,
@@ -88,14 +97,14 @@ export const isSupported = code => LANGUAGES.some(l => l.code === code);
 export const getLanguage = () => current;
 export const getLanguageTag = () => LANGUAGES.find(l => l.code === current)?.tag ?? 'en';
 
-/** Regiones donde se usa el inglés británico (ortografía y vocabulario): reciben en-GB; el resto del inglés, en. */
-const BRITISH_ENGLISH_REGIONS = ['gb', 'au', 'nz', 'ie', 'za', 'in', 'sg'];
+/** Regiones donde se usa el inglés británico (ortografía y vocabulario): reciben en-GB (Australia tiene su propia variante, en-AU); el resto del inglés, en. */
+const BRITISH_ENGLISH_REGIONS = ['gb', 'nz', 'ie', 'za', 'in', 'sg'];
 /** Regiones de habla hispana fuera de España: reciben el español de Latinoamérica. */
 const LATIN_AMERICAN_REGIONS = ['419', 'mx', 'ar', 'co', 'cl', 'pe', 've', 'ec', 'gt', 'cu', 'bo', 'do', 'hn', 'py', 'sv', 'ni', 'cr', 'pa', 'uy', 'pr', 'us'];
 
 /**
  * Elige el idioma a partir de las preferencias del navegador. 'pt' sin región va a Brasil, que es
- * la variante con más hablantes; el inglés de Reino Unido, Australia, Irlanda, India... va a en-GB; el
+ * la variante con más hablantes; el inglés de Reino Unido, Irlanda, India... va a en-GB y el de Australia a en-AU; el
  * español de Latinoamérica a es-419 y el de España (o sin región) a es; el francés de Canadá a fr-CA;
  * cualquier idioma no soportado cae al inglés.
  * @param {readonly string[]} preferred
@@ -109,6 +118,7 @@ export function matchLanguage(preferred) {
     const base = tag.split('-')[0];
     if (base === 'pt') return 'pt-BR';
     const region = tag.split('-')[1] ?? '';
+    if (base === 'en' && region === 'au') return 'en-AU';
     if (base === 'en') return BRITISH_ENGLISH_REGIONS.includes(region) ? 'en-GB' : 'en';
     if (base === 'es') return LATIN_AMERICAN_REGIONS.includes(region) ? 'es-419' : 'es';
     const byBase = LANGUAGES.find(l => l.code.toLowerCase() === base);

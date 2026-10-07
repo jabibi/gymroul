@@ -12,4 +12,10 @@ export default {
   'pt-PT': page('Página não encontrada - GymRoulette', 'A página que procuras não existe.', 'Voltar ao GymRoulette'),
   de: page('Seite nicht gefunden - GymRoulette', 'Die Seite, die du suchst, existiert nicht.', 'Zurück zu GymRoulette'),
   it: page('Pagina non trovata - GymRoulette', 'La pagina che stai cercando non esiste.', 'Torna a GymRoulette'),
+  pl: page('Nie znaleziono strony - GymRoulette', 'Strona, której szukasz, nie istnieje.', 'Wróć do GymRoulette'),
+
+  hi: page('पेज नहीं मिला - GymRoulette', 'आप जो पेज ढूँढ रहे हैं वह मौजूद नहीं है।', 'GymRoulette पर वापस जाएँ'),
+
+  tr: page('Sayfa bulunamadı - GymRoulette', 'Aradığın sayfa mevcut değil.', 'GymRoulette\'e dön'),
+
 };
