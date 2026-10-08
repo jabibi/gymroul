@@ -2,7 +2,7 @@
 
 Objetivos de las próximas versiones. Lo ya publicado está en el historial de commits y en las notas de cada versión (`store/notas-de-la-version.txt`).
 
-## 1.14 (nombre por decidir): en preparación
+## 1.14 (RandWork): en preparación
 
 - Cambiar «GASTEIZ TRAINNING» por «WORKOUT GENERATOR» u otro mensaje más genérico, para que no haga referencia a mi gimnasio de entrenamiento.
 - En Play Console, cambiar la categoría a Salud y bienestar (Health & Fitness).
