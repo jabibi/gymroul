@@ -1,5 +1,5 @@
-Nouveautés :
-• Désormais aussi en Polski, हिन्दी, Türkçe et English (Australie).
-• 100 % hors connexion : sans analyse, sans traceurs et sans autorisation Internet.
+• Désormais aussi en العربية, Polski, हिन्दी, Türkçe et English (Australie).
+• Google Analytics supprimé : désormais 100 % hors connexion, sans traceurs et sans autorisation Internet.
 • Nouvelle introduction au premier lancement : comment fonctionne la roue et ce que l'application fait (et ne fait pas) de tes données.
+• Fais glisser pour passer d'une diapositive de l'introduction à l'autre.
 • Corrections de bugs et améliorations.

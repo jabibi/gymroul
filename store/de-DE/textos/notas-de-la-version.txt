@@ -1,5 +1,5 @@
-Neu in dieser Version:
-• Jetzt auch in Polski, हिन्दी, Türkçe und English (Australien).
-• 100 % offline: keine Analyse, keine Tracker und keine Internet-Berechtigung.
+• Jetzt auch in العربية, Polski, हिन्दी, Türkçe und English (Australien).
+• Google Analytics entfernt: jetzt 100 % offline, ohne Tracker und ohne Internet-Berechtigung.
 • Neue Einführung beim ersten Start: wie das Rad funktioniert und was die App mit deinen Daten macht (und was nicht).
+• Wische, um zwischen den Folien der Einführung zu wechseln.
 • Fehlerbehebungen und Verbesserungen.

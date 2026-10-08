@@ -1,5 +1,5 @@
-Novedades:
-• Ahora también en Polski, हिन्दी, Türkçe y English (Australia).
-• 100 % sin conexión: sin analítica, sin rastreadores y sin permiso de Internet.
+• Ahora también en العربية, Polski, हिन्दी, Türkçe y English (Australia).
+• Eliminado Google Analytics: ahora 100 % sin conexión, sin rastreadores y sin permiso de Internet.
 • Nueva introducción en la primera apertura: cómo funciona la ruleta y qué hace (y qué no hace) la app con tus datos.
+• Desliza para pasar entre las diapositivas de la introducción.
 • Correcciones de errores y mejoras.

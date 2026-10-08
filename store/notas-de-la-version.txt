@@ -1,119 +1,126 @@
 <en-US>
-What's new:
-• Now also in Polski, हिन्दी, Türkçe and English (Australia).
-• 100% offline: no analytics, no trackers and no Internet permission.
+• Now also in العربية, Polski, हिन्दी, Türkçe and English (Australia).
+• Google Analytics removed: now 100% offline, with no trackers and no Internet permission.
 • New introduction on first launch: how the wheel works and what the app does (and doesn't do) with your data.
+• Swipe to move between the introduction slides.
 • Bug fixes and improvements.
 </en-US>
+<ar>
+• متوفر الآن أيضًا بلغات جديدة: العربية وPolski وहिन्दी وTürkçe وEnglish (Australia).
+• أُزيل Google Analytics: يعمل الآن 100% دون اتصال، بلا أدوات تتبّع ولا إذن للوصول إلى الإنترنت.
+• مقدمة جديدة عند أول فتح: كيف تعمل العجلة، وما يفعله التطبيق (وما لا يفعله) ببياناتك.
+• اسحب للتنقل بين شرائح المقدمة.
+• إصلاح أخطاء وتحسينات.
+</ar>
 <ca>
-Novetats:
-• Ara també en Polski, हिन्दी, Türkçe i English (Australia).
-• 100 % sense connexió: sense analítica, sense rastrejadors i sense permís d'Internet.
+• Ara també en العربية, Polski, हिन्दी, Türkçe i English (Australia).
+• Eliminat Google Analytics: ara 100 % sense connexió, sense rastrejadors i sense permís d'Internet.
 • Nova introducció en el primer inici: com funciona la ruleta i què fa (i què no fa) l'app amb les teves dades.
+• Llisca per canviar entre les diapositives de la introducció.
 • Correcció d'errors i millores.
 </ca>
 <de-DE>
-Neu in dieser Version:
-• Jetzt auch in Polski, हिन्दी, Türkçe und English (Australien).
-• 100 % offline: keine Analyse, keine Tracker und keine Internet-Berechtigung.
+• Jetzt auch in العربية, Polski, हिन्दी, Türkçe und English (Australien).
+• Google Analytics entfernt: jetzt 100 % offline, ohne Tracker und ohne Internet-Berechtigung.
 • Neue Einführung beim ersten Start: wie das Rad funktioniert und was die App mit deinen Daten macht (und was nicht).
+• Wische, um zwischen den Folien der Einführung zu wechseln.
 • Fehlerbehebungen und Verbesserungen.
 </de-DE>
 <en-AU>
-What's new:
-• Now also in Polski, हिन्दी, Türkçe and English (Australia).
-• 100% offline: no analytics, no trackers and no Internet permission.
+• Now also in العربية, Polski, हिन्दी, Türkçe and English (Australia).
+• Google Analytics removed: now 100% offline, with no trackers and no Internet permission.
 • New introduction on first launch: how the wheel works and what the app does (and doesn't do) with your data.
+• Swipe to move between the introduction slides.
 • Bug fixes and improvements.
 </en-AU>
 <en-GB>
-What's new:
-• Now also in Polski, हिन्दी, Türkçe and English (Australia).
-• 100% offline: no analytics, no trackers and no Internet permission.
+• Now also in العربية, Polski, हिन्दी, Türkçe and English (Australia).
+• Google Analytics removed: now 100% offline, with no trackers and no Internet permission.
 • New introduction on first launch: how the wheel works and what the app does (and doesn't do) with your data.
+• Swipe to move between the introduction slides.
 • Bug fixes and improvements.
 </en-GB>
 <es-419>
-Novedades:
-• Ahora también en Polski, हिन्दी, Türkçe y English (Australia).
-• 100 % sin conexión: sin analítica, sin rastreadores y sin permiso de Internet.
+• Ahora también en العربية, Polski, हिन्दी, Türkçe y English (Australia).
+• Eliminado Google Analytics: ahora 100 % sin conexión, sin rastreadores y sin permiso de Internet.
 • Nueva introducción en la primera apertura: cómo funciona la ruleta y qué hace (y qué no hace) la app con tus datos.
+• Desliza para pasar entre las diapositivas de la introducción.
 • Correcciones de errores y mejoras.
 </es-419>
 <es-ES>
-Novedades:
-• Ahora también en Polski, हिन्दी, Türkçe y English (Australia).
-• 100 % sin conexión: sin analítica, sin rastreadores y sin permiso de Internet.
+• Ahora también en العربية, Polski, हिन्दी, Türkçe y English (Australia).
+• Eliminado Google Analytics: ahora 100 % sin conexión, sin rastreadores y sin permiso de Internet.
 • Nueva introducción en la primera apertura: cómo funciona la ruleta y qué hace (y qué no hace) la app con tus datos.
+• Desliza para pasar entre las diapositivas de la introducción.
 • Correcciones de errores y mejoras.
 </es-ES>
 <eu-ES>
-Berritasunak:
-• Orain Polski, हिन्दी, Türkçe eta English (Australia) hizkuntzetan ere.
-• % 100 konexiorik gabe: analitikarik, aztarnarik eta Interneterako baimenik gabe.
+• Orain العربية, Polski, हिन्दी, Türkçe eta English (Australia) hizkuntzetan ere.
+• Google Analytics kenduta: orain % 100 konexiorik gabe, aztarnarik eta Interneterako baimenik gabe.
 • Sarrera berria lehen irekieran: gurpilak nola funtzionatzen duen eta aplikazioak zure datuekin zer egiten duen (eta zer ez).
+• Irristatu sarrerako diapositibak aldatzeko.
 • Akatsen zuzenketak eta hobekuntzak.
 </eu-ES>
 <fr-CA>
-Nouveautés :
-• Désormais aussi en Polski, हिन्दी, Türkçe et English (Australie).
-• 100 % hors connexion : sans analyse, sans traceurs et sans autorisation Internet.
+• Désormais aussi en العربية, Polski, हिन्दी, Türkçe et English (Australie).
+• Google Analytics supprimé : désormais 100 % hors connexion, sans traceurs et sans autorisation Internet.
 • Nouvelle introduction au premier lancement : comment fonctionne la roue et ce que l'application fait (et ne fait pas) de tes données.
+• Fais glisser pour passer d'une diapositive de l'introduction à l'autre.
 • Corrections de bugs et améliorations.
 </fr-CA>
 <fr-FR>
-Nouveautés :
-• Désormais aussi en Polski, हिन्दी, Türkçe et English (Australie).
-• 100 % hors connexion : sans analyse, sans traceurs et sans autorisation Internet.
+• Désormais aussi en العربية, Polski, हिन्दी, Türkçe et English (Australie).
+• Google Analytics supprimé : désormais 100 % hors connexion, sans traceurs et sans autorisation Internet.
 • Nouvelle introduction au premier lancement : comment fonctionne la roue et ce que l'application fait (et ne fait pas) de tes données.
+• Fais glisser pour passer d'une diapositive de l'introduction à l'autre.
 • Corrections de bugs et améliorations.
 </fr-FR>
 <gl-ES>
-Novidades:
-• Agora tamén en Polski, हिन्दी, Türkçe e English (Australia).
-• 100 % sen conexión: sen analítica, sen rastreadores e sen permiso de Internet.
+• Agora tamén en العربية, Polski, हिन्दी, Türkçe e English (Australia).
+• Eliminado Google Analytics: agora 100 % sen conexión, sen rastreadores e sen permiso de Internet.
 • Nova introdución no primeiro inicio: como funciona a ruleta e que fai (e que non fai) a app cos teus datos.
+• Desliza para pasar entre as diapositivas da introdución.
 • Corrección de erros e melloras.
 </gl-ES>
 <hi-IN>
-नया क्या है:
-• अब Polski, हिन्दी, Türkçe और English (Australia) में भी।
-• 100% ऑफ़लाइन: कोई एनालिटिक्स नहीं, कोई ट्रैकर नहीं और इंटरनेट की अनुमति नहीं।
+• अब العربية, Polski, हिन्दी, Türkçe और English (Australia) में भी।
+• Google Analytics हटा दिया गया: अब 100% ऑफ़लाइन, कोई ट्रैकर नहीं और इंटरनेट की अनुमति नहीं।
 • पहली बार खोलने पर नया परिचय: चक्र कैसे काम करता है और ऐप आपके डेटा के साथ क्या करता है (और क्या नहीं करता)।
+• परिचय की स्लाइड के बीच जाने के लिए स्वाइप करें।
 • गड़बड़ियाँ ठीक की गईं और सुधार।
 </hi-IN>
 <it-IT>
-Novità:
-• Ora anche in Polski, हिन्दी, Türkçe e English (Australia).
-• 100% offline: nessuna analisi, nessun tracker e nessuna autorizzazione a Internet.
+• Ora anche in العربية, Polski, हिन्दी, Türkçe e English (Australia).
+• Google Analytics rimosso: ora 100% offline, senza tracker e senza autorizzazione a Internet.
 • Nuova introduzione al primo avvio: come funziona la ruota e cosa fa (e cosa non fa) l'app con i tuoi dati.
+• Scorri per spostarti tra le diapositive dell'introduzione.
 • Correzioni di errori e miglioramenti.
 </it-IT>
 <pl-PL>
-Co nowego:
-• Teraz także w językach Polski, हिन्दी, Türkçe i English (Australia).
-• 100% offline: bez analityki, bez trackerów i bez uprawnienia do Internetu.
+• Teraz także w językach العربية, Polski, हिन्दी, Türkçe i English (Australia).
+• Usunięto Google Analytics: teraz 100% offline, bez trackerów i bez uprawnienia do Internetu.
 • Nowe wprowadzenie przy pierwszym uruchomieniu: jak działa koło i co aplikacja robi (a czego nie robi) z twoimi danymi.
+• Przesuń palcem, aby przechodzić między slajdami wprowadzenia.
 • Poprawki błędów i ulepszenia.
 </pl-PL>
 <pt-BR>
-Novidades:
-• Agora também em Polski, हिन्दी, Türkçe e English (Australia).
-• 100% offline: sem análise, sem rastreadores e sem permissão de Internet.
+• Agora também em العربية, Polski, हिन्दी, Türkçe e English (Australia).
+• Google Analytics removido: agora 100% offline, sem rastreadores e sem permissão de Internet.
 • Nova introdução na primeira abertura: como a roleta funciona e o que o app faz (e não faz) com seus dados.
+• Deslize para passar entre os slides da introdução.
 • Correções de erros e melhorias.
 </pt-BR>
 <pt-PT>
-Novidades:
-• Agora também em Polski, हिन्दी, Türkçe e English (Australia).
-• 100% offline: sem análise, sem rastreadores e sem permissão de Internet.
+• Agora também em العربية, Polski, हिन्दी, Türkçe e English (Australia).
+• Google Analytics removido: agora 100% offline, sem rastreadores e sem permissão de Internet.
 • Nova introdução na primeira abertura: como a roleta funciona e o que a aplicação faz (e não faz) com os teus dados.
+• Desliza para passar entre os diapositivos da introdução.
 • Correções de erros e melhorias.
 </pt-PT>
 <tr-TR>
-Yenilikler:
-• Artık Polski, हिन्दी, Türkçe ve English (Australia) dillerinde de.
-• %100 çevrimdışı: analiz yok, izleyici yok, İnternet izni yok.
+• Artık العربية, Polski, हिन्दी, Türkçe ve English (Australia) dillerinde de.
+• Google Analytics kaldırıldı: artık %100 çevrimdışı, izleyici yok, İnternet izni yok.
 • İlk açılışta yeni tanıtım: çarkın nasıl çalıştığı ve uygulamanın verilerinle neler yapıp neler yapmadığı.
+• Tanıtım slaytları arasında geçmek için kaydır.
 • Hata düzeltmeleri ve iyileştirmeler.
 </tr-TR>

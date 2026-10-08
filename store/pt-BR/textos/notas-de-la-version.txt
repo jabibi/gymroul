@@ -1,5 +1,5 @@
-Novidades:
-• Agora também em Polski, हिन्दी, Türkçe e English (Australia).
-• 100% offline: sem análise, sem rastreadores e sem permissão de Internet.
+• Agora também em العربية, Polski, हिन्दी, Türkçe e English (Australia).
+• Google Analytics removido: agora 100% offline, sem rastreadores e sem permissão de Internet.
 • Nova introdução na primeira abertura: como a roleta funciona e o que o app faz (e não faz) com seus dados.
+• Deslize para passar entre os slides da introdução.
 • Correções de erros e melhorias.

@@ -1,5 +1,5 @@
-Novità:
-• Ora anche in Polski, हिन्दी, Türkçe e English (Australia).
-• 100% offline: nessuna analisi, nessun tracker e nessuna autorizzazione a Internet.
+• Ora anche in العربية, Polski, हिन्दी, Türkçe e English (Australia).
+• Google Analytics rimosso: ora 100% offline, senza tracker e senza autorizzazione a Internet.
 • Nuova introduzione al primo avvio: come funziona la ruota e cosa fa (e cosa non fa) l'app con i tuoi dati.
+• Scorri per spostarti tra le diapositive dell'introduzione.
 • Correzioni di errori e miglioramenti.

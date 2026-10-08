@@ -18,7 +18,7 @@ GymRoulette es una ruleta de ejercicios: cada sector combina un número de repet
 Elige entre más de 100 iconos de muchas disciplinas, con buscador: fuerza y pesas, calistenia, cardio, yoga, pilates, tai chi, boxeo, karate y otras artes marciales, hyrox, crossfit, carreras de obstáculos, deportes, agua y montaña. Incluye pictogramas propios de flexiones, plancha, abdominales, burpee, sentadilla y mountain climbers.
 
 <b>EN TU IDIOMA</b>
-English (EE. UU., Reino Unido y Australia), Español (España y Latinoamérica), Euskara, Galego, Català, Français (Francia y Canadá), Deutsch, Italiano, Polski, हिन्दी, Türkçe y Português (Brasil y Portugal). La app sigue el idioma de tu celular y puedes cambiarlo en Configuración.
+العربية, English (EE. UU., Reino Unido y Australia), Español (España y Latinoamérica), Euskara, Galego, Català, Français (Francia y Canadá), Deutsch, Italiano, Polski, हिन्दी, Türkçe y Português (Brasil y Portugal). La app sigue el idioma de tu celular y puedes cambiarlo en Configuración.
 
 <b>DETALLES QUE SE AGRADECEN</b>
 • <b>Sonido de ruleta y vibración</b> al salir el resultado.

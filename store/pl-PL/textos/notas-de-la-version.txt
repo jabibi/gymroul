@@ -1,5 +1,5 @@
-Co nowego:
-• Teraz także w językach Polski, हिन्दी, Türkçe i English (Australia).
-• 100% offline: bez analityki, bez trackerów i bez uprawnienia do Internetu.
+• Teraz także w językach العربية, Polski, हिन्दी, Türkçe i English (Australia).
+• Usunięto Google Analytics: teraz 100% offline, bez trackerów i bez uprawnienia do Internetu.
 • Nowe wprowadzenie przy pierwszym uruchomieniu: jak działa koło i co aplikacja robi (a czego nie robi) z twoimi danymi.
+• Przesuń palcem, aby przechodzić między slajdami wprowadzenia.
 • Poprawki błędów i ulepszenia.

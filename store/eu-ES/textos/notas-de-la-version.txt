@@ -1,5 +1,5 @@
-Berritasunak:
-• Orain Polski, हिन्दी, Türkçe eta English (Australia) hizkuntzetan ere.
-• % 100 konexiorik gabe: analitikarik, aztarnarik eta Interneterako baimenik gabe.
+• Orain العربية, Polski, हिन्दी, Türkçe eta English (Australia) hizkuntzetan ere.
+• Google Analytics kenduta: orain % 100 konexiorik gabe, aztarnarik eta Interneterako baimenik gabe.
 • Sarrera berria lehen irekieran: gurpilak nola funtzionatzen duen eta aplikazioak zure datuekin zer egiten duen (eta zer ez).
+• Irristatu sarrerako diapositibak aldatzeko.
 • Akatsen zuzenketak eta hobekuntzak.
