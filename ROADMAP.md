@@ -9,6 +9,7 @@ Objetivos de las próximas versiones. Lo ya publicado está en el historial de c
 - Reducir los pasos de configuración inicial para que el usuario obtenga valor en menos de 10 segundos tras la primera apertura.
 - Exportación y compartición: compartir el resultado como imagen PNG con un texto asociado que incluya el enlace a la app (o algo parecido), para favorecer la viralidad orgánica. Se descarta el PDF. Todo se genera en local y sin conexión; la app solo entrega el archivo al menú de compartir del sistema, así que no hace falta el permiso `INTERNET` ni cambiar la política de privacidad (lo que el usuario haga después con el archivo queda fuera de la app).
   - Detalle técnico: Capacitor no trae compartir archivos de serie, así que hará falta el plugin oficial `@capacitor/share` (y probablemente `@capacitor/filesystem` para guardar el PNG temporal). Son plugins locales que no usan red ni Google Play, pero añaden dependencias, y `CLAUDE.md` pide revisar eso. En la web se puede usar la Web Share API, que no necesita nada extra.
+- Gráfico de funciones de la ficha de Play (`grafico-de-funciones-1024x500.png`): dejar más margen en los laterales. En la ficha de Play el borde de la imagen queda tapado y puede ocultar contenido (el icono y el texto de la izquierda, y parte de la ruleta a la derecha). Se genera en `scripts/build-store-assets.mjs`.
 
 ## Ideas sin fecha
 
