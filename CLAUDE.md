@@ -39,7 +39,7 @@ CI (`.github/workflows/ci.yml`) ejecuta `typecheck`, `test` y `build`, y en un j
 - **Tailwind**: no escribas ejemplos de clases en comentarios; el escáner los detecta y emite avisos.
 - **CSP estricta** (meta en `index.html`, solo `'self'`): sin scripts ni estilos en línea nuevos que requieran `unsafe-inline`.
 - **Versión**: la única fuente es `package.json` (`version`, `versionCode`, `versionCodename`). `android/app/build.gradle` la lee de ahí y compone el `versionName` como `major.minor (codename)`. Al publicar, sube las tres, ejecuta `npm run release-notes` y actualiza `store/datos-de-la-ficha.md`.
-- `ROADMAP.md` recoge los objetivos de las próximas versiones; consúltalo antes de tocar analítica o la primera apertura.
+- `ROADMAP.md` recoge los objetivos de las próximas versiones; consúltalo antes de empezar una funcionalidad nueva.
 - Máximo 12 ejercicios y 12 repeticiones; los sectores son repeticiones activas x ejercicios activos.
 - No subas keystores, `google-services.json` ni credenciales. La firma de release se configura en local.
 
