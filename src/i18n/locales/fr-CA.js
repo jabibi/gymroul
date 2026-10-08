@@ -1,5 +1,5 @@
 // Français (Canada) — solo lo que difiere del francés de Francia (src/i18n/locales/fr.js).
-// En Canadá no se deja espacio antes de « ! » y « ? » (sí antes de los dos puntos), y el vocabulario cambia
+// En Canadá no se deja espacio antes de « ! » y « ? » (sí antes de los dos puntos), y el vocabulario cambia
 // ("paramètres", "courriel", "espadrilles", "soccer"). Se combina con fr.js en src/i18n/index.js.
 export default {
   strings: {
@@ -8,7 +8,7 @@ export default {
     'wheel.setup': 'Paramètres',
     'spin.button': 'LANCER LA ROUE!',
 
-    'intro.how.spin': 'Appuie sur « LANCER LA ROUE! » ou lance la roue avec le doigt.',
+    'intro.how.spin': 'Appuie sur « LANCER LA ROUE! » ou lance la roue avec le doigt.',
 
     'result.badge': 'EXERCICE CHOISI!',
     'result.desc': 'Excellent défi! Fais {reps} répétitions de {exercise} avec une technique parfaite.',

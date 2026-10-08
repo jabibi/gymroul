@@ -256,19 +256,19 @@ Gira la ruleta i a entrenar!`,
   fr: {
     title: 'GymRoulette',
     short: "Fais tourner la roue et reçois un défi d'exercice au hasard pour t'entraîner.",
-    banner: { line1: 'Lance la roue', line2: "et c'est parti !", tagline: 'Des exercices au hasard pour te défier chaque jour', button: 'LANCER LA ROUE !' },
-    notes: `Nouveautés :
+    banner: { line1: 'Lance la roue', line2: "et c'est parti !", tagline: 'Des exercices au hasard pour te défier chaque jour', button: 'LANCER LA ROUE !' },
+    notes: `Nouveautés :
 • Désormais aussi en Polski, हिन्दी, Türkçe et English (Australie).
-• 100 % hors connexion : sans analyse, sans traceurs et sans autorisation Internet.
-• Nouvelle introduction au premier lancement : comment fonctionne la roue et ce que l'application fait (et ne fait pas) de tes données.
+• 100 % hors connexion : sans analyse, sans traceurs et sans autorisation Internet.
+• Nouvelle introduction au premier lancement : comment fonctionne la roue et ce que l'application fait (et ne fait pas) de tes données.
 • Corrections de bugs et améliorations.`,
-    full: `Pas envie de décider quoi t'entraîner aujourd'hui ? Fais tourner la roue et laisse GymRoulette choisir pour toi.
+    full: `Pas envie de décider quoi t'entraîner aujourd'hui ? Fais tourner la roue et laisse GymRoulette choisir pour toi.
 
-GymRoulette est une roue d'exercices : chaque secteur associe un nombre de répétitions à un exercice (par exemple « 20 Burpee ») et, quand tu la fais tourner, elle te propose un défi au hasard pour t'entraîner à la maison, en salle ou en plein air. Pensée pour varier tes séances, pour des circuits, des défis entre amis et pour tous ceux qui veulent s'entraîner sans se compliquer la vie.
+GymRoulette est une roue d'exercices : chaque secteur associe un nombre de répétitions à un exercice (par exemple « 20 Burpee ») et, quand tu la fais tourner, elle te propose un défi au hasard pour t'entraîner à la maison, en salle ou en plein air. Pensée pour varier tes séances, pour des circuits, des défis entre amis et pour tous ceux qui veulent s'entraîner sans se compliquer la vie.
 
 <b>COMMENT ÇA MARCHE</b>
-• Appuie sur « LANCER LA ROUE ! » ou lance-la d'un geste du doigt.
-• Quand elle s'arrête, tu vois ton défi : répétitions et exercice.
+• Appuie sur « LANCER LA ROUE ! » ou lance-la d'un geste du doigt.
+• Quand elle s'arrête, tu vois ton défi : répétitions et exercice.
 • Marque-le comme terminé ou passe-le et relance la roue.
 • Consulte l'historique des défis terminés pendant la séance.
 
@@ -279,7 +279,7 @@ GymRoulette est une roue d'exercices : chaque secteur associe un nombre de rép�
 • La roue s'adapte à tes réglages, enregistrés sur ton appareil.
 
 <b>PLUS DE 100 ICÔNES POUR TES EXERCICES</b>
-Choisis parmi plus de 100 icônes de nombreuses disciplines, avec recherche : force et poids, callisthénie, cardio, yoga, pilates, tai chi, boxe, karaté et autres arts martiaux, hyrox, crossfit, courses d'obstacles, sports, eau et montagne. Avec des pictogrammes originaux pour les pompes, le gainage, les abdominaux, le burpee, le squat et les mountain climbers.
+Choisis parmi plus de 100 icônes de nombreuses disciplines, avec recherche : force et poids, callisthénie, cardio, yoga, pilates, tai chi, boxe, karaté et autres arts martiaux, hyrox, crossfit, courses d'obstacles, sports, eau et montagne. Avec des pictogrammes originaux pour les pompes, le gainage, les abdominaux, le burpee, le squat et les mountain climbers.
 
 <b>DANS TA LANGUE</b>
 English (États-Unis, Royaume-Uni et Australie), Español (Espagne et Amérique latine), Euskara, Galego, Català, Français (France et Canada), Deutsch, Italiano, Polski, हिन्दी, Türkçe et Português (Brasil et Portugal). L'application suit la langue de ton téléphone et tu peux la changer dans les Réglages.
@@ -289,13 +289,13 @@ English (États-Unis, Royaume-Uni et Australie), Español (Espagne et Amérique 
 • <b>Un design sombre</b>, agréable à l'œil en salle.
 • <b>Sans inscription</b> ni compte utilisateur.
 • <b>Sans publicité.</b>
-• <b>100 % hors connexion</b> : aucune connexion Internet nécessaire.
+• <b>100 % hors connexion</b> : aucune connexion Internet nécessaire.
 • <b>Sans traceurs</b> ni cookies superflus, et elle ne demande jamais ta localisation.
 
 <b>CONFIDENTIALITÉ</b>
-GymRoulette fonctionne entièrement hors connexion et ne collecte aucune donnée : pas d'analyse, pas de traceurs, pas de publicité et aucun accès à ta localisation. Tes réglages sont enregistrés uniquement sur ton appareil. Tu peux consulter la politique de confidentialité dans l'application.
+GymRoulette fonctionne entièrement hors connexion et ne collecte aucune donnée : pas d'analyse, pas de traceurs, pas de publicité et aucun accès à ta localisation. Tes réglages sont enregistrés uniquement sur ton appareil. Tu peux consulter la politique de confidentialité dans l'application.
 
-Lance la roue et c'est parti !`,
+Lance la roue et c'est parti !`,
   },
 
   de: {
@@ -636,4 +636,4 @@ function adapt(listing, pairs) {
 LISTINGS['es-419'] = adapt(LISTINGS.es, [['Pulsa', 'Presiona'], ['Añade', 'Agrega'], ['tu móvil', 'tu celular']]);
 
 // Francés de Canadá: sin espacio antes de « ! » y « ? », y "paramètres" en lugar de "réglages"
-LISTINGS['fr-CA'] = adapt(LISTINGS.fr, [['\u00a0!', '!'], [' !', '!'], ['\u00a0?', '?'], [' ?', '?'], ['Réglages', 'Paramètres']]);
+LISTINGS['fr-CA'] = adapt(LISTINGS.fr, [['\u202f!', '!'], ['\u00a0!', '!'], [' !', '!'], ['\u202f?', '?'], ['\u00a0?', '?'], [' ?', '?'], ['Réglages', 'Paramètres']]);

@@ -109,7 +109,7 @@ describe('traducción', () => {
     expect(iconLabel('basketball')).toBe('Básquetbol');
     expect(t('config.title')).toBe(DICTIONARIES.es.strings['config.title']);
     setLanguage('fr', { persist: false });
-    expect(t('spin.button')).toBe('LANCER LA ROUE\u00a0!');
+    expect(t('spin.button')).toBe('LANCER LA ROUE\u202f!');
     expect(iconLabel('soccer')).toBe('Football');
     setLanguage('fr-CA', { persist: false });
     expect(t('spin.button')).toBe('LANCER LA ROUE!');
