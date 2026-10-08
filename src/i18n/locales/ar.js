@@ -4,7 +4,7 @@
 // propios (GymRoulette) en latino. Sin vocalización (tashkeel), como es habitual en las interfaces.
 export default {
   strings: {
-    'app.title': 'GymRoulette - Gasteiz Trainning',
+    'app.title': 'GymRoulette - Workout Generator',
 
     'header.sound': 'تشغيل الصوت أو إيقافه',
     'header.history': 'فتح السجل',

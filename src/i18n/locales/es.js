@@ -1,7 +1,7 @@
 // Español
 export default {
   strings: {
-    'app.title': 'GymRoulette - Gasteiz Trainning',
+    'app.title': 'GymRoulette - Workout Generator',
 
     'header.sound': 'Activar o desactivar el sonido',
     'header.history': 'Abrir historial',

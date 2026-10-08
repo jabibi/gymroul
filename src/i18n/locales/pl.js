@@ -1,7 +1,7 @@
 // Polski (Polonia, trato informal con "ty")
 export default {
   strings: {
-    'app.title': 'GymRoulette - Gasteiz Trainning',
+    'app.title': 'GymRoulette - Workout Generator',
 
     'header.sound': 'Włącz lub wyłącz dźwięk',
     'header.history': 'Otwórz historię',

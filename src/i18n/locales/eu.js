@@ -1,7 +1,7 @@
 // Euskara
 export default {
   strings: {
-    'app.title': 'GymRoulette - Gasteiz Trainning',
+    'app.title': 'GymRoulette - Workout Generator',
 
     'header.sound': 'Soinua aktibatu edo desaktibatu',
     'header.history': 'Ireki historia',

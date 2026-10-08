@@ -1,7 +1,7 @@
 // Deutsch (Alemania, trato informal con "du")
 export default {
   strings: {
-    'app.title': 'GymRoulette - Gasteiz Trainning',
+    'app.title': 'GymRoulette - Workout Generator',
 
     'header.sound': 'Ton ein- oder ausschalten',
     'header.history': 'Verlauf öffnen',
