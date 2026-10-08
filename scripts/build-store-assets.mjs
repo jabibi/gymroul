@@ -16,6 +16,7 @@ import puppeteer from 'puppeteer-core';
 import { preview } from 'vite';
 import sharp from 'sharp';
 import { STORE_LOCALES, LISTINGS, LIMITS } from '../store/listing.mjs';
+import { isRtl } from '../src/i18n/index.js';
 
 const CHROME = process.env.CHROME_PATH || '/usr/bin/google-chrome';
 const PORT = 4179;
@@ -96,35 +97,38 @@ async function captureWheel(page) {
 }
 
 /** Gráfico de funciones 1024x500: texto a la izquierda y la ruleta entera a la derecha. */
-async function buildBanner(listing, wheel, path) {
+async function buildBanner(listing, wheel, path, rtl = false) {
   const font = w => readFileSync(`node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-${w}-normal.woff2`).toString('base64');
   const logo = `data:image/svg+xml;base64,${readFileSync('public/favicon.svg').toString('base64')}`;
   const wheelUri = `data:image/png;base64,${wheel.png.toString('base64')}`;
   const green = '34 197 94';
   const WHEEL_SIZE = 400;
   const K = WHEEL_SIZE / wheel.box.width; // factor de escala de la captura al gráfico
-  const WHEEL_LEFT = 1024 - 56 - WHEEL_SIZE;
+  // En un idioma de derecha a izquierda el gráfico se espeja: el texto a la derecha y la ruleta a la izquierda
+  const WHEEL_LEFT = rtl ? 56 : 1024 - 56 - WHEEL_SIZE;
+  const START = rtl ? 'right' : 'left';
   const WHEEL_TOP = Math.round((500 - WHEEL_SIZE) / 2) + 12;
   const b = listing.banner;
-  const html = `<!doctype html><meta charset="utf-8"><style>
+  const html = `<!doctype html><html lang="${rtl ? 'ar' : 'en'}" dir="${rtl ? 'rtl' : 'ltr'}"><meta charset="utf-8"><style>
     @font-face{font-family:J;font-weight:700;src:url(data:font/woff2;base64,${font(700)}) format('woff2')}
     @font-face{font-family:J;font-weight:800;src:url(data:font/woff2;base64,${font(800)}) format('woff2')}
     *{margin:0;box-sizing:border-box}
-    body{width:1024px;height:500px;overflow:hidden;font-family:J,sans-serif;color:#fff;position:relative;
-      background:radial-gradient(circle at 76% 52%, rgb(${green} / .22), transparent 55%), linear-gradient(135deg,#0B1220,#020617)}
-    .brand{position:absolute;left:64px;top:56px;display:flex;align-items:center;gap:16px}
+    body{width:1024px;height:500px;overflow:hidden;font-family:J,'Noto Sans Arabic',sans-serif;color:#fff;position:relative;
+      background:radial-gradient(circle at ${rtl ? 24 : 76}% 52%, rgb(${green} / .22), transparent 55%), linear-gradient(135deg,#0B1220,#020617)}
+    .brand{position:absolute;${START}:64px;top:56px;display:flex;align-items:center;gap:16px}
     .brand img{width:64px;height:64px;border-radius:16px;box-shadow:0 8px 24px rgb(${green} / .35)}
     .brand b{font-weight:800;font-size:34px;letter-spacing:-.5px;line-height:1}
     .brand b span{color:rgb(${green})}
     .brand small{display:block;font-weight:800;font-size:12px;letter-spacing:3px;color:rgb(74 222 128);margin-top:6px}
-    .copy{position:absolute;left:64px;top:168px;width:470px}
+    .copy{position:absolute;${START}:64px;top:168px;width:470px}
     h1{font-weight:800;font-size:56px;line-height:1.08;letter-spacing:-1.5px}
     h1 span{display:block;white-space:nowrap}
     h1 span + span{color:rgb(${green})}
     p{margin-top:26px;font-weight:700;font-size:21px;line-height:1.3;color:#cbd5e1}
-    .btn{position:absolute;left:64px;top:392px;padding:16px 32px;border-radius:18px;font-weight:800;font-size:22px;color:#020617;
+    .btn{position:absolute;${START}:64px;top:392px;padding:16px 32px;border-radius:18px;font-weight:800;font-size:22px;color:#020617;
       background:linear-gradient(90deg,rgb(22 163 74),rgb(74 222 128));box-shadow:0 10px 30px rgb(${green} / .4)}
     .wheel{position:absolute;left:${WHEEL_LEFT - wheel.PAD.side * K}px;top:${WHEEL_TOP - wheel.PAD.top * K}px;width:${(wheel.box.width + wheel.PAD.side * 2) * K}px;height:auto}
+    ${rtl ? '*{letter-spacing:normal!important} h1{line-height:1.3} h1 span{padding-block:2px}' : ''}
   </style>
   <div class="brand"><img src="${logo}"><div><b>Gym<span>Roulette</span></b><small>GASTEIZ TRAINNING</small></div></div>
   <div class="copy"><h1><span>${esc(b.line1)}</span><span>${esc(b.line2)}</span></h1>
@@ -219,7 +223,7 @@ Compila la app y la renderiza con Chrome sin interfaz y sin red: no se contacta 
 el idioma de cada ficha; si cambias la interfaz o los textos, vuelve a ejecutarlo.
 
 ## Revisión de las traducciones
-Las traducciones al euskera, gallego y catalán, y los textos legales de todos los idiomas, conviene que los revise una persona
+Las traducciones al euskera, gallego, catalán y árabe (este último, además, en sentido de lectura de derecha a izquierda), y los textos legales de todos los idiomas, conviene que los revise una persona
 nativa antes de publicar. Las páginas de privacidad no son asesoramiento jurídico.
 `;
   writeFileSync(`${OUT}/README.md`, md);
@@ -294,7 +298,7 @@ try {
     await shot(intro, '08-introduccion-sin-conexion');
     await intro.close();
 
-    await buildBanner(listing, wheel, `${dir}/grafico-de-funciones-1024x500.png`);
+    await buildBanner(listing, wheel, `${dir}/grafico-de-funciones-1024x500.png`, isRtl(loc.app));
     writeTexts(listing, `${dir}/textos`);
   }
 } finally {

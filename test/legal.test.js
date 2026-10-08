@@ -47,9 +47,11 @@ describe('páginas legales multilingües', () => {
     for (const code of LANGUAGE_ORDER) {
       it(`${code}: privacidad`, () => {
         const text = flat(LEGAL_PAGES['privacy.html'][code]);
-        for (const fact of [CONTACT_EMAIL, 'eus.jabibi.gymroul', 'gymroul.web.app', '14', 'Google Analytics', 'Firebase', 'data-deletion.html', 'aepd.es']) {
+        for (const fact of [CONTACT_EMAIL, 'eus.jabibi.gymroul', 'gymroul.web.app', '14', 'Firebase', 'data-deletion.html', 'aepd.es']) {
           expect(text, fact).toContain(fact);
         }
+        // La política se muestra dentro de la app: habla de la analítica antigua en genérico, sin nombrar el producto
+        expect(text).not.toContain('Google Analytics');
       });
       it(`${code}: eliminación de datos`, () => {
         const text = flat(LEGAL_PAGES['data-deletion.html'][code]);

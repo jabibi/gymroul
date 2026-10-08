@@ -9,7 +9,7 @@
 //   node scripts/build-legal.mjs          (también lo ejecuta npm run build)
 
 import { writeFileSync, mkdirSync } from 'node:fs';
-import { LEGAL_PAGES, LANGUAGE_ORDER, LANGUAGE_NAMES, STEPS_PAGES } from '../legal/index.mjs';
+import { LEGAL_PAGES, LANGUAGE_ORDER, LANGUAGE_NAMES, STEPS_PAGES, RTL_LANGUAGES } from '../legal/index.mjs';
 
 /** Identificador de la aplicación que se muestra en la cabecera de la página de pruebas cerradas. */
 const APP_NAME = 'GymRoulette';
@@ -66,7 +66,7 @@ const STEPS_STYLE = `
         h2 { font-size: 1.25rem; font-weight: 600; color: #0f172a; margin: 0 0 8px; }
         .body p { color: #475569; margin: 0 0 16px; }
         .body p:last-child { margin-bottom: 0; }
-        .body ul { color: #475569; margin: 0; padding-left: 1.25rem; }
+        .body ul { color: #475569; margin: 0; padding-inline-start: 1.25rem; }
         .body li + li { margin-top: 8px; }
         .btn { display: inline-block; font-weight: 600; padding: 10px 20px; border-radius: 8px; text-decoration: none; transition: background-color .15s; }
         .btn-light { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
@@ -86,7 +86,7 @@ const STYLE = `
         h1 { color: #111; }
         h2 { margin-top: 2em; color: #111; }
         table { border-collapse: collapse; width: 100%; font-size: 0.95em; }
-        th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; vertical-align: top; }
+        th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: start; vertical-align: top; }
         th { background: #f3f3f3; }
         nav.langs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5em; }
         nav.langs button { font: inherit; font-size: 0.85em; padding: 4px 10px; border: 1px solid #bbb; border-radius: 999px; background: #fff; color: #333; cursor: pointer; }
@@ -100,7 +100,7 @@ function renderPage(file, page) {
     const doc = page[code];
     if (!doc) throw new Error(`${file}: falta el idioma ${code}`);
     const content = STEPS_PAGES.includes(file) ? renderSteps(doc.blocks) : doc.blocks.map(renderBlock).join('\n');
-    return `<section lang="${code}" data-lang="${code}" data-name="${esc(LANGUAGE_NAMES[code])}" data-title="${esc(doc.title)}">\n${content}\n</section>`;
+    return `<section lang="${code}"${RTL_LANGUAGES.includes(code) ? ' dir="rtl"' : ''} data-lang="${code}" data-name="${esc(LANGUAGE_NAMES[code])}" data-title="${esc(doc.title)}">\n${content}\n</section>`;
   }).join('\n\n');
   return `<!DOCTYPE html>
 <html lang="en">

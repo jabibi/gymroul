@@ -16,3 +16,14 @@ export function swipeDirection(dx, dy) {
   if (Math.abs(dx) < Math.abs(dy) * SWIPE_MIN_RATIO) return null;
   return dx < 0 ? 'left' : 'right';
 }
+
+/**
+ * Cuántas diapositivas avanza un deslizamiento: +1 a la siguiente, -1 a la anterior. En un idioma de derecha a
+ * izquierda la siguiente queda a la izquierda, así que se llega a ella deslizando a la derecha.
+ * @param {'left' | 'right'} direction
+ * @param {boolean} rtl
+ * @returns {1 | -1}
+ */
+export function swipeStep(direction, rtl) {
+  return (direction === 'left') === !rtl ? 1 : -1;
+}

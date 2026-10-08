@@ -38,9 +38,12 @@ describe('ficha de Google Play', () => {
         }
       });
 
-      it('la descripción completa ya no menciona Google Analytics y cita los idiomas disponibles', () => {
+      it('la descripción completa ya no menciona Google Analytics, las novedades anuncian que se quitó y cita los idiomas disponibles', () => {
         expect(listing.full).not.toContain('Google Analytics');
-        expect(listing.notes).not.toContain('Google Analytics');
+        // Las novedades de la 1.13 anuncian que se ha quitado: es lo único donde aparece el nombre
+        expect(listing.notes).toContain('Google Analytics');
+        // Play ya pone el título «Novedades» en su propio campo: el texto empieza directamente por las viñetas
+        expect(listing.notes.startsWith('• '), 'sin encabezado «Novedades:»').toBe(true);
         for (const name of ['English', 'Español', 'Euskara', 'Galego', 'Català', 'Français', 'Deutsch', 'Italiano', 'Polski', 'हिन्दी', 'Türkçe', 'Português']) expect(listing.full, name).toContain(name);
       });
     });

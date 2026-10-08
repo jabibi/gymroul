@@ -14,8 +14,8 @@ const placeholders = text => [...text.matchAll(/\{(\w+)\}/g)].map(m => m[1]).sor
 afterEach(() => setLanguage(DEFAULT_LANGUAGE, { persist: false }));
 
 describe('idiomas disponibles', () => {
-  it('son los diecisiete esperados, por orden alfabético del nombre y con las variantes junto a su idioma', () => {
-    expect(codes).toEqual(['ca', 'de', 'en', 'en-GB', 'en-AU', 'es', 'es-419', 'eu', 'fr', 'fr-CA', 'gl', 'hi', 'it', 'pl', 'pt-BR', 'pt-PT', 'tr']);
+  it('son los dieciocho esperados, por orden alfabético del nombre y con las variantes junto a su idioma', () => {
+    expect(codes).toEqual(['ar', 'ca', 'de', 'en', 'en-GB', 'en-AU', 'es', 'es-419', 'eu', 'fr', 'fr-CA', 'gl', 'hi', 'it', 'pl', 'pt-BR', 'pt-PT', 'tr']);
   });
 });
 
@@ -70,7 +70,7 @@ describe('detección del idioma', () => {
   const cases = [
     [['es-ES'], 'es'], [['es'], 'es'], [['es-MX', 'en'], 'es-419'], [['es-AR'], 'es-419'], [['es-419'], 'es-419'], [['es-CO'], 'es-419'], [['fr-CA'], 'fr-CA'], [['fr-FR'], 'fr'], [['fr-BE'], 'fr'], [['en-GB'], 'en-GB'], [['en-US'], 'en'], [['en-AU'], 'en-AU'], [['en-NZ'], 'en-GB'], [['en-IE'], 'en-GB'], [['en-IN'], 'en-GB'], [['en-CA'], 'en'], [['en'], 'en'], [['eu-ES'], 'eu'], [['gl'], 'gl'], [['ca-ES'], 'ca'],
     [['pt-PT'], 'pt-PT'], [['pt-BR'], 'pt-BR'], [['pt'], 'pt-BR'], [['pt_PT'], 'pt-PT'],
-    [['de', 'fr'], 'de'], [['de-AT'], 'de'], [['de-CH'], 'de'], [['it-IT'], 'it'], [['it-CH'], 'it'], [['zh-CN', 'it'], 'it'], [['pl-PL'], 'pl'], [['pl'], 'pl'], [['hi-IN'], 'hi'], [['hi'], 'hi'], [['tr-TR'], 'tr'], [['tr'], 'tr'], [['zh-CN', 'tr'], 'tr'], [['zh-CN'], 'en'], [[], 'en'], [['EU'], 'eu'],
+    [['de', 'fr'], 'de'], [['de-AT'], 'de'], [['de-CH'], 'de'], [['it-IT'], 'it'], [['it-CH'], 'it'], [['zh-CN', 'it'], 'it'], [['pl-PL'], 'pl'], [['pl'], 'pl'], [['hi-IN'], 'hi'], [['hi'], 'hi'], [['ar-SA'], 'ar'], [['ar'], 'ar'], [['ar-EG', 'en'], 'ar'], [['tr-TR'], 'tr'], [['tr'], 'tr'], [['zh-CN', 'tr'], 'tr'], [['zh-CN'], 'en'], [[], 'en'], [['EU'], 'eu'],
   ];
   for (const [prefs, expected] of cases) {
     it(`${JSON.stringify(prefs)} -> ${expected}`, () => expect(matchLanguage(prefs)).toBe(expected));

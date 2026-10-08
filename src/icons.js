@@ -214,9 +214,16 @@ export const LEGACY_ICON_MAP = {
 export const migrateLegacyIcon = icon =>
   isValidIcon(icon) ? /** @type {string} */ (icon) : normalizeIcon(typeof icon === 'string' ? LEGACY_ICON_MAP[icon] : undefined);
 
-/** Quita tildes y pasa a minúsculas para buscar sin importar acentos. */
+/**
+ * Quita tildes y pasa a minúsculas para buscar sin importar acentos. En árabe también quita la vocalización,
+ * el alargamiento (tatwil) y unifica las formas de alef (أ إ آ → ا), alef maqsura (ى → ي) y ta marbuta (ة → ه),
+ * que se escriben de forma distinta según la persona sin cambiar la palabra.
+ */
 export const normalizeText = (/** @type {string} */ text) =>
-  text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  text.normalize('NFD')
+    .replace(/[\u0300-\u036f\u064b-\u065f\u0670\u0640]/g, '')
+    .replace(/\u0671/g, '\u0627').replace(/\u0649/g, '\u064a').replace(/\u0629/g, '\u0647')
+    .toLowerCase();
 
 /** Etiqueta de un icono en el idioma activo. */
 export { iconLabel, groupName } from './i18n/index.js';

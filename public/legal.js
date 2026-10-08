@@ -26,6 +26,8 @@
     sections.forEach(function (s) { s.hidden = s.getAttribute('data-lang') !== code; });
     var active = sections.filter(function (s) { return s.getAttribute('data-lang') === code; })[0];
     document.documentElement.lang = code;
+    // Idiomas que se escriben de derecha a izquierda (la sección ya lleva dir="rtl"; esto alinea también el selector)
+    document.documentElement.dir = code === 'ar' ? 'rtl' : 'ltr';
     if (active) document.title = active.getAttribute('data-title');
     // Los enlaces a las otras páginas legales conservan el idioma elegido
     Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (a) {

@@ -9,8 +9,8 @@
 </head>
 <body class="bg-dark-950 text-slate-100 h-full flex flex-col justify-between overflow-x-hidden">
 
-    <header class="w-full py-3.5 px-5 glass-card border-b border-slate-800/80 flex justify-between items-center z-20 sticky top-0">
-        <div class="flex items-center space-x-3">
+    <header class="w-full py-3.5 px-3 min-[360px]:px-5 glass-card border-b border-slate-800/80 flex justify-between items-center z-20 sticky top-0">
+        <div class="flex items-center min-w-0 space-x-2 min-[360px]:space-x-3 rtl:space-x-reverse">
             <div class="w-10 h-10 rounded-2xl overflow-hidden shadow-lg shadow-brand-500/30 shrink-0">
                 <img src="favicon.svg" alt="" width="40" height="40" class="w-full h-full">
             </div>
@@ -20,13 +20,13 @@
             </div>
         </div>
 
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 rtl:space-x-reverse">
             <button id="soundToggleBtn" data-action="toggle-sound" aria-label="Turn sound on or off" data-i18n-aria-label="header.sound" class="w-10 h-10 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
                 <i id="soundIcon" class="fa-solid fa-volume-high text-sm text-brand-400"></i>
             </button>
             <button data-action="open-history" aria-label="Open history" data-i18n-aria-label="header.history" class="relative w-10 h-10 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
                 <i class="fa-solid fa-clock-rotate-left text-sm"></i>
-                <span id="historyBadge" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-500 text-dark-950 font-black text-[10px] rounded-full flex items-center justify-center hidden border-2 border-dark-950">0</span>
+                <span id="historyBadge" class="absolute -top-1.5 -end-1.5 w-5 h-5 bg-brand-500 text-dark-950 font-black text-[10px] rounded-full flex items-center justify-center hidden border-2 border-dark-950">0</span>
             </button>
             <button data-action="open-config" aria-label="Open settings" data-i18n-aria-label="header.settings" class="w-10 h-10 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
                 <i class="fa-solid fa-sliders text-sm"></i>
@@ -118,7 +118,7 @@
                 </button>
             </div>
 
-            <div id="historyList" class="flex-1 overflow-y-auto space-y-3 pr-1 my-2"></div>
+            <div id="historyList" class="flex-1 overflow-y-auto space-y-3 pe-1 my-2"></div>
 
             <div class="pt-3 border-t border-slate-800 flex justify-between items-center mt-2">
                 <span id="totalCompletedText" class="text-xs text-slate-400 font-bold">0 completados</span>
@@ -142,14 +142,14 @@
                 </button>
             </div>
 
-            <div class="flex-1 overflow-y-auto space-y-5 pr-1 my-1">
+            <div class="flex-1 overflow-y-auto space-y-5 pe-1 my-1">
                 <p class="text-xs text-slate-400" data-i18n="config.intro">Turn reps and exercises on or off, or create and delete them:</p>
 
                 <!-- Repeticiones Section -->
                 <div class="bg-dark-900/60 p-3 rounded-2xl border border-slate-800">
                     <div class="flex justify-between items-center mb-2">
                         <span class="text-xs font-black text-slate-200 uppercase tracking-wider" data-i18n="config.reps">Reps</span>
-                        <div class="space-x-2">
+                        <div class="space-x-2 rtl:space-x-reverse">
                             <button data-action="toggle-reps" data-arg="on" class="text-[11px] text-brand-400 font-bold hover:underline" data-i18n="config.repsAll">All</button>
                             <span class="text-slate-600">|</span>
                             <button data-action="toggle-reps" data-arg="off" class="text-[11px] text-slate-400 font-bold hover:underline" data-i18n="config.repsNone">None</button>
@@ -170,7 +170,7 @@
                 <div class="bg-dark-900/60 p-3 rounded-2xl border border-slate-800">
                     <div class="flex justify-between items-center mb-2">
                         <span class="text-xs font-black text-slate-200 uppercase tracking-wider" data-i18n="config.exercises">Exercises</span>
-                        <div class="space-x-2">
+                        <div class="space-x-2 rtl:space-x-reverse">
                             <button data-action="toggle-exs" data-arg="on" class="text-[11px] text-brand-400 font-bold hover:underline" data-i18n="config.exsAll">All</button>
                             <span class="text-slate-600">|</span>
                             <button data-action="toggle-exs" data-arg="off" class="text-[11px] text-slate-400 font-bold hover:underline" data-i18n="config.exsNone">None</button>
@@ -198,7 +198,7 @@
                         <!-- Selector de iconos: catálogo cerrado, sin texto libre -->
                         <div id="iconPicker" class="hidden rounded-xl border border-slate-800 bg-dark-950/60 p-2 space-y-2">
                             <input type="search" id="iconSearch" placeholder="Search: yoga, hyrox, boxing, weights…" data-i18n-placeholder="config.searchPlaceholder" autocomplete="off" aria-label="Search icon" data-i18n-aria-label="config.searchAria" class="w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
-                            <div id="iconGrid" class="grid grid-cols-6 gap-1.5 max-h-52 overflow-y-auto overscroll-contain pr-1"></div>
+                            <div id="iconGrid" class="grid grid-cols-6 gap-1.5 max-h-52 overflow-y-auto overscroll-contain pe-1"></div>
                         </div>
                     </div>
                 </div>
@@ -231,7 +231,7 @@
     <!-- Introducción de la primera apertura (dos diapositivas): mientras esté visible, el resto de la app queda oculto y bloqueado; Skip la cierra en cualquier momento -->
     <div id="introGate" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="introTitle" class="outline-none hidden fixed inset-0 z-[100] bg-dark-950 flex flex-col">
         <div class="flex justify-between items-center gap-3 px-5 pt-4">
-            <select class="lang-select px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500" data-i18n-aria-label="config.language" aria-label="Language"></select>
+            <select class="lang-select min-w-0 max-w-[62%] px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500" data-i18n-aria-label="config.language" aria-label="Language"></select>
             <button data-action="intro-skip" class="px-3 py-2 rounded-xl text-xs font-black text-slate-300 hover:text-white transition-all" data-i18n="intro.skip">Skip</button>
         </div>
 

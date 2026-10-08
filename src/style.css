@@ -20,7 +20,7 @@
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
     touch-action: manipulation;
     user-select: none;
     -webkit-user-select: none;
@@ -78,4 +78,16 @@ input, textarea {
     .live-marker.is-landed { animation: none; }
     .live-marker.is-spinning #liveIndicatorBadge,
     .live-marker.is-spinning #liveIndicatorText { filter: none; }
+}
+
+/* Árabe (escritura cursiva, de derecha a izquierda): el espaciado entre letras rompe las uniones entre ellas,
+   así que se anula el de las clases de Tailwind (tracking-*) y el de los textos con mayúsculas. */
+:lang(ar), :lang(ar) * {
+    letter-spacing: normal !important;
+}
+
+/* Las letras árabes son más altas y bajan más por debajo de la línea: los selectores necesitan más alto para no recortarlas */
+:lang(ar) select {
+    line-height: 1.7;
+    min-height: 2.5rem;
 }

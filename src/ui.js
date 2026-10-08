@@ -4,7 +4,8 @@
 import { getExercises, getReps, active, markIntroSeen } from './store.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
 import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
-import { t, getLanguage, getLanguageTag, groupName, iconLabel, LANGUAGES } from './i18n/index.js';
+import { swipeStep } from './swipe.js';
+import { t, getLanguage, getLanguageTag, groupName, iconLabel, isRtl, LANGUAGES } from './i18n/index.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
 
@@ -531,7 +532,7 @@ function showIntroSlide(index) {
     show();
   } else {
     // La que sale se desliza hacia el lado contrario al gesto y la nueva entra desde ese lado
-    const sign = introSlide > previous ? 1 : -1;
+    const sign = (introSlide > previous ? 1 : -1) * (isRtl(getLanguage()) ? -1 : 1);
     outgoing.animate(
       [{ opacity: 1, transform: 'translateX(0)' }, { opacity: 0, transform: `translateX(calc(${-sign} * ${SLIDE_OFFSET}))` }],
       { duration: SLIDE_OUT_MS, easing: 'ease-in', fill: 'forwards' },
@@ -578,7 +579,7 @@ export function introNext() {
  * @param {'left' | 'right'} direction
  */
 export function introSwipe(direction) {
-  showIntroSlide(introSlide + (direction === 'left' ? 1 : -1));
+  showIntroSlide(introSlide + swipeStep(direction, isRtl(getLanguage())));
 }
 
 /**

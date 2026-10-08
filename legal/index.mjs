@@ -5,9 +5,10 @@ import credits from './credits.mjs';
 import notFound from './not-found.mjs';
 import closedTesting from './closed-testing.mjs';
 
-export const LANGUAGE_ORDER = ['ca', 'de', 'en', 'es', 'eu', 'fr', 'gl', 'hi', 'it', 'pl', 'pt-BR', 'pt-PT', 'tr'];
+export const LANGUAGE_ORDER = ['ar', 'ca', 'de', 'en', 'es', 'eu', 'fr', 'gl', 'hi', 'it', 'pl', 'pt-BR', 'pt-PT', 'tr'];
 
 export const LANGUAGE_NAMES = {
+  ar: 'العربية',
   en: 'English',
   es: 'Español',
   eu: 'Euskara',
@@ -22,6 +23,9 @@ export const LANGUAGE_NAMES = {
   'pt-BR': 'Português (Brasil)',
   'pt-PT': 'Português (Portugal)',
 };
+
+/** Idiomas que se escriben de derecha a izquierda (su sección lleva dir="rtl"). */
+export const RTL_LANGUAGES = ['ar'];
 
 /** Nombre del archivo publicado en public/ -> contenido por idioma. Las URLs ya declaradas en Play no cambian. */
 export const LEGAL_PAGES = {

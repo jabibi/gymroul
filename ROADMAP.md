@@ -9,9 +9,9 @@ Hecho en esta versión:
 - Firebase Analytics eliminado por completo: sin `src/analytics.js`, sin la dependencia `firebase`, sin consentimiento, sin el interruptor de Configuración y sin orígenes de Google en la CSP. La migración v5 → v6 de `src/store.js` borra la elección guardada (`gymroulette_analytics_consent`).
 - La app de Android ya no declara el permiso de Internet (solo `VIBRATE`).
 - Introducción de dos diapositivas en la primera apertura (cómo funciona la ruleta; offline, sin anuncios, sin trackers, sin cookies innecesarias y sin acceso a la ubicación), con `Skip` arriba y botón Atrás de Android.
-- Nuevos idiomas: polaco, hindi, turco e inglés de Australia (17 en la app y la ficha de Play, 13 en las páginas legales).
+- Nuevos idiomas: polaco, hindi, turco, inglés de Australia y árabe estándar moderno, de derecha a izquierda (18 en la app y la ficha de Play, 14 en las páginas legales).
 - Política de privacidad y eliminación de datos reescritas: sin recopilación; las versiones anteriores a la 1.13 se mencionan en pasado.
-- Ficha de Play: textos sin analítica, capturas de la introducción (07 y 08) y 17 idiomas.
+- Ficha de Play: textos sin analítica, capturas de la introducción (07 y 08) y 18 idiomas.
 
 Pendiente de hacer a mano antes de publicar:
 

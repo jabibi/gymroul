@@ -7,6 +7,7 @@
 //   icons    tabla "id | Etiqueta | palabras clave", una línea por icono
 // El inglés es la fuente de verdad y el respaldo de cualquier texto que falte en otro idioma.
 
+import ar from './locales/ar.js';
 import en from './locales/en.js';
 import enGB from './locales/en-GB.js';
 import enAU from './locales/en-AU.js';
@@ -28,14 +29,15 @@ import { parseIconTable } from './icon-table.js';
 
 /**
  * @typedef {{ strings: Record<string, string>, groups?: Record<string, string>, icons?: string }} LocaleData
- * @typedef {'en' | 'en-GB' | 'en-AU' | 'es' | 'es-419' | 'eu' | 'gl' | 'ca' | 'fr' | 'fr-CA' | 'de' | 'it' | 'pl' | 'hi' | 'tr' | 'pt-BR' | 'pt-PT'} LanguageCode
+ * @typedef {'ar' | 'en' | 'en-GB' | 'en-AU' | 'es' | 'es-419' | 'eu' | 'gl' | 'ca' | 'fr' | 'fr-CA' | 'de' | 'it' | 'pl' | 'hi' | 'tr' | 'pt-BR' | 'pt-PT'} LanguageCode
  */
 
 /**
  * Idiomas disponibles, con su nombre en el propio idioma y la etiqueta BCP 47 para fechas y horas.
- * Van por orden alfabético del nombre (hindi, por «Hindi»), con las variantes regionales junto a su idioma base.
+ * Van por orden alfabético del nombre (árabe por «Arabic» y hindi por «Hindi»), con las variantes regionales junto a su idioma base.
  */
 export const LANGUAGES = /** @type {{ code: LanguageCode, name: string, tag: string }[]} */ ([
+  { code: 'ar', name: 'العربية', tag: 'ar' },
   { code: 'ca', name: 'Català', tag: 'ca' },
   { code: 'de', name: 'Deutsch', tag: 'de-DE' },
   { code: 'en', name: 'English (US)', tag: 'en-US' },
@@ -54,6 +56,12 @@ export const LANGUAGES = /** @type {{ code: LanguageCode, name: string, tag: str
   { code: 'pt-PT', name: 'Português (Portugal)', tag: 'pt-PT' },
   { code: 'tr', name: 'Türkçe', tag: 'tr-TR' },
 ]);
+
+/** Idiomas que se escriben de derecha a izquierda: la página entera pasa a dir="rtl". */
+export const RTL_LANGUAGES = /** @type {LanguageCode[]} */ (['ar']);
+
+/** @param {LanguageCode} code */
+export const isRtl = code => RTL_LANGUAGES.includes(code);
 
 export const DEFAULT_LANGUAGE = /** @type {LanguageCode} */ ('en');
 export const STORAGE_LANGUAGE_KEY = 'gymroulette_language';
@@ -77,7 +85,7 @@ function mergeTables(/** @type {string} */ a, /** @type {string} */ b) {
 
 /** @type {Record<LanguageCode, LocaleData>} */
 export const DICTIONARIES = {
-  en, es, eu, gl, ca, fr, de, it, pl, hi, tr,
+  en, ar, es, eu, gl, ca, fr, de, it, pl, hi, tr,
   'en-GB': extend(en, enGB),
   'en-AU': extend(en, enAU),
   'es-419': extend(es, es419),
@@ -182,7 +190,10 @@ export function setLanguage(code, { persist = true } = {}) {
   if (!isSupported(code)) return false;
   const changed = code !== current;
   current = code;
-  if (typeof document !== 'undefined') document.documentElement.lang = getLanguageTag();
+  if (typeof document !== 'undefined') {
+    document.documentElement.lang = getLanguageTag();
+    document.documentElement.dir = isRtl(code) ? 'rtl' : 'ltr';
+  }
   if (persist) {
     try { localStorage.setItem(STORAGE_LANGUAGE_KEY, code); } catch (e) { /* ignorado */ }
   }

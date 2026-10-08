@@ -162,6 +162,21 @@ export default {
     ['ul', ['<strong>Plus Jakarta Sans</strong>, licencja SIL Open Font License 1.1.']],
   ] },
 
+  ar: { title: 'الشكر والتراخيص - GymRoulette', blocks: [
+    ['h1', 'الشكر والتراخيص'],
+    ['p', 'يستخدم GymRoulette الموارد التالية من جهات خارجية. شكرًا لأصحابها.'],
+    ['h2', 'أيقونات التمارين'],
+    ['ul', [
+      `<strong>Material Design Icons</strong> (Pictogrammers)، بترخيص ${mdi}. ${mdiSite}`,
+      '<strong>الرموز التصويرية الخاصة بـ GymRoulette</strong> (تمارين الضغط، والبلانك، وتمارين البطن، وتمرين بيربي، وتمرين متسلق الجبال، والقرفصاء).',
+      `<strong>Game Icons</strong> (${gameSite})، أيقونات من Lorc وDelapouite ومساهمين آخرين، بترخيص ${ccBy3}. أُعيد تلوين بعض الأيقونات وتغيير حجمها.`,
+    ]],
+    ['h2', 'أيقونات الواجهة'],
+    ['ul', [`<strong>Font Awesome Free</strong>، الأيقونات بترخيص ${ccBy4}، والخطوط بترخيص SIL OFL 1.1، والشيفرة البرمجية بترخيص MIT. ${faSite}`]],
+    ['h2', 'الخطوط'],
+    ['ul', ['<strong>Plus Jakarta Sans</strong>، بترخيص SIL Open Font License 1.1.']],
+  ] },
+
   hi: { title: 'श्रेय और लाइसेंस - GymRoulette', blocks: [
     ['h1', 'श्रेय और लाइसेंस'],
     ['p', 'GymRoulette नीचे दिए गए थर्ड-पार्टी संसाधनों का उपयोग करता है। उनके रचनाकारों का धन्यवाद।'],
