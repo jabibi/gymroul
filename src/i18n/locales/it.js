@@ -1,7 +1,7 @@
 // Italiano (gli spazi non separabili non servono: in italiano la punteggiatura va attaccata)
 export default {
   strings: {
-    'app.title': 'GymRoulette - Gasteiz Trainning',
+    'app.title': 'GymRoulette - Workout Generator',
 
     'header.sound': 'Attiva o disattiva il suono',
     'header.history': 'Apri la cronologia',

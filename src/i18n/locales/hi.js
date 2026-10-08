@@ -1,7 +1,7 @@
 // हिन्दी (भारत, देवनागरी लिपि, सम्मानसूचक "आप")
 export default {
   strings: {
-    'app.title': 'GymRoulette - Gasteiz Trainning',
+    'app.title': 'GymRoulette - Workout Generator',
 
     'header.sound': 'आवाज़ चालू या बंद करें',
     'header.history': 'इतिहास खोलें',

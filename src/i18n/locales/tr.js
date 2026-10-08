@@ -1,7 +1,7 @@
 // Türkçe (Türkiye, "sen" ile samimi hitap)
 export default {
   strings: {
-    'app.title': 'GymRoulette - Gasteiz Trainning',
+    'app.title': 'GymRoulette - Workout Generator',
 
     'header.sound': 'Sesi aç veya kapat',
     'header.history': 'Geçmişi aç',

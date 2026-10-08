@@ -1,7 +1,7 @@
 // Português (Brasil) — base do português; pt-PT herda deste e redefine só o que muda.
 export default {
   strings: {
-    'app.title': 'GymRoulette - Gasteiz Trainning',
+    'app.title': 'GymRoulette - Workout Generator',
 
     'header.sound': 'Ativar ou desativar o som',
     'header.history': 'Abrir histórico',
