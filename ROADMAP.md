@@ -7,7 +7,7 @@ Objetivos de las próximas versiones. Lo ya publicado está en el historial de c
 - Cambiar «GASTEIZ TRAINNING» por «WORKOUT GENERATOR» u otro mensaje más genérico, para que no haga referencia a mi gimnasio de entrenamiento.
 - En Play Console, cambiar la categoría a Salud y bienestar (Health & Fitness).
 - Reducir los pasos de configuración inicial para que el usuario obtenga valor en menos de 10 segundos tras la primera apertura.
-- Exportación y compartición: permitir exportar resultados o resúmenes en un formato estándar (PDF o imagen legible) con la marca o el enlace de la aplicación, para favorecer la viralidad orgánica. Todo se genera en local y sin conexión; la app solo entrega el archivo al menú de compartir del sistema, así que no hace falta el permiso `INTERNET` ni cambiar la política de privacidad (lo que el usuario haga después con el archivo queda fuera de la app).
+- Exportación y compartición: compartir el resultado como imagen PNG con un texto asociado que incluya el enlace a la app (o algo parecido), para favorecer la viralidad orgánica. Se descarta el PDF. Todo se genera en local y sin conexión; la app solo entrega el archivo al menú de compartir del sistema, así que no hace falta el permiso `INTERNET` ni cambiar la política de privacidad (lo que el usuario haga después con el archivo queda fuera de la app).
 
 ## Ideas sin fecha
 
