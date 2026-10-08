@@ -102,10 +102,13 @@ async function buildBanner(listing, wheel, path, rtl = false) {
   const logo = `data:image/svg+xml;base64,${readFileSync('public/favicon.svg').toString('base64')}`;
   const wheelUri = `data:image/png;base64,${wheel.png.toString('base64')}`;
   const green = '34 197 94';
-  const WHEEL_SIZE = 400;
+  // Play recorta y redondea los bordes del gráfico: se deja un margen lateral de 96 px para que no tape contenido
+  const SIDE = 96;
+  const WHEEL_SIZE = 360;
+  const COPY_WIDTH = 1024 - SIDE * 2 - WHEEL_SIZE - 32;
   const K = WHEEL_SIZE / wheel.box.width; // factor de escala de la captura al gráfico
   // En un idioma de derecha a izquierda el gráfico se espeja: el texto a la derecha y la ruleta a la izquierda
-  const WHEEL_LEFT = rtl ? 56 : 1024 - 56 - WHEEL_SIZE;
+  const WHEEL_LEFT = rtl ? SIDE : 1024 - SIDE - WHEEL_SIZE;
   const START = rtl ? 'right' : 'left';
   const WHEEL_TOP = Math.round((500 - WHEEL_SIZE) / 2) + 12;
   const b = listing.banner;
@@ -115,22 +118,22 @@ async function buildBanner(listing, wheel, path, rtl = false) {
     *{margin:0;box-sizing:border-box}
     body{width:1024px;height:500px;overflow:hidden;font-family:J,'Noto Sans Arabic',sans-serif;color:#fff;position:relative;
       background:radial-gradient(circle at ${rtl ? 24 : 76}% 52%, rgb(${green} / .22), transparent 55%), linear-gradient(135deg,#0B1220,#020617)}
-    .brand{position:absolute;${START}:64px;top:56px;display:flex;align-items:center;gap:16px}
+    .brand{position:absolute;${START}:${SIDE}px;top:56px;display:flex;align-items:center;gap:16px}
     .brand img{width:64px;height:64px;border-radius:16px;box-shadow:0 8px 24px rgb(${green} / .35)}
     .brand b{font-weight:800;font-size:34px;letter-spacing:-.5px;line-height:1}
     .brand b span{color:rgb(${green})}
     .brand small{display:block;font-weight:800;font-size:12px;letter-spacing:3px;color:rgb(74 222 128);margin-top:6px}
-    .copy{position:absolute;${START}:64px;top:168px;width:470px}
+    .copy{position:absolute;${START}:${SIDE}px;top:168px;width:${COPY_WIDTH}px}
     h1{font-weight:800;font-size:56px;line-height:1.08;letter-spacing:-1.5px}
     h1 span{display:block;white-space:nowrap}
     h1 span + span{color:rgb(${green})}
     p{margin-top:26px;font-weight:700;font-size:21px;line-height:1.3;color:#cbd5e1}
-    .btn{position:absolute;${START}:64px;top:392px;padding:16px 32px;border-radius:18px;font-weight:800;font-size:22px;color:#020617;
+    .btn{position:absolute;${START}:${SIDE}px;top:392px;padding:16px 32px;border-radius:18px;font-weight:800;font-size:22px;color:#020617;
       background:linear-gradient(90deg,rgb(22 163 74),rgb(74 222 128));box-shadow:0 10px 30px rgb(${green} / .4)}
     .wheel{position:absolute;left:${WHEEL_LEFT - wheel.PAD.side * K}px;top:${WHEEL_TOP - wheel.PAD.top * K}px;width:${(wheel.box.width + wheel.PAD.side * 2) * K}px;height:auto}
     ${rtl ? '*{letter-spacing:normal!important} h1{line-height:1.3} h1 span{padding-block:2px}' : ''}
   </style>
-  <div class="brand"><img src="${logo}"><div><b>Gym<span>Roulette</span></b><small>GASTEIZ TRAINNING</small></div></div>
+  <div class="brand"><img src="${logo}"><div><b>Gym<span>Roulette</span></b><small>WORKOUT GENERATOR</small></div></div>
   <div class="copy"><h1><span>${esc(b.line1)}</span><span>${esc(b.line2)}</span></h1>
   <p>${esc(b.tagline)}</p></div>
   <div class="btn">${esc(b.button)}</div>
@@ -139,13 +142,13 @@ async function buildBanner(listing, wheel, path, rtl = false) {
   await page.setViewport({ width: 1024, height: 500, deviceScaleFactor: 1 });
   await page.setContent(html, { waitUntil: 'load' });
   await page.evaluate(() => document.fonts.ready);
-  // Cada línea del titular va en una sola línea: si algún idioma no cabe en 470 px, se reduce la letra
-  await page.evaluate(() => {
+  // Cada línea del titular va en una sola línea: si algún idioma no cabe en el ancho del texto, se reduce la letra
+  await page.evaluate(maxWidth => {
     const h1 = document.querySelector('h1');
     const lines = [...h1.children];
     let size = 56;
-    while (size > 36 && lines.some(l => l.scrollWidth > 470)) h1.style.fontSize = `${--size}px`;
-  });
+    while (size > 36 && lines.some(l => l.scrollWidth > maxWidth)) h1.style.fontSize = `${--size}px`;
+  }, COPY_WIDTH);
   await wait(300);
   await savePng(await page.screenshot(), path);
   await page.close();
