@@ -207,4 +207,34 @@ export default {
     ['ul', ['<strong>Plus Jakarta Sans</strong>, SIL Open Font License 1.1.']],
   ] },
 
+  nl: { title: 'Dankwoord en licenties - GymRoulette', blocks: [
+    ['h1', 'Dankwoord en licenties'],
+    ['p', 'GymRoulette gebruikt de volgende bronnen van derden. Dank aan de makers.'],
+    ['h2', 'Oefeningpictogrammen'],
+    ['ul', [
+      `<strong>Material Design Icons</strong> (Pictogrammers), licentie ${mdi}. ${mdiSite}`,
+      '<strong>Eigen pictogrammen van GymRoulette</strong> (push-ups, plank, sit-ups, burpee, mountain climbers en squat).',
+      `<strong>Game Icons</strong> (${gameSite}), pictogrammen van Lorc, Delapouite en andere bijdragers, licentie ${ccBy3}. Sommige pictogrammen zijn van kleur en formaat aangepast.`,
+    ]],
+    ['h2', 'Interfacepictogrammen'],
+    ['ul', [`<strong>Font Awesome Free</strong>, pictogrammen onder ${ccBy4}, lettertypen onder SIL OFL 1.1 en code onder MIT. ${faSite}`]],
+    ['h2', 'Typografie'],
+    ['ul', ['<strong>Plus Jakarta Sans</strong>, SIL Open Font License 1.1.']],
+  ] },
+
+  ja: { title: 'クレジットとライセンス - GymRoulette', blocks: [
+    ['h1', 'クレジットとライセンス'],
+    ['p', 'GymRouletteは、以下のサードパーティのリソースを使用しています。制作者の皆様に感謝します。'],
+    ['h2', 'エクササイズのアイコン'],
+    ['ul', [
+      `<strong>Material Design Icons</strong>（Pictogrammers）、${mdi}ライセンス。${mdiSite}`,
+      '<strong>GymRoulette独自のピクトグラム</strong>（腕立て伏せ、プランク、腹筋、バーピー、マウンテンクライマー、スクワット）。',
+      `<strong>Game Icons</strong>（${gameSite}）、Lorc、Delapouiteほかの制作者によるアイコン、${ccBy3}ライセンス。一部のアイコンは色とサイズを変更しています。`,
+    ]],
+    ['h2', 'インターフェースのアイコン'],
+    ['ul', [`<strong>Font Awesome Free</strong>、アイコンは${ccBy4}、フォントはSIL OFL 1.1、コードはMITライセンス。${faSite}`]],
+    ['h2', 'フォント'],
+    ['ul', ['<strong>Plus Jakarta Sans</strong>、SIL Open Font License 1.1。']],
+  ] },
+
 };

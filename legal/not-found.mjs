@@ -19,4 +19,8 @@ export default {
 
   tr: page('Sayfa bulunamadı - GymRoulette', 'Aradığın sayfa mevcut değil.', 'GymRoulette\'e dön'),
 
+  nl: page('Pagina niet gevonden - GymRoulette', 'De pagina die je zoekt bestaat niet.', 'Terug naar GymRoulette'),
+
+  ja: page('ページが見つかりません - GymRoulette', 'お探しのページは存在しません。', 'GymRouletteに戻る'),
+
 };

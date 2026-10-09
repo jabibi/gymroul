@@ -10,7 +10,7 @@ Disponible como aplicación web (Firebase Hosting) y como app Android (Capacitor
 - Sectores generados automáticamente: repeticiones activas × ejercicios activos (por defecto 6 × 6 = 36).
 - Configuración editable: activar/desactivar, crear y eliminar ejercicios (nombre, nombre corto, icono) y repeticiones (máx. 12 de cada).
 - Selector con ≈100 iconos de muchas disciplinas (fuerza, calistenia, cardio, Hyrox, CrossFit, OCR, artes marciales, yoga, pilates, tai chi, deportes…) con búsqueda; no se admite texto libre ni emojis.
-- Interfaz en 18 idiomas: árabe (de derecha a izquierda), inglés (EE. UU., Reino Unido y Australia), español (España y Latinoamérica), euskera, gallego, catalán, francés (Francia y Canadá), alemán, italiano, polaco, hindi, turco y portugués (Brasil y Portugal). Se elige según el dispositivo y se puede cambiar en Configuración.
+- Interfaz en 20 idiomas: árabe (de derecha a izquierda), inglés (EE. UU., Reino Unido y Australia), español (España y Latinoamérica), euskera, gallego, catalán, francés (Francia y Canadá), alemán, italiano, japonés, neerlandés, polaco, hindi, turco y portugués (Brasil y Portugal). Se elige según el dispositivo y se puede cambiar en Configuración.
 - Historial de la sesión con los retos completados.
 - La configuración se guarda en `localStorage` (con versión de esquema y migraciones).
 - Funciona sin conexión: Tailwind, Font Awesome y la fuente van empaquetados. La app de Android no declara el permiso de Internet.

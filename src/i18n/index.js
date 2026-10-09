@@ -19,6 +19,8 @@ import ca from './locales/ca.js';
 import fr from './locales/fr.js';
 import de from './locales/de.js';
 import it from './locales/it.js';
+import ja from './locales/ja.js';
+import nl from './locales/nl.js';
 import pl from './locales/pl.js';
 import hi from './locales/hi.js';
 import tr from './locales/tr.js';
@@ -29,12 +31,12 @@ import { parseIconTable } from './icon-table.js';
 
 /**
  * @typedef {{ strings: Record<string, string>, groups?: Record<string, string>, icons?: string }} LocaleData
- * @typedef {'ar' | 'en' | 'en-GB' | 'en-AU' | 'es' | 'es-419' | 'eu' | 'gl' | 'ca' | 'fr' | 'fr-CA' | 'de' | 'it' | 'pl' | 'hi' | 'tr' | 'pt-BR' | 'pt-PT'} LanguageCode
+ * @typedef {'ar' | 'en' | 'en-GB' | 'en-AU' | 'es' | 'es-419' | 'eu' | 'gl' | 'ca' | 'fr' | 'fr-CA' | 'de' | 'it' | 'ja' | 'nl' | 'pl' | 'hi' | 'tr' | 'pt-BR' | 'pt-PT'} LanguageCode
  */
 
 /**
  * Idiomas disponibles, con su nombre en el propio idioma y la etiqueta BCP 47 para fechas y horas.
- * Van por orden alfabético del nombre (árabe por «Arabic» y hindi por «Hindi»), con las variantes regionales junto a su idioma base.
+ * Van por orden alfabético del nombre (árabe por «Arabic», hindi por «Hindi» y japonés por «Japanese»), con las variantes regionales junto a su idioma base.
  */
 export const LANGUAGES = /** @type {{ code: LanguageCode, name: string, tag: string }[]} */ ([
   { code: 'ar', name: 'العربية', tag: 'ar' },
@@ -51,6 +53,8 @@ export const LANGUAGES = /** @type {{ code: LanguageCode, name: string, tag: str
   { code: 'gl', name: 'Galego', tag: 'gl' },
   { code: 'hi', name: 'हिन्दी', tag: 'hi-IN' },
   { code: 'it', name: 'Italiano', tag: 'it-IT' },
+  { code: 'ja', name: '日本語', tag: 'ja-JP' },
+  { code: 'nl', name: 'Nederlands', tag: 'nl-NL' },
   { code: 'pl', name: 'Polski', tag: 'pl-PL' },
   { code: 'pt-BR', name: 'Português (Brasil)', tag: 'pt-BR' },
   { code: 'pt-PT', name: 'Português (Portugal)', tag: 'pt-PT' },
@@ -85,7 +89,7 @@ function mergeTables(/** @type {string} */ a, /** @type {string} */ b) {
 
 /** @type {Record<LanguageCode, LocaleData>} */
 export const DICTIONARIES = {
-  en, ar, es, eu, gl, ca, fr, de, it, pl, hi, tr,
+  en, ar, es, eu, gl, ca, fr, de, it, ja, nl, pl, hi, tr,
   'en-GB': extend(en, enGB),
   'en-AU': extend(en, enAU),
   'es-419': extend(es, es419),
