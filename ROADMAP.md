@@ -10,6 +10,13 @@ Objetivos de las próximas versiones. Lo ya publicado está en el historial de c
   - Detalle técnico: Capacitor no trae compartir archivos de serie, así que hará falta el plugin oficial `@capacitor/share` (y probablemente `@capacitor/filesystem` para guardar el PNG temporal). Son plugins locales que no usan red ni Google Play, pero añaden dependencias, y `CLAUDE.md` pide revisar eso. En la web se puede usar la Web Share API, que no necesita nada extra.
 - Nuevos idiomas: neerlandés (`nl`) y japonés (`ja`). Hay que añadirlos en la app (`src/i18n/`), en la ficha de Play (`store/listing.mjs`) y en las páginas legales (`legal/index.mjs`), y regenerar la ficha (`npm run store`). Pasarían a ser 20 idiomas en la app y la ficha, y 16 en las páginas legales.
   - Japonés: necesita una tipografía con caracteres japoneses en las capturas y gráficos de la ficha y en las páginas legales (como se hizo con el árabe), y revisar con `npm run check:layout` que los textos no se corten.
+- Compromiso de privacidad: cambiar el enlace «Política de privacidad» (`config.privacy`, que aparece en `index.html` en Configuración y en la introducción) por «[icono de escudo] Compromiso de privacidad». Al pulsarlo se abrirá un modal con el resumen de las prácticas de software ético, soberano, 100% sin conexión y sin rastreadores:
+  - Sin conexión (100% offline).
+  - Sin rastreadores.
+  - Sin publicidad.
+  - Tus datos son tuyos.
+  - Cero scripts externos.
+  - Hay que traducirlo a los idiomas de la app (las claves nuevas van en `en.js` y en todos). El modal debería seguir enlazando la política de privacidad completa (`privacy.html`), que Play exige y debe seguir accesible. Hace falta un icono de escudo en `src/icons.js` o el catálogo de iconos del enlace, con la clase de Tailwind literal.
 
 ## Peticiones de usuarios
 
