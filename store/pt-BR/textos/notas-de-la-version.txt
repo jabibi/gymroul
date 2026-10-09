@@ -1,5 +1,6 @@
-• Agora também em العربية, Polski, हिन्दी, Türkçe e English (Australia).
-• Google Analytics removido: agora 100% offline, sem rastreadores e sem permissão de Internet.
-• Nova introdução na primeira abertura: como a roleta funciona e o que o app faz (e não faz) com seus dados.
-• Deslize para passar entre os slides da introdução.
-• Correções de erros e melhorias.
+• Novidade: compartilhe seu desafio como imagem com o link do app.
+• Agora também em Nederlands e 日本語.
+• Novo «Compromisso de privacidade» em Configurações: o que o app faz (e não faz) com seus dados.
+• O app abre direto na roleta: sem introdução.
+• Botões e controles maiores e mais fáceis de tocar.
+• Correções de bugs e melhorias.

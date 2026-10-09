@@ -1,5 +1,6 @@
-• Agora tamén en العربية, Polski, हिन्दी, Türkçe e English (Australia).
-• Eliminado Google Analytics: agora 100 % sen conexión, sen rastreadores e sen permiso de Internet.
-• Nova introdución no primeiro inicio: como funciona a ruleta e que fai (e que non fai) a app cos teus datos.
-• Desliza para pasar entre as diapositivas da introdución.
+• Novidade: comparte o teu reto como imaxe coa ligazón á app.
+• Agora tamén en Nederlands e 日本語.
+• Novo «Compromiso de privacidade» en Configuración: o que a app fai (e non fai) cos teus datos.
+• A app ábrese directamente na ruleta: sen introdución.
+• Botóns e controis máis grandes e fáciles de tocar.
 • Corrección de erros e melloras.

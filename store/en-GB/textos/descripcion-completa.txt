@@ -7,6 +7,7 @@ GymRoulette is an exercise wheel: each segment combines a number of reps with an
 • When it stops, you see your challenge: reps and exercise.
 • Mark it as done or skip it and spin again.
 • Check the history for the challenges you completed during the session.
+• Share your challenge as an image with friends.
 
 <b>YOU DECIDE WHAT'S ON THE WHEEL</b>
 • Turn the exercises and reps you want on or off.

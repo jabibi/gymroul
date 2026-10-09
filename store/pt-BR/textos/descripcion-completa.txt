@@ -19,6 +19,7 @@ Escolha entre mais de 100 ícones de muitas modalidades, com busca: força e pes
 
 <b>NO SEU IDIOMA</b>
 العربية, English (EUA, Reino Unido e Austrália), Español (Espanha e América Latina), Euskara, Galego, Català, Français (França e Canadá), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe e Português (Brasil e Portugal). O app segue o idioma do seu celular e você pode mudá-lo em Configurações.
+• Partilha o teu desafio como imagem com os teus amigos.
 
 <b>DETALHES QUE FAZEM DIFERENÇA</b>
 • <b>Som da roleta e vibração</b> quando o resultado aparece.

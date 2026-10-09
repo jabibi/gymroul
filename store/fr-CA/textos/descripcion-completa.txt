@@ -1,6 +1,7 @@
 Pas envie de décider quoi t'entraîner aujourd'hui? Fais tourner la roue et laisse GymRoulette choisir pour toi.
 
 GymRoulette est une roue d'exercices : chaque secteur associe un nombre de répétitions à un exercice (par exemple « 20 Burpee ») et, quand tu la fais tourner, elle te propose un défi au hasard pour t'entraîner à la maison, en salle ou en plein air. Pensée pour varier tes séances, pour des circuits, des défis entre amis et pour tous ceux qui veulent s'entraîner sans se compliquer la vie.
+• Partage ton défi sous forme d'image avec tes amis.
 
 <b>COMMENT ÇA MARCHE</b>
 • Appuie sur « LANCER LA ROUE! » ou lance-la d'un geste du doigt.

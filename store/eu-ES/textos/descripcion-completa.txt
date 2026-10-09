@@ -7,6 +7,7 @@ GymRoulette ariketen gurpila da: sektore bakoitzak errepikapen kopuru bat ariket
 • Gelditzen denean, zure erronka ikusiko duzu: errepikapenak eta ariketa.
 • Markatu egin duzula edo saltatu eta biratu berriro.
 • Begiratu historian saioan zehar egin dituzun erronkak.
+• Partekatu zure erronka irudi gisa zure lagunekin.
 
 <b>ZUK ERABAKITZEN DUZU ZER DAGOEN GURPILEAN</b>
 • Aktibatu edo desaktibatu nahi dituzun ariketak eta errepikapenak.

@@ -1,5 +1,6 @@
-• Jetzt auch in العربية, Polski, हिन्दी, Türkçe und English (Australien).
-• Google Analytics entfernt: jetzt 100 % offline, ohne Tracker und ohne Internet-Berechtigung.
-• Neue Einführung beim ersten Start: wie das Rad funktioniert und was die App mit deinen Daten macht (und was nicht).
-• Wische, um zwischen den Folien der Einführung zu wechseln.
+• Neu: Teile deine Challenge als Bild mit dem Link zur App.
+• Jetzt auch in Nederlands und 日本語.
+• Neues „Datenschutzversprechen“ in den Einstellungen: was die App mit deinen Daten tut (und was nicht).
+• Die App startet direkt mit dem Rad: ohne Einführung.
+• Größere, leichter zu tippende Schaltflächen.
 • Fehlerbehebungen und Verbesserungen.

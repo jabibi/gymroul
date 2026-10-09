@@ -1,5 +1,6 @@
-• Now also in العربية, Polski, हिन्दी, Türkçe and English (Australia).
-• Google Analytics removed: now 100% offline, with no trackers and no Internet permission.
-• New introduction on first launch: how the wheel works and what the app does (and doesn't do) with your data.
-• Swipe to move between the introduction slides.
+• New: share your challenge as an image with a link to the app.
+• Now also in Nederlands and 日本語.
+• New “Privacy commitment” in Settings: what the app does (and doesn't do) with your data.
+• The app opens straight to the wheel: no introduction.
+• Bigger tap targets throughout the app.
 • Bug fixes and improvements.

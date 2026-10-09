@@ -1,2 +1,6 @@
-• Nieuw: nu ook in Nederlands en 日本語.
+• Nieuw: deel je uitdaging als afbeelding met een link naar de app.
+• Nu ook in Nederlands en 日本語.
+• Nieuw: “Privacybelofte” in Instellingen: wat de app met je gegevens doet (en niet doet).
+• De app opent direct met het rad: zonder introductie.
+• Grotere knoppen en bedieningselementen die makkelijker te raken zijn.
 • Bugfixes en verbeteringen.
