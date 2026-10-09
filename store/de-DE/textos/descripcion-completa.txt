@@ -1,6 +1,7 @@
 Keine Lust zu entscheiden, was du heute trainierst? Dreh das Rad und lass GymRoulette für dich wählen.
 
 GymRoulette ist ein Übungsrad: Jedes Segment verbindet eine Anzahl Wiederholungen mit einer Übung (zum Beispiel „20 Burpee“) und gibt dir beim Drehen eine zufällige Aufgabe für dein Training zu Hause, im Fitnessstudio oder draußen. Gemacht, um Abwechslung in deine Einheiten zu bringen, für Zirkeltraining, für Challenges mit Freunden und für alle, die einfach trainieren wollen, ohne lange zu überlegen.
+• Teile deine Challenge als Bild mit deinen Freunden.
 
 <b>SO FUNKTIONIERT'S</b>
 • Tippe auf „RAD DREHEN!“ oder wirf das Rad mit dem Finger an.
@@ -27,6 +28,7 @@ Wähle mit Suchfunktion aus über 100 Symbolen aus vielen Disziplinen: Kraft und
 • <b>Ohne Werbung.</b>
 • <b>100 % offline</b>: sie braucht keine Internetverbindung.
 • <b>Keine Tracker</b> und keine unnötigen Cookies, und sie fragt nie nach deinem Standort.
+• Condividi la tua sfida come immagine con i tuoi amici.
 
 <b>DATENSCHUTZ</b>
 GymRoulette funktioniert vollständig offline und erfasst keine Daten: keine Analyse, keine Tracker, keine Werbung und kein Zugriff auf deinen Standort. Deine Einstellungen werden nur auf deinem Gerät gespeichert. Die Datenschutzerklärung findest du in der App.

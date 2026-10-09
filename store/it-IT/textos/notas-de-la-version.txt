@@ -1,5 +1,6 @@
-• Ora anche in العربية, Polski, हिन्दी, Türkçe e English (Australia).
-• Google Analytics rimosso: ora 100% offline, senza tracker e senza autorizzazione a Internet.
-• Nuova introduzione al primo avvio: come funziona la ruota e cosa fa (e cosa non fa) l'app con i tuoi dati.
-• Scorri per spostarti tra le diapositive dell'introduzione.
-• Correzioni di errori e miglioramenti.
+• Novità: condividi la tua sfida come immagine con il link all'app.
+• Ora anche in Nederlands e 日本語.
+• Nuovo «Impegno per la privacy» nelle impostazioni: cosa fa (e cosa non fa) l'app con i tuoi dati.
+• L'app si apre direttamente sulla ruota: senza introduzione.
+• Pulsanti e controlli più grandi e facili da toccare.
+• Correzioni di bug e miglioramenti.

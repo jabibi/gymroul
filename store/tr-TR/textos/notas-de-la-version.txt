@@ -1,5 +1,6 @@
-• Artık العربية, Polski, हिन्दी, Türkçe ve English (Australia) dillerinde de.
-• Google Analytics kaldırıldı: artık %100 çevrimdışı, izleyici yok, İnternet izni yok.
-• İlk açılışta yeni tanıtım: çarkın nasıl çalıştığı ve uygulamanın verilerinle neler yapıp neler yapmadığı.
-• Tanıtım slaytları arasında geçmek için kaydır.
+• Yeni: meydan okumanı uygulama bağlantısıyla birlikte görsel olarak paylaş.
+• Artık Nederlands ve 日本語 dillerinde de.
+• Ayarlarda yeni “Gizlilik taahhüdü”: uygulamanın verilerinle ne yaptığı (ve ne yapmadığı).
+• Uygulama doğrudan çarkla açılır: tanıtım yok.
+• Daha büyük, dokunması kolay düğmeler.
 • Hata düzeltmeleri ve iyileştirmeler.

@@ -1,5 +1,6 @@
-• Teraz także w językach العربية, Polski, हिन्दी, Türkçe i English (Australia).
-• Usunięto Google Analytics: teraz 100% offline, bez trackerów i bez uprawnienia do Internetu.
-• Nowe wprowadzenie przy pierwszym uruchomieniu: jak działa koło i co aplikacja robi (a czego nie robi) z twoimi danymi.
-• Przesuń palcem, aby przechodzić między slajdami wprowadzenia.
+• Nowość: udostępnij swoje wyzwanie jako obraz z linkiem do aplikacji.
+• Dostępna także w językach: Nederlands i 日本語.
+• Nowe „Zobowiązanie do prywatności” w Ustawieniach: co aplikacja robi (a czego nie robi) z twoimi danymi.
+• Aplikacja od razu otwiera koło: bez wprowadzenia.
+• Większe, łatwiejsze do dotknięcia przyciski.
 • Poprawki błędów i ulepszenia.
