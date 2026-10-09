@@ -21,14 +21,14 @@
         </div>
 
         <div class="flex items-center space-x-2 rtl:space-x-reverse">
-            <button id="soundToggleBtn" data-action="toggle-sound" aria-label="Turn sound on or off" data-i18n-aria-label="header.sound" class="w-10 h-10 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
+            <button id="soundToggleBtn" data-action="toggle-sound" aria-label="Turn sound on or off" data-i18n-aria-label="header.sound" class="w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
                 <i id="soundIcon" class="fa-solid fa-volume-high text-sm text-brand-400"></i>
             </button>
-            <button data-action="open-history" aria-label="Open history" data-i18n-aria-label="header.history" class="relative w-10 h-10 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
+            <button data-action="open-history" aria-label="Open history" data-i18n-aria-label="header.history" class="relative w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
                 <i class="fa-solid fa-clock-rotate-left text-sm"></i>
                 <span id="historyBadge" class="absolute -top-1.5 -end-1.5 w-5 h-5 bg-brand-500 text-dark-950 font-black text-[10px] rounded-full flex items-center justify-center hidden border-2 border-dark-950">0</span>
             </button>
-            <button data-action="open-config" aria-label="Open settings" data-i18n-aria-label="header.settings" class="w-10 h-10 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
+            <button data-action="open-config" aria-label="Open settings" data-i18n-aria-label="header.settings" class="w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
                 <i class="fa-solid fa-sliders text-sm"></i>
             </button>
         </div>
@@ -113,7 +113,7 @@
                     <i class="fa-solid fa-clock-rotate-left text-brand-400 text-lg"></i>
                     <h3 id="historyTitle" class="font-black text-lg text-white" data-i18n="history.title">Session history</h3>
                 </div>
-                <button data-action="close-history" aria-label="Close history" data-i18n-aria-label="history.close" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <button data-action="close-history" aria-label="Close history" data-i18n-aria-label="history.close" class="w-11 h-11 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -122,7 +122,7 @@
 
             <div class="pt-3 border-t border-slate-800 flex justify-between items-center mt-2">
                 <span id="totalCompletedText" class="text-xs text-slate-400 font-bold">0 completados</span>
-                <button data-action="clear-history" class="text-xs text-red-400 hover:text-red-300 font-bold px-3 py-1.5 rounded-xl bg-red-500/10 border border-red-500/20 transition-all" data-i18n="history.clear">
+                <button data-action="clear-history" class="min-h-[44px] text-xs text-red-400 hover:text-red-300 font-bold px-3 py-1.5 rounded-xl bg-red-500/10 border border-red-500/20 transition-all" data-i18n="history.clear">
                     Clear history
                 </button>
             </div>
@@ -137,7 +137,7 @@
                     <i class="fa-solid fa-sliders text-brand-400 text-lg"></i>
                     <h3 id="configTitle" class="font-black text-lg text-white" data-i18n="config.title">Wheel settings</h3>
                 </div>
-                <button data-action="close-config" aria-label="Close settings" data-i18n-aria-label="config.close" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <button data-action="close-config" aria-label="Close settings" data-i18n-aria-label="config.close" class="w-11 h-11 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -149,18 +149,18 @@
                 <div class="bg-dark-900/60 p-3 rounded-2xl border border-slate-800">
                     <div class="flex justify-between items-center mb-2">
                         <span class="text-xs font-black text-slate-200 uppercase tracking-wider" data-i18n="config.reps">Reps</span>
-                        <div class="space-x-2 rtl:space-x-reverse">
-                            <button data-action="toggle-reps" data-arg="on" class="text-[11px] text-brand-400 font-bold hover:underline" data-i18n="config.repsAll">All</button>
+                        <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                            <button data-action="toggle-reps" data-arg="on" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-[11px] text-brand-400 font-bold hover:underline" data-i18n="config.repsAll">All</button>
                             <span class="text-slate-600">|</span>
-                            <button data-action="toggle-reps" data-arg="off" class="text-[11px] text-slate-400 font-bold hover:underline" data-i18n="config.repsNone">None</button>
+                            <button data-action="toggle-reps" data-arg="off" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-[11px] text-slate-400 font-bold hover:underline" data-i18n="config.repsNone">None</button>
                         </div>
                     </div>
                     <div id="repsCheckboxes" class="grid grid-cols-2 gap-2 mb-3"></div>
 
                     <!-- Formulario Añadir Repetición -->
                     <div class="flex items-center gap-2 pt-2 border-t border-slate-800/80">
-                        <input type="number" id="newRepInput" placeholder="E.g. 15" data-i18n-placeholder="config.repPlaceholder" min="1" max="500" class="flex-1 px-3 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
-                        <button data-action="add-rep" class="px-3 py-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all flex items-center gap-1">
+                        <input type="number" id="newRepInput" placeholder="E.g. 15" data-i18n-placeholder="config.repPlaceholder" min="1" max="500" class="min-h-[44px] flex-1 px-3 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                        <button data-action="add-rep" class="min-h-[44px] px-3 py-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all flex items-center gap-1">
                             <i class="fa-solid fa-plus text-[10px]"></i> <span data-i18n="config.add">Add</span>
                         </button>
                     </div>
@@ -170,10 +170,10 @@
                 <div class="bg-dark-900/60 p-3 rounded-2xl border border-slate-800">
                     <div class="flex justify-between items-center mb-2">
                         <span class="text-xs font-black text-slate-200 uppercase tracking-wider" data-i18n="config.exercises">Exercises</span>
-                        <div class="space-x-2 rtl:space-x-reverse">
-                            <button data-action="toggle-exs" data-arg="on" class="text-[11px] text-brand-400 font-bold hover:underline" data-i18n="config.exsAll">All</button>
+                        <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                            <button data-action="toggle-exs" data-arg="on" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-[11px] text-brand-400 font-bold hover:underline" data-i18n="config.exsAll">All</button>
                             <span class="text-slate-600">|</span>
-                            <button data-action="toggle-exs" data-arg="off" class="text-[11px] text-slate-400 font-bold hover:underline" data-i18n="config.exsNone">None</button>
+                            <button data-action="toggle-exs" data-arg="off" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-[11px] text-slate-400 font-bold hover:underline" data-i18n="config.exsNone">None</button>
                         </div>
                     </div>
                     <div id="exsCheckboxes" class="space-y-2 mb-3"></div>
@@ -182,23 +182,23 @@
                     <div class="pt-2 border-t border-slate-800/80 space-y-2">
                         <span class="text-[11px] font-bold text-slate-400 block" data-i18n="config.addExercise">Add a new exercise:</span>
                         <div class="grid grid-cols-2 gap-2">
-                            <input type="text" id="newExName" placeholder="Name (e.g. Plank)" data-i18n-placeholder="config.namePlaceholder" class="px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
-                            <input type="text" id="newExShort" placeholder="Short name" data-i18n-placeholder="config.shortPlaceholder" class="px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                            <input type="text" id="newExName" placeholder="Name (e.g. Plank)" data-i18n-placeholder="config.namePlaceholder" class="min-h-[44px] px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                            <input type="text" id="newExShort" placeholder="Short name" data-i18n-placeholder="config.shortPlaceholder" class="min-h-[44px] px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
                         </div>
                         <div class="flex items-center gap-2">
-                            <button type="button" id="iconPickerBtn" data-action="toggle-icon-picker" aria-expanded="false" aria-controls="iconPicker" aria-label="Choose icon" data-i18n-aria-label="config.chooseIcon" class="flex-1 min-w-0 flex items-center justify-between gap-2 px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white hover:border-slate-600">
+                            <button type="button" id="iconPickerBtn" data-action="toggle-icon-picker" aria-expanded="false" aria-controls="iconPicker" aria-label="Choose icon" data-i18n-aria-label="config.chooseIcon" class="min-h-[44px] flex-1 min-w-0 flex items-center justify-between gap-2 px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white hover:border-slate-600">
                                 <span id="iconPickerCurrent" class="flex items-center gap-2 min-w-0 truncate"></span>
                                 <i class="fa-solid fa-chevron-down text-[10px] text-slate-500"></i>
                             </button>
-                            <button data-action="add-exercise" class="px-3 py-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all flex items-center gap-1 shrink-0">
+                            <button data-action="add-exercise" class="min-h-[44px] px-3 py-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all flex items-center gap-1 shrink-0">
                                 <i class="fa-solid fa-plus text-[10px]"></i> <span data-i18n="config.create">Create</span>
                             </button>
                         </div>
 
                         <!-- Selector de iconos: catálogo cerrado, sin texto libre -->
                         <div id="iconPicker" class="hidden rounded-xl border border-slate-800 bg-dark-950/60 p-2 space-y-2">
-                            <input type="search" id="iconSearch" placeholder="Search: yoga, hyrox, boxing, weights…" data-i18n-placeholder="config.searchPlaceholder" autocomplete="off" aria-label="Search icon" data-i18n-aria-label="config.searchAria" class="w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
-                            <div id="iconGrid" class="grid grid-cols-6 gap-1.5 max-h-52 overflow-y-auto overscroll-contain pe-1"></div>
+                            <input type="search" id="iconSearch" placeholder="Search: yoga, hyrox, boxing, weights…" data-i18n-placeholder="config.searchPlaceholder" autocomplete="off" aria-label="Search icon" data-i18n-aria-label="config.searchAria" class="min-h-[44px] w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                            <div id="iconGrid" class="grid grid-cols-5 gap-1.5 max-h-52 overflow-y-auto overscroll-contain pe-1"></div>
                         </div>
                     </div>
                 </div>
@@ -206,7 +206,7 @@
                 <!-- Idioma -->
                 <label class="flex items-center justify-between gap-3 bg-dark-900/60 p-3 rounded-2xl border border-slate-800">
                     <span class="text-xs font-black text-slate-200 uppercase tracking-wider" data-i18n="config.language">Language</span>
-                    <select class="lang-select px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500" data-i18n-aria-label="config.language" aria-label="Language"></select>
+                    <select class="lang-select min-h-[44px] px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500" data-i18n-aria-label="config.language" aria-label="Language"></select>
                 </label>
 
                 <div class="flex flex-wrap justify-between items-center gap-x-4 text-[11px]">
@@ -232,7 +232,7 @@
     <div id="documentModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="documentTitle" class="outline-none hidden fixed inset-0 z-[110] bg-dark-950 flex flex-col">
         <div class="flex justify-between items-center px-5 py-3.5 glass-card border-b border-slate-800/80">
             <h2 id="documentTitle" class="font-black text-base text-white">Privacy policy</h2>
-            <button data-action="close-document" aria-label="Close" data-i18n-aria-label="doc.close" class="w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+            <button data-action="close-document" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
@@ -247,7 +247,7 @@
                     <i class="fa-solid fa-shield-halved text-brand-400 text-lg" aria-hidden="true"></i>
                     <h2 id="commitmentTitle" class="font-black text-base text-white" data-i18n="config.commitment">Privacy commitment</h2>
                 </div>
-                <button data-action="close-commitment" aria-label="Close" data-i18n-aria-label="doc.close" class="shrink-0 w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <button data-action="close-commitment" aria-label="Close" data-i18n-aria-label="doc.close" class="shrink-0 w-11 h-11 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
