@@ -20,7 +20,7 @@
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', 'Segoe UI', Tahoma, sans-serif;
     touch-action: manipulation;
     user-select: none;
     -webkit-user-select: none;

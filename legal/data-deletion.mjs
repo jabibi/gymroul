@@ -477,4 +477,72 @@ export default {
     ],
   },
 
+  nl: {
+    title: 'Gegevens verwijderen - GymRoulette',
+    blocks: [
+      ['h1', 'Gegevens verwijderen - GymRoulette'],
+      ['p', 'Laatst bijgewerkt: oktober 2026'],
+      ['p', `Op deze pagina lees je hoe je kunt vragen om verwijdering van de gegevens die bij de app <strong>GymRoulette</strong> horen (Android, ${APP_ID}, en de webversie), ontwikkeld door Javier Melendez ("jabibi"). GymRoulette heeft geen gebruikersaccounts: er worden geen naam, e-mailadres of wachtwoord opgeslagen.`],
+
+      ['h2', '1. Gegevens op je apparaat'],
+      ['p', 'De instellingen van je oefeningen en herhalingen worden alleen op je apparaat opgeslagen en nooit naar onze servers gestuurd. Zo verwijder je ze:'],
+      ['ol', [
+        '<strong>Android:</strong> Instellingen &gt; Apps &gt; GymRoulette &gt; Opslag &gt; <em>Gegevens wissen</em>, of verwijder de app.',
+        `<strong>Web:</strong> wis de sitegegevens van ${WEB} in de instellingen van je browser.`,
+      ]],
+      ['p', 'Daarmee verdwijnt alles wat de app over jou opslaat. Sinds versie 1.13 verzamelt de app verder niets.'],
+
+      ['h2', '2. Analysegegevens van eerdere versies (Google Analytics)'],
+      ['p', 'Versies van de app vóór 1.13 boden optioneel Google Analytics aan. Als je dat toen hebt geaccepteerd, kan Google nog gebruiksgegevens bewaren die aan een anonieme identificatiecode van je installatie zijn gekoppeld (sinds versie 1.13 worden er geen nieuwe gegevens meer verzameld). Zo vraag je om verwijdering:'],
+      ['ol', [
+        `Schrijf naar ${mailWithSubject('Gegevens verwijderen - GymRoulette')} met als onderwerp "Gegevens verwijderen - GymRoulette".`,
+        'Vermeld het model van je apparaat, de Android-versie en bij benadering wanneer je de app hebt gebruikt.',
+        'We antwoorden binnen een maand.',
+      ]],
+      ['p', 'Omdat de identificatiecode anoniem is en niet aan je identiteit is gekoppeld, is het in sommige gevallen niet mogelijk om jouw specifieke gegevens te vinden. In dat geval worden de gegevens automatisch verwijderd als de hieronder vermelde bewaartermijn afloopt.'],
+
+      ['h2', '3. Wat wordt verwijderd en wat blijft bewaard'],
+      ['table', ['Gegevens', 'Wat er gebeurt', 'Termijn'], [
+        ['Instellingen van het rad (op je apparaat)', 'Verwijderd zodra je de gegevens wist of de app verwijdert', 'Direct'],
+        ['Installatie-identificatiecode, apparaatgegevens, geschatte locatie en gebruiksgebeurtenissen (Google Analytics, alleen eerdere versies)', 'Op jouw verzoek verwijderd als ze te vinden zijn; anders automatisch verwijderd', 'Antwoord binnen een maand; maximale bewaartermijn van 14 maanden'],
+        ['Kopie van je e-mail en verzoek', 'Alleen bewaard zolang nodig is om het verzoek af te handelen en aan te tonen dat dit is gebeurd', 'Tot 12 maanden nadat het is afgehandeld'],
+      ]],
+      ['p', 'Meer informatie over hoe je gegevens worden verwerkt vind je in het <a href="privacy.html">Privacybeleid</a>.'],
+    ],
+  },
+
+  ja: {
+    title: 'データ削除 - GymRoulette',
+    blocks: [
+      ['h1', 'データ削除 - GymRoulette'],
+      ['p', '最終更新：2026年10月'],
+      ['p', `このページでは、Javier Melendez（「jabibi」）が開発した<strong>GymRoulette</strong>アプリ（Android、${APP_ID}、およびそのウェブ版）に関連するデータの削除を依頼する方法を説明します。GymRouletteにはユーザーアカウントがなく、名前、メールアドレス、パスワードは保存されません。`],
+
+      ['h2', '1. 端末に保存されているデータ'],
+      ['p', 'エクササイズと回数の設定は端末内にのみ保存され、当方のサーバーに送信されることはありません。削除するには次の操作を行います。'],
+      ['ol', [
+        '<strong>Android：</strong>設定 &gt; アプリ &gt; GymRoulette &gt; ストレージ &gt; <em>データを消去</em>、またはアプリをアンインストールします。',
+        `<strong>ウェブ：</strong>ブラウザの設定で ${WEB} のサイトデータを消去します。`,
+      ]],
+      ['p', 'これでアプリが保存するお客様に関する情報はすべて削除されます。バージョン1.13以降、アプリはそれ以外のものを一切収集していません。'],
+
+      ['h2', '2. 以前のバージョンの分析データ（Google Analytics）'],
+      ['p', 'バージョン1.13より前のアプリには、任意のGoogle Analyticsが用意されていました。当時それを承諾された場合、Googleにはお客様のインストールの匿名識別子に紐づいた利用データが残っている可能性があります（バージョン1.13以降、新たなデータは収集されていません）。その削除を依頼するには、次の手順で行ってください。'],
+      ['ol', [
+        `${mailWithSubject('Data deletion - GymRoulette')} 宛に、件名「Data deletion - GymRoulette」でメールを送ってください。`,
+        '端末の機種、Androidのバージョン、アプリを使用していたおおよその時期を記載してください。',
+        '1か月以内に返信いたします。',
+      ]],
+      ['p', '識別子は匿名であり、お客様の身元とは結びついていないため、場合によっては該当するデータを特定できないことがあります。その場合、データは下記の保存期間が終了した時点で自動的に削除されます。'],
+
+      ['h2', '3. 削除されるものと保持されるもの'],
+      ['table', ['データ', '対応', '期間'], [
+        ['ルーレットの設定（端末内）', 'データの消去またはアンインストールで削除', '即時'],
+        ['インストール識別子、端末データ、おおよその位置情報、利用イベント（Google Analytics、以前のバージョンのみ）', '特定できる場合はご依頼に応じて削除、特定できない場合は自動的に削除', '1か月以内に返信、保存期間は最長14か月'],
+        ['お客様のメールとご依頼の控え', '依頼の対応と、対応したことの証明に必要な期間のみ保持', '解決後最長12か月'],
+      ]],
+      ['p', 'データの処理について詳しくは、<a href="privacy.html">プライバシーポリシー</a>をご覧ください。'],
+    ],
+  },
+
 };

@@ -1,0 +1,2 @@
+• Nieuw: nu ook in Nederlands en 日本語.
+• Bugfixes en verbeteringen.

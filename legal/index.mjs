@@ -5,7 +5,7 @@ import credits from './credits.mjs';
 import notFound from './not-found.mjs';
 import closedTesting from './closed-testing.mjs';
 
-export const LANGUAGE_ORDER = ['ar', 'ca', 'de', 'en', 'es', 'eu', 'fr', 'gl', 'hi', 'it', 'pl', 'pt-BR', 'pt-PT', 'tr'];
+export const LANGUAGE_ORDER = ['ar', 'ca', 'de', 'en', 'es', 'eu', 'fr', 'gl', 'hi', 'it', 'ja', 'nl', 'pl', 'pt-BR', 'pt-PT', 'tr'];
 
 export const LANGUAGE_NAMES = {
   ar: 'العربية',
@@ -17,6 +17,8 @@ export const LANGUAGE_NAMES = {
   fr: 'Français',
   de: 'Deutsch',
   it: 'Italiano',
+  ja: '日本語',
+  nl: 'Nederlands',
   pl: 'Polski',
   hi: 'हिन्दी',
   tr: 'Türkçe',

@@ -113,7 +113,7 @@ async function buildBanner(listing, wheel, path, rtl = false) {
     @font-face{font-family:J;font-weight:700;src:url(data:font/woff2;base64,${font(700)}) format('woff2')}
     @font-face{font-family:J;font-weight:800;src:url(data:font/woff2;base64,${font(800)}) format('woff2')}
     *{margin:0;box-sizing:border-box}
-    body{width:1024px;height:500px;overflow:hidden;font-family:J,'Noto Sans Arabic',sans-serif;color:#fff;position:relative;
+    body{width:1024px;height:500px;overflow:hidden;font-family:J,'Noto Sans Arabic','Noto Sans JP','Hiragino Sans','Yu Gothic','IPAGothic',sans-serif;color:#fff;position:relative;
       background:radial-gradient(circle at ${rtl ? 24 : 76}% 52%, rgb(${green} / .22), transparent 55%), linear-gradient(135deg,#0B1220,#020617)}
     .brand{position:absolute;${START}:${SIDE}px;top:56px;display:flex;align-items:center;gap:16px}
     .brand img{width:64px;height:64px;border-radius:16px;box-shadow:0 8px 24px rgb(${green} / .35)}

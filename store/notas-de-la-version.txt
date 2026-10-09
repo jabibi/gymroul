@@ -96,6 +96,14 @@
 • Scorri per spostarti tra le diapositive dell'introduzione.
 • Correzioni di errori e miglioramenti.
 </it-IT>
+<ja-JP>
+• 新機能：Nederlandsと日本語に対応しました。
+• 不具合の修正と改善。
+</ja-JP>
+<nl-NL>
+• Nieuw: nu ook in Nederlands en 日本語.
+• Bugfixes en verbeteringen.
+</nl-NL>
 <pl-PL>
 • Teraz także w językach العربية, Polski, हिन्दी, Türkçe i English (Australia).
 • Usunięto Google Analytics: teraz 100% offline, bez trackerów i bez uprawnienia do Internetu.

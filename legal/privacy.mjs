@@ -676,4 +676,100 @@ export default {
     ],
   },
 
+  nl: {
+    title: 'Privacybeleid - GymRoulette',
+    blocks: [
+      ['h1', 'Privacybeleid - GymRoulette'],
+      ['p', 'Laatst bijgewerkt: oktober 2026'],
+      ['p', `Dit beleid beschrijft welke gegevens de app <strong>GymRoulette</strong> (Android, identificatiecode ${APP_ID}, en de webversie op ${WEB}) verwerkt en hoe ze worden gebruikt.`],
+      ['p', '<strong>Kort gezegd: GymRoulette werkt volledig offline en verzamelt, verstuurt of deelt geen enkel persoonsgegeven.</strong>'],
+
+      ['h2', '1. Verwerkingsverantwoordelijke'],
+      ['p', `Verantwoordelijke: Javier Melendez (onafhankelijk ontwikkelaar, "jabibi").<br>Contact: ${MAIL}`],
+
+      ['h2', '2. Gegevens die we verwerken'],
+      ['h3', '2.1 Gegevens die op je apparaat blijven'],
+      ['p', 'De instellingen van je rad (de oefeningen en herhalingen die je maakt of aanzet) worden alleen opgeslagen in de lokale opslag van je apparaat (<code>localStorage</code>). De geschiedenis van de sessie bestaat alleen in het geheugen en verdwijnt zodra je de app sluit. Deze gegevens worden naar geen enkele server gestuurd en je verwijdert ze door de gegevens van de app te wissen of de app te verwijderen.'],
+      ['h3', '2.2 Geen analyse, geen trackers, geen advertenties'],
+      ['p', 'Sinds versie 1.13 bevat de app geen enkel hulpmiddel voor analyse of tracking: er zit geen SDK van derden in, er worden geen advertenties getoond, er worden geen advertentie- of trackingidentificatoren gebruikt en er worden geen cookies gebruikt, behalve de hierboven beschreven lokale opslag, die strikt noodzakelijk is om de app te laten werken. De Android-app maakt geen verbinding met internet.'],
+      ['p', 'GymRoulette verzamelt <strong>geen</strong> naam, e-mailadres, contacten, foto\'s, microfoon, camera, locatie (zelfs niet bij benadering) en ook geen gezondheids- of fitnessgegevens. De app heeft geen gebruikersaccounts.'],
+      ['h3', '2.3 Webversie'],
+      ['p', `Als je de webversie op ${WEB} gebruikt, wordt de pagina geleverd door Firebase Hosting, een dienst van Google. Zoals elke webserver kan die in zijn serverlogboeken technische gegevens verwerken die nodig zijn om de pagina te leveren (zoals je IP-adres en browsertype). De webversie zelf verzamelt geen andere gegevens en laadt geen scripts van derden.`],
+
+      ['h2', '3. Rechtsgrond'],
+      ['p', 'De app verwerkt geen persoonsgegevens, dus er is niets waarvoor je toestemming hoeft te geven. Het opslaan van je instellingen in de lokale opslag is strikt noodzakelijk om de app te laten werken. Bij de webversie is de technische verwerking door de hostingaanbieder nodig om de pagina te leveren (gerechtvaardigd belang, artikel 6, lid 1, onder f, AVG).'],
+
+      ['h2', '4. Ontvangers en doorgifte'],
+      ['p', 'De app stuurt geen gegevens naar wie dan ook, dus er zijn geen ontvangers en geen internationale doorgiften. We verkopen geen gegevens en delen ze niet met advertentienetwerken, en we tonen geen advertenties.'],
+
+      ['h2', '5. Bewaartermijn'],
+      ['p', 'Lokale gegevens blijven bewaard tot je ze verwijdert. Eerdere versies van de app (vóór 1.13) boden optioneel een gebruiksstatistiekendienst van een derde partij aan. Als je die hebt geaccepteerd, blijven de verzamelde gegevens alleen bij die aanbieder gedurende de bewaartermijn van de dienst (maximaal 14 maanden) en worden ze daarna automatisch verwijderd; sinds versie 1.13 worden er geen nieuwe gegevens meer verzameld.'],
+      ['p', 'Meer informatie over hoe die aanbieder deze gegevens verwerkt, vind je in zijn privacybeleid.'],
+
+      ['h2', '6. Je rechten'],
+      ['p', `Je kunt je rechten op inzage, rectificatie, verwijdering, bezwaar, beperking en overdraagbaarheid uitoefenen door te schrijven naar het hierboven vermelde contactadres. Instructies om je gegevens te verwijderen vind je op ${link}. Als je vindt dat je rechten niet zijn nageleefd, kun je een klacht indienen bij je gegevensbeschermingsautoriteit (in Nederland de Autoriteit Persoonsgegevens; in Spanje het Spaanse agentschap voor gegevensbescherming: ${AEPD}).`],
+      ['p', 'Als je een eerdere versie met die optionele gebruiksstatistiekendienst hebt gebruikt en wilt dat de bijbehorende gegevens worden verwijderd, kunnen we je om de pseudonieme identificatiecode van je installatie vragen om het verzoek af te handelen; je kunt die ook opnieuw instellen door de gegevens van de app te wissen of de app te verwijderen.'],
+
+      ['h2', '7. Toestemmingen van het apparaat'],
+      ['p', 'De app vraagt maar één toestemming aan: <strong>trillen</strong> (voor de effecten van het rad). Het is een gewone toestemming waarvoor je geen bevestiging hoeft te geven, en er wordt via deze toestemming geen informatie verzameld. De app vraagt geen toegang tot internet of locatie aan. De audio van het apparaat wordt alleen gebruikt om de geluiden van het rad af te spelen.'],
+
+      ['h2', '8. Kinderen'],
+      ['p', 'GymRoulette is niet gericht op kinderen onder de 14 jaar en verzamelt van niemand persoonsgegevens, ook niet van minderjarigen. Denk je dat een minderjarige ons gegevens heeft gegeven, neem dan contact met ons op, dan verwijderen we ze.'],
+
+      ['h2', '9. Beveiliging'],
+      ['p', 'Je gegevens verlaten je apparaat nooit en worden dus beschermd door de app-isolatie van het besturingssysteem. De webversie wordt aangeboden via HTTPS.'],
+
+      ['h2', '10. Wijzigingen in dit beleid'],
+      ['p', 'Als het beleid verandert, publiceren we de nieuwe versie op ditzelfde adres en passen we de datum bovenaan aan.'],
+    ],
+  },
+
+  ja: {
+    title: 'プライバシーポリシー - GymRoulette',
+    blocks: [
+      ['h1', 'プライバシーポリシー - GymRoulette'],
+      ['p', '最終更新：2026年10月'],
+      ['p', `本ポリシーでは、<strong>GymRoulette</strong>アプリ（Android、識別子 ${APP_ID}、および ${WEB} のウェブ版）が処理するデータと、その利用方法について説明します。`],
+      ['p', '<strong>要点：GymRouletteは完全オフラインで動作し、個人データを収集・送信・共有することは一切ありません。</strong>'],
+
+      ['h2', '1. データ管理者'],
+      ['p', `管理者：Javier Melendez（個人開発者、「jabibi」）<br>連絡先：${MAIL}`],
+
+      ['h2', '2. 処理するデータ'],
+      ['h3', '2.1 お使いの端末内にとどまるデータ'],
+      ['p', 'ルーレットの設定（作成した、またはオンにしたエクササイズと回数）は、端末のローカルストレージ（<code>localStorage</code>）にのみ保存されます。セッション履歴はメモリ上にのみ存在し、アプリを閉じると消えます。これらのデータはどのサーバーにも送信されません。削除するには、アプリのデータを消去するか、アプリをアンインストールしてください。'],
+      ['h3', '2.2 分析ツール、トラッカー、広告は一切なし'],
+      ['p', 'バージョン1.13以降、アプリにはいかなる種類の分析・トラッキングツールもありません。サードパーティ製SDKは含まれず、広告は表示されず、広告用やトラッキング用の識別子も使用せず、アプリの動作に不可欠な上記のローカルストレージ以外にCookieも使用しません。Androidアプリはインターネットに接続しません。'],
+      ['p', 'GymRouletteは、お名前、メールアドレス、連絡先、写真、マイク、カメラ、位置情報（おおよその位置も含む）、健康やフィットネスに関するデータを<strong>収集しません</strong>。アプリにユーザーアカウントはありません。'],
+      ['h3', '2.3 ウェブ版'],
+      ['p', `${WEB} のウェブ版をご利用の場合、ページはGoogleのサービスであるFirebase Hostingから配信されます。一般的なウェブサーバーと同様に、ページの配信に必要な技術的データ（IPアドレスやブラウザの種類など）がサーバーログで処理されることがあります。ウェブ版自体は、それ以外のデータを収集せず、サードパーティのスクリプトも読み込みません。`],
+
+      ['h2', '3. 法的根拠'],
+      ['p', 'アプリは個人データを処理しないため、同意の対象となるものはありません。設定をローカルストレージに保存することは、アプリの動作に不可欠です。ウェブ版については、ホスティング事業者による技術的な処理がページの配信に必要です（正当な利益、GDPR第6条第1項(f)）。'],
+
+      ['h2', '4. 受領者と移転'],
+      ['p', 'アプリは誰にもデータを送信しないため、受領者や国際移転はありません。データの販売や広告ネットワークとの共有は行わず、広告も表示しません。'],
+
+      ['h2', '5. 保存期間'],
+      ['p', 'ローカルデータは、お客様が削除するまで保持されます。以前のバージョン（1.13より前）には、サードパーティの利用統計サービスが任意で用意されていました。そのサービスを承諾された場合、収集されたデータは、そのサービスの保存期間（最長14か月）のみ当該事業者に残り、その後自動的に削除されます。バージョン1.13以降、新たなデータは収集されていません。'],
+      ['p', '当該事業者によるデータの取り扱いについて詳しくは、その事業者のプライバシーポリシーをご覧ください。'],
+
+      ['h2', '6. お客様の権利'],
+      ['p', `上記の連絡先までご連絡いただくことで、開示、訂正、削除、異議申し立て、処理の制限、データポータビリティの権利を行使できます。データの削除方法は ${link} をご覧ください。お客様の権利が尊重されていないとお考えの場合は、お住まいの地域のデータ保護当局に苦情を申し立てることができます（スペインの場合はスペインデータ保護庁：${AEPD}）。`],
+      ['p', '以前のバージョンで任意の利用統計サービスを使用していて、そのデータの削除をご希望の場合、対応のためにお客様のインストールの仮名識別子をお尋ねすることがあります。この識別子は、アプリのデータを消去するかアンインストールすることでリセットすることもできます。'],
+
+      ['h2', '7. 端末の権限'],
+      ['p', 'アプリが要求する権限は<strong>バイブレーション</strong>（ルーレットの演出用）の1つだけです。これは確認を必要としない通常の権限で、これを通じて情報が収集されることはありません。アプリはインターネットへのアクセスや位置情報を要求しません。端末の音声は、ルーレットの効果音を再生するためにのみ使用されます。'],
+
+      ['h2', '8. お子様について'],
+      ['p', 'GymRouletteは14歳未満のお子様を対象としておらず、未成年者を含め、誰からも個人データを収集しません。未成年者がデータを提供したと思われる場合は、ご連絡ください。削除いたします。'],
+
+      ['h2', '9. セキュリティ'],
+      ['p', 'データが端末の外に出ることはないため、OSによるアプリの分離で保護されています。ウェブ版はHTTPSで配信されます。'],
+
+      ['h2', '10. 本ポリシーの変更'],
+      ['p', '本ポリシーを変更する場合は、同じアドレスに新しいバージョンを公開し、冒頭に表示している日付を更新します。'],
+    ],
+  },
+
 };
