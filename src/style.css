@@ -91,3 +91,9 @@ input, textarea {
     line-height: 1.7;
     min-height: 2.5rem;
 }
+
+/* Barras de desplazamiento finas y oscuras (en escritorio, las nativas salen blancas sobre el fondo oscuro) */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #334155 transparent;
+}
