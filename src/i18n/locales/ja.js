@@ -19,6 +19,10 @@ export default {
     'result.desc': 'ナイスチャレンジ！正しいフォームで{exercise}を{reps}回やりましょう。',
     'result.skip': 'このチャレンジをスキップ',
     'result.done': '完了！',
+    'result.share': '共有',
+    'share.text': 'GymRouletteで出たチャレンジ：{challenge}！ルーレットを回して、あなたもトレーニングしよう：{url}',
+    'share.saved': '画像をダウンロードしました',
+    'share.failed': 'チャレンジを共有できませんでした',
 
     'history.title': 'セッション履歴',
     'history.close': '履歴を閉じる',

@@ -12,6 +12,7 @@ import {
 } from './store.js';
 import { toggleSound, initAudio } from './audio.js';
 import * as ui from './ui.js';
+import { cleanShareCache } from './share.js';
 import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from './i18n/index.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
@@ -123,6 +124,7 @@ const actions = {
     ui.closeConfig();
   },
 
+  'share-result': () => ui.shareResult(),
   'open-commitment': () => ui.openCommitment(),
   'close-commitment': () => ui.closeCommitment(),
   'open-privacy': () => ui.openDocument('privacy'),
@@ -179,6 +181,7 @@ function init() {
   rebuildWheel();
   resize();
   ui.renderHistory();
+  cleanShareCache(); // por si quedó la imagen temporal de un reto compartido en otra sesión
 }
 
 init();

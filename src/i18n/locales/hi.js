@@ -19,6 +19,10 @@ export default {
     'result.desc': 'शानदार चुनौती! सही तकनीक के साथ {exercise} के {reps} रेप्स करें।',
     'result.skip': 'यह चुनौती छोड़ें',
     'result.done': 'हो गया!',
+    'result.share': 'शेयर करें',
+    'share.text': 'मेरी GymRoulette चुनौती: {challenge}! चक्र घुमाएँ और आप भी वर्कआउट करें: {url}',
+    'share.saved': 'इमेज डाउनलोड हो गई',
+    'share.failed': 'चुनौती शेयर नहीं हो सकी',
 
     'history.title': 'सेशन का इतिहास',
     'history.close': 'इतिहास बंद करें',

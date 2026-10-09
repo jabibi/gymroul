@@ -4,8 +4,7 @@ Objetivos de las próximas versiones. Lo ya publicado está en el historial de c
 
 ## 1.14 (RandWork): en preparación
 
-- Exportación y compartición: compartir el resultado como imagen PNG con un texto asociado que incluya el enlace a la app (o algo parecido), para favorecer la viralidad orgánica. Se descarta el PDF. Todo se genera en local y sin conexión; la app solo entrega el archivo al menú de compartir del sistema, así que no hace falta el permiso `INTERNET` ni cambiar la política de privacidad (lo que el usuario haga después con el archivo queda fuera de la app).
-  - Detalle técnico: Capacitor no trae compartir archivos de serie, así que hará falta el plugin oficial `@capacitor/share` (y probablemente `@capacitor/filesystem` para guardar el PNG temporal). Son plugins locales que no usan red ni Google Play, pero añaden dependencias, y `CLAUDE.md` pide revisar eso. En la web se puede usar la Web Share API, que no necesita nada extra.
+_Todo lo previsto para esta versión está hecho; falta subir la versión (`package.json`), escribir las novedades de la ficha en los 20 idiomas y regenerar la ficha (`npm run store`)._
 
 ## Peticiones de usuarios
 

@@ -19,6 +19,10 @@ export default {
     'result.desc': 'Excellent défi ! Fais {reps} répétitions de {exercise} avec une technique parfaite.',
     'result.skip': 'Passer ce défi',
     'result.done': 'Terminé !',
+    'result.share': 'Partager',
+    'share.text': 'Mon défi GymRoulette : {challenge} ! Fais tourner la roue et entraîne-toi aussi : {url}',
+    'share.saved': 'Image téléchargée',
+    'share.failed': 'Impossible de partager le défi',
 
     'history.title': 'Historique de la séance',
     'history.close': "Fermer l'historique",

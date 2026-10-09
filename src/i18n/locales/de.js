@@ -19,6 +19,10 @@ export default {
     'result.desc': 'Starke Herausforderung! Mach {reps} Wiederholungen {exercise} mit perfekter Technik.',
     'result.skip': 'Diese Herausforderung überspringen',
     'result.done': 'Geschafft!',
+    'result.share': 'Teilen',
+    'share.text': 'Meine GymRoulette-Challenge: {challenge}! Dreh das Rad und trainiere auch du: {url}',
+    'share.saved': 'Bild heruntergeladen',
+    'share.failed': 'Die Challenge konnte nicht geteilt werden',
 
     'history.title': 'Trainingsverlauf',
     'history.close': 'Verlauf schließen',

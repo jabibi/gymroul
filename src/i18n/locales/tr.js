@@ -19,6 +19,10 @@ export default {
     'result.desc': 'Harika bir meydan okuma! Kusursuz formla {reps} tekrar {exercise} yap.',
     'result.skip': 'Bu meydan okumayı geç',
     'result.done': 'Tamam!',
+    'result.share': 'Paylaş',
+    'share.text': 'GymRoulette meydan okumam: {challenge}! Çarkı çevir, sen de antrenman yap: {url}',
+    'share.saved': 'Görsel indirildi',
+    'share.failed': 'Meydan okuma paylaşılamadı',
 
     'history.title': 'Antrenman geçmişi',
     'history.close': 'Geçmişi kapat',
