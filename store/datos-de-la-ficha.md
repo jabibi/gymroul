@@ -8,7 +8,7 @@
 | Créditos | https://gymroul.web.app/credits.html |
 | Correo de contacto | javimelex@gmail.com |
 | Identificador de la app | eus.jabibi.gymroul |
-| Versión | 1.13 (the 13th) (versionCode 13); se define en `package.json` |
+| Versión | 1.14 (RandWork) (versionCode 14); se define en `package.json` |
 
 Las páginas existen solo después de desplegar la web (`npm run deploy`). Cada una contiene los dieciséis idiomas y muestra el del navegador del visitante, con un selector arriba; la misma URL vale para todas las fichas. Se puede forzar uno con `?lang=eu`.
 
