@@ -15,7 +15,7 @@ Disponible como aplicación web (Firebase Hosting) y como app Android (Capacitor
 - La configuración se guarda en `localStorage` (con versión de esquema y migraciones).
 - Funciona sin conexión: Tailwind, Font Awesome y la fuente van empaquetados. La app de Android no declara el permiso de Internet.
 - Sin analítica, sin anuncios, sin rastreadores y sin acceso a la ubicación: no envía ningún dato fuera del dispositivo.
-- Introducción de dos diapositivas en la primera apertura (cómo funciona la ruleta y qué hace la app con tus datos); se puede saltar con `Skip`.
+- Se abre directamente la ruleta, sin introducción: el enlace «Compromiso de privacidad» (en Configuración) resume qué no hace la app con tus datos.
 
 ## Hoja de ruta
 

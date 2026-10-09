@@ -209,9 +209,9 @@
                     <select class="lang-select px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500" data-i18n-aria-label="config.language" aria-label="Language"></select>
                 </label>
 
-                <div class="flex flex-wrap justify-between items-center gap-x-4 gap-y-2 text-[11px]">
-                    <button type="button" data-action="open-commitment" class="shrink-0 text-slate-400 underline"><i class="fa-solid fa-shield-halved me-1.5" aria-hidden="true"></i><span data-i18n="config.commitment">Privacy commitment</span></button>
-                    <a href="credits.html" data-action="open-credits" class="shrink-0 text-slate-400 underline" data-i18n="config.credits">Credits</a>
+                <div class="flex flex-wrap justify-between items-center gap-x-4 text-[11px]">
+                    <button type="button" data-action="open-commitment" class="shrink-0 inline-flex items-center min-h-[44px] px-3 -mx-3 text-slate-400 underline"><i class="fa-solid fa-shield-halved me-1.5" aria-hidden="true"></i><span data-i18n="config.commitment">Privacy commitment</span></button>
+                    <a href="credits.html" data-action="open-credits" class="shrink-0 inline-flex items-center min-h-[44px] px-3 -mx-3 text-slate-400 underline" data-i18n="config.credits">Credits</a>
                 </div>
             </div>
 
@@ -228,57 +228,7 @@
         <div id="toastText" class="glass-card rounded-xl px-4 py-2 text-xs font-bold text-slate-100 border border-brand-500/40 shadow-2xl"></div>
     </div>
 
-    <!-- Introducción de la primera apertura (dos diapositivas): mientras esté visible, el resto de la app queda oculto y bloqueado; Skip la cierra en cualquier momento -->
-    <div id="introGate" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="introTitle" class="outline-none hidden fixed inset-0 z-[100] bg-dark-950 flex flex-col">
-        <div class="flex justify-between items-center gap-3 px-5 pt-4">
-            <select class="lang-select min-w-0 max-w-[62%] px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500" data-i18n-aria-label="config.language" aria-label="Language"></select>
-            <button data-action="intro-skip" class="px-3 py-2 rounded-xl text-xs font-black text-slate-300 hover:text-white transition-all" data-i18n="intro.skip">Skip</button>
-        </div>
-
-        <div id="introSlides" class="flex-1 overflow-y-auto touch-pan-y flex items-center justify-center p-4">
-            <div class="glass-card w-full max-w-sm rounded-3xl p-6 shadow-2xl border border-brand-500/50 glow-brand">
-                <section data-intro-slide="0" aria-labelledby="introTitle">
-                    <div class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
-                        <i class="fa-solid fa-bullseye"></i>
-                    </div>
-                    <h2 id="introTitle" class="text-xl font-black text-white mb-4 tracking-tight text-center" data-i18n="intro.how.title">How the wheel works</h2>
-                    <ol class="space-y-3 text-sm text-slate-200 leading-relaxed">
-                        <li class="flex gap-3"><span class="shrink-0 w-6 h-6 rounded-full bg-brand-500 text-dark-950 font-black text-xs flex items-center justify-center">1</span><span data-i18n="intro.how.spin">Tap “SPIN THE WHEEL!” or fling the wheel with your finger.</span></li>
-                        <li class="flex gap-3"><span class="shrink-0 w-6 h-6 rounded-full bg-brand-500 text-dark-950 font-black text-xs flex items-center justify-center">2</span><span data-i18n="intro.how.result">When it stops, you get a challenge: some reps of an exercise.</span></li>
-                        <li class="flex gap-3"><span class="shrink-0 w-6 h-6 rounded-full bg-brand-500 text-dark-950 font-black text-xs flex items-center justify-center">3</span><span data-i18n="intro.how.done">Mark it as done or skip it, then spin again.</span></li>
-                    </ol>
-                </section>
-
-                <section data-intro-slide="1" class="hidden" aria-labelledby="introTitlePrivate">
-                    <div class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <h2 id="introTitlePrivate" class="text-xl font-black text-white mb-4 tracking-tight text-center" data-i18n="intro.private.title">Offline and private</h2>
-                    <ul class="space-y-3 text-sm text-slate-200 leading-relaxed">
-                        <li class="flex gap-3"><i class="fa-solid fa-check shrink-0 mt-1 text-brand-400"></i><span data-i18n="intro.private.offline">Works completely offline.</span></li>
-                        <li class="flex gap-3"><i class="fa-solid fa-check shrink-0 mt-1 text-brand-400"></i><span data-i18n="intro.private.noAds">No ads.</span></li>
-                        <li class="flex gap-3"><i class="fa-solid fa-check shrink-0 mt-1 text-brand-400"></i><span data-i18n="intro.private.noTrackers">No trackers: nothing leaves your device.</span></li>
-                        <li class="flex gap-3"><i class="fa-solid fa-check shrink-0 mt-1 text-brand-400"></i><span data-i18n="intro.private.noCookies">No unnecessary cookies.</span></li>
-                        <li class="flex gap-3"><i class="fa-solid fa-check shrink-0 mt-1 text-brand-400"></i><span data-i18n="intro.private.noLocation">No access to your location.</span></li>
-                    </ul>
-                    <div class="text-center mt-4">
-                        <button type="button" data-action="open-commitment" class="inline-block text-[11px] text-slate-400 underline"><i class="fa-solid fa-shield-halved me-1.5" aria-hidden="true"></i><span data-i18n="config.commitment">Privacy commitment</span></button>
-                    </div>
-                </section>
-            </div>
-        </div>
-
-        <div class="px-5 pb-6 pt-2 max-w-sm w-full mx-auto">
-            <div class="flex justify-center gap-2 mb-4" role="group" data-i18n-aria-label="intro.steps" aria-label="Introduction">
-                <span data-intro-dot="0" class="w-2.5 h-2.5 rounded-full bg-brand-500"></span>
-                <span data-intro-dot="1" class="w-2.5 h-2.5 rounded-full bg-slate-700"></span>
-            </div>
-            <button id="introNext" data-action="intro-next" class="w-full py-3.5 rounded-xl bg-brand-500 text-dark-950 font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30 active:scale-95" data-i18n="intro.next">Next</button>
-            <button id="introStart" data-action="intro-next" class="hidden w-full py-3.5 rounded-xl bg-brand-500 text-dark-950 font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30 active:scale-95" data-i18n="intro.start">Get started</button>
-        </div>
-    </div>
-
-    <!-- Visor de documentos: política de privacidad y créditos (por encima de la introducción) -->
+    <!-- Visor de documentos: política de privacidad y créditos  -->
     <div id="documentModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="documentTitle" class="outline-none hidden fixed inset-0 z-[110] bg-dark-950 flex flex-col">
         <div class="flex justify-between items-center px-5 py-3.5 glass-card border-b border-slate-800/80">
             <h2 id="documentTitle" class="font-black text-base text-white">Privacy policy</h2>
@@ -289,60 +239,60 @@
         <iframe id="documentFrame" title="Documento" class="flex-1 w-full bg-white border-0"></iframe>
     </div>
 
-    <!-- Compromiso de privacidad: resumen de las prácticas de la app (por encima de la introducción y por debajo del visor de documentos) -->
+    <!-- Compromiso de privacidad: resumen de las prácticas de la app (por debajo del visor de documentos) -->
     <div id="commitmentModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="commitmentTitle" class="outline-none hidden fixed inset-0 z-[105] bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="glass-card w-full max-w-sm max-h-[calc(100dvh-2rem)] rounded-3xl p-6 flex flex-col shadow-2xl border border-brand-500/50 glow-brand">
-            <div class="flex justify-between items-center gap-3 mb-4 pb-3 border-b border-slate-800">
+        <div class="glass-card w-full max-w-sm max-h-[calc(100dvh-2rem)] rounded-3xl p-5 flex flex-col shadow-2xl border border-brand-500/50 glow-brand">
+            <div class="flex justify-between items-center gap-3 mb-3 pb-3 border-b border-slate-800">
                 <div class="flex items-center gap-2.5 min-w-0">
                     <i class="fa-solid fa-shield-halved text-brand-400 text-lg" aria-hidden="true"></i>
-                    <h2 id="commitmentTitle" class="font-black text-lg text-white" data-i18n="config.commitment">Privacy commitment</h2>
+                    <h2 id="commitmentTitle" class="font-black text-base text-white" data-i18n="config.commitment">Privacy commitment</h2>
                 </div>
                 <button data-action="close-commitment" aria-label="Close" data-i18n-aria-label="doc.close" class="shrink-0 w-8 h-8 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
             <div class="flex-1 overflow-y-auto overscroll-contain pe-1">
-                <p class="text-sm text-slate-200 leading-relaxed mb-4" data-i18n="commitment.intro">GymRoulette is ethical, sovereign software: it does what you ask and nothing else.</p>
-                <ul class="space-y-4">
+                <p class="text-xs text-slate-200 leading-relaxed mb-3" data-i18n="commitment.intro">GymRoulette is ethical, sovereign software: it does what you ask and nothing else.</p>
+                <ul class="space-y-3">
                 <li class="flex gap-3">
                     <i class="fa-solid fa-check shrink-0 mt-1 text-brand-400" aria-hidden="true"></i>
                     <div>
                         <p class="text-sm font-black text-white" data-i18n="commitment.offline.title">100% offline</p>
-                        <p class="text-xs text-slate-300 leading-relaxed mt-0.5" data-i18n="commitment.offline.text">It works without a connection. The app does not even request Internet permission.</p>
+                        <p class="text-[11px] text-slate-300 leading-snug mt-0.5" data-i18n="commitment.offline.text">It works without a connection. The app does not even request Internet permission.</p>
                     </div>
                 </li>
                 <li class="flex gap-3">
                     <i class="fa-solid fa-check shrink-0 mt-1 text-brand-400" aria-hidden="true"></i>
                     <div>
                         <p class="text-sm font-black text-white" data-i18n="commitment.noTrackers.title">No trackers</p>
-                        <p class="text-xs text-slate-300 leading-relaxed mt-0.5" data-i18n="commitment.noTrackers.text">No analytics, no tracking libraries and no profiles.</p>
+                        <p class="text-[11px] text-slate-300 leading-snug mt-0.5" data-i18n="commitment.noTrackers.text">No analytics, no tracking libraries and no profiles.</p>
                     </div>
                 </li>
                 <li class="flex gap-3">
                     <i class="fa-solid fa-check shrink-0 mt-1 text-brand-400" aria-hidden="true"></i>
                     <div>
                         <p class="text-sm font-black text-white" data-i18n="commitment.noAds.title">No ads</p>
-                        <p class="text-xs text-slate-300 leading-relaxed mt-0.5" data-i18n="commitment.noAds.text">No ads and no ad networks.</p>
+                        <p class="text-[11px] text-slate-300 leading-snug mt-0.5" data-i18n="commitment.noAds.text">No ads and no ad networks.</p>
                     </div>
                 </li>
                 <li class="flex gap-3">
                     <i class="fa-solid fa-check shrink-0 mt-1 text-brand-400" aria-hidden="true"></i>
                     <div>
                         <p class="text-sm font-black text-white" data-i18n="commitment.yourData.title">Your data is yours</p>
-                        <p class="text-xs text-slate-300 leading-relaxed mt-0.5" data-i18n="commitment.yourData.text">Everything you create stays on your device. Clearing the app data erases it.</p>
+                        <p class="text-[11px] text-slate-300 leading-snug mt-0.5" data-i18n="commitment.yourData.text">Everything you create stays on your device. If you delete the app or its data, no trace is left in the cloud.</p>
                     </div>
                 </li>
                 <li class="flex gap-3">
                     <i class="fa-solid fa-check shrink-0 mt-1 text-brand-400" aria-hidden="true"></i>
                     <div>
                         <p class="text-sm font-black text-white" data-i18n="commitment.noScripts.title">Zero external scripts</p>
-                        <p class="text-xs text-slate-300 leading-relaxed mt-0.5" data-i18n="commitment.noScripts.text">All the code is inside the app. Nothing is loaded from other servers.</p>
+                        <p class="text-[11px] text-slate-300 leading-snug mt-0.5" data-i18n="commitment.noScripts.text">All the code is inside the app. Nothing is loaded from other servers.</p>
                     </div>
                 </li>
                 </ul>
             </div>
-            <div class="text-center pt-4 mt-2 border-t border-slate-800">
-                <button type="button" data-action="open-privacy" class="text-xs text-slate-400 underline" data-i18n="commitment.policy">Read the full privacy policy</button>
+            <div class="text-center mt-2 border-t border-slate-800">
+                <button type="button" data-action="open-privacy" class="w-full min-h-[44px] px-4 py-3 text-xs text-slate-400 underline" data-i18n="commitment.policy">Read the full privacy policy</button>
             </div>
         </div>
     </div>

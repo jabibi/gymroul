@@ -70,10 +70,6 @@ describe('árabe: textos de la interfaz', () => {
     }
   });
 
-  it('el botón de girar es el mismo texto que cita la introducción', () => {
-    expect(ar.strings['intro.how.spin']).toContain(`«${ar.strings['spin.button']}»`);
-  });
-
   it('el texto del resultado deja los datos interpolados en su sitio', () => {
     const text = ar.strings['result.desc'];
     expect(text).toContain('{exercise}');

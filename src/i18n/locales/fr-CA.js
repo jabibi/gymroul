@@ -8,7 +8,6 @@ export default {
     'wheel.setup': 'Paramètres',
     'spin.button': 'LANCER LA ROUE!',
 
-    'intro.how.spin': 'Appuie sur « LANCER LA ROUE! » ou lance la roue avec le doigt.',
 
     'result.badge': 'EXERCICE CHOISI!',
     'result.desc': 'Excellent défi! Fais {reps} répétitions de {exercise} avec une technique parfaite.',

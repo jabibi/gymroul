@@ -1,6 +1,6 @@
 // Genera la ficha de Google Play de cada idioma en store/<idioma-de-Play>/:
 //   grafico-de-funciones-1024x500.png   Gráfico de funciones con el texto traducido y la ruleta real
-//   capturas-telefono/01..08-*.png      Capturas 1080x1920 (9:16) de la app real, en ese idioma
+//   capturas-telefono/01..07-*.png      Capturas 1080x1920 (9:16) de la app real, en ese idioma
 //   textos/*.txt                        Título, descripción corta y completa y novedades (de store/listing.mjs)
 // y store/icon.png (512x512), igual para todos los idiomas.
 //
@@ -43,19 +43,16 @@ const savePng = async (input, path) => {
 const server = await preview({ preview: { port: PORT, host: '127.0.0.1', open: false }, logLevel: 'silent' });
 const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--no-sandbox'] });
 
-/** Abre la app en un móvil de 360x640 con factor 3 => capturas de 1080x1920, en el idioma pedido y sin la introducción. */
-async function openApp(appLang, { intro = false } = {}) {
+/** Abre la app en un móvil de 360x640 con factor 3 => capturas de 1080x1920, en el idioma pedido. */
+async function openApp(appLang) {
   const page = await browser.newPage();
   await page.setViewport({ width: 360, height: 640, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
   // Solo se permite la propia app: no se contacta con ningún otro servidor
   await page.setRequestInterception(true);
   page.on('request', req => (req.url().startsWith(BASE) || req.url().startsWith('data:') ? req.continue() : req.abort()));
-  await page.evaluateOnNewDocument(skipIntro => {
-    // Todas las páginas comparten el almacenamiento del navegador: se fija o se borra la marca en cada una
-    if (skipIntro) localStorage.setItem('gymroulette_intro_seen', 'true'); // sin la introducción de la primera apertura
-    else localStorage.removeItem('gymroulette_intro_seen');
+  await page.evaluateOnNewDocument(() => {
     Math.random = () => 0.5; // giros reproducibles
-  }, !intro);
+  });
   await page.goto(`${BASE}?lang=${appLang}`, { waitUntil: 'networkidle0' });
   await page.evaluate(() => document.fonts.ready);
   await wait(500);
@@ -182,7 +179,7 @@ store/
 ├── listing.mjs                              Fuente de los textos de cada idioma
 └── <idioma de Play>/                        ${STORE_LOCALES.map(l => l.play).join(', ')}
     ├── grafico-de-funciones-1024x500.png    Gráfico de funciones con el texto traducido
-    ├── capturas-telefono/                   Ocho capturas 1080 x 1920 (9:16) con la app en ese idioma
+    ├── capturas-telefono/                   Siete capturas 1080 x 1920 (9:16) con la app en ese idioma
     └── textos/
         ├── titulo.txt                       Nombre de la aplicación
         ├── descripcion-corta.txt            Descripción breve
@@ -291,15 +288,14 @@ try {
     await shot(page, '06-busqueda-de-iconos');
     await page.close();
 
-    // Introducción de la primera apertura: cómo funciona la ruleta y el mensaje sin conexión ni seguimiento
-    const intro = await openApp(loc.app, { intro: true });
-    await intro.waitForSelector('#introGate:not(.hidden)');
-    await wait(400);
-    await shot(intro, '07-introduccion-ruleta');
-    await intro.click('#introNext');
-    await wait(400);
-    await shot(intro, '08-introduccion-sin-conexion');
-    await intro.close();
+    // Compromiso de privacidad: resumen de lo que la app no hace con tus datos
+    const commitment = await openApp(loc.app);
+    await commitment.click('[data-action=open-config]');
+    await wait(700);
+    await commitment.evaluate(() => document.querySelector('#configModal [data-action=open-commitment]').click());
+    await wait(500);
+    await shot(commitment, '07-compromiso-de-privacidad');
+    await commitment.close();
 
     await buildBanner(listing, wheel, `${dir}/grafico-de-funciones-1024x500.png`, isRtl(loc.app));
     writeTexts(listing, `${dir}/textos`);

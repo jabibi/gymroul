@@ -25,17 +25,10 @@ export default {
     'error.iconRequired': 'Escolhe um ícone da lista',
     'error.repRange': 'Introduz um número entre 1 e {max}',
 
-    'intro.skip': 'Saltar',
-    'intro.next': 'Seguinte',
-    'intro.how.spin': 'Toca em “GIRAR ROLETA!” ou lança a roleta com o dedo.',
-    'intro.how.result': 'Quando parar, recebes um desafio: algumas repetições de um exercício.',
-    'intro.how.done': 'Marca-o como concluído ou salta-o, e gira novamente.',
-    'intro.private.noTrackers': 'Sem rastreadores: nada sai do teu dispositivo.',
-    'intro.private.noLocation': 'Sem acesso à tua localização.',
     'commitment.intro': 'O GymRoulette é um software ético e soberano: faz o que lhe pedes e nada mais.',
     'commitment.offline.text': 'Funciona sem ligação. A app nem sequer pede a permissão de Internet.',
     'commitment.yourData.title': 'Os teus dados são teus',
-    'commitment.yourData.text': 'Tudo o que crias fica no teu dispositivo. Apagar os dados da app elimina tudo.',
+    'commitment.yourData.text': 'Tudo o que crias fica no teu dispositivo. Se apagares a aplicação ou os respetivos dados, não fica nenhum rasto na nuvem.',
 
   },
 
