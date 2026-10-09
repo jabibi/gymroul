@@ -23,6 +23,8 @@ export default {
     'share.text': 'Nire GymRoulette erronka: {challenge}. Biratu gurpila eta entrenatu zuk ere: {url}',
     'share.saved': 'Irudia deskargatu da',
     'share.failed': 'Ezin izan da erronka partekatu',
+    'share.preparing': 'Zure irudia prestatzen…',
+    'share.cancel': 'Utzi',
 
     'history.title': 'Saioko historia',
     'history.close': 'Itxi historia',

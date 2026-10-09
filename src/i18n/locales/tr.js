@@ -23,6 +23,8 @@ export default {
     'share.text': 'GymRoulette meydan okumam: {challenge}! Çarkı çevir, sen de antrenman yap: {url}',
     'share.saved': 'Görsel indirildi',
     'share.failed': 'Meydan okuma paylaşılamadı',
+    'share.preparing': 'Görsel hazırlanıyor…',
+    'share.cancel': 'İptal',
 
     'history.title': 'Antrenman geçmişi',
     'history.close': 'Geçmişi kapat',

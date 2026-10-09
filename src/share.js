@@ -67,16 +67,16 @@ export function drawCard(canvas, winner, logo) {
   ctx.direction = rtl ? 'rtl' : 'ltr';
   const green = '34, 197, 94';
 
-  const bg = ctx.createLinearGradient(0, 0, S, S);
-  bg.addColorStop(0, '#0B1220');
-  bg.addColorStop(1, '#020617');
-  ctx.fillStyle = bg;
+  // Colores planos, sin degradados: un PNG con degradados pesa más de 1 MB y tarda mucho en pasar por el puente
+  // de Capacitor (va como texto base64); así pesa unas decenas de KB. El brillo del centro son círculos planos.
+  ctx.fillStyle = '#060D1B';
   ctx.fillRect(0, 0, S, S);
-  const glow = ctx.createRadialGradient(S / 2, S * 0.5, 0, S / 2, S * 0.5, S * 0.62);
-  glow.addColorStop(0, `rgba(${green}, .24)`);
-  glow.addColorStop(1, `rgba(${green}, 0)`);
-  ctx.fillStyle = glow;
-  ctx.fillRect(0, 0, S, S);
+  for (const [radius, alpha] of [[S * 0.62, 0.022], [S * 0.46, 0.028], [S * 0.3, 0.036]]) {
+    ctx.beginPath();
+    ctx.arc(S / 2, S * 0.5, radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(${green}, ${alpha})`;
+    ctx.fill();
+  }
 
   // Marca arriba, centrada: logo, nombre y rótulo
   const brandW = 640;
@@ -128,11 +128,8 @@ export function drawCard(canvas, winner, logo) {
   const cta = t('spin.button');
   ctx.font = `800 44px ${FONT}`;
   const ctaW = Math.min(S - 160, ctx.measureText(cta).width + 160);
-  const button = ctx.createLinearGradient((S - ctaW) / 2, 0, (S + ctaW) / 2, 0);
-  button.addColorStop(0, 'rgb(22, 163, 74)');
-  button.addColorStop(1, 'rgb(74, 222, 128)');
   roundRect(ctx, (S - ctaW) / 2, 760, ctaW, 124, 36);
-  ctx.fillStyle = button;
+  ctx.fillStyle = '#22C55E';
   ctx.fill();
   ctx.fillStyle = '#020617';
   ctx.fillText(cta, S / 2, 838);
@@ -170,51 +167,75 @@ function toBase64(blob) {
 /** Una cancelación del usuario no es un error. */
 const isCancel = (/** @type {any} */ e) => e?.name === 'AbortError' || /cancel/i.test(String(e?.message ?? e));
 
+/** Error de cancelación (el mismo nombre que usa la API de compartir del navegador). */
+const abortError = () => new DOMException('Compartir cancelado', 'AbortError');
+
+/** @param {AbortSignal | undefined} signal */
+function throwIfAborted(signal) {
+  if (signal?.aborted) throw abortError();
+}
+
+/** Deja que el navegador pinte la pantalla de carga antes del trabajo pesado del lienzo. */
+function nextPaint() {
+  if (typeof requestAnimationFrame !== 'function') return Promise.resolve();
+  return new Promise(resolve => {
+    const done = () => resolve(undefined);
+    requestAnimationFrame(() => setTimeout(done, 0));
+    setTimeout(done, 120); // por si la pestaña no pinta (segundo plano)
+  });
+}
+
 /**
  * Comparte el reto: en Android, por el menú del sistema con la imagen guardada un momento en la caché de la app;
  * en el navegador, con la API de compartir si admite archivos y, si no, descargando la imagen.
+ * Se puede cancelar con `signal` mientras se prepara la imagen; `onReady` se llama justo antes de entregarla
+ * al sistema (a partir de ahí ya no se puede cancelar desde la app).
  * @param {Segment} winner
+ * @param {{ signal?: AbortSignal, onReady?: () => void }} [options]
  * @returns {Promise<'shared' | 'saved' | 'cancelled'>}
  */
-export async function shareChallenge(winner) {
-  const blob = await renderCard(winner);
-  const text = shareText(winner);
+export async function shareChallenge(winner, { signal, onReady } = {}) {
+  try {
+    throwIfAborted(signal);
+    await nextPaint();
+    throwIfAborted(signal);
+    const blob = await renderCard(winner);
+    throwIfAborted(signal);
+    const text = shareText(winner);
 
-  if (Capacitor.isNativePlatform()) {
-    // La imagen anterior se borra al compartir la siguiente (borrarla nada más abrir el menú podría
-    // quitársela a la app que está recibiéndola)
-    await Filesystem.rmdir({ path: CACHE_DIR, directory: Directory.Cache, recursive: true }).catch(() => {});
-    const { uri } = await Filesystem.writeFile({
-      path: `${CACHE_DIR}/${FILE_NAME}`, data: await toBase64(blob), directory: Directory.Cache, recursive: true,
-    });
-    try {
+    if (Capacitor.isNativePlatform()) {
+      // La imagen anterior se borra al compartir la siguiente (borrarla nada más abrir el menú podría
+      // quitársela a la app que está recibiéndola)
+      await Filesystem.rmdir({ path: CACHE_DIR, directory: Directory.Cache, recursive: true }).catch(() => {});
+      throwIfAborted(signal);
+      const { uri } = await Filesystem.writeFile({
+        path: `${CACHE_DIR}/${FILE_NAME}`, data: await toBase64(blob), directory: Directory.Cache, recursive: true,
+      });
+      throwIfAborted(signal);
+      onReady?.();
       await Share.share({ text, files: [uri], dialogTitle: t('result.share') });
       return 'shared';
-    } catch (e) {
-      if (isCancel(e)) return 'cancelled';
-      throw e;
     }
-  }
 
-  const file = new File([blob], FILE_NAME, { type: 'image/png' });
-  if (navigator.canShare?.({ files: [file] })) {
-    try {
+    const file = new File([blob], FILE_NAME, { type: 'image/png' });
+    onReady?.();
+    if (navigator.canShare?.({ files: [file] })) {
       await navigator.share({ files: [file], text });
       return 'shared';
-    } catch (e) {
-      if (isCancel(e)) return 'cancelled';
-      throw e;
     }
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = FILE_NAME;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 10_000);
+    return 'saved';
+  } catch (e) {
+    if (isCancel(e)) return 'cancelled';
+    throw e;
   }
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = FILE_NAME;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 10_000);
-  return 'saved';
 }
 
 /** Borra la carpeta temporal de la caché (al arrancar, por si quedó una imagen de otra sesión). */

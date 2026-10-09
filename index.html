@@ -226,6 +226,15 @@
         </div>
     </div>
 
+    <!-- Preparando la imagen para compartir: tapa la app, que queda inerte; se puede cancelar -->
+    <div id="shareLoading" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="shareLoadingText" class="outline-none hidden fixed inset-0 z-[60] bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-card w-full max-w-xs rounded-3xl p-6 text-center shadow-2xl border border-brand-500/50 glow-brand">
+            <div class="share-wheel mx-auto mb-5" aria-hidden="true"><div class="share-spinner"></div></div>
+            <p id="shareLoadingText" role="status" class="text-sm font-black text-white mb-5" data-i18n="share.preparing">Preparing your image…</p>
+            <button data-action="cancel-share" class="w-full min-h-[44px] py-3 px-4 rounded-xl bg-dark-900 border border-slate-700 font-bold text-xs text-slate-300 hover:bg-dark-800 transition-all active:scale-95" data-i18n="share.cancel">Cancel</button>
+        </div>
+    </div>
+
     <!-- Mensajes breves -->
     <div id="toast" role="status" aria-live="polite" class="fixed top-20 inset-x-0 z-[70] flex justify-center px-4 pointer-events-none opacity-0 transition-opacity duration-300">
         <div id="toastText" class="glass-card rounded-xl px-4 py-2 text-xs font-bold text-slate-100 border border-brand-500/40 shadow-2xl"></div>

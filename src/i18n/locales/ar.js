@@ -26,6 +26,8 @@ export default {
     'share.text': 'تحدّيي في GymRoulette: {challenge}! أدِر العجلة وتمرّن أنت أيضًا: {url}',
     'share.saved': 'تم تنزيل الصورة',
     'share.failed': 'تعذّرت مشاركة التحدي',
+    'share.preparing': 'جارٍ تجهيز الصورة…',
+    'share.cancel': 'إلغاء',
 
     'history.title': 'سجل الجلسة',
     'history.close': 'إغلاق السجل',

@@ -23,6 +23,8 @@ export default {
     'share.text': 'GymRouletteで出たチャレンジ：{challenge}！ルーレットを回して、あなたもトレーニングしよう：{url}',
     'share.saved': '画像をダウンロードしました',
     'share.failed': 'チャレンジを共有できませんでした',
+    'share.preparing': '画像を準備しています…',
+    'share.cancel': 'キャンセル',
 
     'history.title': 'セッション履歴',
     'history.close': '履歴を閉じる',

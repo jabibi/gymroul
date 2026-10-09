@@ -97,3 +97,44 @@ input, textarea {
     scrollbar-width: thin;
     scrollbar-color: #334155 transparent;
 }
+
+/* Ruleta de carga (al preparar la imagen para compartir): sectores de colores girando bajo la flecha fija */
+.share-wheel {
+    position: relative;
+    width: 76px;
+    height: 84px;
+    padding-top: 8px;
+}
+.share-wheel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -8px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 12px solid #22c55e;
+    z-index: 1;
+}
+.share-spinner {
+    position: relative;
+    width: 76px;
+    height: 76px;
+    border-radius: 9999px;
+    background: conic-gradient(#ef4444 0 14.28%, #f97316 0 28.57%, #eab308 0 42.85%, #22c55e 0 57.14%, #06b6d4 0 71.42%, #8b5cf6 0 85.71%, #ec4899 0);
+    box-shadow: 0 0 0 4px #0f172a, 0 0 28px rgba(34, 197, 94, 0.35);
+    animation: share-spin 1s linear infinite;
+}
+.share-spinner::after {
+    content: '';
+    position: absolute;
+    inset: 27px;
+    border-radius: 9999px;
+    background: #0f172a;
+}
+@keyframes share-spin {
+    to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .share-spinner { animation-duration: 3s; }
+}

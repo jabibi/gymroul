@@ -33,6 +33,8 @@ export default {
     'share.text': 'O meu desafio do GymRoulette: {challenge}! Roda a roleta e treina também: {url}',
     'share.saved': 'Imagem transferida',
     'share.failed': 'Não foi possível partilhar o desafio',
+    'share.preparing': 'A preparar a imagem…',
+    'share.cancel': 'Cancelar',
 
   },
 

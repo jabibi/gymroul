@@ -79,7 +79,7 @@ export function pulseIndicator() {
 // Cada modal que se abre añade una entrada al historial del navegador: así el botón
 // "Atrás" de Android (o del navegador) lo cierra en lugar de salir de la app.
 
-/** @typedef {'result' | 'history' | 'config' | 'commitment' | 'document'} ModalName */
+/** @typedef {'result' | 'history' | 'config' | 'share' | 'commitment' | 'document'} ModalName */
 // Pila de modales abiertos (el último es el que está encima): la política de privacidad
 // puede abrirse sobre la configuración y Atrás debe cerrar primero la de arriba
 /** @type {ModalName[]} */
@@ -92,6 +92,7 @@ const closers = {
   result: () => closeResult(false),
   history: () => closeHistory(),
   config: () => closeConfig(),
+  share: () => cancelShare(),
   commitment: () => closeCommitment(),
   document: () => closeDocument(),
 };
@@ -201,20 +202,52 @@ export function showResult(winner) {
   pushModal('result');
 }
 
-let sharing = false;
+/** @type {AbortController | null} */
+let shareAbort = null;
+
+/** Pantalla de carga de compartir: tapa la app, la deja inerte (sin foco ni clics) y permite cancelar. */
+function showShareLoading() {
+  document.querySelectorAll('body > :not(#shareLoading):not(script)').forEach(el => {
+    /** @type {HTMLElement} */ (el).inert = true;
+  });
+  $('shareLoading').classList.remove('hidden');
+  $('shareLoading').focus({ preventScroll: true });
+  pushModal('share');
+}
+
+function hideShareLoading() {
+  if ($('shareLoading').classList.contains('hidden')) return;
+  $('shareLoading').classList.add('hidden');
+  document.querySelectorAll('body > [inert]').forEach(el => {
+    /** @type {HTMLElement} */ (el).inert = false;
+  });
+  dismissModal('share');
+  // El foco vuelve al resultado, que sigue abierto debajo
+  if (!$('resultModal').classList.contains('pointer-events-none')) $('resultModal').focus({ preventScroll: true });
+}
+
+/** Cancela compartir (botón Cancelar o Atrás) y vuelve al resultado. */
+export function cancelShare() {
+  shareAbort?.abort();
+  hideShareLoading();
+}
 
 /** Comparte el reto que se ve en el resultado (imagen y texto) por el menú del sistema. */
 export async function shareResult() {
   const winner = pendingWinner;
-  if (!winner || sharing) return;
-  sharing = true;
+  if (!winner || shareAbort) return;
+  const abort = new AbortController();
+  shareAbort = abort;
+  showShareLoading();
   try {
     // Sin conexión no hay nada que enviar desde aquí: la app solo entrega la imagen al sistema
-    if (await shareChallenge(winner) === 'saved') showToast(t('share.saved'));
+    const outcome = await shareChallenge(winner, { signal: abort.signal, onReady: hideShareLoading });
+    if (outcome === 'saved') showToast(t('share.saved'));
   } catch (e) {
-    showToast(t('share.failed'));
+    if (!abort.signal.aborted) showToast(t('share.failed'));
   } finally {
-    sharing = false;
+    shareAbort = null;
+    hideShareLoading();
   }
 }
 
