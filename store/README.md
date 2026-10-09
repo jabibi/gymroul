@@ -13,7 +13,7 @@ store/
 ├── listing.mjs                              Fuente de los textos de cada idioma
 └── <idioma de Play>/                        ar, ca, de-DE, en-US, en-GB, en-AU, es-ES, es-419, eu-ES, fr-FR, fr-CA, gl-ES, hi-IN, it-IT, pl-PL, pt-BR, pt-PT, tr-TR
     ├── grafico-de-funciones-1024x500.png    Gráfico de funciones con el texto traducido
-    ├── capturas-telefono/                   Ocho capturas 1080 x 1920 (9:16) con la app en ese idioma
+    ├── capturas-telefono/                   Siete capturas 1080 x 1920 (9:16) con la app en ese idioma
     └── textos/
         ├── titulo.txt                       Nombre de la aplicación
         ├── descripcion-corta.txt            Descripción breve
