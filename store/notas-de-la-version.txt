@@ -1,134 +1,160 @@
 <en-US>
-• Now also in العربية, Polski, हिन्दी, Türkçe and English (Australia).
-• Google Analytics removed: now 100% offline, with no trackers and no Internet permission.
-• New introduction on first launch: how the wheel works and what the app does (and doesn't do) with your data.
-• Swipe to move between the introduction slides.
+• New: share your challenge as an image with a link to the app.
+• Now also in Nederlands and 日本語.
+• New “Privacy commitment” in Settings: what the app does (and doesn't do) with your data.
+• The app opens straight to the wheel: no introduction.
+• Bigger tap targets throughout the app.
 • Bug fixes and improvements.
 </en-US>
 <ar>
-• متوفر الآن أيضًا بلغات جديدة: العربية وPolski وहिन्दी وTürkçe وEnglish (Australia).
-• أُزيل Google Analytics: يعمل الآن 100% دون اتصال، بلا أدوات تتبّع ولا إذن للوصول إلى الإنترنت.
-• مقدمة جديدة عند أول فتح: كيف تعمل العجلة، وما يفعله التطبيق (وما لا يفعله) ببياناتك.
-• اسحب للتنقل بين شرائح المقدمة.
+• جديد: شارك تحدّيك كصورة مع رابط التطبيق.
+• متوفر الآن أيضًا بلغتي Nederlands و日本語.
+• «التزام الخصوصية» جديد في الإعدادات: ما يفعله التطبيق (وما لا يفعله) ببياناتك.
+• يفتح التطبيق مباشرة على العجلة: بلا مقدمة.
+• أزرار وعناصر تحكم أكبر وأسهل في اللمس.
 • إصلاح أخطاء وتحسينات.
 </ar>
 <ca>
-• Ara també en العربية, Polski, हिन्दी, Türkçe i English (Australia).
-• Eliminat Google Analytics: ara 100 % sense connexió, sense rastrejadors i sense permís d'Internet.
-• Nova introducció en el primer inici: com funciona la ruleta i què fa (i què no fa) l'app amb les teves dades.
-• Llisca per canviar entre les diapositives de la introducció.
+• Novetat: comparteix el teu repte com a imatge amb l'enllaç a l'app.
+• Ara també en Nederlands i 日本語.
+• Nou «Compromís de privadesa» a Configuració: el que l'app fa (i no fa) amb les teves dades.
+• L'app s'obre directament a la ruleta: sense introducció.
+• Botons i controls més grans i fàcils de tocar.
 • Correcció d'errors i millores.
 </ca>
 <de-DE>
-• Jetzt auch in العربية, Polski, हिन्दी, Türkçe und English (Australien).
-• Google Analytics entfernt: jetzt 100 % offline, ohne Tracker und ohne Internet-Berechtigung.
-• Neue Einführung beim ersten Start: wie das Rad funktioniert und was die App mit deinen Daten macht (und was nicht).
-• Wische, um zwischen den Folien der Einführung zu wechseln.
+• Neu: Teile deine Challenge als Bild mit dem Link zur App.
+• Jetzt auch in Nederlands und 日本語.
+• Neues „Datenschutzversprechen“ in den Einstellungen: was die App mit deinen Daten tut (und was nicht).
+• Die App startet direkt mit dem Rad: ohne Einführung.
+• Größere, leichter zu tippende Schaltflächen.
 • Fehlerbehebungen und Verbesserungen.
 </de-DE>
 <en-AU>
-• Now also in العربية, Polski, हिन्दी, Türkçe and English (Australia).
-• Google Analytics removed: now 100% offline, with no trackers and no Internet permission.
-• New introduction on first launch: how the wheel works and what the app does (and doesn't do) with your data.
-• Swipe to move between the introduction slides.
+• New: share your challenge as an image with a link to the app.
+• Now also in Nederlands and 日本語.
+• New “Privacy commitment” in Settings: what the app does (and doesn't do) with your data.
+• The app opens straight to the wheel: no introduction.
+• Bigger tap targets throughout the app.
 • Bug fixes and improvements.
 </en-AU>
 <en-GB>
-• Now also in العربية, Polski, हिन्दी, Türkçe and English (Australia).
-• Google Analytics removed: now 100% offline, with no trackers and no Internet permission.
-• New introduction on first launch: how the wheel works and what the app does (and doesn't do) with your data.
-• Swipe to move between the introduction slides.
+• New: share your challenge as an image with a link to the app.
+• Now also in Nederlands and 日本語.
+• New “Privacy commitment” in Settings: what the app does (and doesn't do) with your data.
+• The app opens straight to the wheel: no introduction.
+• Bigger tap targets throughout the app.
 • Bug fixes and improvements.
 </en-GB>
 <es-419>
-• Ahora también en العربية, Polski, हिन्दी, Türkçe y English (Australia).
-• Eliminado Google Analytics: ahora 100 % sin conexión, sin rastreadores y sin permiso de Internet.
-• Nueva introducción en la primera apertura: cómo funciona la ruleta y qué hace (y qué no hace) la app con tus datos.
-• Desliza para pasar entre las diapositivas de la introducción.
+• Novedad: comparte tu reto como imagen con el enlace a la app.
+• Ahora también en Nederlands y 日本語.
+• Nuevo «Compromiso de privacidad» en Configuración: lo que la app hace (y no hace) con tus datos.
+• La app abre directamente la ruleta: sin introducción.
+• Botones y controles más grandes y fáciles de tocar.
 • Correcciones de errores y mejoras.
 </es-419>
 <es-ES>
-• Ahora también en العربية, Polski, हिन्दी, Türkçe y English (Australia).
-• Eliminado Google Analytics: ahora 100 % sin conexión, sin rastreadores y sin permiso de Internet.
-• Nueva introducción en la primera apertura: cómo funciona la ruleta y qué hace (y qué no hace) la app con tus datos.
-• Desliza para pasar entre las diapositivas de la introducción.
+• Novedad: comparte tu reto como imagen con el enlace a la app.
+• Ahora también en Nederlands y 日本語.
+• Nuevo «Compromiso de privacidad» en Configuración: lo que la app hace (y no hace) con tus datos.
+• La app abre directamente la ruleta: sin introducción.
+• Botones y controles más grandes y fáciles de tocar.
 • Correcciones de errores y mejoras.
 </es-ES>
 <eu-ES>
-• Orain العربية, Polski, हिन्दी, Türkçe eta English (Australia) hizkuntzetan ere.
-• Google Analytics kenduta: orain % 100 konexiorik gabe, aztarnarik eta Interneterako baimenik gabe.
-• Sarrera berria lehen irekieran: gurpilak nola funtzionatzen duen eta aplikazioak zure datuekin zer egiten duen (eta zer ez).
-• Irristatu sarrerako diapositibak aldatzeko.
+• Berria: partekatu zure erronka irudi gisa, aplikaziorako estekarekin.
+• Orain Nederlands eta 日本語 hizkuntzetan ere.
+• «Pribatutasun-konpromisoa» berria Ezarpenetan: aplikazioak zure datuekin egiten duena (eta egiten ez duena).
+• Aplikazioa zuzenean gurpilean irekitzen da: sarrerarik gabe.
+• Botoi eta kontrol handiagoak, ukitzeko errazagoak.
 • Akatsen zuzenketak eta hobekuntzak.
 </eu-ES>
 <fr-CA>
-• Désormais aussi en العربية, Polski, हिन्दी, Türkçe et English (Australie).
-• Google Analytics supprimé : désormais 100 % hors connexion, sans traceurs et sans autorisation Internet.
-• Nouvelle introduction au premier lancement : comment fonctionne la roue et ce que l'application fait (et ne fait pas) de tes données.
-• Fais glisser pour passer d'une diapositive de l'introduction à l'autre.
+• Nouveau : partage ton défi sous forme d'image avec le lien vers l'application.
+• Désormais aussi en Nederlands et 日本語.
+• Nouvel « Engagement de confidentialité » dans les réglages : ce que l'application fait (et ne fait pas) de tes données.
+• L'application s'ouvre directement sur la roue : sans introduction.
+• Boutons et commandes plus grands, plus faciles à toucher.
 • Corrections de bugs et améliorations.
 </fr-CA>
 <fr-FR>
-• Désormais aussi en العربية, Polski, हिन्दी, Türkçe et English (Australie).
-• Google Analytics supprimé : désormais 100 % hors connexion, sans traceurs et sans autorisation Internet.
-• Nouvelle introduction au premier lancement : comment fonctionne la roue et ce que l'application fait (et ne fait pas) de tes données.
-• Fais glisser pour passer d'une diapositive de l'introduction à l'autre.
+• Nouveau : partage ton défi sous forme d'image avec le lien vers l'application.
+• Désormais aussi en Nederlands et 日本語.
+• Nouvel « Engagement de confidentialité » dans les réglages : ce que l'application fait (et ne fait pas) de tes données.
+• L'application s'ouvre directement sur la roue : sans introduction.
+• Boutons et commandes plus grands, plus faciles à toucher.
 • Corrections de bugs et améliorations.
 </fr-FR>
 <gl-ES>
-• Agora tamén en العربية, Polski, हिन्दी, Türkçe e English (Australia).
-• Eliminado Google Analytics: agora 100 % sen conexión, sen rastreadores e sen permiso de Internet.
-• Nova introdución no primeiro inicio: como funciona a ruleta e que fai (e que non fai) a app cos teus datos.
-• Desliza para pasar entre as diapositivas da introdución.
+• Novidade: comparte o teu reto como imaxe coa ligazón á app.
+• Agora tamén en Nederlands e 日本語.
+• Novo «Compromiso de privacidade» en Configuración: o que a app fai (e non fai) cos teus datos.
+• A app ábrese directamente na ruleta: sen introdución.
+• Botóns e controis máis grandes e fáciles de tocar.
 • Corrección de erros e melloras.
 </gl-ES>
 <hi-IN>
-• अब العربية, Polski, हिन्दी, Türkçe और English (Australia) में भी।
-• Google Analytics हटा दिया गया: अब 100% ऑफ़लाइन, कोई ट्रैकर नहीं और इंटरनेट की अनुमति नहीं।
-• पहली बार खोलने पर नया परिचय: चक्र कैसे काम करता है और ऐप आपके डेटा के साथ क्या करता है (और क्या नहीं करता)।
-• परिचय की स्लाइड के बीच जाने के लिए स्वाइप करें।
-• गड़बड़ियाँ ठीक की गईं और सुधार।
+• नया: अपनी चुनौती को इमेज के रूप में ऐप के लिंक के साथ शेयर करें।
+• अब Nederlands और 日本語 में भी।
+• सेटिंग में नया “गोपनीयता प्रतिबद्धता”: ऐप आपके डेटा के साथ क्या करता है (और क्या नहीं)।
+• ऐप सीधे चक्र के साथ खुलता है: कोई परिचय नहीं।
+• बड़े और आसानी से टैप होने वाले बटन।
+• बग फ़िक्स और सुधार।
 </hi-IN>
 <it-IT>
-• Ora anche in العربية, Polski, हिन्दी, Türkçe e English (Australia).
-• Google Analytics rimosso: ora 100% offline, senza tracker e senza autorizzazione a Internet.
-• Nuova introduzione al primo avvio: come funziona la ruota e cosa fa (e cosa non fa) l'app con i tuoi dati.
-• Scorri per spostarti tra le diapositive dell'introduzione.
-• Correzioni di errori e miglioramenti.
+• Novità: condividi la tua sfida come immagine con il link all'app.
+• Ora anche in Nederlands e 日本語.
+• Nuovo «Impegno per la privacy» nelle impostazioni: cosa fa (e cosa non fa) l'app con i tuoi dati.
+• L'app si apre direttamente sulla ruota: senza introduzione.
+• Pulsanti e controlli più grandi e facili da toccare.
+• Correzioni di bug e miglioramenti.
 </it-IT>
 <ja-JP>
-• 新機能：Nederlandsと日本語に対応しました。
+• 新機能：チャレンジを画像にして、アプリへのリンクと一緒に共有できます。
+• Nederlandsと日本語にも対応しました。
+• 設定に「プライバシーへの取り組み」を追加：アプリがデータをどう扱うか（扱わないか）をまとめました。
+• アプリを開くとすぐにルーレットが表示されます（紹介画面はありません）。
+• ボタンなどの操作部分を大きくして、タップしやすくしました。
 • 不具合の修正と改善。
 </ja-JP>
 <nl-NL>
-• Nieuw: nu ook in Nederlands en 日本語.
+• Nieuw: deel je uitdaging als afbeelding met een link naar de app.
+• Nu ook in Nederlands en 日本語.
+• Nieuw: “Privacybelofte” in Instellingen: wat de app met je gegevens doet (en niet doet).
+• De app opent direct met het rad: zonder introductie.
+• Grotere knoppen en bedieningselementen die makkelijker te raken zijn.
 • Bugfixes en verbeteringen.
 </nl-NL>
 <pl-PL>
-• Teraz także w językach العربية, Polski, हिन्दी, Türkçe i English (Australia).
-• Usunięto Google Analytics: teraz 100% offline, bez trackerów i bez uprawnienia do Internetu.
-• Nowe wprowadzenie przy pierwszym uruchomieniu: jak działa koło i co aplikacja robi (a czego nie robi) z twoimi danymi.
-• Przesuń palcem, aby przechodzić między slajdami wprowadzenia.
+• Nowość: udostępnij swoje wyzwanie jako obraz z linkiem do aplikacji.
+• Dostępna także w językach: Nederlands i 日本語.
+• Nowe „Zobowiązanie do prywatności” w Ustawieniach: co aplikacja robi (a czego nie robi) z twoimi danymi.
+• Aplikacja od razu otwiera koło: bez wprowadzenia.
+• Większe, łatwiejsze do dotknięcia przyciski.
 • Poprawki błędów i ulepszenia.
 </pl-PL>
 <pt-BR>
-• Agora também em العربية, Polski, हिन्दी, Türkçe e English (Australia).
-• Google Analytics removido: agora 100% offline, sem rastreadores e sem permissão de Internet.
-• Nova introdução na primeira abertura: como a roleta funciona e o que o app faz (e não faz) com seus dados.
-• Deslize para passar entre os slides da introdução.
-• Correções de erros e melhorias.
+• Novidade: compartilhe seu desafio como imagem com o link do app.
+• Agora também em Nederlands e 日本語.
+• Novo «Compromisso de privacidade» em Configurações: o que o app faz (e não faz) com seus dados.
+• O app abre direto na roleta: sem introdução.
+• Botões e controles maiores e mais fáceis de tocar.
+• Correções de bugs e melhorias.
 </pt-BR>
 <pt-PT>
-• Agora também em العربية, Polski, हिन्दी, Türkçe e English (Australia).
-• Google Analytics removido: agora 100% offline, sem rastreadores e sem permissão de Internet.
-• Nova introdução na primeira abertura: como a roleta funciona e o que a aplicação faz (e não faz) com os teus dados.
-• Desliza para passar entre os diapositivos da introdução.
+• Novidade: partilha o teu desafio como imagem com a ligação para a aplicação.
+• Agora também em Nederlands e 日本語.
+• Novo «Compromisso de privacidade» em Definições: o que a aplicação faz (e não faz) com os teus dados.
+• A aplicação abre diretamente na roleta: sem introdução.
+• Botões e controlos maiores e mais fáceis de tocar.
 • Correções de erros e melhorias.
 </pt-PT>
 <tr-TR>
-• Artık العربية, Polski, हिन्दी, Türkçe ve English (Australia) dillerinde de.
-• Google Analytics kaldırıldı: artık %100 çevrimdışı, izleyici yok, İnternet izni yok.
-• İlk açılışta yeni tanıtım: çarkın nasıl çalıştığı ve uygulamanın verilerinle neler yapıp neler yapmadığı.
-• Tanıtım slaytları arasında geçmek için kaydır.
+• Yeni: meydan okumanı uygulama bağlantısıyla birlikte görsel olarak paylaş.
+• Artık Nederlands ve 日本語 dillerinde de.
+• Ayarlarda yeni “Gizlilik taahhüdü”: uygulamanın verilerinle ne yaptığı (ve ne yapmadığı).
+• Uygulama doğrudan çarkla açılır: tanıtım yok.
+• Daha büyük, dokunması kolay düğmeler.
 • Hata düzeltmeleri ve iyileştirmeler.
 </tr-TR>

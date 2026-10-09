@@ -1,8 +1,8 @@
 {
   "name": "gymroul",
-  "version": "1.13.0",
-  "versionCode": 13,
-  "versionCodename": "the 13th",
+  "version": "1.14.0",
+  "versionCode": 14,
+  "versionCodename": "RandWork",
   "description": "GymRoulette: ruleta de ejercicios (web + Android con Capacitor)",
   "main": "index.js",
   "scripts": {
