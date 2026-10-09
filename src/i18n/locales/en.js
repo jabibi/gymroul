@@ -19,6 +19,10 @@ export default {
     'result.desc': 'Great challenge! Do {reps} reps of {exercise} with perfect form.',
     'result.skip': 'Skip this challenge',
     'result.done': 'Done!',
+    'result.share': 'Share',
+    'share.text': 'My GymRoulette challenge: {challenge}! Spin the wheel and train too: {url}',
+    'share.saved': 'Image downloaded',
+    'share.failed': 'Could not share the challenge',
 
     'history.title': 'Session history',
     'history.close': 'Close history',

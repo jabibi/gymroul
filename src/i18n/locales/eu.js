@@ -19,6 +19,10 @@ export default {
     'result.desc': 'Erronka bikaina! Egin {reps} errepikapen: {exercise}, teknika bikainarekin.',
     'result.skip': 'Saltatu erronka hau',
     'result.done': 'Eginda!',
+    'result.share': 'Partekatu',
+    'share.text': 'Nire GymRoulette erronka: {challenge}. Biratu gurpila eta entrenatu zuk ere: {url}',
+    'share.saved': 'Irudia deskargatu da',
+    'share.failed': 'Ezin izan da erronka partekatu',
 
     'history.title': 'Saioko historia',
     'history.close': 'Itxi historia',

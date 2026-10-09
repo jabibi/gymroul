@@ -4,6 +4,7 @@
 import { getExercises, getReps, active } from './store.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
 import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
+import { shareChallenge } from './share.js';
 import { t, getLanguage, getLanguageTag, groupName, iconLabel, isRtl, LANGUAGES } from './i18n/index.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
@@ -198,6 +199,23 @@ export function showResult(winner) {
 
   pendingWinner = winner;
   pushModal('result');
+}
+
+let sharing = false;
+
+/** Comparte el reto que se ve en el resultado (imagen y texto) por el menú del sistema. */
+export async function shareResult() {
+  const winner = pendingWinner;
+  if (!winner || sharing) return;
+  sharing = true;
+  try {
+    // Sin conexión no hay nada que enviar desde aquí: la app solo entrega la imagen al sistema
+    if (await shareChallenge(winner) === 'saved') showToast(t('share.saved'));
+  } catch (e) {
+    showToast(t('share.failed'));
+  } finally {
+    sharing = false;
+  }
 }
 
 // Solo los retos confirmados con el botón de completado pasan al historial

@@ -19,6 +19,10 @@ export default {
     'result.desc': '¡Excelente reto! Realiza {reps} repeticiones de {exercise} con perfecta técnica.',
     'result.skip': 'Saltar este reto',
     'result.done': '¡Completado!',
+    'result.share': 'Compartir',
+    'share.text': 'Mi reto de GymRoulette: {challenge}. Gira la ruleta y entrena tú también: {url}',
+    'share.saved': 'Imagen descargada',
+    'share.failed': 'No se pudo compartir el reto',
 
     'history.title': 'Historial de sesión',
     'history.close': 'Cerrar historial',

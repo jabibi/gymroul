@@ -16,6 +16,7 @@ Disponible como aplicación web (Firebase Hosting) y como app Android (Capacitor
 - Funciona sin conexión: Tailwind, Font Awesome y la fuente van empaquetados. La app de Android no declara el permiso de Internet.
 - Sin analítica, sin anuncios, sin rastreadores y sin acceso a la ubicación: no envía ningún dato fuera del dispositivo.
 - Se abre directamente la ruleta, sin introducción: el enlace «Compromiso de privacidad» (en Configuración) resume qué no hace la app con tus datos.
+- Compartir el reto: botón en el resultado que genera una imagen y un texto con el enlace a la app y los entrega al menú de compartir, todo en el dispositivo y sin conexión.
 
 ## Hoja de ruta
 

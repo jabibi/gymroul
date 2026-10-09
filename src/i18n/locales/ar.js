@@ -22,6 +22,10 @@ export default {
     'result.desc': 'تحدٍّ رائع! أدِّ تمرين {exercise} لعدد {reps} من التكرارات بأداء مثالي.',
     'result.skip': 'تخطي هذا التحدي',
     'result.done': 'تم!',
+    'result.share': 'مشاركة',
+    'share.text': 'تحدّيي في GymRoulette: {challenge}! أدِر العجلة وتمرّن أنت أيضًا: {url}',
+    'share.saved': 'تم تنزيل الصورة',
+    'share.failed': 'تعذّرت مشاركة التحدي',
 
     'history.title': 'سجل الجلسة',
     'history.close': 'إغلاق السجل',

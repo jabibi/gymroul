@@ -19,6 +19,10 @@ export default {
     'result.desc': 'Świetne wyzwanie! Zrób {reps} powtórzeń: {exercise}, z idealną techniką.',
     'result.skip': 'Pomiń to wyzwanie',
     'result.done': 'Zrobione!',
+    'result.share': 'Udostępnij',
+    'share.text': 'Moje wyzwanie w GymRoulette: {challenge}! Zakręć kołem i ćwicz razem ze mną: {url}',
+    'share.saved': 'Obraz pobrany',
+    'share.failed': 'Nie udało się udostępnić wyzwania',
 
     'history.title': 'Historia treningu',
     'history.close': 'Zamknij historię',

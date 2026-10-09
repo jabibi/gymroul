@@ -19,6 +19,10 @@ export default {
     'result.desc': 'Gave uitdaging! Doe {reps} herhalingen {exercise} met een perfecte techniek.',
     'result.skip': 'Deze uitdaging overslaan',
     'result.done': 'Klaar!',
+    'result.share': 'Delen',
+    'share.text': 'Mijn GymRoulette-uitdaging: {challenge}! Draai aan het rad en train ook: {url}',
+    'share.saved': 'Afbeelding gedownload',
+    'share.failed': 'De uitdaging kon niet worden gedeeld',
 
     'history.title': 'Trainingsgeschiedenis',
     'history.close': 'Geschiedenis sluiten',
