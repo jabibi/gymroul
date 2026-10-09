@@ -23,6 +23,8 @@ export default {
     'share.text': 'La mia sfida GymRoulette: {challenge}! Gira la ruota e allenati anche tu: {url}',
     'share.saved': 'Immagine scaricata',
     'share.failed': 'Impossibile condividere la sfida',
+    'share.preparing': 'Preparazione dell’immagine…',
+    'share.cancel': 'Annulla',
 
     'history.title': 'Cronologia della sessione',
     'history.close': 'Chiudi la cronologia',

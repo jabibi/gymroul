@@ -23,6 +23,8 @@ export default {
     'share.text': 'Mijn GymRoulette-uitdaging: {challenge}! Draai aan het rad en train ook: {url}',
     'share.saved': 'Afbeelding gedownload',
     'share.failed': 'De uitdaging kon niet worden gedeeld',
+    'share.preparing': 'Je afbeelding wordt voorbereid…',
+    'share.cancel': 'Annuleren',
 
     'history.title': 'Trainingsgeschiedenis',
     'history.close': 'Geschiedenis sluiten',

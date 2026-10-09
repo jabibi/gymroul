@@ -23,6 +23,8 @@ export default {
     'share.text': 'मेरी GymRoulette चुनौती: {challenge}! चक्र घुमाएँ और आप भी वर्कआउट करें: {url}',
     'share.saved': 'इमेज डाउनलोड हो गई',
     'share.failed': 'चुनौती शेयर नहीं हो सकी',
+    'share.preparing': 'आपकी इमेज तैयार हो रही है…',
+    'share.cancel': 'रद्द करें',
 
     'history.title': 'सेशन का इतिहास',
     'history.close': 'इतिहास बंद करें',

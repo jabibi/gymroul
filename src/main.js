@@ -125,6 +125,7 @@ const actions = {
   },
 
   'share-result': () => ui.shareResult(),
+  'cancel-share': () => ui.cancelShare(),
   'open-commitment': () => ui.openCommitment(),
   'close-commitment': () => ui.closeCommitment(),
   'open-privacy': () => ui.openDocument('privacy'),

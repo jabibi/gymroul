@@ -23,6 +23,8 @@ export default {
     'share.text': 'El meu repte de GymRoulette: {challenge}. Gira la ruleta i entrena tu també: {url}',
     'share.saved': 'Imatge baixada',
     'share.failed': 'No s\'ha pogut compartir el repte',
+    'share.preparing': 'Preparant la teva imatge…',
+    'share.cancel': 'Cancel·la',
 
     'history.title': 'Historial de la sessió',
     'history.close': "Tanca l'historial",

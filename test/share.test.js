@@ -1,5 +1,6 @@
 import { describe, it, expect, afterEach } from 'vitest';
-import { shareText, challengeLabel, fitFontSize, APP_URL, IMAGE_SIZE } from '../src/share.js';
+import { readFileSync } from 'node:fs';
+import { shareText, challengeLabel, fitFontSize, shareChallenge, APP_URL, IMAGE_SIZE } from '../src/share.js';
 import { LANGUAGES, setLanguage, DEFAULT_LANGUAGE, DICTIONARIES } from '../src/i18n/index.js';
 
 const winner = { text: '20 Burpee', fullName: 'Burpee', reps: 20, exercise: 'Burpee', shortName: 'Burpee', color: '#22c55e', icon: 'burpee' };
@@ -21,7 +22,7 @@ describe('compartir el reto', () => {
 
   it('todos los idiomas traducen el botón y los avisos', () => {
     for (const { code } of LANGUAGES) {
-      for (const key of ['result.share', 'share.text', 'share.saved', 'share.failed']) {
+      for (const key of ['result.share', 'share.text', 'share.saved', 'share.failed', 'share.preparing', 'share.cancel']) {
         expect(DICTIONARIES[code].strings[key] ?? DICTIONARIES.en.strings[key], `${code}:${key}`).toBeTruthy();
       }
     }
@@ -36,5 +37,33 @@ describe('compartir el reto', () => {
     expect(fitFontSize(widthAt, 920, 200, 64)).toBe(92);
     expect(fitFontSize(widthAt, 5000, 200, 64)).toBe(200);
     expect(fitFontSize(widthAt, 10, 200, 64)).toBe(64);
+  });
+
+  it('si ya está cancelado no genera nada y devuelve «cancelled»', async () => {
+    const controller = new AbortController();
+    controller.abort();
+    await expect(shareChallenge(winner, { signal: controller.signal })).resolves.toBe('cancelled');
+  });
+});
+
+describe('pantalla de carga al compartir', () => {
+  const html = readFileSync('index.html', 'utf8');
+  const main = readFileSync('src/main.js', 'utf8');
+  const css = readFileSync('src/style.css', 'utf8');
+
+  it('tapa la app, anuncia el estado y ofrece cancelar', () => {
+    const overlay = html.slice(html.indexOf('id="shareLoading"'), html.indexOf('<!-- Mensajes breves -->'));
+    expect(overlay).toContain('role="alertdialog"');
+    expect(overlay).toContain('role="status"');
+    expect(overlay).toContain('data-action="cancel-share"');
+    expect(overlay).toContain('class="share-spinner"');
+    expect(overlay).toMatch(/fixed inset-0/);
+    expect(main).toMatch(/'cancel-share': \(\) => ui\.cancelShare\(\)/);
+  });
+
+  it('la ruleta de carga gira y respeta el movimiento reducido', () => {
+    expect(css).toContain('.share-spinner');
+    expect(css).toContain('@keyframes share-spin');
+    expect(css).toMatch(/prefers-reduced-motion[\s\S]*share-spinner/);
   });
 });

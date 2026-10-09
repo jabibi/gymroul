@@ -23,6 +23,8 @@ export default {
     'share.text': 'Meine GymRoulette-Challenge: {challenge}! Dreh das Rad und trainiere auch du: {url}',
     'share.saved': 'Bild heruntergeladen',
     'share.failed': 'Die Challenge konnte nicht geteilt werden',
+    'share.preparing': 'Bild wird vorbereitet …',
+    'share.cancel': 'Abbrechen',
 
     'history.title': 'Trainingsverlauf',
     'history.close': 'Verlauf schließen',
