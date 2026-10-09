@@ -13,7 +13,7 @@
 Las páginas existen solo después de desplegar la web (`npm run deploy`). Cada una contiene los catorce idiomas y muestra el del navegador del visitante, con un selector arriba; la misma URL vale para todas las fichas. Se puede forzar uno con `?lang=eu`.
 
 ## Clasificación
-- Categoría actual en la consola: Aplicación de entretenimiento. «Salud y bienestar» también encaja si prefieres esa.
+- Categoría en la consola: Salud y bienestar (Health & Fitness).
 - Público objetivo: 16 años o más.
 - Anuncios: no contiene anuncios.
 - Cuentas de usuario: la app no permite crear cuentas.

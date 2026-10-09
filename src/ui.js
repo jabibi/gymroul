@@ -281,26 +281,26 @@ export function closeHistory() {
 
 export function renderConfig() {
   $('repsCheckboxes').innerHTML = getReps().map(rep => `
-    <div class="flex items-center justify-between p-2 rounded-xl bg-dark-950 border border-slate-800">
-      <label class="flex items-center gap-2 cursor-pointer flex-1">
+    <div class="flex items-stretch min-h-[46px] rounded-xl bg-dark-950 border border-slate-800">
+      <label class="flex items-center gap-2 cursor-pointer flex-1 ps-2 py-2">
         <input type="checkbox" value="${rep}" ${active.reps.includes(rep) ? 'checked' : ''} class="rep-checkbox w-4 h-4 rounded text-brand-500 focus:ring-brand-500 bg-dark-900 border-slate-700">
         <span class="text-xs font-bold text-white">${escapeHTML(t('config.repLabel', { n: rep }))}</span>
       </label>
-      <button data-action="delete-rep" data-arg="${rep}" aria-label="${escapeHTML(t('config.deleteRep', { n: rep }))}" class="text-slate-500 hover:text-red-400 p-1 text-xs transition-colors">
+      <button data-action="delete-rep" data-arg="${rep}" aria-label="${escapeHTML(t('config.deleteRep', { n: rep }))}" class="flex items-center justify-center w-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors">
         <i class="fa-solid fa-trash-can"></i>
       </button>
     </div>`).join('');
 
   $('exsCheckboxes').innerHTML = getExercises().map(ex => `
-    <div class="flex items-center justify-between p-2.5 rounded-xl bg-dark-950 border border-slate-800">
-      <label class="flex items-center gap-2 cursor-pointer flex-1">
+    <div class="flex items-stretch min-h-[46px] rounded-xl bg-dark-950 border border-slate-800">
+      <label class="flex items-center gap-2 cursor-pointer flex-1 ps-2.5 py-2">
         <input type="checkbox" value="${escapeHTML(ex.name)}" ${active.exercises.includes(ex.name) ? 'checked' : ''} class="ex-checkbox w-4 h-4 rounded text-brand-500 focus:ring-brand-500 bg-dark-900 border-slate-700">
         <span class="text-xs font-bold text-white flex items-center gap-2">
           <span class="text-brand-400 text-lg flex items-center">${renderIconHTML(ex.icon)}</span>
           ${escapeHTML(ex.name)}
         </span>
       </label>
-      <button data-action="delete-exercise" data-arg="${escapeHTML(ex.id)}" aria-label="${escapeHTML(t('config.deleteExercise', { name: ex.name }))}" class="text-slate-500 hover:text-red-400 p-1 text-xs transition-colors">
+      <button data-action="delete-exercise" data-arg="${escapeHTML(ex.id)}" aria-label="${escapeHTML(t('config.deleteExercise', { name: ex.name }))}" class="flex items-center justify-center w-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors">
         <i class="fa-solid fa-trash-can"></i>
       </button>
     </div>`).join('');
