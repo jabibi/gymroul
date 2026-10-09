@@ -2,10 +2,6 @@
 
 Objetivos de las próximas versiones. Lo ya publicado está en el historial de commits y en las notas de cada versión (`store/notas-de-la-version.txt`).
 
-## 1.14 (RandWork): en preparación
-
-_Todo lo previsto para esta versión está hecho; falta subir la versión (`package.json`), escribir las novedades de la ficha en los 20 idiomas y regenerar la ficha (`npm run store`)._
-
 ## Peticiones de usuarios
 
 Lo que piden las reseñas de Play y otros mensajes. Se apunta la petición, de dónde viene y qué implicaría; no es un compromiso de hacerlo.
