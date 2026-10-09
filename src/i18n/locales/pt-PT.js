@@ -32,6 +32,10 @@ export default {
     'intro.how.done': 'Marca-o como concluído ou salta-o, e gira novamente.',
     'intro.private.noTrackers': 'Sem rastreadores: nada sai do teu dispositivo.',
     'intro.private.noLocation': 'Sem acesso à tua localização.',
+    'commitment.intro': 'O GymRoulette é um software ético e soberano: faz o que lhe pedes e nada mais.',
+    'commitment.offline.text': 'Funciona sem ligação. A app nem sequer pede a permissão de Internet.',
+    'commitment.yourData.title': 'Os teus dados são teus',
+    'commitment.yourData.text': 'Tudo o que crias fica no teu dispositivo. Apagar os dados da app elimina tudo.',
 
   },
 

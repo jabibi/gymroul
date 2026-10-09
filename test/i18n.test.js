@@ -193,7 +193,8 @@ describe('introducción de la primera apertura', () => {
 
   it('la introducción tiene dos diapositivas y no queda rastro de analítica en la app', () => {
     expect(html.match(/data-intro-slide="\d"/g)).toHaveLength(2);
-    expect(html).not.toMatch(/consent|analytics|googletagmanager|google-analytics/i);
+    // «analytics» sí puede aparecer en el texto del compromiso de privacidad («No analytics…»); lo que no debe haber es código de analítica
+    expect(html).not.toMatch(/consent|googletagmanager|google-analytics|gtag|firebase/i);
     expect(main).not.toMatch(/consent|analytics/i);
   });
 
@@ -203,5 +204,48 @@ describe('introducción de la primera apertura', () => {
 
   it('solo se muestra si aún no se ha visto', () => {
     expect(main).toMatch(/if \(!hasSeenIntro\(\)\) ui\.showIntro\(\)/);
+  });
+});
+
+describe('compromiso de privacidad', () => {
+  const html = readFileSync('index.html', 'utf8');
+  const main = readFileSync('src/main.js', 'utf8');
+  const commitment = html.slice(html.indexOf('id="commitmentModal"'), html.indexOf('<script type="module"'));
+
+  it('sustituye al enlace de la política en Configuración y en la introducción', () => {
+    expect(html.match(/data-action="open-commitment"/g)).toHaveLength(2);
+    expect(html.match(/data-i18n="config\.commitment"/g)?.length).toBeGreaterThanOrEqual(3);
+    expect(html).not.toContain('data-i18n="config.privacy"');
+    expect(html).toContain('fa-shield-halved');
+  });
+
+  it('resume las cinco prácticas y sigue enlazando la política completa', () => {
+    for (const key of ['offline', 'noTrackers', 'noAds', 'yourData', 'noScripts']) {
+      expect(commitment, key).toContain(`data-i18n="commitment.${key}.title"`);
+      expect(commitment, key).toContain(`data-i18n="commitment.${key}.text"`);
+    }
+    expect(commitment).toContain('data-action="open-privacy"');
+    expect(main).toMatch(/'open-commitment': \(\) => ui\.openCommitment\(\)/);
+  });
+});
+
+describe('compromiso de privacidad', () => {
+  const html = readFileSync('index.html', 'utf8');
+  const main = readFileSync('src/main.js', 'utf8');
+  const commitment = html.slice(html.indexOf('id="commitmentModal"'), html.indexOf('<script type="module"'));
+
+  it('sustituye al enlace de la política en Configuración y en la introducción', () => {
+    expect(html.match(/data-action="open-commitment"/g)).toHaveLength(2);
+    expect(html).not.toContain('data-i18n="config.privacy"');
+    expect(html).toContain('fa-shield-halved');
+  });
+
+  it('resume las cinco prácticas y sigue enlazando la política completa', () => {
+    for (const key of ['offline', 'noTrackers', 'noAds', 'yourData', 'noScripts']) {
+      expect(commitment, key).toContain(`data-i18n="commitment.${key}.title"`);
+      expect(commitment, key).toContain(`data-i18n="commitment.${key}.text"`);
+    }
+    expect(commitment).toContain('data-action="open-privacy"');
+    expect(main).toMatch(/'open-commitment': \(\) => ui\.openCommitment\(\)/);
   });
 });

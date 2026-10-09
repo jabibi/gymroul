@@ -79,7 +79,7 @@ export function pulseIndicator() {
 // Cada modal que se abre añade una entrada al historial del navegador: así el botón
 // "Atrás" de Android (o del navegador) lo cierra en lugar de salir de la app.
 
-/** @typedef {'result' | 'history' | 'config' | 'document'} ModalName */
+/** @typedef {'result' | 'history' | 'config' | 'commitment' | 'document'} ModalName */
 // Pila de modales abiertos (el último es el que está encima): la política de privacidad
 // puede abrirse sobre la configuración y Atrás debe cerrar primero la de arriba
 /** @type {ModalName[]} */
@@ -92,6 +92,7 @@ const closers = {
   result: () => closeResult(false),
   history: () => closeHistory(),
   config: () => closeConfig(),
+  commitment: () => closeCommitment(),
   document: () => closeDocument(),
 };
 
@@ -164,8 +165,8 @@ export function initModals() {
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeActiveModal(); });
 
-  // Tocar el fondo cierra historial y configuración (el reto pendiente solo se cierra con sus botones, Esc o Atrás)
-  ['historyModal', 'configModal'].forEach(id => {
+  // Tocar el fondo cierra historial, configuración y compromiso de privacidad (el reto pendiente solo se cierra con sus botones, Esc o Atrás)
+  ['historyModal', 'configModal', 'commitmentModal'].forEach(id => {
     const modal = $(id);
     modal.addEventListener('click', e => { if (e.target === modal) closeActiveModal(); });
   });
@@ -452,6 +453,19 @@ export function initKeyboardAvoidance() {
   window.visualViewport?.addEventListener('resize', scheduleReveal);
 }
 
+// --- Compromiso de privacidad ---------------------------------------------------------
+
+export function openCommitment() {
+  $('commitmentModal').classList.remove('hidden');
+  $('commitmentModal').focus({ preventScroll: true });
+  pushModal('commitment');
+}
+
+export function closeCommitment() {
+  $('commitmentModal').classList.add('hidden');
+  dismissModal('commitment');
+}
+
 // --- Documentos (política de privacidad, créditos) ----------------------------------------
 // Se muestran dentro de la app (iframe) en vez de navegar a la página: así no se sale de la
 // aplicación y el botón Atrás cierra el visor en lugar de cerrar la app.
@@ -503,7 +517,7 @@ let introSlide = 0;
  */
 function setIntroGate(visible) {
   $('introGate').classList.toggle('hidden', !visible);
-  document.querySelectorAll('body > :not(#introGate):not(#documentModal):not(script)').forEach(el => {
+  document.querySelectorAll('body > :not(#introGate):not(#commitmentModal):not(#documentModal):not(script)').forEach(el => {
     /** @type {HTMLElement} */ (el).inert = visible;
   });
   if (visible) $('introGate').focus({ preventScroll: true });

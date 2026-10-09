@@ -47,7 +47,7 @@ function inspectPage() {
     for (let n = el; n && n !== document.documentElement; n = n.parentElement) {
       const cs = getComputedStyle(n);
       if (cs.display === 'none' || cs.visibility === 'hidden' || Number(cs.opacity) === 0) return false;
-      if (n.hasAttribute('inert') && !n.closest('#introGate, #documentModal')) return false;
+      if (n.hasAttribute('inert') && !n.closest('#introGate, #commitmentModal, #documentModal')) return false;
     }
     const r = el.getBoundingClientRect();
     return r.width > 0 && r.height > 0;
@@ -208,9 +208,12 @@ try {
       await intro.click('#introNext');
       await wait(400);
       await check(intro, lang, vp, '09-introduccion-2');
-      await intro.click('#introGate [data-action=open-privacy]');
+      await intro.click('#introGate [data-action=open-commitment]');
+      await wait(300);
+      await check(intro, lang, vp, '10-compromiso-de-privacidad');
+      await intro.click('#commitmentModal [data-action=open-privacy]');
       await wait(600);
-      await check(intro, lang, vp, '10-politica-de-privacidad');
+      await check(intro, lang, vp, '11-politica-de-privacidad');
       await intro.close();
     }
     console.log(`${lang}: revisado`);
