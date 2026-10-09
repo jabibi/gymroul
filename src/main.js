@@ -124,6 +124,8 @@ const actions = {
     ui.closeConfig();
   },
 
+  'open-commitment': () => ui.openCommitment(),
+  'close-commitment': () => ui.closeCommitment(),
   'open-privacy': () => ui.openDocument('privacy'),
   'open-credits': () => ui.openDocument('credits'),
   'close-document': () => ui.closeDocument(),
