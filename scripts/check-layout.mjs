@@ -2,7 +2,7 @@
 // cada idioma (sobre todo en los de derecha a izquierda, donde cambian el orden y las alturas de línea).
 //
 // Para cada idioma y cada tamaño de móvil recorre: ruleta, resultado, historial, configuración, selector de
-// iconos, introducción (las dos diapositivas) y visor de documentos, y en cada pantalla busca:
+// iconos, compromiso de privacidad y visor de documentos, y en cada pantalla busca:
 //   - texto que sobresale de su contenedor recortado (overflow oculto, p. ej. «truncate» o una caja de altura fija)
 //   - texto que se sale de la pantalla o genera desplazamiento horizontal
 //   - cajas de texto de elementos distintos que se solapan
@@ -47,7 +47,7 @@ function inspectPage() {
     for (let n = el; n && n !== document.documentElement; n = n.parentElement) {
       const cs = getComputedStyle(n);
       if (cs.display === 'none' || cs.visibility === 'hidden' || Number(cs.opacity) === 0) return false;
-      if (n.hasAttribute('inert') && !n.closest('#introGate, #commitmentModal, #documentModal')) return false;
+      if (n.hasAttribute('inert') && !n.closest('#commitmentModal, #documentModal')) return false;
     }
     const r = el.getBoundingClientRect();
     return r.width > 0 && r.height > 0;
@@ -64,7 +64,7 @@ function inspectPage() {
     range.selectNodeContents(node);
     for (const r of range.getClientRects()) {
       if (r.width <= 1 || r.height <= 1) continue;
-      // Si lo que hay encima de la caja es otra cosa (un modal abierto, la introducción...), no se ve: se ignora
+      // Si lo que hay encima de la caja es otra cosa (un modal abierto...), no se ve: se ignora
       const top = document.elementFromPoint(Math.min(Math.max((r.left + r.right) / 2, 0), innerWidth - 1), Math.min(Math.max((r.top + r.bottom) / 2, 0), innerHeight - 1));
       if (top && !(el.contains(top) || top.contains(el))) continue;
       boxes.push({ el, text, left: r.left, right: r.right, top: r.top, bottom: r.bottom });
@@ -140,17 +140,15 @@ const server = await preview({ preview: { port: PORT, host: '127.0.0.1', open: f
 const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--no-sandbox'] });
 let total = 0;
 
-/** @param {string} lang @param {{ width: number, height: number }} vp @param {boolean} intro */
-async function openApp(lang, vp, intro) {
+/** @param {string} lang @param {{ width: number, height: number }} vp */
+async function openApp(lang, vp) {
   const page = await browser.newPage();
   await page.setViewport({ ...vp, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
   await page.setRequestInterception(true);
   page.on('request', req => (req.url().startsWith(BASE) || req.url().startsWith('data:') ? req.continue() : req.abort()));
-  await page.evaluateOnNewDocument(skipIntro => {
-    if (skipIntro) localStorage.setItem('gymroulette_intro_seen', 'true');
-    else localStorage.removeItem('gymroulette_intro_seen');
+  await page.evaluateOnNewDocument(() => {
     Math.random = () => 0.5;
-  }, !intro);
+  });
   await page.goto(`${BASE}?lang=${lang}`, { waitUntil: 'networkidle0' });
   await page.evaluate(() => document.fonts.ready);
   await wait(400);
@@ -168,7 +166,7 @@ async function check(page, lang, vp, screen) {
 try {
   for (const lang of languages) {
     for (const vp of VIEWPORTS) {
-      const page = await openApp(lang, vp, false);
+      const page = await openApp(lang, vp);
       await check(page, lang, vp, '01-ruleta');
       await page.click('#spinBtn');
       await page.waitForFunction(() => !document.getElementById('resultModal').classList.contains('pointer-events-none'), { timeout: 30000 });
@@ -202,19 +200,17 @@ try {
       await check(page, lang, vp, '07-sin-iconos');
       await page.close();
 
-      const intro = await openApp(lang, vp, true);
-      await intro.waitForSelector('#introGate:not(.hidden)');
-      await check(intro, lang, vp, '08-introduccion-1');
-      await intro.click('#introNext');
-      await wait(400);
-      await check(intro, lang, vp, '09-introduccion-2');
-      await intro.click('#introGate [data-action=open-commitment]');
+      // Compromiso de privacidad (desde Configuración) y, encima, la política completa
+      const privacy = await openApp(lang, vp);
+      await privacy.click('[data-action=open-config]');
+      await wait(500);
+      await privacy.evaluate(() => document.querySelector('#configModal [data-action=open-commitment]').click());
       await wait(300);
-      await check(intro, lang, vp, '10-compromiso-de-privacidad');
-      await intro.click('#commitmentModal [data-action=open-privacy]');
+      await check(privacy, lang, vp, '08-compromiso-de-privacidad');
+      await privacy.click('#commitmentModal [data-action=open-privacy]');
       await wait(600);
-      await check(intro, lang, vp, '11-politica-de-privacidad');
-      await intro.close();
+      await check(privacy, lang, vp, '09-politica-de-privacidad');
+      await privacy.close();
     }
     console.log(`${lang}: revisado`);
   }

@@ -169,41 +169,25 @@ describe('errores del almacén', () => {
   });
 });
 
-describe('introducción de la primera apertura', () => {
+describe('sin introducción ni analítica', () => {
   const html = readFileSync('index.html', 'utf8');
   const main = readFileSync('src/main.js', 'utf8');
-  const introKeys = Object.keys(DICTIONARIES.en.strings).filter(k => k.startsWith('intro.'));
 
-  it('todos los idiomas traducen la introducción y no queda texto de consentimiento', () => {
-    expect(introKeys.length).toBeGreaterThanOrEqual(14);
+  it('la app abre directamente la ruleta: no queda rastro de la introducción', () => {
+    expect(html).not.toMatch(/introGate|data-intro|intro-skip|intro-next/);
+    expect(main).not.toMatch(/introGate|showIntro|hasSeenIntro|introBack/);
     for (const code of codes) {
-      for (const key of introKeys) expect(DICTIONARIES[code].strings[key], `${code}:${key}`).toBeTruthy();
-      expect(Object.keys(DICTIONARIES[code].strings).filter(k => k.startsWith('consent.') || k === 'config.analytics'), code).toEqual([]);
+      expect(Object.keys(DICTIONARIES[code].strings).filter(k => k.startsWith('intro.')), code).toEqual([]);
     }
   });
 
-  it('el marcado usa solo claves que existen y Skip está arriba', () => {
-    for (const key of html.match(/data-i18n(?:-aria-label)?="intro\.[\w.]+"/g)?.map(m => m.split('"')[1]) ?? []) {
-      expect(DICTIONARIES.en.strings[key], key).toBeTruthy();
-    }
-    expect(html).toContain('data-action="intro-skip"');
-    expect(html.indexOf('data-action="intro-skip"')).toBeLessThan(html.indexOf('data-intro-slide="0"'));
-    expect(DICTIONARIES.en.strings['intro.skip']).toBe('Skip');
-  });
-
-  it('la introducción tiene dos diapositivas y no queda rastro de analítica en la app', () => {
-    expect(html.match(/data-intro-slide="\d"/g)).toHaveLength(2);
+  it('no queda texto de consentimiento ni código de analítica', () => {
     // «analytics» sí puede aparecer en el texto del compromiso de privacidad («No analytics…»); lo que no debe haber es código de analítica
     expect(html).not.toMatch(/consent|googletagmanager|google-analytics|gtag|firebase/i);
     expect(main).not.toMatch(/consent|analytics/i);
-  });
-
-  it('Atrás en Android cierra primero los documentos y después retrocede en la introducción', () => {
-    expect(main).toMatch(/ui\.closeActiveModal\(\) \|\| ui\.introBack\(\)/);
-  });
-
-  it('solo se muestra si aún no se ha visto', () => {
-    expect(main).toMatch(/if \(!hasSeenIntro\(\)\) ui\.showIntro\(\)/);
+    for (const code of codes) {
+      expect(Object.keys(DICTIONARIES[code].strings).filter(k => k.startsWith('consent.') || k === 'config.analytics'), code).toEqual([]);
+    }
   });
 });
 
@@ -212,9 +196,8 @@ describe('compromiso de privacidad', () => {
   const main = readFileSync('src/main.js', 'utf8');
   const commitment = html.slice(html.indexOf('id="commitmentModal"'), html.indexOf('<script type="module"'));
 
-  it('sustituye al enlace de la política en Configuración y en la introducción', () => {
-    expect(html.match(/data-action="open-commitment"/g)).toHaveLength(2);
-    expect(html.match(/data-i18n="config\.commitment"/g)?.length).toBeGreaterThanOrEqual(3);
+  it('sustituye al enlace de la política en Configuración', () => {
+    expect(html.match(/data-action="open-commitment"/g)).toHaveLength(1);
     expect(html).not.toContain('data-i18n="config.privacy"');
     expect(html).toContain('fa-shield-halved');
   });
@@ -227,25 +210,8 @@ describe('compromiso de privacidad', () => {
     expect(commitment).toContain('data-action="open-privacy"');
     expect(main).toMatch(/'open-commitment': \(\) => ui\.openCommitment\(\)/);
   });
-});
 
-describe('compromiso de privacidad', () => {
-  const html = readFileSync('index.html', 'utf8');
-  const main = readFileSync('src/main.js', 'utf8');
-  const commitment = html.slice(html.indexOf('id="commitmentModal"'), html.indexOf('<script type="module"'));
-
-  it('sustituye al enlace de la política en Configuración y en la introducción', () => {
-    expect(html.match(/data-action="open-commitment"/g)).toHaveLength(2);
-    expect(html).not.toContain('data-i18n="config.privacy"');
-    expect(html).toContain('fa-shield-halved');
-  });
-
-  it('resume las cinco prácticas y sigue enlazando la política completa', () => {
-    for (const key of ['offline', 'noTrackers', 'noAds', 'yourData', 'noScripts']) {
-      expect(commitment, key).toContain(`data-i18n="commitment.${key}.title"`);
-      expect(commitment, key).toContain(`data-i18n="commitment.${key}.text"`);
-    }
-    expect(commitment).toContain('data-action="open-privacy"');
-    expect(main).toMatch(/'open-commitment': \(\) => ui\.openCommitment\(\)/);
+  it('Atrás en Android cierra primero el modal que esté encima', () => {
+    expect(main).toMatch(/if \(ui\.closeActiveModal\(\)\) return;/);
   });
 });

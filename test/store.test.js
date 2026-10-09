@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import {
   readStorage, getExercises, getReps, loadActive, active, migrate, SCHEMA_VERSION,
-  addExercise, removeExercise, addRep, removeRep, hasSeenIntro, markIntroSeen, DEFAULT_EXERCISES, DEFAULT_REPS, MAX_REPS, MAX_EXERCISES, pickColor, COLOR_PALETTE,
+  addExercise, removeExercise, addRep, removeRep, DEFAULT_EXERCISES, DEFAULT_REPS, MAX_REPS, MAX_EXERCISES, pickColor, COLOR_PALETTE,
 } from '../src/store.js';
 
 function installLocalStorage() {
@@ -178,16 +178,12 @@ describe('migración v5 -> v6', () => {
   });
 });
 
-describe('introducción de la primera apertura', () => {
-  it('no se ha visto hasta que se marca, y queda recordada', () => {
-    expect(hasSeenIntro()).toBe(false);
-    markIntroSeen();
-    expect(hasSeenIntro()).toBe(true);
-  });
-
-  it('un valor corrupto cuenta como no visto', () => {
-    data.set('gymroulette_intro_seen', 'quizá');
-    expect(hasSeenIntro()).toBe(false);
+describe('migración v6 -> v7', () => {
+  it('borra el aviso de introducción vista de las versiones anteriores', () => {
+    data.set('gym_schema_version', '6');
+    data.set('gymroulette_intro_seen', 'true');
+    migrate();
+    expect(data.has('gymroulette_intro_seen')).toBe(false);
   });
 });
 

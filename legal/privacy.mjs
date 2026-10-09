@@ -18,7 +18,7 @@ export default {
 
       ['h2', '2. Data we process'],
       ['h3', '2.1 Data that stays on your device'],
-      ['p', 'Your wheel settings (the exercises and reps you create or turn on) and the fact that you have already seen the introduction are stored only in your device\'s local storage (<code>localStorage</code>). The session history exists only in memory and is lost when you close the app. This data is not sent to any server, and you remove it by clearing the app\'s data or uninstalling it.'],
+      ['p', 'Your wheel settings (the exercises and reps you create or turn on) are stored only in your device\'s local storage (<code>localStorage</code>). The session history exists only in memory and is lost when you close the app. This data is not sent to any server, and you remove it by clearing the app\'s data or uninstalling it.'],
       ['h3', '2.2 No analytics, no trackers, no ads'],
       ['p', 'Since version 1.13 the app has no analytics or tracking tools of any kind: it does not include any third-party SDK, it shows no ads, it does not use advertising or tracking identifiers, and it does not use cookies beyond the local storage described above, which is strictly necessary for the app to work. The Android app does not connect to the Internet.'],
       ['p', 'GymRoulette does <strong>not</strong> collect your name, email address, contacts, photos, microphone, camera, location (not even approximate), or any health or fitness data. The app has no user accounts.'],
@@ -66,7 +66,7 @@ export default {
 
       ['h2', '2. Datos que se tratan'],
       ['h3', '2.1 Datos que permanecen en tu dispositivo'],
-      ['p', 'La configuración de la ruleta (ejercicios y repeticiones que creas o activas) y el hecho de que ya hayas visto la introducción se guardan únicamente en el almacenamiento local de tu dispositivo (<code>localStorage</code>). El historial de la sesión solo existe en memoria y se pierde al cerrar la aplicación. Estos datos no se envían a ningún servidor y los eliminas borrando los datos de la aplicación o desinstalándola.'],
+      ['p', 'La configuración de la ruleta (ejercicios y repeticiones que creas o activas) se guarda únicamente en el almacenamiento local de tu dispositivo (<code>localStorage</code>). El historial de la sesión solo existe en memoria y se pierde al cerrar la aplicación. Estos datos no se envían a ningún servidor y los eliminas borrando los datos de la aplicación o desinstalándola.'],
       ['h3', '2.2 Sin analítica, sin rastreadores, sin anuncios'],
       ['p', 'Desde la versión 1.13 la aplicación no incluye ninguna herramienta de analítica ni de seguimiento: no incluye ningún SDK de terceros, no muestra anuncios, no usa identificadores publicitarios ni de seguimiento y no utiliza cookies más allá del almacenamiento local descrito arriba, que es estrictamente necesario para el funcionamiento de la app. La aplicación de Android no se conecta a Internet.'],
       ['p', 'GymRoulette <strong>no</strong> recopila nombre, correo electrónico, contactos, fotos, micrófono, cámara, ubicación (ni siquiera aproximada) ni ningún dato de salud o de condición física. La aplicación no tiene cuentas de usuario.'],
@@ -162,7 +162,7 @@ export default {
 
       ['h2', '2. Datos que se tratan'],
       ['h3', '2.1 Datos que permanecen no teu dispositivo'],
-      ['p', 'A configuración da ruleta (exercicios e repeticións que creas ou activas) e o feito de que xa viches a introdución gárdanse unicamente no almacenamento local do teu dispositivo (<code>localStorage</code>). O historial da sesión só existe na memoria e perdese ao pechar a aplicación. Estes datos non se envían a ningún servidor e elimínalos borrando os datos da aplicación ou desinstalándoa.'],
+      ['p', 'A configuración da ruleta (exercicios e repeticións que creas ou activas) gárdase unicamente no almacenamento local do teu dispositivo (<code>localStorage</code>). O historial da sesión só existe na memoria e perdese ao pechar a aplicación. Estes datos non se envían a ningún servidor e elimínalos borrando os datos da aplicación ou desinstalándoa.'],
       ['h3', '2.2 Sen analítica, sen rastreadores, sen anuncios'],
       ['p', 'Desde a versión 1.13 a aplicación non ten ningunha ferramenta de analítica nin de seguimento: non inclúe ningún SDK de terceiros, non mostra anuncios, non usa identificadores publicitarios nin de seguimento e non usa cookies máis alá do almacenamento local descrito arriba, que é estritamente necesario para o funcionamento da app. A aplicación Android non se conecta a Internet.'],
       ['p', 'GymRoulette <strong>non</strong> recolle nome, correo electrónico, contactos, fotos, micrófono, cámara, localización (nin sequera aproximada) nin ningún dato de saúde ou de condición física. A aplicación non ten contas de usuario.'],
@@ -210,7 +210,7 @@ export default {
 
       ['h2', '2. Dades que es tracten'],
       ['h3', '2.1 Dades que es queden al teu dispositiu'],
-      ['p', 'La configuració de la ruleta (exercicis i repeticions que crees o actives) i el fet que ja has vist la introducció es desen únicament a l\'emmagatzematge local del teu dispositiu (<code>localStorage</code>). L\'historial de la sessió només existeix a la memòria i es perd en tancar l\'aplicació. Aquestes dades no s\'envien a cap servidor i les elimines esborrant les dades de l\'aplicació o desinstal·lant-la.'],
+      ['p', 'La configuració de la ruleta (exercicis i repeticions que crees o actives) es desa únicament a l\'emmagatzematge local del teu dispositiu (<code>localStorage</code>). L\'historial de la sessió només existeix a la memòria i es perd en tancar l\'aplicació. Aquestes dades no s\'envien a cap servidor i les elimines esborrant les dades de l\'aplicació o desinstal·lant-la.'],
       ['h3', '2.2 Sense analítica, sense rastrejadors, sense anuncis'],
       ['p', 'Des de la versió 1.13 l\'aplicació no té cap eina d\'analítica ni de seguiment: no inclou cap SDK de tercers, no mostra anuncis, no utilitza identificadors publicitaris ni de seguiment i no utilitza galetes més enllà de l\'emmagatzematge local descrit a dalt, que és estrictament necessari per al funcionament de l\'app. L\'aplicació Android no es connecta a Internet.'],
       ['p', 'GymRoulette <strong>no</strong> recopila nom, correu electrònic, contactes, fotos, micròfon, càmera, ubicació (ni tan sols aproximada) ni cap dada de salut o de condició física. L\'aplicació no té comptes d\'usuari.'],
@@ -258,7 +258,7 @@ export default {
 
       ['h2', '2. Données traitées'],
       ['h3', '2.1 Données qui restent sur ton appareil'],
-      ['p', 'La configuration de la roue (les exercices et répétitions que tu crées ou actives) et le fait que tu aies déjà vu l\'introduction sont enregistrés uniquement dans le stockage local de ton appareil (<code>localStorage</code>). L\'historique de la séance n\'existe qu\'en mémoire et disparaît à la fermeture de l\'application. Ces données ne sont envoyées à aucun serveur et tu les supprimes en effaçant les données de l\'application ou en la désinstallant.'],
+      ['p', 'La configuration de la roue (les exercices et répétitions que tu crées ou actives) est enregistrée uniquement dans le stockage local de ton appareil (<code>localStorage</code>). L\'historique de la séance n\'existe qu\'en mémoire et disparaît à la fermeture de l\'application. Ces données ne sont envoyées à aucun serveur et tu les supprimes en effaçant les données de l\'application ou en la désinstallant.'],
       ['h3', '2.2 Ni analyse, ni traceurs, ni publicité'],
       ['p', 'Depuis la version 1.13, l\'application ne contient aucun outil d\'analyse ou de suivi : elle n\'inclut aucun SDK tiers, n\'affiche pas de publicité, n\'utilise pas d\'identifiants publicitaires ou de suivi et n\'utilise pas de cookies en dehors du stockage local décrit ci-dessus, qui est strictement nécessaire au fonctionnement de l\'application. L\'application Android ne se connecte pas à Internet.'],
       ['p', 'GymRoulette ne collecte <strong>ni</strong> nom, adresse e-mail, contacts, photos, microphone, caméra, localisation (pas même approximative), ni aucune donnée de santé ou de condition physique. L\'application n\'a pas de comptes utilisateur.'],
@@ -306,7 +306,7 @@ export default {
 
       ['h2', '2. Verarbeitete Daten'],
       ['h3', '2.1 Daten, die auf Ihrem Gerät bleiben'],
-      ['p', 'Die Einstellungen Ihres Rads (die Übungen und Wiederholungen, die Sie erstellen oder aktivieren) und die Information, dass Sie die Einführung bereits gesehen haben, werden ausschließlich im lokalen Speicher Ihres Geräts (<code>localStorage</code>) abgelegt. Der Verlauf der Sitzung existiert nur im Arbeitsspeicher und geht beim Schließen der App verloren. Diese Daten werden an keinen Server gesendet; Sie entfernen sie, indem Sie die Daten der App löschen oder sie deinstallieren.'],
+      ['p', 'Die Einstellungen Ihres Rads (die Übungen und Wiederholungen, die Sie erstellen oder aktivieren) werden ausschließlich im lokalen Speicher Ihres Geräts (<code>localStorage</code>) abgelegt. Der Verlauf der Sitzung existiert nur im Arbeitsspeicher und geht beim Schließen der App verloren. Diese Daten werden an keinen Server gesendet; Sie entfernen sie, indem Sie die Daten der App löschen oder sie deinstallieren.'],
       ['h3', '2.2 Keine Analyse, keine Tracker, keine Werbung'],
       ['p', 'Seit Version 1.13 enthält die App keinerlei Analyse- oder Tracking-Werkzeuge: Sie enthält kein SDK von Drittanbietern, zeigt keine Werbung, verwendet keine Werbe- oder Tracking-Kennungen und nutzt keine Cookies über den oben beschriebenen lokalen Speicher hinaus, der für den Betrieb der App unbedingt erforderlich ist. Die Android-App stellt keine Verbindung zum Internet her.'],
       ['p', 'GymRoulette erfasst <strong>weder</strong> Ihren Namen, Ihre E-Mail-Adresse, Kontakte, Fotos, Mikrofon, Kamera, Standort (nicht einmal ungefähr) <strong>noch</strong> Gesundheits- oder Fitnessdaten. Die App hat keine Benutzerkonten.'],
@@ -354,7 +354,7 @@ export default {
 
       ['h2', '2. Dati trattati'],
       ['h3', '2.1 Dati che restano sul tuo dispositivo'],
-      ['p', 'Le impostazioni della ruota (gli esercizi e le ripetizioni che crei o attivi) e il fatto che tu abbia già visto l\'introduzione vengono salvati esclusivamente nella memoria locale del tuo dispositivo (<code>localStorage</code>). La cronologia della sessione esiste solo in memoria e va persa alla chiusura dell\'app. Questi dati non vengono inviati ad alcun server e li rimuovi cancellando i dati dell\'app o disinstallandola.'],
+      ['p', 'Le impostazioni della ruota (gli esercizi e le ripetizioni che crei o attivi) vengono salvate esclusivamente nella memoria locale del tuo dispositivo (<code>localStorage</code>). La cronologia della sessione esiste solo in memoria e va persa alla chiusura dell\'app. Questi dati non vengono inviati ad alcun server e li rimuovi cancellando i dati dell\'app o disinstallandola.'],
       ['h3', '2.2 Nessuna analisi, nessun tracker, nessuna pubblicità'],
       ['p', 'Dalla versione 1.13 l\'app non ha strumenti di analisi o di tracciamento di alcun tipo: non include alcun SDK di terze parti, non mostra annunci, non usa identificativi pubblicitari o di tracciamento e non usa cookie oltre alla memoria locale descritta sopra, strettamente necessaria per il funzionamento dell\'app. L\'app Android non si connette a Internet.'],
       ['p', 'GymRoulette <strong>non</strong> raccoglie il tuo nome, indirizzo e-mail, contatti, foto, microfono, fotocamera, posizione (nemmeno approssimativa) né alcun dato relativo alla salute o alla forma fisica. L\'app non ha account utente.'],
@@ -402,7 +402,7 @@ export default {
 
       ['h2', '2. Dados tratados'],
       ['h3', '2.1 Dados que ficam no seu dispositivo'],
-      ['p', 'A configuração da roleta (os exercícios e repetições que você cria ou ativa) e o fato de você já ter visto a introdução são guardados apenas no armazenamento local do seu dispositivo (<code>localStorage</code>). O histórico da sessão existe somente na memória e se perde ao fechar o aplicativo. Esses dados não são enviados a nenhum servidor e você os remove apagando os dados do aplicativo ou desinstalando-o.'],
+      ['p', 'A configuração da roleta (os exercícios e repetições que você cria ou ativa) é guardada apenas no armazenamento local do seu dispositivo (<code>localStorage</code>). O histórico da sessão existe somente na memória e se perde ao fechar o aplicativo. Esses dados não são enviados a nenhum servidor e você os remove apagando os dados do aplicativo ou desinstalando-o.'],
       ['h3', '2.2 Sem análise, sem rastreadores, sem anúncios'],
       ['p', 'Desde a versão 1.13 o aplicativo não tem nenhuma ferramenta de análise ou rastreamento: não inclui nenhum SDK de terceiros, não exibe anúncios, não usa identificadores de publicidade ou rastreamento e não usa cookies além do armazenamento local descrito acima, que é estritamente necessário para o funcionamento do app. O aplicativo Android não se conecta à Internet.'],
       ['p', 'O GymRoulette <strong>não</strong> coleta nome, e-mail, contatos, fotos, microfone, câmera, localização (nem mesmo aproximada) nem qualquer dado de saúde ou condicionamento físico. O aplicativo não tem contas de usuário.'],
@@ -450,7 +450,7 @@ export default {
 
       ['h2', '2. Dados tratados'],
       ['h3', '2.1 Dados que ficam no teu dispositivo'],
-      ['p', 'A configuração da roleta (os exercícios e repetições que crias ou ativas) e o facto de já teres visto a introdução são guardados apenas no armazenamento local do teu dispositivo (<code>localStorage</code>). O histórico da sessão existe apenas na memória e perde-se ao fechar a aplicação. Estes dados não são enviados para nenhum servidor e removes-os apagando os dados da aplicação ou desinstalando-a.'],
+      ['p', 'A configuração da roleta (os exercícios e repetições que crias ou ativas) é guardada apenas no armazenamento local do teu dispositivo (<code>localStorage</code>). O histórico da sessão existe apenas na memória e perde-se ao fechar a aplicação. Estes dados não são enviados para nenhum servidor e removes-os apagando os dados da aplicação ou desinstalando-a.'],
       ['h3', '2.2 Sem análise, sem rastreadores, sem anúncios'],
       ['p', 'Desde a versão 1.13 a aplicação não tem nenhuma ferramenta de análise ou de rastreio: não inclui nenhum SDK de terceiros, não apresenta anúncios, não utiliza identificadores de publicidade ou de rastreio e não utiliza cookies para além do armazenamento local descrito acima, que é estritamente necessário para o funcionamento da aplicação. A aplicação Android não se liga à Internet.'],
       ['p', 'O GymRoulette <strong>não</strong> recolhe nome, e-mail, contactos, fotografias, microfone, câmara, localização (nem sequer aproximada) nem quaisquer dados de saúde ou de condição física. A aplicação não tem contas de utilizador.'],
@@ -497,7 +497,7 @@ export default {
 
       ['h2', '2. Przetwarzane dane'],
       ['h3', '2.1 Dane, które pozostają na urządzeniu Użytkownika'],
-      ['p', 'Ustawienia koła (ćwiczenia i powtórzenia, które Użytkownik tworzy lub włącza) oraz informacja, że Użytkownik zobaczył już wprowadzenie, są zapisywane wyłącznie w pamięci lokalnej urządzenia (<code>localStorage</code>). Historia sesji istnieje tylko w pamięci i znika po zamknięciu aplikacji. Dane te nie są wysyłane na żaden serwer; Użytkownik usuwa je, czyszcząc dane aplikacji lub odinstalowując ją.'],
+      ['p', 'Ustawienia koła (ćwiczenia i powtórzenia, które Użytkownik tworzy lub włącza) są zapisywane wyłącznie w pamięci lokalnej urządzenia (<code>localStorage</code>). Historia sesji istnieje tylko w pamięci i znika po zamknięciu aplikacji. Dane te nie są wysyłane na żaden serwer; Użytkownik usuwa je, czyszcząc dane aplikacji lub odinstalowując ją.'],
       ['h3', '2.2 Brak analityki, trackerów i reklam'],
       ['p', 'Od wersji 1.13 aplikacja nie zawiera żadnych narzędzi analitycznych ani śledzących: nie obejmuje żadnego zewnętrznego pakietu SDK, nie wyświetla reklam, nie używa identyfikatorów reklamowych ani śledzących i nie korzysta z plików cookie poza opisaną wyżej pamięcią lokalną, która jest niezbędna do działania aplikacji. Aplikacja na Androida nie łączy się z Internetem.'],
       ['p', 'GymRoulette <strong>nie</strong> zbiera imienia i nazwiska, adresu e-mail, kontaktów, zdjęć, mikrofonu, aparatu, lokalizacji (nawet przybliżonej) ani żadnych danych o zdrowiu czy kondycji. Aplikacja nie ma kont użytkowników.'],
@@ -545,7 +545,7 @@ export default {
 
       ['h2', '2. البيانات التي نعالجها'],
       ['h3', '2.1 بيانات تبقى على جهازك'],
-      ['p', 'تُحفظ إعدادات العجلة لديك (التمارين والتكرارات التي تنشئها أو تفعّلها) وكونك قد شاهدت المقدمة في وحدة التخزين المحلية لجهازك فقط (<code>localStorage</code>). أما سجل الجلسة فيوجد في الذاكرة فقط ويضيع عند إغلاق التطبيق. لا تُرسَل هذه البيانات إلى أي خادم، ويمكنك إزالتها بمسح بيانات التطبيق أو بإلغاء تثبيته.'],
+      ['p', 'تُحفظ إعدادات العجلة لديك (التمارين والتكرارات التي تنشئها أو تفعّلها) في وحدة التخزين المحلية لجهازك فقط (<code>localStorage</code>). أما سجل الجلسة فيوجد في الذاكرة فقط ويضيع عند إغلاق التطبيق. لا تُرسَل هذه البيانات إلى أي خادم، ويمكنك إزالتها بمسح بيانات التطبيق أو بإلغاء تثبيته.'],
       ['h3', '2.2 لا تحليلات ولا أدوات تتبّع ولا إعلانات'],
       ['p', 'منذ الإصدار 1.13 لا يتضمن التطبيق أي أدوات تحليلات أو تتبّع من أي نوع: فهو لا يتضمن أي حزمة تطوير (SDK) من جهات خارجية، ولا يعرض إعلانات، ولا يستخدم معرّفات إعلانية أو معرّفات تتبّع، ولا يستخدم ملفات تعريف الارتباط باستثناء التخزين المحلي الموصوف أعلاه، وهو ضروري تمامًا لعمل التطبيق. ولا يتصل تطبيق Android بالإنترنت.'],
       ['p', 'لا يجمع GymRoulette <strong>أيًّا</strong> من اسمك أو عنوان بريدك الإلكتروني أو جهات اتصالك أو صورك أو الميكروفون أو الكاميرا أو موقعك (ولو التقريبي) أو أي بيانات صحية أو بدنية. ولا توجد في التطبيق حسابات مستخدمين.'],
@@ -593,7 +593,7 @@ export default {
 
       ['h2', '2. हम कौन-सा डेटा प्रोसेस करते हैं'],
       ['h3', '2.1 वह डेटा जो आपके डिवाइस पर ही रहता है'],
-      ['p', 'आपके चक्र की सेटिंग (आपके बनाए या चालू किए हुए एक्सरसाइज़ और रेप्स) और यह जानकारी कि आप परिचय देख चुके हैं, केवल आपके डिवाइस की लोकल स्टोरेज (<code>localStorage</code>) में सहेजी जाती है। सेशन का इतिहास केवल मेमोरी में रहता है और ऐप बंद करते ही मिट जाता है। यह डेटा किसी सर्वर को नहीं भेजा जाता, और आप इसे ऐप का डेटा साफ़ करके या ऐप अनइंस्टॉल करके हटा सकते हैं।'],
+      ['p', 'आपके चक्र की सेटिंग (आपके बनाए या चालू किए हुए एक्सरसाइज़ और रेप्स) केवल आपके डिवाइस की लोकल स्टोरेज (<code>localStorage</code>) में सहेजी जाती है। सेशन का इतिहास केवल मेमोरी में रहता है और ऐप बंद करते ही मिट जाता है। यह डेटा किसी सर्वर को नहीं भेजा जाता, और आप इसे ऐप का डेटा साफ़ करके या ऐप अनइंस्टॉल करके हटा सकते हैं।'],
       ['h3', '2.2 कोई एनालिटिक्स नहीं, कोई ट्रैकर नहीं, कोई विज्ञापन नहीं'],
       ['p', 'संस्करण 1.13 से ऐप में किसी भी तरह का एनालिटिक्स या ट्रैकिंग टूल नहीं है: इसमें कोई थर्ड-पार्टी SDK शामिल नहीं है, यह विज्ञापन नहीं दिखाता, विज्ञापन या ट्रैकिंग पहचानकर्ताओं का उपयोग नहीं करता, और ऊपर बताई गई लोकल स्टोरेज के अलावा कुकी का उपयोग नहीं करता, जो ऐप के चलने के लिए अत्यंत आवश्यक है। Android ऐप इंटरनेट से कनेक्ट नहीं होता।'],
       ['p', 'GymRoulette आपका नाम, ईमेल पता, संपर्क, फ़ोटो, माइक्रोफ़ोन, कैमरा, लोकेशन (अनुमानित भी नहीं), या स्वास्थ्य अथवा फ़िटनेस से जुड़ा कोई डेटा इकट्ठा <strong>नहीं</strong> करता। ऐप में यूज़र अकाउंट नहीं हैं।'],
@@ -641,7 +641,7 @@ export default {
 
       ['h2', '2. İşlediğimiz veriler'],
       ['h3', '2.1 Cihazınızda kalan veriler'],
-      ['p', 'Çark ayarlarınız (oluşturduğunuz veya etkinleştirdiğiniz egzersizler ve tekrarlar) ile tanıtımı daha önce gördüğünüz bilgisi yalnızca cihazınızın yerel depolama alanında (<code>localStorage</code>) saklanır. Oturum geçmişi yalnızca bellekte bulunur ve uygulamayı kapattığınızda kaybolur. Bu veriler hiçbir sunucuya gönderilmez; uygulamanın verilerini temizleyerek veya uygulamayı kaldırarak silebilirsiniz.'],
+      ['p', 'Çark ayarlarınız (oluşturduğunuz veya etkinleştirdiğiniz egzersizler ve tekrarlar) yalnızca cihazınızın yerel depolama alanında (<code>localStorage</code>) saklanır. Oturum geçmişi yalnızca bellekte bulunur ve uygulamayı kapattığınızda kaybolur. Bu veriler hiçbir sunucuya gönderilmez; uygulamanın verilerini temizleyerek veya uygulamayı kaldırarak silebilirsiniz.'],
       ['h3', '2.2 Analiz, izleyici ve reklam yok'],
       ['p', '1.13 sürümünden itibaren uygulamada hiçbir türde analiz veya izleme aracı bulunmaz: herhangi bir üçüncü taraf SDK\'sı içermez, reklam göstermez, reklam veya izleme tanımlayıcıları kullanmaz ve uygulamanın çalışması için kesinlikle gerekli olan yukarıda açıklanan yerel depolama dışında çerez kullanmaz. Android uygulaması İnternet\'e bağlanmaz.'],
       ['p', 'GymRoulette adınızı, e-posta adresinizi, kişilerinizi, fotoğraflarınızı, mikrofonunuzu, kameranızı, konumunuzu (yaklaşık olarak bile) veya herhangi bir sağlık ya da fitness verinizi <strong>toplamaz</strong>. Uygulamada kullanıcı hesabı yoktur.'],
