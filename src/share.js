@@ -17,6 +17,8 @@ const WEB_HOST = 'gymroul.web.app';
 
 export const IMAGE_SIZE = 1080;
 const FILE_NAME = 'gymroulette-reto.png';
+/** Nombre único por ejecución: si una compartición cancelada sigue escribiendo, no pisa la de la siguiente. */
+const uniqueName = () => `gymroulette-reto-${Date.now()}.png`;
 /** Carpeta de la caché de la app donde se deja la imagen mientras se comparte. */
 const CACHE_DIR = 'share';
 const FONT = "'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', sans-serif";
@@ -209,7 +211,7 @@ export async function shareChallenge(winner, { signal, onReady } = {}) {
       await Filesystem.rmdir({ path: CACHE_DIR, directory: Directory.Cache, recursive: true }).catch(() => {});
       throwIfAborted(signal);
       const { uri } = await Filesystem.writeFile({
-        path: `${CACHE_DIR}/${FILE_NAME}`, data: await toBase64(blob), directory: Directory.Cache, recursive: true,
+        path: `${CACHE_DIR}/${uniqueName()}`, data: await toBase64(blob), directory: Directory.Cache, recursive: true,
       });
       throwIfAborted(signal);
       onReady?.();

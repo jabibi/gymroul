@@ -66,4 +66,14 @@ describe('pantalla de carga al compartir', () => {
     expect(css).toContain('@keyframes share-spin');
     expect(css).toMatch(/prefers-reduced-motion[\s\S]*share-spinner/);
   });
+
+  it('cancelar suelta el control enseguida, para poder compartir de nuevo sin esperar', () => {
+    const ui = readFileSync('src/ui.js', 'utf8');
+    const cancel = ui.slice(ui.indexOf('export function cancelShare()'), ui.indexOf('export async function shareResult()'));
+    expect(cancel).toContain('shareAbort?.abort()');
+    expect(cancel).toContain('shareAbort = null');
+    // Una ejecución cancelada que termina tarde no toca la pantalla de carga de la siguiente
+    expect(ui).toMatch(/const current = \(\) => shareAbort === abort/);
+    expect(ui).toMatch(/if \(current\(\)\) hideShareLoading\(\)/);
+  });
 });

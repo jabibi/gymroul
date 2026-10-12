@@ -226,9 +226,14 @@ function hideShareLoading() {
   if (!$('resultModal').classList.contains('pointer-events-none')) $('resultModal').focus({ preventScroll: true });
 }
 
-/** Cancela compartir (botón Cancelar o Atrás) y vuelve al resultado. */
+/**
+ * Cancela compartir (botón Cancelar o Atrás) y vuelve al resultado. La operación cancelada puede seguir
+ * terminando por detrás (una llamada nativa no se interrumpe), así que se suelta ya el control: un nuevo
+ * toque en Compartir empieza de cero sin esperar a que acabe.
+ */
 export function cancelShare() {
   shareAbort?.abort();
+  shareAbort = null;
   hideShareLoading();
 }
 
@@ -239,15 +244,19 @@ export async function shareResult() {
   const abort = new AbortController();
   shareAbort = abort;
   showShareLoading();
+  // Una ejecución cancelada que termina tarde no debe tocar la pantalla de carga de la siguiente
+  const current = () => shareAbort === abort;
   try {
     // Sin conexión no hay nada que enviar desde aquí: la app solo entrega la imagen al sistema
-    const outcome = await shareChallenge(winner, { signal: abort.signal, onReady: hideShareLoading });
-    if (outcome === 'saved') showToast(t('share.saved'));
+    const outcome = await shareChallenge(winner, { signal: abort.signal, onReady: () => { if (current()) hideShareLoading(); } });
+    if (outcome === 'saved' && current()) showToast(t('share.saved'));
   } catch (e) {
-    if (!abort.signal.aborted) showToast(t('share.failed'));
+    if (current()) showToast(t('share.failed'));
   } finally {
-    shareAbort = null;
-    hideShareLoading();
+    if (current()) {
+      shareAbort = null;
+      hideShareLoading();
+    }
   }
 }
 
