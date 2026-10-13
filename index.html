@@ -82,9 +82,12 @@
     <!-- Modal de Resultado -->
     <div id="resultModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="winnerText" aria-hidden="true" class="outline-none fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
         <div class="glass-card relative w-full max-w-sm rounded-3xl p-6 text-center transform scale-90 transition-transform duration-300 shadow-2xl border border-brand-500/50 glow-brand" id="resultCard">
-            <button data-action="share-result" aria-label="Share" data-i18n-aria-label="result.share" title="Share" data-i18n-title="result.share" class="absolute top-3 end-3 w-11 h-11 flex items-center justify-center rounded-full bg-brand-500/15 border border-brand-500/40 text-brand-400 [@media(hover:hover)]:hover:bg-brand-500/25 transition-colors active:scale-95">
-                <i class="fa-solid fa-share-nodes text-base" aria-hidden="true"></i>
-            </button>
+            <div class="flex justify-end -mt-2 -me-2 mb-1">
+                <button data-action="share-result" class="inline-flex items-center gap-2 min-h-[44px] px-4 rounded-full bg-emerald-950/60 text-emerald-400 border border-emerald-500/30 text-sm font-bold [@media(hover:hover)]:hover:bg-emerald-900/60 transition-colors active:scale-95">
+                    <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+                    <span data-i18n="result.share">Share</span>
+                </button>
+            </div>
             <div id="winnerIconContainer" class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
                 <i id="winnerIcon" class="fa-solid fa-fire"></i>
             </div>
