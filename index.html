@@ -82,12 +82,6 @@
     <!-- Modal de Resultado -->
     <div id="resultModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="winnerText" aria-hidden="true" class="outline-none fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
         <div class="glass-card relative w-full max-w-sm rounded-3xl p-6 text-center transform scale-90 transition-transform duration-300 shadow-2xl border border-brand-500/50 glow-brand" id="resultCard">
-            <div class="flex justify-end -mt-2 -me-2 mb-1">
-                <button data-action="share-result" class="inline-flex items-center gap-2 min-h-[44px] px-4 rounded-full bg-emerald-950/60 text-emerald-400 border border-emerald-500/30 text-sm font-bold [@media(hover:hover)]:hover:bg-emerald-900/60 transition-colors active:scale-95">
-                    <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
-                    <span data-i18n="result.share">Share</span>
-                </button>
-            </div>
             <div id="winnerIconContainer" class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
                 <i id="winnerIcon" class="fa-solid fa-fire"></i>
             </div>
@@ -101,11 +95,15 @@
             </p>
 
             <div class="grid grid-cols-1 gap-3">
-                <button data-action="close-result" data-arg="skip" class="py-3.5 px-4 rounded-xl bg-dark-900 border border-slate-700 font-bold text-xs text-slate-300 hover:bg-dark-800 transition-all active:scale-95" data-i18n="result.skip">
-                    Skip this challenge
-                </button>
-                <button data-action="close-result" data-arg="done" class="py-3.5 px-4 rounded-xl bg-brand-500 text-dark-950 font-black text-xs hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30 active:scale-95" data-i18n="result.done">
+                <button data-action="close-result" data-arg="done" class="min-h-[48px] py-3.5 px-4 rounded-xl bg-brand-500 text-dark-950 font-black text-xs hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30 active:scale-95" data-i18n="result.done">
                     Done!
+                </button>
+                <button data-action="share-result" class="min-h-[48px] py-3.5 px-4 rounded-xl border border-brand-500 text-brand-400 font-black text-xs inline-flex items-center justify-center gap-2 [@media(hover:hover)]:hover:bg-brand-500/10 transition-all active:scale-95">
+                    <i class="fa-solid fa-share-nodes text-sm" aria-hidden="true"></i>
+                    <span data-i18n="result.share">Share</span>
+                </button>
+                <button data-action="close-result" data-arg="skip" class="min-h-[44px] py-2.5 px-4 rounded-xl font-bold text-xs text-slate-400 [@media(hover:hover)]:hover:text-slate-200 transition-all active:scale-95" data-i18n="result.skip">
+                    Skip this challenge
                 </button>
             </div>
         </div>
