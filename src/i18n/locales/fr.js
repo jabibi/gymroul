@@ -73,7 +73,7 @@ export default {
     'commitment.offline.title': '100 % hors ligne',
     'commitment.offline.text': 'Fonctionne sans connexion. L’appli ne demande même pas l’autorisation Internet.',
     'commitment.noTrackers.title': 'Aucun traceur',
-    'commitment.noTrackers.text': 'Aucune analyse, aucune bibliothèque de suivi et aucun profil.',
+    'commitment.noTrackers.text': 'Aucun outil d’analyse, aucune bibliothèque de suivi et aucun profil.',
     'commitment.noAds.title': 'Aucune publicité',
     'commitment.noAds.text': 'Aucune annonce et aucun réseau publicitaire.',
     'commitment.yourData.title': 'Tes données t’appartiennent',

@@ -73,7 +73,7 @@ export default {
     'commitment.offline.title': '%100 çevrimdışı',
     'commitment.offline.text': 'Bağlantı olmadan çalışır. Uygulama İnternet iznini bile istemez.',
     'commitment.noTrackers.title': 'İzleyici yok',
-    'commitment.noTrackers.text': 'Analiz yok, izleme kitaplığı yok, profil yok.',
+    'commitment.noTrackers.text': 'Analitik yok, izleme kitaplığı yok, profil yok.',
     'commitment.noAds.title': 'Reklam yok',
     'commitment.noAds.text': 'Reklam ve reklam ağı yok.',
     'commitment.yourData.title': 'Verilerin senindir',
