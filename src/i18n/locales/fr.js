@@ -16,7 +16,6 @@ export default {
     'spin.button': 'LANCER LA ROUE !',
 
     'result.badge': 'EXERCICE CHOISI !',
-    'result.desc': 'Excellent défi ! Fais {reps} répétitions de {exercise} avec une technique parfaite.',
     'result.skip': 'Passer ce défi',
     'result.done': 'Terminé !',
     'result.share': 'Partager',

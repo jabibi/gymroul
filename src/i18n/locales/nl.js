@@ -16,7 +16,6 @@ export default {
     'spin.button': 'DRAAI HET RAD!',
 
     'result.badge': 'OEFENING GEKOZEN!',
-    'result.desc': 'Gave uitdaging! Doe {reps} herhalingen {exercise} met een perfecte techniek.',
     'result.skip': 'Deze uitdaging overslaan',
     'result.done': 'Klaar!',
     'result.share': 'Delen',

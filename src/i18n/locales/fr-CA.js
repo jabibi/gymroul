@@ -10,7 +10,6 @@ export default {
 
 
     'result.badge': 'EXERCICE CHOISI!',
-    'result.desc': 'Excellent défi! Fais {reps} répétitions de {exercise} avec une technique parfaite.',
     'result.done': 'Terminé!',
     'share.text': 'Mon défi GymRoulette : {challenge}! Fais tourner la roue et entraîne-toi aussi : {url}',
 

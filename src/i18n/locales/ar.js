@@ -19,7 +19,6 @@ export default {
     'spin.button': 'أدر العجلة!',
 
     'result.badge': 'تم اختيار التمرين!',
-    'result.desc': 'تحدٍّ رائع! أدِّ تمرين {exercise} لعدد {reps} من التكرارات بأداء مثالي.',
     'result.skip': 'تخطي هذا التحدي',
     'result.done': 'تم!',
     'result.share': 'مشاركة',

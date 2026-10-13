@@ -16,7 +16,6 @@ export default {
     'spin.button': 'ルーレットを回す！',
 
     'result.badge': 'エクササイズ決定！',
-    'result.desc': 'ナイスチャレンジ！正しいフォームで{exercise}を{reps}回やりましょう。',
     'result.skip': 'このチャレンジをスキップ',
     'result.done': '完了！',
     'result.share': '共有',

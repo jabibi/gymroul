@@ -81,7 +81,7 @@ describe('traducción', () => {
   it('traduce al idioma activo e interpola parámetros', () => {
     setLanguage('es', { persist: false });
     expect(t('result.skip')).toBe('Saltar este reto');
-    expect(t('result.desc', { reps: 20, exercise: 'Burpee' })).toContain('20 repeticiones de Burpee');
+    expect(t('history.total', { n: 3 })).toBe('Completados en la sesión: 3');
   });
 
   it('una clave desconocida devuelve la propia clave y un parámetro ausente no se pierde', () => {
