@@ -143,7 +143,7 @@ footprint | Urratsak | aztarnak martxa ibilaldia
 bike | Bizikleta | ziklismoa spinning kardioa
 bike-fast | Ziklismo azkarra | assault bike abiadura
 rowing | Arraun | arraunketa ergometroa hyrox crossfit
-skierg | Hari-eski | skierg hyrox eskia ergometroa
+skierg | Eski nordikoa | skierg hyrox eskia ergometroa
 heart-pulse | Pultsazioak | kardioa bihotza osasuna
 fire | Sua | burpee gogorra kaloriak hiit
 bolt | Tximista | lehergarria potentzia energia azkarra

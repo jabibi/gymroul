@@ -30,7 +30,7 @@ export default {
     'commitment.yourData.title': 'Os teus dados são teus',
     'commitment.yourData.text': 'Tudo o que crias fica no teu dispositivo. Se apagares a aplicação ou os respetivos dados, não fica nenhum rasto na nuvem.',
     'result.share': 'Partilhar',
-    'share.text': 'O meu desafio do GymRoulette: {challenge}! Roda a roleta e treina também: {url}',
+    'share.text': 'O meu desafio do GymRoulette: {challenge}! Gira a roleta e treina também: {url}',
     'share.saved': 'Imagem transferida',
     'share.failed': 'Não foi possível partilhar o desafio',
     'share.preparing': 'A preparar a imagem…',

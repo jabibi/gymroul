@@ -65,7 +65,7 @@ export default {
     'error.duplicateExercise': 'Er is al een oefening met de naam "{name}"',
     'error.maxExercises': 'Maximaal {max} oefeningen',
     'error.repRange': 'Voer een getal tussen 1 en {max} in',
-    'error.duplicateRep': '{n} herhalingen bestaat al',
+    'error.duplicateRep': '{n} herhalingen bestaan al',
     'error.maxReps': 'Maximaal {max} herhalingsopties',
 
     'config.commitment': 'Privacybelofte',
@@ -73,7 +73,7 @@ export default {
     'commitment.offline.title': '100% offline',
     'commitment.offline.text': 'Werkt zonder verbinding. De app vraagt zelfs geen internettoegang aan.',
     'commitment.noTrackers.title': 'Geen trackers',
-    'commitment.noTrackers.text': 'Geen analyses, geen trackingbibliotheken en geen profielen.',
+    'commitment.noTrackers.text': 'Geen analytics, geen trackingbibliotheken en geen profielen.',
     'commitment.noAds.title': 'Geen advertenties',
     'commitment.noAds.text': 'Geen advertenties en geen advertentienetwerken.',
     'commitment.yourData.title': 'Jouw gegevens zijn van jou',
