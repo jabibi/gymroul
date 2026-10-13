@@ -6,7 +6,8 @@ GymRoulette to koło ćwiczeń: każdy sektor łączy liczbę powtórzeń z ćwi
 • Naciśnij „ZAKRĘĆ KOŁEM!” albo szarpnij koło palcem.
 • Gdy się zatrzyma, zobaczysz swoje wyzwanie: powtórzenia i ćwiczenie.
 • Oznacz je jako zrobione albo pomiń i zakręć ponownie.
-• W historii sprawdzisz wyzwania, które wykonałeś podczas sesji.
+• W historii sprawdzisz wyzwania, które udało ci się wykonać podczas sesji.
+• Udostępnij wyzwanie jako obraz znajomym.
 
 <b>TY DECYDUJESZ, CO JEST NA KOLE</b>
 • Włączaj i wyłączaj ćwiczenia i powtórzenia, których chcesz.
@@ -16,7 +17,6 @@ GymRoulette to koło ćwiczeń: każdy sektor łączy liczbę powtórzeń z ćwi
 
 <b>PONAD 100 IKON DLA TWOICH ĆWICZEŃ</b>
 Wybieraj spośród ponad 100 ikon z wielu dyscyplin, z wyszukiwarką: siła i ciężary, kalistenika, cardio, joga, pilates, tai chi, boks, karate i inne sztuki walki, hyrox, crossfit, biegi z przeszkodami, sporty, woda i góry. Zawiera nasze własne piktogramy pompek, deski, brzuszków, burpee, przysiadu i wspinaczki w podporze.
-• अपनी चुनौती को इमेज के रूप में दोस्तों के साथ शेयर करें।
 
 <b>W TWOIM JĘZYKU</b>
 العربية, English (USA, Wielka Brytania i Australia), Español (Hiszpania i Ameryka Łacińska), Euskara, Galego, Català, Français (Francja i Kanada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe i Português (Brazylia i Portugalia). Aplikacja korzysta z języka telefonu, a zmienisz go w Ustawieniach.

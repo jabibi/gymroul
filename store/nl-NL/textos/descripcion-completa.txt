@@ -7,6 +7,7 @@ GymRoulette is een oefeningenrad: elk vak combineert een aantal herhalingen met 
 • Als het stopt, zie je je uitdaging: herhalingen en oefening.
 • Markeer de uitdaging als gedaan of sla hem over en draai opnieuw.
 • Bekijk in de geschiedenis welke uitdagingen je tijdens de sessie hebt voltooid.
+• Deel je uitdaging als afbeelding met vrienden.
 
 <b>JIJ BEPAALT WAT ER OP HET RAD STAAT</b>
 • Zet de oefeningen en herhalingen die je wilt aan of uit.
