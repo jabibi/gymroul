@@ -18,7 +18,7 @@ export default {
     'result.badge': 'エクササイズ決定！',
     'result.skip': 'このチャレンジをスキップ',
     'result.done': '完了！',
-    'result.share': '共有',
+    'result.share': 'チャレンジを共有',
     'share.text': 'GymRouletteで出たチャレンジ：{challenge}！ルーレットを回して、あなたもトレーニングしよう：{url}',
     'share.saved': '画像をダウンロードしました',
     'share.failed': 'チャレンジを共有できませんでした',

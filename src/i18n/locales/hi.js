@@ -18,7 +18,7 @@ export default {
     'result.badge': 'एक्सरसाइज़ चुन ली गई!',
     'result.skip': 'यह चुनौती छोड़ें',
     'result.done': 'हो गया!',
-    'result.share': 'शेयर करें',
+    'result.share': 'चुनौती शेयर करें',
     'share.text': 'मेरी GymRoulette चुनौती: {challenge}! चक्र घुमाएँ और आप भी वर्कआउट करें: {url}',
     'share.saved': 'इमेज डाउनलोड हो गई',
     'share.failed': 'चुनौती शेयर नहीं हो सकी',

@@ -18,7 +18,7 @@ export default {
     'result.badge': 'ARIKETA AUKERATUTA!',
     'result.skip': 'Saltatu erronka hau',
     'result.done': 'Eginda!',
-    'result.share': 'Partekatu',
+    'result.share': 'Partekatu erronka',
     'share.text': 'Nire GymRoulette erronka: {challenge}. Biratu gurpila eta entrenatu zuk ere: {url}',
     'share.saved': 'Irudia deskargatu da',
     'share.failed': 'Ezin izan da erronka partekatu',
