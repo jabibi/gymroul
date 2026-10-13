@@ -65,7 +65,7 @@ export default {
     'error.duplicateExercise': 'Er is al een oefening met de naam "{name}"',
     'error.maxExercises': 'Maximaal {max} oefeningen',
     'error.repRange': 'Voer een getal tussen 1 en {max} in',
-    'error.duplicateRep': '{n} herhalingen bestaan al',
+    'error.duplicateRep': 'Herhaling {n} bestaat al',
     'error.maxReps': 'Maximaal {max} herhalingsopties',
 
     'config.commitment': 'Privacybelofte',

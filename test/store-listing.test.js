@@ -27,6 +27,12 @@ describe('ficha de Google Play', () => {
         for (const field of ['line1', 'line2', 'tagline', 'button']) expect(listing.banner[field].trim(), field).not.toBe('');
       });
 
+      it('la descripción completa tiene las mismas viñetas por sección que la inglesa', () => {
+        // Evita viñetas sueltas o pegadas a otra sección (y en otro idioma) al añadir una a todas las fichas
+        const bulletsPerBlock = text => text.split('\n\n').map(b => b.split('\n').filter(x => x.startsWith('• ')).length);
+        expect(bulletsPerBlock(listing.full)).toEqual(bulletsPerBlock(LISTINGS.en.full));
+      });
+
       it('las variantes regionales usan su ortografía', () => {
         if (l.app === 'fr-CA') {
           expect(listing.full).not.toMatch(/[\u00a0 ][!?]/);

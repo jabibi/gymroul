@@ -65,7 +65,7 @@ export default {
     'error.duplicateExercise': 'There is already an exercise called "{name}"',
     'error.maxExercises': 'Maximum {max} exercises',
     'error.repRange': 'Enter a number between 1 and {max}',
-    'error.duplicateRep': '{n} reps already exists',
+    'error.duplicateRep': 'Repetition {n} already exists',
     'error.maxReps': 'Maximum {max} rep options',
 
     'config.commitment': 'Privacy commitment',

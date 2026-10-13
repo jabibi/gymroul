@@ -232,13 +232,13 @@ Xira a ruleta e a adestrar!`,
     full: `لا تعرف ماذا تتمرّن اليوم؟ أدر العجلة ودع GymRoulette تختار لك.
 
 GymRoulette عجلة للتمارين: كل قطاع يجمع عددًا من التكرارات مع تمرين (مثل «20 بيربي»)، وعندما تديرها تقترح عليك تحديًا عشوائيًا لتتمرّن في المنزل أو في النادي أو في الهواء الطلق. صُمّمت لتنويع جلساتك، وللتمارين الدائرية، وللتحديات مع الأصدقاء، ولكل من يريد أن يتمرّن دون تعقيد.
-• شارك تحدّيك كصورة مع أصدقائك.
 
 <b>كيف تعمل</b>
 • اضغط على «أدر العجلة!» أو أطلق العجلة بإصبعك.
 • عندما تتوقف يظهر لك تحديك: عدد التكرارات والتمرين.
 • حدّده كمكتمل أو تخطَّه وأدر العجلة من جديد.
 • راجع في السجل التحديات التي أنجزتها خلال الجلسة.
+• شارك تحدّيك كصورة مع أصدقائك.
 
 <b>أنت من يقرّر ما على العجلة</b>
 • فعّل التمارين والتكرارات التي تريدها أو عطّلها.
@@ -279,13 +279,13 @@ GymRoulette عجلة للتمارين: كل قطاع يجمع عددًا من ا
     full: `No tens ganes de decidir què entrenar avui? Gira la ruleta i deixa que GymRoulette triï per tu.
 
 GymRoulette és una ruleta d'exercicis: cada sector combina un nombre de repeticions amb un exercici (per exemple, «20 Burpee») i, en girar-la, et proposa un repte aleatori per entrenar a casa, al gimnàs o a l'aire lliure. Pensada per donar varietat a les teves sessions, per a circuits, per a reptes amb amics i per a qui vol entrenar sense complicar-se.
-• Comparteix el teu repte com a imatge amb els teus amics.
 
 <b>COM FUNCIONA</b>
 • Prem “GIRA LA RULETA!” o llança la ruleta amb el dit.
 • Quan s'atura, veus el teu repte: repeticions i exercici.
 • Marca'l com a completat o salta'l i torna a girar.
 • Consulta a l'historial els reptes que has completat a la sessió.
+• Comparteix el teu repte com a imatge amb els teus amics.
 
 <b>TU DECIDEIXES QUÈ HI HA A LA RULETA</b>
 • Activa o desactiva els exercicis i les repeticions que vulguis.
@@ -326,13 +326,13 @@ Gira la ruleta i a entrenar!`,
     full: `Pas envie de décider quoi t'entraîner aujourd'hui ? Fais tourner la roue et laisse GymRoulette choisir pour toi.
 
 GymRoulette est une roue d'exercices : chaque secteur associe un nombre de répétitions à un exercice (par exemple « 20 Burpee ») et, quand tu la fais tourner, elle te propose un défi au hasard pour t'entraîner à la maison, en salle ou en plein air. Pensée pour varier tes séances, pour des circuits, des défis entre amis et pour tous ceux qui veulent s'entraîner sans se compliquer la vie.
-• Partage ton défi sous forme d'image avec tes amis.
 
 <b>COMMENT ÇA MARCHE</b>
 • Appuie sur « LANCER LA ROUE ! » ou lance-la d'un geste du doigt.
 • Quand elle s'arrête, tu vois ton défi : répétitions et exercice.
 • Marque-le comme terminé ou passe-le et relance la roue.
 • Consulte l'historique des défis terminés pendant la séance.
+• Partage ton défi sous forme d'image avec tes amis.
 
 <b>C'EST TOI QUI CHOISIS CE QUI EST SUR LA ROUE</b>
 • Active ou désactive les exercices et les répétitions que tu veux.
@@ -373,13 +373,13 @@ Lance la roue et c'est parti !`,
     full: `Keine Lust zu entscheiden, was du heute trainierst? Dreh das Rad und lass GymRoulette für dich wählen.
 
 GymRoulette ist ein Übungsrad: Jedes Segment verbindet eine Anzahl Wiederholungen mit einer Übung (zum Beispiel „20 Burpee“) und gibt dir beim Drehen eine zufällige Aufgabe für dein Training zu Hause, im Fitnessstudio oder draußen. Gemacht, um Abwechslung in deine Einheiten zu bringen, für Zirkeltraining, für Challenges mit Freunden und für alle, die einfach trainieren wollen, ohne lange zu überlegen.
-• Teile deine Challenge als Bild mit deinen Freunden.
 
 <b>SO FUNKTIONIERT'S</b>
 • Tippe auf „RAD DREHEN!“ oder wirf das Rad mit dem Finger an.
 • Sobald es stehen bleibt, siehst du deine Aufgabe: Wiederholungen und Übung.
 • Hake sie als erledigt ab oder überspring sie und dreh erneut.
 • Im Verlauf siehst du die Aufgaben, die du in der Einheit geschafft hast.
+• Teile deine Challenge als Bild mit deinen Freunden.
 
 <b>DU BESTIMMST, WAS AUF DEM RAD IST</b>
 • Schalte die Übungen und Wiederholungen, die du willst, ein oder aus.
@@ -394,13 +394,12 @@ Wähle mit Suchfunktion aus über 100 Symbolen aus vielen Disziplinen: Kraft und
 العربية, English (USA, Großbritannien und Australien), Español (Spanien und Lateinamerika), Euskara, Galego, Català, Français (Frankreich und Kanada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe und Português (Brasil und Portugal). Die App folgt der Sprache deines Handys, und du kannst sie in den Einstellungen ändern.
 
 <b>PRAKTISCHE DETAILS</b>
-• <b>Raddrehgeräusche und Vibration</b>, wenn das Ergebnis erscheint.
+• <b>Radgeräusche und Vibration</b>, wenn das Ergebnis erscheint.
 • <b>Dunkles Design</b>, angenehm für die Augen im Fitnessstudio.
 • <b>Ohne Registrierung</b> und ohne Benutzerkonten.
 • <b>Ohne Werbung.</b>
 • <b>100 % offline</b>: sie braucht keine Internetverbindung.
 • <b>Keine Tracker</b> und keine unnötigen Cookies, und sie fragt nie nach deinem Standort.
-• Condividi la tua sfida come immagine con i tuoi amici.
 
 <b>DATENSCHUTZ</b>
 GymRoulette funktioniert vollständig offline und erfasst keine Daten: keine Analyse, keine Tracker, keine Werbung und kein Zugriff auf deinen Standort. Deine Einstellungen werden nur auf deinem Gerät gespeichert. Die Datenschutzerklärung findest du in der App.
@@ -427,6 +426,7 @@ GymRoulette è una ruota di esercizi: ogni settore abbina un numero di ripetizio
 • Quando si ferma, vedi la tua sfida: ripetizioni ed esercizio.
 • Segnala come completata oppure saltala e gira di nuovo.
 • Consulta la cronologia per vedere le sfide completate durante la sessione.
+• Condividi la tua sfida come immagine con i tuoi amici.
 
 <b>DECIDI TU COSA C'È SULLA RUOTA</b>
 • Attiva o disattiva gli esercizi e le ripetizioni che vuoi.
@@ -447,7 +447,6 @@ Scegli tra più di 100 icone di tante discipline, con ricerca: forza e pesi, cal
 • <b>Senza pubblicità.</b>
 • <b>100% offline</b>: non richiede una connessione a Internet.
 • <b>Nessun tracker</b> e nessun cookie superfluo, e non chiede mai la tua posizione.
-• Compartilhe seu desafio como imagem com seus amigos.
 
 <b>PRIVACY</b>
 GymRoulette è completamente offline e non raccoglie alcun dato: nessuna analisi, nessun tracker, nessuna pubblicità e nessun accesso alla tua posizione. Le tue impostazioni vengono salvate solo sul tuo dispositivo. Puoi leggere l'informativa sulla privacy nell'app.
@@ -474,6 +473,7 @@ O GymRoulette é uma roleta de exercícios: cada setor combina um número de rep
 • Quando ela para, você vê o seu desafio: repetições e exercício.
 • Marque como concluído ou pule e gire de novo.
 • Veja no histórico os desafios que você concluiu na sessão.
+• Compartilhe seu desafio como imagem com seus amigos.
 
 <b>VOCÊ DECIDE O QUE ENTRA NA ROLETA</b>
 • Ative ou desative os exercícios e as repetições que quiser.
@@ -486,7 +486,6 @@ Escolha entre mais de 100 ícones de muitas modalidades, com busca: força e pes
 
 <b>NO SEU IDIOMA</b>
 العربية, English (EUA, Reino Unido e Austrália), Español (Espanha e América Latina), Euskara, Galego, Català, Français (França e Canadá), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe e Português (Brasil e Portugal). O app segue o idioma do seu celular e você pode mudá-lo em Configurações.
-• Partilha o teu desafio como imagem com os teus amigos.
 
 <b>DETALHES QUE FAZEM DIFERENÇA</b>
 • <b>Som da roleta e vibração</b> quando o resultado aparece.
@@ -521,6 +520,7 @@ O GymRoulette é uma roleta de exercícios: cada setor combina um número de rep
 • Quando pára, vês o teu desafio: repetições e exercício.
 • Marca-o como concluído ou salta-o e gira outra vez.
 • Consulta no histórico os desafios que concluíste na sessão.
+• Partilha o teu desafio como imagem com os teus amigos.
 
 <b>TU DECIDES O QUE ENTRA NA ROLETA</b>
 • Ativa ou desativa os exercícios e as repetições que quiseres.
@@ -530,7 +530,6 @@ O GymRoulette é uma roleta de exercícios: cada setor combina um número de rep
 
 <b>MAIS DE 100 ÍCONES PARA OS TEUS EXERCÍCIOS</b>
 Escolhe entre mais de 100 ícones de muitas modalidades, com pesquisa: força e pesos, calistenia, cardio, yoga, pilates, tai chi, boxe, karaté e outras artes marciais, hyrox, crossfit, corridas de obstáculos, desportos, água e montanha. Inclui pictogramas próprios de flexões, prancha, abdominais, burpee, agachamento e mountain climbers.
-• Udostępnij wyzwanie jako obraz znajomym.
 
 <b>NO TEU IDIOMA</b>
 العربية, English (EUA, Reino Unido e Austrália), Español (Espanha e América Latina), Euskara, Galego, Català, Français (França e Canadá), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe e Português (Brasil e Portugal). A aplicação segue o idioma do teu telemóvel e podes alterá-lo em Definições.
@@ -567,7 +566,8 @@ GymRoulette to koło ćwiczeń: każdy sektor łączy liczbę powtórzeń z ćwi
 • Naciśnij „ZAKRĘĆ KOŁEM!” albo szarpnij koło palcem.
 • Gdy się zatrzyma, zobaczysz swoje wyzwanie: powtórzenia i ćwiczenie.
 • Oznacz je jako zrobione albo pomiń i zakręć ponownie.
-• W historii sprawdzisz wyzwania, które wykonałeś podczas sesji.
+• W historii sprawdzisz wyzwania, które udało ci się wykonać podczas sesji.
+• Udostępnij wyzwanie jako obraz znajomym.
 
 <b>TY DECYDUJESZ, CO JEST NA KOLE</b>
 • Włączaj i wyłączaj ćwiczenia i powtórzenia, których chcesz.
@@ -577,7 +577,6 @@ GymRoulette to koło ćwiczeń: każdy sektor łączy liczbę powtórzeń z ćwi
 
 <b>PONAD 100 IKON DLA TWOICH ĆWICZEŃ</b>
 Wybieraj spośród ponad 100 ikon z wielu dyscyplin, z wyszukiwarką: siła i ciężary, kalistenika, cardio, joga, pilates, tai chi, boks, karate i inne sztuki walki, hyrox, crossfit, biegi z przeszkodami, sporty, woda i góry. Zawiera nasze własne piktogramy pompek, deski, brzuszków, burpee, przysiadu i wspinaczki w podporze.
-• अपनी चुनौती को इमेज के रूप में दोस्तों के साथ शेयर करें।
 
 <b>W TWOIM JĘZYKU</b>
 العربية, English (USA, Wielka Brytania i Australia), Español (Hiszpania i Ameryka Łacińska), Euskara, Galego, Català, Français (Francja i Kanada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe i Português (Brazylia i Portugalia). Aplikacja korzysta z języka telefonu, a zmienisz go w Ustawieniach.
@@ -615,6 +614,7 @@ GymRoulette एक्सरसाइज़ का चक्र है: हर �
 • रुकने पर आपको अपनी चुनौती दिखती है: रेप्स और एक्सरसाइज़।
 • उसे पूरा हुआ चिह्नित करें या छोड़ दें और फिर घुमाएँ।
 • इतिहास में देखें कि सेशन में आपने कौन-सी चुनौतियाँ पूरी कीं।
+• अपनी चुनौती को इमेज के रूप में दोस्तों के साथ शेयर करें।
 
 <b>चक्र में क्या हो, यह आप तय करते हैं</b>
 • जो एक्सरसाइज़ और रेप्स चाहें, उन्हें चालू या बंद करें।
@@ -624,7 +624,6 @@ GymRoulette एक्सरसाइज़ का चक्र है: हर �
 
 <b>आपकी एक्सरसाइज़ के लिए 100 से ज़्यादा आइकन</b>
 खोज की सुविधा के साथ कई विधाओं के 100 से ज़्यादा आइकन में से चुनें: स्ट्रेंथ और वेट, कैलिस्थेनिक्स, कार्डियो, योग, पिलाटीज़, ताई ची, बॉक्सिंग, कराटे और अन्य मार्शल आर्ट, हाइरॉक्स, क्रॉसफ़िट, बाधा दौड़, खेल, पानी और पहाड़। इसमें पुश-अप, प्लैंक, सिट-अप, बर्पी, स्क्वाट और माउंटेन क्लाइंबर के हमारे अपने चित्रसंकेत भी शामिल हैं।
-• Meydan okumanı görsel olarak arkadaşlarınla paylaş.
 
 <b>आपकी भाषा में</b>
 العربية, English (US, UK और Australia), Español (Spain और Latin America), Euskara, Galego, Català, Français (France और Canada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe और Português (Brasil और Portugal)। ऐप आपके फ़ोन की भाषा के अनुसार चलता है, और आप उसे सेटिंग में बदल सकते हैं।
@@ -662,6 +661,7 @@ GymRoulette bir egzersiz çarkıdır: her dilim bir tekrar sayısını bir egzer
 • Çark durunca meydan okumanı görürsün: tekrar sayısı ve egzersiz.
 • Tamamlandı olarak işaretle ya da geç ve yeniden çevir.
 • Geçmişten oturum boyunca tamamladığın meydan okumalara göz at.
+• Meydan okumanı görsel olarak arkadaşlarınla paylaş.
 
 <b>ÇARKTA NELER OLACAĞINA SEN KARAR VERİRSİN</b>
 • İstediğin egzersizleri ve tekrarları aç ya da kapat.
@@ -671,7 +671,6 @@ GymRoulette bir egzersiz çarkıdır: her dilim bir tekrar sayısını bir egzer
 
 <b>EGZERSİZLERİN İÇİN 100'DEN FAZLA SİMGE</b>
 Aramalı simge listesinden birçok disiplin arasında seçim yap: kuvvet ve ağırlıklar, calisthenics, kardiyo, yoga, pilates, tai chi, boks, karate ve diğer dövüş sanatları, hyrox, crossfit, engelli koşular, sporlar, su ve dağ. Şınav, plank, mekik, burpee, squat ve mountain climbers için kendi piktogramlarımız da var.
-• チャレンジを画像にして友だちと共有できます。
 
 <b>KENDİ DİLİNDE</b>
 العربية, English (ABD, Birleşik Krallık ve Avustralya), Español (İspanya ve Latin Amerika), Euskara, Galego, Català, Français (Fransa ve Kanada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe ve Português (Brezilya ve Portekiz). Uygulama telefonunun diline uyar; dilini Ayarlar'dan değiştirebilirsin.
@@ -712,7 +711,7 @@ GymRouletteはエクササイズのルーレットです。各セクターが回
 • 止まるとチャレンジ（回数とエクササイズ）が表示されます。
 • 完了にするか、スキップしてもう一度回します。
 • 履歴で、セッション中に完了したチャレンジを確認できます。
-• Deel je uitdaging als afbeelding met vrienden.
+• チャレンジを画像にして友だちと共有できます。
 
 <b>ルーレットの内容は自分で決められる</b>
 • 使いたいエクササイズと回数をオン・オフできます。
@@ -758,6 +757,7 @@ GymRoulette is een oefeningenrad: elk vak combineert een aantal herhalingen met 
 • Als het stopt, zie je je uitdaging: herhalingen en oefening.
 • Markeer de uitdaging als gedaan of sla hem over en draai opnieuw.
 • Bekijk in de geschiedenis welke uitdagingen je tijdens de sessie hebt voltooid.
+• Deel je uitdaging als afbeelding met vrienden.
 
 <b>JIJ BEPAALT WAT ER OP HET RAD STAAT</b>
 • Zet de oefeningen en herhalingen die je wilt aan of uit.

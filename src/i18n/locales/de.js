@@ -65,7 +65,7 @@ export default {
     'error.duplicateExercise': 'Es gibt bereits eine Übung namens „{name}“',
     'error.maxExercises': 'Höchstens {max} Übungen',
     'error.repRange': 'Gib eine Zahl zwischen 1 und {max} ein',
-    'error.duplicateRep': '{n} Wiederholungen gibt es schon',
+    'error.duplicateRep': 'Die Wiederholungszahl {n} gibt es schon',
     'error.maxReps': 'Höchstens {max} Wiederholungsoptionen',
 
     'config.commitment': 'Datenschutzversprechen',

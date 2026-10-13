@@ -7,6 +7,7 @@ GymRoulette è una ruota di esercizi: ogni settore abbina un numero di ripetizio
 • Quando si ferma, vedi la tua sfida: ripetizioni ed esercizio.
 • Segnala come completata oppure saltala e gira di nuovo.
 • Consulta la cronologia per vedere le sfide completate durante la sessione.
+• Condividi la tua sfida come immagine con i tuoi amici.
 
 <b>DECIDI TU COSA C'È SULLA RUOTA</b>
 • Attiva o disattiva gli esercizi e le ripetizioni che vuoi.
@@ -27,7 +28,6 @@ Scegli tra più di 100 icone di tante discipline, con ricerca: forza e pesi, cal
 • <b>Senza pubblicità.</b>
 • <b>100% offline</b>: non richiede una connessione a Internet.
 • <b>Nessun tracker</b> e nessun cookie superfluo, e non chiede mai la tua posizione.
-• Compartilhe seu desafio como imagem com seus amigos.
 
 <b>PRIVACY</b>
 GymRoulette è completamente offline e non raccoglie alcun dato: nessuna analisi, nessun tracker, nessuna pubblicità e nessun accesso alla tua posizione. Le tue impostazioni vengono salvate solo sul tuo dispositivo. Puoi leggere l'informativa sulla privacy nell'app.

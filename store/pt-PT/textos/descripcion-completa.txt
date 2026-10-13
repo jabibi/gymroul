@@ -7,6 +7,7 @@ O GymRoulette é uma roleta de exercícios: cada setor combina um número de rep
 • Quando pára, vês o teu desafio: repetições e exercício.
 • Marca-o como concluído ou salta-o e gira outra vez.
 • Consulta no histórico os desafios que concluíste na sessão.
+• Partilha o teu desafio como imagem com os teus amigos.
 
 <b>TU DECIDES O QUE ENTRA NA ROLETA</b>
 • Ativa ou desativa os exercícios e as repetições que quiseres.
@@ -16,7 +17,6 @@ O GymRoulette é uma roleta de exercícios: cada setor combina um número de rep
 
 <b>MAIS DE 100 ÍCONES PARA OS TEUS EXERCÍCIOS</b>
 Escolhe entre mais de 100 ícones de muitas modalidades, com pesquisa: força e pesos, calistenia, cardio, yoga, pilates, tai chi, boxe, karaté e outras artes marciais, hyrox, crossfit, corridas de obstáculos, desportos, água e montanha. Inclui pictogramas próprios de flexões, prancha, abdominais, burpee, agachamento e mountain climbers.
-• Udostępnij wyzwanie jako obraz znajomym.
 
 <b>NO TEU IDIOMA</b>
 العربية, English (EUA, Reino Unido e Austrália), Español (Espanha e América Latina), Euskara, Galego, Català, Français (França e Canadá), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe e Português (Brasil e Portugal). A aplicação segue o idioma do teu telemóvel e podes alterá-lo em Definições.
