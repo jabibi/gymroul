@@ -18,7 +18,7 @@ export default {
     'result.badge': '¡EJERCICIO SELECCIONADO!',
     'result.skip': 'Saltar este reto',
     'result.done': '¡Completado!',
-    'result.share': 'Compartir',
+    'result.share': 'Compartir reto',
     'share.text': 'Mi reto de GymRoulette: {challenge}. Gira la ruleta y entrena tú también: {url}',
     'share.saved': 'Imagen descargada',
     'share.failed': 'No se pudo compartir el reto',

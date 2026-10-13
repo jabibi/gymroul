@@ -21,7 +21,7 @@ export default {
     'result.badge': 'تم اختيار التمرين!',
     'result.skip': 'تخطي هذا التحدي',
     'result.done': 'تم!',
-    'result.share': 'مشاركة',
+    'result.share': 'مشاركة التحدي',
     'share.text': 'تحدّيي في GymRoulette: {challenge}! أدِر العجلة وتمرّن أنت أيضًا: {url}',
     'share.saved': 'تم تنزيل الصورة',
     'share.failed': 'تعذّرت مشاركة التحدي',

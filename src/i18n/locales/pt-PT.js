@@ -28,7 +28,7 @@ export default {
     'commitment.offline.text': 'Funciona sem ligação. A app nem sequer pede a permissão de Internet.',
     'commitment.yourData.title': 'Os teus dados são teus',
     'commitment.yourData.text': 'Tudo o que crias fica no teu dispositivo. Se apagares a aplicação ou os respetivos dados, não fica nenhum rasto na nuvem.',
-    'result.share': 'Partilhar',
+    'result.share': 'Partilhar desafio',
     'share.text': 'O meu desafio do GymRoulette: {challenge}! Gira a roleta e treina também: {url}',
     'share.saved': 'Imagem transferida',
     'share.failed': 'Não foi possível partilhar o desafio',

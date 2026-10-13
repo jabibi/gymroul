@@ -18,7 +18,7 @@ export default {
     'result.badge': 'WYLOSOWANO ĆWICZENIE!',
     'result.skip': 'Pomiń to wyzwanie',
     'result.done': 'Zrobione!',
-    'result.share': 'Udostępnij',
+    'result.share': 'Udostępnij wyzwanie',
     'share.text': 'Moje wyzwanie w GymRoulette: {challenge}! Zakręć kołem i ćwicz razem ze mną: {url}',
     'share.saved': 'Obraz pobrany',
     'share.failed': 'Nie udało się udostępnić wyzwania',

@@ -18,7 +18,7 @@ export default {
     'result.badge': 'EGZERSİZ SEÇİLDİ!',
     'result.skip': 'Bu meydan okumayı geç',
     'result.done': 'Tamam!',
-    'result.share': 'Paylaş',
+    'result.share': 'Meydan okumayı paylaş',
     'share.text': 'GymRoulette meydan okumam: {challenge}! Çarkı çevir, sen de antrenman yap: {url}',
     'share.saved': 'Görsel indirildi',
     'share.failed': 'Meydan okuma paylaşılamadı',

@@ -18,7 +18,7 @@ export default {
     'result.badge': 'OEFENING GEKOZEN!',
     'result.skip': 'Deze uitdaging overslaan',
     'result.done': 'Klaar!',
-    'result.share': 'Delen',
+    'result.share': 'Deel de uitdaging',
     'share.text': 'Mijn GymRoulette-uitdaging: {challenge}! Draai aan het rad en train ook: {url}',
     'share.saved': 'Afbeelding gedownload',
     'share.failed': 'De uitdaging kon niet worden gedeeld',
