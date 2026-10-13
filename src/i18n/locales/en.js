@@ -16,7 +16,6 @@ export default {
     'spin.button': 'SPIN THE WHEEL!',
 
     'result.badge': 'EXERCISE SELECTED!',
-    'result.desc': 'Great challenge! Do {reps} reps of {exercise} with perfect form.',
     'result.skip': 'Skip this challenge',
     'result.done': 'Done!',
     'result.share': 'Share',

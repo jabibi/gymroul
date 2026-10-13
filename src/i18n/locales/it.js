@@ -16,7 +16,6 @@ export default {
     'spin.button': 'GIRA LA RUOTA!',
 
     'result.badge': 'ESERCIZIO SCELTO!',
-    'result.desc': 'Grande sfida! Fai {reps} ripetizioni di {exercise} con una tecnica perfetta.',
     'result.skip': 'Salta questa sfida',
     'result.done': 'Fatto!',
     'result.share': 'Condividi',

@@ -16,7 +16,6 @@ export default {
     'spin.button': 'RAD DREHEN!',
 
     'result.badge': 'ÜBUNG GEWÄHLT!',
-    'result.desc': 'Starke Herausforderung! Mach {reps} Wiederholungen {exercise} mit perfekter Technik.',
     'result.skip': 'Diese Herausforderung überspringen',
     'result.done': 'Geschafft!',
     'result.share': 'Teilen',

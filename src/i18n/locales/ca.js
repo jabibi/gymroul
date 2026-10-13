@@ -16,7 +16,6 @@ export default {
     'spin.button': 'GIRA LA RULETA!',
 
     'result.badge': 'EXERCICI SELECCIONAT!',
-    'result.desc': 'Excel·lent repte! Fes {reps} repeticions de {exercise} amb una tècnica perfecta.',
     'result.skip': 'Salta aquest repte',
     'result.done': 'Completat!',
     'result.share': 'Comparteix',

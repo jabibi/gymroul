@@ -16,7 +16,6 @@ export default {
     'spin.button': 'BIRATU GURPILA!',
 
     'result.badge': 'ARIKETA AUKERATUTA!',
-    'result.desc': 'Erronka bikaina! Egin {reps} errepikapen: {exercise}, teknika bikainarekin.',
     'result.skip': 'Saltatu erronka hau',
     'result.done': 'Eginda!',
     'result.share': 'Partekatu',

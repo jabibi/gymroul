@@ -16,7 +16,6 @@ export default {
     'spin.button': 'चक्र घुमाएँ!',
 
     'result.badge': 'एक्सरसाइज़ चुन ली गई!',
-    'result.desc': 'शानदार चुनौती! सही तकनीक के साथ {exercise} के {reps} रेप्स करें।',
     'result.skip': 'यह चुनौती छोड़ें',
     'result.done': 'हो गया!',
     'result.share': 'शेयर करें',

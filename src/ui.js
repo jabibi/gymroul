@@ -190,7 +190,6 @@ export function showResult(winner) {
 
   $('winnerIconContainer').innerHTML = renderIconHTML(winner.icon);
   $('winnerText').textContent = `${winner.reps} ${winner.exercise}`;
-  $('winnerDesc').textContent = t('result.desc', { reps: winner.reps, exercise: winner.exercise });
 
   $('resultModal').classList.remove('opacity-0', 'pointer-events-none');
   $('resultCard').classList.remove('scale-90');

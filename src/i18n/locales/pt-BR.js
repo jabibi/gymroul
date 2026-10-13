@@ -16,7 +16,6 @@ export default {
     'spin.button': 'GIRAR ROLETA!',
 
     'result.badge': 'EXERCÍCIO SELECIONADO!',
-    'result.desc': 'Ótimo desafio! Faça {reps} repetições de {exercise} com técnica perfeita.',
     'result.skip': 'Pular este desafio',
     'result.done': 'Concluído!',
     'result.share': 'Compartilhar',

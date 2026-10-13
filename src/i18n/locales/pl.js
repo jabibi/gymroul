@@ -16,7 +16,6 @@ export default {
     'spin.button': 'ZAKRĘĆ KOŁEM!',
 
     'result.badge': 'WYLOSOWANO ĆWICZENIE!',
-    'result.desc': 'Świetne wyzwanie! Zrób {reps} powtórzeń: {exercise}, z idealną techniką.',
     'result.skip': 'Pomiń to wyzwanie',
     'result.done': 'Zrobione!',
     'result.share': 'Udostępnij',

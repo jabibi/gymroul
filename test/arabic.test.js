@@ -70,10 +70,10 @@ describe('árabe: textos de la interfaz', () => {
     }
   });
 
-  it('el texto del resultado deja los datos interpolados en su sitio', () => {
-    const text = ar.strings['result.desc'];
-    expect(text).toContain('{exercise}');
-    expect(text).toContain('{reps}');
+  it('el texto de compartir deja los datos interpolados en su sitio', () => {
+    const text = ar.strings['share.text'];
+    expect(text).toContain('{challenge}');
+    expect(text).toContain('{url}');
   });
 });
 

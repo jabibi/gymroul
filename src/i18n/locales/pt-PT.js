@@ -7,7 +7,6 @@ export default {
     'live.drag': 'Arrasta a roleta para girar',
     'wheel.aria': 'Roleta de exercícios: gira-a com o botão abaixo ou arrasta-a',
 
-    'result.desc': 'Excelente desafio! Faz {reps} repetições de {exercise} com técnica perfeita.',
     'result.skip': 'Saltar este desafio',
 
     'history.empty': 'Ainda não registaste exercícios hoje. Gira a roleta!',
