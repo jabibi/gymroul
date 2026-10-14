@@ -48,7 +48,7 @@ export default {
     'config.shortPlaceholder': 'Kısa ad',
     'config.chooseIcon': 'Simge seç',
     'config.create': 'Oluştur',
-    'config.searchPlaceholder': 'Ara: yoga, hyrox, boks, ağırlık…',
+    'config.searchPlaceholder': 'Ara: yoga, karate, boks, ağırlık…',
     'config.searchAria': 'Simge ara',
     'config.noIcons': 'Aramana uyan simge yok',
     'config.privacy': 'Gizlilik politikası',

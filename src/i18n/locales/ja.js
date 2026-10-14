@@ -48,7 +48,7 @@ export default {
     'config.shortPlaceholder': '短い名前',
     'config.chooseIcon': 'アイコンを選ぶ',
     'config.create': '作成',
-    'config.searchPlaceholder': '検索：ヨガ、hyrox、ボクシング、ダンベル…',
+    'config.searchPlaceholder': '検索：ヨガ、空手、ボクシング、ダンベル…',
     'config.searchAria': 'アイコンを検索',
     'config.noIcons': '該当するアイコンがありません',
     'config.privacy': 'プライバシーポリシー',

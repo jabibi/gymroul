@@ -48,7 +48,7 @@ export default {
     'config.shortPlaceholder': 'Kurzname',
     'config.chooseIcon': 'Symbol wählen',
     'config.create': 'Erstellen',
-    'config.searchPlaceholder': 'Suche: Yoga, Hyrox, Boxen, Gewichte …',
+    'config.searchPlaceholder': 'Suche: Yoga, Karate, Boxen, Gewichte …',
     'config.searchAria': 'Symbol suchen',
     'config.noIcons': 'Keine Symbole zu deiner Suche gefunden',
     'config.privacy': 'Datenschutzerklärung',

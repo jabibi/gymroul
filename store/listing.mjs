@@ -59,7 +59,7 @@ GymRoulette is an exercise wheel: each segment combines a number of reps with an
 • The wheel adapts to your settings, which are saved on your device.
 
 <b>MORE THAN 100 ICONS FOR YOUR EXERCISES</b>
-Choose from more than 100 icons across many disciplines, with search: strength and weights, calisthenics, cardio, yoga, pilates, tai chi, boxing, karate and other martial arts, functional fitness, crossfit, obstacle races, sports, water and mountain. Includes our own pictograms for push-ups, plank, sit-ups, burpee, squat and mountain climbers.
+Choose from more than 100 icons across many disciplines, with search: strength and weights, calisthenics, cardio, yoga, pilates, tai chi, boxing, karate and other martial arts, functional fitness, obstacle races, sports, water and mountain. Includes our own pictograms for push-ups, plank, sit-ups, burpee, squat and mountain climbers.
 
 <b>IN YOUR LANGUAGE</b>
 العربية, English (US, UK and Australia), Español (Spain and Latin America), Euskara, Galego, Català, Français (France and Canada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe and Português (Brasil and Portugal). The app follows your phone's language, and you can change it in Settings.
@@ -106,7 +106,7 @@ GymRoulette es una ruleta de ejercicios: cada sector combina un número de repet
 • La ruleta se adapta a tu configuración y se guarda en tu dispositivo.
 
 <b>MÁS DE 100 ICONOS PARA TUS EJERCICIOS</b>
-Elige entre más de 100 iconos de muchas disciplinas, con buscador: fuerza y pesas, calistenia, cardio, yoga, pilates, tai chi, boxeo, karate y otras artes marciales, fitness funcional, crossfit, carreras de obstáculos, deportes, agua y montaña. Incluye pictogramas propios de flexiones, plancha, abdominales, burpee, sentadilla y mountain climbers.
+Elige entre más de 100 iconos de muchas disciplinas, con buscador: fuerza y pesas, calistenia, cardio, yoga, pilates, tai chi, boxeo, karate y otras artes marciales, fitness funcional, carreras de obstáculos, deportes, agua y montaña. Incluye pictogramas propios de flexiones, plancha, abdominales, burpee, sentadilla y mountain climbers.
 
 <b>EN TU IDIOMA</b>
 العربية, English (EE. UU., Reino Unido y Australia), Español (España y Latinoamérica), Euskara, Galego, Català, Français (Francia y Canadá), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe y Português (Brasil y Portugal). La app sigue el idioma de tu móvil y puedes cambiarlo en Configuración.
@@ -153,7 +153,7 @@ GymRoulette ariketen gurpila da: sektore bakoitzak errepikapen kopuru bat ariket
 • Gurpila zure konfiguraziora egokitzen da, eta zure gailuan gordetzen da.
 
 <b>100 IKONO BAINO GEHIAGO ZURE ARIKETETARAKO</b>
-Aukeratu 100 ikono baino gehiagoren artean, disziplina askotakoak eta bilatzailearekin: indarra eta pisuak, kalistenia, kardioa, yoga, pilates, tai chi, boxeoa, karatea eta beste borroka-arte batzuk, fitness funtzionala, crossfit, oztopo-lasterketak, kirolak, ura eta mendia. Flexioen, plantxaren, abdominalen, burpee-ren, squat-aren eta mountain climbers-en piktograma propioak ditu.
+Aukeratu 100 ikono baino gehiagoren artean, disziplina askotakoak eta bilatzailearekin: indarra eta pisuak, kalistenia, kardioa, yoga, pilates, tai chi, boxeoa, karatea eta beste borroka-arte batzuk, fitness funtzionala, oztopo-lasterketak, kirolak, ura eta mendia. Flexioen, plantxaren, abdominalen, burpee-ren, squat-aren eta mountain climbers-en piktograma propioak ditu.
 
 <b>ZURE HIZKUNTZAN</b>
 العربية, English (AEB, Erresuma Batua eta Australia), Español (Espainia eta Latinoamerika), Euskara, Galego, Català, Français (Frantzia eta Kanada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe eta Português (Brasil eta Portugal). Aplikazioa zure telefonoaren hizkuntzara egokitzen da, eta Ezarpenetan alda dezakezu.
@@ -200,7 +200,7 @@ GymRoulette é unha ruleta de exercicios: cada sector combina un número de repe
 • A ruleta adáptase á túa configuración, que se garda no teu dispositivo.
 
 <b>MÁIS DE 100 ICONAS PARA OS TEUS EXERCICIOS</b>
-Escolle entre máis de 100 iconas de moitas disciplinas, con buscador: forza e pesas, calistenia, cardio, yoga, pilates, tai chi, boxeo, karate e outras artes marciais, fitness funcional, crossfit, carreiras de obstáculos, deportes, auga e montaña. Inclúe pictogramas propios de flexións, prancha, abdominais, burpee, agachamento e mountain climbers.
+Escolle entre máis de 100 iconas de moitas disciplinas, con buscador: forza e pesas, calistenia, cardio, yoga, pilates, tai chi, boxeo, karate e outras artes marciais, fitness funcional, carreiras de obstáculos, deportes, auga e montaña. Inclúe pictogramas propios de flexións, prancha, abdominais, burpee, agachamento e mountain climbers.
 
 <b>NO TEU IDIOMA</b>
 العربية, English (EUA, Reino Unido e Australia), Español (España e Latinoamérica), Euskara, Galego, Català, Français (Francia e Canadá), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe e Português (Brasil e Portugal). A app segue o idioma do teu móbil e podes cambialo en Configuración.
@@ -294,7 +294,7 @@ GymRoulette és una ruleta d'exercicis: cada sector combina un nombre de repetic
 • La ruleta s'adapta a la teva configuració, que es desa al teu dispositiu.
 
 <b>MÉS DE 100 ICONES PER ALS TEUS EXERCICIS</b>
-Tria entre més de 100 icones de moltes disciplines, amb cercador: força i pesos, calistènia, cardio, ioga, pilates, tai-txi, boxa, karate i altres arts marcials, fitness funcional, crossfit, curses d'obstacles, esports, aigua i muntanya. Inclou pictogrames propis de flexions, planxa, abdominals, burpee, esquat i mountain climbers.
+Tria entre més de 100 icones de moltes disciplines, amb cercador: força i pesos, calistènia, cardio, ioga, pilates, tai-txi, boxa, karate i altres arts marcials, fitness funcional, curses d'obstacles, esports, aigua i muntanya. Inclou pictogrames propis de flexions, planxa, abdominals, burpee, esquat i mountain climbers.
 
 <b>EN EL TEU IDIOMA</b>
 العربية, English (EUA, Regne Unit i Austràlia), Español (Espanya i Llatinoamèrica), Euskara, Galego, Català, Français (França i Canadà), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe i Português (Brasil i Portugal). L'app segueix l'idioma del teu mòbil i el pots canviar a Configuració.
@@ -341,7 +341,7 @@ GymRoulette est une roue d'exercices : chaque secteur associe un nombre de rép
 • La roue s'adapte à tes réglages, enregistrés sur ton appareil.
 
 <b>PLUS DE 100 ICÔNES POUR TES EXERCICES</b>
-Choisis parmi plus de 100 icônes de nombreuses disciplines, avec recherche : force et poids, callisthénie, cardio, yoga, pilates, tai chi, boxe, karaté et autres arts martiaux, fitness fonctionnel, crossfit, courses d'obstacles, sports, eau et montagne. Avec des pictogrammes originaux pour les pompes, le gainage, les abdominaux, le burpee, le squat et les mountain climbers.
+Choisis parmi plus de 100 icônes de nombreuses disciplines, avec recherche : force et poids, callisthénie, cardio, yoga, pilates, tai chi, boxe, karaté et autres arts martiaux, fitness fonctionnel, courses d'obstacles, sports, eau et montagne. Avec des pictogrammes originaux pour les pompes, le gainage, les abdominaux, le burpee, le squat et les mountain climbers.
 
 <b>DANS TA LANGUE</b>
 العربية, English (États-Unis, Royaume-Uni et Australie), Español (Espagne et Amérique latine), Euskara, Galego, Català, Français (France et Canada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe et Português (Brasil et Portugal). L'application suit la langue de ton téléphone et tu peux la changer dans les Réglages.
@@ -388,7 +388,7 @@ GymRoulette ist ein Übungsrad: Jedes Segment verbindet eine Anzahl Wiederholung
 • Das Rad passt sich deinen Einstellungen an, die auf deinem Gerät gespeichert werden.
 
 <b>ÜBER 100 SYMBOLE FÜR DEINE ÜBUNGEN</b>
-Wähle mit Suchfunktion aus über 100 Symbolen aus vielen Disziplinen: Kraft und Gewichte, Calisthenics, Cardio, Yoga, Pilates, Tai-Chi, Boxen, Karate und andere Kampfkünste, Functional Fitness, CrossFit, Hindernisläufe, Sport, Wasser und Berge. Mit eigenen Piktogrammen für Liegestütze, Unterarmstütz, Sit-ups, Burpee, Kniebeuge und Mountain Climbers.
+Wähle mit Suchfunktion aus über 100 Symbolen aus vielen Disziplinen: Kraft und Gewichte, Calisthenics, Cardio, Yoga, Pilates, Tai-Chi, Boxen, Karate und andere Kampfkünste, Functional Fitness, Hindernisläufe, Sport, Wasser und Berge. Mit eigenen Piktogrammen für Liegestütze, Unterarmstütz, Sit-ups, Burpee, Kniebeuge und Mountain Climbers.
 
 <b>IN DEINER SPRACHE</b>
 العربية, English (USA, Großbritannien und Australien), Español (Spanien und Lateinamerika), Euskara, Galego, Català, Français (Frankreich und Kanada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe und Português (Brasil und Portugal). Die App folgt der Sprache deines Handys, und du kannst sie in den Einstellungen ändern.
@@ -435,7 +435,7 @@ GymRoulette è una ruota di esercizi: ogni settore abbina un numero di ripetizio
 • La ruota si adatta alle tue impostazioni, che vengono salvate sul tuo dispositivo.
 
 <b>OLTRE 100 ICONE PER I TUOI ESERCIZI</b>
-Scegli tra più di 100 icone di tante discipline, con ricerca: forza e pesi, calisthenics, cardio, yoga, pilates, tai chi, boxe, karate e altre arti marziali, functional fitness, crossfit, corse a ostacoli, sport, acqua e montagna. Include pittogrammi esclusivi per flessioni, plank, addominali, burpee, squat e mountain climber.
+Scegli tra più di 100 icone di tante discipline, con ricerca: forza e pesi, calisthenics, cardio, yoga, pilates, tai chi, boxe, karate e altre arti marziali, functional fitness, corse a ostacoli, sport, acqua e montagna. Include pittogrammi esclusivi per flessioni, plank, addominali, burpee, squat e mountain climber.
 
 <b>NELLA TUA LINGUA</b>
 العربية, English (USA, Regno Unito e Australia), Español (Spagna e America Latina), Euskara, Galego, Català, Français (Francia e Canada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe e Português (Brasile e Portogallo). L'app segue la lingua del tuo telefono e puoi cambiarla nelle Impostazioni.
@@ -482,7 +482,7 @@ O GymRoulette é uma roleta de exercícios: cada setor combina um número de rep
 • A roleta se adapta às suas configurações, que ficam salvas no seu dispositivo.
 
 <b>MAIS DE 100 ÍCONES PARA SEUS EXERCÍCIOS</b>
-Escolha entre mais de 100 ícones de muitas modalidades, com busca: força e pesos, calistenia, cardio, yoga, pilates, tai chi, boxe, caratê e outras artes marciais, treino funcional, crossfit, corridas de obstáculos, esportes, água e montanha. Inclui pictogramas próprios de flexões, prancha, abdominais, burpee, agachamento e mountain climbers.
+Escolha entre mais de 100 ícones de muitas modalidades, com busca: força e pesos, calistenia, cardio, yoga, pilates, tai chi, boxe, caratê e outras artes marciais, treino funcional, corridas de obstáculos, esportes, água e montanha. Inclui pictogramas próprios de flexões, prancha, abdominais, burpee, agachamento e mountain climbers.
 
 <b>NO SEU IDIOMA</b>
 العربية, English (EUA, Reino Unido e Austrália), Español (Espanha e América Latina), Euskara, Galego, Català, Français (França e Canadá), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe e Português (Brasil e Portugal). O app segue o idioma do seu celular e você pode mudá-lo em Configurações.
@@ -529,7 +529,7 @@ O GymRoulette é uma roleta de exercícios: cada setor combina um número de rep
 • A roleta adapta-se às tuas definições, que ficam guardadas no teu dispositivo.
 
 <b>MAIS DE 100 ÍCONES PARA OS TEUS EXERCÍCIOS</b>
-Escolhe entre mais de 100 ícones de muitas modalidades, com pesquisa: força e pesos, calistenia, cardio, yoga, pilates, tai chi, boxe, karaté e outras artes marciais, treino funcional, crossfit, corridas de obstáculos, desportos, água e montanha. Inclui pictogramas próprios de flexões, prancha, abdominais, burpee, agachamento e mountain climbers.
+Escolhe entre mais de 100 ícones de muitas modalidades, com pesquisa: força e pesos, calistenia, cardio, yoga, pilates, tai chi, boxe, karaté e outras artes marciais, treino funcional, corridas de obstáculos, desportos, água e montanha. Inclui pictogramas próprios de flexões, prancha, abdominais, burpee, agachamento e mountain climbers.
 
 <b>NO TEU IDIOMA</b>
 العربية, English (EUA, Reino Unido e Austrália), Español (Espanha e América Latina), Euskara, Galego, Català, Français (França e Canadá), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe e Português (Brasil e Portugal). A aplicação segue o idioma do teu telemóvel e podes alterá-lo em Definições.
@@ -576,7 +576,7 @@ GymRoulette to koło ćwiczeń: każdy sektor łączy liczbę powtórzeń z ćwi
 • Koło dopasowuje się do twoich ustawień, które są zapisywane na urządzeniu.
 
 <b>PONAD 100 IKON DLA TWOICH ĆWICZEŃ</b>
-Wybieraj spośród ponad 100 ikon z wielu dyscyplin, z wyszukiwarką: siła i ciężary, kalistenika, cardio, joga, pilates, tai chi, boks, karate i inne sztuki walki, trening funkcjonalny, crossfit, biegi z przeszkodami, sporty, woda i góry. Zawiera nasze własne piktogramy pompek, deski, brzuszków, burpee, przysiadu i wspinaczki w podporze.
+Wybieraj spośród ponad 100 ikon z wielu dyscyplin, z wyszukiwarką: siła i ciężary, kalistenika, cardio, joga, pilates, tai chi, boks, karate i inne sztuki walki, trening funkcjonalny, biegi z przeszkodami, sporty, woda i góry. Zawiera nasze własne piktogramy pompek, deski, brzuszków, burpee, przysiadu i wspinaczki w podporze.
 
 <b>W TWOIM JĘZYKU</b>
 العربية, English (USA, Wielka Brytania i Australia), Español (Hiszpania i Ameryka Łacińska), Euskara, Galego, Català, Français (Francja i Kanada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe i Português (Brazylia i Portugalia). Aplikacja korzysta z języka telefonu, a zmienisz go w Ustawieniach.
@@ -670,7 +670,7 @@ GymRoulette bir egzersiz çarkıdır: her dilim bir tekrar sayısını bir egzer
 • Çark ayarlarına uyum sağlar; ayarların cihazında saklanır.
 
 <b>EGZERSİZLERİN İÇİN 100'DEN FAZLA SİMGE</b>
-Aramalı simge listesinden birçok disiplin arasında seçim yap: kuvvet ve ağırlıklar, calisthenics, kardiyo, yoga, pilates, tai chi, boks, karate ve diğer dövüş sanatları, fonksiyonel fitness, crossfit, engelli koşular, sporlar, su ve dağ. Şınav, plank, mekik, burpee, squat ve mountain climbers için kendi piktogramlarımız da var.
+Aramalı simge listesinden birçok disiplin arasında seçim yap: kuvvet ve ağırlıklar, calisthenics, kardiyo, yoga, pilates, tai chi, boks, karate ve diğer dövüş sanatları, fonksiyonel fitness, engelli koşular, sporlar, su ve dağ. Şınav, plank, mekik, burpee, squat ve mountain climbers için kendi piktogramlarımız da var.
 
 <b>KENDİ DİLİNDE</b>
 العربية, English (ABD, Birleşik Krallık ve Avustralya), Español (İspanya ve Latin Amerika), Euskara, Galego, Català, Français (Fransa ve Kanada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe ve Português (Brezilya ve Portekiz). Uygulama telefonunun diline uyar; dilini Ayarlar'dan değiştirebilirsin.
@@ -720,7 +720,7 @@ GymRouletteはエクササイズのルーレットです。各セクターが回
 • ルーレットは設定に合わせて変化し、設定は端末に保存されます。
 
 <b>エクササイズ用の100種類以上のアイコン</b>
-検索機能付きの100種類以上のアイコンから選べます。筋力トレーニングとウェイト、カリステニクス、有酸素運動、ヨガ、ピラティス、太極拳、ボクシング、空手などの武術、ファンクショナルフィットネス、クロスフィット、障害物レース、スポーツ、水辺、山など、さまざまなジャンルに対応。腕立て伏せ、プランク、腹筋、バーピー、スクワット、マウンテンクライマー用の独自のピクトグラムもあります。
+検索機能付きの100種類以上のアイコンから選べます。筋力トレーニングとウェイト、カリステニクス、有酸素運動、ヨガ、ピラティス、太極拳、ボクシング、空手などの武術、ファンクショナルフィットネス、障害物レース、スポーツ、水辺、山など、さまざまなジャンルに対応。腕立て伏せ、プランク、腹筋、バーピー、スクワット、マウンテンクライマー用の独自のピクトグラムもあります。
 
 <b>あなたの言語で</b>
 العربية、English（米国、英国、オーストラリア）、Español（スペインと中南米）、Euskara、Galego、Català、Français（フランスとカナダ）、Deutsch、Italiano、日本語、Nederlands、Polski、हिन्दी、Türkçe、Português（ブラジルとポルトガル）。アプリはスマートフォンの言語に合わせて表示され、言語は設定から変更できます。
@@ -766,7 +766,7 @@ GymRoulette is een oefeningenrad: elk vak combineert een aantal herhalingen met 
 • Het rad past zich aan je instellingen aan, die op je apparaat worden bewaard.
 
 <b>MEER DAN 100 PICTOGRAMMEN VOOR JE OEFENINGEN</b>
-Kies met zoekfunctie uit meer dan 100 pictogrammen voor allerlei disciplines: kracht en gewichten, calisthenics, cardio, yoga, pilates, tai chi, boksen, karate en andere vechtsporten, functionele fitness, crossfit, obstacle runs, sporten, water en bergen. Met onze eigen pictogrammen voor push-ups, plank, sit-ups, burpee, squat en mountain climbers.
+Kies met zoekfunctie uit meer dan 100 pictogrammen voor allerlei disciplines: kracht en gewichten, calisthenics, cardio, yoga, pilates, tai chi, boksen, karate en andere vechtsporten, functionele fitness, obstacle runs, sporten, water en bergen. Met onze eigen pictogrammen voor push-ups, plank, sit-ups, burpee, squat en mountain climbers.
 
 <b>IN JOUW TAAL</b>
 العربية, English (VS, VK en Australië), Español (Spanje en Latijns-Amerika), Euskara, Galego, Català, Français (Frankrijk en Canada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe en Português (Brazilië en Portugal). De app volgt de taal van je telefoon en je kunt die wijzigen in Instellingen.

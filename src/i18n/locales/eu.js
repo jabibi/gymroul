@@ -48,7 +48,7 @@ export default {
     'config.shortPlaceholder': 'Izen laburra',
     'config.chooseIcon': 'Aukeratu ikonoa',
     'config.create': 'Sortu',
-    'config.searchPlaceholder': 'Bilatu: yoga, hyrox, boxeoa, pisuak…',
+    'config.searchPlaceholder': 'Bilatu: yoga, karatea, boxeoa, pisuak…',
     'config.searchAria': 'Bilatu ikonoa',
     'config.noIcons': 'Ez dago ikonorik bilaketa horrentzat',
     'config.privacy': 'Pribatutasun-politika',

@@ -14,7 +14,7 @@ export default {
     'config.close': 'Fechar definições',
     'config.apply': 'Guardar alterações',
     'config.intro': 'Ativa, cria ou elimina repetições e exercícios:',
-    'config.searchPlaceholder': 'Pesquisar: yoga, hyrox, boxe, pesos…',
+    'config.searchPlaceholder': 'Pesquisar: yoga, karaté, boxe, pesos…',
     'config.searchAria': 'Pesquisar ícone',
     'config.noIcons': 'Nenhum ícone encontrado para essa pesquisa',
     'config.deleteRep': 'Eliminar {n} repetições',

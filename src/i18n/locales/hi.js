@@ -48,7 +48,7 @@ export default {
     'config.shortPlaceholder': 'छोटा नाम',
     'config.chooseIcon': 'आइकन चुनें',
     'config.create': 'बनाएँ',
-    'config.searchPlaceholder': 'खोजें: योग, हाइरॉक्स, बॉक्सिंग, वेट…',
+    'config.searchPlaceholder': 'खोजें: योग, कराटे, बॉक्सिंग, वेट…',
     'config.searchAria': 'आइकन खोजें',
     'config.noIcons': 'आपकी खोज से कोई आइकन नहीं मिला',
     'config.privacy': 'गोपनीयता नीति',
