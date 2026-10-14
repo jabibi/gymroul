@@ -25,25 +25,25 @@ store/
 | Carpeta | Idioma en Play Console | Descripción breve | Descripción completa | Novedades |
 |---|---|---|---|---|
 | `ar` | Árabe | 54/80 | 2033/4000 | 275/500 |
-| `ca` | Catalán | 74/80 | 2447/4000 | 337/500 |
-| `de-DE` | Alemán | 72/80 | 2718/4000 | 341/500 |
-| `en-US` | Inglés (Estados Unidos) | 68/80 | 2340/4000 | 315/500 |
-| `en-GB` | Inglés (Reino Unido) | 68/80 | 2340/4000 | 315/500 |
-| `en-AU` | Inglés (Australia) | 68/80 | 2340/4000 | 315/500 |
-| `es-ES` | Español (España) | 75/80 | 2448/4000 | 346/500 |
-| `es-419` | Español (Latinoamérica) | 75/80 | 2454/4000 | 346/500 |
-| `eu-ES` | Euskera | 74/80 | 2587/4000 | 381/500 |
-| `fr-FR` | Francés (Francia) | 77/80 | 2649/4000 | 411/500 |
-| `fr-CA` | Francés (Canadá) | 77/80 | 2648/4000 | 411/500 |
-| `gl-ES` | Gallego | 76/80 | 2432/4000 | 336/500 |
-| `hi-IN` | Hindi | 65/80 | 2371/4000 | 295/500 |
-| `it-IT` | Italiano | 77/80 | 2474/4000 | 354/500 |
-| `ja-JP` | Japonés | 41/80 | 1345/4000 | 198/500 |
-| `nl-NL` | Neerlandés | 76/80 | 2528/4000 | 345/500 |
+| `ca` | Catalán | 74/80 | 2449/4000 | 337/500 |
+| `de-DE` | Alemán | 72/80 | 2660/4000 | 341/500 |
+| `en-US` | Inglés (Estados Unidos) | 68/80 | 2343/4000 | 315/500 |
+| `en-GB` | Inglés (Reino Unido) | 68/80 | 2343/4000 | 315/500 |
+| `en-AU` | Inglés (Australia) | 68/80 | 2343/4000 | 315/500 |
+| `es-ES` | Español (España) | 75/80 | 2450/4000 | 346/500 |
+| `es-419` | Español (Latinoamérica) | 75/80 | 2456/4000 | 346/500 |
+| `eu-ES` | Euskera | 74/80 | 2591/4000 | 381/500 |
+| `fr-FR` | Francés (Francia) | 77/80 | 2653/4000 | 411/500 |
+| `fr-CA` | Francés (Canadá) | 77/80 | 2652/4000 | 411/500 |
+| `gl-ES` | Gallego | 76/80 | 2434/4000 | 336/500 |
+| `hi-IN` | Hindi | 65/80 | 2376/4000 | 295/500 |
+| `it-IT` | Italiano | 77/80 | 2479/4000 | 354/500 |
+| `ja-JP` | Japonés | 41/80 | 1322/4000 | 198/500 |
+| `nl-NL` | Neerlandés | 76/80 | 2581/4000 | 345/500 |
 | `pl-PL` | Polaco | 70/80 | 2416/4000 | 355/500 |
-| `pt-BR` | Portugués (Brasil) | 75/80 | 2444/4000 | 333/500 |
-| `pt-PT` | Portugués (Portugal) | 75/80 | 2453/4000 | 363/500 |
-| `tr-TR` | Turco | 70/80 | 2315/4000 | 336/500 |
+| `pt-BR` | Portugués (Brasil) | 75/80 | 2443/4000 | 333/500 |
+| `pt-PT` | Portugués (Portugal) | 75/80 | 2468/4000 | 363/500 |
+| `tr-TR` | Turco | 70/80 | 2348/4000 | 336/500 |
 
 ## Dónde sube cada archivo en Play Console
 En **Presencia en Google Play Store → Fichas de Play Store**, elige el idioma arriba (*Gestionar idiomas* para añadirlos) y rellena:
