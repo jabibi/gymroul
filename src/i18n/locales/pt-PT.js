@@ -13,11 +13,10 @@ export default {
 
     'config.close': 'Fechar definições',
     'config.apply': 'Guardar alterações',
-    'config.intro': 'Ativa, cria ou elimina repetições e exercícios:',
+    'config.intro': 'Ativa ou desativa exercícios, define o intervalo de repetições de cada um, ou cria e elimina exercícios:',
     'config.searchPlaceholder': 'Pesquisar: yoga, karaté, boxe, pesos…',
     'config.searchAria': 'Pesquisar ícone',
     'config.noIcons': 'Nenhum ícone encontrado para essa pesquisa',
-    'config.deleteRep': 'Eliminar {n} repetições',
     'config.deleteExercise': 'Eliminar {name}',
 
     'error.nameRequired': 'Escreve um nome para o exercício',

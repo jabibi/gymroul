@@ -1,5 +1,5 @@
 // @ts-check
-// Catálogo y selección activa de ejercicios/repeticiones, persistidos en localStorage
+// Catálogo y selección activa de ejercicios (cada uno con su rango de repeticiones), persistidos en localStorage
 
 import { isValidIcon, normalizeIcon, migrateLegacyIcon } from './icons.js';
 
@@ -10,25 +10,29 @@ import { isValidIcon, normalizeIcon, migrateLegacyIcon } from './icons.js';
  * @typedef {{ ok: true } | { ok: false, error: StoreError }} StoreResult
  */
 
-export const MAX_REPS = 12;
 export const MAX_EXERCISES = 12;
 export const MAX_REP_VALUE = 500;
+/** Rango de repeticiones de los ejercicios por defecto y de los nuevos */
+export const DEFAULT_REPS_MIN = 10;
+export const DEFAULT_REPS_MAX = 60;
 
 /** @type {Exercise[]} */
 export const DEFAULT_EXERCISES = [
-  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'burpee', color: '#ef4444' },
-  { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'walk', color: '#f97316' },
-  { id: '3', name: 'Push-up', shortName: 'Push-up', icon: 'pushup', color: '#f59e0b' },
-  { id: '4', name: 'Air Squat', shortName: 'Squat', icon: 'squat', color: '#22c55e' },
-  { id: '5', name: 'Mountain Climbers', shortName: 'Climbers', icon: 'climbers', color: '#06b6d4' },
-  { id: '6', name: 'Split Jumps', shortName: 'Split J', icon: 'jump', color: '#8b5cf6' },
+  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'burpee', color: '#ef4444', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'walk', color: '#f97316', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '3', name: 'Push-up', shortName: 'Push-up', icon: 'pushup', color: '#f59e0b', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '4', name: 'Air Squat', shortName: 'Squat', icon: 'squat', color: '#22c55e', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '5', name: 'Mountain Climbers', shortName: 'Climbers', icon: 'climbers', color: '#06b6d4', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '6', name: 'Split Jumps', shortName: 'Split J', icon: 'jump', color: '#8b5cf6', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
 ];
-export const DEFAULT_REPS = [10, 20, 30, 40, 50, 60];
+/** Lista global de repeticiones de la versión 1.14, solo para migrar (v7 -> v8) */
+const LEGACY_DEFAULT_REPS = [10, 20, 30, 40, 50, 60];
 export const COLOR_PALETTE = ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'];
 
 const KEY_EXERCISES = 'gym_exercises';
-const KEY_REPS = 'gym_reps';
-const KEY_ACTIVE_REPS = 'gymroulette_active_reps';
+// Claves de la lista global de repeticiones, que ya no existe (migración v7 -> v8)
+const KEY_LEGACY_REPS = 'gym_reps';
+const KEY_LEGACY_ACTIVE_REPS = 'gymroulette_active_reps';
 const KEY_ACTIVE_EXS = 'gymroulette_active_exs';
 const KEY_SCHEMA = 'gym_schema_version';
 // Claves de funciones que ya no existen: la analítica opcional (migración v5 -> v6) y el aviso de introducción vista (v6 -> v7)
@@ -36,11 +40,10 @@ const KEY_LEGACY_ANALYTICS_CONSENT = 'gymroulette_analytics_consent';
 const KEY_LEGACY_INTRO_SEEN = 'gymroulette_intro_seen';
 
 /** Versión actual del esquema de datos guardados; sube al cambiar su formato */
-export const SCHEMA_VERSION = 7;
+export const SCHEMA_VERSION = 8;
 
 /** Selección activa (se muta con setActive/loadActive) */
 export const active = {
-  /** @type {number[]} */ reps: [],
   /** @type {string[]} */ exercises: [],
 };
 
@@ -73,6 +76,8 @@ export function writeStorage(key, value) {
 const isExercise = (/** @type {any} */ e) => !!e && typeof e.id === 'string' && typeof e.name === 'string' && e.name.trim() !== '';
 const isExerciseList = (/** @type {any} */ l) => Array.isArray(l) && l.every(isExercise);
 const isRepList = (/** @type {any} */ l) => Array.isArray(l) && l.every(n => Number.isInteger(n) && n > 0);
+/** @param {any} min @param {any} max */
+const isRepRange = (min, max) => Number.isInteger(min) && Number.isInteger(max) && min >= 1 && max <= MAX_REP_VALUE && min <= max;
 const isStringList = (/** @type {any} */ l) => Array.isArray(l) && l.every(n => typeof n === 'string');
 
 // --- Migraciones ---------------------------------------------------------------------
@@ -86,7 +91,7 @@ const MIGRATIONS = {
   // v0 -> v1: datos sin versionar; se normalizan descartando entradas inválidas
   0: () => {
     writeStorage(KEY_EXERCISES, readStorage(KEY_EXERCISES, DEFAULT_EXERCISES, isExerciseList));
-    writeStorage(KEY_REPS, readStorage(KEY_REPS, DEFAULT_REPS, isRepList));
+    writeStorage(KEY_LEGACY_REPS, readStorage(KEY_LEGACY_REPS, LEGACY_DEFAULT_REPS, isRepList));
   },
   // v1 -> v2: los iconos pasan de nombres de Font Awesome / emojis libres al catálogo cerrado
   1: () => {
@@ -123,6 +128,24 @@ const MIGRATIONS = {
   6: () => {
     try { localStorage.removeItem(KEY_LEGACY_INTRO_SEEN); } catch (e) { /* ignorado */ }
   },
+  // v7 -> v8: las repeticiones dejan de ser una lista global y pasan a ser un rango por ejercicio.
+  // Cada ejercicio hereda el mínimo y el máximo de las repeticiones activas (lo que se veía en la ruleta).
+  7: () => {
+    const all = readStorage(KEY_LEGACY_REPS, LEGACY_DEFAULT_REPS, isRepList);
+    const saved = readStorage(KEY_LEGACY_ACTIVE_REPS, /** @type {number[] | null} */ (null), isRepList);
+    let pool = saved ? saved.filter(r => all.includes(r)) : all;
+    if (pool.length === 0) pool = all;
+    const min = Math.min(...pool);
+    const max = Math.max(...pool);
+    const range = pool.length > 0 && isRepRange(min, max) ? { repsMin: min, repsMax: max } : { repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX };
+
+    const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
+    if (list) writeStorage(KEY_EXERCISES, list.map(e => (isRepRange(e.repsMin, e.repsMax) ? e : { ...e, ...range })));
+    try {
+      localStorage.removeItem(KEY_LEGACY_REPS);
+      localStorage.removeItem(KEY_LEGACY_ACTIVE_REPS);
+    } catch (e) { /* ignorado */ }
+  },
 };
 
 /** Aplica las migraciones pendientes y fija la versión actual. */
@@ -141,46 +164,35 @@ export function migrate() {
 /** @returns {Exercise[]} copia ordenada por nombre (no muta las constantes por defecto) */
 export function getExercises() {
   // Cualquier icono fuera del catálogo (datos manipulados o antiguos) se sustituye por el de por defecto
-  const list = readStorage(KEY_EXERCISES, DEFAULT_EXERCISES, isExerciseList).map(e => ({ ...e, icon: normalizeIcon(e.icon) }));
+  // Un rango de repeticiones ausente o inválido (datos manipulados o a medio migrar) se sustituye por el de por defecto
+  const list = readStorage(KEY_EXERCISES, DEFAULT_EXERCISES, isExerciseList).map(e => ({
+    ...e,
+    icon: normalizeIcon(e.icon),
+    ...(isRepRange(e.repsMin, e.repsMax) ? {} : { repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX }),
+  }));
   return list.sort((a, b) => a.name.localeCompare(b.name, 'es', { sensitivity: 'base' }));
-}
-
-/** @returns {number[]} */
-export function getReps() {
-  return [...readStorage(KEY_REPS, DEFAULT_REPS, isRepList)].sort((a, b) => a - b);
 }
 
 /** @param {Exercise[]} list */
 const saveExercises = list => writeStorage(KEY_EXERCISES, list);
-/** @param {number[]} list */
-const saveReps = list => writeStorage(KEY_REPS, list);
 
 // --- Selección activa ----------------------------------------------------------------
 
-/** Carga la selección activa descartando elementos que ya no existen en el catálogo. */
+/** Carga la selección activa descartando ejercicios que ya no existen en el catálogo. */
 export function loadActive() {
-  const allReps = getReps();
   const allExs = getExercises();
-  const savedReps = readStorage(KEY_ACTIVE_REPS, /** @type {number[] | null} */ (null), isRepList);
   const savedExs = readStorage(KEY_ACTIVE_EXS, /** @type {string[] | null} */ (null), isStringList);
-
-  active.reps = savedReps ? savedReps.filter(r => allReps.includes(r)) : [...allReps];
   active.exercises = savedExs
     ? savedExs.filter(name => allExs.some(e => e.name === name))
     : allExs.map(e => e.name);
 }
 
 export function persistActive() {
-  writeStorage(KEY_ACTIVE_REPS, active.reps);
   writeStorage(KEY_ACTIVE_EXS, active.exercises);
 }
 
-/**
- * @param {number[]} reps
- * @param {string[]} exercises
- */
-export function setActive(reps, exercises) {
-  active.reps = reps;
+/** @param {string[]} exercises */
+export function setActive(exercises) {
   active.exercises = exercises;
   persistActive();
 }
@@ -197,15 +209,34 @@ export function pickColor(list) {
 }
 
 /**
+ * Valida y convierte un rango de repeticiones escrito por el usuario.
+ * @param {string | number} min
+ * @param {string | number} max
+ * @returns {{ ok: true, min: number, max: number } | { ok: false, error: StoreError }}
+ */
+export function parseRepRange(min, max) {
+  const lo = parseInt(String(min), 10);
+  const hi = parseInt(String(max), 10);
+  if ([lo, hi].some(n => isNaN(n) || n < 1 || n > MAX_REP_VALUE)) {
+    return { ok: false, error: { key: 'error.repRange', params: { max: MAX_REP_VALUE } } };
+  }
+  if (lo > hi) return { ok: false, error: { key: 'error.repMinMax' } };
+  return { ok: true, min: lo, max: hi };
+}
+
+/**
  * Crea un ejercicio nuevo y lo activa.
- * @param {{ name: string, shortName?: string, icon: string }} input
+ * @param {{ name: string, shortName?: string, icon: string, repsMin?: string | number, repsMax?: string | number }} input
  * @returns {StoreResult}
  */
-export function addExercise({ name, shortName, icon }) {
+export function addExercise({ name, shortName, icon, repsMin = DEFAULT_REPS_MIN, repsMax = DEFAULT_REPS_MAX }) {
   name = (name || '').trim();
   if (!name) return { ok: false, error: { key: 'error.nameRequired' } };
 
   if (!isValidIcon(icon)) return { ok: false, error: { key: 'error.iconRequired' } };
+
+  const range = parseRepRange(repsMin, repsMax);
+  if (!range.ok) return range;
 
   const list = getExercises();
   if (list.some(item => item.name.toLowerCase() === name.toLowerCase())) {
@@ -221,6 +252,8 @@ export function addExercise({ name, shortName, icon }) {
     shortName: (shortName || '').trim() || name,
     icon,
     color: pickColor(list),
+    repsMin: range.min,
+    repsMax: range.max,
   });
   saveExercises(list);
 
@@ -243,30 +276,20 @@ export function removeExercise(id) {
 }
 
 /**
- * @param {string | number} value
+ * Cambia el rango de repeticiones de un ejercicio.
+ * @param {string} id
+ * @param {string | number} min
+ * @param {string | number} max
  * @returns {StoreResult}
  */
-export function addRep(value) {
-  const num = parseInt(String(value), 10);
-  if (isNaN(num) || num <= 0 || num > MAX_REP_VALUE) {
-    return { ok: false, error: { key: 'error.repRange', params: { max: MAX_REP_VALUE } } };
-  }
-  const list = getReps();
-  if (list.includes(num)) return { ok: false, error: { key: 'error.duplicateRep', params: { n: num } } };
-  if (list.length >= MAX_REPS) return { ok: false, error: { key: 'error.maxReps', params: { max: MAX_REPS } } };
-
-  list.push(num);
-  saveReps(list);
-  if (!active.reps.includes(num)) {
-    active.reps.push(num);
-    persistActive();
-  }
+export function updateExerciseReps(id, min, max) {
+  const range = parseRepRange(min, max);
+  if (!range.ok) return range;
+  const list = getExercises();
+  const target = list.find(item => item.id === id);
+  if (!target) return { ok: true };
+  target.repsMin = range.min;
+  target.repsMax = range.max;
+  saveExercises(list);
   return { ok: true };
-}
-
-/** @param {number} value */
-export function removeRep(value) {
-  saveReps(getReps().filter(r => r !== value));
-  active.reps = active.reps.filter(r => r !== value);
-  persistActive();
 }

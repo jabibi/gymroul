@@ -93,13 +93,13 @@ function buildCache() {
     c.textAlign = 'right';
     c.textBaseline = 'middle';
     c.fillStyle = '#ffffff';
-    const fontSize = Math.max(9, Math.min(12, Math.floor(size / (total * 0.7))));
+    const fontSize = Math.max(9, Math.min(14, Math.floor(size / (total * 0.7))));
     c.font = `800 ${fontSize}px 'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', sans-serif`;
     c.shadowColor = 'rgba(0, 0, 0, 0.9)';
     c.shadowBlur = 4;
     const label = segments[i] === CONFIG_SEGMENT
       ? t('wheel.setup')
-      : total >= 24 ? `${segments[i].reps} ${segments[i].shortName}` : segments[i].text;
+      : segments[i].text;
     c.fillText(label, radius - 16, 0);
     c.restore();
   }

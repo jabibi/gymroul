@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import { getWinningIndex, normalizeDelta, generateCombinations, CONFIG_SEGMENT } from '../src/wheel-math.js';
+import { getWinningIndex, normalizeDelta, generateSegments, rollReps, CONFIG_SEGMENT } from '../src/wheel-math.js';
 
 const exercises = [
-  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'fa-fire', color: '#ef4444' },
-  { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'fa-person-walking', color: '#f97316' },
+  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'fa-fire', color: '#ef4444', repsMin: 10, repsMax: 30 },
+  { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'fa-person-walking', color: '#f97316', repsMin: 5, repsMax: 5 },
 ];
 
 describe('getWinningIndex', () => {
@@ -50,21 +50,40 @@ describe('normalizeDelta', () => {
   });
 });
 
-describe('generateCombinations', () => {
-  it('genera el producto repeticiones × ejercicios activos', () => {
-    const segs = generateCombinations(exercises, [10, 20], ['Burpee', 'Lunge'], [10, 20]);
-    expect(segs).toHaveLength(4);
-    expect(segs[0]).toMatchObject({ reps: 10, exercise: 'Burpee', text: '10 Burpee' });
+describe('generateSegments', () => {
+  it('genera un sector por ejercicio activo, con su rango de repeticiones', () => {
+    const segs = generateSegments(exercises, ['Burpee', 'Lunge']);
+    expect(segs).toHaveLength(2);
+    expect(segs[0]).toMatchObject({ exercise: 'Burpee', text: 'Burpee', repsMin: 10, repsMax: 30 });
   });
 
   it('respeta la selección activa', () => {
-    const segs = generateCombinations(exercises, [10, 20], ['Lunge'], [20]);
+    const segs = generateSegments(exercises, ['Lunge']);
     expect(segs).toHaveLength(1);
-    expect(segs[0].fullName).toBe('20 Lunge');
+    expect(segs[0]).toMatchObject({ exercise: 'Lunge', repsMin: 5, repsMax: 5 });
   });
 
   it('devuelve el sector de configuración si no hay nada activo', () => {
-    expect(generateCombinations(exercises, [10], [], [10])).toEqual([CONFIG_SEGMENT]);
-    expect(generateCombinations(exercises, [10], ['Burpee'], [])).toEqual([CONFIG_SEGMENT]);
+    expect(generateSegments(exercises, [])).toEqual([CONFIG_SEGMENT]);
+  });
+});
+
+describe('rollReps', () => {
+  it('cubre los dos extremos del rango', () => {
+    expect(rollReps(10, 30, () => 0)).toBe(10);
+    expect(rollReps(10, 30, () => 0.9999999)).toBe(30);
+  });
+
+  it('con mínimo igual al máximo devuelve ese valor', () => {
+    expect(rollReps(15, 15, () => 0.5)).toBe(15);
+  });
+
+  it('siempre devuelve un entero dentro del rango', () => {
+    for (let i = 0; i < 1000; i++) {
+      const n = rollReps(3, 8);
+      expect(Number.isInteger(n)).toBe(true);
+      expect(n).toBeGreaterThanOrEqual(3);
+      expect(n).toBeLessThanOrEqual(8);
+    }
   });
 });

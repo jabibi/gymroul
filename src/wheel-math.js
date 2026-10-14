@@ -2,8 +2,10 @@
 // Lógica pura de la ruleta (sin DOM) para poder testearla
 
 /**
- * @typedef {{ id: string, name: string, shortName: string, icon: string, color: string }} Exercise
- * @typedef {{ text: string, fullName: string, reps: number, exercise: string, shortName: string, color: string, icon: string }} Segment
+ * @typedef {{ id: string, name: string, shortName: string, icon: string, color: string, repsMin: number, repsMax: number }} Exercise
+ * @typedef {{ text: string, exercise: string, shortName: string, color: string, icon: string, repsMin: number, repsMax: number }} Segment
+ * Reto resultante de un giro: el sector ganador con las repeticiones ya tiradas
+ * @typedef {Segment & { reps: number }} Challenge
  */
 
 const TWO_PI = 2 * Math.PI;
@@ -11,44 +13,43 @@ const TWO_PI = 2 * Math.PI;
 /** Sector mostrado cuando no hay nada activo; al girar abre la configuración */
 export const CONFIG_SEGMENT = /** @type {Segment} */ ({
   text: 'Configurar',
-  fullName: 'Configurar',
-  reps: 0,
   exercise: 'Configurar',
   shortName: 'Config',
   color: '#475569',
   icon: 'dumbbell',
+  repsMin: 0,
+  repsMax: 0,
 });
 
 /**
- * Producto cartesiano repeticiones × ejercicios activos.
+ * Un sector por ejercicio activo; las repeticiones no se ven en la ruleta, salen al terminar el giro.
  * @param {Exercise[]} exercises catálogo completo
- * @param {number[]} reps catálogo completo
  * @param {string[]} activeExercises nombres activos
- * @param {number[]} activeReps repeticiones activas
  * @returns {Segment[]}
  */
-export function generateCombinations(exercises, reps, activeExercises, activeReps) {
+export function generateSegments(exercises, activeExercises) {
   const exs = exercises.filter(ex => activeExercises.includes(ex.name));
-  const rs = reps.filter(r => activeReps.includes(r));
+  if (exs.length === 0) return [CONFIG_SEGMENT];
 
-  if (rs.length === 0 || exs.length === 0) return [CONFIG_SEGMENT];
+  return exs.map(ex => ({
+    text: ex.shortName || ex.name,
+    exercise: ex.name,
+    shortName: ex.shortName || ex.name,
+    color: ex.color || '#f97316',
+    icon: ex.icon || 'dumbbell',
+    repsMin: ex.repsMin,
+    repsMax: ex.repsMax,
+  }));
+}
 
-  /** @type {Segment[]} */
-  const combinations = [];
-  rs.forEach(rep => {
-    exs.forEach(ex => {
-      combinations.push({
-        text: `${rep} ${ex.shortName || ex.name}`,
-        fullName: `${rep} ${ex.name}`,
-        reps: rep,
-        exercise: ex.name,
-        shortName: ex.shortName || ex.name,
-        color: ex.color || '#f97316',
-        icon: ex.icon || 'dumbbell',
-      });
-    });
-  });
-  return combinations;
+/**
+ * Repeticiones del reto: entero uniforme entre el mínimo y el máximo, ambos incluidos.
+ * @param {number} min
+ * @param {number} max
+ * @param {() => number} [rng] devuelve un número en [0, 1)
+ */
+export function rollReps(min, max, rng = Math.random) {
+  return min + Math.floor(rng() * (max - min + 1));
 }
 
 /**

@@ -37,11 +37,10 @@
     <main class="flex-1 flex flex-col items-center justify-center px-4 py-4 max-w-md mx-auto w-full relative">
 
         <!-- Indicador de Sector Seleccionado -->
-        <!-- Un único marcador: [icono] [cantidad] ejercicio, sobre la púa de la ruleta -->
+        <!-- Un único marcador: [icono] ejercicio, sobre la púa de la ruleta -->
         <div class="flex justify-center">
             <div id="liveIndicator" role="img" class="live-marker relative flex items-center justify-center gap-3 min-w-[260px] max-w-full h-[52px] px-2.5 rounded-full border-2 border-brand-500 font-bold text-white">
                 <span id="liveIndicatorIcon" class="w-9 h-9 shrink-0 rounded-full bg-brand-500/15 border border-brand-500/30 text-brand-400 flex items-center justify-center text-xl"></span>
-                <span id="liveIndicatorBadge" class="hidden px-2.5 py-0.5 rounded-lg bg-brand-500 text-dark-950 font-black text-[1.1rem] leading-tight tabular-nums"></span>
                 <span id="liveIndicatorText" class="min-w-0 truncate text-[18px] tracking-wide" data-i18n="live.drag">Drag the wheel to spin</span>
             </div>
         </div>
@@ -146,27 +145,6 @@
             <div class="flex-1 overflow-y-auto overflow-x-hidden space-y-5 pe-1 my-1">
                 <p class="text-xs text-slate-400" data-i18n="config.intro">Turn reps and exercises on or off, or create and delete them:</p>
 
-                <!-- Repeticiones Section -->
-                <div class="bg-dark-900/60 p-3 rounded-2xl border border-slate-800">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-xs font-black text-slate-200 uppercase tracking-wider" data-i18n="config.reps">Reps</span>
-                        <div class="flex items-center space-x-1 rtl:space-x-reverse">
-                            <button data-action="toggle-reps" data-arg="on" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-[11px] text-brand-400 font-bold hover:underline" data-i18n="config.repsAll">All</button>
-                            <span class="text-slate-600">|</span>
-                            <button data-action="toggle-reps" data-arg="off" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-[11px] text-slate-400 font-bold hover:underline" data-i18n="config.repsNone">None</button>
-                        </div>
-                    </div>
-                    <div id="repsCheckboxes" class="grid grid-cols-2 gap-2 mb-3"></div>
-
-                    <!-- Formulario Añadir Repetición -->
-                    <div class="flex items-center gap-2 pt-2 border-t border-slate-800/80">
-                        <input type="number" id="newRepInput" placeholder="E.g. 15" data-i18n-placeholder="config.repPlaceholder" min="1" max="500" class="min-h-[44px] flex-1 px-3 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
-                        <button data-action="add-rep" class="min-h-[44px] px-3 py-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all flex items-center gap-1">
-                            <i class="fa-solid fa-plus text-[10px]"></i> <span data-i18n="config.add">Add</span>
-                        </button>
-                    </div>
-                </div>
-
                 <!-- Ejercicios Section -->
                 <div class="bg-dark-900/60 p-3 rounded-2xl border border-slate-800">
                     <div class="flex justify-between items-center mb-2">
@@ -185,6 +163,15 @@
                         <div class="grid grid-cols-2 gap-2">
                             <input type="text" id="newExName" placeholder="Name (e.g. Plank)" data-i18n-placeholder="config.namePlaceholder" class="min-h-[44px] px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
                             <input type="text" id="newExShort" placeholder="Short name" data-i18n-placeholder="config.shortPlaceholder" class="min-h-[44px] px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                        </div>
+                        <span class="text-[11px] font-bold text-slate-400 block" data-i18n="config.reps">Reps</span>
+                        <div class="grid grid-cols-2 gap-2">
+                            <label class="block text-[11px] font-bold text-slate-400"><span data-i18n="config.repsMin">Min</span>
+                                <input type="number" dir="ltr" inputmode="numeric" id="newExRepsMin" value="10" min="1" max="500" class="mt-1 min-h-[44px] w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                            </label>
+                            <label class="block text-[11px] font-bold text-slate-400"><span data-i18n="config.repsMax">Max</span>
+                                <input type="number" dir="ltr" inputmode="numeric" id="newExRepsMax" value="60" min="1" max="500" class="mt-1 min-h-[44px] w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                            </label>
                         </div>
                         <div class="flex items-center gap-2">
                             <button type="button" id="iconPickerBtn" data-action="toggle-icon-picker" aria-expanded="false" aria-controls="iconPicker" aria-label="Choose icon" data-i18n-aria-label="config.chooseIcon" class="min-h-[44px] flex-1 min-w-0 flex items-center justify-between gap-2 px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white hover:border-slate-600">

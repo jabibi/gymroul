@@ -8,7 +8,7 @@ import { Share } from '@capacitor/share';
 import { Filesystem, Directory } from '@capacitor/filesystem';
 import { t, getLanguage, isRtl } from './i18n/index.js';
 
-/** @typedef {import('./wheel-math.js').Segment} Segment */
+/** @typedef {import('./wheel-math.js').Challenge} Challenge */
 
 /** Ficha de la app en Google Play: es lo que lleva el texto compartido. */
 export const APP_URL = 'https://play.google.com/store/apps/details?id=eus.jabibi.gymroul';
@@ -23,10 +23,10 @@ const uniqueName = () => `gymroulette-reto-${Date.now()}.png`;
 const CACHE_DIR = 'share';
 const FONT = "'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', sans-serif";
 
-/** @param {Segment} winner */
+/** @param {Challenge} winner */
 export const challengeLabel = winner => `${winner.reps} ${winner.exercise}`;
 
-/** @param {Segment} winner @returns {string} texto que acompaña a la imagen */
+/** @param {Challenge} winner @returns {string} texto que acompaña a la imagen */
 export const shareText = winner => t('share.text', { challenge: challengeLabel(winner), url: APP_URL });
 
 /**
@@ -58,7 +58,7 @@ function roundRect(ctx, x, y, w, h, r) {
 
 /**
  * Dibuja la tarjeta del reto (marca, reto, color del sector, botón y dirección) en un lienzo cuadrado.
- * @param {HTMLCanvasElement} canvas @param {Segment} winner @param {HTMLImageElement | null} logo
+ * @param {HTMLCanvasElement} canvas @param {Challenge} winner @param {HTMLImageElement | null} logo
  */
 export function drawCard(canvas, winner, logo) {
   const S = IMAGE_SIZE;
@@ -143,7 +143,7 @@ export function drawCard(canvas, winner, logo) {
   ctx.fillText(WEB_HOST, S / 2, 988);
 }
 
-/** @param {Segment} winner @returns {Promise<Blob>} */
+/** @param {Challenge} winner @returns {Promise<Blob>} */
 export async function renderCard(winner) {
   // Las letras y el logo deben estar cargados antes de dibujar
   await Promise.all([
@@ -192,7 +192,7 @@ function nextPaint() {
  * en el navegador, con la API de compartir si admite archivos y, si no, descargando la imagen.
  * Se puede cancelar con `signal` mientras se prepara la imagen; `onReady` se llama justo antes de entregarla
  * al sistema (a partir de ahí ya no se puede cancelar desde la app).
- * @param {Segment} winner
+ * @param {Challenge} winner
  * @param {{ signal?: AbortSignal, onReady?: () => void }} [options]
  * @returns {Promise<'shared' | 'saved' | 'cancelled'>}
  */
