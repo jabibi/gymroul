@@ -358,20 +358,20 @@ export function renderConfig(keepChecks = false) {
     return `
     <div class="rounded-xl bg-dark-950 border border-slate-800">
       <div class="flex items-stretch min-h-[46px]">
-        <label class="flex items-center gap-2 cursor-pointer flex-1 min-w-0 ps-2.5 py-2">
+        <label class="flex items-center gap-2 cursor-pointer flex-1 ps-2.5 py-2">
           <input type="checkbox" value="${escapeHTML(ex.name)}" ${isOn(ex.name) ? 'checked' : ''} class="ex-checkbox w-4 h-4 rounded text-brand-500 focus:ring-brand-500 bg-dark-900 border-slate-700">
-          <span class="text-xs font-bold text-white flex items-center gap-2 min-w-0">
+          <span class="text-xs font-bold text-white flex items-center gap-2">
             <span class="text-brand-400 text-lg flex items-center">${renderIconHTML(ex.icon)}</span>
-            <span class="truncate">${escapeHTML(ex.name)}</span>
+            ${escapeHTML(ex.name)}
           </span>
         </label>
-        <button data-action="edit-reps" data-arg="${escapeHTML(ex.id)}" aria-expanded="${open}" aria-label="${escapeHTML(t('config.editReps', { name: ex.name }))}" class="flex items-center justify-center min-w-[44px] px-2 text-[11px] font-bold text-brand-400 hover:underline">
-          <bdi dir="ltr">${escapeHTML(range)}</bdi>
-        </button>
         <button data-action="delete-exercise" data-arg="${escapeHTML(ex.id)}" aria-label="${escapeHTML(t('config.deleteExercise', { name: ex.name }))}" class="flex items-center justify-center w-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors">
           <i class="fa-solid fa-trash-can"></i>
         </button>
       </div>
+      <button data-action="edit-reps" data-arg="${escapeHTML(ex.id)}" aria-expanded="${open}" aria-label="${escapeHTML(t('config.editReps', { name: ex.name }))}" class="flex items-center min-h-[44px] ps-2.5 pe-3 text-[11px] font-bold text-brand-400 hover:underline">
+        <bdi dir="ltr">${escapeHTML(range)}</bdi>
+      </button>
       <div class="${open ? '' : 'hidden'} grid grid-cols-[1fr_1fr_auto] items-end gap-2 px-2.5 pb-2.5 pt-1 border-t border-slate-800/80">
         <label class="block text-[11px] font-bold text-slate-400">${escapeHTML(t('config.repsMin'))}
           <input type="number" dir="ltr" inputmode="numeric" id="${repsInputId(ex.id, 'Min')}" value="${ex.repsMin}" min="1" max="500" class="${inputClass} mt-1">
