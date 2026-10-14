@@ -281,7 +281,7 @@ try {
     await page.evaluate(() => document.getElementById('iconPicker').scrollIntoView({ block: 'center' }));
     await wait(400);
     await shot(page, '05-selector-de-iconos');
-    await page.type('#iconSearch', 'hyrox');
+    await page.type('#iconSearch', 'karate');
     await wait(400);
     await page.evaluate(() => document.getElementById('iconPicker').scrollIntoView({ block: 'center' }));
     await wait(400);

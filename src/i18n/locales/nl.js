@@ -48,7 +48,7 @@ export default {
     'config.shortPlaceholder': 'Korte naam',
     'config.chooseIcon': 'Kies een pictogram',
     'config.create': 'Aanmaken',
-    'config.searchPlaceholder': 'Zoek: yoga, hyrox, boksen, gewichten…',
+    'config.searchPlaceholder': 'Zoek: yoga, karate, boksen, gewichten…',
     'config.searchAria': 'Pictogram zoeken',
     'config.noIcons': 'Geen pictogrammen gevonden voor je zoekopdracht',
     'config.privacy': 'Privacybeleid',

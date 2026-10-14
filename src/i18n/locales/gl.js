@@ -48,7 +48,7 @@ export default {
     'config.shortPlaceholder': 'Nome curto',
     'config.chooseIcon': 'Escoller icona',
     'config.create': 'Crear',
-    'config.searchPlaceholder': 'Buscar: yoga, hyrox, boxeo, pesas…',
+    'config.searchPlaceholder': 'Buscar: yoga, karate, boxeo, pesas…',
     'config.searchAria': 'Buscar icona',
     'config.noIcons': 'Non hai iconas para esa busca',
     'config.privacy': 'Política de privacidade',

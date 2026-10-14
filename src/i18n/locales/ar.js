@@ -51,7 +51,7 @@ export default {
     'config.shortPlaceholder': 'اسم مختصر',
     'config.chooseIcon': 'اختر أيقونة',
     'config.create': 'إنشاء',
-    'config.searchPlaceholder': 'ابحث: يوغا، هايركس، ملاكمة، أثقال…',
+    'config.searchPlaceholder': 'ابحث: يوغا، كاراتيه، ملاكمة، أثقال…',
     'config.searchAria': 'البحث عن أيقونة',
     'config.noIcons': 'لا توجد أيقونات مطابقة لبحثك',
     'config.privacy': 'سياسة الخصوصية',
