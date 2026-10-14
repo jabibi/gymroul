@@ -23,6 +23,15 @@ Se hacen juntas las dos peticiones de la reseña de 5 estrellas (6 oct 2026), po
   - Cambia la lógica de `src/wheel-math.js` (sin DOM, con tests) y el dibujo de `src/wheel.js`.
   - Revisar el historial, el resultado y «Compartir reto», que hoy asumen sector = ejercicio x repeticiones.
   - Ejecutar `npm run check:layout` en todos los idiomas, árabe incluido.
+- Decisiones de diseño:
+  - Modelo: cada ejercicio lleva `repsMin` y `repsMax` (enteros de 1 a `MAX_REP_VALUE`, con mínimo <= máximo). Desaparecen la lista global, `active.reps`, `MAX_REPS`, `getReps`, `addRep` y `removeRep`; se añade `updateExerciseReps(id, min, max)` y el error `error.repMinMax`.
+  - Migración v7 -> v8 (`SCHEMA_VERSION` = 8): cada ejercicio recibe el mínimo y el máximo de las repeticiones activas guardadas; si no hay, las de `gym_reps`; si tampoco, 10–60. Es idempotente y `getExercises` rellena los que sigan sin rango. Se borran ya `gym_reps` y `gymroulette_active_reps` (sin vuelta atrás limpia a versiones anteriores).
+  - Ejercicios por defecto y ejercicios nuevos: rango inicial 10–60.
+  - Tirada: entero uniforme entre mínimo y máximo, ambos incluidos (`rollReps(min, max, rng)`, pura y con test). Se tira al terminar el giro y el resultado, el historial y «Compartir reto» reciben las repeticiones ya tiradas.
+  - Ruleta: un sector por ejercicio activo (máximo 12), etiqueta siempre con el nombre corto. Se quita la insignia de repeticiones del marcador en vivo. `winner.reps === 0` deja de ser el centinela de «Configurar».
+  - Configuración: se elimina la tarjeta de repeticiones. Cada ejercicio muestra su rango en un botón de al menos 44 px que despliega un editor en la propia fila (Mín., Máx., Guardar y Cancelar), sin modal nuevo. El formulario de añadir ejercicio gana los campos Mín. y Máx. En árabe, campos numéricos con `dir="ltr"` y propiedades lógicas.
+  - Textos: se retiran las claves de la lista global de repeticiones y se añaden `config.repsMin`, `config.repsMax`, `config.repsRange`, `config.editReps`, `config.repsSave` y `error.repMinMax`, en `en.js` y en los 20 idiomas. Revisar la ficha de Play y las capturas. La política de privacidad no cambia.
+  - Commits previstos: modelo y migración con tests; `wheel-math` y `wheel.js`; giro, resultado, historial y compartir; configuración; textos y ficha; publicación (1.15.0, versionCode 15, codename, notas y `store/datos-de-la-ficha.md`). Al terminar, `npm run check:layout`.
 - Fuera de alcance: retos completados en el historial, plantillas, exportar/importar y revisión de accesibilidad (quedan como ideas sin fecha).
 
 ## Ideas sin fecha
