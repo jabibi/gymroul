@@ -41,6 +41,7 @@ CI (`.github/workflows/ci.yml`) ejecuta `typecheck`, `test` y `build`, y en un j
 - **Tailwind**: no escribas ejemplos de clases en comentarios; el escáner los detecta y emite avisos.
 - **CSP estricta** (meta en `index.html`, solo `'self'`): sin scripts ni estilos en línea nuevos que requieran `unsafe-inline`.
 - **Versión**: la única fuente es `package.json` (`version`, `versionCode`, `versionCodename`). `android/app/build.gradle` la lee de ahí y compone el `versionName` como `major.minor (codename)`. Al publicar, sube las tres, ejecuta `npm run release-notes` y actualiza `store/datos-de-la-ficha.md`.
+- **Firma de commits en sesiones en la nube**: el entorno de Claude Code no pasa sus variables al script de preparación, solo a la sesión, así que la firma se configura con el hook `SessionStart` de `.claude/settings.json` (`.claude/hooks/git-signing.sh`). Lee `GIT_SIGNING_KEY` (clave privada ed25519 en base64, dedicada y revocable), `GIT_USER_NAME` y `GIT_USER_EMAIL` del entorno, activa la firma SSH y deja un informe sin secretos en `/tmp/signing-diag.txt`. No pongas nunca la clave en el repositorio.
 - `ROADMAP.md` recoge los objetivos de las próximas versiones; consúltalo antes de empezar una funcionalidad nueva.
 - Máximo 12 ejercicios y 12 repeticiones; los sectores son repeticiones activas x ejercicios activos.
 - No subas keystores, `google-services.json` ni credenciales. La firma de release se configura en local.
