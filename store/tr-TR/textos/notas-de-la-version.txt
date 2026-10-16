@@ -1,6 +1,5 @@
-• Yeni: meydan okumanı uygulama bağlantısıyla birlikte görsel olarak paylaş.
-• Artık Nederlands ve 日本語 dillerinde de.
-• Ayarlarda yeni “Gizlilik taahhüdü”: uygulamanın verilerinle ne yaptığı (ve ne yapmadığı).
-• Uygulama doğrudan çarkla açılır: tanıtım yok.
-• Daha büyük, dokunması kolay düğmeler.
+• Yeni: her egzersizin kendi tekrar aralığı var ve sayı çark döndükten sonra çıkar.
+• Daha sade çark: egzersiz başına bir dilim.
+• Varsayılan egzersizler artık senin dilinde görünür.
+• Daha iyi ortalanmış uygulama simgesi.
 • Hata düzeltmeleri ve iyileştirmeler.

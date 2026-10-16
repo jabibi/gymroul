@@ -1,6 +1,5 @@
-• Novidade: comparte o teu reto como imaxe coa ligazón á app.
-• Agora tamén en Nederlands e 日本語.
-• Novo «Compromiso de privacidade» en Configuración: o que a app fai (e non fai) cos teus datos.
-• A app ábrese directamente na ruleta: sen introdución.
-• Botóns e controis máis grandes e fáciles de tocar.
+• Novidade: cada exercicio ten o seu propio rango de repeticións e o número sae despois do xiro.
+• Unha ruleta máis limpa: un sector por exercicio.
+• Os exercicios por defecto vense agora no teu idioma.
+• Icona da app mellor centrada.
 • Corrección de erros e melloras.

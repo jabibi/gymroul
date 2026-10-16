@@ -1,6 +1,6 @@
 Sem vontade de decidir o que treinar hoje? Gire a roleta e deixe o GymRoulette escolher por você.
 
-O GymRoulette é uma roleta de exercícios: cada setor combina um número de repetições com um exercício (por exemplo, “20 Burpee”) e, ao girá-la, propõe um desafio aleatório para treinar em casa, na academia ou ao ar livre. Pensada para dar variedade aos seus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicação.
+O GymRoulette é uma roleta de exercícios: cada setor é um exercício e, ao girá-la, propõe um desafio aleatório com o seu número de repetições (por exemplo, “20 Burpee”) para treinar em casa, na academia ou ao ar livre. Pensada para dar variedade aos seus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicação.
 
 <b>COMO FUNCIONA</b>
 • Toque em “GIRAR ROLETA!” ou lance a roleta com o dedo.
@@ -10,9 +10,9 @@ O GymRoulette é uma roleta de exercícios: cada setor combina um número de rep
 • Compartilhe seu desafio como imagem com seus amigos.
 
 <b>VOCÊ DECIDE O QUE ENTRA NA ROLETA</b>
-• Ative ou desative os exercícios e as repetições que quiser.
+• Ative ou desative os exercícios que quiser.
 • Crie seus próprios exercícios com nome, nome curto e ícone.
-• Adicione ou remova repetições para ajustar a dificuldade.
+• Defina o intervalo de repetições de cada exercício, de um mínimo a um máximo, para ajustar a dificuldade.
 • A roleta se adapta às suas configurações, que ficam salvas no seu dispositivo.
 
 <b>MAIS DE 100 ÍCONES PARA SEUS EXERCÍCIOS</b>

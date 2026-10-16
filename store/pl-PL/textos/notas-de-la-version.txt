@@ -1,6 +1,5 @@
-• Nowość: udostępnij swoje wyzwanie jako obraz z linkiem do aplikacji.
-• Dostępna także w językach: Nederlands i 日本語.
-• Nowe „Zobowiązanie do prywatności” w Ustawieniach: co aplikacja robi (a czego nie robi) z twoimi danymi.
-• Aplikacja od razu otwiera koło: bez wprowadzenia.
-• Większe, łatwiejsze do dotknięcia przyciski.
+• Nowość: każde ćwiczenie ma własny zakres powtórzeń, a liczba wypada po zakręceniu.
+• Czytelniejsze koło: jeden sektor na ćwiczenie.
+• Domyślne ćwiczenia są teraz w twoim języku.
+• Lepiej wycentrowana ikona aplikacji.
 • Poprawki błędów i ulepszenia.
