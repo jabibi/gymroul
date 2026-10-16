@@ -18,6 +18,10 @@ export default {
     'config.searchAria': 'Pesquisar ícone',
     'config.noIcons': 'Nenhum ícone encontrado para essa pesquisa',
     'config.deleteExercise': 'Eliminar {name}',
+    'exercise.lunge': 'Avanços',
+    'exercise.lunge.short': 'Avanços',
+    'exercise.splitjump': 'Avanços com salto',
+    'exercise.splitjump.short': 'Avanço salto',
 
     'error.nameRequired': 'Escreve um nome para o exercício',
     'error.iconRequired': 'Escolhe um ícone da lista',

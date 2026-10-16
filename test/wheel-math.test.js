@@ -87,3 +87,11 @@ describe('rollReps', () => {
     }
   });
 });
+
+describe('generateSegments con nombres traducidos', () => {
+  it('filtra por el nombre guardado y muestra el que da la función de traducción', () => {
+    const segs = generateSegments(exercises, ['Burpee'], ex => ({ name: `T-${ex.name}`, shortName: `S-${ex.name}` }));
+    expect(segs).toHaveLength(1);
+    expect(segs[0]).toMatchObject({ exercise: 'T-Burpee', text: 'S-Burpee', shortName: 'S-Burpee' });
+  });
+});

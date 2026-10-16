@@ -21,25 +21,32 @@ export const CONFIG_SEGMENT = /** @type {Segment} */ ({
   repsMax: 0,
 });
 
+/** Nombre y nombre corto tal como están guardados */
+const storedLabels = (/** @type {Exercise} */ ex) => ({ name: ex.name, shortName: ex.shortName || ex.name });
+
 /**
  * Un sector por ejercicio activo; las repeticiones no se ven en la ruleta, salen al terminar el giro.
  * @param {Exercise[]} exercises catálogo completo
- * @param {string[]} activeExercises nombres activos
+ * @param {string[]} activeExercises nombres activos (los guardados)
+ * @param {(ex: Exercise) => { name: string, shortName: string }} [labels] nombre y nombre corto que se muestran
  * @returns {Segment[]}
  */
-export function generateSegments(exercises, activeExercises) {
+export function generateSegments(exercises, activeExercises, labels = storedLabels) {
   const exs = exercises.filter(ex => activeExercises.includes(ex.name));
   if (exs.length === 0) return [CONFIG_SEGMENT];
 
-  return exs.map(ex => ({
-    text: ex.shortName || ex.name,
-    exercise: ex.name,
-    shortName: ex.shortName || ex.name,
-    color: ex.color || '#f97316',
-    icon: ex.icon || 'dumbbell',
-    repsMin: ex.repsMin,
-    repsMax: ex.repsMax,
-  }));
+  return exs.map(ex => {
+    const { name, shortName } = labels(ex);
+    return {
+      text: shortName,
+      exercise: name,
+      shortName,
+      color: ex.color || '#f97316',
+      icon: ex.icon || 'dumbbell',
+      repsMin: ex.repsMin,
+      repsMax: ex.repsMax,
+    };
+  });
 }
 
 /**

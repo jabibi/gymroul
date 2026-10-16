@@ -4,7 +4,7 @@ import './style.css';
 import { Capacitor } from '@capacitor/core';
 import { App as CapacitorApp } from '@capacitor/app';
 
-import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, refreshLabels, getSpinSpeed } from './wheel.js';
+import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, getSpinSpeed } from './wheel.js';
 import { generateSegments, rollReps, CONFIG_SEGMENT } from './wheel-math.js';
 import {
   migrate, loadActive, getExercises, active, setActive,
@@ -13,13 +13,14 @@ import {
 import { toggleSound, initAudio } from './audio.js';
 import * as ui from './ui.js';
 import { cleanShareCache } from './share.js';
+import { exerciseLabels } from './exercise-names.js';
 import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from './i18n/index.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
 
 /** Reconstruye los sectores a partir del catálogo y la selección activa. */
 function rebuildWheel() {
-  setSegments(generateSegments(getExercises(), active.exercises));
+  setSegments(generateSegments(getExercises(), active.exercises, exerciseLabels));
 }
 
 /** Abre la configuración si la ruleta no tiene nada activo; devuelve true si lo hizo. */
@@ -75,7 +76,7 @@ function reportError(result) {
 function applyLanguage() {
   applyTranslations();
   ui.refreshLanguage();
-  refreshLabels();
+  rebuildWheel(); // los nombres de los ejercicios por defecto cambian con el idioma
   refreshMarker();
 }
 
