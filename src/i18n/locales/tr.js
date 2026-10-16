@@ -77,6 +77,7 @@ export default {
     'error.maxExercises': 'En fazla {max} egzersiz',
     'error.repRange': '1 ile {max} arasında bir sayı gir',
     'error.repMinMax': 'Minimum, maksimumdan büyük olamaz',
+    'error.maxLength': 'En fazla {max} karakter',
 
     'config.commitment': 'Gizlilik taahhüdü',
     'commitment.intro': 'GymRoulette etik ve egemen bir yazılımdır: senin istediğini yapar, başka hiçbir şey yapmaz.',

@@ -77,6 +77,7 @@ export default {
     'error.maxExercises': 'अधिकतम {max} एक्सरसाइज़',
     'error.repRange': '1 और {max} के बीच की संख्या लिखें',
     'error.repMinMax': 'न्यूनतम, अधिकतम से बड़ा नहीं हो सकता',
+    'error.maxLength': 'अधिकतम {max} अक्षर',
 
     'config.commitment': 'गोपनीयता प्रतिबद्धता',
     'commitment.intro': 'GymRoulette नैतिक और संप्रभु सॉफ़्टवेयर है: यह वही करता है जो आप कहते हैं, इससे ज़्यादा कुछ नहीं।',

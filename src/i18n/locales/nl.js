@@ -77,6 +77,7 @@ export default {
     'error.maxExercises': 'Maximaal {max} oefeningen',
     'error.repRange': 'Voer een getal tussen 1 en {max} in',
     'error.repMinMax': 'Het minimum mag niet hoger zijn dan het maximum',
+    'error.maxLength': 'Maximaal {max} tekens',
 
     'config.commitment': 'Privacybelofte',
     'commitment.intro': 'GymRoulette is ethische, soevereine software: het doet wat jij vraagt en niets anders.',

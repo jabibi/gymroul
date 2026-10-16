@@ -60,6 +60,32 @@ export function rollReps(min, max, rng = Math.random) {
 }
 
 /**
+ * Ajusta un texto a un ancho: baja el tamaño de letra hasta el mínimo y, si aun así no cabe, lo recorta con «…».
+ * @param {(text: string, size: number) => number} measure ancho del texto con ese tamaño
+ * @param {string} text
+ * @param {number} maxWidth
+ * @param {number} maxSize tamaño de letra con el que se empieza
+ * @param {number} minSize tamaño mínimo
+ * @returns {{ text: string, size: number }}
+ */
+export function fitText(measure, text, maxWidth, maxSize, minSize) {
+  let size = maxSize;
+  while (size > minSize && measure(text, size) > maxWidth) size--;
+  if (measure(text, size) <= maxWidth) return { text, size };
+
+  const chars = Array.from(text);
+  const cut = (/** @type {number} */ n) => `${chars.slice(0, n).join('').trimEnd()}…`;
+  let lo = 0;
+  let hi = chars.length;
+  while (lo < hi) {
+    const mid = Math.ceil((lo + hi) / 2);
+    if (measure(cut(mid), size) <= maxWidth) lo = mid;
+    else hi = mid - 1;
+  }
+  return { text: cut(lo), size };
+}
+
+/**
  * Índice del sector bajo el puntero (parte superior de la ruleta).
  * @param {number} angle rotación actual de la ruleta (rad)
  * @param {number} total número de sectores

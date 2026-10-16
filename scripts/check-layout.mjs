@@ -10,6 +10,8 @@
 //   npm run check:layout                      todos los idiomas
 //   npm run check:layout -- --lang=ar,de      solo algunos (códigos de la app)
 //   npm run check:layout -- --shots=dir       además guarda una captura de cada pantalla en ese directorio
+//   npm run check:layout -- --stress          con 12 ejercicios de nombres larguísimos (más que el límite actual, como
+//                                             los que guardaron versiones anteriores) y repeticiones de hasta 500
 //   CHROME_PATH=/ruta/a/chrome npm run check:layout   si Chrome no está en /usr/bin/google-chrome
 //
 // Sale con código 1 si encuentra algún problema. Requiere haber compilado antes (npm run build).
@@ -27,11 +29,32 @@ const VIEWPORTS = [{ width: 320, height: 568 }, { width: 360, height: 640 }, { w
 const arg = name => process.argv.find(a => a.startsWith(`--${name}=`))?.slice(name.length + 3);
 const only = arg('lang')?.split(',');
 const shotsDir = arg('shots');
+const stress = process.argv.includes('--stress');
 const languages = LANGUAGES.map(l => l.code).filter(code => !only || only.includes(code));
 if (languages.length === 0) throw new Error(`Ningún idioma coincide con --lang=${arg('lang')}`);
 if (!existsSync('www/index.html')) throw new Error('Falta www/: ejecuta "npm run build" antes.');
 if (!existsSync(CHROME)) throw new Error(`No encuentro Chrome en ${CHROME}. Indica la ruta con CHROME_PATH.`);
 if (shotsDir) mkdirSync(shotsDir, { recursive: true });
+
+/** Ejercicios de prueba (--stress): nombres largos de todo tipo y rangos hasta el máximo de repeticiones. */
+const STRESS_EXERCISES = [
+  ['Supercalifragilisticexpialidocious Press Extended', 'Supercalifragilistic'],
+  ['Extremely long exercise name that keeps going and going', 'Extremely long short'],
+  ['W'.repeat(30), 'W'.repeat(12)],
+  ['Mountain Climbers', 'Climbers'],
+  ['تمرين طويل جدا جدا جدا جدا جدا جدا جدا', 'تمرين طويل جدا جدا جدا'],
+  ['とても長いエクササイズの名前がここに入ります', 'とても長いエクササイズ名前'],
+  ['Burpee', 'Burpee'],
+  ['Split Jumps', 'Split J'],
+  ['Air Squat', 'Squat'],
+  ['Elevaciones laterales con mancuernas', 'Elev. lat…'],
+  ['Push-up', 'Push-up'],
+  ['Lunge', 'Lunge'],
+].map(([name, shortName], i) => ({
+  id: `s${i}`, name, shortName, icon: ['burpee', 'walk', 'pushup', 'squat', 'climbers', 'jump', 'dumbbell', 'karate', 'yoga', 'timer', 'run', 'boxing'][i % 12],
+  color: ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'][i % 8],
+  repsMin: i % 3 === 0 ? 1 : 10, repsMax: i % 3 === 0 ? 500 : 60,
+}));
 
 const wait = ms => new Promise(r => setTimeout(r, ms));
 
@@ -149,6 +172,12 @@ async function openApp(lang, vp) {
   await page.evaluateOnNewDocument(() => {
     Math.random = () => 0.5;
   });
+  if (stress) {
+    await page.evaluateOnNewDocument(list => {
+      localStorage.setItem('gym_schema_version', '8');
+      localStorage.setItem('gym_exercises', JSON.stringify(list));
+    }, STRESS_EXERCISES);
+  }
   await page.goto(`${BASE}?lang=${lang}`, { waitUntil: 'networkidle0' });
   await page.evaluate(() => document.fonts.ready);
   await wait(400);
@@ -180,6 +209,18 @@ try {
         await wait(600);
         await page.click('[data-action=close-result][data-arg=done]');
         await wait(500);
+      }
+      if (stress) {
+        // Un resultado con cada tirada: así salen distintos ejercicios largos en la tarjeta
+        for (const [i, value] of [0.04, 0.2, 0.31, 0.45, 0.6, 0.72, 0.9].entries()) {
+          await page.evaluate(v => { Math.random = () => v; }, value);
+          await page.click('#spinBtn');
+          await page.waitForFunction(() => !document.getElementById('resultModal').classList.contains('pointer-events-none'), { timeout: 30000 });
+          await wait(700);
+          await check(page, lang, vp, `02-resultado-${i + 1}`);
+          await page.click('[data-action=close-result][data-arg=done]');
+          await wait(500);
+        }
       }
       await page.click('[data-action=open-history]');
       await wait(600);

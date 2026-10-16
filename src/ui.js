@@ -190,7 +190,12 @@ export function showResult(winner) {
   vibrateResult();
 
   $('winnerIconContainer').innerHTML = renderIconHTML(winner.icon);
-  $('winnerText').textContent = `${winner.reps} ${winner.exercise}`;
+  const challenge = `${winner.reps} ${winner.exercise}`;
+  $('winnerText').textContent = challenge;
+  // Un nombre largo baja de tamaño para que se lea entero en la tarjeta
+  $('winnerText').classList.toggle('text-3xl', challenge.length <= 18);
+  $('winnerText').classList.toggle('text-2xl', challenge.length > 18 && challenge.length <= 30);
+  $('winnerText').classList.toggle('text-xl', challenge.length > 30);
 
   $('resultModal').classList.remove('opacity-0', 'pointer-events-none');
   $('resultCard').classList.remove('scale-90');
@@ -316,14 +321,14 @@ export function renderHistory() {
   total.textContent = t('history.total', { n: sessionHistory.length });
   listEl.innerHTML = sessionHistory.map(h => `
     <div class="bg-dark-900 border border-slate-800 rounded-2xl p-3 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center font-black text-sm border border-brand-500/20">${h.reps}</div>
-        <div>
-          <h4 class="font-bold text-white text-xs">${escapeHTML(h.text)}</h4>
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-10 h-10 shrink-0 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center font-black text-sm border border-brand-500/20">${h.reps}</div>
+        <div class="min-w-0">
+          <h4 class="font-bold text-white text-xs break-words">${escapeHTML(h.text)}</h4>
           <span class="text-[10px] text-slate-400 font-medium">${escapeHTML(h.time)}</span>
         </div>
       </div>
-      <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black border border-emerald-500/20">${escapeHTML(t('history.done'))}</span>
+      <span class="shrink-0 ms-2 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black border border-emerald-500/20">${escapeHTML(t('history.done'))}</span>
     </div>`).join('');
 }
 
@@ -360,11 +365,11 @@ export function renderConfig(keepChecks = false) {
     return `
     <div class="rounded-xl bg-dark-950 border border-slate-800">
       <div class="flex items-stretch min-h-[46px]">
-        <label class="flex items-center gap-2 cursor-pointer flex-1 ps-2.5 py-2">
-          <input type="checkbox" value="${escapeHTML(ex.name)}" ${isOn(ex.name) ? 'checked' : ''} class="ex-checkbox w-4 h-4 rounded text-brand-500 focus:ring-brand-500 bg-dark-900 border-slate-700">
-          <span class="text-xs font-bold text-white flex items-center gap-2">
-            <span class="text-brand-400 text-lg flex items-center">${renderIconHTML(ex.icon)}</span>
-            ${escapeHTML(name)}
+        <label class="flex items-center gap-2 cursor-pointer flex-1 min-w-0 ps-2.5 py-2">
+          <input type="checkbox" value="${escapeHTML(ex.name)}" ${isOn(ex.name) ? 'checked' : ''} class="ex-checkbox w-4 h-4 shrink-0 rounded text-brand-500 focus:ring-brand-500 bg-dark-900 border-slate-700">
+          <span class="text-xs font-bold text-white flex items-center gap-2 min-w-0">
+            <span class="text-brand-400 text-lg flex items-center shrink-0">${renderIconHTML(ex.icon)}</span>
+            <span class="min-w-0 break-words">${escapeHTML(name)}</span>
           </span>
         </label>
         <button data-action="delete-exercise" data-arg="${escapeHTML(ex.id)}" aria-label="${escapeHTML(t('config.deleteExercise', { name }))}" class="flex items-center justify-center w-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors">
@@ -483,7 +488,7 @@ export function readNewExerciseForm() {
   const short = /** @type {HTMLInputElement} */ ($('newExShort')).value.trim();
   const repsMin = /** @type {HTMLInputElement} */ ($('newExRepsMin')).value;
   const repsMax = /** @type {HTMLInputElement} */ ($('newExRepsMax')).value;
-  return { name, shortName: short || name, icon: selectedIcon, repsMin, repsMax };
+  return { name, shortName: short, icon: selectedIcon, repsMin, repsMax };
 }
 
 export function resetNewExerciseForm() {

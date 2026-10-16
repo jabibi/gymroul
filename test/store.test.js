@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import {
   readStorage, getExercises, loadActive, active, migrate, SCHEMA_VERSION,
-  addExercise, removeExercise, updateExerciseReps, parseRepRange, DEFAULT_EXERCISES, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_EXERCISES, pickColor, COLOR_PALETTE,
+  addExercise, removeExercise, updateExerciseReps, parseRepRange, deriveShortName, MAX_NAME_LENGTH, MAX_SHORT_NAME_LENGTH, MAX_REP_VALUE, DEFAULT_EXERCISES, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_EXERCISES, pickColor, COLOR_PALETTE,
 } from '../src/store.js';
 
 function installLocalStorage() {
@@ -106,6 +106,7 @@ describe('repeticiones por ejercicio', () => {
     expect(parseRepRange(10, 501).ok).toBe(false);
     expect(parseRepRange(30, 20).error.key).toBe('error.repMinMax');
     expect(parseRepRange('10', '20')).toEqual({ ok: true, min: 10, max: 20 });
+    expect(parseRepRange(' 10 ', ' 20 ')).toEqual({ ok: true, min: 10, max: 20 });
     expect(parseRepRange(15, 15).ok).toBe(true);
   });
 
@@ -128,6 +129,55 @@ describe('repeticiones por ejercicio', () => {
     expect(getExercises().find(e => e.id === id)).toMatchObject({ repsMin: 5, repsMax: 8 });
     expect(updateExerciseReps(id, 9, 2).ok).toBe(false);
     expect(getExercises().find(e => e.id === id)).toMatchObject({ repsMin: 5, repsMax: 8 });
+  });
+});
+
+describe('límites de lo que escribe el usuario', () => {
+  it('rechaza repeticiones enormes sin guardarlas (999999999999999, 1e21, muchos dígitos)', () => {
+    const id = DEFAULT_EXERCISES[0].id;
+    for (const big of ['999999999999999', 999999999999999, 1e21, '9'.repeat(400), String(MAX_REP_VALUE + 1)]) {
+      expect(parseRepRange(10, big).error.key, String(big)).toBe('error.repRange');
+      expect(updateExerciseReps(id, 10, big).ok).toBe(false);
+      expect(addExercise({ name: 'Enorme', icon: 'dumbbell', repsMin: 1, repsMax: big }).ok).toBe(false);
+    }
+    expect(getExercises().find(e => e.id === id)).toMatchObject({ repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX });
+    expect(getExercises().some(e => e.name === 'Enorme')).toBe(false);
+    expect(parseRepRange(MAX_REP_VALUE, MAX_REP_VALUE).ok).toBe(true);
+  });
+
+  it('solo admite enteros: nada de decimales, signos, notación científica, texto ni vacío', () => {
+    for (const bad of ['10.5', '1e3', '12abc', '-5', '+5', '0x10', '', '  ', 'NaN', 'Infinity', null, undefined, '0']) {
+      expect(parseRepRange(bad, 20).ok, String(bad)).toBe(false);
+    }
+  });
+
+  it('limita la longitud del nombre y del nombre corto', () => {
+    const long = 'x'.repeat(MAX_NAME_LENGTH + 1);
+    expect(addExercise({ name: long, icon: 'dumbbell' }).error).toEqual({ key: 'error.maxLength', params: { max: MAX_NAME_LENGTH } });
+    expect(addExercise({ name: 'Bien', shortName: 'y'.repeat(MAX_SHORT_NAME_LENGTH + 1), icon: 'dumbbell' }).error).toEqual({ key: 'error.maxLength', params: { max: MAX_SHORT_NAME_LENGTH } });
+    expect(addExercise({ name: 'x'.repeat(MAX_NAME_LENGTH), shortName: 'y'.repeat(MAX_SHORT_NAME_LENGTH), icon: 'dumbbell' }).ok).toBe(true);
+    expect(getExercises().some(e => e.name === long)).toBe(false);
+  });
+
+  it('colapsa espacios y saltos de línea del nombre', () => {
+    expect(addExercise({ name: '  Press \n  de   banca\t', icon: 'dumbbell' }).ok).toBe(true);
+    expect(getExercises().some(e => e.name === 'Press de banca')).toBe(true);
+    expect(addExercise({ name: 'press de banca', icon: 'dumbbell' }).ok).toBe(false);
+  });
+
+  it('sin nombre corto, lo deriva del nombre y lo recorta con «…» si no cabe', () => {
+    expect(deriveShortName('Plancha')).toBe('Plancha');
+    const derived = deriveShortName('Elevaciones laterales');
+    expect(derived.length).toBeLessThanOrEqual(MAX_SHORT_NAME_LENGTH);
+    expect(derived.endsWith('…')).toBe(true);
+    expect(addExercise({ name: 'Elevaciones laterales', icon: 'dumbbell' }).ok).toBe(true);
+    expect(getExercises().find(e => e.name === 'Elevaciones laterales').shortName).toBe(derived);
+  });
+
+  it('un nombre guardado por versiones anteriores, más largo que el límite, se sigue leyendo', () => {
+    const legacy = 'N'.repeat(80);
+    data.set('gym_exercises', JSON.stringify([{ id: 'z', name: legacy, shortName: legacy, icon: 'dumbbell', color: '#fff', repsMin: 5, repsMax: 9 }]));
+    expect(getExercises()[0].name).toBe(legacy);
   });
 });
 

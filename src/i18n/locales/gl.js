@@ -77,6 +77,7 @@ export default {
     'error.maxExercises': 'Máximo {max} exercicios',
     'error.repRange': 'Introduce un número entre 1 e {max}',
     'error.repMinMax': 'O mínimo non pode ser maior que o máximo',
+    'error.maxLength': 'Máximo {max} caracteres',
 
     'config.commitment': 'Compromiso de privacidade',
     'commitment.intro': 'GymRoulette é software ético e soberano: fai o que lle pides e nada máis.',

@@ -12,6 +12,9 @@ import { isValidIcon, normalizeIcon, migrateLegacyIcon } from './icons.js';
 
 export const MAX_EXERCISES = 12;
 export const MAX_REP_VALUE = 500;
+/** Longitud máxima (en caracteres) del nombre y del nombre corto de un ejercicio */
+export const MAX_NAME_LENGTH = 30;
+export const MAX_SHORT_NAME_LENGTH = 12;
 /** Rango de repeticiones de los ejercicios por defecto y de los nuevos */
 export const DEFAULT_REPS_MIN = 10;
 export const DEFAULT_REPS_MAX = 60;
@@ -209,15 +212,25 @@ export function pickColor(list) {
 }
 
 /**
+ * Nombre corto cuando el usuario no escribe uno: el nombre, o su principio con «…» si no cabe.
+ * @param {string} name
+ */
+export function deriveShortName(name) {
+  return name.length <= MAX_SHORT_NAME_LENGTH ? name : `${name.slice(0, MAX_SHORT_NAME_LENGTH - 1).trimEnd()}…`;
+}
+
+/**
  * Valida y convierte un rango de repeticiones escrito por el usuario.
  * @param {string | number} min
  * @param {string | number} max
  * @returns {{ ok: true, min: number, max: number } | { ok: false, error: StoreError }}
  */
 export function parseRepRange(min, max) {
-  const lo = parseInt(String(min), 10);
-  const hi = parseInt(String(max), 10);
-  if ([lo, hi].some(n => isNaN(n) || n < 1 || n > MAX_REP_VALUE)) {
+  // Solo dígitos: parseInt aceptaría «12abc», «1e3» o «10.9» y los leería como 12, 1 y 10
+  const toInt = (/** @type {string | number} */ v) => (/^\d+$/.test(String(v).trim()) ? Number(String(v).trim()) : NaN);
+  const lo = toInt(min);
+  const hi = toInt(max);
+  if ([lo, hi].some(n => !Number.isFinite(n) || n < 1 || n > MAX_REP_VALUE)) {
     return { ok: false, error: { key: 'error.repRange', params: { max: MAX_REP_VALUE } } };
   }
   if (lo > hi) return { ok: false, error: { key: 'error.repMinMax' } };
@@ -230,8 +243,11 @@ export function parseRepRange(min, max) {
  * @returns {StoreResult}
  */
 export function addExercise({ name, shortName, icon, repsMin = DEFAULT_REPS_MIN, repsMax = DEFAULT_REPS_MAX }) {
-  name = (name || '').trim();
+  name = (name || '').replace(/\s+/g, ' ').trim();
   if (!name) return { ok: false, error: { key: 'error.nameRequired' } };
+  shortName = (shortName || '').replace(/\s+/g, ' ').trim();
+  if (name.length > MAX_NAME_LENGTH) return { ok: false, error: { key: 'error.maxLength', params: { max: MAX_NAME_LENGTH } } };
+  if (shortName.length > MAX_SHORT_NAME_LENGTH) return { ok: false, error: { key: 'error.maxLength', params: { max: MAX_SHORT_NAME_LENGTH } } };
 
   if (!isValidIcon(icon)) return { ok: false, error: { key: 'error.iconRequired' } };
 
@@ -249,7 +265,7 @@ export function addExercise({ name, shortName, icon, repsMin = DEFAULT_REPS_MIN,
   list.push({
     id: Date.now().toString(),
     name,
-    shortName: (shortName || '').trim() || name,
+    shortName: shortName || deriveShortName(name),
     icon,
     color: pickColor(list),
     repsMin: range.min,

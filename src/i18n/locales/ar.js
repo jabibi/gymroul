@@ -80,6 +80,7 @@ export default {
     'error.maxExercises': 'الحد الأقصى للتمارين: {max}',
     'error.repRange': 'أدخل رقمًا بين 1 و{max}',
     'error.repMinMax': 'يجب ألا يكون الحد الأدنى أكبر من الحد الأقصى',
+    'error.maxLength': 'الحد الأقصى {max} حرفًا',
 
     'config.commitment': 'التزام الخصوصية',
     'commitment.intro': 'GymRoulette برنامج أخلاقي وسيادي: ينفّذ ما تطلبه منه ولا شيء غير ذلك.',

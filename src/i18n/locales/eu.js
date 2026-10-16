@@ -77,6 +77,7 @@ export default {
     'error.maxExercises': 'Gehienez {max} ariketa',
     'error.repRange': 'Sartu 1 eta {max} arteko zenbaki bat',
     'error.repMinMax': 'Gutxienekoa ezin da gehienekoa baino handiagoa izan',
+    'error.maxLength': 'Gehienez {max} karaktere',
 
     'config.commitment': 'Pribatutasun-konpromisoa',
     'commitment.intro': 'GymRoulette software etikoa eta burujabea da: eskatzen diozun hori egiten du, eta ez besterik.',

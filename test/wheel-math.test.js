@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getWinningIndex, normalizeDelta, generateSegments, rollReps, CONFIG_SEGMENT } from '../src/wheel-math.js';
+import { getWinningIndex, normalizeDelta, generateSegments, rollReps, fitText, CONFIG_SEGMENT } from '../src/wheel-math.js';
 
 const exercises = [
   { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'fa-fire', color: '#ef4444', repsMin: 10, repsMax: 30 },
@@ -93,5 +93,40 @@ describe('generateSegments con nombres traducidos', () => {
     const segs = generateSegments(exercises, ['Burpee'], ex => ({ name: `T-${ex.name}`, shortName: `S-${ex.name}` }));
     expect(segs).toHaveLength(1);
     expect(segs[0]).toMatchObject({ exercise: 'T-Burpee', text: 'S-Burpee', shortName: 'S-Burpee' });
+  });
+});
+
+describe('fitText', () => {
+  // Medida simulada: cada carácter ocupa size * 0.6
+  const measure = (text, size) => Array.from(text).length * size * 0.6;
+
+  it('deja el texto y el tamaño máximo si cabe', () => {
+    expect(fitText(measure, 'Burpee', 200, 18, 9)).toEqual({ text: 'Burpee', size: 18 });
+  });
+
+  it('baja el tamaño de letra antes de recortar', () => {
+    const r = fitText(measure, 'Mountain Climbers', 100, 18, 9);
+    expect(r.text).toBe('Mountain Climbers');
+    expect(r.size).toBeLessThan(18);
+    expect(r.size).toBeGreaterThanOrEqual(9);
+    expect(measure(r.text, r.size)).toBeLessThanOrEqual(100);
+  });
+
+  it('si no cabe ni con el tamaño mínimo, recorta con «…» y cabe', () => {
+    const r = fitText(measure, 'Supercalifragilisticexpialidocious', 60, 18, 9);
+    expect(r.size).toBe(9);
+    expect(r.text.endsWith('…')).toBe(true);
+    expect(measure(r.text, r.size)).toBeLessThanOrEqual(60);
+    expect(r.text.length).toBeGreaterThan(2);
+  });
+
+  it('con un ancho diminuto devuelve solo «…» y no falla con texto vacío', () => {
+    expect(fitText(measure, 'Largo', 1, 18, 9).text).toBe('…');
+    expect(fitText(measure, '', 10, 18, 9)).toEqual({ text: '', size: 18 });
+  });
+
+  it('no parte caracteres de varios bytes', () => {
+    const r = fitText(measure, '😀😀😀😀😀😀😀😀😀😀', 40, 18, 9);
+    expect(r.text).toMatch(/^(😀)*…$/u);
   });
 });

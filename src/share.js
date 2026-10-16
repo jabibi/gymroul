@@ -7,6 +7,7 @@ import { Capacitor } from '@capacitor/core';
 import { Share } from '@capacitor/share';
 import { Filesystem, Directory } from '@capacitor/filesystem';
 import { t, getLanguage, isRtl } from './i18n/index.js';
+import { fitText } from './wheel-math.js';
 
 /** @typedef {import('./wheel-math.js').Challenge} Challenge */
 
@@ -114,12 +115,11 @@ export function drawCard(canvas, winner, logo) {
   ctx.fillStyle = '#4ADE80';
   ctx.fillText(badge, S / 2, 392);
 
-  // El reto, lo más grande que quepa
-  const label = challengeLabel(winner);
-  const size = fitFontSize(px => (ctx.font = `800 ${px}px ${FONT}`, ctx.measureText(label).width), S - 160, 200, 64);
-  ctx.font = `800 ${size}px ${FONT}`;
+  // El reto, lo más grande que quepa; un nombre larguísimo se recorta con «…» en lugar de salirse de la imagen
+  const fitted = fitText((text, px) => (ctx.font = `800 ${px}px ${FONT}`, ctx.measureText(text).width), challengeLabel(winner), S - 160, 200, 56);
+  ctx.font = `800 ${fitted.size}px ${FONT}`;
   ctx.fillStyle = '#fff';
-  ctx.fillText(label, S / 2, 590);
+  ctx.fillText(fitted.text, S / 2, 590);
 
   // Barra con el color del sector de la ruleta
   roundRect(ctx, (S - 360) / 2, 640, 360, 18, 9);

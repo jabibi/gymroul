@@ -1,7 +1,7 @@
 // @ts-check
 // Render (canvas), física y arrastre de la ruleta
 
-import { getWinningIndex, normalizeDelta, CONFIG_SEGMENT } from './wheel-math.js';
+import { getWinningIndex, normalizeDelta, fitText, CONFIG_SEGMENT } from './wheel-math.js';
 import { t } from './i18n/index.js';
 import { initAudio, playTickSound, vibrateSpinStart } from './audio.js';
 
@@ -60,6 +60,12 @@ export function setSegments(next) {
   callbacks.onChange();
 }
 
+const MIN_LABEL_SIZE = 9;
+const MAX_LABEL_SIZE = 18;
+/** Fracción del radio que ocupa el botón central: el texto de los sectores empieza después */
+const LABEL_HUB_RESERVE = 0.32;
+const labelFont = (/** @type {number} */ px) => `800 ${px}px 'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', sans-serif`;
+
 function buildCache() {
   const size = wheelSize;
   const center = size / 2;
@@ -93,14 +99,20 @@ function buildCache() {
     c.textAlign = 'right';
     c.textBaseline = 'middle';
     c.fillStyle = '#ffffff';
-    const fontSize = Math.max(9, Math.min(14, Math.floor(size / (total * 0.7))));
-    c.font = `800 ${fontSize}px 'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', sans-serif`;
     c.shadowColor = 'rgba(0, 0, 0, 0.9)';
     c.shadowBlur = 4;
     const label = segments[i] === CONFIG_SEGMENT
       ? t('wheel.setup')
       : segments[i].text;
-    c.fillText(label, radius - 16, 0);
+    // Tamaño según el grosor del sector junto al botón central; si el texto no cabe en el radio libre, baja
+    // hasta el mínimo y, si aun así no cabe, se recorta con «…» (el usuario puede escribir cualquier nombre)
+    const textEnd = radius - 16;
+    const textStart = radius * LABEL_HUB_RESERVE;
+    const thickness = 2 * textStart * Math.sin(Math.min(slice, Math.PI) / 2);
+    const maxSize = Math.max(MIN_LABEL_SIZE, Math.min(MAX_LABEL_SIZE, Math.floor(thickness * 0.55)));
+    const fitted = fitText((text, px) => (c.font = labelFont(px), c.measureText(text).width), label, textEnd - textStart, maxSize, MIN_LABEL_SIZE);
+    c.font = labelFont(fitted.size);
+    c.fillText(fitted.text, textEnd, 0);
     c.restore();
   }
   cacheDirty = false;

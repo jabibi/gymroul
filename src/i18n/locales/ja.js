@@ -77,6 +77,7 @@ export default {
     'error.maxExercises': 'エクササイズは最大{max}個です',
     'error.repRange': '1から{max}までの数を入力してください',
     'error.repMinMax': '最小は最大より大きくできません',
+    'error.maxLength': '{max}文字までです',
 
     'config.commitment': 'プライバシーへの取り組み',
     'commitment.intro': 'GymRouletteは倫理的で自律したソフトウェアです。あなたが求めたことだけを行い、それ以外は何もしません。',
