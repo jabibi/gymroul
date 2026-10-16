@@ -11,6 +11,11 @@ Lo que piden las reseñas de Play y otros mensajes. Se apunta la petición, de d
 - Ruleta solo con los ejercicios (misma reseña). Propone que la ruleta muestre únicamente los ejercicios (empezaría con solo 6 sectores) y que el número de repeticiones aleatorio salga después de girar, para que se vea menos recargada.
   - Cambia la lógica de `src/wheel-math.js` y el dibujo de `src/wheel.js`, y encaja con la petición anterior: el sector sería el ejercicio y las repeticiones saldrían de su propio rango o valor.
 
+- Repeticiones propias por ejercicio (feedback del día 11 de la prueba, de Kamil Szostek, en inglés). Cree que cada ejercicio debería tener su propio número posible de repeticiones, porque puede hacer uno 40 veces y no poder hacer el otro. Es la misma petición que la de la reseña de 5 estrellas y la cubre el mismo cambio.
+- Ejercicios por defecto sin traducir (informe de prueba en OPPO Reno5 A con Android 12, en español, con la app en japonés). Las etiquetas de la ruleta salen en inglés mientras los botones y los diálogos están en japonés.
+  - Causa: los seis ejercicios por defecto tienen el nombre en inglés escrito en `DEFAULT_EXERCISES` de `src/store.js` y se muestran tal cual en todos los idiomas.
+  - Se resuelve traduciendo su nombre solo al mostrarlo (ruleta, configuración, resultado y compartir), sin cambiar lo guardado.
+
 ## Versión 1.15 (alcance acordado)
 
 Se hacen juntas las dos peticiones de la reseña de 5 estrellas (6 oct 2026), porque la segunda depende de la primera.
@@ -32,6 +37,7 @@ Se hacen juntas las dos peticiones de la reseña de 5 estrellas (6 oct 2026), po
   - Configuración: se elimina la tarjeta de repeticiones. Cada ejercicio muestra su rango en un botón de al menos 44 px que despliega un editor en la propia fila (Mín., Máx., Guardar y Cancelar), sin modal nuevo. El formulario de añadir ejercicio gana los campos Mín. y Máx. En árabe, campos numéricos con `dir="ltr"` y propiedades lógicas.
   - Textos: se retiran las claves de la lista global de repeticiones y se añaden `config.repsMin`, `config.repsMax`, `config.repsRange`, `config.editReps`, `config.repsSave` y `error.repMinMax`, en `en.js` y en los 20 idiomas. Revisar la ficha de Play y las capturas. La política de privacidad no cambia.
   - Commits previstos: modelo y migración con tests; `wheel-math` y `wheel.js`; giro, resultado, historial y compartir; configuración; textos y ficha; publicación (1.15.0, versionCode 15, codename, notas y `store/datos-de-la-ficha.md`). Al terminar, `npm run check:layout`.
+- **Ejercicios por defecto traducidos** (informe del OPPO Reno5 A): los ejercicios con id 1 a 6 y el nombre original sin cambiar se muestran con su traducción (`exercise.<clave>` y `exercise.<clave>.short`, en `en.js` y en los 20 idiomas, en plural porque el resultado dice «{n} {ejercicio}»). Lo guardado sigue en inglés, porque el nombre es la identidad del ejercicio (selección activa, duplicados, historial) y no hace falta migrar. Los ejercicios del usuario no se traducen. `generateSegments` recibe la función que traduce y filtra antes por el nombre guardado; la ruleta se reconstruye al cambiar de idioma. Repasar `check:layout`, porque los nombres cortos de la ruleta tienen que ser breves.
 - Fuera de alcance: retos completados en el historial, plantillas, exportar/importar y revisión de accesibilidad (quedan como ideas sin fecha).
 
 ## Ideas sin fecha
