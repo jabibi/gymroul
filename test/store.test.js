@@ -103,7 +103,7 @@ describe('repeticiones por ejercicio', () => {
   it('valida el rango: números entre 1 y el máximo y mínimo no mayor que el máximo', () => {
     expect(parseRepRange('abc', 20).ok).toBe(false);
     expect(parseRepRange(0, 20).ok).toBe(false);
-    expect(parseRepRange(10, 501).ok).toBe(false);
+    expect(parseRepRange(10, MAX_REP_VALUE + 1).ok).toBe(false);
     expect(parseRepRange(30, 20).error.key).toBe('error.repMinMax');
     expect(parseRepRange('10', '20')).toEqual({ ok: true, min: 10, max: 20 });
     expect(parseRepRange(' 10 ', ' 20 ')).toEqual({ ok: true, min: 10, max: 20 });
@@ -143,6 +143,8 @@ describe('límites de lo que escribe el usuario', () => {
     expect(getExercises().find(e => e.id === id)).toMatchObject({ repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX });
     expect(getExercises().some(e => e.name === 'Enorme')).toBe(false);
     expect(parseRepRange(MAX_REP_VALUE, MAX_REP_VALUE).ok).toBe(true);
+    expect(MAX_REP_VALUE).toBe(999999);
+    expect(parseRepRange(1, '1000000').ok).toBe(false);
   });
 
   it('solo admite enteros: nada de decimales, signos, notación científica, texto ni vacío', () => {

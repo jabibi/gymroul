@@ -11,7 +11,7 @@
 //   npm run check:layout -- --lang=ar,de      solo algunos (códigos de la app)
 //   npm run check:layout -- --shots=dir       además guarda una captura de cada pantalla en ese directorio
 //   npm run check:layout -- --stress          con 12 ejercicios de nombres larguísimos (más que el límite actual, como
-//                                             los que guardaron versiones anteriores) y repeticiones de hasta 500
+//                                             los que guardaron versiones anteriores) y repeticiones de hasta 999999
 //   CHROME_PATH=/ruta/a/chrome npm run check:layout   si Chrome no está en /usr/bin/google-chrome
 //
 // Sale con código 1 si encuentra algún problema. Requiere haber compilado antes (npm run build).
@@ -53,7 +53,7 @@ const STRESS_EXERCISES = [
 ].map(([name, shortName], i) => ({
   id: `s${i}`, name, shortName, icon: ['burpee', 'walk', 'pushup', 'squat', 'climbers', 'jump', 'dumbbell', 'karate', 'yoga', 'timer', 'run', 'boxing'][i % 12],
   color: ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'][i % 8],
-  repsMin: i % 3 === 0 ? 1 : 10, repsMax: i % 3 === 0 ? 500 : 60,
+  repsMin: i % 3 === 0 ? 1 : 10, repsMax: i % 3 === 0 ? 999999 : 60,
 }));
 
 const wait = ms => new Promise(r => setTimeout(r, ms));

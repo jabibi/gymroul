@@ -11,7 +11,7 @@ import { isValidIcon, normalizeIcon, migrateLegacyIcon } from './icons.js';
  */
 
 export const MAX_EXERCISES = 12;
-export const MAX_REP_VALUE = 500;
+export const MAX_REP_VALUE = 999999;
 /** Longitud máxima (en caracteres) del nombre y del nombre corto de un ejercicio */
 export const MAX_NAME_LENGTH = 30;
 export const MAX_SHORT_NAME_LENGTH = 12;

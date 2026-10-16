@@ -5,7 +5,7 @@ import {
   iconIdsOf, iconLabel, groupName, iconSearchText,
 } from '../src/i18n/index.js';
 import { ICONS, ICON_GROUPS, searchIcons } from '../src/icons.js';
-import { addExercise, loadActive } from '../src/store.js';
+import { addExercise, loadActive, MAX_REP_VALUE } from '../src/store.js';
 
 const codes = LANGUAGES.map(l => l.code);
 const en = DICTIONARIES.en;
@@ -163,7 +163,7 @@ describe('errores del almacén', () => {
     const bad = addExercise({ name: 'X', icon: 'dumbbell', repsMin: 'abc', repsMax: 20 });
     expect(bad.ok).toBe(false);
     expect(bad.error.key).toBe('error.repRange');
-    expect(bad.error.params.max).toBe(500);
+    expect(bad.error.params.max).toBe(MAX_REP_VALUE);
     expect(addExercise({ name: 'X', icon: 'dumbbell', repsMin: 30, repsMax: 20 }).error.key).toBe('error.repMinMax');
     expect(addExercise({ name: '', icon: 'dumbbell' }).error.key).toBe('error.nameRequired');
     expect(addExercise({ name: 'X', icon: '🔥' }).error.key).toBe('error.iconRequired');

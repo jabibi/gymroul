@@ -2,7 +2,7 @@
 // Modales, historial, configuración y avisos
 
 import { exerciseLabels } from './exercise-names.js';
-import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX } from './store.js';
+import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE } from './store.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
 import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
 import { shareChallenge } from './share.js';
@@ -322,7 +322,7 @@ export function renderHistory() {
   listEl.innerHTML = sessionHistory.map(h => `
     <div class="bg-dark-900 border border-slate-800 rounded-2xl p-3 flex justify-between items-center">
       <div class="flex items-center gap-3 min-w-0">
-        <div class="w-10 h-10 shrink-0 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center font-black text-sm border border-brand-500/20">${h.reps}</div>
+        <div class="min-w-10 h-10 px-1.5 shrink-0 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center font-black ${String(h.reps).length > 3 ? 'text-[11px]' : 'text-sm'} border border-brand-500/20">${h.reps}</div>
         <div class="min-w-0">
           <h4 class="font-bold text-white text-xs break-words">${escapeHTML(h.text)}</h4>
           <span class="text-[10px] text-slate-400 font-medium">${escapeHTML(h.time)}</span>
@@ -381,10 +381,10 @@ export function renderConfig(keepChecks = false) {
       </button>
       <div class="${open ? '' : 'hidden'} grid grid-cols-[1fr_1fr_auto] items-end gap-2 px-2.5 pb-2.5 pt-1 border-t border-slate-800/80">
         <label class="block text-[11px] font-bold text-slate-400">${escapeHTML(t('config.repsMin'))}
-          <input type="number" dir="ltr" inputmode="numeric" id="${repsInputId(ex.id, 'Min')}" value="${ex.repsMin}" min="1" max="500" class="${inputClass} mt-1">
+          <input type="number" dir="ltr" inputmode="numeric" id="${repsInputId(ex.id, 'Min')}" value="${ex.repsMin}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
         </label>
         <label class="block text-[11px] font-bold text-slate-400">${escapeHTML(t('config.repsMax'))}
-          <input type="number" dir="ltr" inputmode="numeric" id="${repsInputId(ex.id, 'Max')}" value="${ex.repsMax}" min="1" max="500" class="${inputClass} mt-1">
+          <input type="number" dir="ltr" inputmode="numeric" id="${repsInputId(ex.id, 'Max')}" value="${ex.repsMax}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
         </label>
         <button data-action="save-reps" data-arg="${escapeHTML(ex.id)}" class="min-h-[44px] px-3 py-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all">${escapeHTML(t('config.repsSave'))}</button>
       </div>
