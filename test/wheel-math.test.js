@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getWinningIndex, normalizeDelta, generateSegments, rollReps, fitText, CONFIG_SEGMENT } from '../src/wheel-math.js';
+import { getWinningIndex, normalizeDelta, generateSegments, rollReps, fitText, isolate, displayChallenge, CONFIG_SEGMENT } from '../src/wheel-math.js';
 
 const exercises = [
   { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'fa-fire', color: '#ef4444', repsMin: 10, repsMax: 30 },
@@ -128,5 +128,17 @@ describe('fitText', () => {
   it('no parte caracteres de varios bytes', () => {
     const r = fitText(measure, '😀😀😀😀😀😀😀😀😀😀', 40, 18, 9);
     expect(r.text).toMatch(/^(😀)*…$/u);
+  });
+});
+
+describe('isolate y displayChallenge', () => {
+  it('rodean el texto con marcas de aislamiento que no cambian el texto visible', () => {
+    expect(isolate('Burpee')).toBe('⁨Burpee⁩');
+    expect(isolate('Burpee').replace(/[⁨⁩]/g, '')).toBe('Burpee');
+  });
+
+  it('el reto en pantalla es «repeticiones ejercicio» con el nombre aislado', () => {
+    expect(displayChallenge(55, 'Push-up')).toBe('55 ⁨Push-up⁩');
+    expect(displayChallenge(20, 'Burpee').replace(/[⁨⁩]/g, '')).toBe('20 Burpee');
   });
 });

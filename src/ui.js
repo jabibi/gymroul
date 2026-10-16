@@ -2,6 +2,7 @@
 // Modales, historial, configuración y avisos
 
 import { exerciseLabels } from './exercise-names.js';
+import { displayChallenge } from './wheel-math.js';
 import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE } from './store.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
 import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
@@ -190,8 +191,8 @@ export function showResult(winner) {
   vibrateResult();
 
   $('winnerIconContainer').innerHTML = renderIconHTML(winner.icon);
-  const challenge = `${winner.reps} ${winner.exercise}`;
-  $('winnerText').textContent = challenge;
+  const challenge = `${winner.reps} ${winner.exercise}`; // sin marcas de aislamiento: se usa para medir la longitud
+  $('winnerText').textContent = displayChallenge(winner.reps, winner.exercise);
   // Un nombre largo baja de tamaño para que se lea entero en la tarjeta
   $('winnerText').classList.toggle('text-3xl', challenge.length <= 18);
   $('winnerText').classList.toggle('text-2xl', challenge.length > 18 && challenge.length <= 30);
@@ -287,7 +288,7 @@ const sessionHistory = [];
 export function addToHistory(winner) {
   sessionHistory.unshift({
     id: Date.now(),
-    text: `${winner.reps} ${winner.exercise}`,
+    text: displayChallenge(winner.reps, winner.exercise),
     reps: winner.reps,
     exercise: winner.exercise,
     time: new Date().toLocaleTimeString(getLanguageTag(), { hour: '2-digit', minute: '2-digit' }),

@@ -184,9 +184,12 @@ async function openApp(lang, vp) {
   return page;
 }
 
+/** Con --stress, el marcador de la ruleta recorta con «…» los nombres largos a propósito (es lo que se quiere ver). */
+const isExpectedStressTruncation = problem => stress && /^(truncado con|recortado:)/.test(problem) && problem.includes('liveIndicatorText');
+
 async function check(page, lang, vp, screen) {
   await wait(300);
-  const problems = await page.evaluate(inspectPage);
+  const problems = (await page.evaluate(inspectPage)).filter(p => !isExpectedStressTruncation(p));
   if (shotsDir) await page.screenshot({ path: `${shotsDir}/${lang}-${vp.width}-${screen}.png` });
   total += problems.length;
   for (const p of [...new Set(problems)]) console.log(`  ✗ ${lang} ${vp.width}x${vp.height} ${screen}: ${p}`);
