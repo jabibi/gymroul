@@ -35,15 +35,14 @@ export const LISTINGS = {
     title: 'GymRoulette',
     short: 'Spin the wheel and get a random exercise challenge for your workout.',
     banner: { line1: 'Spin the wheel', line2: 'and get training!', tagline: 'Random exercises to challenge you every day', button: 'SPIN THE WHEEL!' },
-    notes: `• New: share your challenge as an image with a link to the app.
-• Now also in Nederlands and 日本語.
-• New “Privacy commitment” in Settings: what the app does (and doesn't do) with your data.
-• The app opens straight to the wheel: no introduction.
-• Bigger tap targets throughout the app.
+    notes: `• New: each exercise has its own reps range, and the number comes up after the spin.
+• A cleaner wheel: one segment per exercise.
+• Default exercises now appear in your language.
+• A better-centred app icon.
 • Bug fixes and improvements.`,
     full: `Can't decide what to train today? Spin the wheel and let GymRoulette choose for you.
 
-GymRoulette is an exercise wheel: each segment combines a number of reps with an exercise (for example, “20 Burpee”), and when you spin it, it gives you a random challenge to train at home, at the gym or outdoors. Made to add variety to your sessions, for circuits, for challenges with friends, and for anyone who wants to work out without overthinking it.
+GymRoulette is an exercise wheel: each segment is an exercise, and when you spin it, it gives you a random challenge with its number of reps (for example, “20 Burpee”) to train at home, at the gym or outdoors. Made to add variety to your sessions, for circuits, for challenges with friends, and for anyone who wants to work out without overthinking it.
 
 <b>HOW IT WORKS</b>
 • Tap “SPIN THE WHEEL!” or fling the wheel with your finger.
@@ -53,9 +52,9 @@ GymRoulette is an exercise wheel: each segment combines a number of reps with an
 • Share your challenge as an image with friends.
 
 <b>YOU DECIDE WHAT'S ON THE WHEEL</b>
-• Turn the exercises and reps you want on or off.
+• Turn the exercises you want on or off.
 • Create your own exercises with a name, a short name and an icon.
-• Add or remove reps to adjust the difficulty.
+• Set each exercise's reps range, from a minimum to a maximum, to adjust the difficulty.
 • The wheel adapts to your settings, which are saved on your device.
 
 <b>MORE THAN 100 ICONS FOR YOUR EXERCISES</b>
@@ -82,15 +81,14 @@ Spin the wheel and let's train!`,
     title: 'GymRoulette',
     short: 'Gira la ruleta y recibe un reto de ejercicio al azar para tu entrenamiento.',
     banner: { line1: '¡Gira la ruleta', line2: 'y a entrenar!', tagline: 'Ejercicios aleatorios para retarte cada día', button: '¡GIRAR RULETA!' },
-    notes: `• Novedad: comparte tu reto como imagen con el enlace a la app.
-• Ahora también en Nederlands y 日本語.
-• Nuevo «Compromiso de privacidad» en Configuración: lo que la app hace (y no hace) con tus datos.
-• La app abre directamente la ruleta: sin introducción.
-• Botones y controles más grandes y fáciles de tocar.
+    notes: `• Novedad: cada ejercicio tiene su propio rango de repeticiones y el número sale tras el giro.
+• Una ruleta más limpia: un sector por ejercicio.
+• Los ejercicios por defecto se ven ahora en tu idioma.
+• Icono de la app mejor centrado.
 • Correcciones de errores y mejoras.`,
     full: `¿Sin ganas de decidir qué entrenar hoy? Gira la ruleta y deja que GymRoulette elija por ti.
 
-GymRoulette es una ruleta de ejercicios: cada sector combina un número de repeticiones con un ejercicio (por ejemplo, «20 Burpee») y, al girarla, te propone un reto aleatorio para entrenar en casa, en el gimnasio o al aire libre. Pensada para dar variedad a tus sesiones, para circuitos, para retos con amigos y para quien quiere entrenar sin complicarse.
+GymRoulette es una ruleta de ejercicios: cada sector es un ejercicio y, al girarla, te propone un reto aleatorio con su número de repeticiones (por ejemplo, «20 Burpee») para entrenar en casa, en el gimnasio o al aire libre. Pensada para dar variedad a tus sesiones, para circuitos, para retos con amigos y para quien quiere entrenar sin complicarse.
 
 <b>CÓMO FUNCIONA</b>
 • Pulsa “¡GIRAR RULETA!” o lanza la ruleta con el dedo.
@@ -100,9 +98,9 @@ GymRoulette es una ruleta de ejercicios: cada sector combina un número de repet
 • Comparte tu reto como imagen con tus amigos.
 
 <b>TÚ DECIDES QUÉ HAY EN LA RULETA</b>
-• Activa o desactiva los ejercicios y las repeticiones que quieras.
+• Activa o desactiva los ejercicios que quieras.
 • Crea tus propios ejercicios con nombre, nombre corto e icono.
-• Añade o elimina repeticiones para ajustar la dificultad.
+• Define el rango de repeticiones de cada ejercicio, con un mínimo y un máximo, para ajustar la dificultad.
 • La ruleta se adapta a tu configuración y se guarda en tu dispositivo.
 
 <b>MÁS DE 100 ICONOS PARA TUS EJERCICIOS</b>
@@ -129,15 +127,14 @@ GymRoulette funciona totalmente sin conexión y no recopila ningún dato: sin an
     title: 'GymRoulette',
     short: 'Biratu gurpila eta jaso ausazko ariketa-erronka bat zure entrenamendurako.',
     banner: { line1: 'Biratu gurpila', line2: 'eta entrenatzera!', tagline: 'Ausazko ariketak egunero zure burua probatzeko', button: 'BIRATU GURPILA!' },
-    notes: `• Berria: partekatu zure erronka irudi gisa, aplikaziorako estekarekin.
-• Orain Nederlands eta 日本語 hizkuntzetan ere.
-• «Pribatutasun-konpromisoa» berria Ezarpenetan: aplikazioak zure datuekin egiten duena (eta egiten ez duena).
-• Aplikazioa zuzenean gurpilean irekitzen da: sarrerarik gabe.
-• Botoi eta kontrol handiagoak, ukitzeko errazagoak.
+    notes: `• Berria: ariketa bakoitzak bere errepikapen-tartea du, eta kopurua biratu ondoren ateratzen da.
+• Gurpil garbiagoa: sektore bat ariketa bakoitzeko.
+• Ariketa lehenetsiak zure hizkuntzan ikusten dira orain.
+• Aplikazioaren ikono hobeto zentratua.
 • Akatsen zuzenketak eta hobekuntzak.`,
     full: `Ez dakizu gaur zer entrenatu? Biratu gurpila eta utzi GymRoulette-ri zure ordez aukeratzen.
 
-GymRoulette ariketen gurpila da: sektore bakoitzak errepikapen kopuru bat ariketa batekin uztartzen du (adibidez, «20 Burpee»), eta biratzean ausazko erronka bat proposatzen dizu etxean, gimnasioan edo kanpoan entrenatzeko. Zure saioei aniztasuna emateko pentsatua dago, zirkuituetarako, lagunekin erronkak egiteko eta konplikatu gabe entrenatu nahi duenarentzat.
+GymRoulette ariketen gurpila da: sektore bakoitza ariketa bat da, eta biratzean ausazko erronka bat proposatzen dizu errepikapen kopuruarekin (adibidez, «20 Burpee») etxean, gimnasioan edo kanpoan entrenatzeko. Zure saioei aniztasuna emateko pentsatua dago, zirkuituetarako, lagunekin erronkak egiteko eta konplikatu gabe entrenatu nahi duenarentzat.
 
 <b>NOLA FUNTZIONATZEN DU</b>
 • Sakatu “BIRATU GURPILA!” edo bota gurpila hatzarekin.
@@ -147,9 +144,9 @@ GymRoulette ariketen gurpila da: sektore bakoitzak errepikapen kopuru bat ariket
 • Partekatu zure erronka irudi gisa zure lagunekin.
 
 <b>ZUK ERABAKITZEN DUZU ZER DAGOEN GURPILEAN</b>
-• Aktibatu edo desaktibatu nahi dituzun ariketak eta errepikapenak.
+• Aktibatu edo desaktibatu nahi dituzun ariketak.
 • Sortu zure ariketak izenarekin, izen laburrarekin eta ikonoarekin.
-• Gehitu edo kendu errepikapenak zailtasuna doitzeko.
+• Zehaztu ariketa bakoitzaren errepikapen-tartea, gutxienekoa eta gehienekoa, zailtasuna doitzeko.
 • Gurpila zure konfiguraziora egokitzen da, eta zure gailuan gordetzen da.
 
 <b>100 IKONO BAINO GEHIAGO ZURE ARIKETETARAKO</b>
@@ -176,15 +173,14 @@ Biratu gurpila eta entrenatzera!`,
     title: 'GymRoulette',
     short: 'Xira a ruleta e recibe un reto de exercicio ao chou para o teu adestramento.',
     banner: { line1: 'Xira a ruleta', line2: 'e a adestrar!', tagline: 'Exercicios aleatorios para retarte cada día', button: 'XIRAR A RULETA!' },
-    notes: `• Novidade: comparte o teu reto como imaxe coa ligazón á app.
-• Agora tamén en Nederlands e 日本語.
-• Novo «Compromiso de privacidade» en Configuración: o que a app fai (e non fai) cos teus datos.
-• A app ábrese directamente na ruleta: sen introdución.
-• Botóns e controis máis grandes e fáciles de tocar.
+    notes: `• Novidade: cada exercicio ten o seu propio rango de repeticións e o número sae despois do xiro.
+• Unha ruleta máis limpa: un sector por exercicio.
+• Os exercicios por defecto vense agora no teu idioma.
+• Icona da app mellor centrada.
 • Corrección de erros e melloras.`,
     full: `Sen ganas de decidir que adestrar hoxe? Xira a ruleta e deixa que GymRoulette escolla por ti.
 
-GymRoulette é unha ruleta de exercicios: cada sector combina un número de repeticións cun exercicio (por exemplo, «20 Burpee») e, ao xirala, proponche un reto aleatorio para adestrar na casa, no ximnasio ou ao aire libre. Pensada para darlle variedade ás túas sesións, para circuítos, para retos con amizades e para quen quere adestrar sen complicarse.
+GymRoulette é unha ruleta de exercicios: cada sector é un exercicio e, ao xirala, proponche un reto aleatorio co seu número de repeticións (por exemplo, «20 Burpee») para adestrar na casa, no ximnasio ou ao aire libre. Pensada para darlle variedade ás túas sesións, para circuítos, para retos con amizades e para quen quere adestrar sen complicarse.
 
 <b>COMO FUNCIONA</b>
 • Preme “XIRAR A RULETA!” ou lanza a ruleta co dedo.
@@ -194,9 +190,9 @@ GymRoulette é unha ruleta de exercicios: cada sector combina un número de repe
 • Comparte o teu reto como imaxe cos teus amigos.
 
 <b>TI DECIDES QUE HAI NA RULETA</b>
-• Activa ou desactiva os exercicios e as repeticións que queiras.
+• Activa ou desactiva os exercicios que queiras.
 • Crea os teus propios exercicios con nome, nome curto e icona.
-• Engade ou elimina repeticións para axustar a dificultade.
+• Define o rango de repeticións de cada exercicio, cun mínimo e un máximo, para axustar a dificultade.
 • A ruleta adáptase á túa configuración, que se garda no teu dispositivo.
 
 <b>MÁIS DE 100 ICONAS PARA OS TEUS EXERCICIOS</b>
@@ -223,15 +219,14 @@ Xira a ruleta e a adestrar!`,
     title: 'GymRoulette',
     short: 'أدر العجلة واحصل على تحدٍّ عشوائي من التمارين لتدريبك.',
     banner: { line1: 'أدر العجلة', line2: 'وهيّا إلى التمرين!', tagline: 'تمارين عشوائية تتحداك كل يوم', button: 'أدر العجلة!' },
-    notes: `• جديد: شارك تحدّيك كصورة مع رابط التطبيق.
-• متوفر الآن أيضًا بلغتي Nederlands و日本語.
-• «التزام الخصوصية» جديد في الإعدادات: ما يفعله التطبيق (وما لا يفعله) ببياناتك.
-• يفتح التطبيق مباشرة على العجلة: بلا مقدمة.
-• أزرار وعناصر تحكم أكبر وأسهل في اللمس.
+    notes: `• جديد: لكل تمرين نطاق تكرارات خاص به، ويظهر العدد بعد دوران العجلة.
+• عجلة أكثر نظافة: قطاع واحد لكل تمرين.
+• التمارين الافتراضية تظهر الآن بلغتك.
+• أيقونة التطبيق أكثر توسّطًا.
 • إصلاح أخطاء وتحسينات.`,
     full: `لا تعرف ماذا تتمرّن اليوم؟ أدر العجلة ودع GymRoulette تختار لك.
 
-GymRoulette عجلة للتمارين: كل قطاع يجمع عددًا من التكرارات مع تمرين (مثل «20 بيربي»)، وعندما تديرها تقترح عليك تحديًا عشوائيًا لتتمرّن في المنزل أو في النادي أو في الهواء الطلق. صُمّمت لتنويع جلساتك، وللتمارين الدائرية، وللتحديات مع الأصدقاء، ولكل من يريد أن يتمرّن دون تعقيد.
+GymRoulette عجلة للتمارين: كل قطاع هو تمرين، وعندما تديرها تقترح عليك تحديًا عشوائيًا بعدد تكرارات خاص به (مثل «20 بيربي») لتتمرّن في المنزل أو في النادي أو في الهواء الطلق. صُمّمت لتنويع جلساتك، وللتمارين الدائرية، وللتحديات مع الأصدقاء، ولكل من يريد أن يتمرّن دون تعقيد.
 
 <b>كيف تعمل</b>
 • اضغط على «أدر العجلة!» أو أطلق العجلة بإصبعك.
@@ -241,9 +236,9 @@ GymRoulette عجلة للتمارين: كل قطاع يجمع عددًا من ا
 • شارك تحدّيك كصورة مع أصدقائك.
 
 <b>أنت من يقرّر ما على العجلة</b>
-• فعّل التمارين والتكرارات التي تريدها أو عطّلها.
+• فعّل التمارين التي تريدها أو عطّلها.
 • أنشئ تمارينك الخاصة باسم واسم مختصر وأيقونة.
-• أضف تكرارات أو احذفها لضبط درجة الصعوبة.
+• حدّد نطاق التكرارات لكل تمرين، من حد أدنى إلى حد أقصى، لضبط درجة الصعوبة.
 • تتكيّف العجلة مع إعداداتك، وتُحفظ على جهازك.
 
 <b>أكثر من 100 أيقونة لتمارينك</b>
@@ -270,15 +265,14 @@ GymRoulette عجلة للتمارين: كل قطاع يجمع عددًا من ا
     title: 'GymRoulette',
     short: "Gira la ruleta i rep un repte d'exercici a l'atzar per al teu entrenament.",
     banner: { line1: 'Gira la ruleta', line2: 'i a entrenar!', tagline: 'Exercicis aleatoris per reptar-te cada dia', button: 'GIRA LA RULETA!' },
-    notes: `• Novetat: comparteix el teu repte com a imatge amb l'enllaç a l'app.
-• Ara també en Nederlands i 日本語.
-• Nou «Compromís de privadesa» a Configuració: el que l'app fa (i no fa) amb les teves dades.
-• L'app s'obre directament a la ruleta: sense introducció.
-• Botons i controls més grans i fàcils de tocar.
+    notes: `• Novetat: cada exercici té el seu propi rang de repeticions i el nombre surt després del gir.
+• Una ruleta més neta: un sector per exercici.
+• Els exercicis per defecte ara es veuen en el teu idioma.
+• Icona de l'app més ben centrada.
 • Correcció d'errors i millores.`,
     full: `No tens ganes de decidir què entrenar avui? Gira la ruleta i deixa que GymRoulette triï per tu.
 
-GymRoulette és una ruleta d'exercicis: cada sector combina un nombre de repeticions amb un exercici (per exemple, «20 Burpee») i, en girar-la, et proposa un repte aleatori per entrenar a casa, al gimnàs o a l'aire lliure. Pensada per donar varietat a les teves sessions, per a circuits, per a reptes amb amics i per a qui vol entrenar sense complicar-se.
+GymRoulette és una ruleta d'exercicis: cada sector és un exercici i, en girar-la, et proposa un repte aleatori amb el seu nombre de repeticions (per exemple, «20 Burpee») per entrenar a casa, al gimnàs o a l'aire lliure. Pensada per donar varietat a les teves sessions, per a circuits, per a reptes amb amics i per a qui vol entrenar sense complicar-se.
 
 <b>COM FUNCIONA</b>
 • Prem “GIRA LA RULETA!” o llança la ruleta amb el dit.
@@ -288,9 +282,9 @@ GymRoulette és una ruleta d'exercicis: cada sector combina un nombre de repetic
 • Comparteix el teu repte com a imatge amb els teus amics.
 
 <b>TU DECIDEIXES QUÈ HI HA A LA RULETA</b>
-• Activa o desactiva els exercicis i les repeticions que vulguis.
+• Activa o desactiva els exercicis que vulguis.
 • Crea els teus propis exercicis amb nom, nom curt i icona.
-• Afegeix o elimina repeticions per ajustar la dificultat.
+• Defineix el rang de repeticions de cada exercici, amb un mínim i un màxim, per ajustar la dificultat.
 • La ruleta s'adapta a la teva configuració, que es desa al teu dispositiu.
 
 <b>MÉS DE 100 ICONES PER ALS TEUS EXERCICIS</b>
@@ -317,15 +311,14 @@ Gira la ruleta i a entrenar!`,
     title: 'GymRoulette',
     short: "Fais tourner la roue et reçois un défi d'exercice au hasard pour t'entraîner.",
     banner: { line1: 'Lance la roue', line2: "et c'est parti !", tagline: 'Des exercices au hasard pour te défier chaque jour', button: 'LANCER LA ROUE !' },
-    notes: `• Nouveau : partage ton défi sous forme d'image avec le lien vers l'application.
-• Désormais aussi en Nederlands et 日本語.
-• Nouvel « Engagement de confidentialité » dans les réglages : ce que l'application fait (et ne fait pas) de tes données.
-• L'application s'ouvre directement sur la roue : sans introduction.
-• Boutons et commandes plus grands, plus faciles à toucher.
+    notes: `• Nouveau : chaque exercice a sa propre plage de répétitions, et le nombre sort après le tour.
+• Une roue plus claire : un secteur par exercice.
+• Les exercices par défaut s'affichent maintenant dans ta langue.
+• Icône de l'application mieux centrée.
 • Corrections de bugs et améliorations.`,
     full: `Pas envie de décider quoi t'entraîner aujourd'hui ? Fais tourner la roue et laisse GymRoulette choisir pour toi.
 
-GymRoulette est une roue d'exercices : chaque secteur associe un nombre de répétitions à un exercice (par exemple « 20 Burpee ») et, quand tu la fais tourner, elle te propose un défi au hasard pour t'entraîner à la maison, en salle ou en plein air. Pensée pour varier tes séances, pour des circuits, des défis entre amis et pour tous ceux qui veulent s'entraîner sans se compliquer la vie.
+GymRoulette est une roue d'exercices : chaque secteur est un exercice et, quand tu la fais tourner, elle te propose un défi au hasard avec son nombre de répétitions (par exemple « 20 Burpee ») pour t'entraîner à la maison, en salle ou en plein air. Pensée pour varier tes séances, pour des circuits, des défis entre amis et pour tous ceux qui veulent s'entraîner sans se compliquer la vie.
 
 <b>COMMENT ÇA MARCHE</b>
 • Appuie sur « LANCER LA ROUE ! » ou lance-la d'un geste du doigt.
@@ -335,9 +328,9 @@ GymRoulette est une roue d'exercices : chaque secteur associe un nombre de rép
 • Partage ton défi sous forme d'image avec tes amis.
 
 <b>C'EST TOI QUI CHOISIS CE QUI EST SUR LA ROUE</b>
-• Active ou désactive les exercices et les répétitions que tu veux.
+• Active ou désactive les exercices que tu veux.
 • Crée tes propres exercices avec un nom, un nom court et une icône.
-• Ajoute ou supprime des répétitions pour régler la difficulté.
+• Règle la plage de répétitions de chaque exercice, d'un minimum à un maximum, pour ajuster la difficulté.
 • La roue s'adapte à tes réglages, enregistrés sur ton appareil.
 
 <b>PLUS DE 100 ICÔNES POUR TES EXERCICES</b>
@@ -364,15 +357,14 @@ Lance la roue et c'est parti !`,
     title: 'GymRoulette',
     short: 'Dreh das Rad und erhalte eine zufällige Übungsaufgabe für dein Training.',
     banner: { line1: 'Dreh das Rad', line2: 'und ab ins Training!', tagline: 'Zufällige Übungen, die dich jeden Tag fordern', button: 'RAD DREHEN!' },
-    notes: `• Neu: Teile deine Challenge als Bild mit dem Link zur App.
-• Jetzt auch in Nederlands und 日本語.
-• Neues „Datenschutzversprechen“ in den Einstellungen: was die App mit deinen Daten tut (und was nicht).
-• Die App startet direkt mit dem Rad: ohne Einführung.
-• Größere, leichter zu tippende Schaltflächen.
+    notes: `• Neu: Jede Übung hat ihren eigenen Wiederholungsbereich, und die Zahl kommt nach dem Drehen.
+• Ein übersichtlicheres Rad: ein Segment pro Übung.
+• Die Standardübungen erscheinen jetzt in deiner Sprache.
+• Besser zentriertes App-Symbol.
 • Fehlerbehebungen und Verbesserungen.`,
     full: `Keine Lust zu entscheiden, was du heute trainierst? Dreh das Rad und lass GymRoulette für dich wählen.
 
-GymRoulette ist ein Übungsrad: Jedes Segment verbindet eine Anzahl Wiederholungen mit einer Übung (zum Beispiel „20 Burpee“) und gibt dir beim Drehen eine zufällige Aufgabe für dein Training zu Hause, im Fitnessstudio oder draußen. Gemacht, um Abwechslung in deine Einheiten zu bringen, für Zirkeltraining, für Challenges mit Freunden und für alle, die einfach trainieren wollen, ohne lange zu überlegen.
+GymRoulette ist ein Übungsrad: Jedes Segment ist eine Übung und gibt dir beim Drehen eine zufällige Aufgabe mit der passenden Anzahl Wiederholungen (zum Beispiel „20 Burpee“) für dein Training zu Hause, im Fitnessstudio oder draußen. Gemacht, um Abwechslung in deine Einheiten zu bringen, für Zirkeltraining, für Challenges mit Freunden und für alle, die einfach trainieren wollen, ohne lange zu überlegen.
 
 <b>SO FUNKTIONIERT'S</b>
 • Tippe auf „RAD DREHEN!“ oder wirf das Rad mit dem Finger an.
@@ -382,9 +374,9 @@ GymRoulette ist ein Übungsrad: Jedes Segment verbindet eine Anzahl Wiederholung
 • Teile deine Challenge als Bild mit deinen Freunden.
 
 <b>DU BESTIMMST, WAS AUF DEM RAD IST</b>
-• Schalte die Übungen und Wiederholungen, die du willst, ein oder aus.
+• Schalte die Übungen, die du willst, ein oder aus.
 • Erstelle eigene Übungen mit Name, Kurzname und Symbol.
-• Füge Wiederholungen hinzu oder entferne sie, um den Schwierigkeitsgrad anzupassen.
+• Lege für jede Übung den Wiederholungsbereich fest, von einem Minimum bis zu einem Maximum, um den Schwierigkeitsgrad anzupassen.
 • Das Rad passt sich deinen Einstellungen an, die auf deinem Gerät gespeichert werden.
 
 <b>ÜBER 100 SYMBOLE FÜR DEINE ÜBUNGEN</b>
@@ -411,15 +403,14 @@ Dreh das Rad und ab ins Training!`,
     title: 'GymRoulette',
     short: 'Gira la ruota e ricevi una sfida di esercizio casuale per il tuo allenamento.',
     banner: { line1: 'Gira la ruota', line2: 'e allenati!', tagline: 'Esercizi casuali per metterti alla prova ogni giorno', button: 'GIRA LA RUOTA!' },
-    notes: `• Novità: condividi la tua sfida come immagine con il link all'app.
-• Ora anche in Nederlands e 日本語.
-• Nuovo «Impegno per la privacy» nelle impostazioni: cosa fa (e cosa non fa) l'app con i tuoi dati.
-• L'app si apre direttamente sulla ruota: senza introduzione.
-• Pulsanti e controlli più grandi e facili da toccare.
+    notes: `• Novità: ogni esercizio ha il proprio intervallo di ripetizioni e il numero esce dopo il giro.
+• Una ruota più pulita: un settore per esercizio.
+• Gli esercizi predefiniti ora appaiono nella tua lingua.
+• Icona dell'app meglio centrata.
 • Correzioni di bug e miglioramenti.`,
     full: `Non hai voglia di decidere cosa allenare oggi? Gira la ruota e lascia scegliere a GymRoulette.
 
-GymRoulette è una ruota di esercizi: ogni settore abbina un numero di ripetizioni a un esercizio (per esempio «20 Burpee») e, quando la fai girare, ti propone una sfida casuale per allenarti a casa, in palestra o all'aperto. Pensata per dare varietà alle tue sessioni, per i circuiti, per le sfide con gli amici e per chi vuole allenarsi senza complicarsi la vita.
+GymRoulette è una ruota di esercizi: ogni settore è un esercizio e, quando la fai girare, ti propone una sfida casuale con il suo numero di ripetizioni (per esempio «20 Burpee») per allenarti a casa, in palestra o all'aperto. Pensata per dare varietà alle tue sessioni, per i circuiti, per le sfide con gli amici e per chi vuole allenarsi senza complicarsi la vita.
 
 <b>COME FUNZIONA</b>
 • Tocca «GIRA LA RUOTA!» o lancia la ruota con il dito.
@@ -429,9 +420,9 @@ GymRoulette è una ruota di esercizi: ogni settore abbina un numero di ripetizio
 • Condividi la tua sfida come immagine con i tuoi amici.
 
 <b>DECIDI TU COSA C'È SULLA RUOTA</b>
-• Attiva o disattiva gli esercizi e le ripetizioni che vuoi.
+• Attiva o disattiva gli esercizi che vuoi.
 • Crea i tuoi esercizi con nome, nome breve e icona.
-• Aggiungi o rimuovi ripetizioni per regolare la difficoltà.
+• Imposta l'intervallo di ripetizioni di ogni esercizio, da un minimo a un massimo, per regolare la difficoltà.
 • La ruota si adatta alle tue impostazioni, che vengono salvate sul tuo dispositivo.
 
 <b>OLTRE 100 ICONE PER I TUOI ESERCIZI</b>
@@ -458,15 +449,14 @@ Gira la ruota e allenati!`,
     title: 'GymRoulette',
     short: 'Gire a roleta e receba um desafio de exercício aleatório para o seu treino.',
     banner: { line1: 'Gire a roleta', line2: 'e vá treinar!', tagline: 'Exercícios aleatórios para te desafiar todo dia', button: 'GIRAR ROLETA!' },
-    notes: `• Novidade: compartilhe seu desafio como imagem com o link do app.
-• Agora também em Nederlands e 日本語.
-• Novo «Compromisso de privacidade» em Configurações: o que o app faz (e não faz) com seus dados.
-• O app abre direto na roleta: sem introdução.
-• Botões e controles maiores e mais fáceis de tocar.
+    notes: `• Novidade: cada exercício tem seu próprio intervalo de repetições, e o número sai depois do giro.
+• Uma roleta mais limpa: um setor por exercício.
+• Os exercícios padrão agora aparecem no seu idioma.
+• Ícone do app mais bem centralizado.
 • Correções de bugs e melhorias.`,
     full: `Sem vontade de decidir o que treinar hoje? Gire a roleta e deixe o GymRoulette escolher por você.
 
-O GymRoulette é uma roleta de exercícios: cada setor combina um número de repetições com um exercício (por exemplo, “20 Burpee”) e, ao girá-la, propõe um desafio aleatório para treinar em casa, na academia ou ao ar livre. Pensada para dar variedade aos seus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicação.
+O GymRoulette é uma roleta de exercícios: cada setor é um exercício e, ao girá-la, propõe um desafio aleatório com o seu número de repetições (por exemplo, “20 Burpee”) para treinar em casa, na academia ou ao ar livre. Pensada para dar variedade aos seus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicação.
 
 <b>COMO FUNCIONA</b>
 • Toque em “GIRAR ROLETA!” ou lance a roleta com o dedo.
@@ -476,9 +466,9 @@ O GymRoulette é uma roleta de exercícios: cada setor combina um número de rep
 • Compartilhe seu desafio como imagem com seus amigos.
 
 <b>VOCÊ DECIDE O QUE ENTRA NA ROLETA</b>
-• Ative ou desative os exercícios e as repetições que quiser.
+• Ative ou desative os exercícios que quiser.
 • Crie seus próprios exercícios com nome, nome curto e ícone.
-• Adicione ou remova repetições para ajustar a dificuldade.
+• Defina o intervalo de repetições de cada exercício, de um mínimo a um máximo, para ajustar a dificuldade.
 • A roleta se adapta às suas configurações, que ficam salvas no seu dispositivo.
 
 <b>MAIS DE 100 ÍCONES PARA SEUS EXERCÍCIOS</b>
@@ -505,15 +495,14 @@ Gire a roleta e vá treinar!`,
     title: 'GymRoulette',
     short: 'Gira a roleta e recebe um desafio de exercício aleatório para o teu treino.',
     banner: { line1: 'Gira a roleta', line2: 'e vai treinar!', tagline: 'Exercícios aleatórios para te desafiares todos os dias', button: 'GIRAR ROLETA!' },
-    notes: `• Novidade: partilha o teu desafio como imagem com a ligação para a aplicação.
-• Agora também em Nederlands e 日本語.
-• Novo «Compromisso de privacidade» em Definições: o que a aplicação faz (e não faz) com os teus dados.
-• A aplicação abre diretamente na roleta: sem introdução.
-• Botões e controlos maiores e mais fáceis de tocar.
+    notes: `• Novidade: cada exercício tem o seu próprio intervalo de repetições, e o número sai depois do giro.
+• Uma roleta mais limpa: um setor por exercício.
+• Os exercícios predefinidos aparecem agora no teu idioma.
+• Ícone da aplicação mais bem centrado.
 • Correções de erros e melhorias.`,
     full: `Sem vontade de decidir o que treinar hoje? Gira a roleta e deixa o GymRoulette escolher por ti.
 
-O GymRoulette é uma roleta de exercícios: cada setor combina um número de repetições com um exercício (por exemplo, “20 Burpee”) e, ao girá-la, propõe-te um desafio aleatório para treinares em casa, no ginásio ou ao ar livre. Pensada para dar variedade aos teus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicações.
+O GymRoulette é uma roleta de exercícios: cada setor é um exercício e, ao girá-la, propõe-te um desafio aleatório com o seu número de repetições (por exemplo, “20 Burpee”) para treinares em casa, no ginásio ou ao ar livre. Pensada para dar variedade aos teus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicações.
 
 <b>COMO FUNCIONA</b>
 • Toca em “GIRAR ROLETA!” ou lança a roleta com o dedo.
@@ -523,9 +512,9 @@ O GymRoulette é uma roleta de exercícios: cada setor combina um número de rep
 • Partilha o teu desafio como imagem com os teus amigos.
 
 <b>TU DECIDES O QUE ENTRA NA ROLETA</b>
-• Ativa ou desativa os exercícios e as repetições que quiseres.
+• Ativa ou desativa os exercícios que quiseres.
 • Cria os teus próprios exercícios com nome, nome curto e ícone.
-• Adiciona ou remove repetições para ajustar a dificuldade.
+• Define o intervalo de repetições de cada exercício, de um mínimo a um máximo, para ajustar a dificuldade.
 • A roleta adapta-se às tuas definições, que ficam guardadas no teu dispositivo.
 
 <b>MAIS DE 100 ÍCONES PARA OS TEUS EXERCÍCIOS</b>
@@ -552,15 +541,14 @@ Gira a roleta e vai treinar!`,
     title: 'GymRoulette',
     short: 'Zakręć kołem i dostań losowe wyzwanie ćwiczeniowe do swojego treningu.',
     banner: { line1: 'Zakręć kołem', line2: 'i ruszaj na trening!', tagline: 'Losowe ćwiczenia, które rzucają ci wyzwanie każdego dnia', button: 'ZAKRĘĆ KOŁEM!' },
-    notes: `• Nowość: udostępnij swoje wyzwanie jako obraz z linkiem do aplikacji.
-• Dostępna także w językach: Nederlands i 日本語.
-• Nowe „Zobowiązanie do prywatności” w Ustawieniach: co aplikacja robi (a czego nie robi) z twoimi danymi.
-• Aplikacja od razu otwiera koło: bez wprowadzenia.
-• Większe, łatwiejsze do dotknięcia przyciski.
+    notes: `• Nowość: każde ćwiczenie ma własny zakres powtórzeń, a liczba wypada po zakręceniu.
+• Czytelniejsze koło: jeden sektor na ćwiczenie.
+• Domyślne ćwiczenia są teraz w twoim języku.
+• Lepiej wycentrowana ikona aplikacji.
 • Poprawki błędów i ulepszenia.`,
     full: `Nie wiesz, co dziś trenować? Zakręć kołem i pozwól, by GymRoulette wybrała za ciebie.
 
-GymRoulette to koło ćwiczeń: każdy sektor łączy liczbę powtórzeń z ćwiczeniem (na przykład „20 Burpee”), a gdy je zakręcisz, wylosuje dla ciebie wyzwanie do wykonania w domu, na siłowni lub na świeżym powietrzu. Stworzona, by wnieść różnorodność do twoich treningów, do obwodów, do wyzwań ze znajomymi i dla każdego, kto chce poćwiczyć bez zbędnego główkowania.
+GymRoulette to koło ćwiczeń: każdy sektor to ćwiczenie, a gdy je zakręcisz, wylosuje dla ciebie wyzwanie z liczbą powtórzeń (na przykład „20 Burpee”) do wykonania w domu, na siłowni lub na świeżym powietrzu. Stworzona, by wnieść różnorodność do twoich treningów, do obwodów, do wyzwań ze znajomymi i dla każdego, kto chce poćwiczyć bez zbędnego główkowania.
 
 <b>JAK TO DZIAŁA</b>
 • Naciśnij „ZAKRĘĆ KOŁEM!” albo szarpnij koło palcem.
@@ -570,9 +558,9 @@ GymRoulette to koło ćwiczeń: każdy sektor łączy liczbę powtórzeń z ćwi
 • Udostępnij wyzwanie jako obraz znajomym.
 
 <b>TY DECYDUJESZ, CO JEST NA KOLE</b>
-• Włączaj i wyłączaj ćwiczenia i powtórzenia, których chcesz.
+• Włączaj i wyłączaj ćwiczenia, których chcesz.
 • Twórz własne ćwiczenia z nazwą, krótką nazwą i ikoną.
-• Dodawaj lub usuwaj powtórzenia, aby dostosować poziom trudności.
+• Ustaw zakres powtórzeń każdego ćwiczenia, od minimum do maksimum, aby dostosować poziom trudności.
 • Koło dopasowuje się do twoich ustawień, które są zapisywane na urządzeniu.
 
 <b>PONAD 100 IKON DLA TWOICH ĆWICZEŃ</b>
@@ -599,15 +587,14 @@ Zakręć kołem i trenujemy!`,
     title: 'GymRoulette',
     short: 'चक्र घुमाएँ और अपनी वर्कआउट के लिए कोई भी एक्सरसाइज़ चुनौती पाएँ।',
     banner: { line1: 'चक्र घुमाएँ', line2: 'और वर्कआउट करें!', tagline: 'हर दिन आपको चुनौती देने वाली रैंडम एक्सरसाइज़', button: 'चक्र घुमाएँ!' },
-    notes: `• नया: अपनी चुनौती को इमेज के रूप में ऐप के लिंक के साथ शेयर करें।
-• अब Nederlands और 日本語 में भी।
-• सेटिंग में नया “गोपनीयता प्रतिबद्धता”: ऐप आपके डेटा के साथ क्या करता है (और क्या नहीं)।
-• ऐप सीधे चक्र के साथ खुलता है: कोई परिचय नहीं।
-• बड़े और आसानी से टैप होने वाले बटन।
+    notes: `• नया: हर एक्सरसाइज़ की रेप्स की अपनी सीमा है, और संख्या घुमाने के बाद आती है।
+• ज़्यादा साफ़ चक्र: हर एक्सरसाइज़ के लिए एक खंड।
+• डिफ़ॉल्ट एक्सरसाइज़ अब आपकी भाषा में दिखती हैं।
+• ऐप का आइकन बेहतर ढंग से केंद्र में।
 • बग फ़िक्स और सुधार।`,
     full: `आज क्या वर्कआउट करें, तय नहीं कर पा रहे? चक्र घुमाएँ और GymRoulette को आपके लिए चुनने दें।
 
-GymRoulette एक्सरसाइज़ का चक्र है: हर खंड में रेप्स की एक संख्या और एक एक्सरसाइज़ होती है (जैसे “20 बर्पी”), और इसे घुमाने पर यह आपको घर पर, जिम में या खुली हवा में वर्कआउट करने के लिए कोई भी एक चुनौती देता है। इसे आपके सेशन में विविधता लाने, सर्किट, दोस्तों के साथ चुनौतियों और उन सभी के लिए बनाया गया है जो ज़्यादा सोचे बिना वर्कआउट करना चाहते हैं।
+GymRoulette एक्सरसाइज़ का चक्र है: हर खंड एक एक्सरसाइज़ है, और इसे घुमाने पर यह आपको घर पर, जिम में या खुली हवा में वर्कआउट करने के लिए रेप्स की संख्या के साथ कोई भी एक चुनौती देता है (जैसे “20 बर्पी”)। इसे आपके सेशन में विविधता लाने, सर्किट, दोस्तों के साथ चुनौतियों और उन सभी के लिए बनाया गया है जो ज़्यादा सोचे बिना वर्कआउट करना चाहते हैं।
 
 <b>यह कैसे काम करता है</b>
 • “चक्र घुमाएँ!” दबाएँ या उँगली से चक्र को घुमा दें।
@@ -617,9 +604,9 @@ GymRoulette एक्सरसाइज़ का चक्र है: हर �
 • अपनी चुनौती को इमेज के रूप में दोस्तों के साथ शेयर करें।
 
 <b>चक्र में क्या हो, यह आप तय करते हैं</b>
-• जो एक्सरसाइज़ और रेप्स चाहें, उन्हें चालू या बंद करें।
+• जो एक्सरसाइज़ चाहें, उन्हें चालू या बंद करें।
 • नाम, छोटे नाम और आइकन के साथ अपनी एक्सरसाइज़ बनाएँ।
-• कठिनाई तय करने के लिए रेप्स जोड़ें या हटाएँ।
+• कठिनाई तय करने के लिए हर एक्सरसाइज़ के रेप्स की सीमा (न्यूनतम से अधिकतम) तय करें।
 • चक्र आपकी सेटिंग के अनुसार बदल जाता है, जो आपके डिवाइस पर सहेजी जाती हैं।
 
 <b>आपकी एक्सरसाइज़ के लिए 100 से ज़्यादा आइकन</b>
@@ -646,15 +633,14 @@ GymRoulette पूरी तरह ऑफ़लाइन है और कोई
     title: 'GymRoulette',
     short: 'Çarkı çevir, antrenmanın için rastgele bir egzersiz meydan okuması al.',
     banner: { line1: 'Çarkı çevir', line2: 've antrenmana başla!', tagline: 'Seni her gün zorlayacak rastgele egzersizler', button: 'ÇARKI ÇEVİR!' },
-    notes: `• Yeni: meydan okumanı uygulama bağlantısıyla birlikte görsel olarak paylaş.
-• Artık Nederlands ve 日本語 dillerinde de.
-• Ayarlarda yeni “Gizlilik taahhüdü”: uygulamanın verilerinle ne yaptığı (ve ne yapmadığı).
-• Uygulama doğrudan çarkla açılır: tanıtım yok.
-• Daha büyük, dokunması kolay düğmeler.
+    notes: `• Yeni: her egzersizin kendi tekrar aralığı var ve sayı çark döndükten sonra çıkar.
+• Daha sade çark: egzersiz başına bir dilim.
+• Varsayılan egzersizler artık senin dilinde görünür.
+• Daha iyi ortalanmış uygulama simgesi.
 • Hata düzeltmeleri ve iyileştirmeler.`,
     full: `Bugün ne çalışacağına karar veremiyor musun? Çarkı çevir, GymRoulette senin yerine seçsin.
 
-GymRoulette bir egzersiz çarkıdır: her dilim bir tekrar sayısını bir egzersizle birleştirir (örneğin “20 Burpee”) ve çevirdiğinde sana evde, spor salonunda veya açık havada yapabileceğin rastgele bir meydan okuma sunar. Antrenmanlarına çeşitlilik katmak, devreler, arkadaşlarınla meydan okumalar ve fazla düşünmeden spor yapmak isteyen herkes için tasarlandı.
+GymRoulette bir egzersiz çarkıdır: her dilim bir egzersizdir ve çevirdiğinde sana evde, spor salonunda veya açık havada yapabileceğin, tekrar sayısıyla birlikte rastgele bir meydan okuma sunar (örneğin “20 Burpee”). Antrenmanlarına çeşitlilik katmak, devreler, arkadaşlarınla meydan okumalar ve fazla düşünmeden spor yapmak isteyen herkes için tasarlandı.
 
 <b>NASIL ÇALIŞIR</b>
 • “ÇARKI ÇEVİR!” düğmesine dokun ya da çarkı parmağınla fırlat.
@@ -664,9 +650,9 @@ GymRoulette bir egzersiz çarkıdır: her dilim bir tekrar sayısını bir egzer
 • Meydan okumanı görsel olarak arkadaşlarınla paylaş.
 
 <b>ÇARKTA NELER OLACAĞINA SEN KARAR VERİRSİN</b>
-• İstediğin egzersizleri ve tekrarları aç ya da kapat.
+• İstediğin egzersizleri aç ya da kapat.
 • Ad, kısa ad ve simgeyle kendi egzersizlerini oluştur.
-• Zorluğu ayarlamak için tekrar ekle ya da çıkar.
+• Zorluğu ayarlamak için her egzersizin tekrar aralığını (en az – en çok) belirle.
 • Çark ayarlarına uyum sağlar; ayarların cihazında saklanır.
 
 <b>EGZERSİZLERİN İÇİN 100'DEN FAZLA SİMGE</b>
@@ -696,15 +682,14 @@ GymRoulette tamamen çevrimdışıdır ve hiçbir veri toplamaz: analiz yok, izl
     title: 'GymRoulette',
     short: 'ルーレットを回して、ワークアウト用のランダムなエクササイズチャレンジに挑戦しよう。',
     banner: { line1: 'ルーレットを回して', line2: 'トレーニングを始めよう！', tagline: 'ランダムなエクササイズで毎日チャレンジ', button: 'ルーレットを回す！' },
-    notes: `• 新機能：チャレンジを画像にして、アプリへのリンクと一緒に共有できます。
-• Nederlandsと日本語にも対応しました。
-• 設定に「プライバシーへの取り組み」を追加：アプリがデータをどう扱うか（扱わないか）をまとめました。
-• アプリを開くとすぐにルーレットが表示されます（紹介画面はありません）。
-• ボタンなどの操作部分を大きくして、タップしやすくしました。
+    notes: `• 新機能：エクササイズごとに回数の範囲を設定でき、回数はルーレットが止まってから決まります。
+• すっきりしたルーレット：エクササイズごとに1セクター。
+• 標準のエクササイズが端末の言語で表示されます。
+• アプリのアイコンをより中央に。
 • 不具合の修正と改善。`,
     full: `今日は何を鍛えるか決められない？ルーレットを回して、GymRouletteに選んでもらいましょう。
 
-GymRouletteはエクササイズのルーレットです。各セクターが回数とエクササイズ（たとえば「20 Burpee」）の組み合わせになっていて、回すと、自宅でもジムでも屋外でもできるランダムなチャレンジが出ます。トレーニングに変化をつけたい方、サーキット、友だちとのチャレンジ、あれこれ考えずに体を動かしたい方のためのアプリです。
+GymRouletteはエクササイズのルーレットです。各セクターが1つのエクササイズになっていて、回すと、自宅でもジムでも屋外でもできる、回数つきのランダムなチャレンジが出ます（たとえば「20 バーピー」）。トレーニングに変化をつけたい方、サーキット、友だちとのチャレンジ、あれこれ考えずに体を動かしたい方のためのアプリです。
 
 <b>使い方</b>
 • 「ルーレットを回す！」をタップするか、指でルーレットをはじきます。
@@ -714,9 +699,9 @@ GymRouletteはエクササイズのルーレットです。各セクターが回
 • チャレンジを画像にして友だちと共有できます。
 
 <b>ルーレットの内容は自分で決められる</b>
-• 使いたいエクササイズと回数をオン・オフできます。
+• 使いたいエクササイズをオン・オフできます。
 • 名前、短い名前、アイコンを設定して、オリジナルのエクササイズを作れます。
-• 回数を増やしたり減らしたりして、難易度を調整できます。
+• エクササイズごとに回数の範囲（最小〜最大）を設定して、難易度を調整できます。
 • ルーレットは設定に合わせて変化し、設定は端末に保存されます。
 
 <b>エクササイズ用の100種類以上のアイコン</b>
@@ -742,15 +727,14 @@ GymRouletteは完全オフラインで、データを一切収集しません。
     title: 'GymRoulette',
     short: 'Draai aan het rad en krijg een willekeurige oefenuitdaging voor je training.',
     banner: { line1: 'Draai aan het rad', line2: 'en ga trainen!', tagline: 'Willekeurige oefeningen die je elke dag uitdagen', button: 'DRAAI HET RAD!' },
-    notes: `• Nieuw: deel je uitdaging als afbeelding met een link naar de app.
-• Nu ook in Nederlands en 日本語.
-• Nieuw: “Privacybelofte” in Instellingen: wat de app met je gegevens doet (en niet doet).
-• De app opent direct met het rad: zonder introductie.
-• Grotere knoppen en bedieningselementen die makkelijker te raken zijn.
+    notes: `• Nieuw: elke oefening heeft een eigen bereik van herhalingen, en het aantal komt na het draaien.
+• Een overzichtelijker rad: één vak per oefening.
+• De standaardoefeningen verschijnen nu in je eigen taal.
+• Beter gecentreerd app-pictogram.
 • Bugfixes en verbeteringen.`,
     full: `Kun je niet kiezen wat je vandaag gaat trainen? Draai aan het rad en laat GymRoulette voor je kiezen.
 
-GymRoulette is een oefeningenrad: elk vak combineert een aantal herhalingen met een oefening (bijvoorbeeld “20 Burpee”), en als je het rad draait, krijg je een willekeurige uitdaging om thuis, in de sportschool of buiten te trainen. Gemaakt om variatie in je trainingen te brengen, voor circuits, voor uitdagingen met vrienden en voor iedereen die wil sporten zonder er lang over na te denken.
+GymRoulette is een oefeningenrad: elk vak is een oefening, en als je het rad draait, krijg je een willekeurige uitdaging met het bijbehorende aantal herhalingen (bijvoorbeeld “20 Burpee”) om thuis, in de sportschool of buiten te trainen. Gemaakt om variatie in je trainingen te brengen, voor circuits, voor uitdagingen met vrienden en voor iedereen die wil sporten zonder er lang over na te denken.
 
 <b>ZO WERKT HET</b>
 • Tik op “DRAAI HET RAD!” of geef het rad een zwieper met je vinger.
@@ -760,9 +744,9 @@ GymRoulette is een oefeningenrad: elk vak combineert een aantal herhalingen met 
 • Deel je uitdaging als afbeelding met vrienden.
 
 <b>JIJ BEPAALT WAT ER OP HET RAD STAAT</b>
-• Zet de oefeningen en herhalingen die je wilt aan of uit.
+• Zet de oefeningen die je wilt aan of uit.
 • Maak je eigen oefeningen met een naam, een korte naam en een pictogram.
-• Voeg herhalingen toe of haal ze weg om de moeilijkheid aan te passen.
+• Stel per oefening het bereik van herhalingen in, van een minimum tot een maximum, om de moeilijkheid aan te passen.
 • Het rad past zich aan je instellingen aan, die op je apparaat worden bewaard.
 
 <b>MEER DAN 100 PICTOGRAMMEN VOOR JE OEFENINGEN</b>
