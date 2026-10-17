@@ -16,6 +16,7 @@ export default {
     'spin.button': 'BIRATU GURPILA!',
 
     'result.badge': 'ARIKETA AUKERATUTA!',
+    'result.reps': 'errepikapen',
     'result.skip': 'Saltatu erronka hau',
     'result.done': 'Eginda!',
     'result.share': 'Partekatu erronka',
