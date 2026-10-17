@@ -110,12 +110,12 @@ const actions = {
     if (!result.ok) return;
     ui.resetNewExerciseForm();
     rebuildWheel();
-    ui.renderConfig();
+    ui.renderConfig(true);
   },
   'delete-exercise': arg => {
     if (arg) removeExercise(arg);
     rebuildWheel();
-    ui.renderConfig();
+    ui.renderConfig(true);
   },
   'save-config': () => {
     setActive(ui.readCheckedExercises());

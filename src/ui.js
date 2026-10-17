@@ -646,7 +646,7 @@ export function renderLanguageSelectors() {
 /** Vuelve a pintar lo que se genera por código cuando cambia el idioma (el marcado fijo lo hace applyTranslations). */
 export function refreshLanguage() {
   renderLanguageSelectors();
-  renderConfig();
+  renderConfig(true);
   renderHistory();
   updateIconButton();
   if (!$('iconPicker').classList.contains('hidden')) renderIconGrid(/** @type {HTMLInputElement} */ ($('iconSearch')).value);
