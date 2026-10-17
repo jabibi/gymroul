@@ -1,5 +1,9 @@
+Versie 1.15 (Be Reborn):
 • Nieuw: elke oefening heeft een eigen bereik van herhalingen, en het aantal komt na het draaien.
 • Een overzichtelijker rad: één vak per oefening.
 • De standaardoefeningen verschijnen nu in je eigen taal.
-• Beter gecentreerd app-pictogram.
+
+Versie 1.14 (RandWork):
+• Nieuw: deel je uitdaging als afbeelding met een link naar de app.
+• Nu ook in Nederlands en 日本語.
 • Bugfixes en verbeteringen.

@@ -1,5 +1,9 @@
+Sürüm 1.15 (Be Reborn):
 • Yeni: her egzersizin kendi tekrar aralığı var ve sayı çark döndükten sonra çıkar.
 • Daha sade çark: egzersiz başına bir dilim.
 • Varsayılan egzersizler artık senin dilinde görünür.
-• Daha iyi ortalanmış uygulama simgesi.
+
+Sürüm 1.14 (RandWork):
+• Yeni: meydan okumanı uygulama bağlantısıyla birlikte görsel olarak paylaş.
+• Artık Nederlands ve 日本語 dillerinde de.
 • Hata düzeltmeleri ve iyileştirmeler.

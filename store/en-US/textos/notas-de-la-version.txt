@@ -1,5 +1,9 @@
+Version 1.15 (Be Reborn):
 • New: each exercise has its own reps range, and the number comes up after the spin.
 • A cleaner wheel: one segment per exercise.
 • Default exercises now appear in your language.
-• A better-centred app icon.
+
+Version 1.14 (RandWork):
+• New: share your challenge as an image with a link to the app.
+• Now also in Nederlands and 日本語.
 • Bug fixes and improvements.

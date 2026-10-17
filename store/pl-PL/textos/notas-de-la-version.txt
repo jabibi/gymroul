@@ -1,5 +1,9 @@
+Wersja 1.15 (Be Reborn):
 • Nowość: każde ćwiczenie ma własny zakres powtórzeń, a liczba wypada po zakręceniu.
 • Czytelniejsze koło: jeden sektor na ćwiczenie.
 • Domyślne ćwiczenia są teraz w twoim języku.
-• Lepiej wycentrowana ikona aplikacji.
+
+Wersja 1.14 (RandWork):
+• Nowość: udostępnij swoje wyzwanie jako obraz z linkiem do aplikacji.
+• Dostępna także w językach: Nederlands i 日本語.
 • Poprawki błędów i ulepszenia.

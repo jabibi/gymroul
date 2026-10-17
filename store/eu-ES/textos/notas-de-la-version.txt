@@ -1,5 +1,9 @@
+Bertsioa 1.15 (Be Reborn):
 • Berria: ariketa bakoitzak bere errepikapen-tartea du, eta kopurua biratu ondoren ateratzen da.
 • Gurpil garbiagoa: sektore bat ariketa bakoitzeko.
 • Ariketa lehenetsiak zure hizkuntzan ikusten dira orain.
-• Aplikazioaren ikono hobeto zentratua.
+
+Bertsioa 1.14 (RandWork):
+• Berria: partekatu zure erronka irudi gisa, aplikaziorako estekarekin.
+• Orain Nederlands eta 日本語 hizkuntzetan ere.
 • Akatsen zuzenketak eta hobekuntzak.

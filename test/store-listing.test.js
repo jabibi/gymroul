@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { buildReleaseNotes, RELEASE_NOTES_ORDER } from '../scripts/build-release-notes.mjs';
-import { LISTINGS, STORE_LOCALES, LIMITS } from '../store/listing.mjs';
+import { LISTINGS, STORE_LOCALES, LIMITS, NOTES_VERSIONS } from '../store/listing.mjs';
 import { LANGUAGES } from '../src/i18n/index.js';
 
 describe('ficha de Google Play', () => {
@@ -46,8 +46,9 @@ describe('ficha de Google Play', () => {
 
       it('la descripción completa no menciona Google Analytics y cita los idiomas disponibles', () => {
         expect(listing.full).not.toContain('Google Analytics');
-        // Play ya pone el título «Novedades» en su propio campo: el texto empieza directamente por las viñetas
-        expect(listing.notes.startsWith('• '), 'sin encabezado «Novedades:»').toBe(true);
+        // Play ya pone el título «Novedades» en su propio campo: el texto empieza directamente por la versión más reciente
+        expect(listing.notes, 'sin encabezado «Novedades:»').toMatch(new RegExp(`^\\S+ ${NOTES_VERSIONS[0].version} \\(${NOTES_VERSIONS[0].codename}\\):\\n• `));
+        expect(listing.notes, 'versión anterior').toContain(` ${NOTES_VERSIONS[1].version} (${NOTES_VERSIONS[1].codename}):\n• `);
         for (const name of ['English', 'Español', 'Euskara', 'Galego', 'Català', 'Français', 'Deutsch', 'Italiano', '日本語', 'Nederlands', 'Polski', 'हिन्दी', 'Türkçe', 'Português']) expect(listing.full, name).toContain(name);
       });
     });
@@ -74,5 +75,16 @@ describe('notas de la versión en un único archivo', () => {
       expect(match[1].length, play).toBeLessThanOrEqual(LIMITS.notes);
       expect(match[1].trim(), play).not.toBe('');
     }
+  });
+});
+
+describe('novedades de la ficha', () => {
+  it('muestran las dos versiones más recientes, la actual primero', () => {
+    const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
+    expect(NOTES_VERSIONS).toHaveLength(2);
+    expect(`${NOTES_VERSIONS[0].version.split('.')[0]}.${NOTES_VERSIONS[0].version.split('.')[1]}`).toBe(pkg.version.split('.').slice(0, 2).join('.'));
+    expect(NOTES_VERSIONS[0].codename).toBe(pkg.versionCodename);
+    const [major, minor] = NOTES_VERSIONS[0].version.split('.').map(Number);
+    expect(NOTES_VERSIONS[1].version).toBe(`${major}.${minor - 1}`);
   });
 });

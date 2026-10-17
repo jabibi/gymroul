@@ -1,5 +1,9 @@
+Versione 1.15 (Be Reborn):
 • Novità: ogni esercizio ha il proprio intervallo di ripetizioni e il numero esce dopo il giro.
 • Una ruota più pulita: un settore per esercizio.
 • Gli esercizi predefiniti ora appaiono nella tua lingua.
-• Icona dell'app meglio centrata.
+
+Versione 1.14 (RandWork):
+• Novità: condividi la tua sfida come immagine con il link all'app.
+• Ora anche in Nederlands e 日本語.
 • Correzioni di bug e miglioramenti.
