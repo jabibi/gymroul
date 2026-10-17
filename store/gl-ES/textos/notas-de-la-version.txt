@@ -1,9 +1,8 @@
+Versión 1.16 (Six Pack):
+• Un historial máis claro: cada exercicio mostra a súa icona e un resumo suma a túa sesión.
+• Corrixido o número de repeticións repetido en cada fila do historial.
+
 Versión 1.15 (Be Reborn):
 • Novidade: cada exercicio ten o seu propio rango de repeticións e o número sae despois do xiro.
 • Unha ruleta máis limpa: un sector por exercicio.
 • Os exercicios por defecto vense agora no teu idioma.
-
-Versión 1.14 (RandWork):
-• Novidade: comparte o teu reto como imaxe coa ligazón á app.
-• Agora tamén en Nederlands e 日本語.
-• Corrección de erros e melloras.

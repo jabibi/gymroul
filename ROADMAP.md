@@ -19,7 +19,7 @@ Atendidas en la 1.15:
 - **«Limpiar historial» pide confirmación**: la primera pulsación cambia el botón a «Pulsa otra vez» (`history.clearConfirm`, en los 20 idiomas) y, si no se confirma en 3 segundos o se cierra el historial, vuelve a su estado normal. Con el historial vacío no hace nada.
 - **Código muerto fuera**: se elimina `displayChallenge` de `src/wheel-math.js` y sus tests, que ya no se usaban.
 - **Novedades de Play con las dos últimas versiones**: hecho, cada idioma muestra «Versión 1.15 (Be Reborn):» y «Versión 1.14 (RandWork):» con sus viñetas (`NOTES_VERSIONS` y `notesText` en `store/listing.mjs`; 500 caracteres por idioma).
-- **Pendiente al publicar**: pasar `NOTES_VERSIONS` a 1.16 y 1.15, escribir las viñetas de la 1.16 en cada idioma y regenerar la ficha con `npm run store` (el historial rediseñado cambia las capturas).
+- **Ficha de Play al día con la 1.16**: `NOTES_VERSIONS` en 1.16 y 1.15, novedades de cada idioma con las viñetas de la 1.16, y capturas, textos y CSV regenerados con `npm run store`. Si se añaden más cambios a la versión antes de publicar, hay que sumar su viñeta en los 20 idiomas (cuidado con el límite de 500 caracteres: el francés, el neerlandés y el italiano rozan los 450) y regenerar las capturas afectadas.
 
 ## Probable: versión 1.17 — lista de Configuración más compacta
 

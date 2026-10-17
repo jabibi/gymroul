@@ -35,8 +35,8 @@ export const LIMITS = { title: 30, short: 80, full: 4000, notes: 500 };
  * Al publicar una versión nueva, la actual pasa a ser la anterior y se añade la nueva arriba.
  */
 export const NOTES_VERSIONS = [
+  { version: '1.16', codename: 'Six Pack' },
   { version: '1.15', codename: 'Be Reborn' },
-  { version: '1.14', codename: 'RandWork' },
 ];
 
 /**
@@ -53,13 +53,12 @@ export const LISTINGS = {
     short: 'Spin the wheel and get a random exercise challenge for your workout.',
     banner: { line1: 'Spin the wheel', line2: 'and get training!', tagline: 'Random exercises to challenge you every day', button: 'SPIN THE WHEEL!' },
     notes: notesText('Version', [
+      'A tidier history: each exercise shows its icon, and a summary adds up your session.',
+      'Fixed the reps appearing twice in each history row.',
+    ], [
       'New: each exercise has its own reps range, and the number comes up after the spin.',
       'A cleaner wheel: one segment per exercise.',
       'Default exercises now appear in your language.',
-    ], [
-      'New: share your challenge as an image with a link to the app.',
-      'Now also in Nederlands and 日本語.',
-      'Bug fixes and improvements.',
     ]),
     full: `Can't decide what to train today? Spin the wheel and let GymRoulette choose for you.
 
@@ -103,13 +102,12 @@ Spin the wheel and let's train!`,
     short: 'Gira la ruleta y recibe un reto de ejercicio al azar para tu entrenamiento.',
     banner: { line1: '¡Gira la ruleta', line2: 'y a entrenar!', tagline: 'Ejercicios aleatorios para retarte cada día', button: '¡GIRAR RULETA!' },
     notes: notesText('Versión', [
+      'Un historial más claro: cada ejercicio muestra su icono y un resumen suma tu sesión.',
+      'Corregido el número de repeticiones repetido en cada fila del historial.',
+    ], [
       'Novedad: cada ejercicio tiene su propio rango de repeticiones y el número sale tras el giro.',
       'Una ruleta más limpia: un sector por ejercicio.',
       'Los ejercicios por defecto se ven ahora en tu idioma.',
-    ], [
-      'Novedad: comparte tu reto como imagen con el enlace a la app.',
-      'Ahora también en Nederlands y 日本語.',
-      'Correcciones de errores y mejoras.',
     ]),
     full: `¿Sin ganas de decidir qué entrenar hoy? Gira la ruleta y deja que GymRoulette elija por ti.
 
@@ -153,13 +151,12 @@ GymRoulette funciona totalmente sin conexión y no recopila ningún dato: sin an
     short: 'Biratu gurpila eta jaso ausazko ariketa-erronka bat zure entrenamendurako.',
     banner: { line1: 'Biratu gurpila', line2: 'eta entrenatzera!', tagline: 'Ausazko ariketak egunero zure burua probatzeko', button: 'BIRATU GURPILA!' },
     notes: notesText('Bertsioa', [
+      'Historia argiagoa: ariketa bakoitzak bere ikonoa du, eta laburpen batek saioa batzen du.',
+      'Zuzenduta: errepikapen kopurua ez da gehiago bikoizten historiako errenkada bakoitzean.',
+    ], [
       'Berria: ariketa bakoitzak bere errepikapen-tartea du, eta kopurua biratu ondoren ateratzen da.',
       'Gurpil garbiagoa: sektore bat ariketa bakoitzeko.',
       'Ariketa lehenetsiak zure hizkuntzan ikusten dira orain.',
-    ], [
-      'Berria: partekatu zure erronka irudi gisa, aplikaziorako estekarekin.',
-      'Orain Nederlands eta 日本語 hizkuntzetan ere.',
-      'Akatsen zuzenketak eta hobekuntzak.',
     ]),
     full: `Ez dakizu gaur zer entrenatu? Biratu gurpila eta utzi GymRoulette-ri zure ordez aukeratzen.
 
@@ -203,13 +200,12 @@ Biratu gurpila eta entrenatzera!`,
     short: 'Xira a ruleta e recibe un reto de exercicio ao chou para o teu adestramento.',
     banner: { line1: 'Xira a ruleta', line2: 'e a adestrar!', tagline: 'Exercicios aleatorios para retarte cada día', button: 'XIRAR A RULETA!' },
     notes: notesText('Versión', [
+      'Un historial máis claro: cada exercicio mostra a súa icona e un resumo suma a túa sesión.',
+      'Corrixido o número de repeticións repetido en cada fila do historial.',
+    ], [
       'Novidade: cada exercicio ten o seu propio rango de repeticións e o número sae despois do xiro.',
       'Unha ruleta máis limpa: un sector por exercicio.',
       'Os exercicios por defecto vense agora no teu idioma.',
-    ], [
-      'Novidade: comparte o teu reto como imaxe coa ligazón á app.',
-      'Agora tamén en Nederlands e 日本語.',
-      'Corrección de erros e melloras.',
     ]),
     full: `Sen ganas de decidir que adestrar hoxe? Xira a ruleta e deixa que GymRoulette escolla por ti.
 
@@ -253,13 +249,12 @@ Xira a ruleta e a adestrar!`,
     short: 'أدر العجلة واحصل على تحدٍّ عشوائي من التمارين لتدريبك.',
     banner: { line1: 'أدر العجلة', line2: 'وهيّا إلى التمرين!', tagline: 'تمارين عشوائية تتحداك كل يوم', button: 'أدر العجلة!' },
     notes: notesText('الإصدار', [
+      'سجل أوضح: يعرض كل تمرين أيقونته، وملخص يجمع جلستك.',
+      'تم إصلاح تكرار عدد التكرارات في كل صف من السجل.',
+    ], [
       'جديد: لكل تمرين نطاق تكرارات خاص به، ويظهر العدد بعد دوران العجلة.',
       'عجلة أكثر نظافة: قطاع واحد لكل تمرين.',
       'التمارين الافتراضية تظهر الآن بلغتك.',
-    ], [
-      'جديد: شارك تحدّيك كصورة مع رابط التطبيق.',
-      'متوفر الآن أيضًا بلغتي Nederlands و日本語.',
-      'إصلاح أخطاء وتحسينات.',
     ]),
     full: `لا تعرف ماذا تتمرّن اليوم؟ أدر العجلة ودع GymRoulette تختار لك.
 
@@ -303,13 +298,12 @@ GymRoulette عجلة للتمارين: كل قطاع هو تمرين، وعند�
     short: "Gira la ruleta i rep un repte d'exercici a l'atzar per al teu entrenament.",
     banner: { line1: 'Gira la ruleta', line2: 'i a entrenar!', tagline: 'Exercicis aleatoris per reptar-te cada dia', button: 'GIRA LA RULETA!' },
     notes: notesText('Versió', [
+      'Un historial més clar: cada exercici mostra la seva icona i un resum suma la teva sessió.',
+      'Corregit el nombre de repeticions repetit a cada fila de l\'historial.',
+    ], [
       'Novetat: cada exercici té el seu propi rang de repeticions i el nombre surt després del gir.',
       'Una ruleta més neta: un sector per exercici.',
       'Els exercicis per defecte ara es veuen en el teu idioma.',
-    ], [
-      'Novetat: comparteix el teu repte com a imatge amb l\'enllaç a l\'app.',
-      'Ara també en Nederlands i 日本語.',
-      'Correcció d\'errors i millores.',
     ]),
     full: `No tens ganes de decidir què entrenar avui? Gira la ruleta i deixa que GymRoulette triï per tu.
 
@@ -353,13 +347,12 @@ Gira la ruleta i a entrenar!`,
     short: "Fais tourner la roue et reçois un défi d'exercice au hasard pour t'entraîner.",
     banner: { line1: 'Lance la roue', line2: "et c'est parti !", tagline: 'Des exercices au hasard pour te défier chaque jour', button: 'LANCER LA ROUE !' },
     notes: notesText('Version', [
+      'Un historique plus clair : chaque exercice affiche son icône, et un résumé additionne ta séance.',
+      'Correction du nombre de répétitions affiché deux fois dans chaque ligne de l\'historique.',
+    ], [
       'Nouveau : chaque exercice a sa propre plage de répétitions, et le nombre sort après le tour.',
       'Une roue plus claire : un secteur par exercice.',
       'Les exercices par défaut s\'affichent maintenant dans ta langue.',
-    ], [
-      'Nouveau : partage ton défi sous forme d\'image avec le lien vers l\'application.',
-      'Désormais aussi en Nederlands et 日本語.',
-      'Corrections de bugs et améliorations.',
     ]),
     full: `Pas envie de décider quoi t'entraîner aujourd'hui ? Fais tourner la roue et laisse GymRoulette choisir pour toi.
 
@@ -403,13 +396,12 @@ Lance la roue et c'est parti !`,
     short: 'Dreh das Rad und erhalte eine zufällige Übungsaufgabe für dein Training.',
     banner: { line1: 'Dreh das Rad', line2: 'und ab ins Training!', tagline: 'Zufällige Übungen, die dich jeden Tag fordern', button: 'RAD DREHEN!' },
     notes: notesText('Version', [
+      'Ein übersichtlicherer Verlauf: Jede Übung zeigt ihr Symbol, und eine Zusammenfassung zählt dein Training zusammen.',
+      'Behoben: Die Wiederholungen standen in jeder Verlaufszeile doppelt.',
+    ], [
       'Neu: Jede Übung hat ihren eigenen Wiederholungsbereich, und die Zahl kommt nach dem Drehen.',
       'Ein übersichtlicheres Rad: ein Segment pro Übung.',
       'Die Standardübungen erscheinen jetzt in deiner Sprache.',
-    ], [
-      'Neu: Teile deine Challenge als Bild mit dem Link zur App.',
-      'Jetzt auch in Nederlands und 日本語.',
-      'Fehlerbehebungen und Verbesserungen.',
     ]),
     full: `Keine Lust zu entscheiden, was du heute trainierst? Dreh das Rad und lass GymRoulette für dich wählen.
 
@@ -453,13 +445,12 @@ Dreh das Rad und ab ins Training!`,
     short: 'Gira la ruota e ricevi una sfida di esercizio casuale per il tuo allenamento.',
     banner: { line1: 'Gira la ruota', line2: 'e allenati!', tagline: 'Esercizi casuali per metterti alla prova ogni giorno', button: 'GIRA LA RUOTA!' },
     notes: notesText('Versione', [
+      'Una cronologia più chiara: ogni esercizio mostra la sua icona e un riepilogo somma la tua sessione.',
+      'Corretto il numero di ripetizioni mostrato due volte in ogni riga della cronologia.',
+    ], [
       'Novità: ogni esercizio ha il proprio intervallo di ripetizioni e il numero esce dopo il giro.',
       'Una ruota più pulita: un settore per esercizio.',
       'Gli esercizi predefiniti ora appaiono nella tua lingua.',
-    ], [
-      'Novità: condividi la tua sfida come immagine con il link all\'app.',
-      'Ora anche in Nederlands e 日本語.',
-      'Correzioni di bug e miglioramenti.',
     ]),
     full: `Non hai voglia di decidere cosa allenare oggi? Gira la ruota e lascia scegliere a GymRoulette.
 
@@ -503,13 +494,12 @@ Gira la ruota e allenati!`,
     short: 'Gire a roleta e receba um desafio de exercício aleatório para o seu treino.',
     banner: { line1: 'Gire a roleta', line2: 'e vá treinar!', tagline: 'Exercícios aleatórios para te desafiar todo dia', button: 'GIRAR ROLETA!' },
     notes: notesText('Versão', [
+      'Um histórico mais claro: cada exercício mostra seu ícone e um resumo soma sua sessão.',
+      'Corrigido o número de repetições repetido em cada linha do histórico.',
+    ], [
       'Novidade: cada exercício tem seu próprio intervalo de repetições, e o número sai depois do giro.',
       'Uma roleta mais limpa: um setor por exercício.',
       'Os exercícios padrão agora aparecem no seu idioma.',
-    ], [
-      'Novidade: compartilhe seu desafio como imagem com o link do app.',
-      'Agora também em Nederlands e 日本語.',
-      'Correções de bugs e melhorias.',
     ]),
     full: `Sem vontade de decidir o que treinar hoje? Gire a roleta e deixe o GymRoulette escolher por você.
 
@@ -553,13 +543,12 @@ Gire a roleta e vá treinar!`,
     short: 'Gira a roleta e recebe um desafio de exercício aleatório para o teu treino.',
     banner: { line1: 'Gira a roleta', line2: 'e vai treinar!', tagline: 'Exercícios aleatórios para te desafiares todos os dias', button: 'GIRAR ROLETA!' },
     notes: notesText('Versão', [
+      'Um histórico mais claro: cada exercício mostra o seu ícone e um resumo soma a tua sessão.',
+      'Corrigido o número de repetições repetido em cada linha do histórico.',
+    ], [
       'Novidade: cada exercício tem o seu próprio intervalo de repetições, e o número sai depois do giro.',
       'Uma roleta mais limpa: um setor por exercício.',
       'Os exercícios predefinidos aparecem agora no teu idioma.',
-    ], [
-      'Novidade: partilha o teu desafio como imagem com a ligação para a aplicação.',
-      'Agora também em Nederlands e 日本語.',
-      'Correções de erros e melhorias.',
     ]),
     full: `Sem vontade de decidir o que treinar hoje? Gira a roleta e deixa o GymRoulette escolher por ti.
 
@@ -603,13 +592,12 @@ Gira a roleta e vai treinar!`,
     short: 'Zakręć kołem i dostań losowe wyzwanie ćwiczeniowe do swojego treningu.',
     banner: { line1: 'Zakręć kołem', line2: 'i ruszaj na trening!', tagline: 'Losowe ćwiczenia, które rzucają ci wyzwanie każdego dnia', button: 'ZAKRĘĆ KOŁEM!' },
     notes: notesText('Wersja', [
+      'Czytelniejsza historia: każde ćwiczenie ma swoją ikonę, a podsumowanie zlicza twój trening.',
+      'Naprawiono podwójne wyświetlanie liczby powtórzeń w każdym wierszu historii.',
+    ], [
       'Nowość: każde ćwiczenie ma własny zakres powtórzeń, a liczba wypada po zakręceniu.',
       'Czytelniejsze koło: jeden sektor na ćwiczenie.',
       'Domyślne ćwiczenia są teraz w twoim języku.',
-    ], [
-      'Nowość: udostępnij swoje wyzwanie jako obraz z linkiem do aplikacji.',
-      'Dostępna także w językach: Nederlands i 日本語.',
-      'Poprawki błędów i ulepszenia.',
     ]),
     full: `Nie wiesz, co dziś trenować? Zakręć kołem i pozwól, by GymRoulette wybrała za ciebie.
 
@@ -653,13 +641,12 @@ Zakręć kołem i trenujemy!`,
     short: 'चक्र घुमाएँ और अपनी वर्कआउट के लिए कोई भी एक्सरसाइज़ चुनौती पाएँ।',
     banner: { line1: 'चक्र घुमाएँ', line2: 'और वर्कआउट करें!', tagline: 'हर दिन आपको चुनौती देने वाली रैंडम एक्सरसाइज़', button: 'चक्र घुमाएँ!' },
     notes: notesText('संस्करण', [
+      'ज़्यादा साफ़ इतिहास: हर एक्सरसाइज़ अपने आइकन के साथ दिखती है, और एक सारांश आपके सेशन का जोड़ बताता है।',
+      'इतिहास की हर पंक्ति में रेप्स की संख्या दो बार दिखने की गड़बड़ी ठीक की गई।',
+    ], [
       'नया: हर एक्सरसाइज़ की रेप्स की अपनी सीमा है, और संख्या घुमाने के बाद आती है।',
       'ज़्यादा साफ़ चक्र: हर एक्सरसाइज़ के लिए एक खंड।',
       'डिफ़ॉल्ट एक्सरसाइज़ अब आपकी भाषा में दिखती हैं।',
-    ], [
-      'नया: अपनी चुनौती को इमेज के रूप में ऐप के लिंक के साथ शेयर करें।',
-      'अब Nederlands और 日本語 में भी।',
-      'बग फ़िक्स और सुधार।',
     ]),
     full: `आज क्या वर्कआउट करें, तय नहीं कर पा रहे? चक्र घुमाएँ और GymRoulette को आपके लिए चुनने दें।
 
@@ -703,13 +690,12 @@ GymRoulette पूरी तरह ऑफ़लाइन है और कोई
     short: 'Çarkı çevir, antrenmanın için rastgele bir egzersiz meydan okuması al.',
     banner: { line1: 'Çarkı çevir', line2: 've antrenmana başla!', tagline: 'Seni her gün zorlayacak rastgele egzersizler', button: 'ÇARKI ÇEVİR!' },
     notes: notesText('Sürüm', [
+      'Daha net bir geçmiş: her egzersiz simgesiyle görünür ve bir özet antrenmanını toplar.',
+      'Geçmişin her satırında tekrar sayısının iki kez görünmesi düzeltildi.',
+    ], [
       'Yeni: her egzersizin kendi tekrar aralığı var ve sayı çark döndükten sonra çıkar.',
       'Daha sade çark: egzersiz başına bir dilim.',
       'Varsayılan egzersizler artık senin dilinde görünür.',
-    ], [
-      'Yeni: meydan okumanı uygulama bağlantısıyla birlikte görsel olarak paylaş.',
-      'Artık Nederlands ve 日本語 dillerinde de.',
-      'Hata düzeltmeleri ve iyileştirmeler.',
     ]),
     full: `Bugün ne çalışacağına karar veremiyor musun? Çarkı çevir, GymRoulette senin yerine seçsin.
 
@@ -756,13 +742,12 @@ GymRoulette tamamen çevrimdışıdır ve hiçbir veri toplamaz: analiz yok, izl
     short: 'ルーレットを回して、ワークアウト用のランダムなエクササイズチャレンジに挑戦しよう。',
     banner: { line1: 'ルーレットを回して', line2: 'トレーニングを始めよう！', tagline: 'ランダムなエクササイズで毎日チャレンジ', button: 'ルーレットを回す！' },
     notes: notesText('バージョン', [
+      '履歴を見やすくしました。エクササイズごとにアイコンが付き、まとめでセッションの合計がわかります。',
+      '履歴の各行で回数が二重に表示される問題を修正しました。',
+    ], [
       '新機能：エクササイズごとに回数の範囲を設定でき、回数はルーレットが止まってから決まります。',
       'すっきりしたルーレット：エクササイズごとに1セクター。',
       '標準のエクササイズが端末の言語で表示されます。',
-    ], [
-      '新機能：チャレンジを画像にして、アプリへのリンクと一緒に共有できます。',
-      'Nederlandsと日本語にも対応しました。',
-      '不具合の修正と改善。',
     ]),
     full: `今日は何を鍛えるか決められない？ルーレットを回して、GymRouletteに選んでもらいましょう。
 
@@ -805,13 +790,12 @@ GymRouletteは完全オフラインで、データを一切収集しません。
     short: 'Draai aan het rad en krijg een willekeurige oefenuitdaging voor je training.',
     banner: { line1: 'Draai aan het rad', line2: 'en ga trainen!', tagline: 'Willekeurige oefeningen die je elke dag uitdagen', button: 'DRAAI HET RAD!' },
     notes: notesText('Versie', [
+      'Een overzichtelijker geschiedenis: elke oefening toont zijn pictogram en een samenvatting telt je training op.',
+      'Opgelost: het aantal herhalingen stond dubbel in elke regel van de geschiedenis.',
+    ], [
       'Nieuw: elke oefening heeft een eigen bereik van herhalingen, en het aantal komt na het draaien.',
       'Een overzichtelijker rad: één vak per oefening.',
       'De standaardoefeningen verschijnen nu in je eigen taal.',
-    ], [
-      'Nieuw: deel je uitdaging als afbeelding met een link naar de app.',
-      'Nu ook in Nederlands en 日本語.',
-      'Bugfixes en verbeteringen.',
     ]),
     full: `Kun je niet kiezen wat je vandaag gaat trainen? Draai aan het rad en laat GymRoulette voor je kiezen.
 

@@ -1,220 +1,200 @@
 <en-US>
+Version 1.16 (Six Pack):
+• A tidier history: each exercise shows its icon, and a summary adds up your session.
+• Fixed the reps appearing twice in each history row.
+
 Version 1.15 (Be Reborn):
 • New: each exercise has its own reps range, and the number comes up after the spin.
 • A cleaner wheel: one segment per exercise.
 • Default exercises now appear in your language.
-
-Version 1.14 (RandWork):
-• New: share your challenge as an image with a link to the app.
-• Now also in Nederlands and 日本語.
-• Bug fixes and improvements.
 </en-US>
 <ar>
+الإصدار 1.16 (Six Pack):
+• سجل أوضح: يعرض كل تمرين أيقونته، وملخص يجمع جلستك.
+• تم إصلاح تكرار عدد التكرارات في كل صف من السجل.
+
 الإصدار 1.15 (Be Reborn):
 • جديد: لكل تمرين نطاق تكرارات خاص به، ويظهر العدد بعد دوران العجلة.
 • عجلة أكثر نظافة: قطاع واحد لكل تمرين.
 • التمارين الافتراضية تظهر الآن بلغتك.
-
-الإصدار 1.14 (RandWork):
-• جديد: شارك تحدّيك كصورة مع رابط التطبيق.
-• متوفر الآن أيضًا بلغتي Nederlands و日本語.
-• إصلاح أخطاء وتحسينات.
 </ar>
 <ca>
+Versió 1.16 (Six Pack):
+• Un historial més clar: cada exercici mostra la seva icona i un resum suma la teva sessió.
+• Corregit el nombre de repeticions repetit a cada fila de l'historial.
+
 Versió 1.15 (Be Reborn):
 • Novetat: cada exercici té el seu propi rang de repeticions i el nombre surt després del gir.
 • Una ruleta més neta: un sector per exercici.
 • Els exercicis per defecte ara es veuen en el teu idioma.
-
-Versió 1.14 (RandWork):
-• Novetat: comparteix el teu repte com a imatge amb l'enllaç a l'app.
-• Ara també en Nederlands i 日本語.
-• Correcció d'errors i millores.
 </ca>
 <de-DE>
+Version 1.16 (Six Pack):
+• Ein übersichtlicherer Verlauf: Jede Übung zeigt ihr Symbol, und eine Zusammenfassung zählt dein Training zusammen.
+• Behoben: Die Wiederholungen standen in jeder Verlaufszeile doppelt.
+
 Version 1.15 (Be Reborn):
 • Neu: Jede Übung hat ihren eigenen Wiederholungsbereich, und die Zahl kommt nach dem Drehen.
 • Ein übersichtlicheres Rad: ein Segment pro Übung.
 • Die Standardübungen erscheinen jetzt in deiner Sprache.
-
-Version 1.14 (RandWork):
-• Neu: Teile deine Challenge als Bild mit dem Link zur App.
-• Jetzt auch in Nederlands und 日本語.
-• Fehlerbehebungen und Verbesserungen.
 </de-DE>
 <en-AU>
+Version 1.16 (Six Pack):
+• A tidier history: each exercise shows its icon, and a summary adds up your session.
+• Fixed the reps appearing twice in each history row.
+
 Version 1.15 (Be Reborn):
 • New: each exercise has its own reps range, and the number comes up after the spin.
 • A cleaner wheel: one segment per exercise.
 • Default exercises now appear in your language.
-
-Version 1.14 (RandWork):
-• New: share your challenge as an image with a link to the app.
-• Now also in Nederlands and 日本語.
-• Bug fixes and improvements.
 </en-AU>
 <en-GB>
+Version 1.16 (Six Pack):
+• A tidier history: each exercise shows its icon, and a summary adds up your session.
+• Fixed the reps appearing twice in each history row.
+
 Version 1.15 (Be Reborn):
 • New: each exercise has its own reps range, and the number comes up after the spin.
 • A cleaner wheel: one segment per exercise.
 • Default exercises now appear in your language.
-
-Version 1.14 (RandWork):
-• New: share your challenge as an image with a link to the app.
-• Now also in Nederlands and 日本語.
-• Bug fixes and improvements.
 </en-GB>
 <es-419>
+Versión 1.16 (Six Pack):
+• Un historial más claro: cada ejercicio muestra su icono y un resumen suma tu sesión.
+• Corregido el número de repeticiones repetido en cada fila del historial.
+
 Versión 1.15 (Be Reborn):
 • Novedad: cada ejercicio tiene su propio rango de repeticiones y el número sale tras el giro.
 • Una ruleta más limpia: un sector por ejercicio.
 • Los ejercicios por defecto se ven ahora en tu idioma.
-
-Versión 1.14 (RandWork):
-• Novedad: comparte tu reto como imagen con el enlace a la app.
-• Ahora también en Nederlands y 日本語.
-• Correcciones de errores y mejoras.
 </es-419>
 <es-ES>
+Versión 1.16 (Six Pack):
+• Un historial más claro: cada ejercicio muestra su icono y un resumen suma tu sesión.
+• Corregido el número de repeticiones repetido en cada fila del historial.
+
 Versión 1.15 (Be Reborn):
 • Novedad: cada ejercicio tiene su propio rango de repeticiones y el número sale tras el giro.
 • Una ruleta más limpia: un sector por ejercicio.
 • Los ejercicios por defecto se ven ahora en tu idioma.
-
-Versión 1.14 (RandWork):
-• Novedad: comparte tu reto como imagen con el enlace a la app.
-• Ahora también en Nederlands y 日本語.
-• Correcciones de errores y mejoras.
 </es-ES>
 <eu-ES>
+Bertsioa 1.16 (Six Pack):
+• Historia argiagoa: ariketa bakoitzak bere ikonoa du, eta laburpen batek saioa batzen du.
+• Zuzenduta: errepikapen kopurua ez da gehiago bikoizten historiako errenkada bakoitzean.
+
 Bertsioa 1.15 (Be Reborn):
 • Berria: ariketa bakoitzak bere errepikapen-tartea du, eta kopurua biratu ondoren ateratzen da.
 • Gurpil garbiagoa: sektore bat ariketa bakoitzeko.
 • Ariketa lehenetsiak zure hizkuntzan ikusten dira orain.
-
-Bertsioa 1.14 (RandWork):
-• Berria: partekatu zure erronka irudi gisa, aplikaziorako estekarekin.
-• Orain Nederlands eta 日本語 hizkuntzetan ere.
-• Akatsen zuzenketak eta hobekuntzak.
 </eu-ES>
 <fr-CA>
+Version 1.16 (Six Pack):
+• Un historique plus clair : chaque exercice affiche son icône, et un résumé additionne ta séance.
+• Correction du nombre de répétitions affiché deux fois dans chaque ligne de l'historique.
+
 Version 1.15 (Be Reborn):
 • Nouveau : chaque exercice a sa propre plage de répétitions, et le nombre sort après le tour.
 • Une roue plus claire : un secteur par exercice.
 • Les exercices par défaut s'affichent maintenant dans ta langue.
-
-Version 1.14 (RandWork):
-• Nouveau : partage ton défi sous forme d'image avec le lien vers l'application.
-• Désormais aussi en Nederlands et 日本語.
-• Corrections de bugs et améliorations.
 </fr-CA>
 <fr-FR>
+Version 1.16 (Six Pack):
+• Un historique plus clair : chaque exercice affiche son icône, et un résumé additionne ta séance.
+• Correction du nombre de répétitions affiché deux fois dans chaque ligne de l'historique.
+
 Version 1.15 (Be Reborn):
 • Nouveau : chaque exercice a sa propre plage de répétitions, et le nombre sort après le tour.
 • Une roue plus claire : un secteur par exercice.
 • Les exercices par défaut s'affichent maintenant dans ta langue.
-
-Version 1.14 (RandWork):
-• Nouveau : partage ton défi sous forme d'image avec le lien vers l'application.
-• Désormais aussi en Nederlands et 日本語.
-• Corrections de bugs et améliorations.
 </fr-FR>
 <gl-ES>
+Versión 1.16 (Six Pack):
+• Un historial máis claro: cada exercicio mostra a súa icona e un resumo suma a túa sesión.
+• Corrixido o número de repeticións repetido en cada fila do historial.
+
 Versión 1.15 (Be Reborn):
 • Novidade: cada exercicio ten o seu propio rango de repeticións e o número sae despois do xiro.
 • Unha ruleta máis limpa: un sector por exercicio.
 • Os exercicios por defecto vense agora no teu idioma.
-
-Versión 1.14 (RandWork):
-• Novidade: comparte o teu reto como imaxe coa ligazón á app.
-• Agora tamén en Nederlands e 日本語.
-• Corrección de erros e melloras.
 </gl-ES>
 <hi-IN>
+संस्करण 1.16 (Six Pack):
+• ज़्यादा साफ़ इतिहास: हर एक्सरसाइज़ अपने आइकन के साथ दिखती है, और एक सारांश आपके सेशन का जोड़ बताता है।
+• इतिहास की हर पंक्ति में रेप्स की संख्या दो बार दिखने की गड़बड़ी ठीक की गई।
+
 संस्करण 1.15 (Be Reborn):
 • नया: हर एक्सरसाइज़ की रेप्स की अपनी सीमा है, और संख्या घुमाने के बाद आती है।
 • ज़्यादा साफ़ चक्र: हर एक्सरसाइज़ के लिए एक खंड।
 • डिफ़ॉल्ट एक्सरसाइज़ अब आपकी भाषा में दिखती हैं।
-
-संस्करण 1.14 (RandWork):
-• नया: अपनी चुनौती को इमेज के रूप में ऐप के लिंक के साथ शेयर करें।
-• अब Nederlands और 日本語 में भी।
-• बग फ़िक्स और सुधार।
 </hi-IN>
 <it-IT>
+Versione 1.16 (Six Pack):
+• Una cronologia più chiara: ogni esercizio mostra la sua icona e un riepilogo somma la tua sessione.
+• Corretto il numero di ripetizioni mostrato due volte in ogni riga della cronologia.
+
 Versione 1.15 (Be Reborn):
 • Novità: ogni esercizio ha il proprio intervallo di ripetizioni e il numero esce dopo il giro.
 • Una ruota più pulita: un settore per esercizio.
 • Gli esercizi predefiniti ora appaiono nella tua lingua.
-
-Versione 1.14 (RandWork):
-• Novità: condividi la tua sfida come immagine con il link all'app.
-• Ora anche in Nederlands e 日本語.
-• Correzioni di bug e miglioramenti.
 </it-IT>
 <ja-JP>
+バージョン 1.16 (Six Pack):
+• 履歴を見やすくしました。エクササイズごとにアイコンが付き、まとめでセッションの合計がわかります。
+• 履歴の各行で回数が二重に表示される問題を修正しました。
+
 バージョン 1.15 (Be Reborn):
 • 新機能：エクササイズごとに回数の範囲を設定でき、回数はルーレットが止まってから決まります。
 • すっきりしたルーレット：エクササイズごとに1セクター。
 • 標準のエクササイズが端末の言語で表示されます。
-
-バージョン 1.14 (RandWork):
-• 新機能：チャレンジを画像にして、アプリへのリンクと一緒に共有できます。
-• Nederlandsと日本語にも対応しました。
-• 不具合の修正と改善。
 </ja-JP>
 <nl-NL>
+Versie 1.16 (Six Pack):
+• Een overzichtelijker geschiedenis: elke oefening toont zijn pictogram en een samenvatting telt je training op.
+• Opgelost: het aantal herhalingen stond dubbel in elke regel van de geschiedenis.
+
 Versie 1.15 (Be Reborn):
 • Nieuw: elke oefening heeft een eigen bereik van herhalingen, en het aantal komt na het draaien.
 • Een overzichtelijker rad: één vak per oefening.
 • De standaardoefeningen verschijnen nu in je eigen taal.
-
-Versie 1.14 (RandWork):
-• Nieuw: deel je uitdaging als afbeelding met een link naar de app.
-• Nu ook in Nederlands en 日本語.
-• Bugfixes en verbeteringen.
 </nl-NL>
 <pl-PL>
+Wersja 1.16 (Six Pack):
+• Czytelniejsza historia: każde ćwiczenie ma swoją ikonę, a podsumowanie zlicza twój trening.
+• Naprawiono podwójne wyświetlanie liczby powtórzeń w każdym wierszu historii.
+
 Wersja 1.15 (Be Reborn):
 • Nowość: każde ćwiczenie ma własny zakres powtórzeń, a liczba wypada po zakręceniu.
 • Czytelniejsze koło: jeden sektor na ćwiczenie.
 • Domyślne ćwiczenia są teraz w twoim języku.
-
-Wersja 1.14 (RandWork):
-• Nowość: udostępnij swoje wyzwanie jako obraz z linkiem do aplikacji.
-• Dostępna także w językach: Nederlands i 日本語.
-• Poprawki błędów i ulepszenia.
 </pl-PL>
 <pt-BR>
+Versão 1.16 (Six Pack):
+• Um histórico mais claro: cada exercício mostra seu ícone e um resumo soma sua sessão.
+• Corrigido o número de repetições repetido em cada linha do histórico.
+
 Versão 1.15 (Be Reborn):
 • Novidade: cada exercício tem seu próprio intervalo de repetições, e o número sai depois do giro.
 • Uma roleta mais limpa: um setor por exercício.
 • Os exercícios padrão agora aparecem no seu idioma.
-
-Versão 1.14 (RandWork):
-• Novidade: compartilhe seu desafio como imagem com o link do app.
-• Agora também em Nederlands e 日本語.
-• Correções de bugs e melhorias.
 </pt-BR>
 <pt-PT>
+Versão 1.16 (Six Pack):
+• Um histórico mais claro: cada exercício mostra o seu ícone e um resumo soma a tua sessão.
+• Corrigido o número de repetições repetido em cada linha do histórico.
+
 Versão 1.15 (Be Reborn):
 • Novidade: cada exercício tem o seu próprio intervalo de repetições, e o número sai depois do giro.
 • Uma roleta mais limpa: um setor por exercício.
 • Os exercícios predefinidos aparecem agora no teu idioma.
-
-Versão 1.14 (RandWork):
-• Novidade: partilha o teu desafio como imagem com a ligação para a aplicação.
-• Agora também em Nederlands e 日本語.
-• Correções de erros e melhorias.
 </pt-PT>
 <tr-TR>
+Sürüm 1.16 (Six Pack):
+• Daha net bir geçmiş: her egzersiz simgesiyle görünür ve bir özet antrenmanını toplar.
+• Geçmişin her satırında tekrar sayısının iki kez görünmesi düzeltildi.
+
 Sürüm 1.15 (Be Reborn):
 • Yeni: her egzersizin kendi tekrar aralığı var ve sayı çark döndükten sonra çıkar.
 • Daha sade çark: egzersiz başına bir dilim.
 • Varsayılan egzersizler artık senin dilinde görünür.
-
-Sürüm 1.14 (RandWork):
-• Yeni: meydan okumanı uygulama bağlantısıyla birlikte görsel olarak paylaş.
-• Artık Nederlands ve 日本語 dillerinde de.
-• Hata düzeltmeleri ve iyileştirmeler.
 </tr-TR>
