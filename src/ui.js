@@ -522,7 +522,7 @@ let revealTimer;
 
 /** Altura máxima de la cuadrícula de iconos cuando hay sitio de sobra (la que tiene en CSS) y la mínima útil */
 const ICON_GRID_MAX_PX = 208;
-const ICON_GRID_MIN_PX = 96;
+const ICON_GRID_MIN_PX = 56;
 
 /**
  * Con el teclado abierto la zona visible de Configuración es pequeña y la cuadrícula de iconos (que tiene su propio
