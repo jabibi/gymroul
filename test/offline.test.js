@@ -9,6 +9,15 @@ describe('app sin conexión ni seguimiento', () => {
     expect(permissions).toEqual(['android.permission.VIBRATE']);
   });
 
+  it('Android prohíbe expresamente el tráfico sin cifrar', () => {
+    const manifest = readFileSync('android/app/src/main/AndroidManifest.xml', 'utf8');
+    expect(manifest).toContain('android:usesCleartextTraffic="false"');
+    expect(manifest).toContain('android:networkSecurityConfig="@xml/network_security_config"');
+    const config = readFileSync('android/app/src/main/res/xml/network_security_config.xml', 'utf8');
+    expect(config).toContain('<base-config cleartextTrafficPermitted="false" />');
+    expect(config).not.toContain('cleartextTrafficPermitted="true"');
+  });
+
   it('la CSP solo permite recursos propios', () => {
     const html = readFileSync('index.html', 'utf8');
     const csp = html.match(/Content-Security-Policy" content="([^"]+)"/)?.[1] ?? '';
