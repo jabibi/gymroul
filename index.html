@@ -80,7 +80,7 @@
 
     <!-- Modal de Resultado -->
     <div id="resultModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="winnerText" aria-hidden="true" class="outline-none fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
-        <div class="glass-card relative w-full max-w-sm rounded-3xl p-6 text-center transform scale-90 transition-transform duration-300 shadow-2xl border border-brand-500/50 glow-brand" id="resultCard">
+        <div class="glass-card result-card relative w-full max-w-sm rounded-3xl p-6 text-center transform scale-90 transition-transform duration-300 shadow-2xl border border-brand-500/50 glow-brand" id="resultCard">
             <div id="winnerIconContainer" class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
                 <i id="winnerIcon" class="fa-solid fa-fire"></i>
             </div>
@@ -94,6 +94,8 @@
                 <div id="winnerReps" class="text-7xl font-black text-brand-400 tabular-nums leading-none tracking-tight">20</div>
                 <div class="mt-1.5 text-sm font-bold text-slate-400" data-i18n="result.reps">reps</div>
                 <div id="winnerName" dir="auto" class="mt-3 text-2xl font-black text-white break-words leading-tight">Burpee</div>
+                <!-- Barra con el color del sector de la ruleta (se pone al mostrar el resultado) -->
+                <div id="winnerBar" class="mx-auto mt-4 h-1.5 w-28 rounded-full bg-brand-500"></div>
             </div>
 
             <div class="grid grid-cols-1 gap-3">

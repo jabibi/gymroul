@@ -204,6 +204,7 @@ export function showResult(winner) {
   $('winnerReps').textContent = reps;
   setSizeClass($('winnerName'), ['text-2xl', 'text-xl', 'text-lg'], winner.exercise.length <= 20 ? 0 : winner.exercise.length <= 32 ? 1 : 2);
   $('winnerName').textContent = winner.exercise;
+  $('winnerBar').style.backgroundColor = winner.color;
 
   $('resultModal').classList.remove('opacity-0', 'pointer-events-none');
   $('resultCard').classList.remove('scale-90');
