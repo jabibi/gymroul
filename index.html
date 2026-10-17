@@ -128,9 +128,9 @@
 
             <div id="historyList" class="flex-1 overflow-y-auto space-y-3 pe-1 my-2"></div>
 
-            <div class="pt-3 border-t border-slate-800 flex justify-between items-center mt-2">
-                <span id="totalCompletedText" class="text-xs text-slate-400 font-bold">0 completados</span>
-                <button data-action="clear-history" class="min-h-[44px] text-xs text-red-400 hover:text-red-300 font-bold px-3 py-1.5 rounded-xl bg-red-500/10 border border-red-500/20 transition-all" data-i18n="history.clear">
+            <div class="pt-3 border-t border-slate-800 flex flex-wrap justify-between items-center gap-x-3 mt-2">
+                <span id="totalCompletedText" class="text-xs text-slate-300 font-bold">0</span>
+                <button id="clearHistoryBtn" data-action="clear-history" class="min-h-[44px] text-xs text-slate-400 hover:text-red-300 font-bold px-3 py-1.5 rounded-xl transition-colors" data-i18n="history.clear">
                     Clear history
                 </button>
             </div>

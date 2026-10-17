@@ -29,9 +29,9 @@ export default {
     'history.title': 'Historique de la séance',
     'history.close': "Fermer l'historique",
     'history.empty': "Tu n'as encore enregistré aucun exercice. Lance la roue !",
-    'history.total': 'Terminés pendant la séance : {n}',
-    'history.done': 'Terminé !',
+    'history.total': 'Exercices : {n} · Répétitions au total : {reps}',
     'history.clear': "Effacer l'historique",
+    'history.clearConfirm': 'Appuie encore',
 
     'config.title': 'Réglages de la roue',
     'config.close': 'Fermer les réglages',

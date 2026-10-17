@@ -32,9 +32,9 @@ export default {
     'history.title': 'سجل الجلسة',
     'history.close': 'إغلاق السجل',
     'history.empty': 'لم تسجّل أي تمرين بعد. أدر العجلة!',
-    'history.total': 'المكتمل في هذه الجلسة: {n}',
-    'history.done': 'تم!',
+    'history.total': 'التمارين: {n} · إجمالي التكرارات: {reps}',
     'history.clear': 'مسح السجل',
+    'history.clearConfirm': 'اضغط مرة أخرى',
 
     'config.title': 'إعدادات العجلة',
     'config.close': 'إغلاق الإعدادات',

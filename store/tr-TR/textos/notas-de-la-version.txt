@@ -1,5 +1,8 @@
+Sürüm 1.16 (Six Pack):
+• Daha net bir geçmiş: her egzersiz simgesiyle görünür ve bir özet antrenmanını toplar.
+• Geçmişin her satırında tekrar sayısının iki kez görünmesi düzeltildi.
+
+Sürüm 1.15 (Be Reborn):
 • Yeni: her egzersizin kendi tekrar aralığı var ve sayı çark döndükten sonra çıkar.
 • Daha sade çark: egzersiz başına bir dilim.
 • Varsayılan egzersizler artık senin dilinde görünür.
-• Daha iyi ortalanmış uygulama simgesi.
-• Hata düzeltmeleri ve iyileştirmeler.

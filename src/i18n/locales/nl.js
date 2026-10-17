@@ -29,9 +29,9 @@ export default {
     'history.title': 'Trainingsgeschiedenis',
     'history.close': 'Geschiedenis sluiten',
     'history.empty': 'Nog geen oefeningen vastgelegd. Draai het rad!',
-    'history.total': 'Voltooid in deze training: {n}',
-    'history.done': 'Klaar!',
+    'history.total': 'Oefeningen: {n} · Totaal herhalingen: {reps}',
     'history.clear': 'Geschiedenis wissen',
+    'history.clearConfirm': 'Tik nogmaals',
 
     'config.title': 'Radinstellingen',
     'config.close': 'Instellingen sluiten',

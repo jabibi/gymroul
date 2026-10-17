@@ -1,5 +1,8 @@
+Versión 1.16 (Six Pack):
+• Un historial más claro: cada ejercicio muestra su icono y un resumen suma tu sesión.
+• Corregido el número de repeticiones repetido en cada fila del historial.
+
+Versión 1.15 (Be Reborn):
 • Novedad: cada ejercicio tiene su propio rango de repeticiones y el número sale tras el giro.
 • Una ruleta más limpia: un sector por ejercicio.
 • Los ejercicios por defecto se ven ahora en tu idioma.
-• Icono de la app mejor centrado.
-• Correcciones de errores y mejoras.

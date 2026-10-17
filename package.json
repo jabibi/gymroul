@@ -1,8 +1,8 @@
 {
   "name": "gymroul",
-  "version": "1.15.0",
-  "versionCode": 15,
-  "versionCodename": "Be Reborn",
+  "version": "1.16.0",
+  "versionCode": 16,
+  "versionCodename": "Six Pack",
   "description": "GymRoulette: ruleta de ejercicios (web + Android con Capacitor)",
   "main": "index.js",
   "scripts": {

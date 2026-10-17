@@ -29,9 +29,9 @@ export default {
     'history.title': 'Session history',
     'history.close': 'Close history',
     'history.empty': 'No exercises logged yet. Spin the wheel!',
-    'history.total': 'Completed this session: {n}',
-    'history.done': 'Done!',
+    'history.total': 'Exercises: {n} · Total reps: {reps}',
     'history.clear': 'Clear history',
+    'history.clearConfirm': 'Tap again',
 
     'config.title': 'Wheel settings',
     'config.close': 'Close settings',

@@ -1,5 +1,8 @@
+Versione 1.16 (Six Pack):
+• Una cronologia più chiara: ogni esercizio mostra la sua icona e un riepilogo somma la tua sessione.
+• Corretto il numero di ripetizioni mostrato due volte in ogni riga della cronologia.
+
+Versione 1.15 (Be Reborn):
 • Novità: ogni esercizio ha il proprio intervallo di ripetizioni e il numero esce dopo il giro.
 • Una ruota più pulita: un settore per esercizio.
 • Gli esercizi predefiniti ora appaiono nella tua lingua.
-• Icona dell'app meglio centrata.
-• Correzioni di bug e miglioramenti.

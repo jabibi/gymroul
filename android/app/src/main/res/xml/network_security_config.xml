@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- La app no se conecta a ningún sitio: se prohíbe expresamente el tráfico sin cifrar (HTTP). -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+</network-security-config>

@@ -29,9 +29,9 @@ export default {
     'history.title': 'Cronologia della sessione',
     'history.close': 'Chiudi la cronologia',
     'history.empty': 'Nessun esercizio registrato. Gira la ruota!',
-    'history.total': 'Completati in questa sessione: {n}',
-    'history.done': 'Fatto!',
+    'history.total': 'Esercizi: {n} · Ripetizioni totali: {reps}',
     'history.clear': 'Cancella la cronologia',
+    'history.clearConfirm': 'Tocca ancora',
 
     'config.title': 'Impostazioni della ruota',
     'config.close': 'Chiudi le impostazioni',

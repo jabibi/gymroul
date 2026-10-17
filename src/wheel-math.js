@@ -67,14 +67,6 @@ export function rollReps(min, max, rng = Math.random) {
 export const isolate = text => `\u2068${text}\u2069`;
 
 /**
- * Reto tal como se muestra en pantalla: repeticiones y ejercicio (el nombre aislado, que lo escribe el usuario).
- * Para compartir como texto se usa el plano, sin marcas de control.
- * @param {number} reps
- * @param {string} exercise
- */
-export const displayChallenge = (reps, exercise) => `${reps} ${isolate(exercise)}`;
-
-/**
  * Ajusta un texto a un ancho: baja el tamaño de letra hasta el mínimo y, si aun así no cabe, lo recorta con «…».
  * @param {(text: string, size: number) => number} measure ancho del texto con ese tamaño
  * @param {string} text
