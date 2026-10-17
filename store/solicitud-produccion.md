@@ -16,12 +16,12 @@ Respuestas preparadas para el formulario «Solicitar acceso a producción» de P
 > 2. Testers wanted different repetitions for each exercise and a cleaner wheel. Each exercise now has its own repetition range, and the wheel shows only the exercises; the repetitions are drawn when the spin ends.
 
 ## 3. ¿Por qué tu app está lista para producción?
-> The app is complete and stable after the closed test. It needs no account and no Internet permission (only VIBRATE), collects no data, and contains no ads. It supports 20 languages, including right-to-left Arabic. Every release passes our CI (type checking, automated tests and release builds). The store listing, privacy policy and data safety declarations are complete.
+> The app is complete and ready after the closed test. Over the 14+ days of testing, none of our 16 testers reported crashes or freezes. It requires no account and no Internet permission (only VIBRATE), collects no data and contains no ads. It supports 20 languages, including right-to-left Arabic. Every release passes our CI (type checking, automated tests and release builds). The store listing, privacy policy and data safety declarations are complete.
 
-> Antes de enviar, mira «Android vitals» (ver abajo) y, si hubiera cuelgues, no uses la frase «stable» sin matizarla.
+> Android vitals aún muestra «Datos no disponibles» (pocos usuarios), así que la respuesta no se apoya en esos datos. Si algún tester comunicó un cuelgue, ajústala.
 
 ## 4. Público y uso previsto (si lo preguntan)
 > People aged 16 and over who want a fun, random way to choose their workout at the gym or at home. We expect organic growth through store search and word of mouth.
 
 ## Qué es Android vitals
-Es un apartado de Play Console con datos de calidad que Google recoge de los dispositivos reales: porcentaje de cierres inesperados (cuelgues) y de aplicación que no responde (ANR). Se encuentra en **Calidad > Android vitals > Resumen** (en algunas cuentas, «Supervisar y mejorar»). Si no aparece ningún dato o los porcentajes son 0 %, no ha habido cuelgues. Con pocos usuarios puede decir «datos insuficientes», y entonces basta con no afirmar nada sobre cuelgues en la respuesta 3.
+Es un apartado de Play Console con datos de calidad que Google recoge de los dispositivos reales: porcentaje de cierres inesperados (cuelgues) y de aplicación que no responde (ANR). Se encuentra en **Calidad > Android vitals > Resumen** (en algunas cuentas, «Supervisar y mejorar»). Si no aparece ningún dato o los porcentajes son 0 %, no ha habido cuelgues. Con pocos usuarios aparece «Datos no disponibles» (es el caso de la 1.15), y entonces la respuesta 3 no debe apoyarse en esos datos.
