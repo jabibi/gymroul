@@ -1,6 +1,6 @@
 ¿Sin ganas de decidir qué entrenar hoy? Gira la ruleta y deja que GymRoulette elija por ti.
 
-GymRoulette es una ruleta de ejercicios: cada sector combina un número de repeticiones con un ejercicio (por ejemplo, «20 Burpee») y, al girarla, te propone un reto aleatorio para entrenar en casa, en el gimnasio o al aire libre. Pensada para dar variedad a tus sesiones, para circuitos, para retos con amigos y para quien quiere entrenar sin complicarse.
+GymRoulette es una ruleta de ejercicios: cada sector es un ejercicio y, al girarla, te propone un reto aleatorio con su número de repeticiones (por ejemplo, «20 Burpee») para entrenar en casa, en el gimnasio o al aire libre. Pensada para dar variedad a tus sesiones, para circuitos, para retos con amigos y para quien quiere entrenar sin complicarse.
 
 <b>CÓMO FUNCIONA</b>
 • Presiona “¡GIRAR RULETA!” o lanza la ruleta con el dedo.
@@ -10,9 +10,9 @@ GymRoulette es una ruleta de ejercicios: cada sector combina un número de repet
 • Comparte tu reto como imagen con tus amigos.
 
 <b>TÚ DECIDES QUÉ HAY EN LA RULETA</b>
-• Activa o desactiva los ejercicios y las repeticiones que quieras.
+• Activa o desactiva los ejercicios que quieras.
 • Crea tus propios ejercicios con nombre, nombre corto e icono.
-• Agrega o elimina repeticiones para ajustar la dificultad.
+• Define el rango de repeticiones de cada ejercicio, con un mínimo y un máximo, para ajustar la dificultad.
 • La ruleta se adapta a tu configuración y se guarda en tu dispositivo.
 
 <b>MÁS DE 100 ICONOS PARA TUS EJERCICIOS</b>

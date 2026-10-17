@@ -1,6 +1,6 @@
 Nie wiesz, co dziś trenować? Zakręć kołem i pozwól, by GymRoulette wybrała za ciebie.
 
-GymRoulette to koło ćwiczeń: każdy sektor łączy liczbę powtórzeń z ćwiczeniem (na przykład „20 Burpee”), a gdy je zakręcisz, wylosuje dla ciebie wyzwanie do wykonania w domu, na siłowni lub na świeżym powietrzu. Stworzona, by wnieść różnorodność do twoich treningów, do obwodów, do wyzwań ze znajomymi i dla każdego, kto chce poćwiczyć bez zbędnego główkowania.
+GymRoulette to koło ćwiczeń: każdy sektor to ćwiczenie, a gdy je zakręcisz, wylosuje dla ciebie wyzwanie z liczbą powtórzeń (na przykład „20 Burpee”) do wykonania w domu, na siłowni lub na świeżym powietrzu. Stworzona, by wnieść różnorodność do twoich treningów, do obwodów, do wyzwań ze znajomymi i dla każdego, kto chce poćwiczyć bez zbędnego główkowania.
 
 <b>JAK TO DZIAŁA</b>
 • Naciśnij „ZAKRĘĆ KOŁEM!” albo szarpnij koło palcem.
@@ -10,9 +10,9 @@ GymRoulette to koło ćwiczeń: każdy sektor łączy liczbę powtórzeń z ćwi
 • Udostępnij wyzwanie jako obraz znajomym.
 
 <b>TY DECYDUJESZ, CO JEST NA KOLE</b>
-• Włączaj i wyłączaj ćwiczenia i powtórzenia, których chcesz.
+• Włączaj i wyłączaj ćwiczenia, których chcesz.
 • Twórz własne ćwiczenia z nazwą, krótką nazwą i ikoną.
-• Dodawaj lub usuwaj powtórzenia, aby dostosować poziom trudności.
+• Ustaw zakres powtórzeń każdego ćwiczenia, od minimum do maksimum, aby dostosować poziom trudności.
 • Koło dopasowuje się do twoich ustawień, które są zapisywane na urządzeniu.
 
 <b>PONAD 100 IKON DLA TWOICH ĆWICZEŃ</b>

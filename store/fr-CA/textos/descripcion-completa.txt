@@ -1,6 +1,6 @@
 Pas envie de décider quoi t'entraîner aujourd'hui? Fais tourner la roue et laisse GymRoulette choisir pour toi.
 
-GymRoulette est une roue d'exercices : chaque secteur associe un nombre de répétitions à un exercice (par exemple « 20 Burpee ») et, quand tu la fais tourner, elle te propose un défi au hasard pour t'entraîner à la maison, en salle ou en plein air. Pensée pour varier tes séances, pour des circuits, des défis entre amis et pour tous ceux qui veulent s'entraîner sans se compliquer la vie.
+GymRoulette est une roue d'exercices : chaque secteur est un exercice et, quand tu la fais tourner, elle te propose un défi au hasard avec son nombre de répétitions (par exemple « 20 Burpee ») pour t'entraîner à la maison, en salle ou en plein air. Pensée pour varier tes séances, pour des circuits, des défis entre amis et pour tous ceux qui veulent s'entraîner sans se compliquer la vie.
 
 <b>COMMENT ÇA MARCHE</b>
 • Appuie sur « LANCER LA ROUE! » ou lance-la d'un geste du doigt.
@@ -10,9 +10,9 @@ GymRoulette est une roue d'exercices : chaque secteur associe un nombre de rép
 • Partage ton défi sous forme d'image avec tes amis.
 
 <b>C'EST TOI QUI CHOISIS CE QUI EST SUR LA ROUE</b>
-• Active ou désactive les exercices et les répétitions que tu veux.
+• Active ou désactive les exercices que tu veux.
 • Crée tes propres exercices avec un nom, un nom court et une icône.
-• Ajoute ou supprime des répétitions pour régler la difficulté.
+• Règle la plage de répétitions de chaque exercice, d'un minimum à un maximum, pour ajuster la difficulté.
 • La roue s'adapte à tes réglages, enregistrés sur ton appareil.
 
 <b>PLUS DE 100 ICÔNES POUR TES EXERCICES</b>

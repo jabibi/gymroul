@@ -4,22 +4,23 @@ import './style.css';
 import { Capacitor } from '@capacitor/core';
 import { App as CapacitorApp } from '@capacitor/app';
 
-import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, refreshLabels, getSpinSpeed } from './wheel.js';
-import { generateCombinations, CONFIG_SEGMENT } from './wheel-math.js';
+import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, getSpinSpeed } from './wheel.js';
+import { generateSegments, rollReps, CONFIG_SEGMENT } from './wheel-math.js';
 import {
-  migrate, loadActive, getExercises, getReps, active, setActive,
-  addExercise, removeExercise, addRep, removeRep,
+  migrate, loadActive, getExercises, active, setActive,
+  addExercise, removeExercise, updateExerciseReps,
 } from './store.js';
 import { toggleSound, initAudio } from './audio.js';
 import * as ui from './ui.js';
 import { cleanShareCache } from './share.js';
+import { exerciseLabels } from './exercise-names.js';
 import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from './i18n/index.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
 
 /** Reconstruye los sectores a partir del catálogo y la selección activa. */
 function rebuildWheel() {
-  setSegments(generateCombinations(getExercises(), getReps(), active.exercises, active.reps));
+  setSegments(generateSegments(getExercises(), active.exercises, exerciseLabels));
 }
 
 /** Abre la configuración si la ruleta no tiene nada activo; devuelve true si lo hizo. */
@@ -51,16 +52,18 @@ function handleSpin() {
 
 /** @param {Segment} winner */
 function handleFinish(winner) {
-  if (winner === CONFIG_SEGMENT || winner.reps === 0) {
+  if (winner === CONFIG_SEGMENT) {
     ui.openConfig();
     return;
   }
+  // Las repeticiones salen al terminar el giro, dentro del rango del ejercicio
+  const challenge = { ...winner, reps: rollReps(winner.repsMin, winner.repsMax) };
   // Primero rebota el marcador sobre el sector ganador y, un instante después, aparece el resultado
   resultPending = true;
   ui.pulseIndicator();
   setTimeout(() => {
     resultPending = false;
-    ui.showResult(winner);
+    ui.showResult(challenge);
   }, RESULT_DELAY_MS);
 }
 
@@ -73,7 +76,7 @@ function reportError(result) {
 function applyLanguage() {
   applyTranslations();
   ui.refreshLanguage();
-  refreshLabels();
+  rebuildWheel(); // los nombres de los ejercicios por defecto cambian con el idioma
   refreshMarker();
 }
 
@@ -87,20 +90,17 @@ const actions = {
   'close-config': () => ui.closeConfig(),
   'spin': () => handleSpin(),
   'close-result': arg => ui.closeResult(arg === 'done'),
-  'toggle-reps': arg => ui.setAllChecked('.rep-checkbox', arg === 'on'),
-  'toggle-exs': arg => ui.setAllChecked('.ex-checkbox', arg === 'on'),
+  'toggle-exs': arg => ui.setAllChecked(arg === 'on'),
 
-  'add-rep': () => {
-    const result = addRep(ui.readNewRepValue());
+  'edit-reps': arg => arg && ui.toggleRepsEditor(arg),
+  'save-reps': arg => {
+    if (!arg) return;
+    const { min, max } = ui.readRepsEditor(arg);
+    const result = updateExerciseReps(arg, min, max);
     reportError(result);
-    if (result.ok) ui.clearNewRepValue();
+    if (!result.ok) return;
     rebuildWheel();
-    ui.renderConfig();
-  },
-  'delete-rep': arg => {
-    removeRep(Number(arg));
-    rebuildWheel();
-    ui.renderConfig();
+    ui.renderConfig(true);
   },
   'add-exercise': () => {
     const form = ui.readNewExerciseForm();
@@ -110,16 +110,15 @@ const actions = {
     if (!result.ok) return;
     ui.resetNewExerciseForm();
     rebuildWheel();
-    ui.renderConfig();
+    ui.renderConfig(true);
   },
   'delete-exercise': arg => {
     if (arg) removeExercise(arg);
     rebuildWheel();
-    ui.renderConfig();
+    ui.renderConfig(true);
   },
   'save-config': () => {
-    const { reps, exercises } = ui.readCheckedConfig();
-    setActive(reps, exercises);
+    setActive(ui.readCheckedExercises());
     rebuildWheel();
     ui.closeConfig();
   },

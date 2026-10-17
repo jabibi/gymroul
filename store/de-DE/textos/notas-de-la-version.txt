@@ -1,6 +1,5 @@
-• Neu: Teile deine Challenge als Bild mit dem Link zur App.
-• Jetzt auch in Nederlands und 日本語.
-• Neues „Datenschutzversprechen“ in den Einstellungen: was die App mit deinen Daten tut (und was nicht).
-• Die App startet direkt mit dem Rad: ohne Einführung.
-• Größere, leichter zu tippende Schaltflächen.
+• Neu: Jede Übung hat ihren eigenen Wiederholungsbereich, und die Zahl kommt nach dem Drehen.
+• Ein übersichtlicheres Rad: ein Segment pro Übung.
+• Die Standardübungen erscheinen jetzt in deiner Sprache.
+• Besser zentriertes App-Symbol.
 • Fehlerbehebungen und Verbesserungen.

@@ -7,8 +7,9 @@ import { Capacitor } from '@capacitor/core';
 import { Share } from '@capacitor/share';
 import { Filesystem, Directory } from '@capacitor/filesystem';
 import { t, getLanguage, isRtl } from './i18n/index.js';
+import { fitText, displayChallenge } from './wheel-math.js';
 
-/** @typedef {import('./wheel-math.js').Segment} Segment */
+/** @typedef {import('./wheel-math.js').Challenge} Challenge */
 
 /** Ficha de la app en Google Play: es lo que lleva el texto compartido. */
 export const APP_URL = 'https://play.google.com/store/apps/details?id=eus.jabibi.gymroul';
@@ -23,10 +24,10 @@ const uniqueName = () => `gymroulette-reto-${Date.now()}.png`;
 const CACHE_DIR = 'share';
 const FONT = "'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', sans-serif";
 
-/** @param {Segment} winner */
+/** @param {Challenge} winner */
 export const challengeLabel = winner => `${winner.reps} ${winner.exercise}`;
 
-/** @param {Segment} winner @returns {string} texto que acompaña a la imagen */
+/** @param {Challenge} winner @returns {string} texto que acompaña a la imagen */
 export const shareText = winner => t('share.text', { challenge: challengeLabel(winner), url: APP_URL });
 
 /**
@@ -58,7 +59,7 @@ function roundRect(ctx, x, y, w, h, r) {
 
 /**
  * Dibuja la tarjeta del reto (marca, reto, color del sector, botón y dirección) en un lienzo cuadrado.
- * @param {HTMLCanvasElement} canvas @param {Segment} winner @param {HTMLImageElement | null} logo
+ * @param {HTMLCanvasElement} canvas @param {Challenge} winner @param {HTMLImageElement | null} logo
  */
 export function drawCard(canvas, winner, logo) {
   const S = IMAGE_SIZE;
@@ -114,12 +115,11 @@ export function drawCard(canvas, winner, logo) {
   ctx.fillStyle = '#4ADE80';
   ctx.fillText(badge, S / 2, 392);
 
-  // El reto, lo más grande que quepa
-  const label = challengeLabel(winner);
-  const size = fitFontSize(px => (ctx.font = `800 ${px}px ${FONT}`, ctx.measureText(label).width), S - 160, 200, 64);
-  ctx.font = `800 ${size}px ${FONT}`;
+  // El reto, lo más grande que quepa; un nombre larguísimo se recorta con «…» en lugar de salirse de la imagen
+  const fitted = fitText((text, px) => (ctx.font = `800 ${px}px ${FONT}`, ctx.measureText(text).width), displayChallenge(winner.reps, winner.exercise), S - 160, 200, 56);
+  ctx.font = `800 ${fitted.size}px ${FONT}`;
   ctx.fillStyle = '#fff';
-  ctx.fillText(label, S / 2, 590);
+  ctx.fillText(fitted.text, S / 2, 590);
 
   // Barra con el color del sector de la ruleta
   roundRect(ctx, (S - 360) / 2, 640, 360, 18, 9);
@@ -143,7 +143,7 @@ export function drawCard(canvas, winner, logo) {
   ctx.fillText(WEB_HOST, S / 2, 988);
 }
 
-/** @param {Segment} winner @returns {Promise<Blob>} */
+/** @param {Challenge} winner @returns {Promise<Blob>} */
 export async function renderCard(winner) {
   // Las letras y el logo deben estar cargados antes de dibujar
   await Promise.all([
@@ -192,7 +192,7 @@ function nextPaint() {
  * en el navegador, con la API de compartir si admite archivos y, si no, descargando la imagen.
  * Se puede cancelar con `signal` mientras se prepara la imagen; `onReady` se llama justo antes de entregarla
  * al sistema (a partir de ahí ya no se puede cancelar desde la app).
- * @param {Segment} winner
+ * @param {Challenge} winner
  * @param {{ signal?: AbortSignal, onReady?: () => void }} [options]
  * @returns {Promise<'shared' | 'saved' | 'cancelled'>}
  */

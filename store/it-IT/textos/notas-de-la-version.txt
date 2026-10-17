@@ -1,6 +1,5 @@
-• Novità: condividi la tua sfida come immagine con il link all'app.
-• Ora anche in Nederlands e 日本語.
-• Nuovo «Impegno per la privacy» nelle impostazioni: cosa fa (e cosa non fa) l'app con i tuoi dati.
-• L'app si apre direttamente sulla ruota: senza introduzione.
-• Pulsanti e controlli più grandi e facili da toccare.
+• Novità: ogni esercizio ha il proprio intervallo di ripetizioni e il numero esce dopo il giro.
+• Una ruota più pulita: un settore per esercizio.
+• Gli esercizi predefiniti ora appaiono nella tua lingua.
+• Icona dell'app meglio centrata.
 • Correzioni di bug e miglioramenti.

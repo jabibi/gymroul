@@ -57,11 +57,9 @@ input, textarea {
     box-shadow: 0 0 24px rgb(var(--brand-500) / 0.4);
 }
 /* Mientras la ruleta gira deprisa, el nombre cambia tan rápido que se desenfoca */
-.live-marker #liveIndicatorBadge,
 .live-marker #liveIndicatorText {
     transition: filter 0.25s ease-out;
 }
-.live-marker.is-spinning #liveIndicatorBadge,
 .live-marker.is-spinning #liveIndicatorText {
     filter: blur(1.2px);
 }
@@ -76,7 +74,6 @@ input, textarea {
 }
 @media (prefers-reduced-motion: reduce) {
     .live-marker.is-landed { animation: none; }
-    .live-marker.is-spinning #liveIndicatorBadge,
     .live-marker.is-spinning #liveIndicatorText { filter: none; }
 }
 

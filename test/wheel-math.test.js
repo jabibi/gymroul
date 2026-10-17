@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import { getWinningIndex, normalizeDelta, generateCombinations, CONFIG_SEGMENT } from '../src/wheel-math.js';
+import { getWinningIndex, normalizeDelta, generateSegments, rollReps, fitText, isolate, displayChallenge, CONFIG_SEGMENT } from '../src/wheel-math.js';
 
 const exercises = [
-  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'fa-fire', color: '#ef4444' },
-  { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'fa-person-walking', color: '#f97316' },
+  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'fa-fire', color: '#ef4444', repsMin: 10, repsMax: 30 },
+  { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'fa-person-walking', color: '#f97316', repsMin: 5, repsMax: 5 },
 ];
 
 describe('getWinningIndex', () => {
@@ -50,21 +50,95 @@ describe('normalizeDelta', () => {
   });
 });
 
-describe('generateCombinations', () => {
-  it('genera el producto repeticiones × ejercicios activos', () => {
-    const segs = generateCombinations(exercises, [10, 20], ['Burpee', 'Lunge'], [10, 20]);
-    expect(segs).toHaveLength(4);
-    expect(segs[0]).toMatchObject({ reps: 10, exercise: 'Burpee', text: '10 Burpee' });
+describe('generateSegments', () => {
+  it('genera un sector por ejercicio activo, con su rango de repeticiones', () => {
+    const segs = generateSegments(exercises, ['Burpee', 'Lunge']);
+    expect(segs).toHaveLength(2);
+    expect(segs[0]).toMatchObject({ exercise: 'Burpee', text: 'Burpee', repsMin: 10, repsMax: 30 });
   });
 
   it('respeta la selección activa', () => {
-    const segs = generateCombinations(exercises, [10, 20], ['Lunge'], [20]);
+    const segs = generateSegments(exercises, ['Lunge']);
     expect(segs).toHaveLength(1);
-    expect(segs[0].fullName).toBe('20 Lunge');
+    expect(segs[0]).toMatchObject({ exercise: 'Lunge', repsMin: 5, repsMax: 5 });
   });
 
   it('devuelve el sector de configuración si no hay nada activo', () => {
-    expect(generateCombinations(exercises, [10], [], [10])).toEqual([CONFIG_SEGMENT]);
-    expect(generateCombinations(exercises, [10], ['Burpee'], [])).toEqual([CONFIG_SEGMENT]);
+    expect(generateSegments(exercises, [])).toEqual([CONFIG_SEGMENT]);
+  });
+});
+
+describe('rollReps', () => {
+  it('cubre los dos extremos del rango', () => {
+    expect(rollReps(10, 30, () => 0)).toBe(10);
+    expect(rollReps(10, 30, () => 0.9999999)).toBe(30);
+  });
+
+  it('con mínimo igual al máximo devuelve ese valor', () => {
+    expect(rollReps(15, 15, () => 0.5)).toBe(15);
+  });
+
+  it('siempre devuelve un entero dentro del rango', () => {
+    for (let i = 0; i < 1000; i++) {
+      const n = rollReps(3, 8);
+      expect(Number.isInteger(n)).toBe(true);
+      expect(n).toBeGreaterThanOrEqual(3);
+      expect(n).toBeLessThanOrEqual(8);
+    }
+  });
+});
+
+describe('generateSegments con nombres traducidos', () => {
+  it('filtra por el nombre guardado y muestra el que da la función de traducción', () => {
+    const segs = generateSegments(exercises, ['Burpee'], ex => ({ name: `T-${ex.name}`, shortName: `S-${ex.name}` }));
+    expect(segs).toHaveLength(1);
+    expect(segs[0]).toMatchObject({ exercise: 'T-Burpee', text: 'S-Burpee', shortName: 'S-Burpee' });
+  });
+});
+
+describe('fitText', () => {
+  // Medida simulada: cada carácter ocupa size * 0.6
+  const measure = (text, size) => Array.from(text).length * size * 0.6;
+
+  it('deja el texto y el tamaño máximo si cabe', () => {
+    expect(fitText(measure, 'Burpee', 200, 18, 9)).toEqual({ text: 'Burpee', size: 18 });
+  });
+
+  it('baja el tamaño de letra antes de recortar', () => {
+    const r = fitText(measure, 'Mountain Climbers', 100, 18, 9);
+    expect(r.text).toBe('Mountain Climbers');
+    expect(r.size).toBeLessThan(18);
+    expect(r.size).toBeGreaterThanOrEqual(9);
+    expect(measure(r.text, r.size)).toBeLessThanOrEqual(100);
+  });
+
+  it('si no cabe ni con el tamaño mínimo, recorta con «…» y cabe', () => {
+    const r = fitText(measure, 'Supercalifragilisticexpialidocious', 60, 18, 9);
+    expect(r.size).toBe(9);
+    expect(r.text.endsWith('…')).toBe(true);
+    expect(measure(r.text, r.size)).toBeLessThanOrEqual(60);
+    expect(r.text.length).toBeGreaterThan(2);
+  });
+
+  it('con un ancho diminuto devuelve solo «…» y no falla con texto vacío', () => {
+    expect(fitText(measure, 'Largo', 1, 18, 9).text).toBe('…');
+    expect(fitText(measure, '', 10, 18, 9)).toEqual({ text: '', size: 18 });
+  });
+
+  it('no parte caracteres de varios bytes', () => {
+    const r = fitText(measure, '😀😀😀😀😀😀😀😀😀😀', 40, 18, 9);
+    expect(r.text).toMatch(/^(😀)*…$/u);
+  });
+});
+
+describe('isolate y displayChallenge', () => {
+  it('rodean el texto con marcas de aislamiento que no cambian el texto visible', () => {
+    expect(isolate('Burpee')).toBe('⁨Burpee⁩');
+    expect(isolate('Burpee').replace(/[⁨⁩]/g, '')).toBe('Burpee');
+  });
+
+  it('el reto en pantalla es «repeticiones ejercicio» con el nombre aislado', () => {
+    expect(displayChallenge(55, 'Push-up')).toBe('55 ⁨Push-up⁩');
+    expect(displayChallenge(20, 'Burpee').replace(/[⁨⁩]/g, '')).toBe('20 Burpee');
   });
 });

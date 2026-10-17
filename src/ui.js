@@ -1,13 +1,18 @@
 // @ts-check
 // Modales, historial, configuración y avisos
 
-import { getExercises, getReps, active } from './store.js';
+import { exerciseLabels } from './exercise-names.js';
+import { displayChallenge } from './wheel-math.js';
+import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE } from './store.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
 import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
 import { shareChallenge } from './share.js';
 import { t, getLanguage, getLanguageTag, groupName, iconLabel, isRtl, LANGUAGES } from './i18n/index.js';
 
-/** @typedef {import('./wheel-math.js').Segment} Segment */
+/**
+ * @typedef {import('./wheel-math.js').Segment} Segment
+ * @typedef {import('./wheel-math.js').Challenge} Challenge
+ */
 
 /** @param {string} id */
 const $ = id => /** @type {HTMLElement} */ (document.getElementById(id));
@@ -48,7 +53,7 @@ export function setSoundIcon(enabled) {
 }
 
 /**
- * Marcador del sector bajo el puntero: [icono del ejercicio] [cantidad] nombre. Sin ejercicios activos
+ * Marcador del sector bajo el puntero: [icono del ejercicio] nombre. Sin ejercicios activos
  * muestra un engranaje y "Configurar ruleta".
  * @param {Segment | undefined} seg
  * @param {boolean} [spinningFast] la ruleta gira deprisa: el texto se desenfoca
@@ -56,13 +61,10 @@ export function setSoundIcon(enabled) {
 export function updateLiveIndicator(seg, spinningFast = false) {
   if (!seg) return;
   const marker = $('liveIndicator');
-  const hasExercise = seg.reps > 0;
+  const hasExercise = seg.repsMax > 0;
   $('liveIndicatorIcon').innerHTML = hasExercise ? renderIconHTML(seg.icon) : '<i class="fa-solid fa-gear text-base" aria-hidden="true"></i>';
-  const badge = $('liveIndicatorBadge');
-  badge.textContent = hasExercise ? String(seg.reps) : '';
-  badge.classList.toggle('hidden', !hasExercise);
   $('liveIndicatorText').textContent = hasExercise ? seg.exercise : t('live.configure');
-  marker.setAttribute('aria-label', hasExercise ? `${seg.reps} ${seg.exercise}` : t('live.configure'));
+  marker.setAttribute('aria-label', hasExercise ? seg.exercise : t('live.configure'));
   marker.classList.toggle('is-spinning', spinningFast);
 }
 
@@ -175,21 +177,26 @@ export function initModals() {
 
 // --- Resultado -----------------------------------------------------------------------
 
-/** @type {Segment | null} */
+/** @type {Challenge | null} */
 let pendingWinner = null;
-/** @type {((winner: Segment) => void) | null} */
+/** @type {((winner: Challenge) => void) | null} */
 let onCompleted = null;
 
-/** @param {(winner: Segment) => void} cb se llama al confirmar un reto como completado */
+/** @param {(winner: Challenge) => void} cb se llama al confirmar un reto como completado */
 export function setCompletedHandler(cb) { onCompleted = cb; }
 
-/** @param {Segment} winner */
+/** @param {Challenge} winner */
 export function showResult(winner) {
   playWinFanfare();
   vibrateResult();
 
   $('winnerIconContainer').innerHTML = renderIconHTML(winner.icon);
-  $('winnerText').textContent = `${winner.reps} ${winner.exercise}`;
+  const challenge = `${winner.reps} ${winner.exercise}`; // sin marcas de aislamiento: se usa para medir la longitud
+  $('winnerText').textContent = displayChallenge(winner.reps, winner.exercise);
+  // Un nombre largo baja de tamaño para que se lea entero en la tarjeta
+  $('winnerText').classList.toggle('text-3xl', challenge.length <= 18);
+  $('winnerText').classList.toggle('text-2xl', challenge.length > 18 && challenge.length <= 30);
+  $('winnerText').classList.toggle('text-xl', challenge.length > 30);
 
   $('resultModal').classList.remove('opacity-0', 'pointer-events-none');
   $('resultCard').classList.remove('scale-90');
@@ -277,11 +284,11 @@ export function closeResult(completed) {
 /** @type {{ id: number, text: string, reps: number, exercise: string, time: string }[]} */
 const sessionHistory = [];
 
-/** @param {Segment} winner */
+/** @param {Challenge} winner */
 export function addToHistory(winner) {
   sessionHistory.unshift({
     id: Date.now(),
-    text: `${winner.reps} ${winner.exercise}`,
+    text: displayChallenge(winner.reps, winner.exercise),
     reps: winner.reps,
     exercise: winner.exercise,
     time: new Date().toLocaleTimeString(getLanguageTag(), { hour: '2-digit', minute: '2-digit' }),
@@ -315,14 +322,14 @@ export function renderHistory() {
   total.textContent = t('history.total', { n: sessionHistory.length });
   listEl.innerHTML = sessionHistory.map(h => `
     <div class="bg-dark-900 border border-slate-800 rounded-2xl p-3 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center font-black text-sm border border-brand-500/20">${h.reps}</div>
-        <div>
-          <h4 class="font-bold text-white text-xs">${escapeHTML(h.text)}</h4>
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="min-w-10 h-10 px-1.5 shrink-0 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center font-black ${String(h.reps).length > 3 ? 'text-[11px]' : 'text-sm'} border border-brand-500/20">${h.reps}</div>
+        <div class="min-w-0">
+          <h4 class="font-bold text-white text-xs break-words">${escapeHTML(h.text)}</h4>
           <span class="text-[10px] text-slate-400 font-medium">${escapeHTML(h.time)}</span>
         </div>
       </div>
-      <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black border border-emerald-500/20">${escapeHTML(t('history.done'))}</span>
+      <span class="shrink-0 ms-2 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black border border-emerald-500/20">${escapeHTML(t('history.done'))}</span>
     </div>`).join('');
 }
 
@@ -338,34 +345,70 @@ export function closeHistory() {
 
 // --- Configuración -------------------------------------------------------------------
 
-export function renderConfig() {
-  $('repsCheckboxes').innerHTML = getReps().map(rep => `
-    <div class="flex items-stretch min-h-[46px] rounded-xl bg-dark-950 border border-slate-800">
-      <label class="flex items-center gap-2 cursor-pointer flex-1 ps-2 py-2">
-        <input type="checkbox" value="${rep}" ${active.reps.includes(rep) ? 'checked' : ''} class="rep-checkbox w-4 h-4 rounded text-brand-500 focus:ring-brand-500 bg-dark-900 border-slate-700">
-        <span class="text-xs font-bold text-white">${escapeHTML(t('config.repLabel', { n: rep }))}</span>
-      </label>
-      <button data-action="delete-rep" data-arg="${rep}" aria-label="${escapeHTML(t('config.deleteRep', { n: rep }))}" class="flex items-center justify-center w-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors">
-        <i class="fa-solid fa-trash-can"></i>
-      </button>
-    </div>`).join('');
+/** Id del ejercicio con el editor de repeticiones abierto (solo uno a la vez) */
+let repsEditorOpen = '';
 
-  $('exsCheckboxes').innerHTML = getExercises().map(ex => `
-    <div class="flex items-stretch min-h-[46px] rounded-xl bg-dark-950 border border-slate-800">
-      <label class="flex items-center gap-2 cursor-pointer flex-1 ps-2.5 py-2">
-        <input type="checkbox" value="${escapeHTML(ex.name)}" ${active.exercises.includes(ex.name) ? 'checked' : ''} class="ex-checkbox w-4 h-4 rounded text-brand-500 focus:ring-brand-500 bg-dark-900 border-slate-700">
-        <span class="text-xs font-bold text-white flex items-center gap-2">
-          <span class="text-brand-400 text-lg flex items-center">${renderIconHTML(ex.icon)}</span>
-          ${escapeHTML(ex.name)}
-        </span>
-      </label>
-      <button data-action="delete-exercise" data-arg="${escapeHTML(ex.id)}" aria-label="${escapeHTML(t('config.deleteExercise', { name: ex.name }))}" class="flex items-center justify-center w-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors">
-        <i class="fa-solid fa-trash-can"></i>
+/** @param {string} id */
+const repsInputId = (id, /** @type {string} */ kind) => `reps${kind}-${id}`;
+
+/** @param {boolean} [keepChecks] conserva las casillas marcadas que aún no se han guardado */
+export function renderConfig(keepChecks = false) {
+  const pending = keepChecks
+    ? new Map(Array.from(document.querySelectorAll('.ex-checkbox')).map(cb => [/** @type {HTMLInputElement} */ (cb).value, /** @type {HTMLInputElement} */ (cb).checked]))
+    : null;
+  const isOn = (/** @type {string} */ name) => (pending?.has(name) ? !!pending.get(name) : active.exercises.includes(name));
+  const inputClass = 'min-h-[44px] w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500';
+
+  $('exsCheckboxes').innerHTML = getExercises().map(ex => {
+    const open = repsEditorOpen === ex.id;
+    const range = t('config.repsRange', { min: ex.repsMin, max: ex.repsMax });
+    const name = exerciseLabels(ex).name;
+    return `
+    <div class="rounded-xl bg-dark-950 border border-slate-800">
+      <div class="flex items-stretch min-h-[46px]">
+        <label class="flex items-center gap-2 cursor-pointer flex-1 min-w-0 ps-2.5 py-2">
+          <input type="checkbox" value="${escapeHTML(ex.name)}" ${isOn(ex.name) ? 'checked' : ''} class="ex-checkbox w-4 h-4 shrink-0 rounded text-brand-500 focus:ring-brand-500 bg-dark-900 border-slate-700">
+          <span class="text-xs font-bold text-white flex items-center gap-2 min-w-0">
+            <span class="text-brand-400 text-lg flex items-center shrink-0">${renderIconHTML(ex.icon)}</span>
+            <span class="min-w-0 break-words">${escapeHTML(name)}</span>
+          </span>
+        </label>
+        <button data-action="delete-exercise" data-arg="${escapeHTML(ex.id)}" aria-label="${escapeHTML(t('config.deleteExercise', { name }))}" class="flex items-center justify-center w-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+      </div>
+      <button data-action="edit-reps" data-arg="${escapeHTML(ex.id)}" aria-expanded="${open}" aria-label="${escapeHTML(t('config.editReps', { name }))}" class="flex items-center min-h-[44px] ps-2.5 pe-3 text-[11px] font-bold text-brand-400 hover:underline">
+        <bdi dir="ltr">${escapeHTML(range)}</bdi>
       </button>
-    </div>`).join('');
+      <div class="${open ? '' : 'hidden'} grid grid-cols-[1fr_1fr_auto] items-end gap-2 px-2.5 pb-2.5 pt-1 border-t border-slate-800/80">
+        <label class="block text-[11px] font-bold text-slate-400">${escapeHTML(t('config.repsMin'))}
+          <input type="number" dir="ltr" inputmode="numeric" id="${repsInputId(ex.id, 'Min')}" value="${ex.repsMin}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
+        </label>
+        <label class="block text-[11px] font-bold text-slate-400">${escapeHTML(t('config.repsMax'))}
+          <input type="number" dir="ltr" inputmode="numeric" id="${repsInputId(ex.id, 'Max')}" value="${ex.repsMax}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
+        </label>
+        <button data-action="save-reps" data-arg="${escapeHTML(ex.id)}" class="min-h-[44px] px-3 py-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all">${escapeHTML(t('config.repsSave'))}</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/** Abre o cierra el editor de repeticiones de un ejercicio. @param {string} id */
+export function toggleRepsEditor(id) {
+  repsEditorOpen = repsEditorOpen === id ? '' : id;
+  renderConfig(true);
+}
+
+/** Lee el rango escrito en el editor de un ejercicio. @param {string} id */
+export function readRepsEditor(id) {
+  return {
+    min: /** @type {HTMLInputElement} */ ($(repsInputId(id, 'Min'))).value,
+    max: /** @type {HTMLInputElement} */ ($(repsInputId(id, 'Max'))).value,
+  };
 }
 
 export function openConfig() {
+  repsEditorOpen = '';
   renderConfig();
   setSheetVisible('configModal', 'configCard', true);
   pushModal('config');
@@ -376,20 +419,16 @@ export function closeConfig() {
   dismissModal('config');
 }
 
-/** @param {'.rep-checkbox' | '.ex-checkbox'} selector @param {boolean} checked */
-export function setAllChecked(selector, checked) {
-  document.querySelectorAll(selector).forEach(cb => { /** @type {HTMLInputElement} */ (cb).checked = checked; });
+/** @param {boolean} checked */
+export function setAllChecked(checked) {
+  document.querySelectorAll('.ex-checkbox').forEach(cb => { /** @type {HTMLInputElement} */ (cb).checked = checked; });
 }
 
-/** Lee las casillas marcadas en el formulario de configuración. */
-export function readCheckedConfig() {
-  const reps = Array.from(document.querySelectorAll('.rep-checkbox'))
-    .filter(cb => /** @type {HTMLInputElement} */ (cb).checked)
-    .map(cb => parseInt(/** @type {HTMLInputElement} */ (cb).value, 10));
-  const exercises = Array.from(document.querySelectorAll('.ex-checkbox'))
+/** Nombres de los ejercicios marcados en el formulario de configuración. */
+export function readCheckedExercises() {
+  return Array.from(document.querySelectorAll('.ex-checkbox'))
     .filter(cb => /** @type {HTMLInputElement} */ (cb).checked)
     .map(cb => /** @type {HTMLInputElement} */ (cb).value);
-  return { reps, exercises };
 }
 
 // --- Selector de iconos ----------------------------------------------------------------
@@ -426,6 +465,7 @@ export function toggleIconPicker() {
   $('iconPickerBtn').setAttribute('aria-expanded', String(open));
   if (open) {
     /** @type {HTMLInputElement} */ ($('iconSearch')).value = '';
+    $('iconGrid').style.maxHeight = ''; // vuelve a la altura de CSS; se reajusta si se abre el teclado
     renderIconGrid();
   }
 }
@@ -448,12 +488,16 @@ export function filterIcons(query) {
 export function readNewExerciseForm() {
   const name = /** @type {HTMLInputElement} */ ($('newExName')).value.trim();
   const short = /** @type {HTMLInputElement} */ ($('newExShort')).value.trim();
-  return { name, shortName: short || name, icon: selectedIcon };
+  const repsMin = /** @type {HTMLInputElement} */ ($('newExRepsMin')).value;
+  const repsMax = /** @type {HTMLInputElement} */ ($('newExRepsMax')).value;
+  return { name, shortName: short, icon: selectedIcon, repsMin, repsMax };
 }
 
 export function resetNewExerciseForm() {
   /** @type {HTMLInputElement} */ ($('newExName')).value = '';
   /** @type {HTMLInputElement} */ ($('newExShort')).value = '';
+  /** @type {HTMLInputElement} */ ($('newExRepsMin')).value = String(DEFAULT_REPS_MIN);
+  /** @type {HTMLInputElement} */ ($('newExRepsMax')).value = String(DEFAULT_REPS_MAX);
   selectedIcon = DEFAULT_ICON;
   updateIconButton();
   $('iconPicker').classList.add('hidden');
@@ -463,9 +507,6 @@ export function resetNewExerciseForm() {
 export function initIconPicker() {
   updateIconButton();
 }
-
-export const readNewRepValue = () => /** @type {HTMLInputElement} */ ($('newRepInput')).value;
-export const clearNewRepValue = () => { /** @type {HTMLInputElement} */ ($('newRepInput')).value = ''; };
 
 // --- Teclado virtual -----------------------------------------------------------------
 // Al abrirse el teclado el viewport se reduce y el campo con foco puede quedar tapado. Se hace
@@ -479,6 +520,27 @@ const KEYBOARD_SETTLE_MS = 250;
 /** @type {ReturnType<typeof setTimeout> | undefined} */
 let revealTimer;
 
+/** Altura máxima de la cuadrícula de iconos cuando hay sitio de sobra (la que tiene en CSS) y la mínima útil */
+const ICON_GRID_MAX_PX = 208;
+const ICON_GRID_MIN_PX = 56;
+
+/**
+ * Con el teclado abierto la zona visible de Configuración es pequeña y la cuadrícula de iconos (que tiene su propio
+ * desplazamiento) quedaba medio fuera de ella: al arrastrar sobre ella se movía la parte oculta de la cuadrícula y la
+ * pantalla parecía bloqueada. Se limita su altura a lo que se ve, para que sea toda visible y no haya dos
+ * desplazamientos solapados.
+ */
+function fitIconGrid() {
+  const grid = $('iconGrid');
+  if ($('iconPicker').classList.contains('hidden')) return;
+  const scroller = $('iconPicker').closest('.overflow-y-auto'); // el de la pantalla, no la propia cuadrícula
+  const vv = window.visualViewport;
+  const viewportBottom = (vv ? vv.offsetTop + vv.height : window.innerHeight) - REVEAL_MARGIN_PX;
+  const bottom = Math.min(scroller ? scroller.getBoundingClientRect().bottom - REVEAL_MARGIN_PX : viewportBottom, viewportBottom);
+  const available = bottom - grid.getBoundingClientRect().top;
+  grid.style.maxHeight = `${Math.round(Math.max(ICON_GRID_MIN_PX, Math.min(ICON_GRID_MAX_PX, available)))}px`;
+}
+
 function revealFocusedField() {
   const el = document.activeElement;
   if (!(el instanceof HTMLElement) || !el.matches(TEXT_FIELDS)) return;
@@ -491,9 +553,11 @@ function revealFocusedField() {
   const top = (box ? Math.max(box.top, 0) : 0) + REVEAL_MARGIN_PX;
   const bottom = box ? Math.min(box.bottom - REVEAL_MARGIN_PX, viewportBottom) : viewportBottom;
   const rect = el.getBoundingClientRect();
-  if (rect.top >= top && rect.bottom <= bottom) return; // ya se ve: no tocar nada
+  const isIconSearch = el.id === 'iconSearch';
+  if (!isIconSearch && rect.top >= top && rect.bottom <= bottom) return; // ya se ve: no tocar nada
 
-  const delta = rect.top < top ? rect.top - top : rect.bottom - bottom;
+  // El buscador de iconos se sube hasta arriba de la zona visible: debajo tiene que caber la cuadrícula con los resultados
+  const delta = rect.top < top || isIconSearch ? rect.top - top : rect.bottom - bottom;
   if (scroller) scroller.scrollTop += delta;
   else window.scrollBy(0, delta);
 }
@@ -501,7 +565,10 @@ function revealFocusedField() {
 /** Reprograma el ajuste: solo se ejecuta cuando el viewport lleva un rato sin cambiar. */
 function scheduleReveal() {
   clearTimeout(revealTimer);
-  revealTimer = setTimeout(revealFocusedField, KEYBOARD_SETTLE_MS);
+  revealTimer = setTimeout(() => {
+    revealFocusedField();
+    fitIconGrid();
+  }, KEYBOARD_SETTLE_MS);
 }
 
 export function initKeyboardAvoidance() {
@@ -579,7 +646,7 @@ export function renderLanguageSelectors() {
 /** Vuelve a pintar lo que se genera por código cuando cambia el idioma (el marcado fijo lo hace applyTranslations). */
 export function refreshLanguage() {
   renderLanguageSelectors();
-  renderConfig();
+  renderConfig(true);
   renderHistory();
   updateIconButton();
   if (!$('iconPicker').classList.contains('hidden')) renderIconGrid(/** @type {HTMLInputElement} */ ($('iconSearch')).value);

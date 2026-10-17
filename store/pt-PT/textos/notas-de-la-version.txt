@@ -1,6 +1,5 @@
-• Novidade: partilha o teu desafio como imagem com a ligação para a aplicação.
-• Agora também em Nederlands e 日本語.
-• Novo «Compromisso de privacidade» em Definições: o que a aplicação faz (e não faz) com os teus dados.
-• A aplicação abre diretamente na roleta: sem introdução.
-• Botões e controlos maiores e mais fáceis de tocar.
+• Novidade: cada exercício tem o seu próprio intervalo de repetições, e o número sai depois do giro.
+• Uma roleta mais limpa: um setor por exercício.
+• Os exercícios predefinidos aparecem agora no teu idioma.
+• Ícone da aplicação mais bem centrado.
 • Correções de erros e melhorias.

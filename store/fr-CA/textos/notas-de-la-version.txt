@@ -1,6 +1,5 @@
-• Nouveau : partage ton défi sous forme d'image avec le lien vers l'application.
-• Désormais aussi en Nederlands et 日本語.
-• Nouvel « Engagement de confidentialité » dans les réglages : ce que l'application fait (et ne fait pas) de tes données.
-• L'application s'ouvre directement sur la roue : sans introduction.
-• Boutons et commandes plus grands, plus faciles à toucher.
+• Nouveau : chaque exercice a sa propre plage de répétitions, et le nombre sort après le tour.
+• Une roue plus claire : un secteur par exercice.
+• Les exercices par défaut s'affichent maintenant dans ta langue.
+• Icône de l'application mieux centrée.
 • Corrections de bugs et améliorations.

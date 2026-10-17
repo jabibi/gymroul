@@ -6,8 +6,9 @@
 // Un único diseño (la ruleta) con tres presentaciones:
 //   - logo.svg / favicon.svg   cuadrado redondeado con fondo de color (cabecera de la app y pestaña)
 //   - icon-only.png            icono completo a sangre (lanzadores antiguos)
-//   - icon-foreground.png      solo la ruleta, más grande, sobre transparente (icono adaptativo; Android
-//                              lo reduce al 66 % dentro de la zona segura)
+//   - icon-foreground.png      solo la ruleta, con la circunferencia centrada y algo de aire respecto al fondo,
+//                              sobre transparente (icono adaptativo; Android lo reduce al 66 % dentro de la
+//                              zona segura)
 //   - icon-background.png      solo el degradado de fondo (icono adaptativo)
 //   - splash.png               ruleta sobre el fondo oscuro de la app
 
@@ -92,7 +93,7 @@ const WHEEL = `
 const svg = (body, { bg = '', size = 512, extra = '' } = {}) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="${size}" height="${size}">${DEFS}${bg}${extra}${body}</svg>`;
 
-// dy desplaza la ruleta hacia abajo para dejar sitio al puntero cuando se amplía
+// dy desplaza la ruleta en vertical (0 la deja con su circunferencia centrada en el lienzo)
 const wheelScaled = (s, dy = 0) => `<g transform="translate(256,${256 + dy}) scale(${s}) translate(-256,-256)">${WHEEL}</g>`;
 
 const BG_ROUNDED = '<rect width="512" height="512" rx="112" fill="url(#bg)"/>';
@@ -101,7 +102,7 @@ const BG_FULL = '<rect width="512" height="512" fill="url(#bg)"/>';
 const outputs = {
   logo: svg(wheelScaled(1), { bg: BG_ROUNDED }),
   iconOnly: svg(wheelScaled(1), { bg: BG_FULL }),
-  foreground: svg(wheelScaled(1.16, 10)),
+  foreground: svg(wheelScaled(1.04)),
   background: svg('', { bg: BG_FULL }),
   wheelOnly: svg(WHEEL),
 };

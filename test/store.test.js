@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import {
-  readStorage, getExercises, getReps, loadActive, active, migrate, SCHEMA_VERSION,
-  addExercise, removeExercise, addRep, removeRep, DEFAULT_EXERCISES, DEFAULT_REPS, MAX_REPS, MAX_EXERCISES, pickColor, COLOR_PALETTE,
+  readStorage, getExercises, loadActive, active, migrate, SCHEMA_VERSION,
+  addExercise, removeExercise, updateExerciseReps, parseRepRange, deriveShortName, MAX_NAME_LENGTH, MAX_SHORT_NAME_LENGTH, MAX_REP_VALUE, DEFAULT_EXERCISES, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_EXERCISES, pickColor, COLOR_PALETTE,
 } from '../src/store.js';
 
 function installLocalStorage() {
@@ -42,25 +42,30 @@ describe('catálogo', () => {
   it('no muta las constantes por defecto al ordenar', () => {
     const before = DEFAULT_EXERCISES.map(e => e.name);
     getExercises().reverse();
-    getReps().reverse();
     expect(DEFAULT_EXERCISES.map(e => e.name)).toEqual(before);
-    expect(DEFAULT_REPS).toEqual([10, 20, 30, 40, 50, 60]);
+    expect(DEFAULT_EXERCISES.every(e => e.repsMin === DEFAULT_REPS_MIN && e.repsMax === DEFAULT_REPS_MAX)).toBe(true);
   });
 
   it('ignora datos guardados con formato inválido', () => {
     data.set('gym_exercises', JSON.stringify([{ id: 1, name: 'mal' }]));
-    data.set('gym_reps', JSON.stringify([10, -5, 'a']));
     expect(getExercises()).toHaveLength(DEFAULT_EXERCISES.length);
-    expect(getReps()).toEqual(DEFAULT_REPS);
+  });
+
+  it('sustituye por el rango por defecto un rango guardado ausente o inválido', () => {
+    data.set('gym_exercises', JSON.stringify([
+      { id: 'a', name: 'Sin rango', shortName: 'A', icon: 'dumbbell', color: '#fff' },
+      { id: 'b', name: 'Invertido', shortName: 'B', icon: 'dumbbell', color: '#fff', repsMin: 30, repsMax: 10 },
+      { id: 'c', name: 'Bueno', shortName: 'C', icon: 'dumbbell', color: '#fff', repsMin: 5, repsMax: 9 },
+    ]));
+    const byName = Object.fromEntries(getExercises().map(e => [e.name, [e.repsMin, e.repsMax]]));
+    expect(byName).toEqual({ 'Sin rango': [10, 60], Invertido: [10, 60], Bueno: [5, 9] });
   });
 });
 
 describe('selección activa', () => {
   it('descarta elementos huérfanos al cargar', () => {
-    data.set('gymroulette_active_reps', JSON.stringify([10, 999]));
     data.set('gymroulette_active_exs', JSON.stringify(['Burpee', 'Inexistente']));
     loadActive();
-    expect(active.reps).toEqual([10]);
     expect(active.exercises).toEqual(['Burpee']);
   });
 });
@@ -94,23 +99,87 @@ describe('ejercicios', () => {
   });
 });
 
-describe('repeticiones', () => {
-  it('valida rango, duplicados y máximo', () => {
-    expect(addRep('abc').ok).toBe(false);
-    expect(addRep(0).ok).toBe(false);
-    expect(addRep(501).ok).toBe(false);
-    expect(addRep(10).ok).toBe(false);
-    expect(addRep(15).ok).toBe(true);
-    expect(getReps()).toContain(15);
-    expect(active.reps).toContain(15);
-    for (let n = 100; getReps().length < MAX_REPS; n++) addRep(n);
-    expect(addRep(499).ok).toBe(false);
+describe('repeticiones por ejercicio', () => {
+  it('valida el rango: números entre 1 y el máximo y mínimo no mayor que el máximo', () => {
+    expect(parseRepRange('abc', 20).ok).toBe(false);
+    expect(parseRepRange(0, 20).ok).toBe(false);
+    expect(parseRepRange(10, MAX_REP_VALUE + 1).ok).toBe(false);
+    expect(parseRepRange(30, 20).error.key).toBe('error.repMinMax');
+    expect(parseRepRange('10', '20')).toEqual({ ok: true, min: 10, max: 20 });
+    expect(parseRepRange(' 10 ', ' 20 ')).toEqual({ ok: true, min: 10, max: 20 });
+    expect(parseRepRange(15, 15).ok).toBe(true);
   });
 
-  it('elimina de catálogo y de la selección activa', () => {
-    removeRep(10);
-    expect(getReps()).not.toContain(10);
-    expect(active.reps).not.toContain(10);
+  it('un ejercicio nuevo lleva el rango indicado o el de por defecto', () => {
+    expect(addExercise({ name: 'Dominadas', icon: 'dumbbell', repsMin: '3', repsMax: '12' }).ok).toBe(true);
+    expect(addExercise({ name: 'Plancha', icon: 'timer' }).ok).toBe(true);
+    const byName = Object.fromEntries(getExercises().map(e => [e.name, [e.repsMin, e.repsMax]]));
+    expect(byName.Dominadas).toEqual([3, 12]);
+    expect(byName.Plancha).toEqual([DEFAULT_REPS_MIN, DEFAULT_REPS_MAX]);
+  });
+
+  it('rechaza un rango inválido al crear y no guarda el ejercicio', () => {
+    expect(addExercise({ name: 'Mal', icon: 'dumbbell', repsMin: 20, repsMax: 10 }).ok).toBe(false);
+    expect(getExercises().some(e => e.name === 'Mal')).toBe(false);
+  });
+
+  it('actualiza el rango de un ejercicio y rechaza uno inválido sin cambiarlo', () => {
+    const id = DEFAULT_EXERCISES[0].id;
+    expect(updateExerciseReps(id, 5, 8).ok).toBe(true);
+    expect(getExercises().find(e => e.id === id)).toMatchObject({ repsMin: 5, repsMax: 8 });
+    expect(updateExerciseReps(id, 9, 2).ok).toBe(false);
+    expect(getExercises().find(e => e.id === id)).toMatchObject({ repsMin: 5, repsMax: 8 });
+  });
+});
+
+describe('límites de lo que escribe el usuario', () => {
+  it('rechaza repeticiones enormes sin guardarlas (999999999999999, 1e21, muchos dígitos)', () => {
+    const id = DEFAULT_EXERCISES[0].id;
+    for (const big of ['999999999999999', 999999999999999, 1e21, '9'.repeat(400), String(MAX_REP_VALUE + 1)]) {
+      expect(parseRepRange(10, big).error.key, String(big)).toBe('error.repRange');
+      expect(updateExerciseReps(id, 10, big).ok).toBe(false);
+      expect(addExercise({ name: 'Enorme', icon: 'dumbbell', repsMin: 1, repsMax: big }).ok).toBe(false);
+    }
+    expect(getExercises().find(e => e.id === id)).toMatchObject({ repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX });
+    expect(getExercises().some(e => e.name === 'Enorme')).toBe(false);
+    expect(parseRepRange(MAX_REP_VALUE, MAX_REP_VALUE).ok).toBe(true);
+    expect(MAX_REP_VALUE).toBe(999999);
+    expect(parseRepRange(1, '1000000').ok).toBe(false);
+  });
+
+  it('solo admite enteros: nada de decimales, signos, notación científica, texto ni vacío', () => {
+    for (const bad of ['10.5', '1e3', '12abc', '-5', '+5', '0x10', '', '  ', 'NaN', 'Infinity', null, undefined, '0']) {
+      expect(parseRepRange(bad, 20).ok, String(bad)).toBe(false);
+    }
+  });
+
+  it('limita la longitud del nombre y del nombre corto', () => {
+    const long = 'x'.repeat(MAX_NAME_LENGTH + 1);
+    expect(addExercise({ name: long, icon: 'dumbbell' }).error).toEqual({ key: 'error.maxLength', params: { max: MAX_NAME_LENGTH } });
+    expect(addExercise({ name: 'Bien', shortName: 'y'.repeat(MAX_SHORT_NAME_LENGTH + 1), icon: 'dumbbell' }).error).toEqual({ key: 'error.maxLength', params: { max: MAX_SHORT_NAME_LENGTH } });
+    expect(addExercise({ name: 'x'.repeat(MAX_NAME_LENGTH), shortName: 'y'.repeat(MAX_SHORT_NAME_LENGTH), icon: 'dumbbell' }).ok).toBe(true);
+    expect(getExercises().some(e => e.name === long)).toBe(false);
+  });
+
+  it('colapsa espacios y saltos de línea del nombre', () => {
+    expect(addExercise({ name: '  Press \n  de   banca\t', icon: 'dumbbell' }).ok).toBe(true);
+    expect(getExercises().some(e => e.name === 'Press de banca')).toBe(true);
+    expect(addExercise({ name: 'press de banca', icon: 'dumbbell' }).ok).toBe(false);
+  });
+
+  it('sin nombre corto, lo deriva del nombre y lo recorta con «…» si no cabe', () => {
+    expect(deriveShortName('Plancha')).toBe('Plancha');
+    const derived = deriveShortName('Elevaciones laterales');
+    expect(derived.length).toBeLessThanOrEqual(MAX_SHORT_NAME_LENGTH);
+    expect(derived.endsWith('…')).toBe(true);
+    expect(addExercise({ name: 'Elevaciones laterales', icon: 'dumbbell' }).ok).toBe(true);
+    expect(getExercises().find(e => e.name === 'Elevaciones laterales').shortName).toBe(derived);
+  });
+
+  it('un nombre guardado por versiones anteriores, más largo que el límite, se sigue leyendo', () => {
+    const legacy = 'N'.repeat(80);
+    data.set('gym_exercises', JSON.stringify([{ id: 'z', name: legacy, shortName: legacy, icon: 'dumbbell', color: '#fff', repsMin: 5, repsMax: 9 }]));
+    expect(getExercises()[0].name).toBe(legacy);
   });
 });
 
@@ -164,10 +233,10 @@ describe('migración v5 -> v6', () => {
   it('borra la elección de analítica de versiones anteriores y conserva el resto', () => {
     data.set('gym_schema_version', '5');
     data.set('gymroulette_analytics_consent', 'granted');
-    data.set('gym_reps', JSON.stringify([10, 20]));
+    data.set('gym_exercises', JSON.stringify([{ id: 'a', name: 'A', shortName: 'A', icon: 'dumbbell', color: '#fff' }]));
     migrate();
     expect(data.has('gymroulette_analytics_consent')).toBe(false);
-    expect(JSON.parse(data.get('gym_reps'))).toEqual([10, 20]);
+    expect(JSON.parse(data.get('gym_exercises'))).toHaveLength(1);
   });
 
   it('también limpia la clave si el usuario rechazó la analítica', () => {
@@ -175,6 +244,75 @@ describe('migración v5 -> v6', () => {
     data.set('gymroulette_analytics_consent', 'denied');
     migrate();
     expect(data.has('gymroulette_analytics_consent')).toBe(false);
+  });
+});
+
+describe('migración v7 -> v8', () => {
+  const exs = () => JSON.stringify([
+    { id: 'a', name: 'A', shortName: 'A', icon: 'dumbbell', color: '#fff' },
+    { id: 'b', name: 'B', shortName: 'B', icon: 'dumbbell', color: '#fff' },
+  ]);
+  const ranges = () => JSON.parse(data.get('gym_exercises')).map(e => [e.repsMin, e.repsMax]);
+
+  it('cada ejercicio hereda el mínimo y el máximo de las repeticiones activas', () => {
+    data.set('gym_schema_version', '7');
+    data.set('gym_exercises', exs());
+    data.set('gym_reps', JSON.stringify([5, 10, 20, 40]));
+    data.set('gymroulette_active_reps', JSON.stringify([10, 20, 999]));
+    migrate();
+    expect(ranges()).toEqual([[10, 20], [10, 20]]);
+  });
+
+  it('sin selección activa usa toda la lista global', () => {
+    data.set('gym_schema_version', '7');
+    data.set('gym_exercises', exs());
+    data.set('gym_reps', JSON.stringify([15, 25, 35]));
+    migrate();
+    expect(ranges()).toEqual([[15, 35], [15, 35]]);
+  });
+
+  it('si no había repeticiones activas usa toda la lista global', () => {
+    data.set('gym_schema_version', '7');
+    data.set('gym_exercises', exs());
+    data.set('gym_reps', JSON.stringify([15, 25]));
+    data.set('gymroulette_active_reps', JSON.stringify([]));
+    migrate();
+    expect(ranges()).toEqual([[15, 25], [15, 25]]);
+  });
+
+  it('sin datos de repeticiones usa 10-60', () => {
+    data.set('gym_schema_version', '7');
+    data.set('gym_exercises', exs());
+    data.set('gym_reps', 'corrupto');
+    migrate();
+    expect(ranges()).toEqual([[10, 60], [10, 60]]);
+  });
+
+  it('respeta un rango ya válido y borra las claves de la lista global', () => {
+    data.set('gym_schema_version', '7');
+    data.set('gym_exercises', JSON.stringify([{ id: 'a', name: 'A', shortName: 'A', icon: 'dumbbell', color: '#fff', repsMin: 3, repsMax: 7 }]));
+    data.set('gym_reps', JSON.stringify([10, 20]));
+    data.set('gymroulette_active_reps', JSON.stringify([10]));
+    migrate();
+    expect(ranges()).toEqual([[3, 7]]);
+    expect(data.has('gym_reps')).toBe(false);
+    expect(data.has('gymroulette_active_reps')).toBe(false);
+  });
+
+  it('es idempotente: migrar dos veces no cambia el resultado', () => {
+    data.set('gym_schema_version', '7');
+    data.set('gym_exercises', exs());
+    data.set('gym_reps', JSON.stringify([10, 20]));
+    migrate();
+    const first = data.get('gym_exercises');
+    data.set('gym_schema_version', '7');
+    migrate();
+    expect(data.get('gym_exercises')).toBe(first);
+  });
+
+  it('una instalación nueva queda con los ejercicios por defecto y su rango', () => {
+    migrate();
+    expect(getExercises().every(e => e.repsMin === DEFAULT_REPS_MIN && e.repsMax === DEFAULT_REPS_MAX)).toBe(true);
   });
 });
 

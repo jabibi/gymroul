@@ -1,6 +1,6 @@
 Ez dakizu gaur zer entrenatu? Biratu gurpila eta utzi GymRoulette-ri zure ordez aukeratzen.
 
-GymRoulette ariketen gurpila da: sektore bakoitzak errepikapen kopuru bat ariketa batekin uztartzen du (adibidez, «20 Burpee»), eta biratzean ausazko erronka bat proposatzen dizu etxean, gimnasioan edo kanpoan entrenatzeko. Zure saioei aniztasuna emateko pentsatua dago, zirkuituetarako, lagunekin erronkak egiteko eta konplikatu gabe entrenatu nahi duenarentzat.
+GymRoulette ariketen gurpila da: sektore bakoitza ariketa bat da, eta biratzean ausazko erronka bat proposatzen dizu errepikapen kopuruarekin (adibidez, «20 Burpee») etxean, gimnasioan edo kanpoan entrenatzeko. Zure saioei aniztasuna emateko pentsatua dago, zirkuituetarako, lagunekin erronkak egiteko eta konplikatu gabe entrenatu nahi duenarentzat.
 
 <b>NOLA FUNTZIONATZEN DU</b>
 • Sakatu “BIRATU GURPILA!” edo bota gurpila hatzarekin.
@@ -10,9 +10,9 @@ GymRoulette ariketen gurpila da: sektore bakoitzak errepikapen kopuru bat ariket
 • Partekatu zure erronka irudi gisa zure lagunekin.
 
 <b>ZUK ERABAKITZEN DUZU ZER DAGOEN GURPILEAN</b>
-• Aktibatu edo desaktibatu nahi dituzun ariketak eta errepikapenak.
+• Aktibatu edo desaktibatu nahi dituzun ariketak.
 • Sortu zure ariketak izenarekin, izen laburrarekin eta ikonoarekin.
-• Gehitu edo kendu errepikapenak zailtasuna doitzeko.
+• Zehaztu ariketa bakoitzaren errepikapen-tartea, gutxienekoa eta gehienekoa, zailtasuna doitzeko.
 • Gurpila zure konfiguraziora egokitzen da, eta zure gailuan gordetzen da.
 
 <b>100 IKONO BAINO GEHIAGO ZURE ARIKETETARAKO</b>

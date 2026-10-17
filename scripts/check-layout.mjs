@@ -10,6 +10,8 @@
 //   npm run check:layout                      todos los idiomas
 //   npm run check:layout -- --lang=ar,de      solo algunos (códigos de la app)
 //   npm run check:layout -- --shots=dir       además guarda una captura de cada pantalla en ese directorio
+//   npm run check:layout -- --stress          con 12 ejercicios de nombres larguísimos (más que el límite actual, como
+//                                             los que guardaron versiones anteriores) y repeticiones de hasta 999999
 //   CHROME_PATH=/ruta/a/chrome npm run check:layout   si Chrome no está en /usr/bin/google-chrome
 //
 // Sale con código 1 si encuentra algún problema. Requiere haber compilado antes (npm run build).
@@ -27,11 +29,32 @@ const VIEWPORTS = [{ width: 320, height: 568 }, { width: 360, height: 640 }, { w
 const arg = name => process.argv.find(a => a.startsWith(`--${name}=`))?.slice(name.length + 3);
 const only = arg('lang')?.split(',');
 const shotsDir = arg('shots');
+const stress = process.argv.includes('--stress');
 const languages = LANGUAGES.map(l => l.code).filter(code => !only || only.includes(code));
 if (languages.length === 0) throw new Error(`Ningún idioma coincide con --lang=${arg('lang')}`);
 if (!existsSync('www/index.html')) throw new Error('Falta www/: ejecuta "npm run build" antes.');
 if (!existsSync(CHROME)) throw new Error(`No encuentro Chrome en ${CHROME}. Indica la ruta con CHROME_PATH.`);
 if (shotsDir) mkdirSync(shotsDir, { recursive: true });
+
+/** Ejercicios de prueba (--stress): nombres largos de todo tipo y rangos hasta el máximo de repeticiones. */
+const STRESS_EXERCISES = [
+  ['Supercalifragilisticexpialidocious Press Extended', 'Supercalifragilistic'],
+  ['Extremely long exercise name that keeps going and going', 'Extremely long short'],
+  ['W'.repeat(30), 'W'.repeat(12)],
+  ['Mountain Climbers', 'Climbers'],
+  ['تمرين طويل جدا جدا جدا جدا جدا جدا جدا', 'تمرين طويل جدا جدا جدا'],
+  ['とても長いエクササイズの名前がここに入ります', 'とても長いエクササイズ名前'],
+  ['Burpee', 'Burpee'],
+  ['Split Jumps', 'Split J'],
+  ['Air Squat', 'Squat'],
+  ['Elevaciones laterales con mancuernas', 'Elev. lat…'],
+  ['Push-up', 'Push-up'],
+  ['Lunge', 'Lunge'],
+].map(([name, shortName], i) => ({
+  id: `s${i}`, name, shortName, icon: ['burpee', 'walk', 'pushup', 'squat', 'climbers', 'jump', 'dumbbell', 'karate', 'yoga', 'timer', 'run', 'boxing'][i % 12],
+  color: ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'][i % 8],
+  repsMin: i % 3 === 0 ? 1 : 10, repsMax: i % 3 === 0 ? 999999 : 60,
+}));
 
 const wait = ms => new Promise(r => setTimeout(r, ms));
 
@@ -53,6 +76,18 @@ function inspectPage() {
     return r.width > 0 && r.height > 0;
   };
 
+  // Texto entero fuera de la vista de un contenedor con desplazamiento (p. ej. filas de la cuadrícula de iconos aún sin
+  // desplazar): no se ve, así que no puede solaparse con nada
+  const scrolledOut = (el, r) => {
+    for (let n = el; n && n !== document.documentElement; n = n.parentElement) {
+      const cs = getComputedStyle(n);
+      if (!['auto', 'scroll'].includes(cs.overflowY)) continue;
+      const box = n.getBoundingClientRect();
+      if (r.top >= box.bottom - 0.5 || r.bottom <= box.top + 0.5) return true;
+    }
+    return false;
+  };
+
   // Cajas de texto reales (una por línea) de cada nodo de texto visible, con el elemento al que pertenecen
   const boxes = [];
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -64,6 +99,7 @@ function inspectPage() {
     range.selectNodeContents(node);
     for (const r of range.getClientRects()) {
       if (r.width <= 1 || r.height <= 1) continue;
+      if (scrolledOut(el, r)) continue;
       // Si lo que hay encima de la caja es otra cosa (un modal abierto...), no se ve: se ignora
       const top = document.elementFromPoint(Math.min(Math.max((r.left + r.right) / 2, 0), innerWidth - 1), Math.min(Math.max((r.top + r.bottom) / 2, 0), innerHeight - 1));
       if (top && !(el.contains(top) || top.contains(el))) continue;
@@ -149,15 +185,24 @@ async function openApp(lang, vp) {
   await page.evaluateOnNewDocument(() => {
     Math.random = () => 0.5;
   });
+  if (stress) {
+    await page.evaluateOnNewDocument(list => {
+      localStorage.setItem('gym_schema_version', '8');
+      localStorage.setItem('gym_exercises', JSON.stringify(list));
+    }, STRESS_EXERCISES);
+  }
   await page.goto(`${BASE}?lang=${lang}`, { waitUntil: 'networkidle0' });
   await page.evaluate(() => document.fonts.ready);
   await wait(400);
   return page;
 }
 
+/** Con --stress, el marcador de la ruleta recorta con «…» los nombres largos a propósito (es lo que se quiere ver). */
+const isExpectedStressTruncation = problem => stress && /^(truncado con|recortado:)/.test(problem) && problem.includes('liveIndicatorText');
+
 async function check(page, lang, vp, screen) {
   await wait(300);
-  const problems = await page.evaluate(inspectPage);
+  const problems = (await page.evaluate(inspectPage)).filter(p => !isExpectedStressTruncation(p));
   if (shotsDir) await page.screenshot({ path: `${shotsDir}/${lang}-${vp.width}-${screen}.png` });
   total += problems.length;
   for (const p of [...new Set(problems)]) console.log(`  ✗ ${lang} ${vp.width}x${vp.height} ${screen}: ${p}`);
@@ -181,6 +226,18 @@ try {
         await page.click('[data-action=close-result][data-arg=done]');
         await wait(500);
       }
+      if (stress) {
+        // Un resultado con cada tirada: así salen distintos ejercicios largos en la tarjeta
+        for (const [i, value] of [0.04, 0.2, 0.31, 0.45, 0.6, 0.72, 0.9].entries()) {
+          await page.evaluate(v => { Math.random = () => v; }, value);
+          await page.click('#spinBtn');
+          await page.waitForFunction(() => !document.getElementById('resultModal').classList.contains('pointer-events-none'), { timeout: 30000 });
+          await wait(700);
+          await check(page, lang, vp, `02-resultado-${i + 1}`);
+          await page.click('[data-action=close-result][data-arg=done]');
+          await wait(500);
+        }
+      }
       await page.click('[data-action=open-history]');
       await wait(600);
       await check(page, lang, vp, '03-historial');
@@ -195,6 +252,25 @@ try {
       await wait(300);
       await page.evaluate(() => document.getElementById('iconPicker').scrollIntoView({ block: 'center' }));
       await check(page, lang, vp, '06-selector-de-iconos');
+      // Teclado abierto (se simula con un viewport más bajo): la cuadrícula de iconos tiene que verse entera. Si queda
+      // medio fuera de la zona visible, al arrastrar sobre ella se mueve la parte oculta y la pantalla parece bloqueada.
+      await page.setViewport({ ...vp, height: Math.round(vp.height * 0.6), deviceScaleFactor: 1, isMobile: true, hasTouch: true });
+      await page.focus('#iconSearch');
+      await page.keyboard.type('a');
+      await wait(700);
+      await check(page, lang, vp, '06b-teclado-abierto');
+      const gridCut = await page.evaluate(() => {
+        const grid = document.getElementById('iconGrid').getBoundingClientRect();
+        const box = document.getElementById('iconPicker').closest('.overflow-y-auto').getBoundingClientRect();
+        return grid.bottom > box.bottom + 1 || grid.top < box.top - 1;
+      });
+      if (gridCut) {
+        total++;
+        console.log(`  ✗ ${lang} ${vp.width}x${vp.height} 06b-teclado-abierto: la cuadrícula de iconos queda fuera de la zona visible`);
+      }
+      await page.setViewport({ ...vp, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
+      await wait(400);
+      await page.evaluate(() => { document.getElementById('iconSearch').value = ''; });
       await page.type('#iconSearch', 'zzzzzz');
       await wait(300);
       await check(page, lang, vp, '07-sin-iconos');
