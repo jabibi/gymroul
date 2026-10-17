@@ -29,8 +29,7 @@ export default {
     'history.title': 'セッション履歴',
     'history.close': '履歴を閉じる',
     'history.empty': 'まだ記録がありません。ルーレットを回しましょう！',
-    'history.total': '今回の完了数：{n}',
-    'history.done': '完了！',
+    'history.total': 'エクササイズ：{n} · 合計回数：{reps}',
     'history.clear': '履歴を消去',
 
     'config.title': 'ルーレット設定',

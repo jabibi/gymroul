@@ -29,8 +29,7 @@ export default {
     'history.title': 'Saioko historia',
     'history.close': 'Itxi historia',
     'history.empty': 'Oraindik ez duzu ariketarik erregistratu. Biratu gurpila!',
-    'history.total': 'Saioan egindakoak: {n}',
-    'history.done': 'Eginda!',
+    'history.total': 'Ariketak: {n} · Errepikapenak guztira: {reps}',
     'history.clear': 'Garbitu historia',
 
     'config.title': 'Gurpilaren ezarpenak',

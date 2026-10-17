@@ -29,8 +29,7 @@ export default {
     'history.title': 'Historial de la sessió',
     'history.close': "Tanca l'historial",
     'history.empty': 'Encara no has registrat cap exercici avui. Gira la ruleta!',
-    'history.total': 'Completats a la sessió: {n}',
-    'history.done': 'Completat!',
+    'history.total': 'Exercicis: {n} · Repeticions totals: {reps}',
     'history.clear': "Esborra l'historial",
 
     'config.title': 'Configuració de la ruleta',

@@ -29,8 +29,7 @@ export default {
     'history.title': 'सेशन का इतिहास',
     'history.close': 'इतिहास बंद करें',
     'history.empty': 'अभी तक कोई एक्सरसाइज़ दर्ज नहीं हुई। चक्र घुमाएँ!',
-    'history.total': 'इस सेशन में पूरी हुईं: {n}',
-    'history.done': 'हो गया!',
+    'history.total': 'व्यायाम: {n} · कुल रेप्स: {reps}',
     'history.clear': 'इतिहास मिटाएँ',
 
     'config.title': 'चक्र की सेटिंग',

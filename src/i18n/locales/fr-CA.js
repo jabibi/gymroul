@@ -14,7 +14,6 @@ export default {
     'share.text': 'Mon défi GymRoulette : {challenge}! Fais tourner la roue et entraîne-toi aussi : {url}',
 
     'history.empty': "Tu n'as encore enregistré aucun exercice. Lance la roue!",
-    'history.done': 'Terminé!',
 
     'config.title': 'Paramètres de la roue',
     'config.close': 'Fermer les paramètres',

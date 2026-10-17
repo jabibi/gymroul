@@ -29,8 +29,7 @@ export default {
     'history.title': 'Histórico da sessão',
     'history.close': 'Fechar histórico',
     'history.empty': 'Você ainda não registrou exercícios hoje. Gire a roleta!',
-    'history.total': 'Concluídos na sessão: {n}',
-    'history.done': 'Concluído!',
+    'history.total': 'Exercícios: {n} · Repetições no total: {reps}',
     'history.clear': 'Limpar histórico',
 
     'config.title': 'Configuração da roleta',

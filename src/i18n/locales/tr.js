@@ -29,8 +29,7 @@ export default {
     'history.title': 'Antrenman geçmişi',
     'history.close': 'Geçmişi kapat',
     'history.empty': 'Henüz kayıtlı egzersiz yok. Çarkı çevir!',
-    'history.total': 'Bu antrenmanda tamamlanan: {n}',
-    'history.done': 'Tamam!',
+    'history.total': 'Egzersizler: {n} · Toplam tekrar: {reps}',
     'history.clear': 'Geçmişi temizle',
 
     'config.title': 'Çark ayarları',

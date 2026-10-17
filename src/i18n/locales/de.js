@@ -29,8 +29,7 @@ export default {
     'history.title': 'Trainingsverlauf',
     'history.close': 'Verlauf schließen',
     'history.empty': 'Noch keine Übungen erfasst. Dreh das Rad!',
-    'history.total': 'In diesem Training geschafft: {n}',
-    'history.done': 'Geschafft!',
+    'history.total': 'Übungen: {n} · Wiederholungen gesamt: {reps}',
     'history.clear': 'Verlauf löschen',
 
     'config.title': 'Rad-Einstellungen',

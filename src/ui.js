@@ -289,7 +289,7 @@ export function closeResult(completed) {
 
 // --- Historial -----------------------------------------------------------------------
 
-/** @type {{ id: number, reps: number, exercise: string, time: string }[]} */
+/** @type {{ id: number, reps: number, exercise: string, icon: string, time: string }[]} */
 const sessionHistory = [];
 
 /** @param {Challenge} winner */
@@ -298,6 +298,7 @@ export function addToHistory(winner) {
     id: Date.now(),
     reps: winner.reps,
     exercise: winner.exercise,
+    icon: winner.icon,
     time: new Date().toLocaleTimeString(getLanguageTag(), { hour: '2-digit', minute: '2-digit' }),
   });
   renderHistory();
@@ -308,6 +309,12 @@ export function clearHistory() {
   renderHistory();
 }
 
+/** Resumen del pie: ejercicios hechos y repeticiones totales de la sesión. */
+function historySummary() {
+  const reps = sessionHistory.reduce((sum, h) => sum + h.reps, 0);
+  return t('history.total', { n: sessionHistory.length, reps: reps.toLocaleString(getLanguageTag()) });
+}
+
 export function renderHistory() {
   const listEl = $('historyList');
   const badge = $('historyBadge');
@@ -315,7 +322,7 @@ export function renderHistory() {
 
   if (sessionHistory.length === 0) {
     badge.classList.add('hidden');
-    total.textContent = t('history.total', { n: 0 });
+    total.textContent = historySummary();
     listEl.innerHTML = `
       <div class="text-center py-8 text-slate-500 text-xs">
         <i class="fa-solid fa-clipboard-list text-2xl mb-2 block opacity-40"></i>
@@ -326,17 +333,17 @@ export function renderHistory() {
 
   badge.textContent = String(sessionHistory.length);
   badge.classList.remove('hidden');
-  total.textContent = t('history.total', { n: sessionHistory.length });
+  total.textContent = historySummary();
   listEl.innerHTML = sessionHistory.map(h => `
-    <div class="bg-dark-900 border border-slate-800 rounded-2xl p-3 flex justify-between items-center">
+    <div class="bg-dark-900 border border-slate-800 rounded-2xl p-3 flex justify-between items-center gap-3">
       <div class="flex items-center gap-3 min-w-0">
         <div class="min-w-10 h-10 px-1.5 shrink-0 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center font-black ${String(h.reps).length > 3 ? 'text-[11px]' : 'text-sm'} border border-brand-500/20">${h.reps}</div>
         <div class="min-w-0">
           <h4 class="font-bold text-white text-xs break-words">${escapeHTML(isolate(h.exercise))}</h4>
-          <span class="text-[10px] text-slate-400 font-medium">${escapeHTML(h.time)}</span>
+          <span class="text-[11px] text-slate-300 font-medium">${escapeHTML(h.time)}</span>
         </div>
       </div>
-      <span class="shrink-0 ms-2 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black border border-emerald-500/20">${escapeHTML(t('history.done'))}</span>
+      <span class="shrink-0 text-xl text-brand-400/80 flex items-center">${renderIconHTML(h.icon)}</span>
     </div>`).join('');
 }
 

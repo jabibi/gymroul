@@ -29,8 +29,7 @@ export default {
     'history.title': 'Historia treningu',
     'history.close': 'Zamknij historię',
     'history.empty': 'Nie ma jeszcze żadnych ćwiczeń. Zakręć kołem!',
-    'history.total': 'Wykonane w tym treningu: {n}',
-    'history.done': 'Zrobione!',
+    'history.total': 'Ćwiczenia: {n} · Powtórzenia łącznie: {reps}',
     'history.clear': 'Wyczyść historię',
 
     'config.title': 'Ustawienia koła',

@@ -81,12 +81,12 @@ describe('traducción', () => {
   it('traduce al idioma activo e interpola parámetros', () => {
     setLanguage('es', { persist: false });
     expect(t('result.skip')).toBe('Saltar este reto');
-    expect(t('history.total', { n: 3 })).toBe('Completados en la sesión: 3');
+    expect(t('history.total', { n: 3, reps: 140 })).toBe('Ejercicios: 3 · Repeticiones totales: 140');
   });
 
   it('una clave desconocida devuelve la propia clave y un parámetro ausente no se pierde', () => {
     expect(t('no.existe')).toBe('no.existe');
-    expect(t('history.total')).toBe('Completed this session: {n}');
+    expect(t('history.total', { n: 3 })).toBe('Exercises: 3 · Total reps: {reps}');
   });
 
   it('el inglés británico hereda del estadounidense y solo cambia su vocabulario', () => {
