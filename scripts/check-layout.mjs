@@ -239,6 +239,25 @@ try {
       await wait(300);
       await page.evaluate(() => document.getElementById('iconPicker').scrollIntoView({ block: 'center' }));
       await check(page, lang, vp, '06-selector-de-iconos');
+      // Teclado abierto (se simula con un viewport más bajo): la cuadrícula de iconos tiene que verse entera. Si queda
+      // medio fuera de la zona visible, al arrastrar sobre ella se mueve la parte oculta y la pantalla parece bloqueada.
+      await page.setViewport({ ...vp, height: Math.round(vp.height * 0.55), deviceScaleFactor: 1, isMobile: true, hasTouch: true });
+      await page.focus('#iconSearch');
+      await page.keyboard.type('a');
+      await wait(700);
+      await check(page, lang, vp, '06b-teclado-abierto');
+      const gridCut = await page.evaluate(() => {
+        const grid = document.getElementById('iconGrid').getBoundingClientRect();
+        const box = document.getElementById('iconPicker').closest('.overflow-y-auto').getBoundingClientRect();
+        return grid.bottom > box.bottom + 1 || grid.top < box.top - 1;
+      });
+      if (gridCut) {
+        total++;
+        console.log(`  ✗ ${lang} ${vp.width}x${vp.height} 06b-teclado-abierto: la cuadrícula de iconos queda fuera de la zona visible`);
+      }
+      await page.setViewport({ ...vp, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
+      await wait(400);
+      await page.evaluate(() => { document.getElementById('iconSearch').value = ''; });
       await page.type('#iconSearch', 'zzzzzz');
       await wait(300);
       await check(page, lang, vp, '07-sin-iconos');

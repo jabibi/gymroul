@@ -465,6 +465,7 @@ export function toggleIconPicker() {
   $('iconPickerBtn').setAttribute('aria-expanded', String(open));
   if (open) {
     /** @type {HTMLInputElement} */ ($('iconSearch')).value = '';
+    $('iconGrid').style.maxHeight = ''; // vuelve a la altura de CSS; se reajusta si se abre el teclado
     renderIconGrid();
   }
 }
@@ -519,6 +520,27 @@ const KEYBOARD_SETTLE_MS = 250;
 /** @type {ReturnType<typeof setTimeout> | undefined} */
 let revealTimer;
 
+/** Altura máxima de la cuadrícula de iconos cuando hay sitio de sobra (la que tiene en CSS) y la mínima útil */
+const ICON_GRID_MAX_PX = 208;
+const ICON_GRID_MIN_PX = 96;
+
+/**
+ * Con el teclado abierto la zona visible de Configuración es pequeña y la cuadrícula de iconos (que tiene su propio
+ * desplazamiento) quedaba medio fuera de ella: al arrastrar sobre ella se movía la parte oculta de la cuadrícula y la
+ * pantalla parecía bloqueada. Se limita su altura a lo que se ve, para que sea toda visible y no haya dos
+ * desplazamientos solapados.
+ */
+function fitIconGrid() {
+  const grid = $('iconGrid');
+  if ($('iconPicker').classList.contains('hidden')) return;
+  const scroller = $('iconPicker').closest('.overflow-y-auto'); // el de la pantalla, no la propia cuadrícula
+  const vv = window.visualViewport;
+  const viewportBottom = (vv ? vv.offsetTop + vv.height : window.innerHeight) - REVEAL_MARGIN_PX;
+  const bottom = Math.min(scroller ? scroller.getBoundingClientRect().bottom - REVEAL_MARGIN_PX : viewportBottom, viewportBottom);
+  const available = bottom - grid.getBoundingClientRect().top;
+  grid.style.maxHeight = `${Math.round(Math.max(ICON_GRID_MIN_PX, Math.min(ICON_GRID_MAX_PX, available)))}px`;
+}
+
 function revealFocusedField() {
   const el = document.activeElement;
   if (!(el instanceof HTMLElement) || !el.matches(TEXT_FIELDS)) return;
@@ -531,9 +553,11 @@ function revealFocusedField() {
   const top = (box ? Math.max(box.top, 0) : 0) + REVEAL_MARGIN_PX;
   const bottom = box ? Math.min(box.bottom - REVEAL_MARGIN_PX, viewportBottom) : viewportBottom;
   const rect = el.getBoundingClientRect();
-  if (rect.top >= top && rect.bottom <= bottom) return; // ya se ve: no tocar nada
+  const isIconSearch = el.id === 'iconSearch';
+  if (!isIconSearch && rect.top >= top && rect.bottom <= bottom) return; // ya se ve: no tocar nada
 
-  const delta = rect.top < top ? rect.top - top : rect.bottom - bottom;
+  // El buscador de iconos se sube hasta arriba de la zona visible: debajo tiene que caber la cuadrícula con los resultados
+  const delta = rect.top < top || isIconSearch ? rect.top - top : rect.bottom - bottom;
   if (scroller) scroller.scrollTop += delta;
   else window.scrollBy(0, delta);
 }
@@ -541,7 +565,10 @@ function revealFocusedField() {
 /** Reprograma el ajuste: solo se ejecuta cuando el viewport lleva un rato sin cambiar. */
 function scheduleReveal() {
   clearTimeout(revealTimer);
-  revealTimer = setTimeout(revealFocusedField, KEYBOARD_SETTLE_MS);
+  revealTimer = setTimeout(() => {
+    revealFocusedField();
+    fitIconGrid();
+  }, KEYBOARD_SETTLE_MS);
 }
 
 export function initKeyboardAvoidance() {
