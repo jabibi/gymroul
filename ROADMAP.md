@@ -12,6 +12,10 @@ Atendidas en la 1.15:
 - Ruleta solo con los ejercicios (misma reseña): que la ruleta muestre únicamente los ejercicios y que el número de repeticiones salga después de girar, para que se vea menos recargada.
 - Ejercicios por defecto sin traducir (informe de prueba en OPPO Reno5 A con Android 12, en español, con la app en japonés): las etiquetas de la ruleta salían en inglés mientras los botones y los diálogos estaban en japonés.
 
+## Próxima versión: 1.16
+
+- **Historial sin repeticiones duplicadas**: cada fila muestra las repeticiones dos veces, en el recuadro de la izquierda y de nuevo al principio del título («16 Mendi-igoerak», «12 Sentadillas»). Detectado en la 1.15 con la app en euskera. Dejar el número solo en el recuadro y poner en el título solo el ejercicio, traducido. Está en `renderHistory` y `addToHistory` de `src/ui.js`: `text` (`displayChallenge(reps, exercise)`) solo se usa para ese título, así que basta con pintar el nombre del ejercicio y quitar `text`. Comprobar con `npm run check:layout` (incluido `--stress`, con 999999 repeticiones) que el título no se corta ni se solapa con el recuadro.
+
 ## Hecho: versión 1.15 «Be Reborn» (versionCode 15)
 
 - **Repeticiones propias por ejercicio**, como rango mínimo-máximo editable en cualquier momento (`repsMin` y `repsMax`; por defecto y al crear, 10-60).
