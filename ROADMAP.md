@@ -19,6 +19,35 @@ Atendidas en la 1.15:
 - **Novedades de Play con las dos últimas versiones**: hecho, cada idioma muestra «Versión 1.15 (Be Reborn):» y «Versión 1.14 (RandWork):» con sus viñetas (`NOTES_VERSIONS` y `notesText` en `store/listing.mjs`; 500 caracteres por idioma).
 - **Pendiente al publicar**: pasar `NOTES_VERSIONS` a 1.16 y 1.15, escribir las viñetas de la 1.16 en cada idioma y regenerar la ficha con `npm run store` (el historial rediseñado cambia las capturas).
 
+## Probable: versión 1.19 — historial que se guarda y resumen acumulado
+
+Aún no está decidida ni empezada. Es el prerrequisito para retomar la valoración dentro de la app (ver «Ideas sin fecha»), que sigue descartada hasta que haya un momento claro de éxito del usuario.
+
+**La idea**: que el historial sea un registro real de entrenamientos hechos, que sobreviva al cierre de la app, y que su resumen acumule totales (retos completados y repeticiones) más allá de la sesión.
+
+**Qué hay ya** (1.16):
+- Solo se registra lo completado: `closeResult(true)` llama a `addToHistory`; si el usuario salta el reto, no entra.
+- Cada fila lleva el ejercicio, las repeticiones, la hora y el icono, y el pie resume ejercicios y repeticiones totales de la sesión (`history.total`).
+
+**Qué falta**:
+- **Guardarlo**: hoy es una lista en memoria (`sessionHistory` en `src/ui.js`) y se pierde al cerrar la app. Habría que moverlo a `src/store.js`, que es quien gestiona lo guardado en `localStorage`.
+- **Guardar la fecha completa**: ahora solo se guarda la hora ya formateada en el idioma del momento. Guardar la marca de tiempo y dar formato al pintar, para que el cambio de idioma lo respete.
+- **Guardar la identidad del ejercicio, no su etiqueta**: la entrada guarda `winner.exercise`, que es el nombre ya traducido al girar (`generateSegments` aplica `exerciseLabels`). Al persistir, un historial hecho en un idioma se quedaría fijo en él. Hay que guardar el nombre original (o el id) y traducirlo al mostrarlo con `exerciseLabels`. Si el usuario borra o renombra un ejercicio, decidir cómo se muestran las entradas antiguas (conservar el nombre guardado es lo más simple).
+- **Totales acumulados**: contador de retos completados y repeticiones totales de siempre, y quizá por día o semana. Qué mostrar exactamente es lo que hay que decidir primero: el resumen debe seguir siendo sencillo.
+- **Tope de tamaño**: limitar las entradas guardadas (por ejemplo las últimas 200) y mantener los acumulados aparte, para que `localStorage` no crezca sin límite.
+- **«Limpiar historial»**: decidir si borra solo la lista o también los acumulados; lo razonable es separarlo o dejar claro qué se borra.
+- **El número del icono de la barra**: el contador (`historyBadge`) cuenta ahora los de la sesión; con historial guardado debe seguir contando solo los de la sesión, o dejar de tener sentido.
+
+**Qué implicaría**:
+- **Datos guardados**: nueva clave en `src/store.js`, subir `SCHEMA_VERSION` (hoy 8) y añadir la migración, como pide `CLAUDE.md`. Con validación al leer, por si el dato está corrupto, como las demás claves.
+- **Privacidad**: los datos siguen solo en el dispositivo y no hay red, así que la política de privacidad no cambia, pero hay que confirmarlo y reflejar en la sección «Seguridad de los datos» que se guarda un historial local. Revisar también el texto del modal «Compromiso de privacidad» y la página de eliminación de datos, que habla de lo que se guarda.
+- **Textos**: etiquetas nuevas del resumen acumulado en los 20 idiomas, y `npm test` falla si falta alguna.
+- **Interfaz**: el modal del historial deja de ser «de la sesión» (el título actual es «Historial de la sesión»); decidir el nombre y si se separa «hoy» de «total».
+- **Comprobaciones**: `npm run check:layout` (incluido `--stress`) y pruebas de la migración, con un historial grande y con datos corruptos.
+- **Ficha de Play**: novedades y capturas del historial, y revisar «Seguridad de los datos».
+
+**Riesgos**: un historial que crece necesita un tope y una forma clara de borrarlo; y no debe romper la idea de que la app abra directamente la ruleta y sea inmediata.
+
 ## Probable: versión 1.20 — plantillas de ejercicios
 
 Aún no está decidida ni empezada. Se apunta aquí para no perderla y porque encaja con la regla de dar valor en menos de 10 segundos.
@@ -63,7 +92,6 @@ Aún no está decidida ni empezada. Se apunta aquí para no perderla y porque en
 ## Ideas sin fecha
 
 - Valoración dentro de la app (In-App Review): descartada de momento. Añade una dependencia de Google Play que choca con el «sin SDK de terceros ni conexión» de la 1.13 (habría que revisar la política de privacidad y «Seguridad de los datos»), Google limita cuántas veces se muestra y ahora no hay un momento claro de éxito del usuario. Retomarla cuando haya más usuarios y algo como un historial de entrenamientos completados.
-- Retos completados en el historial con un resumen sencillo (prerrequisito para retomar la valoración en la app).
 - Exportar e importar la configuración en un archivo local.
 - Revisión de accesibilidad (texto grande, lector de pantalla).
 - Compactar la lista de Configuración: con el rango en una segunda línea, cada ejercicio ocupa dos líneas y la lista se alarga.
