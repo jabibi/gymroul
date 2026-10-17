@@ -36,13 +36,13 @@ Aún no está decidida ni empezada. Es el prerrequisito para retomar la valoraci
 - **Totales acumulados**: contador de retos completados y repeticiones totales de siempre, y quizá por día o semana. Qué mostrar exactamente es lo que hay que decidir primero: el resumen debe seguir siendo sencillo.
 - **Tope de tamaño**: limitar las entradas guardadas (por ejemplo las últimas 200) y mantener los acumulados aparte, para que `localStorage` no crezca sin límite.
 - **«Limpiar historial»**: decidir si borra solo la lista o también los acumulados; lo razonable es separarlo o dejar claro qué se borra.
-- **El número del icono de la barra**: el contador (`historyBadge`) cuenta ahora los de la sesión; con historial guardado debe seguir contando solo los de la sesión, o dejar de tener sentido.
+- **El contador del botón del historial** (`historyBadge`): hoy cuenta los retos de la sesión. Con historial guardado, decidir si sigue contando solo los de la sesión o pasa a otra cosa.
 
 **Qué implicaría**:
 - **Datos guardados**: nueva clave en `src/store.js`, subir `SCHEMA_VERSION` (hoy 8) y añadir la migración, como pide `CLAUDE.md`. Con validación al leer, por si el dato está corrupto, como las demás claves.
 - **Privacidad**: los datos siguen solo en el dispositivo y no hay red, así que la política de privacidad no cambia, pero hay que confirmarlo y reflejar en la sección «Seguridad de los datos» que se guarda un historial local. Revisar también el texto del modal «Compromiso de privacidad» y la página de eliminación de datos, que habla de lo que se guarda.
 - **Textos**: etiquetas nuevas del resumen acumulado en los 20 idiomas, y `npm test` falla si falta alguna.
-- **Interfaz**: el modal del historial deja de ser «de la sesión» (el título actual es «Historial de la sesión»); decidir el nombre y si se separa «hoy» de «total».
+- **Interfaz**: el modal del historial deja de ser «de la sesión» (el título actual es «Historial de sesión»); decidir el nombre y si se separa «hoy» de «total».
 - **Comprobaciones**: `npm run check:layout` (incluido `--stress`) y pruebas de la migración, con un historial grande y con datos corruptos.
 - **Ficha de Play**: novedades y capturas del historial, y revisar «Seguridad de los datos».
 
