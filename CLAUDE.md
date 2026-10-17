@@ -30,7 +30,7 @@ CI (`.github/workflows/ci.yml`) ejecuta `typecheck`, `test` y `build`, y en un j
 - El enlace «Compromiso de privacidad» (Configuración) abre un modal con el resumen de las prácticas (`commitmentModal` en `index.html`, `openCommitment` en `src/ui.js`) que enlaza la política completa; si cambian las prácticas, actualiza esos textos en todos los idiomas.
 - Al abrir la app se ve directamente la ruleta: no hay introducción ni pasos iniciales (se quitó en la 1.14 para dar valor en menos de 10 segundos).
 - `legal/*.mjs` -> `public/*.html` (generadas por `scripts/build-legal.mjs`). Edita `legal/`, no `public/`.
-- `store/`: ficha de Play por idioma (generada). `assets/` e iconos de Android: generados por `npm run icons`; edita `scripts/build-icons.mjs`, no los PNG.
+- `store/`: ficha de Play por idioma (generada). `assets/` e iconos de Android: generados por `npm run icons`; edita `scripts/build-icons.mjs`, no los PNG. `npm run icons` termina con `scripts/fix-adaptive-icon.mjs`, que deja el fondo del icono adaptativo a lienzo completo (capacitor-assets lo mete en un inset que dejaba una raya oscura en el borde del círculo); no lo quites.
 - `www/` es la salida del build y no se versiona. `android/` lo genera Capacitor, pero `app/build.gradle` y `MainActivity` son propios.
 
 ## Reglas que no son obvias
