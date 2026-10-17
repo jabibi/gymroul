@@ -39,6 +39,13 @@ input, textarea {
 .glow-brand {
     box-shadow: 0 0 30px rgb(var(--brand-500) / 0.35);
 }
+/* Tarjeta del resultado: brillo verde en el centro, como el fondo de la imagen de compartir (allí son círculos
+   planos para que el PNG no pese; en pantalla es un degradado radial de verdad) */
+.result-card {
+    background:
+        radial-gradient(circle at 50% 46%, rgb(var(--brand-500) / 0.2) 0%, rgb(var(--brand-500) / 0.09) 38%, rgb(var(--brand-500) / 0) 72%),
+        rgba(15, 23, 42, 0.85);
+}
 /* Púa: sombra paralela sobre la ruleta (profundidad) y halo verde en la punta */
 .pointer-glow {
     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 6px rgb(var(--brand-400) / 0.55));

@@ -185,18 +185,26 @@ let onCompleted = null;
 /** @param {(winner: Challenge) => void} cb se llama al confirmar un reto como completado */
 export function setCompletedHandler(cb) { onCompleted = cb; }
 
+/** Deja en el elemento solo la clase de tamaño elegida de la lista. @param {HTMLElement} el @param {string[]} sizes @param {number} chosen */
+function setSizeClass(el, sizes, chosen) {
+  sizes.forEach((size, i) => el.classList.toggle(size, i === chosen));
+}
+
 /** @param {Challenge} winner */
 export function showResult(winner) {
   playWinFanfare();
   vibrateResult();
 
   $('winnerIconContainer').innerHTML = renderIconHTML(winner.icon);
-  const challenge = `${winner.reps} ${winner.exercise}`; // sin marcas de aislamiento: se usa para medir la longitud
-  $('winnerText').textContent = displayChallenge(winner.reps, winner.exercise);
-  // Un nombre largo baja de tamaño para que se lea entero en la tarjeta
-  $('winnerText').classList.toggle('text-3xl', challenge.length <= 18);
-  $('winnerText').classList.toggle('text-2xl', challenge.length > 18 && challenge.length <= 30);
-  $('winnerText').classList.toggle('text-xl', challenge.length > 30);
+  // Reto en dos niveles: repeticiones grandes y, debajo, el ejercicio. Las cifras largas y los nombres largos bajan
+  // de tamaño para que quepan en la tarjeta; el h2 oculto lleva el reto entero para el lector de pantalla.
+  $('winnerText').textContent = `${winner.reps} ${winner.exercise}`;
+  const reps = String(winner.reps);
+  setSizeClass($('winnerReps'), ['text-7xl', 'text-6xl', 'text-5xl'], reps.length <= 3 ? 0 : reps.length <= 5 ? 1 : 2);
+  $('winnerReps').textContent = reps;
+  setSizeClass($('winnerName'), ['text-2xl', 'text-xl', 'text-lg'], winner.exercise.length <= 20 ? 0 : winner.exercise.length <= 32 ? 1 : 2);
+  $('winnerName').textContent = winner.exercise;
+  $('winnerBar').style.backgroundColor = winner.color;
 
   $('resultModal').classList.remove('opacity-0', 'pointer-events-none');
   $('resultCard').classList.remove('scale-90');

@@ -16,6 +16,7 @@ export default {
     'spin.button': '¡GIRAR RULETA!',
 
     'result.badge': '¡EJERCICIO SELECCIONADO!',
+    'result.reps': 'repeticiones',
     'result.skip': 'Saltar este reto',
     'result.done': '¡Completado!',
     'result.share': 'Compartir reto',

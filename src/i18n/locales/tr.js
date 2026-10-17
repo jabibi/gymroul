@@ -16,6 +16,7 @@ export default {
     'spin.button': 'ÇARKI ÇEVİR!',
 
     'result.badge': 'EGZERSİZ SEÇİLDİ!',
+    'result.reps': 'tekrar',
     'result.skip': 'Bu meydan okumayı geç',
     'result.done': 'Tamam!',
     'result.share': 'Meydan okumayı paylaş',
