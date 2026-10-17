@@ -14,7 +14,7 @@ Atendidas en la 1.15:
 
 ## Próxima versión: 1.16
 
-- **Historial sin repeticiones duplicadas**: cada fila muestra las repeticiones dos veces, en el recuadro de la izquierda y de nuevo al principio del título («16 Mendi-igoerak», «12 Sentadillas»). Detectado en la 1.15 con la app en euskera. Dejar el número solo en el recuadro y poner en el título solo el ejercicio, traducido. Está en `renderHistory` y `addToHistory` de `src/ui.js`: `text` (`displayChallenge(reps, exercise)`) solo se usa para ese título, así que basta con pintar el nombre del ejercicio y quitar `text`. Comprobar con `npm run check:layout` (incluido `--stress`, con 999999 repeticiones) que el título no se corta ni se solapa con el recuadro.
+- **Historial sin repeticiones duplicadas** (hecho en la rama roadmap-16): cada fila muestra las repeticiones dos veces, en el recuadro de la izquierda y de nuevo al principio del título («16 Mendi-igoerak», «12 Sentadillas»). Detectado en la 1.15 con la app en euskera. Dejar el número solo en el recuadro y poner en el título solo el ejercicio, traducido. Está en `renderHistory` y `addToHistory` de `src/ui.js`: `text` (`displayChallenge(reps, exercise)`) solo se usa para ese título, así que basta con pintar el nombre del ejercicio y quitar `text`. Comprobar con `npm run check:layout` (incluido `--stress`, con 999999 repeticiones) que el título no se corta ni se solapa con el recuadro.
 
 ## Hecho: versión 1.15 «Be Reborn» (versionCode 15)
 

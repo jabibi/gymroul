@@ -2,7 +2,7 @@
 // Modales, historial, configuración y avisos
 
 import { exerciseLabels } from './exercise-names.js';
-import { displayChallenge } from './wheel-math.js';
+import { isolate } from './wheel-math.js';
 import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE } from './store.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
 import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
@@ -289,14 +289,13 @@ export function closeResult(completed) {
 
 // --- Historial -----------------------------------------------------------------------
 
-/** @type {{ id: number, text: string, reps: number, exercise: string, time: string }[]} */
+/** @type {{ id: number, reps: number, exercise: string, time: string }[]} */
 const sessionHistory = [];
 
 /** @param {Challenge} winner */
 export function addToHistory(winner) {
   sessionHistory.unshift({
     id: Date.now(),
-    text: displayChallenge(winner.reps, winner.exercise),
     reps: winner.reps,
     exercise: winner.exercise,
     time: new Date().toLocaleTimeString(getLanguageTag(), { hour: '2-digit', minute: '2-digit' }),
@@ -333,7 +332,7 @@ export function renderHistory() {
       <div class="flex items-center gap-3 min-w-0">
         <div class="min-w-10 h-10 px-1.5 shrink-0 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center font-black ${String(h.reps).length > 3 ? 'text-[11px]' : 'text-sm'} border border-brand-500/20">${h.reps}</div>
         <div class="min-w-0">
-          <h4 class="font-bold text-white text-xs break-words">${escapeHTML(h.text)}</h4>
+          <h4 class="font-bold text-white text-xs break-words">${escapeHTML(isolate(h.exercise))}</h4>
           <span class="text-[10px] text-slate-400 font-medium">${escapeHTML(h.time)}</span>
         </div>
       </div>
