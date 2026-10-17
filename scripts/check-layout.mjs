@@ -76,6 +76,18 @@ function inspectPage() {
     return r.width > 0 && r.height > 0;
   };
 
+  // Texto entero fuera de la vista de un contenedor con desplazamiento (p. ej. filas de la cuadrícula de iconos aún sin
+  // desplazar): no se ve, así que no puede solaparse con nada
+  const scrolledOut = (el, r) => {
+    for (let n = el; n && n !== document.documentElement; n = n.parentElement) {
+      const cs = getComputedStyle(n);
+      if (!['auto', 'scroll'].includes(cs.overflowY)) continue;
+      const box = n.getBoundingClientRect();
+      if (r.top >= box.bottom - 0.5 || r.bottom <= box.top + 0.5) return true;
+    }
+    return false;
+  };
+
   // Cajas de texto reales (una por línea) de cada nodo de texto visible, con el elemento al que pertenecen
   const boxes = [];
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -87,6 +99,7 @@ function inspectPage() {
     range.selectNodeContents(node);
     for (const r of range.getClientRects()) {
       if (r.width <= 1 || r.height <= 1) continue;
+      if (scrolledOut(el, r)) continue;
       // Si lo que hay encima de la caja es otra cosa (un modal abierto...), no se ve: se ignora
       const top = document.elementFromPoint(Math.min(Math.max((r.left + r.right) / 2, 0), innerWidth - 1), Math.min(Math.max((r.top + r.bottom) / 2, 0), innerHeight - 1));
       if (top && !(el.contains(top) || top.contains(el))) continue;
