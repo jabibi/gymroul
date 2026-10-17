@@ -125,15 +125,15 @@ export function drawCard(canvas, winner, logo) {
 
   ctx.font = `700 40px ${FONT}`;
   ctx.fillStyle = '#94A3B8';
-  ctx.fillText(t('result.reps'), S / 2, 640);
+  ctx.fillText(t('result.reps'), S / 2, 628);
 
   const name = fitText(measureAt, winner.exercise, S - 160, 96, 44);
   ctx.font = `800 ${name.size}px ${FONT}`;
   ctx.fillStyle = '#fff';
-  ctx.fillText(name.text, S / 2, 740);
+  ctx.fillText(name.text, S / 2, 756);
 
   // Barra con el color del sector de la ruleta
-  roundRect(ctx, (S - 360) / 2, 780, 360, 18, 9);
+  roundRect(ctx, (S - 360) / 2, 796, 360, 18, 9);
   ctx.fillStyle = winner.color;
   ctx.fill();
 
@@ -141,17 +141,17 @@ export function drawCard(canvas, winner, logo) {
   const cta = t('spin.button');
   ctx.font = `800 44px ${FONT}`;
   const ctaW = Math.min(S - 160, ctx.measureText(cta).width + 160);
-  roundRect(ctx, (S - ctaW) / 2, 830, ctaW, 124, 36);
+  roundRect(ctx, (S - ctaW) / 2, 848, ctaW, 124, 36);
   ctx.fillStyle = '#22C55E';
   ctx.fill();
   ctx.fillStyle = '#020617';
-  ctx.fillText(cta, S / 2, 908);
+  ctx.fillText(cta, S / 2, 926);
 
   // Dirección de la web al pie
   ctx.direction = 'ltr';
   ctx.font = `700 34px ${FONT}`;
   ctx.fillStyle = '#94A3B8';
-  ctx.fillText(WEB_HOST, S / 2, 1010);
+  ctx.fillText(WEB_HOST, S / 2, 1022);
 }
 
 /** @param {Challenge} winner @returns {Promise<Blob>} */

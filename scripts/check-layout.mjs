@@ -70,6 +70,7 @@ function inspectPage() {
     for (let n = el; n && n !== document.documentElement; n = n.parentElement) {
       const cs = getComputedStyle(n);
       if (cs.display === 'none' || cs.visibility === 'hidden' || Number(cs.opacity) === 0) return false;
+      if (n.classList.contains('sr-only')) return false; // solo para el lector de pantalla: no se ve
       if (n.hasAttribute('inert') && !n.closest('#commitmentModal, #documentModal')) return false;
     }
     const r = el.getBoundingClientRect();
