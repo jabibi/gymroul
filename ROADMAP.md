@@ -12,9 +12,12 @@ Atendidas en la 1.15:
 - Ruleta solo con los ejercicios (misma reseña): que la ruleta muestre únicamente los ejercicios y que el número de repeticiones salga después de girar, para que se vea menos recargada.
 - Ejercicios por defecto sin traducir (informe de prueba en OPPO Reno5 A con Android 12, en español, con la app en japonés): las etiquetas de la ruleta salían en inglés mientras los botones y los diálogos estaban en japonés.
 
-## Próxima versión: 1.16
+## En desarrollo: versión 1.16 «Six Pack» (versionCode 16)
 
-- **Historial sin repeticiones duplicadas** (hecho en la rama roadmap-16): cada fila muestra las repeticiones dos veces, en el recuadro de la izquierda y de nuevo al principio del título («16 Mendi-igoerak», «12 Sentadillas»). Detectado en la 1.15 con la app en euskera. Dejar el número solo en el recuadro y poner en el título solo el ejercicio, traducido. Está en `renderHistory` y `addToHistory` de `src/ui.js`: `text` (`displayChallenge(reps, exercise)`) solo se usa para ese título, así que basta con pintar el nombre del ejercicio y quitar `text`. Comprobar con `npm run check:layout` (incluido `--stress`, con 999999 repeticiones) que el título no se corta ni se solapa con el recuadro.
+- **Historial sin repeticiones duplicadas**: la fila mostraba el número en el recuadro y otra vez al principio del título (detectado en la 1.15 con la app en euskera). El título lleva solo el ejercicio, traducido.
+- **Historial rediseñado**: sin la pastilla «Hecho» (`history.done`, eliminada de los 20 idiomas), con el icono del ejercicio a la derecha y la hora en un gris más legible. El pie resume ejercicios y repeticiones totales de la sesión (`history.total` lleva ahora `{n}` y `{reps}`) y «Limpiar historial» es un botón de texto sin fondo rojo.
+- **Novedades de Play con las dos últimas versiones**: hecho, cada idioma muestra «Versión 1.15 (Be Reborn):» y «Versión 1.14 (RandWork):» con sus viñetas (`NOTES_VERSIONS` y `notesText` en `store/listing.mjs`; 500 caracteres por idioma).
+- **Pendiente al publicar**: pasar `NOTES_VERSIONS` a 1.16 y 1.15, escribir las viñetas de la 1.16 en cada idioma y regenerar la ficha con `npm run store` (el historial rediseñado cambia las capturas).
 
 ## Hecho: versión 1.15 «Be Reborn» (versionCode 15)
 

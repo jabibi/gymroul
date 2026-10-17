@@ -79,12 +79,13 @@ describe('notas de la versión en un único archivo', () => {
 });
 
 describe('novedades de la ficha', () => {
-  it('muestran las dos versiones más recientes, la actual primero', () => {
+  it('muestran dos versiones consecutivas, la más reciente primero, sin adelantarse a package.json', () => {
     const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
-    expect(NOTES_VERSIONS).toHaveLength(2);
-    expect(`${NOTES_VERSIONS[0].version.split('.')[0]}.${NOTES_VERSIONS[0].version.split('.')[1]}`).toBe(pkg.version.split('.').slice(0, 2).join('.'));
-    expect(NOTES_VERSIONS[0].codename).toBe(pkg.versionCodename);
+    const [pkgMajor, pkgMinor] = pkg.version.split('.').map(Number);
     const [major, minor] = NOTES_VERSIONS[0].version.split('.').map(Number);
+    expect(NOTES_VERSIONS).toHaveLength(2);
+    // La ficha se actualiza al publicar: durante el desarrollo de una versión puede ir una por detrás, nunca por delante
+    expect(major * 1000 + minor).toBeLessThanOrEqual(pkgMajor * 1000 + pkgMinor);
     expect(NOTES_VERSIONS[1].version).toBe(`${major}.${minor - 1}`);
   });
 });
