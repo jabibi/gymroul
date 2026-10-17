@@ -31,6 +31,7 @@ export default {
     'history.empty': 'Oraindik ez duzu ariketarik erregistratu. Biratu gurpila!',
     'history.total': 'Ariketak: {n} · Errepikapenak guztira: {reps}',
     'history.clear': 'Garbitu historia',
+    'history.clearConfirm': 'Sakatu berriro',
 
     'config.title': 'Gurpilaren ezarpenak',
     'config.close': 'Itxi ezarpenak',

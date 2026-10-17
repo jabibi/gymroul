@@ -2,6 +2,7 @@
 // Se combina con él en src/i18n/index.js.
 export default {
   strings: {
+    'history.clearConfirm': 'Toca outra vez',
     'header.settings': 'Abrir definições',
 
     'live.drag': 'Arrasta a roleta para girar',

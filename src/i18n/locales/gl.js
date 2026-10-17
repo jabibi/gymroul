@@ -31,6 +31,7 @@ export default {
     'history.empty': 'Aínda non rexistraches exercicios hoxe. Xira a ruleta!',
     'history.total': 'Exercicios: {n} · Repeticións totais: {reps}',
     'history.clear': 'Limpar historial',
+    'history.clearConfirm': 'Preme outra vez',
 
     'config.title': 'Configuración da ruleta',
     'config.close': 'Pechar configuración',

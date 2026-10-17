@@ -16,8 +16,21 @@ Atendidas en la 1.15:
 
 - **Historial sin repeticiones duplicadas**: la fila mostraba el número en el recuadro y otra vez al principio del título (detectado en la 1.15 con la app en euskera). El título lleva solo el ejercicio, traducido.
 - **Historial rediseñado**: sin la pastilla «Hecho» (`history.done`, eliminada de los 20 idiomas), con el icono del ejercicio a la derecha y la hora en un gris más legible. El pie resume ejercicios y repeticiones totales de la sesión (`history.total` lleva ahora `{n}` y `{reps}`) y «Limpiar historial» es un botón de texto sin fondo rojo.
+- **«Limpiar historial» pide confirmación**: la primera pulsación cambia el botón a «Pulsa otra vez» (`history.clearConfirm`, en los 20 idiomas) y, si no se confirma en 3 segundos o se cierra el historial, vuelve a su estado normal. Con el historial vacío no hace nada.
+- **Código muerto fuera**: se elimina `displayChallenge` de `src/wheel-math.js` y sus tests, que ya no se usaban.
 - **Novedades de Play con las dos últimas versiones**: hecho, cada idioma muestra «Versión 1.15 (Be Reborn):» y «Versión 1.14 (RandWork):» con sus viñetas (`NOTES_VERSIONS` y `notesText` en `store/listing.mjs`; 500 caracteres por idioma).
 - **Pendiente al publicar**: pasar `NOTES_VERSIONS` a 1.16 y 1.15, escribir las viñetas de la 1.16 en cada idioma y regenerar la ficha con `npm run store` (el historial rediseñado cambia las capturas).
+
+## Probable: versión 1.17 — lista de Configuración más compacta
+
+Aún no está empezada. Desde la 1.15 cada ejercicio lleva su rango de repeticiones en una segunda línea, así que cada fila de Configuración ocupa dos líneas y, con 12 ejercicios, la lista se alarga y obliga a mucho desplazamiento.
+
+**Opciones** (por decidir):
+- Poner el rango en la misma línea que el nombre cuando haya sitio, y en una segunda solo si no cabe (nombres largos, pantallas estrechas, árabe).
+- Reducir el relleno de cada fila sin bajar de los 44 px de zona táctil.
+- Mostrar el rango como texto compacto (por ejemplo «10-60») y editarlo al tocar la fila.
+
+**Qué implicaría**: solo maquetación (`index.html` y `src/ui.js`), sin cambios en los datos guardados. Hay que pasar `npm run check:layout`, incluido `--stress` (12 ejercicios de nombres larguísimos y repeticiones hasta 999999), en los 20 idiomas y con el árabe de derecha a izquierda, y regenerar las capturas de Configuración de la ficha.
 
 ## Probable: versión 1.19 — historial que se guarda y resumen acumulado
 
@@ -94,6 +107,5 @@ Aún no está decidida ni empezada. Se apunta aquí para no perderla y porque en
 - Valoración dentro de la app (In-App Review): descartada de momento. Añade una dependencia de Google Play que choca con el «sin SDK de terceros ni conexión» de la 1.13 (habría que revisar la política de privacidad y «Seguridad de los datos»), Google limita cuántas veces se muestra y ahora no hay un momento claro de éxito del usuario. Retomarla cuando haya más usuarios y algo como un historial de entrenamientos completados.
 - Exportar e importar la configuración en un archivo local.
 - Revisión de accesibilidad (texto grande, lector de pantalla).
-- Compactar la lista de Configuración: con el rango en una segunda línea, cada ejercicio ocupa dos líneas y la lista se alarga.
 
 _Apunta aquí lo que aún no tiene versión asignada._

@@ -34,6 +34,7 @@ export default {
     'history.empty': 'لم تسجّل أي تمرين بعد. أدر العجلة!',
     'history.total': 'التمارين: {n} · إجمالي التكرارات: {reps}',
     'history.clear': 'مسح السجل',
+    'history.clearConfirm': 'اضغط مرة أخرى',
 
     'config.title': 'إعدادات العجلة',
     'config.close': 'إغلاق الإعدادات',

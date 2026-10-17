@@ -31,6 +31,7 @@ export default {
     'history.empty': 'Você ainda não registrou exercícios hoje. Gire a roleta!',
     'history.total': 'Exercícios: {n} · Repetições no total: {reps}',
     'history.clear': 'Limpar histórico',
+    'history.clearConfirm': 'Toque de novo',
 
     'config.title': 'Configuração da roleta',
     'config.close': 'Fechar configurações',

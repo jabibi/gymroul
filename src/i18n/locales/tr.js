@@ -31,6 +31,7 @@ export default {
     'history.empty': 'Henüz kayıtlı egzersiz yok. Çarkı çevir!',
     'history.total': 'Egzersizler: {n} · Toplam tekrar: {reps}',
     'history.clear': 'Geçmişi temizle',
+    'history.clearConfirm': 'Tekrar dokun',
 
     'config.title': 'Çark ayarları',
     'config.close': 'Ayarları kapat',

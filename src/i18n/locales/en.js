@@ -31,6 +31,7 @@ export default {
     'history.empty': 'No exercises logged yet. Spin the wheel!',
     'history.total': 'Exercises: {n} · Total reps: {reps}',
     'history.clear': 'Clear history',
+    'history.clearConfirm': 'Tap again',
 
     'config.title': 'Wheel settings',
     'config.close': 'Close settings',

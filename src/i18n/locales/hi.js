@@ -31,6 +31,7 @@ export default {
     'history.empty': 'अभी तक कोई एक्सरसाइज़ दर्ज नहीं हुई। चक्र घुमाएँ!',
     'history.total': 'व्यायाम: {n} · कुल रेप्स: {reps}',
     'history.clear': 'इतिहास मिटाएँ',
+    'history.clearConfirm': 'फिर से टैप करें',
 
     'config.title': 'चक्र की सेटिंग',
     'config.close': 'सेटिंग बंद करें',

@@ -31,6 +31,7 @@ export default {
     'history.empty': 'Nog geen oefeningen vastgelegd. Draai het rad!',
     'history.total': 'Oefeningen: {n} · Totaal herhalingen: {reps}',
     'history.clear': 'Geschiedenis wissen',
+    'history.clearConfirm': 'Tik nogmaals',
 
     'config.title': 'Radinstellingen',
     'config.close': 'Instellingen sluiten',

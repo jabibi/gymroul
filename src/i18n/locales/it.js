@@ -31,6 +31,7 @@ export default {
     'history.empty': 'Nessun esercizio registrato. Gira la ruota!',
     'history.total': 'Esercizi: {n} · Ripetizioni totali: {reps}',
     'history.clear': 'Cancella la cronologia',
+    'history.clearConfirm': 'Tocca ancora',
 
     'config.title': 'Impostazioni della ruota',
     'config.close': 'Chiudi le impostazioni',

@@ -3,6 +3,7 @@
 // Se combina con es.js en src/i18n/index.js.
 export default {
   strings: {
+    'history.clearConfirm': 'Presiona otra vez',
     'config.add': 'Agregar',
     'config.addExercise': 'Agregar nuevo ejercicio:',
 

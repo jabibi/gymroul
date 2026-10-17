@@ -31,6 +31,7 @@ export default {
     'history.empty': 'Noch keine Übungen erfasst. Dreh das Rad!',
     'history.total': 'Übungen: {n} · Wiederholungen gesamt: {reps}',
     'history.clear': 'Verlauf löschen',
+    'history.clearConfirm': 'Nochmal tippen',
 
     'config.title': 'Rad-Einstellungen',
     'config.close': 'Einstellungen schließen',

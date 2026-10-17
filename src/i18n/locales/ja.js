@@ -31,6 +31,7 @@ export default {
     'history.empty': 'まだ記録がありません。ルーレットを回しましょう！',
     'history.total': 'エクササイズ：{n} · 合計回数：{reps}',
     'history.clear': '履歴を消去',
+    'history.clearConfirm': 'もう一度タップ',
 
     'config.title': 'ルーレット設定',
     'config.close': '設定を閉じる',

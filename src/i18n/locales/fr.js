@@ -31,6 +31,7 @@ export default {
     'history.empty': "Tu n'as encore enregistré aucun exercice. Lance la roue !",
     'history.total': 'Exercices : {n} · Répétitions au total : {reps}',
     'history.clear': "Effacer l'historique",
+    'history.clearConfirm': 'Appuie encore',
 
     'config.title': 'Réglages de la roue',
     'config.close': 'Fermer les réglages',
