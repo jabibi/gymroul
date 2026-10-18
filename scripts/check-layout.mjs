@@ -9,6 +9,8 @@
 //
 //   npm run check:layout                      todos los idiomas
 //   npm run check:layout -- --lang=ar,de      solo algunos (códigos de la app)
+//   npm run check:layout -- --part=2/4        solo el bloque 2 de 4 de los idiomas (para repartirlos entre varias ejecuciones)
+//   npm run check:layout -- --jobs=6          pantallas en paralelo (por defecto 4 o los núcleos si son menos)
 //   npm run check:layout -- --shots=dir       además guarda una captura de cada pantalla en ese directorio
 //   npm run check:layout -- --stress          con 12 ejercicios de nombres larguísimos (más que el límite actual, como
 //                                             los que guardaron versiones anteriores) y repeticiones de hasta 999999
@@ -17,6 +19,7 @@
 // Sale con código 1 si encuentra algún problema. Requiere haber compilado antes (npm run build).
 
 import { existsSync, mkdirSync } from 'node:fs';
+import { availableParallelism } from 'node:os';
 import puppeteer from 'puppeteer-core';
 import { preview } from 'vite';
 import { LANGUAGES } from '../src/i18n/index.js';
@@ -30,7 +33,10 @@ const arg = name => process.argv.find(a => a.startsWith(`--${name}=`))?.slice(na
 const only = arg('lang')?.split(',');
 const shotsDir = arg('shots');
 const stress = process.argv.includes('--stress');
-const languages = LANGUAGES.map(l => l.code).filter(code => !only || only.includes(code));
+const jobs = Math.max(1, Number(arg('jobs')) || Math.min(4, availableParallelism()));
+const part = arg('part')?.split('/').map(Number); // --part=2/4: el segundo de cuatro bloques de idiomas
+const languages = LANGUAGES.map(l => l.code).filter(code => !only || only.includes(code))
+  .filter((_, i, all) => !part || Math.floor(i * part[1] / all.length) === part[0] - 1);
 if (languages.length === 0) throw new Error(`Ningún idioma coincide con --lang=${arg('lang')}`);
 if (!existsSync('www/index.html')) throw new Error('Falta www/: ejecuta "npm run build" antes.');
 if (!existsSync(CHROME)) throw new Error(`No encuentro Chrome en ${CHROME}. Indica la ruta con CHROME_PATH.`);
@@ -174,11 +180,17 @@ function inspectPage() {
 }
 
 const server = await preview({ preview: { port: PORT, host: '127.0.0.1', open: false }, logLevel: 'silent' });
-const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--no-sandbox'] });
+const launchBrowser = () => puppeteer.launch({
+  executablePath: CHROME,
+  headless: true,
+  args: ['--no-sandbox'],
+});
 let total = 0;
+/** @type {import('puppeteer-core').Browser[]} */
+const browsers = [];
 
 /** @param {string} lang @param {{ width: number, height: number }} vp */
-async function openApp(lang, vp) {
+async function openApp(browser, lang, vp) {
   const page = await browser.newPage();
   await page.setViewport({ ...vp, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
   await page.setRequestInterception(true);
@@ -209,90 +221,102 @@ async function check(page, lang, vp, screen) {
   for (const p of [...new Set(problems)]) console.log(`  ✗ ${lang} ${vp.width}x${vp.height} ${screen}: ${p}`);
 }
 
-try {
-  for (const lang of languages) {
-    for (const vp of VIEWPORTS) {
-      const page = await openApp(lang, vp);
-      await check(page, lang, vp, '01-ruleta');
+/** Recorre todas las pantallas de un idioma en un tamaño de móvil. Cada una usa sus propias páginas, así que pueden ir en paralelo. */
+async function checkViewport(browser, lang, vp) {
+  const page = await openApp(browser, lang, vp);
+  await check(page, lang, vp, '01-ruleta');
+  await page.click('#spinBtn');
+  await page.waitForFunction(() => !document.getElementById('resultModal').classList.contains('pointer-events-none'), { timeout: 30000 });
+  await wait(700);
+  await check(page, lang, vp, '02-resultado');
+  await page.click('[data-action=close-result][data-arg=done]');
+  await wait(500);
+  for (let i = 0; i < 3; i++) {
+    await page.click('#spinBtn');
+    await page.waitForFunction(() => !document.getElementById('resultModal').classList.contains('pointer-events-none'), { timeout: 30000 });
+    await wait(600);
+    await page.click('[data-action=close-result][data-arg=done]');
+    await wait(500);
+  }
+  if (stress) {
+    // Un resultado con cada tirada: así salen distintos ejercicios largos en la tarjeta
+    for (const [i, value] of [0.04, 0.2, 0.31, 0.45, 0.6, 0.72, 0.9].entries()) {
+      await page.evaluate(v => { Math.random = () => v; }, value);
       await page.click('#spinBtn');
       await page.waitForFunction(() => !document.getElementById('resultModal').classList.contains('pointer-events-none'), { timeout: 30000 });
       await wait(700);
-      await check(page, lang, vp, '02-resultado');
+      await check(page, lang, vp, `02-resultado-${i + 1}`);
       await page.click('[data-action=close-result][data-arg=done]');
       await wait(500);
-      for (let i = 0; i < 3; i++) {
-        await page.click('#spinBtn');
-        await page.waitForFunction(() => !document.getElementById('resultModal').classList.contains('pointer-events-none'), { timeout: 30000 });
-        await wait(600);
-        await page.click('[data-action=close-result][data-arg=done]');
-        await wait(500);
-      }
-      if (stress) {
-        // Un resultado con cada tirada: así salen distintos ejercicios largos en la tarjeta
-        for (const [i, value] of [0.04, 0.2, 0.31, 0.45, 0.6, 0.72, 0.9].entries()) {
-          await page.evaluate(v => { Math.random = () => v; }, value);
-          await page.click('#spinBtn');
-          await page.waitForFunction(() => !document.getElementById('resultModal').classList.contains('pointer-events-none'), { timeout: 30000 });
-          await wait(700);
-          await check(page, lang, vp, `02-resultado-${i + 1}`);
-          await page.click('[data-action=close-result][data-arg=done]');
-          await wait(500);
-        }
-      }
-      await page.click('[data-action=open-history]');
-      await wait(600);
-      await check(page, lang, vp, '03-historial');
-      await page.click('[data-action=close-history]');
-      await wait(500);
-      await page.click('[data-action=open-config]');
-      await wait(600);
-      await check(page, lang, vp, '04-configuracion');
-      await page.evaluate(() => document.getElementById('exsCheckboxes').scrollIntoView({ block: 'start' }));
-      await check(page, lang, vp, '05-ejercicios');
-      await page.click('#iconPickerBtn');
-      await wait(300);
-      await page.evaluate(() => document.getElementById('iconPicker').scrollIntoView({ block: 'center' }));
-      await check(page, lang, vp, '06-selector-de-iconos');
-      // Teclado abierto (se simula con un viewport más bajo): la cuadrícula de iconos tiene que verse entera. Si queda
-      // medio fuera de la zona visible, al arrastrar sobre ella se mueve la parte oculta y la pantalla parece bloqueada.
-      await page.setViewport({ ...vp, height: Math.round(vp.height * 0.6), deviceScaleFactor: 1, isMobile: true, hasTouch: true });
-      await page.focus('#iconSearch');
-      await page.keyboard.type('a');
-      await wait(700);
-      await check(page, lang, vp, '06b-teclado-abierto');
-      const gridCut = await page.evaluate(() => {
-        const grid = document.getElementById('iconGrid').getBoundingClientRect();
-        const box = document.getElementById('iconPicker').closest('.overflow-y-auto').getBoundingClientRect();
-        return grid.bottom > box.bottom + 1 || grid.top < box.top - 1;
-      });
-      if (gridCut) {
-        total++;
-        console.log(`  ✗ ${lang} ${vp.width}x${vp.height} 06b-teclado-abierto: la cuadrícula de iconos queda fuera de la zona visible`);
-      }
-      await page.setViewport({ ...vp, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
-      await wait(400);
-      await page.evaluate(() => { document.getElementById('iconSearch').value = ''; });
-      await page.type('#iconSearch', 'zzzzzz');
-      await wait(300);
-      await check(page, lang, vp, '07-sin-iconos');
-      await page.close();
-
-      // Compromiso de privacidad (desde Configuración) y, encima, la política completa
-      const privacy = await openApp(lang, vp);
-      await privacy.click('[data-action=open-config]');
-      await wait(500);
-      await privacy.evaluate(() => document.querySelector('#configModal [data-action=open-commitment]').click());
-      await wait(300);
-      await check(privacy, lang, vp, '08-compromiso-de-privacidad');
-      await privacy.click('#commitmentModal [data-action=open-privacy]');
-      await wait(600);
-      await check(privacy, lang, vp, '09-politica-de-privacidad');
-      await privacy.close();
     }
-    console.log(`${lang}: revisado`);
   }
+  await page.click('[data-action=open-history]');
+  await wait(600);
+  await check(page, lang, vp, '03-historial');
+  await page.click('[data-action=close-history]');
+  await wait(500);
+  await page.click('[data-action=open-config]');
+  await wait(600);
+  await check(page, lang, vp, '04-configuracion');
+  await page.evaluate(() => document.getElementById('exsCheckboxes').scrollIntoView({ block: 'start' }));
+  await check(page, lang, vp, '05-ejercicios');
+  await page.click('#iconPickerBtn');
+  await wait(300);
+  await page.evaluate(() => document.getElementById('iconPicker').scrollIntoView({ block: 'center' }));
+  await check(page, lang, vp, '06-selector-de-iconos');
+  // Teclado abierto (se simula con un viewport más bajo): la cuadrícula de iconos tiene que verse entera. Si queda
+  // medio fuera de la zona visible, al arrastrar sobre ella se mueve la parte oculta y la pantalla parece bloqueada.
+  await page.setViewport({ ...vp, height: Math.round(vp.height * 0.6), deviceScaleFactor: 1, isMobile: true, hasTouch: true });
+  await page.focus('#iconSearch');
+  await page.keyboard.type('a');
+  await wait(700);
+  await check(page, lang, vp, '06b-teclado-abierto');
+  const gridCut = await page.evaluate(() => {
+    const grid = document.getElementById('iconGrid').getBoundingClientRect();
+    const box = document.getElementById('iconPicker').closest('.overflow-y-auto').getBoundingClientRect();
+    return grid.bottom > box.bottom + 1 || grid.top < box.top - 1;
+  });
+  if (gridCut) {
+    total++;
+    console.log(`  ✗ ${lang} ${vp.width}x${vp.height} 06b-teclado-abierto: la cuadrícula de iconos queda fuera de la zona visible`);
+  }
+  await page.setViewport({ ...vp, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
+  await wait(400);
+  await page.evaluate(() => { document.getElementById('iconSearch').value = ''; });
+  await page.type('#iconSearch', 'zzzzzz');
+  await wait(300);
+  await check(page, lang, vp, '07-sin-iconos');
+  await page.close();
+
+  // Compromiso de privacidad (desde Configuración) y, encima, la política completa
+  const privacy = await openApp(browser, lang, vp);
+  await privacy.click('[data-action=open-config]');
+  await wait(500);
+  await privacy.evaluate(() => document.querySelector('#configModal [data-action=open-commitment]').click());
+  await wait(300);
+  await check(privacy, lang, vp, '08-compromiso-de-privacidad');
+  await privacy.click('#commitmentModal [data-action=open-privacy]');
+  await wait(600);
+  await check(privacy, lang, vp, '09-politica-de-privacidad');
+  await privacy.close();
+}
+
+const pending = languages.flatMap(lang => VIEWPORTS.map(vp => ({ lang, vp })));
+const remaining = Object.fromEntries(languages.map(lang => [lang, VIEWPORTS.length]));
+
+try {
+  // Un Chrome por trabajador: en un mismo Chrome solo la página al frente recibe fotogramas y el giro de la ruleta
+  // de las demás se queda parado
+  await Promise.all(Array.from({ length: Math.min(jobs, pending.length) }, async () => {
+    const browser = await launchBrowser();
+    browsers.push(browser);
+    for (let task; (task = pending.shift());) {
+      await checkViewport(browser, task.lang, task.vp);
+      if (--remaining[task.lang] === 0) console.log(`${task.lang}: revisado`);
+    }
+  }));
 } finally {
-  await browser.close();
+  await Promise.all(browsers.map(b => b.close()));
   await new Promise(r => server.httpServer.close(r));
 }
 

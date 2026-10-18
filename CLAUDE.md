@@ -10,7 +10,7 @@ npm run typecheck    # tsc sobre JSDoc (jsconfig.json)
 npm test             # Vitest (test/)
 npm run build        # build-legal + vite build -> www/
 npm run build:android  # build + cap sync android
-npm run check:layout # recorre la app en cada idioma y móvil y busca textos cortados o solapados (Chromium)
+npm run check:layout # recorre la app en cada idioma y móvil y busca textos cortados o solapados (Chromium); --jobs=N (en paralelo, 4 por defecto), --part=2/4 (un bloque de idiomas), --lang=ar,de, --stress
 npm run store        # ficha de Google Play (capturas, notas, CSV); requiere Chromium vía puppeteer-core
 ```
 
