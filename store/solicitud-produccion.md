@@ -3,7 +3,7 @@
 Respuestas preparadas para el formulario «Solicitar acceso a producción» de Play Console. Cada respuesta está en inglés y en español, con el mismo contenido: se puede enviar la que se prefiera. Si hay que elegir una sola, el inglés es el idioma que mejor entiende el equipo de revisión.
 
 ## Datos de la prueba cerrada
-- Versión de la prueba: 1.15 (Be Reborn), versionCode 15. Después se publicó la 1.16 (Six Pack), versionCode 16, que incluye los cambios derivados del feedback de los testers.
+- Versión con la que empezó la prueba: 1.0.8, versionCode 8. Durante la prueba se publicaron versiones nuevas con los cambios derivados del feedback de los testers: la 1.15 (Be Reborn, versionCode 15) y la 1.16 (Six Pack, versionCode 16), ya publicada.
 - Testers: 16, conseguidos con la app «12 Testers - Testers Community» (Duho Corp).
 - Requisitos de Play: versión de prueba cerrada publicada, al menos 12 testers que aceptaron participar y 14 días de prueba, todos cumplidos.
 
@@ -52,4 +52,4 @@ Respuestas preparadas para el formulario «Solicitar acceso a producción» de P
 > Personas de 16 años en adelante que quieren una forma divertida y aleatoria de elegir su entrenamiento en el gimnasio o en casa. Esperamos un crecimiento orgánico a través del buscador de la tienda y el boca a boca.
 
 ## Qué es Android vitals
-Es un apartado de Play Console con datos de calidad que Google recoge de los dispositivos reales: porcentaje de cierres inesperados (cuelgues) y de aplicación que no responde (ANR). Se encuentra en **Calidad > Android vitals > Resumen** (en algunas cuentas, «Supervisar y mejorar»). Si no aparece ningún dato o los porcentajes son 0 %, no ha habido cuelgues. Con pocos usuarios aparece «Datos no disponibles» (era el caso con la 1.15), y entonces la respuesta 3 no debe apoyarse en esos datos.
+Es un apartado de Play Console con datos de calidad que Google recoge de los dispositivos reales: porcentaje de cierres inesperados (cuelgues) y de aplicación que no responde (ANR). Se encuentra en **Calidad > Android vitals > Resumen** (en algunas cuentas, «Supervisar y mejorar»). Si no aparece ningún dato o los porcentajes son 0 %, no ha habido cuelgues. Con pocos usuarios aparece «Datos no disponibles» (era el caso durante la prueba), y entonces la respuesta 3 no debe apoyarse en esos datos.
