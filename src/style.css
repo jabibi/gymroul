@@ -13,6 +13,12 @@
 /* Color de marca: única fuente. Tailwind (brand-*), los brillos y el aro de la ruleta lo leen de aquí.
    Canales RGB separados por espacios para poder aplicar opacidad (rgb(var(--brand-500) / .35)). */
 :root {
+    /* Zonas de las barras del sistema en Android (viewport-fit=cover). Capacitor inyecta --safe-area-inset-*;
+       en el navegador valen 0 */
+    --sat: var(--safe-area-inset-top, env(safe-area-inset-top, 0px));
+    --sar: var(--safe-area-inset-right, env(safe-area-inset-right, 0px));
+    --sab: var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px));
+    --sal: var(--safe-area-inset-left, env(safe-area-inset-left, 0px));
     --brand-400: 74 222 128;
     --brand-500: 34 197 94;
     --brand-600: 22 163 74;
@@ -20,6 +26,9 @@
 }
 
 body {
+    padding-right: var(--sar);
+    padding-bottom: var(--sab);
+    padding-left: var(--sal);
     font-family: 'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', 'Segoe UI', Tahoma, sans-serif;
     touch-action: manipulation;
     user-select: none;
@@ -53,10 +62,15 @@ input, textarea {
 .pointer-stop-base { stop-color: rgb(var(--brand-600)); }
 .pointer-stop-tip { stop-color: rgb(var(--brand-400)); }
 /* Ruleta: ocupa el ancho del contenido (416 px como máximo, el de max-w-md), pero baja si la pantalla es baja
-   para que el botón de girar siga a la vista (290 px = cabecera, marcador, botón y márgenes); nunca menos de 320 px (el tamaño de antes) */
+   para que el botón de girar siga a la vista (290 px = cabecera, marcador, botón y márgenes, más las barras del sistema); nunca menos de 320 px (el tamaño de antes) */
 .wheel-box {
-    width: max(320px, min(100%, 416px, calc(100dvh - 290px)));
+    width: max(320px, min(100%, 416px, calc(100dvh - 290px - var(--sat) - var(--sab))));
     aspect-ratio: 1;
+}
+/* Capas a pantalla completa: dejan libres las barras del sistema (el fondo se pinta bajo el borde transparente) */
+.safe-edge {
+    border: solid transparent;
+    border-width: var(--sat) var(--sar) var(--sab) var(--sal);
 }
 .wheel-shadow {
     filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.85));

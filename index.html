@@ -2,14 +2,14 @@
 <html lang="es" class="h-full bg-slate-950">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <title>GymRoulette - Workout Generator</title>
 </head>
 <body class="bg-dark-950 text-slate-100 h-full flex flex-col justify-between overflow-x-hidden">
 
-    <header class="w-full py-3.5 px-3 min-[360px]:px-5 glass-card border-b border-slate-800/80 flex justify-between items-center z-20 sticky top-0">
+    <header class="w-full py-3.5 pt-[calc(0.875rem+var(--sat))] px-3 min-[360px]:px-5 glass-card border-b border-slate-800/80 flex justify-between items-center z-20 sticky top-0">
         <div class="flex items-center min-w-0 space-x-2 min-[380px]:space-x-3 rtl:space-x-reverse">
             <div class="w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 rounded-2xl overflow-hidden shadow-lg shadow-brand-500/30 shrink-0">
                 <img src="favicon.svg" alt="" width="40" height="40" class="w-full h-full">
@@ -79,7 +79,7 @@
     </main>
 
     <!-- Modal de Resultado -->
-    <div id="resultModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="winnerText" aria-hidden="true" class="outline-none fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div id="resultModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="winnerText" aria-hidden="true" class="outline-none safe-edge fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
         <div class="glass-card result-card relative w-full max-w-sm rounded-3xl p-6 text-center transform scale-90 transition-transform duration-300 shadow-2xl border border-brand-500/50 glow-brand" id="resultCard">
             <div id="winnerIconContainer" class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
                 <i id="winnerIcon" class="fa-solid fa-fire"></i>
@@ -114,7 +114,7 @@
     </div>
 
     <!-- Modal de Historial -->
-    <div id="historyModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="historyTitle" aria-hidden="true" class="outline-none fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div id="historyModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="historyTitle" aria-hidden="true" class="outline-none safe-edge fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
         <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-6 max-h-[80dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="historyCard">
             <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-800">
                 <div class="flex items-center gap-2.5">
@@ -138,8 +138,8 @@
     </div>
 
     <!-- Modal de Configuración & CRUD -->
-    <div id="configModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="configTitle" aria-hidden="true" class="outline-none fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
-        <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 sm:p-6 max-h-[calc(100dvh-0.5rem)] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="configCard">
+    <div id="configModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="configTitle" aria-hidden="true" class="outline-none safe-edge fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 sm:p-6 max-h-[calc(100dvh-0.5rem-var(--sat)-var(--sab))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="configCard">
             <div class="flex justify-between items-center mb-3 pb-3 border-b border-slate-800">
                 <div class="flex items-center gap-2.5">
                     <i class="fa-solid fa-sliders text-brand-400 text-lg"></i>
@@ -220,7 +220,7 @@
     </div>
 
     <!-- Preparando la imagen para compartir: tapa la app, que queda inerte; se puede cancelar -->
-    <div id="shareLoading" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="shareLoadingText" class="outline-none hidden fixed inset-0 z-[60] bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
+    <div id="shareLoading" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="shareLoadingText" class="outline-none safe-edge hidden fixed inset-0 z-[60] bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
         <div class="glass-card w-full max-w-xs rounded-3xl p-6 text-center shadow-2xl border border-brand-500/50 glow-brand">
             <div class="share-wheel mx-auto mb-5" aria-hidden="true"><div class="share-spinner"></div></div>
             <p id="shareLoadingText" role="status" class="text-sm font-black text-white mb-5" data-i18n="share.preparing">Preparing your image…</p>
@@ -229,12 +229,12 @@
     </div>
 
     <!-- Mensajes breves -->
-    <div id="toast" role="status" aria-live="polite" class="fixed top-20 inset-x-0 z-[70] flex justify-center px-4 pointer-events-none opacity-0 transition-opacity duration-300">
+    <div id="toast" role="status" aria-live="polite" class="fixed top-[calc(5rem+var(--sat))] inset-x-0 z-[70] flex justify-center px-4 pointer-events-none opacity-0 transition-opacity duration-300">
         <div id="toastText" class="glass-card rounded-xl px-4 py-2 text-xs font-bold text-slate-100 border border-brand-500/40 shadow-2xl"></div>
     </div>
 
     <!-- Visor de documentos: política de privacidad y créditos  -->
-    <div id="documentModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="documentTitle" class="outline-none hidden fixed inset-0 z-[110] bg-dark-950 flex flex-col">
+    <div id="documentModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="documentTitle" class="outline-none safe-edge hidden fixed inset-0 z-[110] bg-dark-950 flex flex-col">
         <div class="flex justify-between items-center px-5 py-3.5 glass-card border-b border-slate-800/80">
             <h2 id="documentTitle" class="font-black text-base text-white">Privacy policy</h2>
             <button data-action="close-document" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
@@ -245,8 +245,8 @@
     </div>
 
     <!-- Compromiso de privacidad: resumen de las prácticas de la app (por debajo del visor de documentos) -->
-    <div id="commitmentModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="commitmentTitle" class="outline-none hidden fixed inset-0 z-[105] bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="glass-card w-full max-w-sm max-h-[calc(100dvh-2rem)] rounded-3xl p-5 flex flex-col shadow-2xl border border-brand-500/50 glow-brand">
+    <div id="commitmentModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="commitmentTitle" class="outline-none safe-edge hidden fixed inset-0 z-[105] bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-card w-full max-w-sm max-h-[calc(100dvh-2rem-var(--sat)-var(--sab))] rounded-3xl p-5 flex flex-col shadow-2xl border border-brand-500/50 glow-brand">
             <div class="flex justify-between items-center gap-3 mb-3 pb-3 border-b border-slate-800">
                 <div class="flex items-center gap-2.5 min-w-0">
                     <i class="fa-solid fa-shield-halved text-brand-400 text-lg" aria-hidden="true"></i>
