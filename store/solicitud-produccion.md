@@ -11,14 +11,17 @@ Respuestas preparadas para el formulario «Solicitar acceso a producción» de P
 > We recruited 16 testers through the "12 Testers - Testers Community" app, a community where developers test each other's apps. The testers installed GymRoulette from the closed-testing link and used it for more than 14 days: spinning the wheel, customising their exercises and repetition ranges, reviewing their history and sharing results. We collected their feedback through the community and used it to improve the app.
 
 ## 2. Resume los comentarios recibidos y los cambios que hiciste
-> Two pieces of tester feedback led to the biggest changes in version 1.15:
+> Three pieces of tester feedback led to our changes:
 > 1. Default exercises were shown in English regardless of the app language. They are now translated into the user's language (20 languages), while the user's own exercises stay as typed.
 > 2. Testers wanted different repetitions for each exercise and a cleaner wheel. Each exercise now has its own repetition range, and the wheel shows only the exercises; the repetitions are drawn when the spin ends.
+> 3. We asked testers who use the app in other languages to review the translations in context. A tester using the app in Japanese confirmed that the translated names now appear on the wheel and result card, and pointed out that the short wheel label of one exercise ("Split Jumps") was ambiguous in Japanese, where the short form on its own reads as the leg split rather than a jump. We changed it to the full name for the next version, which is being released shortly.
 
 ## 3. ¿Por qué tu app está lista para producción?
-> The app is complete and ready after the closed test. Over the 14+ days of testing, none of our 16 testers reported crashes or freezes; the feedback we received was only suggestions and positive ratings. It requires no account and no Internet permission (only VIBRATE), collects no data and contains no ads. It supports 20 languages, including right-to-left Arabic. Every release passes our CI (type checking, automated tests and release builds). The store listing, privacy policy and data safety declarations are complete.
+> The app is complete and ready after the closed test. Over the 14+ days of testing, none of our 16 testers reported crashes or freezes; the feedback we received was only suggestions and positive ratings. It requires no account and no Internet permission (only VIBRATE), collects no data and contains no ads. It supports 20 languages, including right-to-left Arabic, and we have started reviewing the translations with testers who use the app in those languages. Every release passes our CI (type checking, automated tests and release builds). The store listing, privacy policy and data safety declarations are complete.
 
 > Android vitals aún muestra «Datos no disponibles» (pocos usuarios), así que la respuesta no se apoya en esos datos. Confirmado por ti: ningún tester comunicó cuelgues, solo sugerencias y valoraciones positivas.
+
+> Pendiente de confirmar por ti antes de enviar: solo consta la revisión del tester en japonés (reseña de 4 estrellas del 17 oct 2026, OPPO Reno5 A, versión 1.15). No se ha documentado ninguna otra revisión de nativos, así que el texto no nombra más idiomas. Si hubo más (idioma, quién y qué se corrigió), añádelo a la respuesta 2; si no, la frase «We asked testers who use the app in other languages» conviene reducirla a lo que realmente ocurrió. Se describe el caso concreto sin nombrar al usuario: aporta credibilidad y no expone datos personales. Cuidado con los límites de caracteres de cada campo del formulario. La corrección entra en la 1.16 (aún sin publicar).
 
 ## 4. Público y uso previsto (si lo preguntan)
 > People aged 16 and over who want a fun, random way to choose their workout at the gym or at home. We expect organic growth through store search and word of mouth.
