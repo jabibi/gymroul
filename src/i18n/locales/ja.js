@@ -70,7 +70,7 @@ export default {
     'exercise.climbers': 'マウンテンクライマー',
     'exercise.climbers.short': 'クライマー',
     'exercise.splitjump': 'スプリットジャンプ',
-    'exercise.splitjump.short': 'スプリット',
+    'exercise.splitjump.short': 'スプリットジャンプ',
 
     'error.nameRequired': 'エクササイズの名前を入力してください',
     'error.iconRequired': 'リストからアイコンを選んでください',
