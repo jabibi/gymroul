@@ -16,6 +16,10 @@ Atendidas en la 1.15:
 - Ruleta solo con los ejercicios (misma reseña): que la ruleta muestre únicamente los ejercicios y que el número de repeticiones salga después de girar, para que se vea menos recargada.
 - Ejercicios por defecto sin traducir (informe de prueba en OPPO Reno5 A con Android 12, en español, con la app en japonés): las etiquetas de la ruleta salían en inglés mientras los botones y los diálogos estaban en japonés.
 
+## Acceso a producción
+
+Solicitud enviada el 18 oct 2026 a las 21:53, con 15 testers y la 1.16 en las pruebas cerradas (Alpha y googlegroups). Play Console la muestra como recibida y avisa por correo al propietario de la cuenta; la revisión suele tardar 7 días o menos. Las respuestas enviadas están en `store/solicitud-produccion.md`. Hasta que llegue la respuesta no se cambia la versión de las pruebas cerradas. Mientras no se concede, no hay producción.
+
 ## En desarrollo: versión 1.16 «Six Pack» (versionCode 16)
 
 - **Historial sin repeticiones duplicadas**: la fila mostraba el número en el recuadro y otra vez al principio del título (detectado en la 1.15 con la app en euskera). El título lleva solo el ejercicio, traducido.
