@@ -4,16 +4,16 @@ Respuestas preparadas para el formulario «Solicitar acceso a producción» de P
 
 ## Datos de la prueba cerrada
 - Versión con la que empezó la prueba: 1.0.8, versionCode 8. Durante la prueba se publicaron versiones nuevas con los cambios derivados del feedback de los testers: la 1.15 (Be Reborn, versionCode 15) y la 1.16 (Six Pack, versionCode 16), ya publicada en los dos canales de la prueba cerrada (Alpha y googlegroups). Aún no hay acceso a pruebas abiertas ni a producción.
-- Testers: 16, conseguidos con la app «12 Testers - Testers Community» (Duho Corp).
+- Testers: 15, conseguidos con la app «12 Testers - Testers Community» (Duho Corp). Los grupos de pruebas se forman con 16 miembros, dueño de cada app incluido, y cada miembro prueba las apps del resto, así que cada app la prueban los otros 15.
 - Requisitos de Play: versión de prueba cerrada publicada, al menos 12 testers que aceptaron participar y 14 días de prueba, todos cumplidos.
 
 ## 1. ¿Cómo reclutaste a los testers y cómo interactuaron con la app?
 
 **English**
-> We recruited 16 testers through the "12 Testers - Testers Community" app, a community where developers test each other's apps. The testers installed GymRoulette from the closed-testing link and used it for more than 14 days: spinning the wheel, customising their exercises and repetition ranges, reviewing their history and sharing results. We collected their feedback through the community and used it to improve the app.
+> We recruited 15 testers through the "12 Testers - Testers Community" app, a community where developers test each other's apps. The testers installed GymRoulette from the closed-testing link and used it for more than 14 days: spinning the wheel, customising their exercises and repetition ranges, reviewing their history and sharing results. We collected their feedback through the community and used it to improve the app.
 
 **Español**
-> Reclutamos a 16 testers con la app «12 Testers - Testers Community», una comunidad en la que los desarrolladores prueban las apps de los demás. Los testers instalaron GymRoulette desde el enlace de la prueba cerrada y la usaron durante más de 14 días: giraron la ruleta, personalizaron sus ejercicios y sus rangos de repeticiones, consultaron su historial y compartieron resultados. Recogimos sus comentarios a través de la comunidad y los usamos para mejorar la app.
+> Reclutamos a 15 testers con la app «12 Testers - Testers Community», una comunidad en la que los desarrolladores prueban las apps de los demás. Los testers instalaron GymRoulette desde el enlace de la prueba cerrada y la usaron durante más de 14 días: giraron la ruleta, personalizaron sus ejercicios y sus rangos de repeticiones, consultaron su historial y compartieron resultados. Recogimos sus comentarios a través de la comunidad y los usamos para mejorar la app.
 
 ## 2. Resume los comentarios recibidos y los cambios que hiciste
 
@@ -32,10 +32,10 @@ Respuestas preparadas para el formulario «Solicitar acceso a producción» de P
 ## 3. ¿Por qué tu app está lista para producción?
 
 **English**
-> The app is complete and ready after the closed test. Over the 14+ days of testing, none of our 16 testers reported crashes or freezes; the feedback we received was only suggestions and positive ratings. It requires no account and no Internet permission (only VIBRATE), collects no data and contains no ads. It supports 20 languages, including right-to-left Arabic, and native speakers of nine of those languages (Japanese, Arabic, Turkish, English, Polish, Dutch, Portuguese, Spanish and Basque) have reviewed the translations. Every release passes our CI (type checking, automated tests and release builds). The store listing, privacy policy and data safety declarations are complete.
+> The app is complete and ready after the closed test. Over the 14+ days of testing, none of our 15 testers reported crashes or freezes; the feedback we received was only suggestions and positive ratings. It requires no account and no Internet permission (only VIBRATE), collects no data and contains no ads. It supports 20 languages, including right-to-left Arabic, and native speakers of nine of those languages (Japanese, Arabic, Turkish, English, Polish, Dutch, Portuguese, Spanish and Basque) have reviewed the translations. Every release passes our CI (type checking, automated tests and release builds). The store listing, privacy policy and data safety declarations are complete.
 
 **Español**
-> La app está completa y lista tras la prueba cerrada. Durante los más de 14 días de prueba, ninguno de nuestros 16 testers comunicó cuelgues ni bloqueos; los comentarios que recibimos fueron solo sugerencias y valoraciones positivas. No requiere cuenta ni permiso de Internet (solo VIBRATE), no recoge datos y no contiene anuncios. Está disponible en 20 idiomas, incluido el árabe, que se escribe de derecha a izquierda, y hablantes nativos de nueve de ellos (japonés, árabe, turco, inglés, polaco, neerlandés, portugués, español y euskera) han revisado las traducciones. Cada versión pasa nuestra integración continua (comprobación de tipos, pruebas automáticas y compilaciones de release). La ficha de la tienda, la política de privacidad y las declaraciones de seguridad de los datos están completas.
+> La app está completa y lista tras la prueba cerrada. Durante los más de 14 días de prueba, ninguno de nuestros 15 testers comunicó cuelgues ni bloqueos; los comentarios que recibimos fueron solo sugerencias y valoraciones positivas. No requiere cuenta ni permiso de Internet (solo VIBRATE), no recoge datos y no contiene anuncios. Está disponible en 20 idiomas, incluido el árabe, que se escribe de derecha a izquierda, y hablantes nativos de nueve de ellos (japonés, árabe, turco, inglés, polaco, neerlandés, portugués, español y euskera) han revisado las traducciones. Cada versión pasa nuestra integración continua (comprobación de tipos, pruebas automáticas y compilaciones de release). La ficha de la tienda, la política de privacidad y las declaraciones de seguridad de los datos están completas.
 
 > Notas para quien envíe el formulario (no van en la respuesta):
 > - Android vitals aún muestra «Datos no disponibles» (pocos usuarios), así que la respuesta no se apoya en esos datos. Confirmado por ti: ningún tester comunicó cuelgues, solo sugerencias y valoraciones positivas.
