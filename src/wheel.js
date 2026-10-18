@@ -61,7 +61,9 @@ export function setSegments(next) {
 }
 
 const MIN_LABEL_SIZE = 9;
+/** Tamaño máximo de etiqueta en una ruleta de 320 px; crece en proporción con el tamaño de la ruleta (tope en MAX_LABEL_SCALED) */
 const MAX_LABEL_SIZE = 18;
+const MAX_LABEL_SCALED = 24;
 /** Fracción del radio que ocupa el botón central: el texto de los sectores empieza después */
 const LABEL_HUB_RESERVE = 0.32;
 const labelFont = (/** @type {number} */ px) => `800 ${px}px 'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', sans-serif`;
@@ -109,7 +111,7 @@ function buildCache() {
     const textEnd = radius - 16;
     const textStart = radius * LABEL_HUB_RESERVE;
     const thickness = 2 * textStart * Math.sin(Math.min(slice, Math.PI) / 2);
-    const maxSize = Math.max(MIN_LABEL_SIZE, Math.min(MAX_LABEL_SIZE, Math.floor(thickness * 0.55)));
+    const maxSize = Math.max(MIN_LABEL_SIZE, Math.min(Math.min(MAX_LABEL_SCALED, Math.round(MAX_LABEL_SIZE * size / 320)), Math.floor(thickness * 0.55)));
     const fitted = fitText((text, px) => (c.font = labelFont(px), c.measureText(text).width), label, textEnd - textStart, maxSize, MIN_LABEL_SIZE);
     c.font = labelFont(fitted.size);
     c.fillText(fitted.text, textEnd, 0);

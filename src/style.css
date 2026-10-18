@@ -52,6 +52,12 @@ input, textarea {
 }
 .pointer-stop-base { stop-color: rgb(var(--brand-600)); }
 .pointer-stop-tip { stop-color: rgb(var(--brand-400)); }
+/* Ruleta: ocupa el ancho del contenido (416 px como máximo, el de max-w-md), pero baja si la pantalla es baja
+   para que el botón de girar siga a la vista (290 px = cabecera, marcador, botón y márgenes); nunca menos de 320 px (el tamaño de antes) */
+.wheel-box {
+    width: max(320px, min(100%, 416px, calc(100dvh - 290px)));
+    aspect-ratio: 1;
+}
 .wheel-shadow {
     filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.85));
 }

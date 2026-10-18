@@ -46,7 +46,7 @@
         </div>
 
         <!-- Contenedor Principal de la Ruleta -->
-        <div class="relative w-[320px] h-[320px] sm:w-[360px] sm:h-[360px] mt-3 mb-1 wheel-shadow">
+        <div class="wheel-box relative mt-3 mb-1 wheel-shadow">
 
             <!-- Púa superior: lengüeta que se apoya sobre el borde de la ruleta, como la de una ruleta física (la punta entra 9 px en el aro exterior) -->
             <div class="absolute -top-[6px] left-1/2 -translate-x-1/2 z-30 pointer-glow" aria-hidden="true">
@@ -65,7 +65,7 @@
             <canvas id="wheelCanvas" role="img" aria-label="Exercise wheel: spin it with the button below or drag it" data-i18n-aria-label="wheel.aria" class="w-full h-full cursor-grab active:cursor-grabbing rounded-full touch-none"></canvas>
 
             <!-- Botón Central de Giro -->
-            <button type="button" data-action="spin" aria-label="Spin the wheel" data-i18n-aria-label="wheel.centerAria" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-dark-800 via-dark-900 to-dark-950 border-4 border-brand-500 flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:scale-105 active:scale-95 transition-transform z-20 glow-brand">
+            <button type="button" data-action="spin" aria-label="Spin the wheel" data-i18n-aria-label="wheel.centerAria" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/4 aspect-square rounded-full bg-gradient-to-br from-dark-800 via-dark-900 to-dark-950 border-4 border-brand-500 flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:scale-105 active:scale-95 transition-transform z-20 glow-brand">
                 <i class="fa-solid fa-play text-brand-400 text-xl ml-0.5 mb-0.5"></i>
                 <span class="text-[9px] font-black tracking-widest text-slate-200 uppercase" data-i18n="wheel.center">SPIN</span>
             </button>
