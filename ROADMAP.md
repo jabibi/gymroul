@@ -4,7 +4,11 @@ Objetivos de las próximas versiones. Lo ya publicado está en el historial de c
 
 ## Peticiones de usuarios
 
-Lo que piden las reseñas de Play y otros mensajes. Se apunta la petición, de dónde viene y qué implicaría; no es un compromiso de hacerlo. Aún no hay ninguna abierta.
+Lo que piden las reseñas de Play y otros mensajes. Se apunta la petición, de dónde viene y qué implicaría; no es un compromiso de hacerlo.
+
+Abiertas:
+
+- Ruleta más grande (reseña de 4 estrellas, 2 oct 2026, versión 1.0.7, en inglés: «spinner size can be increased»). Se valora en la 1.17; ver abajo.
 
 Atendidas en la 1.15:
 
@@ -32,6 +36,39 @@ Aún no está empezada. Desde la 1.15 cada ejercicio lleva su rango de repeticio
 - Mostrar el rango como texto compacto (por ejemplo «10-60») y editarlo al tocar la fila.
 
 **Qué implicaría**: solo maquetación (`index.html` y `src/ui.js`), sin cambios en los datos guardados. Hay que pasar `npm run check:layout`, incluido `--stress` (12 ejercicios de nombres larguísimos y repeticiones hasta 999999), en los 20 idiomas y con el árabe de derecha a izquierda, y regenerar las capturas de Configuración de la ficha.
+
+## Por valorar en la versión 1.17 — ruleta más grande
+
+Petición de una reseña de Play (ver «Peticiones de usuarios»). No es un compromiso: primero hay que ver hasta dónde se puede ampliar sin romper nada.
+
+**Cómo está hoy**: el contenedor de la ruleta mide 320 px y 360 px desde el punto de corte `sm` (640 px de ancho) en `index.html`, dentro de un `<main>` de `max-w-md` con `px-4` (416 px útiles como máximo). El tamaño del canvas sale del contenedor en `resize` (`src/wheel.js`). En un móvil de unos 412 dp de ancho quedan unos 380 px útiles, así que la ruleta deja unos 60 px de ancho sin usar.
+
+**Qué limita el tamaño**:
+- **Ancho**: el espacio útil de cada móvil (con el margen lateral actual).
+- **Alto**: la ruleta comparte pantalla con la cabecera, el marcador de sector (52 px), el botón de girar y las barras del sistema. En pantallas bajas o con letra grande, una ruleta mayor empujaría el botón fuera de la vista; no debería obligar a desplazarse para girar.
+- **Etiquetas**: los textos de los sectores se ajustan al radio libre (`fitText`); una ruleta mayor deja más sitio y puede subir el tamaño máximo (`MAX_LABEL_SIZE`).
+- **Botón central y púa**: tienen tamaño fijo (80 px y 48 px); hay que ver si guardan la proporción.
+
+**Qué probar**:
+- Tamaño en función del espacio disponible (ancho y alto de la ventana) en lugar de dos valores fijos, con un máximo razonable en pantallas grandes y tabletas.
+- Que el botón de girar siga siempre visible sin desplazarse, también con la letra del sistema grande y con el teclado cerrado.
+- Que el nombre de ejercicios largos siga cabiendo con 12 sectores.
+
+**Qué implicaría**: sobre todo maquetación (`index.html`, `src/wheel.js`, `src/style.css`), sin cambios en los datos guardados. Hay que pasar `npm run check:layout`, incluido `--stress`, en los 20 idiomas y con el árabe de derecha a izquierda, y regenerar las capturas de la ficha de Play (`npm run store`).
+
+## Por valorar en la versión 1.18 — ruso como idioma nuevo
+
+Aún no está empezado. Se apunta el ruso (`ru`) como el siguiente idioma. No es un compromiso: antes hay que cubrir lo de abajo.
+
+**Qué implicaría** (según `CLAUDE.md`, un idioma nuevo hay que añadirlo en tres sitios):
+- **La app**: `src/i18n/locales/ru.js` con todas las claves de `en.js` (incluidos `exercise.<clave>` y `exercise.<clave>.short` de los seis ejercicios por defecto y las etiquetas de los iconos) y alta en `LANGUAGES` de `src/i18n/index.js`. `npm test` falla si falta alguna clave o si cambian los parámetros `{x}`. Pasa de 20 a 21 idiomas, y todos los textos que hablan de «20 idiomas» (`CLAUDE.md`, ficha de Play, solicitud de producción) hay que actualizarlos.
+- **La ficha de Play**: entrada de `ru` en `store/listing.mjs` con título, descripciones y novedades (500 caracteres), y capturas, textos y CSV regenerados con `npm run store`.
+- **Las páginas legales**: política de privacidad y resto en `legal/index.mjs` (`LANGUAGE_ORDER`), regeneradas con `npm run legal`; hoy son 16, sin variantes regionales.
+
+**Riesgos**:
+- **Tipografía**: hoy solo se cargan los subconjuntos `latin` de Plus Jakarta Sans (`src/style.css`) y el paquete trae el cirílico extendido (`cyrillic-ext`), que no parece incluir las letras básicas del ruso. Hay que comprobarlo; si no las cubre, el texto caería en la fuente del sistema o habría que cambiar de fuente.
+- **Longitud**: el ruso suele ocupar más que el inglés. Hay que pasar `npm run check:layout`, incluido `--stress`, en los 21 idiomas y vigilar los nombres cortos de los ejercicios (máximo 12) y las etiquetas de la ruleta.
+- **Revisión**: conviene que la traducción la revise un hablante nativo antes de publicarla, como se ha hecho con otros idiomas.
 
 ## Probable: versión 1.19 — historial que se guarda y resumen acumulado
 
