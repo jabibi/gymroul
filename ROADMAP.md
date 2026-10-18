@@ -4,7 +4,11 @@ Objetivos de las próximas versiones. Lo ya publicado está en el historial de c
 
 ## Peticiones de usuarios
 
-Lo que piden las reseñas de Play y otros mensajes. Se apunta la petición, de dónde viene y qué implicaría; no es un compromiso de hacerlo. Aún no hay ninguna abierta.
+Lo que piden las reseñas de Play y otros mensajes. Se apunta la petición, de dónde viene y qué implicaría; no es un compromiso de hacerlo.
+
+Abiertas:
+
+- Ruleta más grande (reseña de 4 estrellas, 2 oct 2026, versión 1.0.7, en inglés: «spinner size can be increased»). Se valora en la 1.17; ver abajo.
 
 Atendidas en la 1.15:
 
@@ -32,6 +36,25 @@ Aún no está empezada. Desde la 1.15 cada ejercicio lleva su rango de repeticio
 - Mostrar el rango como texto compacto (por ejemplo «10-60») y editarlo al tocar la fila.
 
 **Qué implicaría**: solo maquetación (`index.html` y `src/ui.js`), sin cambios en los datos guardados. Hay que pasar `npm run check:layout`, incluido `--stress` (12 ejercicios de nombres larguísimos y repeticiones hasta 999999), en los 20 idiomas y con el árabe de derecha a izquierda, y regenerar las capturas de Configuración de la ficha.
+
+## Por valorar en la versión 1.17 — ruleta más grande
+
+Petición de una reseña de Play (ver «Peticiones de usuarios»). No es un compromiso: primero hay que ver hasta dónde se puede ampliar sin romper nada.
+
+**Cómo está hoy**: el contenedor de la ruleta mide 320 px y 360 px desde el punto de corte `sm` (640 px de ancho) en `index.html`, dentro de un `<main>` de `max-w-md` con `px-4` (416 px útiles como máximo). El tamaño del canvas sale del contenedor en `resize` (`src/wheel.js`). En un móvil de unos 412 dp de ancho quedan unos 380 px útiles, así que la ruleta deja unos 60 px de ancho sin usar.
+
+**Qué limita el tamaño**:
+- **Ancho**: el espacio útil de cada móvil (con el margen lateral actual).
+- **Alto**: la ruleta comparte pantalla con la cabecera, el marcador de sector (52 px), el botón de girar y las barras del sistema. En pantallas bajas o con letra grande, una ruleta mayor empujaría el botón fuera de la vista; no debería obligar a desplazarse para girar.
+- **Etiquetas**: los textos de los sectores se ajustan al radio libre (`fitText`); una ruleta mayor deja más sitio y puede subir el tamaño máximo (`MAX_LABEL_SIZE`).
+- **Botón central y púa**: tienen tamaño fijo (80 px y 48 px); hay que ver si guardan la proporción.
+
+**Qué probar**:
+- Tamaño en función del espacio disponible (ancho y alto de la ventana) en lugar de dos valores fijos, con un máximo razonable en pantallas grandes y tabletas.
+- Que el botón de girar siga siempre visible sin desplazarse, también con la letra del sistema grande y con el teclado cerrado.
+- Que el nombre de ejercicios largos siga cabiendo con 12 sectores.
+
+**Qué implicaría**: sobre todo maquetación (`index.html`, `src/wheel.js`, `src/style.css`), sin cambios en los datos guardados. Hay que pasar `npm run check:layout`, incluido `--stress`, en los 20 idiomas y con el árabe de derecha a izquierda, y regenerar las capturas de la ficha de Play (`npm run store`).
 
 ## Probable: versión 1.19 — historial que se guarda y resumen acumulado
 
