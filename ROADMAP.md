@@ -56,6 +56,20 @@ Petición de una reseña de Play (ver «Peticiones de usuarios»). No es un comp
 
 **Qué implicaría**: sobre todo maquetación (`index.html`, `src/wheel.js`, `src/style.css`), sin cambios en los datos guardados. Hay que pasar `npm run check:layout`, incluido `--stress`, en los 20 idiomas y con el árabe de derecha a izquierda, y regenerar las capturas de la ficha de Play (`npm run store`).
 
+## Por valorar en la versión 1.18 — ruso como idioma nuevo
+
+Aún no está empezado. Se apunta el ruso (`ru`) como el siguiente idioma. No es un compromiso: antes hay que cubrir lo de abajo.
+
+**Qué implicaría** (según `CLAUDE.md`, un idioma nuevo hay que añadirlo en tres sitios):
+- **La app**: `src/i18n/locales/ru.js` con todas las claves de `en.js` (incluidos `exercise.<clave>` y `exercise.<clave>.short` de los seis ejercicios por defecto y las etiquetas de los iconos) y alta en `LANGUAGES` de `src/i18n/index.js`. `npm test` falla si falta alguna clave o si cambian los parámetros `{x}`. Pasa de 20 a 21 idiomas, y todos los textos que hablan de «20 idiomas» (`CLAUDE.md`, ficha de Play, solicitud de producción) hay que actualizarlos.
+- **La ficha de Play**: entrada de `ru` en `store/listing.mjs` con título, descripciones y novedades (500 caracteres), y capturas, textos y CSV regenerados con `npm run store`.
+- **Las páginas legales**: política de privacidad y resto en `legal/index.mjs` (`LANGUAGE_ORDER`), regeneradas con `npm run legal`; hoy son 16, sin variantes regionales.
+
+**Riesgos**:
+- **Tipografía**: hoy solo se cargan los subconjuntos `latin` de Plus Jakarta Sans (`src/style.css`) y el paquete trae el cirílico extendido (`cyrillic-ext`), que no parece incluir las letras básicas del ruso. Hay que comprobarlo; si no las cubre, el texto caería en la fuente del sistema o habría que cambiar de fuente.
+- **Longitud**: el ruso suele ocupar más que el inglés. Hay que pasar `npm run check:layout`, incluido `--stress`, en los 21 idiomas y vigilar los nombres cortos de los ejercicios (máximo 12) y las etiquetas de la ruleta.
+- **Revisión**: conviene que la traducción la revise un hablante nativo antes de publicarla, como se ha hecho con otros idiomas.
+
 ## Probable: versión 1.19 — historial que se guarda y resumen acumulado
 
 Aún no está decidida ni empezada. Es el prerrequisito para retomar la valoración dentro de la app (ver «Ideas sin fecha»), que sigue descartada hasta que haya un momento claro de éxito del usuario.
