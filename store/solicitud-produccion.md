@@ -3,7 +3,7 @@
 Respuestas preparadas para el formulario «Solicitar acceso a producción» de Play Console. Cada respuesta está en inglés y en español, con el mismo contenido: se puede enviar la que se prefiera. Si hay que elegir una sola, el inglés es el idioma que mejor entiende el equipo de revisión.
 
 ## Datos de la prueba cerrada
-- Versión con la que empezó la prueba: 1.0.8, versionCode 8. Durante la prueba se publicaron versiones nuevas con los cambios derivados del feedback de los testers: la 1.15 (Be Reborn, versionCode 15) y la 1.16 (Six Pack, versionCode 16), ya publicada.
+- Versión con la que empezó la prueba: 1.0.8, versionCode 8. Durante la prueba se publicaron versiones nuevas con los cambios derivados del feedback de los testers: la 1.15 (Be Reborn, versionCode 15) y la 1.16 (Six Pack, versionCode 16), ya publicada en los dos canales de la prueba cerrada (Alpha y googlegroups). Aún no hay acceso a pruebas abiertas ni a producción.
 - Testers: 16, conseguidos con la app «12 Testers - Testers Community» (Duho Corp).
 - Requisitos de Play: versión de prueba cerrada publicada, al menos 12 testers que aceptaron participar y 14 días de prueba, todos cumplidos.
 
@@ -21,13 +21,13 @@ Respuestas preparadas para el formulario «Solicitar acceso a producción» de P
 > Three pieces of tester feedback led to our changes:
 > 1. Default exercises were shown in English regardless of the app language. They are now translated into the user's language (20 languages), while the user's own exercises stay as typed.
 > 2. Testers wanted different repetitions for each exercise and a cleaner wheel. Each exercise now has its own repetition range, and the wheel shows only the exercises; the repetitions are drawn when the spin ends.
-> 3. Native speakers reviewed the translations in context. Testers who are native speakers of Japanese, Arabic, Turkish, English, Polish, Dutch, Portuguese and Spanish sent us feedback on the app in their own language, through Google Play and the testers' community, and we reviewed the Basque translation ourselves as native speakers. For example, a native Japanese tester confirmed that the translated exercise names now appear on the wheel and result card, and pointed out that the short wheel label of one exercise ("Split Jumps") was ambiguous in Japanese, where the short form on its own reads as the leg split rather than a jump. We changed it to the full name in version 1.16, which is already published.
+> 3. Native speakers reviewed the translations in context. Testers who are native speakers of Japanese, Arabic, Turkish, English, Polish, Dutch, Portuguese and Spanish sent us feedback on the app in their own language, through Google Play and the testers' community, and we reviewed the Basque translation ourselves as native speakers. For example, a native Japanese tester confirmed that the translated exercise names now appear on the wheel and result card, and pointed out that the short wheel label of one exercise ("Split Jumps") was ambiguous in Japanese, where the short form on its own reads as the leg split rather than a jump. We changed it to the full name in version 1.16, which is already live in our closed-testing channels.
 
 **Español**
 > Tres comentarios de los testers nos llevaron a hacer cambios:
 > 1. Los ejercicios por defecto se mostraban en inglés sea cual fuese el idioma de la app. Ahora se muestran traducidos al idioma del usuario (20 idiomas), y los ejercicios que crea el usuario se quedan como los escribió.
 > 2. Los testers querían repeticiones distintas para cada ejercicio y una ruleta menos recargada. Ahora cada ejercicio tiene su propio rango de repeticiones y la ruleta muestra solo los ejercicios; las repeticiones se sortean al terminar el giro.
-> 3. Hablantes nativos revisaron las traducciones en contexto. Testers nativos de japonés, árabe, turco, inglés, polaco, neerlandés, portugués y español nos enviaron comentarios sobre la app en su idioma, por Google Play y por la comunidad de testers, y la traducción al euskera la revisamos nosotros mismos como hablantes nativos. Por ejemplo, un tester nativo de japonés confirmó que los nombres de ejercicios traducidos ya aparecen en la ruleta y en la tarjeta de resultado, y señaló que el nombre corto de un ejercicio («Split Jumps») era ambiguo en japonés, donde la forma corta por sí sola se lee como la apertura de piernas y no como un salto. Lo cambiamos por el nombre completo en la versión 1.16, que ya está publicada.
+> 3. Hablantes nativos revisaron las traducciones en contexto. Testers nativos de japonés, árabe, turco, inglés, polaco, neerlandés, portugués y español nos enviaron comentarios sobre la app en su idioma, por Google Play y por la comunidad de testers, y la traducción al euskera la revisamos nosotros mismos como hablantes nativos. Por ejemplo, un tester nativo de japonés confirmó que los nombres de ejercicios traducidos ya aparecen en la ruleta y en la tarjeta de resultado, y señaló que el nombre corto de un ejercicio («Split Jumps») era ambiguo en japonés, donde la forma corta por sí sola se lee como la apertura de piernas y no como un salto. Lo cambiamos por el nombre completo en la versión 1.16, que ya está disponible en nuestros canales de prueba cerrada.
 
 ## 3. ¿Por qué tu app está lista para producción?
 
@@ -40,7 +40,7 @@ Respuestas preparadas para el formulario «Solicitar acceso a producción» de P
 > Notas para quien envíe el formulario (no van en la respuesta):
 > - Android vitals aún muestra «Datos no disponibles» (pocos usuarios), así que la respuesta no se apoya en esos datos. Confirmado por ti: ningún tester comunicó cuelgues, solo sugerencias y valoraciones positivas.
 > - Confirmado por ti: el tester japonés es nativo y hay revisores nativos de árabe, turco, inglés, polaco, neerlandés, portugués y español, todos con feedback enviado en Play Store o en la app de testers. El euskera lo has revisado tú, que eres hablante: figura como revisión propia del equipo y no como feedback de un tester. El único caso con cambio concreto en la app es el del japonés (reseña de 4 estrellas del 17 oct 2026, OPPO Reno5 A, versión 1.15); en los demás idiomas el texto solo dice que revisaron, sin inventar correcciones. Se describe el caso sin nombrar al usuario.
-> - La 1.16 (Six Pack) ya está publicada, y el cambio del japonés va en ella.
+> - La 1.16 (Six Pack) ya está publicada en las pruebas cerradas (Alpha y googlegroups, actualizadas el 18 oct 2026), y el cambio del japonés va en ella. No está en producción: todavía no hay acceso a pruebas abiertas ni a producción.
 > - Cuidado con los límites de caracteres de cada campo del formulario; el español suele ocupar algo más que el inglés.
 
 ## 4. Público y uso previsto (si lo preguntan)
