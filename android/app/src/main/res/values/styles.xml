@@ -13,6 +13,8 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:background">@null</item>
+        <!-- Fondo de la ventana (franjas bajo las barras del sistema): el de la app, no el gris del tema -->
+        <item name="android:windowBackground">#020617</item>
     </style>
 
 
