@@ -58,7 +58,7 @@ const STRESS_EXERCISES = [
   ['Lunge', 'Lunge'],
 ].map(([name, shortName], i) => ({
   id: `s${i}`, name, shortName, icon: ['burpee', 'walk', 'pushup', 'squat', 'climbers', 'jump', 'dumbbell', 'karate', 'yoga', 'timer', 'run', 'boxing'][i % 12],
-  color: ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'][i % 8],
+  color: ['#0d9488', '#475569', '#059669', '#2563eb', '#0891b2', '#4f46e5', '#64748b', '#0369a1'][i % 8],
   repsMin: i % 3 === 0 ? 1 : 10, repsMax: i % 3 === 0 ? 999999 : 60,
 }));
 

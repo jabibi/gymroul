@@ -98,7 +98,7 @@ async function buildBanner(listing, wheel, path, rtl = false) {
   const font = w => readFileSync(`node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-${w}-normal.woff2`).toString('base64');
   const logo = `data:image/svg+xml;base64,${readFileSync('public/favicon.svg').toString('base64')}`;
   const wheelUri = `data:image/png;base64,${wheel.png.toString('base64')}`;
-  const green = '34 197 94';
+  const green = '16 185 129';
   // Play recorta y redondea los bordes del gráfico: se deja un margen lateral de 96 px para que no tape contenido
   const SIDE = 96;
   const WHEEL_SIZE = 360;

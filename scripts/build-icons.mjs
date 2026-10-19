@@ -1,10 +1,11 @@
 // Genera el logo de GymRoulette y los recursos que consume @capacitor/assets.
 //
-//   node scripts/build-icons.mjs        -> assets/*.png, assets/logo.svg y public/favicon.svg
+//   node scripts/build-icons.mjs        -> assets/*.png, assets/logo.svg, public/favicon.svg y public/logo-mark.svg
 //   npm run icons                       -> lo anterior + capacitor-assets generate --android
 //
 // Un único diseño (la ruleta, en verde neón sobre azul noche) con varias presentaciones:
 //   - logo.svg / favicon.svg   cuadrado redondeado con el fondo oscuro (cabecera de la app y pestaña)
+//   - logo-mark.svg            solo la ruleta, sin fondo (cabecera de la app, que ya pone el suyo)
 //   - icon-only.png            icono completo a sangre (lanzadores antiguos)
 //   - icon-foreground.png      solo la ruleta, con la circunferencia centrada, sobre transparente (icono
 //                              adaptativo; Android lo reduce al 66 % dentro de la zona segura)
@@ -80,6 +81,7 @@ mkdirSync('assets', { recursive: true });
 mkdirSync('public', { recursive: true });
 writeFileSync('assets/logo.svg', outputs.logo);
 writeFileSync('public/favicon.svg', outputs.logo);
+writeFileSync('public/logo-mark.svg', outputs.wheelOnly);
 
 const png = (name, source, size) => sharp(Buffer.from(source), { density: 300 }).resize(size, size).png().toFile(`assets/${name}.png`);
 

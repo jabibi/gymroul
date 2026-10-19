@@ -361,3 +361,16 @@ describe('migración v2 -> v3', () => {
     expect(JSON.parse(data.get('gym_exercises')).map(e => e.icon)).toEqual(['pushup', 'squat', 'push']);
   });
 });
+
+describe('migración v8 -> v9', () => {
+  it('cambia los colores de la paleta antigua por los de la nueva y respeta los demás', () => {
+    data.set('gym_schema_version', '8');
+    data.set('gym_exercises', JSON.stringify([
+      { id: '1', name: 'A', shortName: 'A', icon: 'dumbbell', color: '#ef4444', repsMin: 10, repsMax: 20 },
+      { id: '2', name: 'B', shortName: 'B', icon: 'dumbbell', color: '#3b82f6', repsMin: 10, repsMax: 20 },
+      { id: '3', name: 'C', shortName: 'C', icon: 'dumbbell', color: '#123456', repsMin: 10, repsMax: 20 },
+    ]));
+    migrate();
+    expect(JSON.parse(data.get('gym_exercises')).map(e => e.color)).toEqual(['#0d9488', '#0369a1', '#123456']);
+  });
+});

@@ -19,10 +19,10 @@
     --sar: var(--safe-area-inset-right, env(safe-area-inset-right, 0px));
     --sab: var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px));
     --sal: var(--safe-area-inset-left, env(safe-area-inset-left, 0px));
-    --brand-400: 74 222 128;
-    --brand-500: 34 197 94;
-    --brand-600: 22 163 74;
-    --brand-900: 20 83 45;
+    --brand-400: 52 211 153;
+    --brand-500: 16 185 129;
+    --brand-600: 5 150 105;
+    --brand-900: 6 78 59;
 }
 
 body {
@@ -137,7 +137,7 @@ input, textarea {
     margin-left: -8px;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 12px solid #22c55e;
+    border-top: 12px solid #10b981;
     z-index: 1;
 }
 .share-spinner {
@@ -145,8 +145,8 @@ input, textarea {
     width: 76px;
     height: 76px;
     border-radius: 9999px;
-    background: conic-gradient(#ef4444 0 14.28%, #f97316 0 28.57%, #eab308 0 42.85%, #22c55e 0 57.14%, #06b6d4 0 71.42%, #8b5cf6 0 85.71%, #ec4899 0);
-    box-shadow: 0 0 0 4px #0f172a, 0 0 28px rgba(34, 197, 94, 0.35);
+    background: conic-gradient(#0d9488 0 14.28%, #475569 0 28.57%, #059669 0 42.85%, #2563eb 0 57.14%, #0891b2 0 71.42%, #4f46e5 0 85.71%, #64748b 0);
+    box-shadow: 0 0 0 4px #0f172a, 0 0 28px rgba(16, 185, 129, 0.35);
     animation: share-spin 1s linear infinite;
 }
 .share-spinner::after {

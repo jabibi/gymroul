@@ -41,7 +41,7 @@ export function generateSegments(exercises, activeExercises, labels = storedLabe
       text: shortName,
       exercise: name,
       shortName,
-      color: ex.color || '#f97316',
+      color: ex.color || '#475569',
       icon: ex.icon || 'dumbbell',
       repsMin: ex.repsMin,
       repsMax: ex.repsMax,

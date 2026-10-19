@@ -21,16 +21,18 @@ export const DEFAULT_REPS_MAX = 60;
 
 /** @type {Exercise[]} */
 export const DEFAULT_EXERCISES = [
-  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'burpee', color: '#ef4444', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'walk', color: '#f97316', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '3', name: 'Push-up', shortName: 'Push-up', icon: 'pushup', color: '#f59e0b', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '4', name: 'Air Squat', shortName: 'Squat', icon: 'squat', color: '#22c55e', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '5', name: 'Mountain Climbers', shortName: 'Climbers', icon: 'climbers', color: '#06b6d4', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '6', name: 'Split Jumps', shortName: 'Split J', icon: 'jump', color: '#8b5cf6', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'burpee', color: '#0d9488', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'walk', color: '#475569', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '3', name: 'Push-up', shortName: 'Push-up', icon: 'pushup', color: '#059669', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '4', name: 'Air Squat', shortName: 'Squat', icon: 'squat', color: '#2563eb', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '5', name: 'Mountain Climbers', shortName: 'Climbers', icon: 'climbers', color: '#0891b2', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '6', name: 'Split Jumps', shortName: 'Split J', icon: 'jump', color: '#4f46e5', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
 ];
 /** Lista global de repeticiones de la versión 1.14, solo para migrar (v7 -> v8) */
 const LEGACY_DEFAULT_REPS = [10, 20, 30, 40, 50, 60];
-export const COLOR_PALETTE = ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'];
+export const COLOR_PALETTE = ['#0d9488', '#475569', '#059669', '#2563eb', '#0891b2', '#4f46e5', '#64748b', '#0369a1'];
+/** Paleta de las versiones anteriores (arcoíris), solo para migrar (v8 -> v9); misma posición que COLOR_PALETTE */
+const LEGACY_COLOR_PALETTE = ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'];
 
 const KEY_EXERCISES = 'gym_exercises';
 // Claves de la lista global de repeticiones, que ya no existe (migración v7 -> v8)
@@ -43,7 +45,7 @@ const KEY_LEGACY_ANALYTICS_CONSENT = 'gymroulette_analytics_consent';
 const KEY_LEGACY_INTRO_SEEN = 'gymroulette_intro_seen';
 
 /** Versión actual del esquema de datos guardados; sube al cambiar su formato */
-export const SCHEMA_VERSION = 8;
+export const SCHEMA_VERSION = 9;
 
 /** Selección activa (se muta con setActive/loadActive) */
 export const active = {
@@ -148,6 +150,15 @@ const MIGRATIONS = {
       localStorage.removeItem(KEY_LEGACY_REPS);
       localStorage.removeItem(KEY_LEGACY_ACTIVE_REPS);
     } catch (e) { /* ignorado */ }
+  },
+  // v8 -> v9: los sectores pasan de la paleta arcoíris a una más sobria; cada color antiguo se cambia por el de su posición
+  8: () => {
+    const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
+    if (!list) return;
+    writeStorage(KEY_EXERCISES, list.map(e => {
+      const i = LEGACY_COLOR_PALETTE.indexOf(e.color);
+      return i === -1 ? e : { ...e, color: COLOR_PALETTE[i] };
+    }));
   },
 };
 

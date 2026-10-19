@@ -13,7 +13,7 @@ const FRAME_MS = 1000 / 60;
 const MIN_SAMPLE_MS = 4;
 
 /** Color de marca (variable CSS --brand-500), para el aro interior de la ruleta */
-let brandColor = '#22c55e';
+let brandColor = '#10b981';
 
 /** @type {HTMLCanvasElement} */ let canvas;
 /** @type {CanvasRenderingContext2D} */ let ctx;
