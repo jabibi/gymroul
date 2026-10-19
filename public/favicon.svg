@@ -1,24 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512"><defs>
-  <radialGradient id="bg" cx="0.5" cy="0.3" r="0.9">
-    <stop offset="0" stop-color="#86EFAC"/><stop offset="0.55" stop-color="#22C55E"/><stop offset="1" stop-color="#15803D"/>
-  </radialGradient>
-  <radialGradient id="hub" cx="0.5" cy="0.35" r="0.8">
-    <stop offset="0" stop-color="#2B3548"/><stop offset="1" stop-color="#0B0F19"/>
-  </radialGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="9"/></filter>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0F172A"/><stop offset="1" stop-color="#0B1120"/>
+  </linearGradient>
+  <filter id="neon" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="6" result="b1"/>
+    <feGaussianBlur stdDeviation="14" result="b2"/>
+    <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
 </defs><rect width="512" height="512" rx="112" fill="url(#bg)"/><g transform="translate(256,256) scale(1) translate(-256,-256)">
-  <circle cx="256" cy="268" r="196" fill="#052E16" opacity="0.45" filter="url(#shadow)"/>
-  <circle cx="256" cy="256" r="196" fill="#FFFFFF"/>
-  <circle cx="256" cy="256" r="176" fill="#111827"/>
-  <path d="M256,256 L256.00,84.00 A172,172 0 0 1 377.62,134.38 Z" fill="#EF4444"/><path d="M256,256 L377.62,134.38 A172,172 0 0 1 428.00,256.00 Z" fill="#FBBF24"/><path d="M256,256 L428.00,256.00 A172,172 0 0 1 377.62,377.62 Z" fill="#22C55E"/><path d="M256,256 L377.62,377.62 A172,172 0 0 1 256.00,428.00 Z" fill="#06B6D4"/><path d="M256,256 L256.00,428.00 A172,172 0 0 1 134.38,377.62 Z" fill="#8B5CF6"/><path d="M256,256 L134.38,377.62 A172,172 0 0 1 84.00,256.00 Z" fill="#F97316"/><path d="M256,256 L84.00,256.00 A172,172 0 0 1 134.38,134.38 Z" fill="#3B82F6"/><path d="M256,256 L134.38,134.38 A172,172 0 0 1 256.00,84.00 Z" fill="#EC4899"/><line x1="256" y1="256" x2="256.00" y2="84.00" stroke="#111827" stroke-width="4"/><line x1="256" y1="256" x2="377.62" y2="134.38" stroke="#111827" stroke-width="4"/><line x1="256" y1="256" x2="428.00" y2="256.00" stroke="#111827" stroke-width="4"/><line x1="256" y1="256" x2="377.62" y2="377.62" stroke="#111827" stroke-width="4"/><line x1="256" y1="256" x2="256.00" y2="428.00" stroke="#111827" stroke-width="4"/><line x1="256" y1="256" x2="134.38" y2="377.62" stroke="#111827" stroke-width="4"/><line x1="256" y1="256" x2="84.00" y2="256.00" stroke="#111827" stroke-width="4"/><line x1="256" y1="256" x2="134.38" y2="134.38" stroke="#111827" stroke-width="4"/>
-  <circle cx="256.00" cy="69.00" r="5.5" fill="#16A34A"/><circle cx="388.23" cy="123.77" r="5.5" fill="#16A34A"/><circle cx="443.00" cy="256.00" r="5.5" fill="#16A34A"/><circle cx="388.23" cy="388.23" r="5.5" fill="#16A34A"/><circle cx="256.00" cy="443.00" r="5.5" fill="#16A34A"/><circle cx="123.77" cy="388.23" r="5.5" fill="#16A34A"/><circle cx="69.00" cy="256.00" r="5.5" fill="#16A34A"/><circle cx="123.77" cy="123.77" r="5.5" fill="#16A34A"/>
-  <circle cx="256" cy="256" r="70" fill="#FFFFFF"/>
-  <circle cx="256" cy="256" r="60" fill="url(#hub)"/>
-  <g transform="translate(256,256) rotate(-35)" fill="#FFFFFF">
-    <rect x="-30" y="-6" width="60" height="12" rx="4"/>
-    <rect x="-41" y="-22" width="13" height="44" rx="4"/>
-    <rect x="28" y="-22" width="13" height="44" rx="4"/>
-    <rect x="-51" y="-14" width="10" height="28" rx="3.5"/>
-    <rect x="41" y="-14" width="10" height="28" rx="3.5"/>
+  <g opacity="0.2" fill="#10B981">
+    <path d="M256,66 A190,190 0 0,1 390.35,121.65 L337.28,174.72 A115,115 0 0,0 256,141 Z"/>
+    <path d="M446,256 A190,190 0 0,1 390.35,390.35 L337.28,337.28 A115,115 0 0,0 371,256 Z"/>
+    <path d="M256,446 A190,190 0 0,1 121.65,390.35 L174.72,337.28 A115,115 0 0,0 256,371 Z"/>
+    <path d="M66,256 A190,190 0 0,1 121.65,121.65 L174.72,174.72 A115,115 0 0,0 141,256 Z"/>
   </g>
-  <path d="M222,46 L290,46 L256,118 Z" fill="#111827" stroke="#FFFFFF" stroke-width="9" stroke-linejoin="round"/></g></svg>
+  <g filter="url(#neon)" stroke="#10B981" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="256" cy="256" r="190" opacity="0.95"/>
+    <circle cx="256" cy="256" r="115" opacity="0.95"/>
+    <line x1="256" y1="66" x2="256" y2="141"/>
+    <line x1="390.35" y1="121.65" x2="337.28" y2="174.72"/>
+    <line x1="446" y1="256" x2="371" y2="256"/>
+    <line x1="390.35" y1="390.35" x2="337.28" y2="337.28"/>
+    <line x1="256" y1="446" x2="256" y2="371"/>
+    <line x1="121.65" y1="390.35" x2="174.72" y2="337.28"/>
+    <line x1="66" y1="256" x2="141" y2="256"/>
+    <line x1="121.65" y1="121.65" x2="174.72" y2="174.72"/>
+  </g>
+  <g filter="url(#soft)" fill="#FFFFFF">
+    <rect x="206" y="247" width="100" height="18" rx="9"/>
+    <rect x="200" y="221" width="18" height="70" rx="6"/>
+    <rect x="294" y="221" width="18" height="70" rx="6"/>
+    <rect x="176" y="231" width="18" height="50" rx="5"/>
+    <rect x="318" y="231" width="18" height="50" rx="5"/>
+  </g></g></svg>

@@ -3,92 +3,61 @@
 //   node scripts/build-icons.mjs        -> assets/*.png, assets/logo.svg y public/favicon.svg
 //   npm run icons                       -> lo anterior + capacitor-assets generate --android
 //
-// Un único diseño (la ruleta) con tres presentaciones:
-//   - logo.svg / favicon.svg   cuadrado redondeado con fondo de color (cabecera de la app y pestaña)
+// Un único diseño (la ruleta, en verde neón sobre azul noche) con varias presentaciones:
+//   - logo.svg / favicon.svg   cuadrado redondeado con el fondo oscuro (cabecera de la app y pestaña)
 //   - icon-only.png            icono completo a sangre (lanzadores antiguos)
-//   - icon-foreground.png      solo la ruleta, con la circunferencia centrada y algo de aire respecto al fondo,
-//                              sobre transparente (icono adaptativo; Android lo reduce al 66 % dentro de la
-//                              zona segura)
+//   - icon-foreground.png      solo la ruleta, con la circunferencia centrada, sobre transparente (icono
+//                              adaptativo; Android lo reduce al 66 % dentro de la zona segura)
 //   - icon-background.png      solo el degradado de fondo (icono adaptativo)
 //   - splash.png               ruleta sobre el fondo oscuro de la app
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 import sharp from 'sharp';
 
-const NAVY = '#111827';
-
-// Tema del logo (el color de la interfaz está en src/style.css, variables --brand-*).
-// Verde: degradado del fondo (luz arriba, sombra abajo), remaches del aro y sombra de la ruleta.
-const THEME = {
-  bgLight: '#86EFAC',
-  bgMid: '#22C55E',
-  bgDark: '#15803D',
-  stud: '#16A34A',
-  shadow: '#052E16',
-};
-// Colores de los sectores: la misma paleta que la ruleta de la app, ordenados para que dos sectores
-// contiguos nunca se parezcan
-const SECTOR_COLORS = ['#EF4444', '#FBBF24', '#22C55E', '#06B6D4', '#8B5CF6', '#F97316', '#3B82F6', '#EC4899'];
 const APP_BG = '#020617';
 
-const point = (r, deg) => {
-  const a = ((deg - 90) * Math.PI) / 180;
-  return [256 + r * Math.cos(a), 256 + r * Math.sin(a)];
-};
-const f = n => n.toFixed(2);
-
-// Ocho sectores de 45° con la paleta de la app, separados por finas líneas azul marino
-function sectors(radius) {
-  let out = '';
-  for (let i = 0; i < 8; i++) {
-    const [x1, y1] = point(radius, i * 45);
-    const [x2, y2] = point(radius, (i + 1) * 45);
-    out += `<path d="M256,256 L${f(x1)},${f(y1)} A${radius},${radius} 0 0 1 ${f(x2)},${f(y2)} Z" fill="${SECTOR_COLORS[i]}"/>`;
-  }
-  for (let i = 0; i < 8; i++) {
-    const [x, y] = point(radius, i * 45);
-    out += `<line x1="256" y1="256" x2="${f(x)}" y2="${f(y)}" stroke="${NAVY}" stroke-width="4"/>`;
-  }
-  return out;
-}
-
-// Ocho remaches sobre el aro, en el límite de cada sector
-function studs() {
-  let out = '';
-  for (let i = 0; i < 8; i++) {
-    const [x, y] = point(187, i * 45);
-    out += `<circle cx="${f(x)}" cy="${f(y)}" r="5.5" fill="${THEME.stud}"/>`;
-  }
-  return out;
-}
-
 const DEFS = `<defs>
-  <radialGradient id="bg" cx="0.5" cy="0.3" r="0.9">
-    <stop offset="0" stop-color="${THEME.bgLight}"/><stop offset="0.55" stop-color="${THEME.bgMid}"/><stop offset="1" stop-color="${THEME.bgDark}"/>
-  </radialGradient>
-  <radialGradient id="hub" cx="0.5" cy="0.35" r="0.8">
-    <stop offset="0" stop-color="#2B3548"/><stop offset="1" stop-color="#0B0F19"/>
-  </radialGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="9"/></filter>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0F172A"/><stop offset="1" stop-color="#0B1120"/>
+  </linearGradient>
+  <filter id="neon" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="6" result="b1"/>
+    <feGaussianBlur stdDeviation="14" result="b2"/>
+    <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
 </defs>`;
 
-// La ruleta completa (aro, sectores, buje con mancuerna y puntero), centrada en 256,256 con radio 196
+// La ruleta completa (sectores alternos, aro con brillo neón verde y mancuerna central), centrada en 256,256 con radio 190
 const WHEEL = `
-  <circle cx="256" cy="268" r="196" fill="${THEME.shadow}" opacity="0.45" filter="url(#shadow)"/>
-  <circle cx="256" cy="256" r="196" fill="#FFFFFF"/>
-  <circle cx="256" cy="256" r="176" fill="${NAVY}"/>
-  ${sectors(172)}
-  ${studs()}
-  <circle cx="256" cy="256" r="70" fill="#FFFFFF"/>
-  <circle cx="256" cy="256" r="60" fill="url(#hub)"/>
-  <g transform="translate(256,256) rotate(-35)" fill="#FFFFFF">
-    <rect x="-30" y="-6" width="60" height="12" rx="4"/>
-    <rect x="-41" y="-22" width="13" height="44" rx="4"/>
-    <rect x="28" y="-22" width="13" height="44" rx="4"/>
-    <rect x="-51" y="-14" width="10" height="28" rx="3.5"/>
-    <rect x="41" y="-14" width="10" height="28" rx="3.5"/>
+  <g opacity="0.2" fill="#10B981">
+    <path d="M256,66 A190,190 0 0,1 390.35,121.65 L337.28,174.72 A115,115 0 0,0 256,141 Z"/>
+    <path d="M446,256 A190,190 0 0,1 390.35,390.35 L337.28,337.28 A115,115 0 0,0 371,256 Z"/>
+    <path d="M256,446 A190,190 0 0,1 121.65,390.35 L174.72,337.28 A115,115 0 0,0 256,371 Z"/>
+    <path d="M66,256 A190,190 0 0,1 121.65,121.65 L174.72,174.72 A115,115 0 0,0 141,256 Z"/>
   </g>
-  <path d="M222,46 L290,46 L256,118 Z" fill="${NAVY}" stroke="#FFFFFF" stroke-width="9" stroke-linejoin="round"/>`;
+  <g filter="url(#neon)" stroke="#10B981" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="256" cy="256" r="190" opacity="0.95"/>
+    <circle cx="256" cy="256" r="115" opacity="0.95"/>
+    <line x1="256" y1="66" x2="256" y2="141"/>
+    <line x1="390.35" y1="121.65" x2="337.28" y2="174.72"/>
+    <line x1="446" y1="256" x2="371" y2="256"/>
+    <line x1="390.35" y1="390.35" x2="337.28" y2="337.28"/>
+    <line x1="256" y1="446" x2="256" y2="371"/>
+    <line x1="121.65" y1="390.35" x2="174.72" y2="337.28"/>
+    <line x1="66" y1="256" x2="141" y2="256"/>
+    <line x1="121.65" y1="121.65" x2="174.72" y2="174.72"/>
+  </g>
+  <g filter="url(#soft)" fill="#FFFFFF">
+    <rect x="206" y="247" width="100" height="18" rx="9"/>
+    <rect x="200" y="221" width="18" height="70" rx="6"/>
+    <rect x="294" y="221" width="18" height="70" rx="6"/>
+    <rect x="176" y="231" width="18" height="50" rx="5"/>
+    <rect x="318" y="231" width="18" height="50" rx="5"/>
+  </g>`;
 
 const svg = (body, { bg = '', size = 512, extra = '' } = {}) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="${size}" height="${size}">${DEFS}${bg}${extra}${body}</svg>`;
@@ -102,7 +71,7 @@ const BG_FULL = '<rect width="512" height="512" fill="url(#bg)"/>';
 const outputs = {
   logo: svg(wheelScaled(1), { bg: BG_ROUNDED }),
   iconOnly: svg(wheelScaled(1), { bg: BG_FULL }),
-  foreground: svg(wheelScaled(1.04)),
+  foreground: svg(wheelScaled(1)),
   background: svg('', { bg: BG_FULL }),
   wheelOnly: svg(WHEEL),
 };
