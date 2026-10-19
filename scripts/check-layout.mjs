@@ -51,7 +51,7 @@ const STRESS_EXERCISES = [
   ['تمرين طويل جدا جدا جدا جدا جدا جدا جدا', 'تمرين طويل جدا جدا جدا'],
   ['とても長いエクササイズの名前がここに入ります', 'とても長いエクササイズ名前'],
   ['Burpee', 'Burpee'],
-  ['Split Jumps', 'Split J'],
+  ['Split Jumps', 'Split Jump'],
   ['Air Squat', 'Squat'],
   ['Elevaciones laterales con mancuernas', 'Elev. lat…'],
   ['Push-up', 'Push-up'],

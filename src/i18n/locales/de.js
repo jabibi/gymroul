@@ -62,7 +62,7 @@ export default {
     'exercise.burpee': 'Burpees',
     'exercise.burpee.short': 'Burpees',
     'exercise.lunge': 'Ausfallschritte',
-    'exercise.lunge.short': 'Ausfallschr.',
+    'exercise.lunge.short': 'Ausfälle',
     'exercise.pushup': 'Liegestütze',
     'exercise.pushup.short': 'Liegestütze',
     'exercise.squat': 'Kniebeugen',
@@ -70,7 +70,7 @@ export default {
     'exercise.climbers': 'Bergsteiger',
     'exercise.climbers.short': 'Bergsteiger',
     'exercise.splitjump': 'Sprung-Ausfallschritte',
-    'exercise.splitjump.short': 'Sprung-Ausf.',
+    'exercise.splitjump.short': 'Split Jumps',
 
     'error.nameRequired': 'Gib einen Namen für die Übung ein',
     'error.iconRequired': 'Wähle ein Symbol aus der Liste',

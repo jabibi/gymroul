@@ -70,7 +70,7 @@ export default {
     'exercise.climbers': 'Escaladores',
     'exercise.climbers.short': 'Escaladores',
     'exercise.splitjump': 'Zancadas con salto',
-    'exercise.splitjump.short': 'Zanc. salto',
+    'exercise.splitjump.short': 'Split Jumps',
 
     'error.nameRequired': 'Escribe un nome para o exercicio',
     'error.iconRequired': 'Escolle unha icona da lista',

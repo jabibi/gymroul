@@ -70,7 +70,7 @@ export default {
     'exercise.climbers': 'Dağ tırmanışı',
     'exercise.climbers.short': 'Tırmanış',
     'exercise.splitjump': 'Zıplamalı hamle',
-    'exercise.splitjump.short': 'Zıp. hamle',
+    'exercise.splitjump.short': 'Split Jump',
 
     'error.nameRequired': 'Egzersiz için bir ad gir',
     'error.iconRequired': 'Listeden bir simge seç',

@@ -26,7 +26,7 @@ export const DEFAULT_EXERCISES = [
   { id: '3', name: 'Push-up', shortName: 'Push-up', icon: 'pushup', color: '#059669', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
   { id: '4', name: 'Air Squat', shortName: 'Squat', icon: 'squat', color: '#2563eb', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
   { id: '5', name: 'Mountain Climbers', shortName: 'Climbers', icon: 'climbers', color: '#0891b2', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '6', name: 'Split Jumps', shortName: 'Split J', icon: 'jump', color: '#4f46e5', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '6', name: 'Split Jumps', shortName: 'Split Jump', icon: 'jump', color: '#4f46e5', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
 ];
 /** Lista global de repeticiones de la versión 1.14, solo para migrar (v7 -> v8) */
 const LEGACY_DEFAULT_REPS = [10, 20, 30, 40, 50, 60];

@@ -70,7 +70,7 @@ export default {
     'exercise.climbers': 'Mountain climbers',
     'exercise.climbers.short': 'Climbers',
     'exercise.splitjump': 'Split jumps',
-    'exercise.splitjump.short': 'Split J',
+    'exercise.splitjump.short': 'Split Jump',
 
     'error.nameRequired': 'Geef de oefening een naam',
     'error.iconRequired': 'Kies een pictogram uit de lijst',
