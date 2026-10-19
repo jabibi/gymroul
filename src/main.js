@@ -13,14 +13,14 @@ import {
 import { toggleSound, initAudio } from './audio.js';
 import * as ui from './ui.js';
 import { cleanShareCache } from './share.js';
-import { exerciseLabels } from './exercise-names.js';
+import { exerciseName } from './exercise-names.js';
 import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from './i18n/index.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
 
 /** Reconstruye los sectores a partir del catálogo y la selección activa. */
 function rebuildWheel() {
-  setSegments(generateSegments(getExercises(), active.exercises, exerciseLabels));
+  setSegments(generateSegments(getExercises(), active.exercises, exerciseName));
 }
 
 /** Abre la configuración si la ruleta no tiene nada activo; devuelve true si lo hizo. */

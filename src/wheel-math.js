@@ -2,8 +2,8 @@
 // Lógica pura de la ruleta (sin DOM) para poder testearla
 
 /**
- * @typedef {{ id: string, name: string, shortName: string, icon: string, color: string, repsMin: number, repsMax: number }} Exercise
- * @typedef {{ text: string, exercise: string, shortName: string, color: string, icon: string, repsMin: number, repsMax: number }} Segment
+ * @typedef {{ id: string, name: string, icon: string, color: string, repsMin: number, repsMax: number }} Exercise
+ * @typedef {{ text: string, exercise: string, color: string, icon: string, repsMin: number, repsMax: number }} Segment
  * Reto resultante de un giro: el sector ganador con las repeticiones ya tiradas
  * @typedef {Segment & { reps: number }} Challenge
  */
@@ -14,33 +14,31 @@ const TWO_PI = 2 * Math.PI;
 export const CONFIG_SEGMENT = /** @type {Segment} */ ({
   text: 'Configurar',
   exercise: 'Configurar',
-  shortName: 'Config',
   color: '#475569',
   icon: 'dumbbell',
   repsMin: 0,
   repsMax: 0,
 });
 
-/** Nombre y nombre corto tal como están guardados */
-const storedLabels = (/** @type {Exercise} */ ex) => ({ name: ex.name, shortName: ex.shortName || ex.name });
+/** Nombre tal como está guardado */
+const storedName = (/** @type {Exercise} */ ex) => ex.name;
 
 /**
  * Un sector por ejercicio activo; las repeticiones no se ven en la ruleta, salen al terminar el giro.
  * @param {Exercise[]} exercises catálogo completo
  * @param {string[]} activeExercises nombres activos (los guardados)
- * @param {(ex: Exercise) => { name: string, shortName: string }} [labels] nombre y nombre corto que se muestran
+ * @param {(ex: Exercise) => string} [displayName] nombre que se muestra
  * @returns {Segment[]}
  */
-export function generateSegments(exercises, activeExercises, labels = storedLabels) {
+export function generateSegments(exercises, activeExercises, displayName = storedName) {
   const exs = exercises.filter(ex => activeExercises.includes(ex.name));
   if (exs.length === 0) return [CONFIG_SEGMENT];
 
   return exs.map(ex => {
-    const { name, shortName } = labels(ex);
+    const name = displayName(ex);
     return {
-      text: shortName,
+      text: name,
       exercise: name,
-      shortName,
       color: ex.color || '#475569',
       icon: ex.icon || 'dumbbell',
       repsMin: ex.repsMin,

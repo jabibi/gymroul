@@ -44,20 +44,20 @@ if (shotsDir) mkdirSync(shotsDir, { recursive: true });
 
 /** Ejercicios de prueba (--stress): nombres largos de todo tipo y rangos hasta el máximo de repeticiones. */
 const STRESS_EXERCISES = [
-  ['Supercalifragilisticexpialidocious Press Extended', 'Supercalifragilistic'],
-  ['Extremely long exercise name that keeps going and going', 'Extremely long short'],
-  ['W'.repeat(30), 'W'.repeat(12)],
-  ['Mountain Climbers', 'Climbers'],
-  ['تمرين طويل جدا جدا جدا جدا جدا جدا جدا', 'تمرين طويل جدا جدا جدا'],
-  ['とても長いエクササイズの名前がここに入ります', 'とても長いエクササイズ名前'],
-  ['Burpee', 'Burpee'],
-  ['Split Jumps', 'Split Jump'],
-  ['Air Squat', 'Squat'],
-  ['Elevaciones laterales con mancuernas', 'Elev. lat…'],
-  ['Push-up', 'Push-up'],
-  ['Lunge', 'Lunge'],
-].map(([name, shortName], i) => ({
-  id: `s${i}`, name, shortName, icon: ['burpee', 'walk', 'pushup', 'squat', 'climbers', 'jump', 'dumbbell', 'karate', 'yoga', 'timer', 'run', 'boxing'][i % 12],
+  'Supercalifragilisticexpialidocious Press Extended',
+  'Extremely long exercise name that keeps going and going',
+  'W'.repeat(30),
+  'Mountain Climbers',
+  'تمرين طويل جدا جدا جدا جدا جدا جدا جدا',
+  'とても長いエクササイズの名前がここに入ります',
+  'Burpee',
+  'Split Jumps',
+  'Air Squat',
+  'Elevaciones laterales con mancuernas',
+  'Push-up',
+  'Lunge',
+].map((name, i) => ({
+  id: `s${i}`, name, icon: ['burpee', 'walk', 'pushup', 'squat', 'climbers', 'jump', 'dumbbell', 'karate', 'yoga', 'timer', 'run', 'boxing'][i % 12],
   color: ['#0d9488', '#475569', '#059669', '#2563eb', '#0891b2', '#4f46e5', '#64748b', '#0369a1'][i % 8],
   repsMin: i % 3 === 0 ? 1 : 10, repsMax: i % 3 === 0 ? 999999 : 60,
 }));

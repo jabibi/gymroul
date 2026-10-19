@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest';
 import { getWinningIndex, normalizeDelta, generateSegments, rollReps, fitText, isolate, CONFIG_SEGMENT } from '../src/wheel-math.js';
 
 const exercises = [
-  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'fa-fire', color: '#ef4444', repsMin: 10, repsMax: 30 },
-  { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'fa-person-walking', color: '#f97316', repsMin: 5, repsMax: 5 },
+  { id: '1', name: 'Burpee', icon: 'fa-fire', color: '#ef4444', repsMin: 10, repsMax: 30 },
+  { id: '2', name: 'Lunge', icon: 'fa-person-walking', color: '#f97316', repsMin: 5, repsMax: 5 },
 ];
 
 describe('getWinningIndex', () => {
@@ -90,9 +90,9 @@ describe('rollReps', () => {
 
 describe('generateSegments con nombres traducidos', () => {
   it('filtra por el nombre guardado y muestra el que da la función de traducción', () => {
-    const segs = generateSegments(exercises, ['Burpee'], ex => ({ name: `T-${ex.name}`, shortName: `S-${ex.name}` }));
+    const segs = generateSegments(exercises, ['Burpee'], ex => `T-${ex.name}`);
     expect(segs).toHaveLength(1);
-    expect(segs[0]).toMatchObject({ exercise: 'T-Burpee', text: 'S-Burpee', shortName: 'S-Burpee' });
+    expect(segs[0]).toMatchObject({ exercise: 'T-Burpee', text: 'T-Burpee' });
   });
 });
 

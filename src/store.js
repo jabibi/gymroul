@@ -12,21 +12,20 @@ import { isValidIcon, normalizeIcon, migrateLegacyIcon } from './icons.js';
 
 export const MAX_EXERCISES = 12;
 export const MAX_REP_VALUE = 999999;
-/** Longitud máxima (en caracteres) del nombre y del nombre corto de un ejercicio */
+/** Longitud máxima (en caracteres) del nombre de un ejercicio */
 export const MAX_NAME_LENGTH = 30;
-export const MAX_SHORT_NAME_LENGTH = 12;
 /** Rango de repeticiones de los ejercicios por defecto y de los nuevos */
 export const DEFAULT_REPS_MIN = 10;
 export const DEFAULT_REPS_MAX = 60;
 
 /** @type {Exercise[]} */
 export const DEFAULT_EXERCISES = [
-  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'burpee', color: '#0d9488', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'walk', color: '#475569', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '3', name: 'Push-up', shortName: 'Push-up', icon: 'pushup', color: '#059669', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '4', name: 'Air Squat', shortName: 'Squat', icon: 'squat', color: '#2563eb', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '5', name: 'Mountain Climbers', shortName: 'Climbers', icon: 'climbers', color: '#0891b2', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '6', name: 'Split Jumps', shortName: 'Split Jump', icon: 'jump', color: '#4f46e5', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '1', name: 'Burpee', icon: 'burpee', color: '#0d9488', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '2', name: 'Lunge', icon: 'walk', color: '#475569', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '3', name: 'Push-up', icon: 'pushup', color: '#059669', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '4', name: 'Air Squat', icon: 'squat', color: '#2563eb', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '5', name: 'Mountain Climbers', icon: 'climbers', color: '#0891b2', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '6', name: 'Split Jumps', icon: 'jump', color: '#4f46e5', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
 ];
 /** Lista global de repeticiones de la versión 1.14, solo para migrar (v7 -> v8) */
 const LEGACY_DEFAULT_REPS = [10, 20, 30, 40, 50, 60];
@@ -45,7 +44,7 @@ const KEY_LEGACY_ANALYTICS_CONSENT = 'gymroulette_analytics_consent';
 const KEY_LEGACY_INTRO_SEEN = 'gymroulette_intro_seen';
 
 /** Versión actual del esquema de datos guardados; sube al cambiar su formato */
-export const SCHEMA_VERSION = 9;
+export const SCHEMA_VERSION = 10;
 
 /** Selección activa (se muta con setActive/loadActive) */
 export const active = {
@@ -160,6 +159,15 @@ const MIGRATIONS = {
       return i === -1 ? e : { ...e, color: COLOR_PALETTE[i] };
     }));
   },
+  // v9 -> v10: desaparece el nombre corto; la ruleta muestra el nombre completo
+  9: () => {
+    const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
+    if (!list) return;
+    writeStorage(KEY_EXERCISES, list.map(e => {
+      const { shortName, ...rest } = /** @type {any} */ (e);
+      return rest;
+    }));
+  },
 };
 
 /** Aplica las migraciones pendientes y fija la versión actual. */
@@ -223,14 +231,6 @@ export function pickColor(list) {
 }
 
 /**
- * Nombre corto cuando el usuario no escribe uno: el nombre, o su principio con «…» si no cabe.
- * @param {string} name
- */
-export function deriveShortName(name) {
-  return name.length <= MAX_SHORT_NAME_LENGTH ? name : `${name.slice(0, MAX_SHORT_NAME_LENGTH - 1).trimEnd()}…`;
-}
-
-/**
  * Valida y convierte un rango de repeticiones escrito por el usuario.
  * @param {string | number} min
  * @param {string | number} max
@@ -250,15 +250,13 @@ export function parseRepRange(min, max) {
 
 /**
  * Crea un ejercicio nuevo y lo activa.
- * @param {{ name: string, shortName?: string, icon: string, repsMin?: string | number, repsMax?: string | number }} input
+ * @param {{ name: string, icon: string, repsMin?: string | number, repsMax?: string | number }} input
  * @returns {StoreResult}
  */
-export function addExercise({ name, shortName, icon, repsMin = DEFAULT_REPS_MIN, repsMax = DEFAULT_REPS_MAX }) {
+export function addExercise({ name, icon, repsMin = DEFAULT_REPS_MIN, repsMax = DEFAULT_REPS_MAX }) {
   name = (name || '').replace(/\s+/g, ' ').trim();
   if (!name) return { ok: false, error: { key: 'error.nameRequired' } };
-  shortName = (shortName || '').replace(/\s+/g, ' ').trim();
   if (name.length > MAX_NAME_LENGTH) return { ok: false, error: { key: 'error.maxLength', params: { max: MAX_NAME_LENGTH } } };
-  if (shortName.length > MAX_SHORT_NAME_LENGTH) return { ok: false, error: { key: 'error.maxLength', params: { max: MAX_SHORT_NAME_LENGTH } } };
 
   if (!isValidIcon(icon)) return { ok: false, error: { key: 'error.iconRequired' } };
 
@@ -276,7 +274,6 @@ export function addExercise({ name, shortName, icon, repsMin = DEFAULT_REPS_MIN,
   list.push({
     id: Date.now().toString(),
     name,
-    shortName: shortName || deriveShortName(name),
     icon,
     color: pickColor(list),
     repsMin: range.min,

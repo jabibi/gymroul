@@ -1,7 +1,7 @@
 // @ts-check
 // Modales, historial, configuración y avisos
 
-import { exerciseLabels } from './exercise-names.js';
+import { exerciseName } from './exercise-names.js';
 import { isolate } from './wheel-math.js';
 import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE } from './store.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
@@ -407,7 +407,7 @@ export function renderConfig(keepChecks = false) {
   $('exsCheckboxes').innerHTML = getExercises().map(ex => {
     const open = repsEditorOpen === ex.id;
     const range = t('config.repsRange', { min: ex.repsMin, max: ex.repsMax });
-    const name = exerciseLabels(ex).name;
+    const name = exerciseName(ex);
     return `
     <div class="rounded-xl bg-dark-950 border border-slate-800">
       <div class="flex items-stretch min-h-[46px]">
@@ -532,15 +532,13 @@ export function filterIcons(query) {
 /** Lee el formulario de nuevo ejercicio. */
 export function readNewExerciseForm() {
   const name = /** @type {HTMLInputElement} */ ($('newExName')).value.trim();
-  const short = /** @type {HTMLInputElement} */ ($('newExShort')).value.trim();
   const repsMin = /** @type {HTMLInputElement} */ ($('newExRepsMin')).value;
   const repsMax = /** @type {HTMLInputElement} */ ($('newExRepsMax')).value;
-  return { name, shortName: short, icon: selectedIcon, repsMin, repsMax };
+  return { name, icon: selectedIcon, repsMin, repsMax };
 }
 
 export function resetNewExerciseForm() {
   /** @type {HTMLInputElement} */ ($('newExName')).value = '';
-  /** @type {HTMLInputElement} */ ($('newExShort')).value = '';
   /** @type {HTMLInputElement} */ ($('newExRepsMin')).value = String(DEFAULT_REPS_MIN);
   /** @type {HTMLInputElement} */ ($('newExRepsMax')).value = String(DEFAULT_REPS_MAX);
   selectedIcon = DEFAULT_ICON;

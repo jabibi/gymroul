@@ -65,7 +65,7 @@ Petición de una reseña de Play (ver «Peticiones de usuarios»). No es un comp
 Aún no está empezado. Se apunta el ruso (`ru`) como el siguiente idioma. No es un compromiso: antes hay que cubrir lo de abajo.
 
 **Qué implicaría** (según `CLAUDE.md`, un idioma nuevo hay que añadirlo en tres sitios):
-- **La app**: `src/i18n/locales/ru.js` con todas las claves de `en.js` (incluidos `exercise.<clave>` y `exercise.<clave>.short` de los seis ejercicios por defecto y las etiquetas de los iconos) y alta en `LANGUAGES` de `src/i18n/index.js`. `npm test` falla si falta alguna clave o si cambian los parámetros `{x}`. Pasa de 20 a 21 idiomas, y todos los textos que hablan de «20 idiomas» (`CLAUDE.md`, ficha de Play, solicitud de producción) hay que actualizarlos.
+- **La app**: `src/i18n/locales/ru.js` con todas las claves de `en.js` (incluidos `exercise.<clave>` de los seis ejercicios por defecto y las etiquetas de los iconos) y alta en `LANGUAGES` de `src/i18n/index.js`. `npm test` falla si falta alguna clave o si cambian los parámetros `{x}`. Pasa de 20 a 21 idiomas, y todos los textos que hablan de «20 idiomas» (`CLAUDE.md`, ficha de Play, solicitud de producción) hay que actualizarlos.
 - **La ficha de Play**: entrada de `ru` en `store/listing.mjs` con título, descripciones y novedades (500 caracteres), y capturas, textos y CSV regenerados con `npm run store`.
 - **Las páginas legales**: política de privacidad y resto en `legal/index.mjs` (`LANGUAGE_ORDER`), regeneradas con `npm run legal`; hoy son 16, sin variantes regionales.
 
@@ -121,7 +121,7 @@ Aún no está decidida ni empezada. Se apunta aquí para no perderla y porque en
 - Las repeticiones propias que el usuario haya editado en un ejercicio por defecto no se pisan sin avisar.
 
 **Qué implicaría**:
-- **Textos**: cada ejercicio nuevo necesita su nombre y su nombre corto en los 20 idiomas (`exercise.<clave>` y `exercise.<clave>.short`), igual que los seis por defecto de la 1.15. Es el grueso del trabajo. Además, el nombre de la plantilla, la descripción y los textos del modal, también en todos los idiomas, y `npm test` falla si falta alguno.
+- **Textos**: cada ejercicio nuevo necesita su nombre en los 20 idiomas (`exercise.<clave>`), igual que los seis por defecto de la 1.15. Es el grueso del trabajo. Además, el nombre de la plantilla, la descripción y los textos del modal, también en todos los idiomas, y `npm test` falla si falta alguno.
 - **Identidad del ejercicio**: hoy `exerciseLabels` (`src/exercise-names.js`) traduce un ejercicio solo si su id está en `DEFAULT_EXERCISE_KEYS` y su nombre guardado sigue siendo el inglés original (`DEFAULT_EXERCISES` de `src/store.js`, ids de `'1'` a `'6'`). Las plantillas necesitarían ids propios y ampliar esa tabla.
 - **Datos guardados**: si solo se copian ejercicios a la lista existente, el esquema no cambia (hoy es la versión 8). Si se guarda qué plantilla está activa, hay que subir la versión y añadir la migración en `src/store.js`.
 - **Iconos**: las clases de Tailwind deben aparecer literales y hay que añadir las etiquetas de cualquier icono nuevo en todos los idiomas.

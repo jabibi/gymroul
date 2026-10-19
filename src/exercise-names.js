@@ -7,7 +7,7 @@ import { t } from './i18n/index.js';
 
 /** @typedef {import('./wheel-math.js').Exercise} Exercise */
 
-/** Clave de traducción (exercise.<clave> y exercise.<clave>.short) de cada ejercicio por defecto, por id */
+/** Clave de traducción (exercise.<clave>) de cada ejercicio por defecto, por id */
 export const DEFAULT_EXERCISE_KEYS = /** @type {Record<string, string>} */ ({
   1: 'burpee',
   2: 'lunge',
@@ -18,13 +18,12 @@ export const DEFAULT_EXERCISE_KEYS = /** @type {Record<string, string>} */ ({
 });
 
 /**
- * Nombre y nombre corto para mostrar. Los ejercicios del usuario se muestran como los escribió.
- * @param {Pick<Exercise, 'id' | 'name' | 'shortName'>} ex
- * @returns {{ name: string, shortName: string }}
+ * Nombre para mostrar. Los ejercicios del usuario se muestran como los escribió.
+ * @param {Pick<Exercise, 'id' | 'name'>} ex
  */
-export function exerciseLabels(ex) {
+export function exerciseName(ex) {
   const key = DEFAULT_EXERCISE_KEYS[ex.id];
   const original = DEFAULT_EXERCISES.find(d => d.id === ex.id);
-  if (!key || !original || ex.name !== original.name) return { name: ex.name, shortName: ex.shortName || ex.name };
-  return { name: t(`exercise.${key}`), shortName: t(`exercise.${key}.short`) };
+  if (!key || !original || ex.name !== original.name) return ex.name;
+  return t(`exercise.${key}`);
 }
