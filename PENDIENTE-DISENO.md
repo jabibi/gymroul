@@ -8,12 +8,9 @@ Leyenda: `[x]` hecho · `[ ]` pendiente de decidir o de hacer.
 
 - [x] **Casillas en el color de marca.** Las del editor de la ruleta salían en azul del navegador (`accent-color` en `src/style.css`).
 - [x] **Foco al cambiar de pantalla en Ajustes.** Al abrir una pantalla, el foco pasa a su título (`showSettingsView` en `src/ui.js`).
+- [x] **Tamaño mínimo de letra de 12 px.** Todos los textos de `index.html` y `src/ui.js` suben a 12 px o más (antes 9, 10 y 11 px). En las etiquetas de la ruleta la letra ya no baja de 12 px: si el nombre no cabe, se comprime un poco en horizontal (hasta el 90 %), se parte en dos líneas por un espacio o un guion si el sector tiene altura, y solo como último recurso se recorta con «…» (`fitLabel` en `src/wheel-math.js`). En pantallas de menos de 380 px de ancho se oculta «WORKOUT GENERATOR» de la cabecera, porque con 12 px ya no cabe en una línea. Pendiente: probar en el Pixel con nombres largos en alemán y polaco.
 - [x] **Resalte del sector bajo el puntero.** Antes se aclaraba con una capa blanca, que bajaba el contraste del texto justo en ese sector (a unos 2,6:1). Ahora se oscurecen los demás y el activo conserva su color pleno; las etiquetas van en una capa aparte para que sigan nítidas (`src/wheel.js`). Cambia también el aspecto de Clásico: revisar si se prefiere el resalte original en esa apariencia.
 - [x] **Contraste de la paleta Sereno.** Los sectores se oscurecen para que el texto blanco llegue a 4,5:1 como mínimo (migración v10 → v11). El verde esmeralda pasa a un verde más distinto del teal y el cian.
-
-## Fallos reales aún abiertos
-
-- [ ] **Tamaños de letra por debajo de lo recomendable.** «WORKOUT GENERATOR» mide 9 px y varios textos secundarios 11 px. Mínimo recomendado: 12 px; 14 px para lo que se lee de verdad. Hay que revisar `index.html` y `src/ui.js` y pasar `check:layout` (los textos más grandes pueden no caber en 320 px).
 
 ## Distribución y equilibrio
 

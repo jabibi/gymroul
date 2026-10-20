@@ -90,6 +90,42 @@ export function fitText(measure, text, maxWidth, maxSize, minSize) {
   return { text: cut(lo), size };
 }
 
+/** Compresión horizontal máxima de una etiqueta (la letra no baja de su tamaño mínimo): por encima de esto se nota la deformación */
+export const MIN_LABEL_SCALE = 0.9;
+
+/**
+ * Ajusta la etiqueta de un sector sin bajar de su tamaño mínimo de letra: primero reduce el tamaño hasta el mínimo, luego
+ * comprime un poco en horizontal, después la parte en dos líneas por un espacio o un guion (si el sector tiene altura) y, si aun así no
+ * cabe, la recorta con «…».
+ * @param {(text: string, px: number) => number} measure ancho del texto con ese tamaño de letra
+ * @param {string} text
+ * @param {number} maxWidth ancho disponible
+ * @param {number} maxSize tamaño de letra con el que se empieza
+ * @param {number} minSize tamaño mínimo
+ * @param {number} maxLines líneas que caben en el alto del sector (1 o 2)
+ * @returns {{ lines: string[], size: number, scale: number }}
+ */
+export function fitLabel(measure, text, maxWidth, maxSize, minSize, maxLines) {
+  const single = fitText(measure, text, maxWidth, maxSize, minSize);
+  if (single.text === text) return { lines: [text], size: single.size, scale: 1 };
+
+  const atMin = measure(text, minSize);
+  if (atMin * MIN_LABEL_SCALE <= maxWidth) return { lines: [text], size: minSize, scale: maxWidth / atMin };
+
+  if (maxLines >= 2) {
+    // Corte por un espacio (que desaparece) o tras un guion (que se queda en la primera línea), el que deje las dos líneas más parejas
+    let best = null;
+    for (let i = 1; i < text.length - 1; i++) {
+      if (text[i] !== ' ' && text[i] !== '-') continue;
+      const lines = text[i] === ' ' ? [text.slice(0, i), text.slice(i + 1)] : [text.slice(0, i + 1), text.slice(i + 1)];
+      const width = Math.max(...lines.map(line => measure(line, minSize)));
+      if (!best || width < best.width) best = { lines, width };
+    }
+    if (best && best.width * MIN_LABEL_SCALE <= maxWidth) return { lines: best.lines, size: minSize, scale: Math.min(1, maxWidth / best.width) };
+  }
+  return { lines: [single.text], size: single.size, scale: 1 };
+}
+
 /**
  * Índice del sector bajo el puntero (parte superior de la ruleta).
  * @param {number} angle rotación actual de la ruleta (rad)

@@ -17,7 +17,7 @@
             </div>
             <div>
                 <h1 class="font-black text-[19px] max-[339px]:text-base leading-tight tracking-tight bg-gradient-to-r from-white via-slate-200 to-brand-400 bg-clip-text text-transparent">GymRoulette</h1>
-                <p class="text-[9px] text-brand-400 font-bold tracking-[0.08em] uppercase max-[339px]:hidden">Workout Generator</p>
+                <p class="text-xs text-brand-400 font-bold tracking-[0.08em] uppercase max-[379px]:hidden">Workout Generator</p>
             </div>
         </div>
 
@@ -27,7 +27,7 @@
             </button>
             <button data-action="open-history" aria-label="Open history" data-i18n-aria-label="header.history" class="relative w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
                 <i class="fa-solid fa-clock-rotate-left text-sm"></i>
-                <span id="historyBadge" class="absolute -top-1.5 -end-1.5 w-5 h-5 bg-brand-500 text-dark-950 font-black text-[10px] rounded-full flex items-center justify-center hidden border-2 border-dark-950">0</span>
+                <span id="historyBadge" class="absolute -top-1.5 -end-1.5 w-5 h-5 bg-brand-500 text-dark-950 font-black text-xs rounded-full flex items-center justify-center hidden border-2 border-dark-950">0</span>
             </button>
             <button data-action="open-settings" aria-label="Open settings" data-i18n-aria-label="header.settings" class="w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
                 <i class="fa-solid fa-sliders text-sm"></i>
@@ -68,7 +68,7 @@
             <!-- Botón Central de Giro -->
             <button type="button" data-action="spin" aria-label="Spin the wheel" data-i18n-aria-label="wheel.centerAria" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/4 aspect-square rounded-full bg-gradient-to-br from-dark-800 via-dark-900 to-dark-950 border-4 border-brand-500 flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:scale-105 active:scale-95 transition-transform z-20 glow-brand">
                 <i class="fa-solid fa-play text-brand-400 text-xl ml-0.5 mb-0.5"></i>
-                <span class="text-[9px] font-black tracking-widest text-slate-200 uppercase" data-i18n="wheel.center">SPIN</span>
+                <span class="text-xs font-black tracking-widest text-slate-200 uppercase" data-i18n="wheel.center">SPIN</span>
             </button>
         </div>
 
@@ -85,7 +85,7 @@
             <div id="winnerIconContainer" class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
                 <i id="winnerIcon" class="fa-solid fa-fire"></i>
             </div>
-            <span class="text-[11px] font-black tracking-widest text-brand-400 uppercase bg-brand-500/10 px-3.5 py-1.5 rounded-full border border-brand-500/20" data-i18n="result.badge">
+            <span class="text-xs font-black tracking-widest text-brand-400 uppercase bg-brand-500/10 px-3.5 py-1.5 rounded-full border border-brand-500/20" data-i18n="result.badge">
                 EXERCISE SELECTED!
             </span>
 
@@ -186,25 +186,25 @@
                     <div class="flex justify-between items-center mb-2">
                         <span class="text-xs font-black text-slate-200 uppercase tracking-wider" data-i18n="config.exercises">Exercises</span>
                         <div class="flex items-center space-x-1 rtl:space-x-reverse">
-                            <button data-action="toggle-exs" data-arg="on" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-[11px] text-brand-400 font-bold hover:underline" data-i18n="config.exsAll">All</button>
+                            <button data-action="toggle-exs" data-arg="on" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-xs text-brand-400 font-bold hover:underline" data-i18n="config.exsAll">All</button>
                             <span class="text-slate-600">|</span>
-                            <button data-action="toggle-exs" data-arg="off" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-[11px] text-slate-400 font-bold hover:underline" data-i18n="config.exsNone">None</button>
+                            <button data-action="toggle-exs" data-arg="off" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-xs text-slate-400 font-bold hover:underline" data-i18n="config.exsNone">None</button>
                         </div>
                     </div>
                     <div id="exsCheckboxes" class="space-y-2 mb-3"></div>
 
                     <!-- Formulario Añadir Ejercicio -->
                     <div class="pt-2 border-t border-slate-800/80 space-y-2">
-                        <span class="text-[11px] font-bold text-slate-400 block" data-i18n="config.addExercise">Add a new exercise:</span>
+                        <span class="text-xs font-bold text-slate-400 block" data-i18n="config.addExercise">Add a new exercise:</span>
                         <div>
                             <input type="text" id="newExName" maxlength="30" autocomplete="off" placeholder="Name (e.g. Plank)" data-i18n-placeholder="config.namePlaceholder" class="min-h-[44px] w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
                         </div>
-                        <span class="text-[11px] font-bold text-slate-400 block" data-i18n="config.reps">Reps</span>
+                        <span class="text-xs font-bold text-slate-400 block" data-i18n="config.reps">Reps</span>
                         <div class="grid grid-cols-2 gap-2">
-                            <label class="block text-[11px] font-bold text-slate-400"><span data-i18n="config.repsMin">Min</span>
+                            <label class="block text-xs font-bold text-slate-400"><span data-i18n="config.repsMin">Min</span>
                                 <input type="number" dir="ltr" inputmode="numeric" id="newExRepsMin" value="10" min="1" max="999999" class="mt-1 min-h-[44px] w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
                             </label>
-                            <label class="block text-[11px] font-bold text-slate-400"><span data-i18n="config.repsMax">Max</span>
+                            <label class="block text-xs font-bold text-slate-400"><span data-i18n="config.repsMax">Max</span>
                                 <input type="number" dir="ltr" inputmode="numeric" id="newExRepsMax" value="60" min="1" max="999999" class="mt-1 min-h-[44px] w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
                             </label>
                         </div>
@@ -297,35 +297,35 @@
                     <i class="fa-solid fa-check shrink-0 mt-1 text-brand-400" aria-hidden="true"></i>
                     <div>
                         <p class="text-sm font-black text-white" data-i18n="commitment.offline.title">100% offline</p>
-                        <p class="text-[11px] text-slate-300 leading-snug mt-0.5" data-i18n="commitment.offline.text">It works without a connection. The app does not even request Internet permission.</p>
+                        <p class="text-xs text-slate-300 leading-snug mt-0.5" data-i18n="commitment.offline.text">It works without a connection. The app does not even request Internet permission.</p>
                     </div>
                 </li>
                 <li class="flex gap-3">
                     <i class="fa-solid fa-check shrink-0 mt-1 text-brand-400" aria-hidden="true"></i>
                     <div>
                         <p class="text-sm font-black text-white" data-i18n="commitment.noTrackers.title">No trackers</p>
-                        <p class="text-[11px] text-slate-300 leading-snug mt-0.5" data-i18n="commitment.noTrackers.text">No analytics, no tracking libraries and no profiles.</p>
+                        <p class="text-xs text-slate-300 leading-snug mt-0.5" data-i18n="commitment.noTrackers.text">No analytics, no tracking libraries and no profiles.</p>
                     </div>
                 </li>
                 <li class="flex gap-3">
                     <i class="fa-solid fa-check shrink-0 mt-1 text-brand-400" aria-hidden="true"></i>
                     <div>
                         <p class="text-sm font-black text-white" data-i18n="commitment.noAds.title">No ads</p>
-                        <p class="text-[11px] text-slate-300 leading-snug mt-0.5" data-i18n="commitment.noAds.text">No ads and no ad networks.</p>
+                        <p class="text-xs text-slate-300 leading-snug mt-0.5" data-i18n="commitment.noAds.text">No ads and no ad networks.</p>
                     </div>
                 </li>
                 <li class="flex gap-3">
                     <i class="fa-solid fa-check shrink-0 mt-1 text-brand-400" aria-hidden="true"></i>
                     <div>
                         <p class="text-sm font-black text-white" data-i18n="commitment.yourData.title">Your data is yours</p>
-                        <p class="text-[11px] text-slate-300 leading-snug mt-0.5" data-i18n="commitment.yourData.text">Everything you create stays on your device. If you delete the app or its data, no trace is left in the cloud.</p>
+                        <p class="text-xs text-slate-300 leading-snug mt-0.5" data-i18n="commitment.yourData.text">Everything you create stays on your device. If you delete the app or its data, no trace is left in the cloud.</p>
                     </div>
                 </li>
                 <li class="flex gap-3">
                     <i class="fa-solid fa-check shrink-0 mt-1 text-brand-400" aria-hidden="true"></i>
                     <div>
                         <p class="text-sm font-black text-white" data-i18n="commitment.noScripts.title">Zero external scripts</p>
-                        <p class="text-[11px] text-slate-300 leading-snug mt-0.5" data-i18n="commitment.noScripts.text">All the code is inside the app. Nothing is loaded from other servers.</p>
+                        <p class="text-xs text-slate-300 leading-snug mt-0.5" data-i18n="commitment.noScripts.text">All the code is inside the app. Nothing is loaded from other servers.</p>
                     </div>
                 </li>
                 </ul>

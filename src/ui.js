@@ -368,10 +368,10 @@ export function renderHistory() {
   listEl.innerHTML = sessionHistory.map(h => `
     <div class="bg-dark-900 border border-slate-800 rounded-2xl p-3 flex justify-between items-center gap-3">
       <div class="flex items-center gap-3 min-w-0">
-        <div class="min-w-10 h-10 px-1.5 shrink-0 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center font-black ${String(h.reps).length > 3 ? 'text-[11px]' : 'text-sm'} border border-brand-500/20">${h.reps}</div>
+        <div class="min-w-10 h-10 px-1.5 shrink-0 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center font-black ${String(h.reps).length > 3 ? 'text-xs' : 'text-sm'} border border-brand-500/20">${h.reps}</div>
         <div class="min-w-0">
           <h4 class="font-bold text-white text-xs break-words">${escapeHTML(isolate(h.exercise))}</h4>
-          <span class="text-[11px] text-slate-300 font-medium">${escapeHTML(h.time)}</span>
+          <span class="text-xs text-slate-300 font-medium">${escapeHTML(h.time)}</span>
         </div>
       </div>
       <span class="shrink-0 text-xl text-brand-400/80 flex items-center">${renderIconHTML(h.icon)}</span>
@@ -423,14 +423,14 @@ export function renderConfig(keepChecks = false) {
           <i class="fa-solid fa-trash-can"></i>
         </button>
       </div>
-      <button data-action="edit-reps" data-arg="${escapeHTML(ex.id)}" aria-expanded="${open}" aria-label="${escapeHTML(t('config.editReps', { name }))}" class="flex items-center min-h-[44px] ps-2.5 pe-3 text-[11px] font-bold text-brand-400 hover:underline">
+      <button data-action="edit-reps" data-arg="${escapeHTML(ex.id)}" aria-expanded="${open}" aria-label="${escapeHTML(t('config.editReps', { name }))}" class="flex items-center min-h-[44px] ps-2.5 pe-3 text-xs font-bold text-brand-400 hover:underline">
         <bdi dir="ltr">${escapeHTML(range)}</bdi>
       </button>
       <div class="${open ? '' : 'hidden'} grid grid-cols-[1fr_1fr_auto] items-end gap-2 px-2.5 pb-2.5 pt-1 border-t border-slate-800/80">
-        <label class="block text-[11px] font-bold text-slate-400">${escapeHTML(t('config.repsMin'))}
+        <label class="block text-xs font-bold text-slate-400">${escapeHTML(t('config.repsMin'))}
           <input type="number" dir="ltr" inputmode="numeric" id="${repsInputId(ex.id, 'Min')}" value="${ex.repsMin}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
         </label>
-        <label class="block text-[11px] font-bold text-slate-400">${escapeHTML(t('config.repsMax'))}
+        <label class="block text-xs font-bold text-slate-400">${escapeHTML(t('config.repsMax'))}
           <input type="number" dir="ltr" inputmode="numeric" id="${repsInputId(ex.id, 'Max')}" value="${ex.repsMax}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
         </label>
         <button data-action="save-reps" data-arg="${escapeHTML(ex.id)}" class="min-h-[44px] px-3 py-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all">${escapeHTML(t('config.repsSave'))}</button>
@@ -599,7 +599,7 @@ function renderIconGrid(query = '') {
     const icons = group.icons.filter(i => matches.has(i.id));
     if (icons.length === 0) return '';
     return `
-      <div class="col-span-full text-[10px] font-black uppercase tracking-wider text-slate-500 mt-2 first:mt-0">${escapeHTML(groupName(group.id))}</div>
+      <div class="col-span-full text-xs font-black uppercase tracking-wider text-slate-500 mt-2 first:mt-0">${escapeHTML(groupName(group.id))}</div>
       ${icons.map(i => `
         <button type="button" data-action="pick-icon" data-arg="${escapeHTML(i.id)}" title="${escapeHTML(iconLabel(i.id))}" aria-label="${escapeHTML(iconLabel(i.id))}" aria-pressed="${i.id === selectedIcon}"
           class="aspect-square rounded-xl flex items-center justify-center text-xl border transition-colors ${i.id === selectedIcon ? 'bg-brand-500/25 border-brand-500 text-brand-400' : 'bg-dark-950 border-slate-800 text-slate-300 hover:border-slate-600'}">

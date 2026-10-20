@@ -1,7 +1,7 @@
 // @ts-check
 // Render (canvas), física y arrastre de la ruleta
 
-import { getWinningIndex, normalizeDelta, fitText, CONFIG_SEGMENT } from './wheel-math.js';
+import { getWinningIndex, normalizeDelta, fitLabel, CONFIG_SEGMENT } from './wheel-math.js';
 import { t } from './i18n/index.js';
 import { initAudio, playTickSound, vibrateSpinStart } from './audio.js';
 
@@ -63,7 +63,9 @@ export function setSegments(next) {
   callbacks.onChange();
 }
 
-const MIN_LABEL_SIZE = 9;
+const MIN_LABEL_SIZE = 12;
+/** Separación entre líneas de una etiqueta de dos líneas, en múltiplos del tamaño de letra */
+const LABEL_LINE_HEIGHT = 1.15;
 /** Tamaño máximo de etiqueta en una ruleta de 320 px; crece en proporción con el tamaño de la ruleta (tope en MAX_LABEL_SCALED) */
 const MAX_LABEL_SIZE = 18;
 const MAX_LABEL_SCALED = 24;
@@ -122,9 +124,16 @@ function buildCache() {
     const textStart = radius * LABEL_HUB_RESERVE;
     const thickness = 2 * textStart * Math.sin(Math.min(slice, Math.PI) / 2);
     const maxSize = Math.max(MIN_LABEL_SIZE, Math.min(Math.min(MAX_LABEL_SCALED, Math.round(MAX_LABEL_SIZE * size / 320)), Math.floor(thickness * 0.55)));
-    const fitted = fitText((text, px) => (l.font = labelFont(px), l.measureText(text).width), label, textEnd - textStart, maxSize, MIN_LABEL_SIZE);
+    // Hay sitio para dos líneas si, a mitad del texto, el sector es más alto que dos líneas del tamaño mínimo
+    const midThickness = 2 * ((textStart + textEnd) / 2) * Math.sin(Math.min(slice, Math.PI) / 2);
+    const maxLines = midThickness >= MIN_LABEL_SIZE * LABEL_LINE_HEIGHT * 2 + 8 ? 2 : 1;
+    const fitted = fitLabel((text, px) => (l.font = labelFont(px), l.measureText(text).width), label, textEnd - textStart, Math.max(maxSize, MIN_LABEL_SIZE), MIN_LABEL_SIZE, maxLines);
     l.font = labelFont(fitted.size);
-    l.fillText(fitted.text, textEnd, 0);
+    // La compresión horizontal se aplica desde el extremo exterior, donde se alinea el texto
+    l.translate(textEnd, 0);
+    l.scale(fitted.scale, 1);
+    const lineGap = fitted.size * LABEL_LINE_HEIGHT;
+    fitted.lines.forEach((line, n) => l.fillText(line, 0, (n - (fitted.lines.length - 1) / 2) * lineGap));
     l.restore();
   }
   cacheDirty = false;
