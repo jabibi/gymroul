@@ -1,7 +1,7 @@
 // Comprueba, con la app real en Chrome sin interfaz, que ningún texto se corta ni se pisa en cada pantalla y en
 // cada idioma (sobre todo en los de derecha a izquierda, donde cambian el orden y las alturas de línea).
 //
-// Para cada idioma y cada tamaño de móvil recorre: ruleta, resultado, historial, configuración, selector de
+// Para cada idioma y cada tamaño de móvil recorre: ruleta, resultado, historial, ajustes (menú, apariencia, idioma y editor de ejercicios), selector de
 // iconos, compromiso de privacidad y visor de documentos, y en cada pantalla busca:
 //   - texto que sobresale de su contenedor recortado (overflow oculto, p. ej. «truncate» o una caja de altura fija)
 //   - texto que se sale de la pantalla o genera desplazamiento horizontal
@@ -255,9 +255,19 @@ async function checkViewport(browser, lang, vp) {
   await check(page, lang, vp, '03-historial');
   await page.click('[data-action=close-history]');
   await wait(500);
-  await page.click('[data-action=open-config]');
+  await page.click('[data-action=open-settings]');
   await wait(600);
-  await check(page, lang, vp, '04-configuracion');
+  await check(page, lang, vp, '04-ajustes');
+  for (const [view, name] of [['appearance', '04b-apariencia'], ['language', '04c-idioma']]) {
+    await page.click(`#settingsMenu [data-arg=${view}]`);
+    await wait(300);
+    await check(page, lang, vp, name);
+    await page.click('[data-action=settings-back]');
+    await wait(300);
+  }
+  await page.click('#settingsMenu [data-arg=wheel]');
+  await wait(300);
+  await check(page, lang, vp, '04d-configurar-ruleta');
   await page.evaluate(() => document.getElementById('exsCheckboxes').scrollIntoView({ block: 'start' }));
   await check(page, lang, vp, '05-ejercicios');
   await page.click('#iconPickerBtn');
@@ -290,7 +300,7 @@ async function checkViewport(browser, lang, vp) {
 
   // Compromiso de privacidad (desde Configuración) y, encima, la política completa
   const privacy = await openApp(browser, lang, vp);
-  await privacy.click('[data-action=open-config]');
+  await privacy.click('[data-action=open-settings]');
   await wait(500);
   await privacy.evaluate(() => document.querySelector('#configModal [data-action=open-commitment]').click());
   await wait(300);

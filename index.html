@@ -11,8 +11,9 @@
 
     <header class="w-full py-3.5 pt-[calc(0.875rem+var(--sat))] px-3 min-[360px]:px-5 glass-card border-b border-slate-800/80 flex justify-between items-center z-20 sticky top-0">
         <div class="flex items-center min-w-0 space-x-2 min-[380px]:space-x-3 rtl:space-x-reverse">
-            <div class="w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 shrink-0">
-                <img src="logo-mark.svg" alt="" width="40" height="40" class="w-full h-full">
+            <div class="logo-box w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 shrink-0">
+                <img src="logo-mark.svg" alt="" width="40" height="40" class="logo-calm w-full h-full">
+                <img src="logo-classic.svg" alt="" width="40" height="40" class="logo-classic w-full h-full">
             </div>
             <div>
                 <h1 class="font-black text-[19px] max-[339px]:text-base leading-tight tracking-tight bg-gradient-to-r from-white via-slate-200 to-brand-400 bg-clip-text text-transparent">GymRoulette</h1>
@@ -28,7 +29,7 @@
                 <i class="fa-solid fa-clock-rotate-left text-sm"></i>
                 <span id="historyBadge" class="absolute -top-1.5 -end-1.5 w-5 h-5 bg-brand-500 text-dark-950 font-black text-[10px] rounded-full flex items-center justify-center hidden border-2 border-dark-950">0</span>
             </button>
-            <button data-action="open-config" aria-label="Open settings" data-i18n-aria-label="header.settings" class="w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
+            <button data-action="open-settings" aria-label="Open settings" data-i18n-aria-label="header.settings" class="w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
                 <i class="fa-solid fa-sliders text-sm"></i>
             </button>
         </div>
@@ -141,16 +142,55 @@
     <div id="configModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="configTitle" aria-hidden="true" class="outline-none safe-edge fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
         <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 sm:p-6 max-h-[calc(100dvh-0.5rem-var(--sat)-var(--sab))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="configCard">
             <div class="flex justify-between items-center mb-3 pb-3 border-b border-slate-800">
-                <div class="flex items-center gap-2.5">
-                    <i class="fa-solid fa-sliders text-brand-400 text-lg"></i>
-                    <h3 id="configTitle" class="font-black text-lg text-white" data-i18n="config.title">Wheel settings</h3>
+                <div class="flex items-center gap-2.5 min-w-0">
+                    <button id="settingsBack" type="button" data-action="settings-back" aria-label="Back" data-i18n-aria-label="settings.back" class="hidden w-11 h-11 -ms-2 shrink-0 rounded-xl text-slate-300 hover:text-white items-center justify-center">
+                        <i class="fa-solid fa-arrow-left rtl:-scale-x-100"></i>
+                    </button>
+                    <h3 id="configTitle" class="font-black text-lg text-white truncate">Settings</h3>
                 </div>
-                <button data-action="close-config" aria-label="Close settings" data-i18n-aria-label="config.close" class="w-11 h-11 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <button data-action="close-config" aria-label="Close settings" data-i18n-aria-label="config.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
-            <div class="flex-1 overflow-y-auto overflow-x-hidden space-y-5 pe-1 my-1">
+            <div class="flex-1 overflow-y-auto overflow-x-hidden pe-1 my-1">
+                <!-- Menú: cada fila abre una pantalla dentro de este mismo panel (o un visor) -->
+                <section id="settingsMenu" data-view="menu" class="space-y-3">
+                    <div class="rounded-2xl bg-dark-900/60 border border-slate-800 overflow-hidden divide-y divide-slate-800/80">
+                        <button type="button" data-action="settings-open" data-arg="wheel" class="w-full flex items-center gap-3 min-h-[52px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors">
+                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-sliders"></i></span>
+                            <span class="flex-1 min-w-0 text-sm font-bold text-slate-100" data-i18n="settings.wheel">Set up wheel</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-500 shrink-0 rtl:-scale-x-100" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" data-action="settings-open" data-arg="appearance" class="w-full flex items-center gap-3 min-h-[52px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors">
+                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-palette"></i></span>
+                            <span class="flex-1 min-w-0 text-sm font-bold text-slate-100" data-i18n="settings.appearance">Appearance</span>
+                            <span id="settingsThemeValue" class="text-xs text-slate-400 truncate max-w-[45%]"></span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-500 shrink-0 rtl:-scale-x-100" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" data-action="settings-open" data-arg="language" class="w-full flex items-center gap-3 min-h-[52px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors">
+                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-language"></i></span>
+                            <span class="flex-1 min-w-0 text-sm font-bold text-slate-100" data-i18n="config.language">Language</span>
+                            <span id="settingsLanguageValue" class="text-xs text-slate-400 truncate max-w-[45%]"></span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-500 shrink-0 rtl:-scale-x-100" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="rounded-2xl bg-dark-900/60 border border-slate-800 overflow-hidden divide-y divide-slate-800/80">
+                        <button type="button" data-action="open-commitment" class="w-full flex items-center gap-3 min-h-[52px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors">
+                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></span>
+                            <span class="flex-1 min-w-0 text-sm font-bold text-slate-100" data-i18n="config.commitment">Privacy commitment</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-500 shrink-0 rtl:-scale-x-100" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" data-action="open-credits" class="w-full flex items-center gap-3 min-h-[52px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors">
+                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-circle-info"></i></span>
+                            <span class="flex-1 min-w-0 text-sm font-bold text-slate-100" data-i18n="config.credits">Credits</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-500 shrink-0 rtl:-scale-x-100" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Configurar ruleta: el editor de ejercicios -->
+                <section id="settingsWheel" data-view="wheel" class="hidden space-y-5">
                 <p class="text-xs text-slate-400" data-i18n="config.intro">Turn reps and exercises on or off, or create and delete them:</p>
 
                 <!-- Ejercicios Section -->
@@ -197,20 +237,20 @@
                         </div>
                     </div>
                 </div>
+                </section>
+
+                <!-- Apariencia -->
+                <section id="settingsAppearance" data-view="appearance" class="hidden space-y-3">
+                    <div id="themeOptions" role="radiogroup" aria-labelledby="configTitle" class="space-y-3"></div>
+                </section>
 
                 <!-- Idioma -->
-                <label class="flex items-center justify-between gap-3 bg-dark-900/60 p-3 rounded-2xl border border-slate-800">
-                    <span class="text-xs font-black text-slate-200 uppercase tracking-wider" data-i18n="config.language">Language</span>
-                    <select class="lang-select min-h-[44px] px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500" data-i18n-aria-label="config.language" aria-label="Language"></select>
-                </label>
-
-                <div class="flex flex-wrap justify-between items-center gap-x-4 text-[11px]">
-                    <button type="button" data-action="open-commitment" class="shrink-0 inline-flex items-center min-h-[44px] px-1 text-slate-400 underline"><i class="fa-solid fa-shield-halved me-1.5" aria-hidden="true"></i><span data-i18n="config.commitment">Privacy commitment</span></button>
-                    <a href="credits.html" data-action="open-credits" class="shrink-0 inline-flex items-center min-h-[44px] px-1 text-slate-400 underline" data-i18n="config.credits">Credits</a>
-                </div>
+                <section id="settingsLanguage" data-view="language" class="hidden">
+                    <div id="languageOptions" role="radiogroup" aria-labelledby="configTitle" class="rounded-2xl bg-dark-900/60 border border-slate-800 overflow-hidden divide-y divide-slate-800/80"></div>
+                </section>
             </div>
 
-            <div class="pt-3 border-t border-slate-800 mt-2">
+            <div id="settingsFooter" class="hidden pt-3 border-t border-slate-800 mt-2">
                 <button data-action="save-config" class="w-full py-3 rounded-xl bg-brand-500 text-dark-950 font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30" data-i18n="config.apply">
                     Save changes
                 </button>

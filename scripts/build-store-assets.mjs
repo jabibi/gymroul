@@ -269,8 +269,10 @@ try {
     await wait(600);
 
     // Configuración: ejercicios con sus iconos
-    await page.click('[data-action=open-config]');
+    await page.click('[data-action=open-settings]');
     await wait(700);
+    await page.click('#settingsMenu [data-arg=wheel]');
+    await wait(400);
     await page.evaluate(() => document.getElementById('exsCheckboxes').scrollIntoView({ block: 'start' }));
     await wait(400);
     await shot(page, '04-configuracion');
@@ -290,7 +292,7 @@ try {
 
     // Compromiso de privacidad: resumen de lo que la app no hace con tus datos
     const commitment = await openApp(loc.app);
-    await commitment.click('[data-action=open-config]');
+    await commitment.click('[data-action=open-settings]');
     await wait(700);
     await commitment.evaluate(() => document.querySelector('#configModal [data-action=open-commitment]').click());
     await wait(500);

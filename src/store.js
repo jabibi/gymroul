@@ -29,9 +29,10 @@ export const DEFAULT_EXERCISES = [
 ];
 /** Lista global de repeticiones de la versión 1.14, solo para migrar (v7 -> v8) */
 const LEGACY_DEFAULT_REPS = [10, 20, 30, 40, 50, 60];
+/** Paleta de los sectores tal como se guarda en cada ejercicio (apariencia Sereno) */
 export const COLOR_PALETTE = ['#0d9488', '#475569', '#059669', '#2563eb', '#0891b2', '#4f46e5', '#64748b', '#0369a1'];
-/** Paleta de las versiones anteriores (arcoíris), solo para migrar (v8 -> v9); misma posición que COLOR_PALETTE */
-const LEGACY_COLOR_PALETTE = ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'];
+/** Paleta de la apariencia Clásico (la original, arcoíris); misma posición que COLOR_PALETTE. También sirve para migrar (v8 -> v9) */
+export const CLASSIC_COLOR_PALETTE = ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'];
 
 const KEY_EXERCISES = 'gym_exercises';
 // Claves de la lista global de repeticiones, que ya no existe (migración v7 -> v8)
@@ -155,7 +156,7 @@ const MIGRATIONS = {
     const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
     if (!list) return;
     writeStorage(KEY_EXERCISES, list.map(e => {
-      const i = LEGACY_COLOR_PALETTE.indexOf(e.color);
+      const i = CLASSIC_COLOR_PALETTE.indexOf(e.color);
       return i === -1 ? e : { ...e, color: COLOR_PALETTE[i] };
     }));
   },

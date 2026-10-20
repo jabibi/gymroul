@@ -4,7 +4,7 @@ import './style.css';
 import { Capacitor } from '@capacitor/core';
 import { App as CapacitorApp } from '@capacitor/app';
 
-import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, getSpinSpeed } from './wheel.js';
+import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, getSpinSpeed, refreshBrand } from './wheel.js';
 import { generateSegments, rollReps, CONFIG_SEGMENT } from './wheel-math.js';
 import {
   migrate, loadActive, getExercises, active, setActive,
@@ -14,13 +14,16 @@ import { toggleSound, initAudio } from './audio.js';
 import * as ui from './ui.js';
 import { cleanShareCache } from './share.js';
 import { exerciseName } from './exercise-names.js';
+import { loadTheme, setTheme, themeColor } from './theme.js';
 import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from './i18n/index.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
 
 /** Reconstruye los sectores a partir del catálogo y la selección activa. */
 function rebuildWheel() {
-  setSegments(generateSegments(getExercises(), active.exercises, exerciseName));
+  const segments = generateSegments(getExercises(), active.exercises, exerciseName);
+  // Los colores guardados son los de la apariencia Sereno; con Clásico se cambian al mostrarlos (el sector «Configurar» se deja tal cual: se reconoce por identidad)
+  setSegments(segments.map(s => (s === CONFIG_SEGMENT ? s : { ...s, color: themeColor(s.color) })));
 }
 
 /** Abre la configuración si la ruleta no tiene nada activo; devuelve true si lo hizo. */
@@ -80,13 +83,25 @@ function applyLanguage() {
   refreshMarker();
 }
 
+/** Repinta lo que depende de la apariencia: color de marca de la ruleta, sectores y los ajustes. */
+function applyTheme() {
+  refreshBrand();
+  rebuildWheel();
+  refreshMarker();
+  ui.renderSettings();
+}
+
 /** @type {Record<string, (arg: string | undefined) => void>} */
 const actions = {
   'toggle-sound': () => ui.setSoundIcon(toggleSound()),
   'open-history': () => ui.openHistory(),
   'close-history': () => ui.closeHistory(),
   'clear-history': () => ui.requestClearHistory(),
-  'open-config': () => ui.openConfig(),
+  'open-settings': () => ui.openSettings(),
+  'settings-open': arg => arg && ui.showSettingsView(/** @type {'wheel' | 'appearance' | 'language'} */ (arg)),
+  'settings-back': () => ui.settingsBack(),
+  'set-language': arg => { if (arg && isSupported(arg) && setLanguage(arg)) applyLanguage(); },
+  'set-theme': arg => { if (arg && setTheme(arg)) applyTheme(); },
   'close-config': () => ui.closeConfig(),
   'spin': () => handleSpin(),
   'close-result': arg => ui.closeResult(arg === 'done'),
@@ -152,13 +167,6 @@ if (Capacitor.isNativePlatform()) {
   });
 }
 
-document.addEventListener('change', e => {
-  const target = /** @type {HTMLElement} */ (e.target);
-  if (!target.matches('select.lang-select')) return;
-  const code = /** @type {HTMLSelectElement} */ (target).value;
-  if (isSupported(code) && setLanguage(code)) applyLanguage();
-});
-
 document.getElementById('iconSearch')?.addEventListener('input', e => ui.filterIcons(/** @type {HTMLInputElement} */ (e.target).value));
 
 function init() {
@@ -166,11 +174,12 @@ function init() {
   setLanguage(detectLanguage(), { persist: false });
   applyTranslations();
   migrate();
+  loadTheme();
   loadActive();
   ui.initModals();
   ui.initKeyboardAvoidance();
   ui.initIconPicker();
-  ui.renderLanguageSelectors();
+  ui.renderSettings();
   ui.setCompletedHandler(ui.addToHistory);
 
   initWheel(/** @type {HTMLCanvasElement} */ (document.getElementById('wheelCanvas')), {

@@ -3,7 +3,8 @@
 
 import { exerciseName } from './exercise-names.js';
 import { isolate } from './wheel-math.js';
-import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE } from './store.js';
+import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE, COLOR_PALETTE } from './store.js';
+import { THEMES, THEME_BRAND, getTheme, themeColor } from './theme.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
 import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
 import { shareChallenge } from './share.js';
@@ -93,7 +94,7 @@ let ownPops = 0;
 const closers = {
   result: () => closeResult(false),
   history: () => closeHistory(),
-  config: () => closeConfig(),
+  config: () => backInSettings(),
   share: () => cancelShare(),
   commitment: () => closeCommitment(),
   document: () => closeDocument(),
@@ -452,9 +453,108 @@ export function readRepsEditor(id) {
   };
 }
 
+// --- Ajustes ---------------------------------------------------------------------------
+// Un único panel con cuatro pantallas: el menú (Configurar ruleta, Apariencia, Idioma, Compromiso de
+// privacidad y Créditos) y, dentro, el editor de ejercicios, la apariencia y el idioma. Las pantallas no
+// añaden entradas al historial: Atrás vuelve al menú y, desde el menú, cierra el panel.
+
+/** @typedef {'menu' | 'wheel' | 'appearance' | 'language'} SettingsView */
+/** @type {SettingsView} */
+let settingsView = 'menu';
+const VIEW_TITLE_KEYS = /** @type {Record<SettingsView, string>} */ ({
+  menu: 'settings.title',
+  wheel: 'config.title',
+  appearance: 'settings.appearance',
+  language: 'config.language',
+});
+const THEME_NAME_KEYS = { calm: 'appearance.calm', classic: 'appearance.classic' };
+const THEME_DESC_KEYS = { calm: 'appearance.calmDesc', classic: 'appearance.classicDesc' };
+
+/** @param {SettingsView} view */
+export function showSettingsView(view) {
+  settingsView = view;
+  document.querySelectorAll('#configCard [data-view]').forEach(el => {
+    el.classList.toggle('hidden', /** @type {HTMLElement} */ (el).dataset.view !== view);
+  });
+  $('configTitle').textContent = t(VIEW_TITLE_KEYS[view]);
+  $('settingsBack').classList.toggle('hidden', view === 'menu');
+  $('settingsBack').classList.toggle('flex', view !== 'menu');
+  $('settingsFooter').classList.toggle('hidden', view !== 'wheel');
+  const scroller = $('configCard').querySelector('.overflow-y-auto');
+  if (scroller) scroller.scrollTop = 0;
+}
+
+/** Atrás dentro de Ajustes: de una pantalla al menú; desde el menú, cierra el panel. */
+function backInSettings() {
+  if (settingsView === 'menu') {
+    closeConfig();
+    return;
+  }
+  showSettingsView('menu');
+  pushModal('config'); // si Atrás ya sacó el panel de la pila, vuelve a ponerlo (si no, no hace nada)
+}
+
+/** Vuelve al menú desde la flecha del encabezado. */
+export function settingsBack() {
+  showSettingsView('menu');
+}
+
+/** Pinta los textos que se generan por código: título, valores del menú, apariencias e idiomas. */
+export function renderSettings() {
+  const lang = getLanguage();
+  const theme = getTheme();
+  $('configTitle').textContent = t(VIEW_TITLE_KEYS[settingsView]);
+  $('settingsThemeValue').textContent = t(THEME_NAME_KEYS[theme]);
+  $('settingsLanguageValue').textContent = LANGUAGES.find(l => l.code === lang)?.name ?? '';
+
+  const row = 'w-full flex items-center justify-between gap-3 min-h-[48px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors';
+  const check = '<i class="fa-solid fa-check text-brand-400 text-sm shrink-0" aria-hidden="true"></i>';
+  $('languageOptions').innerHTML = LANGUAGES.map(l => {
+    const selected = l.code === lang;
+    return `<button type="button" role="radio" aria-checked="${selected}" data-action="set-language" data-arg="${l.code}" lang="${l.tag}" class="${row}">
+      <span class="text-sm font-bold ${selected ? 'text-white' : 'text-slate-300'}">${escapeHTML(l.name)}</span>${selected ? check : ''}
+    </button>`;
+  }).join('');
+
+  $('themeOptions').innerHTML = THEMES.map(id => {
+    const selected = id === theme;
+    return `<button type="button" role="radio" aria-checked="${selected}" data-action="set-theme" data-arg="${id}" class="w-full text-start rounded-2xl border p-3.5 transition-colors ${selected ? 'border-brand-500 bg-brand-500/10' : 'border-slate-800 bg-dark-900/60 hover:bg-dark-800/60'}">
+      <span class="flex items-center justify-between gap-3">
+        <span class="text-sm font-black text-white">${escapeHTML(t(THEME_NAME_KEYS[id]))}</span>
+        ${selected ? check : '<span class="w-4 h-4 rounded-full border border-slate-600 shrink-0" aria-hidden="true"></span>'}
+      </span>
+      <span class="block text-xs text-slate-400 mt-1">${escapeHTML(t(THEME_DESC_KEYS[id]))}</span>
+      <span class="flex items-center gap-1.5 mt-3" aria-hidden="true" data-swatches="${id}"></span>
+    </button>`;
+  }).join('');
+  // Los colores se ponen con el DOM: la CSP prohíbe los estilos en línea escritos en el HTML
+  document.querySelectorAll('[data-swatches]').forEach(box => {
+    const id = /** @type {import('./theme.js').Theme} */ (/** @type {HTMLElement} */ (box).dataset.swatches);
+    [THEME_BRAND[id], ...COLOR_PALETTE.slice(0, 6).map(c => themeColor(c, id))].forEach((color, i) => {
+      const dot = document.createElement('span');
+      dot.className = i === 0 ? 'h-4 w-8 rounded-full' : 'h-4 w-4 rounded-full';
+      dot.style.backgroundColor = color;
+      box.appendChild(dot);
+    });
+  });
+}
+
+/** Abre Ajustes en el menú. */
+export function openSettings() {
+  openSettingsAt('menu');
+}
+
+/** Abre Ajustes directamente en el editor de ejercicios (por ejemplo, cuando la ruleta no tiene nada activo). */
 export function openConfig() {
+  openSettingsAt('wheel');
+}
+
+/** @param {SettingsView} view */
+function openSettingsAt(view) {
   repsEditorOpen = '';
   renderConfig();
+  renderSettings();
+  showSettingsView(view);
   setSheetVisible('configModal', 'configCard', true);
   pushModal('config');
 }
@@ -675,20 +775,9 @@ export function closeDocument() {
 
 // --- Idioma --------------------------------------------------------------------------
 
-/** Rellena todos los selectores de idioma (configuración) y los sincroniza. */
-export function renderLanguageSelectors() {
-  document.querySelectorAll('select.lang-select').forEach(el => {
-    const select = /** @type {HTMLSelectElement} */ (el);
-    if (select.options.length !== LANGUAGES.length) {
-      select.innerHTML = LANGUAGES.map(l => `<option value="${l.code}">${escapeHTML(l.name)}</option>`).join('');
-    }
-    select.value = getLanguage();
-  });
-}
-
 /** Vuelve a pintar lo que se genera por código cuando cambia el idioma (el marcado fijo lo hace applyTranslations). */
 export function refreshLanguage() {
-  renderLanguageSelectors();
+  renderSettings();
   renderConfig(true);
   renderHistory();
   updateIconButton();

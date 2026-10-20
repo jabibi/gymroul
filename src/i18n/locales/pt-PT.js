@@ -3,6 +3,7 @@
 export default {
   strings: {
     'history.clearConfirm': 'Toca outra vez',
+    'settings.title': 'Definições',
     'header.settings': 'Abrir definições',
 
     'live.drag': 'Arrasta a roleta para girar',

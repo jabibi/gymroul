@@ -32,7 +32,9 @@ Solicitud enviada el 18 oct 2026 a las 21:53, con 15 testers y la 1.16 en las pr
 
 ## Probable: versión 1.17 — lista de Configuración más compacta
 
-Aún no está empezada. Desde la 1.15 cada ejercicio lleva su rango de repeticiones en una segunda línea, así que cada fila de Configuración ocupa dos líneas y, con 12 ejercicios, la lista se alarga y obliga a mucho desplazamiento.
+Lo que se hizo en la rama `roadmap-17` además de esto: Ajustes pasa a ser un menú (configurar ruleta, apariencia, idioma, compromiso de privacidad, créditos), hay dos apariencias (Sereno, la nueva por defecto, y Clásico, la original), el logo es nuevo, los nombres cortos de los ejercicios desaparecen y la ruleta es más grande.
+
+Lo de la lista compacta aún no está empezada. Desde la 1.15 cada ejercicio lleva su rango de repeticiones en una segunda línea, así que cada fila de Configuración ocupa dos líneas y, con 12 ejercicios, la lista se alarga y obliga a mucho desplazamiento.
 
 **Opciones** (por decidir):
 - Poner el rango en la misma línea que el nombre cuando haya sitio, y en una segunda solo si no cabe (nombres largos, pantallas estrechas, árabe).

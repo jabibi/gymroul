@@ -294,14 +294,25 @@ function animate(now) {
   }
 }
 
+function readBrandColor() {
+  const channels = getComputedStyle(document.documentElement).getPropertyValue('--brand-500').trim();
+  if (channels) brandColor = `rgb(${channels.split(/\s+/).join(',')})`;
+}
+
+/** Vuelve a leer el color de marca y repinta la ruleta (al cambiar de apariencia). */
+export function refreshBrand() {
+  readBrandColor();
+  cacheDirty = true;
+  draw();
+}
+
 /**
  * @param {HTMLCanvasElement} canvasEl
  * @param {typeof callbacks} cbs
  */
 export function initWheel(canvasEl, cbs) {
   canvas = canvasEl;
-  const channels = getComputedStyle(document.documentElement).getPropertyValue('--brand-500').trim();
-  if (channels) brandColor = `rgb(${channels.split(/\s+/).join(',')})`;
+  readBrandColor();
   ctx = /** @type {CanvasRenderingContext2D} */ (canvas.getContext('2d'));
   callbacks = cbs;
 
