@@ -30,10 +30,13 @@ let angularVelocity = 0; // rad por fotograma a 60 fps
 let lastFrameTime = 0;
 let lastTickIndex = -1;
 
-// Las etiquetas y sombras son costosas: los sectores se dibujan una vez en un canvas auxiliar
-// y cada fotograma solo lo rota
+// Las etiquetas y sombras son costosas: los sectores y las etiquetas se dibujan una vez en dos canvas auxiliares
+// y cada fotograma solo los rota. Van separados para poder oscurecer los sectores que no están bajo el puntero
+// sin apagar el texto
 /** @type {HTMLCanvasElement | null} */
 let cache = null;
+/** @type {HTMLCanvasElement | null} */
+let labelCache = null;
 let cacheDirty = true;
 
 // Arrastre
@@ -82,6 +85,13 @@ function buildCache() {
   c.setTransform(dpr, 0, 0, dpr, 0, 0);
   c.translate(center, center);
 
+  labelCache = document.createElement('canvas');
+  labelCache.width = size * dpr;
+  labelCache.height = size * dpr;
+  const l = /** @type {CanvasRenderingContext2D} */ (labelCache.getContext('2d'));
+  l.setTransform(dpr, 0, 0, dpr, 0, 0);
+  l.translate(center, center);
+
   for (let i = 0; i < total; i++) {
     const start = i * slice;
     const end = (i + 1) * slice;
@@ -96,13 +106,13 @@ function buildCache() {
     c.strokeStyle = '#020617';
     c.stroke();
 
-    c.save();
-    c.rotate(start + slice / 2);
-    c.textAlign = 'right';
-    c.textBaseline = 'middle';
-    c.fillStyle = '#ffffff';
-    c.shadowColor = 'rgba(0, 0, 0, 0.9)';
-    c.shadowBlur = 4;
+    l.save();
+    l.rotate(start + slice / 2);
+    l.textAlign = 'right';
+    l.textBaseline = 'middle';
+    l.fillStyle = '#ffffff';
+    l.shadowColor = 'rgba(0, 0, 0, 0.9)';
+    l.shadowBlur = 4;
     const label = segments[i] === CONFIG_SEGMENT
       ? t('wheel.setup')
       : segments[i].text;
@@ -112,10 +122,10 @@ function buildCache() {
     const textStart = radius * LABEL_HUB_RESERVE;
     const thickness = 2 * textStart * Math.sin(Math.min(slice, Math.PI) / 2);
     const maxSize = Math.max(MIN_LABEL_SIZE, Math.min(Math.min(MAX_LABEL_SCALED, Math.round(MAX_LABEL_SIZE * size / 320)), Math.floor(thickness * 0.55)));
-    const fitted = fitText((text, px) => (c.font = labelFont(px), c.measureText(text).width), label, textEnd - textStart, maxSize, MIN_LABEL_SIZE);
-    c.font = labelFont(fitted.size);
-    c.fillText(fitted.text, textEnd, 0);
-    c.restore();
+    const fitted = fitText((text, px) => (l.font = labelFont(px), l.measureText(text).width), label, textEnd - textStart, maxSize, MIN_LABEL_SIZE);
+    l.font = labelFont(fitted.size);
+    l.fillText(fitted.text, textEnd, 0);
+    l.restore();
   }
   cacheDirty = false;
 }
@@ -137,13 +147,16 @@ function draw() {
   ctx.rotate(currentAngle);
   ctx.drawImage(/** @type {HTMLCanvasElement} */ (cache), -center, -center, wheelSize, wheelSize);
 
-  // Resalte del sector activo
-  ctx.beginPath();
-  ctx.moveTo(0, 0);
-  ctx.arc(0, 0, radius, activeIndex * slice, (activeIndex + 1) * slice);
-  ctx.closePath();
-  ctx.fillStyle = 'rgba(255, 255, 255, 0.28)';
-  ctx.fill();
+  // Resalte del sector activo: se oscurecen los demás. Aclarar el activo le quitaría contraste justo al texto blanco que se está leyendo
+  if (total > 1) {
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.arc(0, 0, radius, (activeIndex + 1) * slice, (activeIndex + total) * slice);
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(2, 6, 23, 0.34)';
+    ctx.fill();
+  }
+  ctx.drawImage(/** @type {HTMLCanvasElement} */ (labelCache), -center, -center, wheelSize, wheelSize);
   ctx.restore();
 
   // Anillos exteriores

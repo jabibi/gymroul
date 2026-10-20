@@ -24,7 +24,7 @@
     --brand-600: 5 150 105;
     --brand-900: 6 78 59;
     --pointer-share: #10b981;
-    --spinner-share: conic-gradient(#0d9488 0 14.28%, #475569 0 28.57%, #059669 0 42.85%, #2563eb 0 57.14%, #0891b2 0 71.42%, #4f46e5 0 85.71%, #64748b 0);
+    --spinner-share: conic-gradient(#0f766e 0 14.28%, #475569 0 28.57%, #15803d 0 42.85%, #2563eb 0 57.14%, #0e7490 0 71.42%, #4f46e5 0 85.71%, #64748b 0);
 }
 /* Apariencia Clásico: el verde intenso y los colores vivos de la ruleta de las primeras versiones */
 :root[data-theme="classic"] {
@@ -183,3 +183,9 @@ input, textarea {
     .share-spinner { animation-duration: 3s; }
 }
 
+
+/* Casillas y botones de opción con el color de marca (si no, el navegador los pinta en azul) */
+input[type='checkbox'],
+input[type='radio'] {
+    accent-color: rgb(var(--brand-500));
+}

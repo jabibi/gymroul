@@ -146,7 +146,7 @@
                     <button id="settingsBack" type="button" data-action="settings-back" aria-label="Back" data-i18n-aria-label="settings.back" class="hidden w-11 h-11 -ms-2 shrink-0 rounded-xl text-slate-300 hover:text-white items-center justify-center">
                         <i class="fa-solid fa-arrow-left rtl:-scale-x-100"></i>
                     </button>
-                    <h3 id="configTitle" class="font-black text-lg text-white truncate">Settings</h3>
+                    <h3 id="configTitle" tabindex="-1" class="outline-none font-black text-lg leading-tight text-white min-w-0 break-words">Settings</h3>
                 </div>
                 <button data-action="close-config" aria-label="Close settings" data-i18n-aria-label="config.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
@@ -165,13 +165,13 @@
                         <button type="button" data-action="settings-open" data-arg="appearance" class="w-full flex items-center gap-3 min-h-[52px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors">
                             <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-palette"></i></span>
                             <span class="flex-1 min-w-0 text-sm font-bold text-slate-100" data-i18n="settings.appearance">Appearance</span>
-                            <span id="settingsThemeValue" class="text-xs text-slate-400 truncate max-w-[45%]"></span>
+                            <span id="settingsThemeValue" class="text-xs text-slate-400 text-end min-w-0 max-w-[50%]"></span>
                             <i class="fa-solid fa-chevron-right text-[10px] text-slate-500 shrink-0 rtl:-scale-x-100" aria-hidden="true"></i>
                         </button>
                         <button type="button" data-action="settings-open" data-arg="language" class="w-full flex items-center gap-3 min-h-[52px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors">
                             <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-language"></i></span>
                             <span class="flex-1 min-w-0 text-sm font-bold text-slate-100" data-i18n="config.language">Language</span>
-                            <span id="settingsLanguageValue" class="text-xs text-slate-400 truncate max-w-[45%]"></span>
+                            <span id="settingsLanguageValue" class="text-xs text-slate-400 text-end min-w-0 max-w-[50%]"></span>
                             <i class="fa-solid fa-chevron-right text-[10px] text-slate-500 shrink-0 rtl:-scale-x-100" aria-hidden="true"></i>
                         </button>
                     </div>

@@ -470,8 +470,12 @@ const VIEW_TITLE_KEYS = /** @type {Record<SettingsView, string>} */ ({
 const THEME_NAME_KEYS = { calm: 'appearance.calm', classic: 'appearance.classic' };
 const THEME_DESC_KEYS = { calm: 'appearance.calmDesc', classic: 'appearance.classicDesc' };
 
-/** @param {SettingsView} view */
-export function showSettingsView(view) {
+/**
+ * @param {SettingsView} view
+ * @param {boolean} [moveFocus] lleva el foco al título de la pantalla nueva: el botón que se pulsó queda oculto y, sin esto,
+ *   el teclado y el lector de pantalla se quedarían sin sitio
+ */
+export function showSettingsView(view, moveFocus = true) {
   settingsView = view;
   document.querySelectorAll('#configCard [data-view]').forEach(el => {
     el.classList.toggle('hidden', /** @type {HTMLElement} */ (el).dataset.view !== view);
@@ -483,6 +487,7 @@ export function showSettingsView(view) {
   $('settingsLinks').classList.toggle('hidden', view !== 'menu');
   const scroller = $('configCard').querySelector('.overflow-y-auto');
   if (scroller) scroller.scrollTop = 0;
+  if (moveFocus) $('configTitle').focus({ preventScroll: true });
 }
 
 /** Atrás dentro de Ajustes: de una pantalla al menú; desde el menú, cierra el panel. */
@@ -555,7 +560,7 @@ function openSettingsAt(view) {
   repsEditorOpen = '';
   renderConfig();
   renderSettings();
-  showSettingsView(view);
+  showSettingsView(view, false); // al abrir, manageFocus ya lleva el foco al panel
   setSheetVisible('configModal', 'configCard', true);
   pushModal('config');
 }

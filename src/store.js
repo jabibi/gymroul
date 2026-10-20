@@ -20,17 +20,19 @@ export const DEFAULT_REPS_MAX = 60;
 
 /** @type {Exercise[]} */
 export const DEFAULT_EXERCISES = [
-  { id: '1', name: 'Burpee', icon: 'burpee', color: '#0d9488', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '1', name: 'Burpee', icon: 'burpee', color: '#0f766e', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
   { id: '2', name: 'Lunge', icon: 'walk', color: '#475569', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '3', name: 'Push-up', icon: 'pushup', color: '#059669', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '3', name: 'Push-up', icon: 'pushup', color: '#15803d', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
   { id: '4', name: 'Air Squat', icon: 'squat', color: '#2563eb', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '5', name: 'Mountain Climbers', icon: 'climbers', color: '#0891b2', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '5', name: 'Mountain Climbers', icon: 'climbers', color: '#0e7490', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
   { id: '6', name: 'Split Jumps', icon: 'jump', color: '#4f46e5', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
 ];
 /** Lista global de repeticiones de la versión 1.14, solo para migrar (v7 -> v8) */
 const LEGACY_DEFAULT_REPS = [10, 20, 30, 40, 50, 60];
 /** Paleta de los sectores tal como se guarda en cada ejercicio (apariencia Sereno) */
-export const COLOR_PALETTE = ['#0d9488', '#475569', '#059669', '#2563eb', '#0891b2', '#4f46e5', '#64748b', '#0369a1'];
+export const COLOR_PALETTE = ['#0f766e', '#475569', '#15803d', '#2563eb', '#0e7490', '#4f46e5', '#64748b', '#0369a1'];
+/** Primera versión de la paleta Sereno (tonos más claros, con poco contraste con el texto blanco), solo para migrar (v10 -> v11) */
+const FIRST_CALM_PALETTE = ['#0d9488', '#475569', '#059669', '#2563eb', '#0891b2', '#4f46e5', '#64748b', '#0369a1'];
 /** Paleta de la apariencia Clásico (la original, arcoíris); misma posición que COLOR_PALETTE. También sirve para migrar (v8 -> v9) */
 export const CLASSIC_COLOR_PALETTE = ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'];
 
@@ -45,7 +47,7 @@ const KEY_LEGACY_ANALYTICS_CONSENT = 'gymroulette_analytics_consent';
 const KEY_LEGACY_INTRO_SEEN = 'gymroulette_intro_seen';
 
 /** Versión actual del esquema de datos guardados; sube al cambiar su formato */
-export const SCHEMA_VERSION = 10;
+export const SCHEMA_VERSION = 11;
 
 /** Selección activa (se muta con setActive/loadActive) */
 export const active = {
@@ -167,6 +169,15 @@ const MIGRATIONS = {
     writeStorage(KEY_EXERCISES, list.map(e => {
       const { shortName, ...rest } = /** @type {any} */ (e);
       return rest;
+    }));
+  },
+  // v10 -> v11: la paleta Sereno se oscurece para que el texto blanco de la ruleta se lea bien (contraste mínimo 4,5:1)
+  10: () => {
+    const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
+    if (!list) return;
+    writeStorage(KEY_EXERCISES, list.map(e => {
+      const i = FIRST_CALM_PALETTE.indexOf(e.color);
+      return i === -1 ? e : { ...e, color: COLOR_PALETTE[i] };
     }));
   },
 };
