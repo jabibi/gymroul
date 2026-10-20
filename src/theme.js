@@ -1,5 +1,5 @@
 // @ts-check
-// Apariencia de la app: «calm» (Sereno, la actual) o «classic» (Clásico, la original con colores vivos).
+// Apariencia de la app: «calm» (se muestra como «Suave»; el identificador interno es el que se guarda en gym_theme y no se cambia) o «classic» (Clásico, la original con colores vivos).
 // El tema se aplica con data-theme en <html>: las variables --brand-* y demás colores de src/style.css cambian solos.
 // Los colores de los ejercicios se guardan siempre con la paleta de «calm» (COLOR_PALETTE); con «classic» se
 // sustituyen al mostrarlos por el de la misma posición en CLASSIC_COLOR_PALETTE, así cambiar de apariencia no toca los datos.

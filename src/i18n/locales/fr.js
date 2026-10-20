@@ -61,7 +61,7 @@ export default {
     'settings.back': 'Retour',
     'settings.wheel': 'Configurer la roue',
     'settings.appearance': 'Apparence',
-    'appearance.calm': 'Apaisé',
+    'appearance.calm': 'Doux',
     'appearance.calmDesc': 'Des couleurs douces et équilibrées, dans un esprit bien-être.',
     'appearance.classic': 'Classique',
     'appearance.classicDesc': 'L\'apparence d\'origine : roue aux couleurs vives et vert plus intense.',

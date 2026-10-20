@@ -3,7 +3,7 @@ import { COLOR_PALETTE, CLASSIC_COLOR_PALETTE } from '../src/store.js';
 import { THEMES, THEME_BRAND, DEFAULT_THEME, isTheme, themeColor } from '../src/theme.js';
 
 describe('apariencias', () => {
-  it('hay dos y la de por defecto es Sereno', () => {
+  it('hay dos y la de por defecto es Suave', () => {
     expect(THEMES).toEqual(['calm', 'classic']);
     expect(DEFAULT_THEME).toBe('calm');
     expect(isTheme('classic')).toBe(true);
@@ -17,7 +17,7 @@ describe('apariencias', () => {
     expect(new Set(CLASSIC_COLOR_PALETTE).size).toBe(CLASSIC_COLOR_PALETTE.length);
   });
 
-  it('Sereno deja los colores guardados y Clásico usa el de la misma posición de su paleta', () => {
+  it('Suave deja los colores guardados y Clásico usa el de la misma posición de su paleta', () => {
     COLOR_PALETTE.forEach((color, i) => {
       expect(themeColor(color, 'calm')).toBe(color);
       expect(themeColor(color, 'classic')).toBe(CLASSIC_COLOR_PALETTE[i]);

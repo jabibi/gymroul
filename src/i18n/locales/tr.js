@@ -61,7 +61,7 @@ export default {
     'settings.back': 'Geri',
     'settings.wheel': 'Çarkı ayarla',
     'settings.appearance': 'Görünüm',
-    'appearance.calm': 'Sakin',
+    'appearance.calm': 'Yumuşak',
     'appearance.calmDesc': 'Yumuşak ve dengeli renkler, sağlıklı yaşam havasında.',
     'appearance.classic': 'Klasik',
     'appearance.classicDesc': 'Orijinal görünüm: canlı çark renkleri ve daha yoğun yeşil.',

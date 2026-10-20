@@ -61,7 +61,7 @@ export default {
     'settings.back': 'Atzera',
     'settings.wheel': 'Gurpila konfiguratu',
     'settings.appearance': 'Itxura',
-    'appearance.calm': 'Lasaia',
+    'appearance.calm': 'Leuna',
     'appearance.calmDesc': 'Kolore leun eta orekatuak, ongizatearen usainarekin.',
     'appearance.classic': 'Klasikoa',
     'appearance.classicDesc': 'Jatorrizko itxura: kolore bizidun gurpila eta berde biziagoa.',

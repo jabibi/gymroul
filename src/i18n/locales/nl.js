@@ -61,7 +61,7 @@ export default {
     'settings.back': 'Terug',
     'settings.wheel': 'Wiel instellen',
     'settings.appearance': 'Uiterlijk',
-    'appearance.calm': 'Rustig',
+    'appearance.calm': 'Zacht',
     'appearance.calmDesc': 'Zachte, evenwichtige kleuren met een welzijnsgevoel.',
     'appearance.classic': 'Klassiek',
     'appearance.classicDesc': 'Het oorspronkelijke uiterlijk: levendige wielkleuren en een intensere groene tint.',

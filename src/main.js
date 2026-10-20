@@ -22,7 +22,7 @@ import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from '
 /** Reconstruye los sectores a partir del catálogo y la selección activa. */
 function rebuildWheel() {
   const segments = generateSegments(getExercises(), active.exercises, exerciseName);
-  // Los colores guardados son los de la apariencia Sereno; con Clásico se cambian al mostrarlos (el sector «Configurar» se deja tal cual: se reconoce por identidad)
+  // Los colores guardados son los de la apariencia Suave; con Clásico se cambian al mostrarlos (el sector «Configurar» se deja tal cual: se reconoce por identidad)
   setSegments(segments.map(s => (s === CONFIG_SEGMENT ? s : { ...s, color: themeColor(s.color) })));
 }
 

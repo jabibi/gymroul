@@ -61,7 +61,7 @@ export default {
     'settings.back': 'Back',
     'settings.wheel': 'Set up wheel',
     'settings.appearance': 'Appearance',
-    'appearance.calm': 'Calm',
+    'appearance.calm': 'Soft',
     'appearance.calmDesc': 'Soft, balanced colors for a wellness feel.',
     'appearance.classic': 'Classic',
     'appearance.classicDesc': 'The original look: vivid wheel colors and bright green.',

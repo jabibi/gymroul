@@ -29,9 +29,9 @@ export const DEFAULT_EXERCISES = [
 ];
 /** Lista global de repeticiones de la versión 1.14, solo para migrar (v7 -> v8) */
 const LEGACY_DEFAULT_REPS = [10, 20, 30, 40, 50, 60];
-/** Paleta de los sectores tal como se guarda en cada ejercicio (apariencia Sereno) */
+/** Paleta de los sectores tal como se guarda en cada ejercicio (apariencia Suave) */
 export const COLOR_PALETTE = ['#0f766e', '#475569', '#15803d', '#2563eb', '#0e7490', '#4f46e5', '#64748b', '#0369a1'];
-/** Primera versión de la paleta Sereno (tonos más claros, con poco contraste con el texto blanco), solo para migrar (v10 -> v11) */
+/** Primera versión de la paleta Suave (tonos más claros, con poco contraste con el texto blanco), solo para migrar (v10 -> v11) */
 const FIRST_CALM_PALETTE = ['#0d9488', '#475569', '#059669', '#2563eb', '#0891b2', '#4f46e5', '#64748b', '#0369a1'];
 /** Paleta de la apariencia Clásico (la original, arcoíris); misma posición que COLOR_PALETTE. También sirve para migrar (v8 -> v9) */
 export const CLASSIC_COLOR_PALETTE = ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'];
@@ -171,7 +171,7 @@ const MIGRATIONS = {
       return rest;
     }));
   },
-  // v10 -> v11: la paleta Sereno se oscurece para que el texto blanco de la ruleta se lea bien (contraste mínimo 4,5:1)
+  // v10 -> v11: la paleta Suave se oscurece para que el texto blanco de la ruleta se lea bien (contraste mínimo 4,5:1)
   10: () => {
     const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
     if (!list) return;

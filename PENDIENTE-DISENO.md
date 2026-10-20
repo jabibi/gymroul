@@ -1,6 +1,6 @@
 # Revisión de diseño: pendientes
 
-Salió del análisis de las pantallas de la rama `roadmap-17` (Ajustes como menú, apariencias Sereno y Clásico, logo nuevo), hecho con capturas a 412×915 en Chromium, sin probar en móvil real. Es una lista para ir viendo poco a poco: cada punto se decide por separado y, al hacerlo, se marca y se anota en qué versión.
+Salió del análisis de las pantallas de la rama `roadmap-17` (Ajustes como menú, apariencias Suave y Clásico, logo nuevo), hecho con capturas a 412×915 en Chromium, sin probar en móvil real. Es una lista para ir viendo poco a poco: cada punto se decide por separado y, al hacerlo, se marca y se anota en qué versión.
 
 Leyenda: `[x]` hecho · `[ ]` pendiente de decidir o de hacer.
 
@@ -11,7 +11,7 @@ Leyenda: `[x]` hecho · `[ ]` pendiente de decidir o de hacer.
 - [x] **Tamaño mínimo de letra de 12 px.** Todos los textos de `index.html` y `src/ui.js` suben a 12 px o más (antes 9, 10 y 11 px). Los textos de lectura (párrafos del compromiso de privacidad e introducción del editor) van a 14 px. En las etiquetas de la ruleta la letra ya no baja de 12 px ni se deforma: si el nombre no cabe, se parte en dos líneas por un espacio o un guion (si el sector tiene altura) y solo como último recurso se recorta con «…» (`fitLabel` en `src/wheel-math.js`). Pendiente: probar en el Pixel con nombres largos en alemán y polaco.
 - [x] **Subtítulo «WORKOUT GENERATOR» eliminado** de todas partes: cabecera, imagen de compartir, título de la pestaña (`app.title` en los 20 idiomas y `index.html`) y el gráfico de funciones de la ficha de Play (`scripts/build-store-assets.mjs`; el PNG ya generado en `store/` se actualizará la próxima vez que se ejecute `npm run store`). Era el único texto de la interfaz sin traducir y no cabía en pantallas de menos de 380 px.
 - [x] **Resalte del sector bajo el puntero.** Antes se aclaraba con una capa blanca, que bajaba el contraste del texto justo en ese sector (a unos 2,6:1). Ahora se oscurecen los demás y el activo conserva su color pleno; las etiquetas van en una capa aparte para que sigan nítidas (`src/wheel.js`). Cambia también el aspecto de Clásico: revisar si se prefiere el resalte original en esa apariencia.
-- [x] **Contraste de la paleta Sereno.** Los sectores se oscurecen para que el texto blanco llegue a 4,5:1 como mínimo (migración v10 → v11). El verde esmeralda pasa a un verde más distinto del teal y el cian.
+- [x] **Contraste de la paleta Suave.** Los sectores se oscurecen para que el texto blanco llegue a 4,5:1 como mínimo (migración v10 → v11). El verde esmeralda pasa a un verde más distinto del teal y el cian.
 
 ## Distribución y equilibrio
 

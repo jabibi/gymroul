@@ -61,7 +61,7 @@ export default {
     'settings.back': '戻る',
     'settings.wheel': 'ルーレットを設定',
     'settings.appearance': '外観',
-    'appearance.calm': 'おだやか',
+    'appearance.calm': 'ソフト',
     'appearance.calmDesc': 'やわらかく落ち着いた色合いで、ウェルネスらしい雰囲気に。',
     'appearance.classic': 'クラシック',
     'appearance.classicDesc': 'オリジナルの見た目：鮮やかなルーレットの色と濃いめのグリーン。',

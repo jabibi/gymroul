@@ -61,7 +61,7 @@ export default {
     'settings.back': 'Enrere',
     'settings.wheel': 'Configura la ruleta',
     'settings.appearance': 'Aparença',
-    'appearance.calm': 'Serè',
+    'appearance.calm': 'Suau',
     'appearance.calmDesc': 'Colors suaus i equilibrats, amb aire de benestar.',
     'appearance.classic': 'Clàssic',
     'appearance.classicDesc': 'L\'aspecte original: colors vius a la ruleta i un verd més intens.',

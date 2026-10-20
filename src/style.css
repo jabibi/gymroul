@@ -35,7 +35,7 @@
     --pointer-share: #22c55e;
     --spinner-share: conic-gradient(#ef4444 0 14.28%, #f97316 0 28.57%, #eab308 0 42.85%, #22c55e 0 57.14%, #06b6d4 0 71.42%, #8b5cf6 0 85.71%, #ec4899 0);
 }
-/* Logo de la cabecera: en Sereno es solo la ruleta, sin fondo; en Clásico, el icono original de esquinas redondeadas */
+/* Logo de la cabecera: en Suave es solo la ruleta, sin fondo; en Clásico, el icono original de esquinas redondeadas */
 .logo-classic { display: none; }
 :root[data-theme="classic"] .logo-classic { display: block; }
 :root[data-theme="classic"] .logo-calm { display: none; }

@@ -61,7 +61,7 @@ export default {
     'settings.back': 'Wstecz',
     'settings.wheel': 'Skonfiguruj koło',
     'settings.appearance': 'Wygląd',
-    'appearance.calm': 'Spokojny',
+    'appearance.calm': 'Delikatny',
     'appearance.calmDesc': 'Łagodne, wyważone kolory w duchu dobrego samopoczucia.',
     'appearance.classic': 'Klasyczny',
     'appearance.classicDesc': 'Oryginalny wygląd: żywe kolory koła i intensywniejsza zieleń.',

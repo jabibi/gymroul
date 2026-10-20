@@ -32,7 +32,7 @@ Solicitud enviada el 18 oct 2026 a las 21:53, con 15 testers y la 1.16 en las pr
 
 ## Probable: versión 1.17 — lista de Configuración más compacta
 
-Lo que se hizo en la rama `roadmap-17` además de esto: Ajustes pasa a ser un menú (configurar ruleta, apariencia, idioma, compromiso de privacidad, créditos), hay dos apariencias (Sereno, la nueva por defecto, y Clásico, la original), el logo es nuevo, los nombres cortos de los ejercicios desaparecen y la ruleta es más grande.
+Lo que se hizo en la rama `roadmap-17` además de esto: Ajustes pasa a ser un menú (configurar ruleta, apariencia, idioma, compromiso de privacidad, créditos), hay dos apariencias (Suave, la nueva por defecto, y Clásico, la original), el logo es nuevo, los nombres cortos de los ejercicios desaparecen y la ruleta es más grande.
 
 Los puntos de diseño que quedaron por revisar tras estos cambios (distribución, textos, apariencia) están en [`PENDIENTE-DISENO.md`](PENDIENTE-DISENO.md).
 

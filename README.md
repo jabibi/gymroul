@@ -9,7 +9,7 @@ Disponible como aplicación web (Firebase Hosting) y como app Android (Capacitor
 - Ruleta en `canvas` con física de inercia independiente de la frecuencia de pantalla, sonido de "tick", fanfarria y vibración.
 - Un sector por ejercicio activo (por defecto 6); las repeticiones se sortean al parar, entre el mínimo y el máximo de ese ejercicio.
 - Ajustes en forma de menú: configurar la ruleta, apariencia, idioma, compromiso de privacidad y créditos.
-- Dos apariencias: Sereno (la actual, tonos suaves) y Clásico (la original, con colores vivos en la ruleta y un verde más intenso).
+- Dos apariencias: Suave (la actual, tonos suaves) y Clásico (la original, con colores vivos en la ruleta y un verde más intenso).
 - Editor de la ruleta: activar/desactivar, crear y eliminar ejercicios (nombre e icono) y rango de repeticiones de cada uno (máx. 12 ejercicios).
 - Selector con ≈100 iconos de muchas disciplinas (fuerza, calistenia, cardio, fitness funcional, OCR, artes marciales, yoga, pilates, tai chi, deportes…) con búsqueda; no se admite texto libre ni emojis.
 - Interfaz en 20 idiomas: árabe (de derecha a izquierda), inglés (EE. UU., Reino Unido y Australia), español (España y Latinoamérica), euskera, gallego, catalán, francés (Francia y Canadá), alemán, italiano, japonés, neerlandés, polaco, hindi, turco y portugués (Brasil y Portugal). Se elige según el dispositivo y se puede cambiar en Ajustes.

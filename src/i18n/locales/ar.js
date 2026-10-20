@@ -64,7 +64,7 @@ export default {
     'settings.back': 'رجوع',
     'settings.wheel': 'إعداد العجلة',
     'settings.appearance': 'المظهر',
-    'appearance.calm': 'هادئ',
+    'appearance.calm': 'ناعم',
     'appearance.calmDesc': 'ألوان ناعمة ومتوازنة بأجواء العافية.',
     'appearance.classic': 'كلاسيكي',
     'appearance.classicDesc': 'المظهر الأصلي: ألوان زاهية للعجلة وأخضر أكثر كثافة.',

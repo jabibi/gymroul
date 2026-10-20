@@ -61,7 +61,7 @@ export default {
     'settings.back': 'Voltar',
     'settings.wheel': 'Configurar a roleta',
     'settings.appearance': 'Aparência',
-    'appearance.calm': 'Sereno',
+    'appearance.calm': 'Suave',
     'appearance.calmDesc': 'Cores suaves e equilibradas, com ar de bem-estar.',
     'appearance.classic': 'Clássico',
     'appearance.classicDesc': 'O visual original: cores vivas na roleta e um verde mais intenso.',

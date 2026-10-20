@@ -373,7 +373,7 @@ describe('migración v9 -> v10', () => {
 });
 
 describe('migración v10 -> v11', () => {
-  it('cambia los colores de la primera paleta Sereno por los oscurecidos y respeta los demás', () => {
+  it('cambia los colores de la primera paleta Suave por los oscurecidos y respeta los demás', () => {
     data.set('gym_schema_version', '10');
     data.set('gym_exercises', JSON.stringify([
       { id: '1', name: 'A', icon: 'dumbbell', color: '#0d9488', repsMin: 10, repsMax: 20 },

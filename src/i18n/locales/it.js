@@ -61,7 +61,7 @@ export default {
     'settings.back': 'Indietro',
     'settings.wheel': 'Configura la ruota',
     'settings.appearance': 'Aspetto',
-    'appearance.calm': 'Sereno',
+    'appearance.calm': 'Morbido',
     'appearance.calmDesc': 'Colori morbidi ed equilibrati, in stile benessere.',
     'appearance.classic': 'Classico',
     'appearance.classicDesc': 'L\'aspetto originale: colori vivaci sulla ruota e un verde più intenso.',

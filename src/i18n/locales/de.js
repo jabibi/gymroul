@@ -61,7 +61,7 @@ export default {
     'settings.back': 'Zurück',
     'settings.wheel': 'Rad einrichten',
     'settings.appearance': 'Darstellung',
-    'appearance.calm': 'Ruhig',
+    'appearance.calm': 'Sanft',
     'appearance.calmDesc': 'Sanfte, ausgewogene Farben mit Wellness-Charakter.',
     'appearance.classic': 'Klassisch',
     'appearance.classicDesc': 'Das ursprüngliche Aussehen: leuchtende Radfarben und intensiveres Grün.',

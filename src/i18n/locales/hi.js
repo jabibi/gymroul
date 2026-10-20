@@ -61,7 +61,7 @@ export default {
     'settings.back': 'वापस',
     'settings.wheel': 'व्हील सेट करें',
     'settings.appearance': 'दिखावट',
-    'appearance.calm': 'शांत',
+    'appearance.calm': 'सॉफ्ट',
     'appearance.calmDesc': 'कोमल और संतुलित रंग, वेलनेस वाला एहसास।',
     'appearance.classic': 'क्लासिक',
     'appearance.classicDesc': 'मूल रूप: चमकीले व्हील रंग और गहरा हरा।',

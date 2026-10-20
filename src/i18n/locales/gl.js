@@ -61,7 +61,7 @@ export default {
     'settings.back': 'Atrás',
     'settings.wheel': 'Configurar a ruleta',
     'settings.appearance': 'Aparencia',
-    'appearance.calm': 'Sereno',
+    'appearance.calm': 'Suave',
     'appearance.calmDesc': 'Cores suaves e equilibradas, con aire de benestar.',
     'appearance.classic': 'Clásico',
     'appearance.classicDesc': 'O aspecto orixinal: cores vivas na ruleta e un verde máis intenso.',
