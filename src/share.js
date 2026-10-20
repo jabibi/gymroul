@@ -81,24 +81,19 @@ export function drawCard(canvas, winner, logo) {
     ctx.fill();
   }
 
-  // Marca arriba, centrada: logo, nombre y rótulo
-  const brandW = 640;
-  const bx = (S - brandW) / 2;
-  if (logo) ctx.drawImage(logo, bx, 96, 128, 128);
+  // Marca arriba, centrada: logo y nombre (el centro del nombre queda a la altura del centro del logo)
   ctx.textAlign = 'left';
   ctx.direction = 'ltr';
   ctx.textBaseline = 'alphabetic';
   ctx.font = `800 72px ${FONT}`;
-  ctx.fillStyle = '#fff';
   const gymW = ctx.measureText('Gym').width;
-  ctx.fillText('Gym', bx + 160, 160);
+  const brandW = 160 + gymW + ctx.measureText('Roulette').width;
+  const bx = (S - brandW) / 2;
+  if (logo) ctx.drawImage(logo, bx, 96, 128, 128);
+  ctx.fillStyle = '#fff';
+  ctx.fillText('Gym', bx + 160, 186);
   ctx.fillStyle = `rgb(${green})`;
-  ctx.fillText('Roulette', bx + 160 + gymW, 160);
-  ctx.font = `800 26px ${FONT}`;
-  ctx.fillStyle = '#4ADE80';
-  if ('letterSpacing' in ctx) /** @type {any} */ (ctx).letterSpacing = '6px';
-  ctx.fillText('WORKOUT GENERATOR', bx + 162, 206);
-  if ('letterSpacing' in ctx) /** @type {any} */ (ctx).letterSpacing = '0px';
+  ctx.fillText('Roulette', bx + 160 + gymW, 186);
   ctx.direction = rtl ? 'rtl' : 'ltr';
 
   // Insignia del resultado

@@ -129,11 +129,8 @@ function buildCache() {
     const maxLines = midThickness >= MIN_LABEL_SIZE * LABEL_LINE_HEIGHT * 2 + 8 ? 2 : 1;
     const fitted = fitLabel((text, px) => (l.font = labelFont(px), l.measureText(text).width), label, textEnd - textStart, Math.max(maxSize, MIN_LABEL_SIZE), MIN_LABEL_SIZE, maxLines);
     l.font = labelFont(fitted.size);
-    // La compresión horizontal se aplica desde el extremo exterior, donde se alinea el texto
-    l.translate(textEnd, 0);
-    l.scale(fitted.scale, 1);
     const lineGap = fitted.size * LABEL_LINE_HEIGHT;
-    fitted.lines.forEach((line, n) => l.fillText(line, 0, (n - (fitted.lines.length - 1) / 2) * lineGap));
+    fitted.lines.forEach((line, n) => l.fillText(line, textEnd, (n - (fitted.lines.length - 1) / 2) * lineGap));
     l.restore();
   }
   cacheDirty = false;

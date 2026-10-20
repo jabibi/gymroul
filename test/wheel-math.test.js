@@ -142,7 +142,7 @@ describe('fitLabel', () => {
   const measure = (text, px) => text.length * px * 0.6;
 
   it('si cabe a tamaño normal, la deja en una línea sin tocar', () => {
-    expect(fitLabel(measure, 'Burpee', 200, 18, 12, 2)).toEqual({ lines: ['Burpee'], size: 18, scale: 1 });
+    expect(fitLabel(measure, 'Burpee', 200, 18, 12, 2)).toEqual({ lines: ['Burpee'], size: 18 });
   });
 
   it('baja el tamaño hasta el mínimo y nunca por debajo', () => {
@@ -151,38 +151,26 @@ describe('fitLabel', () => {
     expect(r.lines).toEqual(['Flexiones']);
   });
 
-  it('con el mínimo comprime un poco en horizontal antes de partir o recortar', () => {
-    // 'Sentadillas' (11 letras) a 12 px mide 79,2; con 75 de ancho hace falta una compresión de ~0,95
-    const r = fitLabel(measure, 'Sentadillas', 75, 18, 12, 1);
-    expect(r.size).toBe(12);
-    expect(r.lines).toEqual(['Sentadillas']);
-    expect(r.scale).toBeLessThan(1);
-    expect(r.scale).toBeGreaterThanOrEqual(0.9);
-  });
-
-  it('si no cabe ni comprimida, la parte en dos líneas por el espacio más equilibrado', () => {
+  it('si no cabe a tamaño mínimo, la parte en dos líneas por el espacio más equilibrado', () => {
     const r = fitLabel(measure, 'Zancadas con salto', 80, 18, 12, 2);
-    expect(r.size).toBe(12);
-    expect(r.lines).toEqual(['Zancadas', 'con salto']);
-    expect(r.scale).toBeLessThanOrEqual(1);
-  });
-
-  it('sin altura para dos líneas, recorta con «…» a tamaño mínimo', () => {
-    const r = fitLabel(measure, 'Zancadas con salto', 80, 18, 12, 1);
-    expect(r.size).toBe(12);
-    expect(r.lines).toHaveLength(1);
-    expect(r.lines[0].endsWith('…')).toBe(true);
-    expect(r.scale).toBe(1);
-  });
-
-  it('un nombre largo sin espacios se recorta aunque haya sitio para dos líneas', () => {
-    const r = fitLabel(measure, 'Supercalifragilisticexpialidocious', 80, 18, 12, 2);
-    expect(r.lines).toHaveLength(1);
-    expect(r.lines[0].endsWith('…')).toBe(true);
+    expect(r).toEqual({ lines: ['Zancadas', 'con salto'], size: 12 });
   });
 
   it('también parte por un guion, que se queda en la primera línea', () => {
     const r = fitLabel(measure, 'Sprung-Ausfälle', 60, 18, 12, 2);
     expect(r.lines).toEqual(['Sprung-', 'Ausfälle']);
+  });
+
+  it('sin altura para dos líneas, recorta con «…» a tamaño mínimo (la letra no se deforma)', () => {
+    const r = fitLabel(measure, 'Zancadas con salto', 80, 18, 12, 1);
+    expect(r.size).toBe(12);
+    expect(r.lines).toHaveLength(1);
+    expect(r.lines[0].endsWith('…')).toBe(true);
+  });
+
+  it('un nombre largo sin espacios ni guiones se recorta aunque haya sitio para dos líneas', () => {
+    const r = fitLabel(measure, 'Supercalifragilisticexpialidocious', 80, 18, 12, 2);
+    expect(r.lines).toHaveLength(1);
+    expect(r.lines[0].endsWith('…')).toBe(true);
   });
 });
