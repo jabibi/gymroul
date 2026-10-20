@@ -480,6 +480,7 @@ export function showSettingsView(view) {
   $('settingsBack').classList.toggle('hidden', view === 'menu');
   $('settingsBack').classList.toggle('flex', view !== 'menu');
   $('settingsFooter').classList.toggle('hidden', view !== 'wheel');
+  $('settingsLinks').classList.toggle('hidden', view !== 'menu');
   const scroller = $('configCard').querySelector('.overflow-y-auto');
   if (scroller) scroller.scrollTop = 0;
 }
