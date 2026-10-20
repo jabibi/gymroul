@@ -1,7 +1,7 @@
 // Nederlands (Nederland, informeel met "je/jij")
 export default {
   strings: {
-    'app.title': 'GymRoulette - Workout Generator',
+    'app.title': 'GymRoulette',
 
     'header.sound': 'Geluid aan of uit',
     'header.history': 'Geschiedenis openen',

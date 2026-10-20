@@ -1,7 +1,7 @@
 // English — source of truth and fallback for every other language.
 export default {
   strings: {
-    'app.title': 'GymRoulette - Workout Generator',
+    'app.title': 'GymRoulette',
 
     'header.sound': 'Turn sound on or off',
     'header.history': 'Open history',

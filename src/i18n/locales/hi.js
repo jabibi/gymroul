@@ -1,7 +1,7 @@
 // हिन्दी (भारत, देवनागरी लिपि, सम्मानसूचक "आप")
 export default {
   strings: {
-    'app.title': 'GymRoulette - Workout Generator',
+    'app.title': 'GymRoulette',
 
     'header.sound': 'आवाज़ चालू या बंद करें',
     'header.history': 'इतिहास खोलें',

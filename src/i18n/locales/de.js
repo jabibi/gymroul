@@ -1,7 +1,7 @@
 // Deutsch (Alemania, trato informal con "du")
 export default {
   strings: {
-    'app.title': 'GymRoulette - Workout Generator',
+    'app.title': 'GymRoulette',
 
     'header.sound': 'Ton ein- oder ausschalten',
     'header.history': 'Verlauf öffnen',

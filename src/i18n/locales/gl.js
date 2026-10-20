@@ -1,7 +1,7 @@
 // Galego
 export default {
   strings: {
-    'app.title': 'GymRoulette - Workout Generator',
+    'app.title': 'GymRoulette',
 
     'header.sound': 'Activar ou desactivar o son',
     'header.history': 'Abrir historial',

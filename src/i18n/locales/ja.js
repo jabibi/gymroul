@@ -1,7 +1,7 @@
 // 日本語（です・ます調）
 export default {
   strings: {
-    'app.title': 'GymRoulette - Workout Generator',
+    'app.title': 'GymRoulette',
 
     'header.sound': 'サウンドのオン・オフ',
     'header.history': '履歴を開く',

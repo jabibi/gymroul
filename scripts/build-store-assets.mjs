@@ -119,7 +119,6 @@ async function buildBanner(listing, wheel, path, rtl = false) {
     .brand img{width:64px;height:64px;border-radius:16px;box-shadow:0 8px 24px rgb(${green} / .35)}
     .brand b{font-weight:800;font-size:34px;letter-spacing:-.5px;line-height:1}
     .brand b span{color:rgb(${green})}
-    .brand small{display:block;font-weight:800;font-size:12px;letter-spacing:3px;color:rgb(74 222 128);margin-top:6px}
     .copy{position:absolute;${START}:${SIDE}px;top:168px;width:${COPY_WIDTH}px}
     h1{font-weight:800;font-size:56px;line-height:1.08;letter-spacing:-1.5px}
     h1 span{display:block;white-space:nowrap}
@@ -130,7 +129,7 @@ async function buildBanner(listing, wheel, path, rtl = false) {
     .wheel{position:absolute;left:${WHEEL_LEFT - wheel.PAD.side * K}px;top:${WHEEL_TOP - wheel.PAD.top * K}px;width:${(wheel.box.width + wheel.PAD.side * 2) * K}px;height:auto}
     ${rtl ? '*{letter-spacing:normal!important} h1{line-height:1.3} h1 span{padding-block:2px}' : ''}
   </style>
-  <div class="brand"><img src="${logo}"><div><b>Gym<span>Roulette</span></b><small>WORKOUT GENERATOR</small></div></div>
+  <div class="brand"><img src="${logo}"><div><b>Gym<span>Roulette</span></b></div></div>
   <div class="copy"><h1><span>${esc(b.line1)}</span><span>${esc(b.line2)}</span></h1>
   <p>${esc(b.tagline)}</p></div>
   <div class="btn">${esc(b.button)}</div>
