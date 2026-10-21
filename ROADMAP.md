@@ -16,9 +16,9 @@ Atendidas en la 1.15:
 - Ruleta solo con los ejercicios (misma reseña): que la ruleta muestre únicamente los ejercicios y que el número de repeticiones salga después de girar, para que se vea menos recargada.
 - Ejercicios por defecto sin traducir (informe de prueba en OPPO Reno5 A con Android 12, en español, con la app en japonés): las etiquetas de la ruleta salían en inglés mientras los botones y los diálogos estaban en japonés.
 
-## Acceso a producción
+## Hecho: acceso a producción y publicación
 
-Solicitud enviada el 18 oct 2026 a las 21:53, con 15 testers y la 1.16 en las pruebas cerradas (Alpha y googlegroups). Play Console la muestra como recibida y avisa por correo al propietario de la cuenta; la revisión suele tardar 7 días o menos. Las respuestas enviadas están en `store/solicitud-produccion.md`. Hasta que llegue la respuesta no se cambia la versión de las pruebas cerradas. Mientras no se concede, no hay producción.
+Solicitud enviada el 18 oct 2026 a las 21:53, con 15 testers y la 1.16 en las pruebas cerradas (Alpha y googlegroups). Las respuestas enviadas están en `store/solicitud-produccion.md`. La app se publicó en producción el 20 oct 2026, la misma fecha que el aviso de calificación de contenido de IARC (*IARC Live Rating Notice*, que llegó por correo) y que su aparición en las búsquedas públicas de Google Play. Desde entonces las pruebas cerradas ya no condicionan nada y cada cambio de la ficha o de la versión llega a usuarios reales.
 
 ## En desarrollo: versión 1.16 «Six Pack» (versionCode 16)
 
