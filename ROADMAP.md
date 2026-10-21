@@ -18,7 +18,7 @@ Atendidas en la 1.15:
 
 ## Hecho: acceso a producción y publicación
 
-Solicitud enviada el 18 oct 2026 a las 21:53, con 15 testers y la 1.16 en las pruebas cerradas (Alpha y googlegroups). Las respuestas enviadas están en `store/solicitud-produccion.md`. La app se publicó en producción el 20 oct 2026, la misma fecha que el aviso de calificación de contenido de IARC (*IARC Live Rating Notice*, que llegó por correo) y que su aparición en las búsquedas públicas de Google Play. Desde entonces las pruebas cerradas ya no condicionan nada y cada cambio de la ficha o de la versión llega a usuarios reales.
+Solicitud enviada el 18 oct 2026 a las 21:53, con 15 testers y la 1.16 en las pruebas cerradas (Alpha y googlegroups). Las respuestas enviadas están en `store/solicitud-produccion.md`. La app se publicó en producción el 20 oct 2026, la misma fecha que el aviso de calificación de contenido de IARC (*IARC Live Rating Notice*, que llegó por correo) y que su aparición en las búsquedas públicas de Google Play. La versión publicada es la 1.16 «Six Pack» (versionCode 16). Desde entonces las pruebas cerradas ya no condicionan nada y cada cambio de la ficha o de la versión llega a usuarios reales.
 
 ## En desarrollo: versión 1.16 «Six Pack» (versionCode 16)
 
