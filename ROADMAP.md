@@ -20,7 +20,7 @@ Atendidas en la 1.15:
 
 Solicitud enviada el 18 oct 2026 a las 21:53, con 15 testers y la 1.16 en las pruebas cerradas (Alpha y googlegroups). Las respuestas enviadas están en `store/solicitud-produccion.md`. La app se publicó en producción el 20 oct 2026, la misma fecha que el aviso de calificación de contenido de IARC (*IARC Live Rating Notice*, que llegó por correo) y que su aparición en las búsquedas públicas de Google Play. La versión publicada es la 1.16 «Six Pack» (versionCode 16). Desde entonces las pruebas cerradas ya no condicionan nada y cada cambio de la ficha o de la versión llega a usuarios reales.
 
-## En desarrollo: versión 1.16 «Six Pack» (versionCode 16)
+## Hecho: versión 1.16 «Six Pack» (versionCode 16, publicada)
 
 - **Historial sin repeticiones duplicadas**: la fila mostraba el número en el recuadro y otra vez al principio del título (detectado en la 1.15 con la app en euskera). El título lleva solo el ejercicio, traducido.
 - **Historial rediseñado**: sin la pastilla «Hecho» (`history.done`, eliminada de los 20 idiomas), con el icono del ejercicio a la derecha y la hora en un gris más legible. El pie resume ejercicios y repeticiones totales de la sesión (`history.total` lleva ahora `{n}` y `{reps}`) y «Limpiar historial» es un botón de texto sin fondo rojo.
@@ -30,13 +30,23 @@ Solicitud enviada el 18 oct 2026 a las 21:53, con 15 testers y la 1.16 en las pr
 - **Novedades de Play con las dos últimas versiones**: hecho, cada idioma muestra «Versión 1.15 (Be Reborn):» y «Versión 1.14 (RandWork):» con sus viñetas (`NOTES_VERSIONS` y `notesText` en `store/listing.mjs`; 500 caracteres por idioma).
 - **Ficha de Play al día con la 1.16**: `NOTES_VERSIONS` en 1.16 y 1.15, novedades de cada idioma con las viñetas de la 1.16, y capturas, textos y CSV regenerados con `npm run store`. Si se añaden más cambios a la versión antes de publicar, hay que sumar su viñeta en los 20 idiomas (cuidado con el límite de 500 caracteres: el francés, el neerlandés y el italiano rozan los 450) y regenerar las capturas afectadas.
 
-## Probable: versión 1.17 — lista de Configuración más compacta
+## En desarrollo: versión 1.17 «Muted Tones» (versionCode 17)
 
-Lo que se hizo en la rama `roadmap-17` además de esto: Ajustes pasa a ser un menú (configurar ruleta, apariencia, idioma, compromiso de privacidad, créditos), hay dos apariencias (Suave, la nueva por defecto, y Clásico, la original), el logo es nuevo, los nombres cortos de los ejercicios desaparecen y la ruleta es más grande.
+Va en la rama `roadmap-17` y no está publicada. Incluye:
+- **Ajustes como menú**: configurar ruleta, apariencia, idioma, compromiso de privacidad y créditos.
+- **Dos apariencias**: Suave (la nueva, por defecto) y Clásico (la original, con colores vivos y verde intenso).
+- **Logo e icono nuevos**, más sobrios, y barras del sistema de Android con el color de la app.
+- **Ruleta más grande**, con el nombre completo de cada ejercicio (el nombre corto desaparece), letra de 12 px como mínimo y textos de lectura a 14 px.
+- **Sin el subtítulo «Workout Generator»** en ninguna parte.
+- **Ficha de Play**: textos pensados para la búsqueda («ruleta de ejercicios», «ejercicio aleatorio», «rutinas aleatorias») y novedades de la 1.17 en los 16 idiomas con ficha (`en-GB`, `en-AU`, `es-419` y `fr-CA` no tienen ficha propia).
+
+Antes de publicar: `npm run store` (capturas y gráficos de las 16 fichas con el diseño nuevo), subir el icono nuevo y los textos en Play Console, y pasar la CI del Android con una PR.
 
 Los puntos de diseño que quedaron por revisar tras estos cambios (distribución, textos, apariencia) están en [`PENDIENTE-DISENO.md`](PENDIENTE-DISENO.md).
 
-Lo de la lista compacta aún no está empezada. Desde la 1.15 cada ejercicio lleva su rango de repeticiones en una segunda línea, así que cada fila de Configuración ocupa dos líneas y, con 12 ejercicios, la lista se alarga y obliga a mucho desplazamiento.
+### Lista de Configuración más compacta (por decidir)
+
+Aún no está empezada. Desde la 1.15 cada ejercicio lleva su rango de repeticiones en una segunda línea, así que cada fila de Configuración ocupa dos líneas y, con 12 ejercicios, la lista se alarga y obliga a mucho desplazamiento.
 
 **Opciones** (por decidir):
 - Poner el rango en la misma línea que el nombre cuando haya sitio, y en una segunda solo si no cabe (nombres largos, pantallas estrechas, árabe).
