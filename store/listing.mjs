@@ -585,7 +585,7 @@ Gira a roleta e vai treinar.`,
 
   pl: {
     title: 'GymRoulette: Koło ćwiczeń',
-    short: 'Losowa ruletka ćwiczeń do treningu w domu lub na siłowni.',
+    short: 'Losowe koło ćwiczeń do treningu w domu lub na siłowni.',
     banner: { line1: 'Zakręć kołem', line2: 'i ruszaj na trening', tagline: 'Losowe ćwiczenia, które rzucają ci wyzwanie każdego dnia', button: 'Zakręć kołem' },
     notes: notesText('Wersja', [
       'Nowy wygląd: nowa ikona i dwa style do wyboru, Delikatny i Klasyczny.',
@@ -731,7 +731,7 @@ GymRoulette tamamen çevrimdışıdır ve hiçbir veri toplamaz: analiz yok, izl
   },
 
   ja: {
-    title: 'GymRoulette：エクササイズルーレット',
+    title: 'GymRoulette: エクササイズルーレット',
     short: '自宅でもジムでも使える、ランダムなエクササイズルーレット。',
     banner: { line1: 'ルーレットを回して', line2: 'トレーニングを始めよう', tagline: 'ランダムなエクササイズで毎日チャレンジ', button: 'ルーレットを回す' },
     notes: notesText('バージョン', [
