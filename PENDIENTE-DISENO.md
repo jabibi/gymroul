@@ -21,7 +21,7 @@ Leyenda: `[x]` hecho · `[ ]` pendiente de decidir o de hacer.
 
 - [ ] **Altura del panel de Ajustes.** Mide lo que mide su contenido y salta entre pantallas (menú corto, editor muy alto). Opción: altura mínima fija en las pantallas internas y transición corta de deslizamiento entre ellas.
 - [ ] **Flecha y X a la vez en las pantallas internas.** Sobra una: dejar solo la flecha atrás en las pantallas internas y la X solo en el menú.
-- [ ] **Editor de la ruleta demasiado aire.** Cada fila ocupa unos 68 px y el rango de repeticiones va en una segunda línea casi vacía; además hay contenedores dentro de contenedores (panel, tarjeta, fila). Enlaza con «lista de Configuración más compacta» (`ROADMAP.md`, 1.17).
+- [x] **Editor de la ruleta más compacto.** Cada fila ocupa una sola línea (nombre, rango de repeticiones y papelera), la lista se desplaza dentro de su tarjeta, «Añadir nuevo ejercicio» está siempre a la vista y la explicación va tras el botón (?). Pendiente: el guardado automático (ver abajo).
 - [ ] **«Guardar cambios» solo en el editor.** Idioma y Apariencia se aplican al elegirlos, pero llevan igualmente un botón «Guardar» fijo abajo que solo cierra Ajustes; el editor sí pide «Guardar cambios». Decidir un único modelo (lo habitual hoy: guardado automático y sin botón).
 - [ ] **Borrar un ejercicio** no pide confirmación ni se puede deshacer. Opción: borrar y mostrar un aviso con «Deshacer».
 - [ ] **Pantalla principal.** A 915 px de alto quedan unos 200 px vacíos sobre el marcador y otros tantos bajo el botón. Subir un poco la ruleta o aprovechar el hueco.

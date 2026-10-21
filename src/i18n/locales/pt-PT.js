@@ -19,7 +19,7 @@ export default {
     'config.close': 'Fechar definições',
     'config.apply': 'Guardar alterações',
     'config.save': 'Guardar',
-    'config.intro': 'Ativa ou desativa exercícios, define o intervalo de repetições de cada um, ou cria e elimina exercícios:',
+    'config.intro': 'Ativa ou desativa exercícios, define o intervalo de repetições de cada um, ou cria e elimina exercícios.',
     'config.searchPlaceholder': 'Pesquisar: yoga, karaté, boxe, pesos…',
     'config.searchAria': 'Pesquisar ícone',
     'config.noIcons': 'Nenhum ícone encontrado para essa pesquisa',

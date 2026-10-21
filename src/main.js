@@ -153,6 +153,8 @@ const actions = {
   'open-privacy': () => ui.openDocument('privacy'),
   'open-credits': () => ui.openDocument('credits'),
   'close-document': () => ui.closeDocument(),
+  'toggle-config-help': () => ui.toggleConfigHelp(),
+  'toggle-add-form': () => ui.toggleAddForm(),
   'toggle-icon-picker': () => ui.toggleIconPicker(),
   'pick-icon': arg => arg && ui.pickIcon(arg),
 };

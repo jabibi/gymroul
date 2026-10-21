@@ -5,7 +5,7 @@ export default {
   strings: {
     'history.clearConfirm': 'Presiona otra vez',
     'config.add': 'Agregar',
-    'config.addExercise': 'Agregar nuevo ejercicio:',
+    'config.addExercise': 'Agregar nuevo ejercicio',
 
     'error.repRange': 'Ingresa un número entre 1 y {max}',
 

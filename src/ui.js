@@ -413,21 +413,23 @@ export function renderConfig(keepChecks = false) {
     const name = exerciseName(ex);
     return `
     <div class="rounded-xl bg-dark-950 border border-slate-800">
-      <div class="flex items-stretch min-h-[46px]">
-        <label class="flex items-center gap-2 cursor-pointer flex-1 min-w-0 ps-2.5 py-2">
+      <div class="flex flex-wrap items-stretch min-h-[48px]">
+        <label class="flex items-center gap-2 cursor-pointer flex-1 min-w-[9rem] ps-2.5 pe-2 py-2">
           <input type="checkbox" value="${escapeHTML(ex.name)}" ${isOn(ex.name) ? 'checked' : ''} class="ex-checkbox w-4 h-4 shrink-0 rounded text-brand-500 focus:ring-brand-500 bg-dark-900 border-slate-700">
           <span class="text-xs font-bold text-white flex items-center gap-2 min-w-0">
             <span class="text-brand-400 text-lg flex items-center shrink-0">${renderIconHTML(ex.icon)}</span>
             <span class="min-w-0 break-words">${escapeHTML(name)}</span>
           </span>
         </label>
-        <button data-action="delete-exercise" data-arg="${escapeHTML(ex.id)}" aria-label="${escapeHTML(t('config.deleteExercise', { name }))}" class="flex items-center justify-center w-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors">
-          <i class="fa-solid fa-trash-can"></i>
-        </button>
+        <div class="flex items-stretch shrink-0 ms-auto">
+          <button data-action="edit-reps" data-arg="${escapeHTML(ex.id)}" aria-expanded="${open}" aria-label="${escapeHTML(t('config.editReps', { name }))}" class="flex items-center justify-center min-h-[44px] px-2 shrink-0 text-xs font-bold text-brand-400 hover:underline">
+            <bdi dir="ltr">${escapeHTML(range)}</bdi>
+          </button>
+          <button data-action="delete-exercise" data-arg="${escapeHTML(ex.id)}" aria-label="${escapeHTML(t('config.deleteExercise', { name }))}" class="flex items-center justify-center w-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
       </div>
-      <button data-action="edit-reps" data-arg="${escapeHTML(ex.id)}" aria-expanded="${open}" aria-label="${escapeHTML(t('config.editReps', { name }))}" class="flex items-center min-h-[44px] ps-2.5 pe-3 text-xs font-bold text-brand-400 hover:underline">
-        <bdi dir="ltr">${escapeHTML(range)}</bdi>
-      </button>
       <div class="${open ? '' : 'hidden'} grid grid-cols-[1fr_1fr_auto] items-end gap-2 px-2.5 pb-2.5 pt-1 border-t border-slate-800/80">
         <label class="block text-xs font-bold text-slate-400">${escapeHTML(t('config.repsMin'))}
           <input type="number" dir="ltr" inputmode="numeric" id="${repsInputId(ex.id, 'Min')}" value="${ex.repsMin}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
@@ -439,6 +441,29 @@ export function renderConfig(keepChecks = false) {
       </div>
     </div>`;
   }).join('');
+}
+
+/**
+ * Muestra u oculta un bloque plegable y mantiene aria-expanded de su botón.
+ * @param {string} buttonId @param {string} panelId @param {boolean} open
+ */
+function setDisclosure(buttonId, panelId, open) {
+  $(panelId).classList.toggle('hidden', !open);
+  $(buttonId).setAttribute('aria-expanded', String(open));
+}
+
+/** Muestra u oculta la ayuda del editor (botón con interrogación). */
+export function toggleConfigHelp() {
+  setDisclosure('configHelpBtn', 'configHelp', $('configHelp').classList.contains('hidden'));
+}
+
+/** Muestra u oculta el formulario de nuevo ejercicio; al abrirlo lo deja a la vista y pone el cursor en el nombre. */
+export function toggleAddForm() {
+  const open = $('addExerciseForm').classList.contains('hidden');
+  setDisclosure('addFormBtn', 'addExerciseForm', open);
+  if (!open) return;
+  $('addExerciseForm').scrollIntoView({ block: 'nearest' });
+  $('newExName').focus({ preventScroll: true });
 }
 
 /** Abre o cierra el editor de repeticiones de un ejercicio. @param {string} id */
@@ -485,6 +510,8 @@ export function showSettingsView(view, moveFocus = true) {
   $('configTitle').textContent = t(VIEW_TITLE_KEYS[view]);
   $('settingsBack').classList.toggle('hidden', view === 'menu');
   $('settingsBack').classList.toggle('flex', view !== 'menu');
+  setDisclosure('configHelpBtn', 'configHelp', false);
+  setDisclosure('addFormBtn', 'addExerciseForm', false);
   $('settingsFooter').classList.toggle('hidden', view !== 'wheel' && view !== 'appearance' && view !== 'language');
   $('saveConfigBtn').classList.toggle('hidden', view !== 'wheel');
   $('closeSettingsBtn').classList.toggle('hidden', view !== 'appearance' && view !== 'language');
@@ -693,6 +720,7 @@ export function resetNewExerciseForm() {
   updateIconButton();
   $('iconPicker').classList.add('hidden');
   $('iconPickerBtn').setAttribute('aria-expanded', 'false');
+  setDisclosure('addFormBtn', 'addExerciseForm', false);
 }
 
 export function initIconPicker() {

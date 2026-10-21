@@ -127,10 +127,12 @@ function inspectPage() {
   };
   const seen = new Set();
   for (const b of boxes) {
+    let inScroller = false; // dentro de una lista con desplazamiento: una fila a medio ver en su borde no es un corte
     for (const c of clipOf(b.el)) {
       if (c.n === b.el && c.n.tagName === 'SELECT') continue;
       const outX = c.clipsX && (b.left < c.r.left - 1 || b.right > c.r.right + 1);
-      const outY = c.clipsY && !c.scrolls && (b.top < c.r.top - 1 || b.bottom > c.r.bottom + 1);
+      const outY = c.clipsY && !c.scrolls && !inScroller && (b.top < c.r.top - 1 || b.bottom > c.r.bottom + 1);
+      if (c.scrolls) inScroller = true;
       // Un contenedor que se desplaza (auto/scroll) puede tener texto fuera de la vista: no es un corte
       if ((outX && !c.scrolls) || outY) {
         const key = `${label(b.el)}|${label(c.n)}|${b.text}`;
@@ -278,6 +280,12 @@ async function checkViewport(browser, lang, vp) {
   await check(page, lang, vp, '04d-configurar-ruleta');
   await page.evaluate(() => document.getElementById('exsCheckboxes').scrollIntoView({ block: 'start' }));
   await check(page, lang, vp, '05-ejercicios');
+  await page.click('#configHelpBtn');
+  await wait(300);
+  await check(page, lang, vp, '05b-ayuda-del-editor');
+  await page.click('#configHelpBtn');
+  await page.click('#addFormBtn');
+  await wait(300);
   await page.click('#iconPickerBtn');
   await wait(300);
   await page.evaluate(() => document.getElementById('iconPicker').scrollIntoView({ block: 'center' }));
