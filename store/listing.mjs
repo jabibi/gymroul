@@ -339,7 +339,7 @@ Gira la ruleta i a entrenar.`,
   },
 
   fr: {
-    title: 'GymRoulette : Roue d\'exercices',
+    title: 'GymRoulette: Roue d\'exercices',
     short: 'La roue d\'exercices aléatoires pour s\'entraîner chez soi ou en salle.',
     banner: { line1: 'Lance la roue', line2: "et c'est parti", tagline: 'Des exercices au hasard pour te défier chaque jour', button: 'Lancer la roue' },
     notes: notesText('Version', [
