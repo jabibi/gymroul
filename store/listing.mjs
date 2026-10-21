@@ -10,12 +10,9 @@ export const STORE_LOCALES = [
   { app: 'ca', play: 'ca', name: 'Catalán' },
   { app: 'de', play: 'de-DE', name: 'Alemán' },
   { app: 'en', play: 'en-US', name: 'Inglés (Estados Unidos)' },
-  { app: 'en-GB', play: 'en-GB', name: 'Inglés (Reino Unido)' },
-  { app: 'en-AU', play: 'en-AU', name: 'Inglés (Australia)' },
   { app: 'es', play: 'es-ES', name: 'Español (España)' },
   { app: 'eu', play: 'eu-ES', name: 'Euskera' },
   { app: 'fr', play: 'fr-FR', name: 'Francés (Francia)' },
-  { app: 'fr-CA', play: 'fr-CA', name: 'Francés (Canadá)' },
   { app: 'gl', play: 'gl-ES', name: 'Gallego' },
   { app: 'hi', play: 'hi-IN', name: 'Hindi' },
   { app: 'it', play: 'it-IT', name: 'Italiano' },
@@ -733,9 +730,6 @@ GymRoulette tamamen çevrimdışıdır ve hiçbir veri toplamaz: analiz yok, izl
 Çarkı çevir, antrenmana başlayalım!`,
   },
 
-  // El inglés británico usa el mismo texto: no hay palabras del listado que cambien entre variantes
-  'en-GB': null,
-  'en-AU': null,
   ja: {
     title: 'GymRoulette',
     short: 'ルーレットを回して、ワークアウト用のランダムなエクササイズチャレンジに挑戦しよう。',
@@ -833,20 +827,3 @@ GymRoulette is volledig offline en verzamelt geen gegevens: geen analyse, geen t
 Draai aan het rad en laten we trainen!`,
   },
 };
-LISTINGS['en-GB'] = LISTINGS.en;
-LISTINGS['en-AU'] = LISTINGS.en;
-
-/** Deriva una variante regional de un listado cambiando palabras o signos (en todos sus textos y en el del gráfico). */
-function adapt(listing, pairs) {
-  const apply = text => pairs.reduce((out, [from, to]) => out.split(from).join(to), text);
-  return {
-    ...listing,
-    short: apply(listing.short),
-    full: apply(listing.full),
-    notes: apply(listing.notes),
-    banner: Object.fromEntries(Object.entries(listing.banner).map(([key, value]) => [key, apply(value)])),
-  };
-}
-
-// Francés de Canadá: sin espacio antes de « ! » y « ? », y "paramètres" en lugar de "réglages"
-LISTINGS['fr-CA'] = adapt(LISTINGS.fr, [['\u202f!', '!'], ['\u00a0!', '!'], [' !', '!'], ['\u202f?', '?'], ['\u00a0?', '?'], [' ?', '?'], ['Réglages', 'Paramètres']]);

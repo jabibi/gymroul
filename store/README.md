@@ -11,7 +11,7 @@ store/
 ├── importar-traducciones.csv                Título y descripciones de TODOS los idiomas para «Importar un archivo» (npm run store)
 ├── datos-de-la-ficha.md                     Enlaces, clasificación y Seguridad de los datos
 ├── listing.mjs                              Fuente de los textos de cada idioma
-└── <idioma de Play>/                        ar, ca, de-DE, en-US, en-GB, en-AU, es-ES, eu-ES, fr-FR, fr-CA, gl-ES, hi-IN, it-IT, ja-JP, nl-NL, pl-PL, pt-BR, pt-PT, tr-TR
+└── <idioma de Play>/                        ar, ca, de-DE, en-US, es-ES, eu-ES, fr-FR, gl-ES, hi-IN, it-IT, ja-JP, nl-NL, pl-PL, pt-BR, pt-PT, tr-TR
     ├── grafico-de-funciones-1024x500.png    Gráfico de funciones con el texto traducido
     ├── capturas-telefono/                   Siete capturas 1080 x 1920 (9:16) con la app en ese idioma
     └── textos/
@@ -28,12 +28,9 @@ store/
 | `ca` | Catalán | 74/80 | 2475/4000 | 414/500 |
 | `de-DE` | Alemán | 72/80 | 2689/4000 | 442/500 |
 | `en-US` | Inglés (Estados Unidos) | 68/80 | 2372/4000 | 370/500 |
-| `en-GB` | Inglés (Reino Unido) | 68/80 | 2372/4000 | 370/500 |
-| `en-AU` | Inglés (Australia) | 68/80 | 2372/4000 | 370/500 |
 | `es-ES` | Español (España) | 75/80 | 2563/4000 | 414/500 |
 | `eu-ES` | Euskera | 74/80 | 2605/4000 | 441/500 |
 | `fr-FR` | Francés (Francia) | 77/80 | 2677/4000 | 452/500 |
-| `fr-CA` | Francés (Canadá) | 77/80 | 2676/4000 | 452/500 |
 | `gl-ES` | Gallego | 76/80 | 2457/4000 | 418/500 |
 | `hi-IN` | Hindi | 65/80 | 2391/4000 | 412/500 |
 | `it-IT` | Italiano | 77/80 | 2514/4000 | 445/500 |

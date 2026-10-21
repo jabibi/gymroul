@@ -38,26 +38,6 @@ Version 1.15 (Be Reborn):
 • Ein übersichtlicheres Rad: ein Segment pro Übung.
 • Die Standardübungen erscheinen jetzt in deiner Sprache.
 </de-DE>
-<en-AU>
-Version 1.16 (Six Pack):
-• A tidier history: each exercise shows its icon, and a summary adds up your session.
-• Fixed the reps appearing twice in each history row.
-
-Version 1.15 (Be Reborn):
-• New: each exercise has its own reps range, and the number comes up after the spin.
-• A cleaner wheel: one segment per exercise.
-• Default exercises now appear in your language.
-</en-AU>
-<en-GB>
-Version 1.16 (Six Pack):
-• A tidier history: each exercise shows its icon, and a summary adds up your session.
-• Fixed the reps appearing twice in each history row.
-
-Version 1.15 (Be Reborn):
-• New: each exercise has its own reps range, and the number comes up after the spin.
-• A cleaner wheel: one segment per exercise.
-• Default exercises now appear in your language.
-</en-GB>
 <es-ES>
 Versión 1.16 (Six Pack):
 • Un historial más claro: cada ejercicio muestra su icono y un resumen suma tu sesión.
@@ -78,16 +58,6 @@ Bertsioa 1.15 (Be Reborn):
 • Gurpil garbiagoa: sektore bat ariketa bakoitzeko.
 • Ariketa lehenetsiak zure hizkuntzan ikusten dira orain.
 </eu-ES>
-<fr-CA>
-Version 1.16 (Six Pack):
-• Un historique plus clair : chaque exercice affiche son icône, et un résumé additionne ta séance.
-• Correction du nombre de répétitions affiché deux fois dans chaque ligne de l'historique.
-
-Version 1.15 (Be Reborn):
-• Nouveau : chaque exercice a sa propre plage de répétitions, et le nombre sort après le tour.
-• Une roue plus claire : un secteur par exercice.
-• Les exercices par défaut s'affichent maintenant dans ta langue.
-</fr-CA>
 <fr-FR>
 Version 1.16 (Six Pack):
 • Un historique plus clair : chaque exercice affiche son icône, et un résumé additionne ta séance.
