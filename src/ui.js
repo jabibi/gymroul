@@ -1,9 +1,9 @@
 // @ts-check
 // Modales, historial, configuración y avisos
 
-import { exerciseName } from './exercise-names.js';
+import { exerciseName, sortedExercises } from './exercise-names.js';
 import { isolate } from './wheel-math.js';
-import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE, COLOR_PALETTE } from './store.js';
+import { active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE, COLOR_PALETTE } from './store.js';
 import { THEMES, THEME_BRAND, getTheme, themeColor } from './theme.js';
 import { WHATS_NEW_VERSION } from './whats-new.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
@@ -407,7 +407,7 @@ export function renderConfig(keepChecks = false) {
   const isOn = (/** @type {string} */ name) => (pending?.has(name) ? !!pending.get(name) : active.exercises.includes(name));
   const inputClass = 'min-h-[44px] w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500';
 
-  $('exsCheckboxes').innerHTML = getExercises().map(ex => {
+  $('exsCheckboxes').innerHTML = sortedExercises().map(ex => {
     const open = repsEditorOpen === ex.id;
     const range = t('config.repsRange', { min: ex.repsMin, max: ex.repsMax });
     const name = exerciseName(ex);

@@ -1,6 +1,6 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { LANGUAGES, DICTIONARIES, setLanguage, DEFAULT_LANGUAGE } from '../src/i18n/index.js';
-import { exerciseName, DEFAULT_EXERCISE_KEYS } from '../src/exercise-names.js';
+import { exerciseName, sortExercises, DEFAULT_EXERCISE_KEYS } from '../src/exercise-names.js';
 import { DEFAULT_EXERCISES } from '../src/store.js';
 
 afterEach(() => setLanguage(DEFAULT_LANGUAGE, { persist: false }));
@@ -46,5 +46,18 @@ describe('nombres de los ejercicios por defecto', () => {
   it('todos los textos son distintos de vacío y mantienen las mismas claves en cada idioma', () => {
     const keys = Object.keys(DICTIONARIES.en.strings).filter(k => k.startsWith('exercise.'));
     expect(keys).toHaveLength(6);
+  });
+
+  it('se ordenan alfabéticamente por el nombre que se ve, sin distinguir mayúsculas ni acentos', () => {
+    const own = ['zeta', 'Árbol', 'abeto', 'Ejercicio 10', 'Ejercicio 2'].map((name, i) => ({ id: `u${i}`, name }));
+    expect(sortExercises(own).map(e => e.name)).toEqual(['abeto', 'Árbol', 'Ejercicio 2', 'Ejercicio 10', 'zeta']);
+  });
+
+  it('el orden de los ejercicios por defecto sigue el idioma activo y no cambia la lista original', () => {
+    const copy = [...DEFAULT_EXERCISES];
+    expect(sortExercises(DEFAULT_EXERCISES).map(e => e.name)).toEqual(['Air Squat', 'Burpee', 'Lunge', 'Mountain Climbers', 'Push-up', 'Split Jumps']);
+    setLanguage('es', { persist: false });
+    expect(sortExercises(DEFAULT_EXERCISES).map(exerciseName)).toEqual(['Burpees', 'Escaladores', 'Flexiones', 'Sentadillas', 'Zancadas', 'Zancadas con salto']);
+    expect(DEFAULT_EXERCISES).toEqual(copy);
   });
 });

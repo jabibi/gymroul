@@ -7,13 +7,13 @@ import { App as CapacitorApp } from '@capacitor/app';
 import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, getSpinSpeed, refreshBrand } from './wheel.js';
 import { generateSegments, rollReps, CONFIG_SEGMENT } from './wheel-math.js';
 import {
-  migrate, isFreshInstall, loadActive, getExercises, active, setActive,
+  migrate, isFreshInstall, loadActive, active, setActive,
   addExercise, removeExercise, updateExerciseReps,
 } from './store.js';
 import { toggleSound, initAudio } from './audio.js';
 import * as ui from './ui.js';
 import { cleanShareCache } from './share.js';
-import { exerciseName } from './exercise-names.js';
+import { exerciseName, sortedExercises } from './exercise-names.js';
 import { loadTheme, setTheme, themeColor } from './theme.js';
 import { shouldShowWhatsNew, markWhatsNewSeen } from './whats-new.js';
 import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from './i18n/index.js';
@@ -22,7 +22,7 @@ import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from '
 
 /** Reconstruye los sectores a partir del catálogo y la selección activa. */
 function rebuildWheel() {
-  const segments = generateSegments(getExercises(), active.exercises, exerciseName);
+  const segments = generateSegments(sortedExercises(), active.exercises, exerciseName);
   // Los colores guardados son los de la apariencia Suave; con Clásico se cambian al mostrarlos (el sector «Configurar» se deja tal cual: se reconoce por identidad)
   setSegments(segments.map(s => (s === CONFIG_SEGMENT ? s : { ...s, color: themeColor(s.color) })));
 }
