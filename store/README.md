@@ -30,8 +30,8 @@ store/
 | `en-US` | Inglés (Estados Unidos) | 68/80 | 2372/4000 | 370/500 |
 | `en-GB` | Inglés (Reino Unido) | 68/80 | 2372/4000 | 370/500 |
 | `en-AU` | Inglés (Australia) | 68/80 | 2372/4000 | 370/500 |
-| `es-ES` | Español (España) | 75/80 | 2624/4000 | 414/500 |
-| `es-419` | Español (Latinoamérica) | 75/80 | 2629/4000 | 414/500 |
+| `es-ES` | Español (España) | 75/80 | 2548/4000 | 414/500 |
+| `es-419` | Español (Latinoamérica) | 75/80 | 2553/4000 | 414/500 |
 | `eu-ES` | Euskera | 74/80 | 2605/4000 | 441/500 |
 | `fr-FR` | Francés (Francia) | 77/80 | 2677/4000 | 452/500 |
 | `fr-CA` | Francés (Canadá) | 77/80 | 2676/4000 | 452/500 |

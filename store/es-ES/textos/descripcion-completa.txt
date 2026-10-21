@@ -6,7 +6,6 @@ GymRoulette es una ruleta de ejercicios: cada sector es un ejercicio y, al girar
 • Pulsa “¡GIRAR RULETA!” o lanza la ruleta con el dedo.
 • Cuando se detiene, ves tu reto: repeticiones y ejercicio.
 • Márcalo como completado o sáltalo y vuelve a girar.
-• Gira varias veces para encadenar ejercicios y montar tu rutina aleatoria.
 • Consulta en el historial los retos que has completado en la sesión.
 • Comparte tu reto como imagen con tus amigos.
 
