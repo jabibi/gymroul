@@ -485,7 +485,9 @@ export function showSettingsView(view, moveFocus = true) {
   $('configTitle').textContent = t(VIEW_TITLE_KEYS[view]);
   $('settingsBack').classList.toggle('hidden', view === 'menu');
   $('settingsBack').classList.toggle('flex', view !== 'menu');
-  $('settingsFooter').classList.toggle('hidden', view !== 'wheel');
+  $('settingsFooter').classList.toggle('hidden', view !== 'wheel' && view !== 'appearance' && view !== 'language');
+  $('saveConfigBtn').classList.toggle('hidden', view !== 'wheel');
+  $('closeSettingsBtn').classList.toggle('hidden', view !== 'appearance' && view !== 'language');
   $('settingsLinks').classList.toggle('hidden', view !== 'menu');
   const scroller = $('configCard').querySelector('.overflow-y-auto');
   if (scroller) scroller.scrollTop = 0;

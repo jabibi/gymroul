@@ -56,6 +56,7 @@ export default {
     'config.privacy': 'Pribatutasun-politika',
     'config.credits': 'Kredituak',
     'config.apply': 'Gorde aldaketak',
+    'config.save': 'Gorde',
     'config.language': 'Hizkuntza',
     'settings.title': 'Ezarpenak',
     'settings.back': 'Atzera',

@@ -138,6 +138,8 @@ const actions = {
     rebuildWheel();
     ui.renderConfig(true);
   },
+  // La apariencia y el idioma ya se aplican al elegirlos: el botón solo cierra Ajustes
+  'close-settings': () => ui.closeConfig(),
   'save-config': () => {
     setActive(ui.readCheckedExercises());
     rebuildWheel();

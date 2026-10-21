@@ -56,6 +56,7 @@ export default {
     'config.privacy': 'Privacybeleid',
     'config.credits': 'Dankbetuigingen',
     'config.apply': 'Wijzigingen opslaan',
+    'config.save': 'Opslaan',
     'config.language': 'Taal',
     'settings.title': 'Instellingen',
     'settings.back': 'Terug',

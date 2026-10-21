@@ -56,6 +56,7 @@ export default {
     'config.privacy': 'Política de privacidade',
     'config.credits': 'Créditos',
     'config.apply': 'Gardar os cambios',
+    'config.save': 'Gardar',
     'config.language': 'Idioma',
     'settings.title': 'Axustes',
     'settings.back': 'Atrás',

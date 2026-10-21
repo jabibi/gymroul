@@ -59,6 +59,7 @@ export default {
     'config.privacy': 'سياسة الخصوصية',
     'config.credits': 'شكر وتقدير',
     'config.apply': 'حفظ التغييرات',
+    'config.save': 'حفظ',
     'config.language': 'اللغة',
     'settings.title': 'الإعدادات',
     'settings.back': 'رجوع',

@@ -56,6 +56,7 @@ export default {
     'config.privacy': 'Gizlilik politikası',
     'config.credits': 'Katkıda bulunanlar',
     'config.apply': 'Değişiklikleri kaydet',
+    'config.save': 'Kaydet',
     'config.language': 'Dil',
     'settings.title': 'Ayarlar',
     'settings.back': 'Geri',

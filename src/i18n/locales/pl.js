@@ -56,6 +56,7 @@ export default {
     'config.privacy': 'Polityka prywatności',
     'config.credits': 'Podziękowania',
     'config.apply': 'Zapisz zmiany',
+    'config.save': 'Zapisz',
     'config.language': 'Język',
     'settings.title': 'Ustawienia',
     'settings.back': 'Wstecz',

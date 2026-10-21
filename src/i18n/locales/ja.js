@@ -56,6 +56,7 @@ export default {
     'config.privacy': 'プライバシーポリシー',
     'config.credits': 'クレジット',
     'config.apply': '変更を保存',
+    'config.save': '保存',
     'config.language': '言語',
     'settings.title': '設定',
     'settings.back': '戻る',

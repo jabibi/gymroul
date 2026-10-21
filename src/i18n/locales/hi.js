@@ -56,6 +56,7 @@ export default {
     'config.privacy': 'गोपनीयता नीति',
     'config.credits': 'श्रेय',
     'config.apply': 'बदलाव सहेजें',
+    'config.save': 'सहेजें',
     'config.language': 'भाषा',
     'settings.title': 'सेटिंग्स',
     'settings.back': 'वापस',
