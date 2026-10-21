@@ -13,24 +13,24 @@ Leyenda: `[x]` hecho · `[ ]` pendiente de decidir o de hacer.
 - [x] **Subtítulo «WORKOUT GENERATOR» eliminado** de todas partes: cabecera, imagen de compartir, título de la pestaña (`app.title` en los 20 idiomas y `index.html`) y el gráfico de funciones de la ficha de Play (`scripts/build-store-assets.mjs`; el PNG ya generado en `store/` se actualizará la próxima vez que se ejecute `npm run store`). Era el único texto de la interfaz sin traducir y no cabía en pantallas de menos de 380 px.
 - [x] **Resalte del sector bajo el puntero.** Antes se aclaraba con una capa blanca, que bajaba el contraste del texto justo en ese sector (a unos 2,6:1). Ahora se oscurecen los demás y el activo conserva su color pleno; las etiquetas van en una capa aparte para que sigan nítidas (`src/wheel.js`). Cambia también el aspecto de Clásico: sus colores se ven más apagados que antes. Decidido mantenerlo así: con menos oscurecimiento (10 o 20 %) el texto blanco baja de 4,5:1 en naranja, ámbar, verde y cian, y se prefiere conservar el contraste a la viveza.
 - [x] **Contraste de la paleta Suave.** Los sectores se oscurecen para que el texto blanco llegue a 4,5:1 como mínimo (migración v10 → v11). El verde esmeralda pasa a un verde más distinto del teal y el cian.
+- [x] **Una sola cabecera para todos los paneles.** Historial, Ajustes y compromiso de privacidad comparten la misma cabecera: título a la izquierda (`text-lg`) y X a la derecha, sin icono junto al título ni raya debajo, con la misma separación. Se quitan los iconos del reloj y del escudo de los títulos.
+- [x] **Nombre del editor unificado.** «Editar ruleta» en el menú (`settings.wheel`), el título (`config.title`) y el marcador vacío (`live.configure`), y «Editar» en el sector vacío (`wheel.setup`), en los 20 idiomas. `fr-CA` ya no redefine `config.title` ni `wheel.setup`.
+- [x] **Enlaces del pie de Ajustes.** «Privacidad» (`settings.privacy`) y «Acerca de» (`settings.about`) sustituyen a «Compromiso de privacidad» y «Créditos» (`config.credits` desaparece; `config.commitment` sigue siendo el título del modal). En alemán y polaco el pie dejaba un punto colgando porque los textos largos se partían en dos líneas; con los nuevos cabe en una.
 
 ## Distribución y equilibrio
 
 - [ ] **Altura del panel de Ajustes.** Mide lo que mide su contenido y salta entre pantallas (menú corto, editor muy alto). Opción: altura mínima fija en las pantallas internas y transición corta de deslizamiento entre ellas.
-- [ ] **Una sola cabecera para todos los paneles.** Ajustes ya no lleva raya bajo el título; el historial sí, y difieren el icono junto al título y el espaciado. Unificar Ajustes, historial y compromiso de privacidad.
 - [ ] **Flecha y X a la vez en las pantallas internas.** Sobra una: dejar solo la flecha atrás en las pantallas internas y la X solo en el menú.
 - [ ] **Editor de la ruleta demasiado aire.** Cada fila ocupa unos 68 px y el rango de repeticiones va en una segunda línea casi vacía; además hay contenedores dentro de contenedores (panel, tarjeta, fila). Enlaza con «lista de Configuración más compacta» (`ROADMAP.md`, 1.17).
-- [ ] **«Guardar cambios» solo en el editor.** Idioma y Apariencia se aplican al instante y el editor pide guardar. Decidir un único modelo (lo habitual hoy: guardado automático).
+- [ ] **«Guardar cambios» solo en el editor.** Idioma y Apariencia se aplican al elegirlos, pero llevan igualmente un botón «Guardar» fijo abajo que solo cierra Ajustes; el editor sí pide «Guardar cambios». Decidir un único modelo (lo habitual hoy: guardado automático y sin botón).
 - [ ] **Borrar un ejercicio** no pide confirmación ni se puede deshacer. Opción: borrar y mostrar un aviso con «Deshacer».
 - [ ] **Pantalla principal.** A 915 px de alto quedan unos 200 px vacíos sobre el marcador y otros tantos bajo el botón. Subir un poco la ruleta o aprovechar el hueco.
 - [ ] **Tirador y gesto de deslizar para cerrar** en los paneles inferiores (estándar de Material 3).
 
 ## Textos
 
-- [ ] **Unificar el nombre del editor.** Hoy: «Configurar ruleta» (menú), «Configuración de la ruleta» (título) y «Configurar» (sector vacío). Propuesta: «Editar ruleta» en los tres sitios (claves `settings.wheel`, `config.title`, `live.configure`; 20 idiomas).
 - [x] **Tono del resultado (parte hecha).** «Ejercicio seleccionado» (sin mayúsculas ni exclamación), botón «Girar ruleta» y botón «Empezar» en las novedades, en los 20 idiomas.
 - [x] **Exclamaciones y mayúsculas, resueltas.** Ya no hay ninguna exclamación en la app ni en la ficha de Play, en los 20 idiomas: «Completado» (`result.done`), «Gira la ruleta para empezar» (`history.empty`), el texto de compartir, el gráfico y el cierre de la descripción. Las mayúsculas también se han quitado: «Girar» en el botón central, el título «Ejercicios» y los grupos de iconos sin la clase `uppercase`, y los títulos de sección de la descripción de Play en minúsculas (con la primera letra en mayúscula). Regla escrita en `CLAUDE.md`.
-- [ ] **Enlaces del pie de Ajustes.** «Privacidad» y «Acerca de» son más estándar que «Compromiso de privacidad» y «Créditos».
 - [ ] **Barra de color del resultado.** Usa el color del sector (índigo, por ejemplo) y no tiene relación con el verde de marca. Decidir si se mantiene.
 
 ## Apariencia

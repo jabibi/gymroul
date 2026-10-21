@@ -200,7 +200,6 @@ describe('compromiso de privacidad', () => {
   it('sustituye al enlace de la política en Configuración', () => {
     expect(html.match(/data-action="open-commitment"/g)).toHaveLength(1);
     expect(html).not.toContain('data-i18n="config.privacy"');
-    expect(html).toContain('fa-shield-halved');
   });
 
   it('resume las cinco prácticas y sigue enlazando la política completa', () => {

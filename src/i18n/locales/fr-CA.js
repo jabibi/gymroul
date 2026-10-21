@@ -5,10 +5,6 @@ export default {
   strings: {
     'header.settings': 'Ouvrir les paramètres',
     'settings.title': 'Paramètres',
-
-    'wheel.setup': 'Paramètres',
-
-    'config.title': 'Paramètres de la roue',
     'config.close': 'Fermer les paramètres',
   },
 
