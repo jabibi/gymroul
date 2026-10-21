@@ -93,10 +93,13 @@ async function captureWheel(page) {
   return { png, box, PAD };
 }
 
+// Mismo icono que el botón de la app (fa-rotate de Font Awesome)
+const ROTATE_ICON = readFileSync('node_modules/@fortawesome/fontawesome-free/svgs/solid/rotate.svg', 'utf8').replace(/<!--.*?-->/gs, '');
+
 /** Gráfico de funciones 1024x500: texto a la izquierda y la ruleta entera a la derecha. */
 async function buildBanner(listing, wheel, path, rtl = false) {
   const font = w => readFileSync(`node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-${w}-normal.woff2`).toString('base64');
-  const logo = `data:image/svg+xml;base64,${readFileSync('public/favicon.svg').toString('base64')}`;
+  const logo = `data:image/svg+xml;base64,${readFileSync('public/logo-mark.svg').toString('base64')}`;
   const wheelUri = `data:image/png;base64,${wheel.png.toString('base64')}`;
   const green = '16 185 129';
   // Play recorta y redondea los bordes del gráfico: se deja un margen lateral de 96 px para que no tape contenido
@@ -116,7 +119,7 @@ async function buildBanner(listing, wheel, path, rtl = false) {
     body{width:1024px;height:500px;overflow:hidden;font-family:J,'Noto Sans Arabic','Noto Sans JP','Hiragino Sans','Yu Gothic','IPAGothic',sans-serif;color:#fff;position:relative;
       background:radial-gradient(circle at ${rtl ? 24 : 76}% 52%, rgb(${green} / .22), transparent 55%), linear-gradient(135deg,#0B1220,#020617)}
     .brand{position:absolute;${START}:${SIDE}px;top:56px;display:flex;align-items:center;gap:16px}
-    .brand img{width:64px;height:64px;border-radius:16px;box-shadow:0 8px 24px rgb(${green} / .35)}
+    .brand img{width:64px;height:64px}
     .brand b{font-weight:800;font-size:34px;letter-spacing:-.5px;line-height:1}
     .brand b span{color:rgb(${green})}
     .copy{position:absolute;${START}:${SIDE}px;top:168px;width:${COPY_WIDTH}px}
@@ -124,15 +127,17 @@ async function buildBanner(listing, wheel, path, rtl = false) {
     h1 span{display:block;white-space:nowrap}
     h1 span + span{color:rgb(${green})}
     p{margin-top:26px;font-weight:700;font-size:21px;line-height:1.3;color:#cbd5e1}
-    .btn{position:absolute;${START}:${SIDE}px;top:392px;padding:16px 32px;border-radius:18px;font-weight:800;font-size:22px;color:#020617;
-      background:linear-gradient(90deg,rgb(22 163 74),rgb(74 222 128));box-shadow:0 10px 30px rgb(${green} / .4)}
+    .btn{position:absolute;${START}:${SIDE}px;top:392px;padding:16px 32px;border-radius:16px;font-weight:800;font-size:22px;color:#020617;
+      display:flex;align-items:center;gap:12px;
+      background:linear-gradient(90deg,rgb(5 150 105),rgb(16 185 129),rgb(52 211 153));box-shadow:0 20px 25px -5px rgb(${green} / .25), 0 8px 10px -6px rgb(${green} / .25)}
+    .btn svg{width:22px;height:22px;fill:currentColor}
     .wheel{position:absolute;left:${WHEEL_LEFT - wheel.PAD.side * K}px;top:${WHEEL_TOP - wheel.PAD.top * K}px;width:${(wheel.box.width + wheel.PAD.side * 2) * K}px;height:auto}
     ${rtl ? '*{letter-spacing:normal!important} h1{line-height:1.3} h1 span{padding-block:2px}' : ''}
   </style>
   <div class="brand"><img src="${logo}"><div><b>Gym<span>Roulette</span></b></div></div>
   <div class="copy"><h1><span>${esc(b.line1)}</span><span>${esc(b.line2)}</span></h1>
   <p>${esc(b.tagline)}</p></div>
-  <div class="btn">${esc(b.button)}</div>
+  <div class="btn">${ROTATE_ICON}<span>${esc(b.button)}</span></div>
   <img class="wheel" src="${wheelUri}">`;
   const page = await browser.newPage();
   await page.setViewport({ width: 1024, height: 500, deviceScaleFactor: 1 });
