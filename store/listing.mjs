@@ -98,8 +98,8 @@ Spin the wheel and let's train!`,
   },
 
   es: {
-    title: 'GymRoulette',
-    short: 'Gira la ruleta y recibe un reto de ejercicio al azar para tu entrenamiento.',
+    title: 'Ruleta de ejercicios aleatoria',
+    short: 'GymRoulette: gira, recibe un ejercicio aleatorio y crea rutinas aleatorias.',
     banner: { line1: '¡Gira la ruleta', line2: 'y a entrenar!', tagline: 'Ejercicios aleatorios para retarte cada día', button: '¡GIRAR RULETA!' },
     notes: notesText('Versión', [
       'Un historial más claro: cada ejercicio muestra su icono y un resumen suma tu sesión.',
@@ -111,12 +111,13 @@ Spin the wheel and let's train!`,
     ]),
     full: `¿Sin ganas de decidir qué entrenar hoy? Gira la ruleta y deja que GymRoulette elija por ti.
 
-GymRoulette es una ruleta de ejercicios: cada sector es un ejercicio y, al girarla, te propone un reto aleatorio con su número de repeticiones (por ejemplo, «20 Burpee») para entrenar en casa, en el gimnasio o al aire libre. Pensada para dar variedad a tus sesiones, para circuitos, para retos con amigos y para quien quiere entrenar sin complicarse.
+GymRoulette es una ruleta de ejercicios: cada sector es un ejercicio y, al girarla, te propone un ejercicio aleatorio con su número de repeticiones (por ejemplo, «20 Burpee») para entrenar en casa, en el gimnasio o al aire libre. Gira varias veces y tendrás una rutina aleatoria distinta cada día. Pensada para dar variedad a tus sesiones, para circuitos, para retos con amigos y para quien quiere entrenar sin complicarse.
 
 <b>CÓMO FUNCIONA</b>
 • Pulsa “¡GIRAR RULETA!” o lanza la ruleta con el dedo.
 • Cuando se detiene, ves tu reto: repeticiones y ejercicio.
 • Márcalo como completado o sáltalo y vuelve a girar.
+• Gira varias veces para encadenar ejercicios y montar tu rutina aleatoria.
 • Consulta en el historial los retos que has completado en la sesión.
 • Comparte tu reto como imagen con tus amigos.
 
