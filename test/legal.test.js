@@ -97,6 +97,13 @@ describe('páginas legales multilingües', () => {
     }
   });
 
+  it('los créditos muestran la versión de package.json en cada idioma', () => {
+    const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
+    const version = `${pkg.version.split('.').slice(0, 2).join('.')} (${pkg.versionCodename})`;
+    const html = buildLegalFiles()['credits.html'];
+    expect(count(html, new RegExp(`<bdi dir="ltr">${version.replace(/[()]/g, '\\$&')}</bdi>`, 'g'))).toBe(LANGUAGE_ORDER.length);
+  });
+
   it('cada página incluye una sección por idioma y el script selector', () => {
     for (const [file, html] of Object.entries(buildLegalFiles())) {
       expect(count(html, /<section lang=/g), file).toBe(LANGUAGE_ORDER.length);

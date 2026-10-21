@@ -6,6 +6,12 @@ const ccBy3 = '<a href="https://creativecommons.org/licenses/by/3.0/" target="_b
 const ccBy4 = '<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>';
 const faSite = '<a href="https://fontawesome.com/license/free" target="_blank" rel="noopener">fontawesome.com/license/free</a>';
 
+/** «Versión» en cada idioma: el número sale de package.json al generar la página (scripts/build-legal.mjs). */
+export const versionLabel = {
+  en: 'Version', es: 'Versión', eu: 'Bertsioa', gl: 'Versión', ca: 'Versió', fr: 'Version', 'pt-BR': 'Versão', 'pt-PT': 'Versão',
+  de: 'Version', it: 'Versione', pl: 'Wersja', ar: 'الإصدار', hi: 'संस्करण', tr: 'Sürüm', nl: 'Versie', ja: 'バージョン',
+};
+
 export default {
   en: { title: 'Credits and licenses - GymRoulette', blocks: [
     ['h1', 'Credits and licenses'],
