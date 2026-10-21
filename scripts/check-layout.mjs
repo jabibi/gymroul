@@ -284,8 +284,9 @@ async function checkViewport(browser, lang, vp) {
   await wait(300);
   await check(page, lang, vp, '05b-ayuda-del-editor');
   await page.click('#configHelpBtn');
-  await page.click('#addFormBtn');
-  await wait(300);
+  await page.click('[data-action=open-add-exercise]');
+  await wait(500);
+  await check(page, lang, vp, '05c-nuevo-ejercicio');
   await page.click('#iconPickerBtn');
   await wait(300);
   await page.evaluate(() => document.getElementById('iconPicker').scrollIntoView({ block: 'center' }));
@@ -312,6 +313,15 @@ async function checkViewport(browser, lang, vp) {
   await page.type('#iconSearch', 'zzzzzz');
   await wait(300);
   await check(page, lang, vp, '07-sin-iconos');
+  // Atrás cierra solo la ventana de nuevo ejercicio: Ajustes sigue abierto y no se ha creado nada
+  await page.evaluate(() => history.back());
+  await wait(500);
+  const backOk = await page.evaluate(() => document.getElementById('addExerciseModal').getAttribute('aria-hidden') === 'true'
+    && document.getElementById('configModal').getAttribute('aria-hidden') === 'false');
+  if (!backOk) {
+    total++;
+    console.log(`  ✗ ${lang} ${vp.width}x${vp.height} 07b-atras: Atrás no cierra solo la ventana de nuevo ejercicio`);
+  }
   await page.close();
 
   // Novedades tras actualizar (salen solas un instante después de abrir la app) y el salto a Apariencia

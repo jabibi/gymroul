@@ -282,8 +282,8 @@ try {
     await shot(page, '04-configuracion');
 
     // Selector de iconos y búsqueda
-    await page.click('#addFormBtn');
-    await wait(300);
+    await page.click('[data-action=open-add-exercise]');
+    await wait(500);
     await page.click('#iconPickerBtn');
     await wait(300);
     await page.evaluate(() => document.getElementById('iconPicker').scrollIntoView({ block: 'center' }));

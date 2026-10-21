@@ -125,13 +125,13 @@ const actions = {
   },
   'add-exercise': () => {
     const form = ui.readNewExerciseForm();
-    if (!form.name) return;
     const result = addExercise(form);
     reportError(result);
     if (!result.ok) return;
-    ui.resetNewExerciseForm();
+    ui.closeAddExercise();
     rebuildWheel();
     ui.renderConfig(true);
+    ui.revealLastExercise();
   },
   'delete-exercise': arg => {
     if (arg) removeExercise(arg);
@@ -154,7 +154,8 @@ const actions = {
   'open-credits': () => ui.openDocument('credits'),
   'close-document': () => ui.closeDocument(),
   'toggle-config-help': () => ui.toggleConfigHelp(),
-  'toggle-add-form': () => ui.toggleAddForm(),
+  'open-add-exercise': () => ui.openAddExercise(),
+  'close-add-exercise': () => ui.closeAddExercise(),
   'toggle-icon-picker': () => ui.toggleIconPicker(),
   'pick-icon': arg => arg && ui.pickIcon(arg),
 };

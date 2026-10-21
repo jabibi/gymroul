@@ -3,7 +3,7 @@
 
 import { exerciseName, sortedExercises } from './exercise-names.js';
 import { isolate } from './wheel-math.js';
-import { active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE, COLOR_PALETTE } from './store.js';
+import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE, COLOR_PALETTE } from './store.js';
 import { THEMES, THEME_BRAND, getTheme, themeColor } from './theme.js';
 import { WHATS_NEW_VERSION } from './whats-new.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
@@ -83,7 +83,7 @@ export function pulseIndicator() {
 // Cada modal que se abre añade una entrada al historial del navegador: así el botón
 // "Atrás" de Android (o del navegador) lo cierra en lugar de salir de la app.
 
-/** @typedef {'result' | 'history' | 'config' | 'share' | 'commitment' | 'document' | 'whatsnew'} ModalName */
+/** @typedef {'result' | 'history' | 'config' | 'share' | 'commitment' | 'document' | 'whatsnew' | 'addexercise'} ModalName */
 // Pila de modales abiertos (el último es el que está encima): la política de privacidad
 // puede abrirse sobre la configuración y Atrás debe cerrar primero la de arriba
 /** @type {ModalName[]} */
@@ -100,6 +100,7 @@ const closers = {
   commitment: () => closeCommitment(),
   document: () => closeDocument(),
   whatsnew: () => closeWhatsNew(),
+  addexercise: () => closeAddExercise(),
 };
 
 /** @param {ModalName} name */
@@ -172,7 +173,7 @@ export function initModals() {
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeActiveModal(); });
 
   // Tocar el fondo cierra historial, configuración y compromiso de privacidad (el reto pendiente solo se cierra con sus botones, Esc o Atrás)
-  ['historyModal', 'configModal', 'commitmentModal', 'whatsNewModal'].forEach(id => {
+  ['historyModal', 'configModal', 'commitmentModal', 'whatsNewModal', 'addExerciseModal'].forEach(id => {
     const modal = $(id);
     modal.addEventListener('click', e => { if (e.target === modal) closeActiveModal(); });
   });
@@ -457,13 +458,26 @@ export function toggleConfigHelp() {
   setDisclosure('configHelpBtn', 'configHelp', $('configHelp').classList.contains('hidden'));
 }
 
-/** Muestra u oculta el formulario de nuevo ejercicio; al abrirlo lo deja a la vista y pone el cursor en el nombre. */
-export function toggleAddForm() {
-  const open = $('addExerciseForm').classList.contains('hidden');
-  setDisclosure('addFormBtn', 'addExerciseForm', open);
-  if (!open) return;
-  $('addExerciseForm').scrollIntoView({ block: 'nearest' });
+/** Abre la ventana de nuevo ejercicio (encima de Ajustes), con el formulario vacío y el cursor en el nombre. */
+export function openAddExercise() {
+  resetNewExerciseForm();
+  setSheetVisible('addExerciseModal', 'addExerciseCard', true);
+  pushModal('addexercise');
   $('newExName').focus({ preventScroll: true });
+}
+
+/** Cierra la ventana de nuevo ejercicio sin guardar nada: se vuelve a la lista. */
+export function closeAddExercise() {
+  setSheetVisible('addExerciseModal', 'addExerciseCard', false);
+  dismissModal('addexercise');
+}
+
+/** Deja a la vista el último ejercicio creado en la lista del editor. */
+export function revealLastExercise() {
+  const last = getExercises().at(-1);
+  if (!last) return;
+  const box = Array.from(document.querySelectorAll('.ex-checkbox')).find(cb => /** @type {HTMLInputElement} */ (cb).value === last.name);
+  box?.closest('label')?.scrollIntoView({ block: 'nearest' });
 }
 
 /** Abre o cierra el editor de repeticiones de un ejercicio. @param {string} id */
@@ -511,7 +525,6 @@ export function showSettingsView(view, moveFocus = true) {
   $('settingsBack').classList.toggle('hidden', view === 'menu');
   $('settingsBack').classList.toggle('flex', view !== 'menu');
   setDisclosure('configHelpBtn', 'configHelp', false);
-  setDisclosure('addFormBtn', 'addExerciseForm', false);
   $('settingsFooter').classList.toggle('hidden', view !== 'wheel' && view !== 'appearance' && view !== 'language');
   $('saveConfigBtn').classList.toggle('hidden', view !== 'wheel');
   $('closeSettingsBtn').classList.toggle('hidden', view !== 'appearance' && view !== 'language');
@@ -720,7 +733,6 @@ export function resetNewExerciseForm() {
   updateIconButton();
   $('iconPicker').classList.add('hidden');
   $('iconPickerBtn').setAttribute('aria-expanded', 'false');
-  setDisclosure('addFormBtn', 'addExerciseForm', false);
 }
 
 export function initIconPicker() {
