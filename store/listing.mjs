@@ -13,7 +13,6 @@ export const STORE_LOCALES = [
   { app: 'en-GB', play: 'en-GB', name: 'Inglés (Reino Unido)' },
   { app: 'en-AU', play: 'en-AU', name: 'Inglés (Australia)' },
   { app: 'es', play: 'es-ES', name: 'Español (España)' },
-  { app: 'es-419', play: 'es-419', name: 'Español (Latinoamérica)' },
   { app: 'eu', play: 'eu-ES', name: 'Euskera' },
   { app: 'fr', play: 'fr-FR', name: 'Francés (Francia)' },
   { app: 'fr-CA', play: 'fr-CA', name: 'Francés (Canadá)' },
@@ -122,7 +121,7 @@ GymRoulette es una ruleta de ejercicios: cada sector es un ejercicio y, al girar
 
 <b>TÚ DECIDES QUÉ HAY EN LA RULETA</b>
 • Activa o desactiva los ejercicios que quieras.
-• Crea tus propios ejercicios con nombre, nombre corto e icono.
+• Crea tus propios ejercicios con nombre e icono.
 • Define el rango de repeticiones de cada ejercicio, con un mínimo y un máximo, para ajustar la dificultad.
 • La ruleta se adapta a tu configuración y se guarda en tu dispositivo.
 
@@ -130,11 +129,11 @@ GymRoulette es una ruleta de ejercicios: cada sector es un ejercicio y, al girar
 Elige entre más de 100 iconos de muchas disciplinas, con buscador: fuerza y pesas, calistenia, cardio, yoga, pilates, tai chi, boxeo, karate y otras artes marciales, fitness funcional, carreras de obstáculos, deportes, agua y montaña. Incluye pictogramas propios de flexiones, plancha, abdominales, burpee, sentadilla y mountain climbers.
 
 <b>EN TU IDIOMA</b>
-العربية, English (EE. UU., Reino Unido y Australia), Español (España y Latinoamérica), Euskara, Galego, Català, Français (Francia y Canadá), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe y Português (Brasil y Portugal). La app sigue el idioma de tu móvil y puedes cambiarlo en Configuración.
+العربية, English (EE. UU., Reino Unido y Australia), Español (España y Latinoamérica), Euskara, Galego, Català, Français (Francia y Canadá), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe y Português (Brasil y Portugal). La app sigue el idioma de tu móvil y puedes cambiarlo en Ajustes.
 
 <b>DETALLES QUE SE AGRADECEN</b>
 • <b>Sonido de ruleta y vibración</b> al salir el resultado.
-• <b>Diseño oscuro</b> y cómodo para usar en el gimnasio.
+• <b>Dos apariencias</b>, Suave y Clásico, sobre un diseño oscuro y cómodo para el gimnasio.
 • <b>Sin registro</b> ni cuentas de usuario.
 • <b>Sin anuncios.</b>
 • <b>100 % sin conexión</b>: no necesita conexión a Internet.
@@ -848,9 +847,6 @@ function adapt(listing, pairs) {
     banner: Object.fromEntries(Object.entries(listing.banner).map(([key, value]) => [key, apply(value)])),
   };
 }
-
-// Español de Latinoamérica: "presiona/agrega" y "celular"
-LISTINGS['es-419'] = adapt(LISTINGS.es, [['Pulsa', 'Presiona'], ['Añade', 'Agrega'], ['tu móvil', 'tu celular']]);
 
 // Francés de Canadá: sin espacio antes de « ! » y « ? », y "paramètres" en lugar de "réglages"
 LISTINGS['fr-CA'] = adapt(LISTINGS.fr, [['\u202f!', '!'], ['\u00a0!', '!'], [' !', '!'], ['\u202f?', '?'], ['\u00a0?', '?'], [' ?', '?'], ['Réglages', 'Paramètres']]);

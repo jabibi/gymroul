@@ -1,1 +1,0 @@
-GymRoulette: gira, recibe un ejercicio aleatorio y crea rutinas aleatorias.

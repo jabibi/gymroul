@@ -5,8 +5,8 @@ import { LISTINGS, STORE_LOCALES, LIMITS, NOTES_VERSIONS } from '../store/listin
 import { LANGUAGES } from '../src/i18n/index.js';
 
 describe('ficha de Google Play', () => {
-  it('hay una ficha para cada idioma de la app, con códigos de Play únicos', () => {
-    expect(STORE_LOCALES.map(l => l.app)).toEqual(LANGUAGES.map(l => l.code));
+  it('hay una ficha para cada idioma de la app salvo es-419 (Play enseña la de es-ES), con códigos de Play únicos', () => {
+    expect(STORE_LOCALES.map(l => l.app)).toEqual(LANGUAGES.map(l => l.code).filter(code => code !== 'es-419'));
     expect(new Set(STORE_LOCALES.map(l => l.play)).size).toBe(STORE_LOCALES.length);
     for (const l of STORE_LOCALES) expect(LISTINGS[l.app], l.app).toBeDefined();
   });
@@ -37,10 +37,6 @@ describe('ficha de Google Play', () => {
         if (l.app === 'fr-CA') {
           expect(listing.full).not.toMatch(/[\u00a0 ][!?]/);
           expect(listing.full).not.toContain('Réglages');
-        }
-        if (l.app === 'es-419') {
-          expect(listing.full).not.toMatch(/\bPulsa|\bAñade|tu móvil/);
-          expect(listing.full).toContain('Presiona');
         }
       });
 
