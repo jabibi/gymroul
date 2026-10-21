@@ -28,7 +28,8 @@ Leyenda: `[x]` hecho · `[ ]` pendiente de decidir o de hacer.
 ## Textos
 
 - [ ] **Unificar el nombre del editor.** Hoy: «Configurar ruleta» (menú), «Configuración de la ruleta» (título) y «Configurar» (sector vacío). Propuesta: «Editar ruleta» en los tres sitios (claves `settings.wheel`, `config.title`, `live.configure`; 20 idiomas).
-- [ ] **Tono del resultado.** Para una app de bienestar sobran mayúsculas y exclamaciones: «¡EJERCICIO SELECCIONADO!» → «Tu reto»; «¡Completado!» → «Hecho». Igual con el botón «¡Girar la ruleta!».
+- [x] **Tono del resultado (parte hecha).** «Ejercicio seleccionado» (sin mayúsculas ni exclamación), botón «Girar ruleta» y botón «Empezar» en las novedades, en los 20 idiomas.
+- [ ] **Exclamaciones y mayúsculas que quedan.** «¡Completado!» (`result.done`) y «¡Gira la ruleta!» al final del historial vacío (`history.empty`), en 13 idiomas cada uno; el texto de compartir (`share.text`) lleva «!» en varios idiomas; «GIRAR» en el botón central (`wheel.center`, con `uppercase` en CSS) y los títulos «Ejercicios» y los grupos del selector de iconos, también con `uppercase`. En la ficha de Play: titular del gráfico («¡Gira la ruleta y a entrenar!») y última línea de la descripción.
 - [ ] **Enlaces del pie de Ajustes.** «Privacidad» y «Acerca de» son más estándar que «Compromiso de privacidad» y «Créditos».
 - [ ] **Barra de color del resultado.** Usa el color del sector (índigo, por ejemplo) y no tiene relación con el verde de marca. Decidir si se mantiene.
 
