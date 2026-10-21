@@ -794,14 +794,25 @@ const DOCUMENTS = /** @type {const} */ ({
 
 /** @type {keyof typeof DOCUMENTS | null} */
 let openedDocument = null;
+/** Dirección que muestra ahora el marco del visor. */
+let documentSrc = '';
 
 /** Rellena el visor (título, marco y URL) con el documento abierto en el idioma activo. */
 function renderDocument() {
   if (!openedDocument) return;
   const doc = DOCUMENTS[openedDocument];
   const src = `${doc.page}?lang=${getLanguage()}`;
-  const frame = /** @type {HTMLIFrameElement} */ ($('documentFrame'));
-  if (frame.getAttribute('src') !== src) frame.setAttribute('src', src);
+  let frame = /** @type {HTMLIFrameElement} */ ($('documentFrame'));
+  // Cambiar el src de un marco ya cargado (o usar location.replace desde fuera) añade una entrada al historial del
+  // navegador, y Atrás deshacía primero esa navegación dejando créditos bajo el título de la política. La primera
+  // carga de un marco nuevo no añade entrada: por eso se sustituye el marco entero.
+  if (documentSrc !== src) {
+    documentSrc = src;
+    const fresh = /** @type {HTMLIFrameElement} */ (frame.cloneNode(false));
+    fresh.setAttribute('src', src);
+    frame.replaceWith(fresh);
+    frame = fresh;
+  }
   frame.title = t(doc.titleKey);
   $('documentTitle').textContent = t(doc.titleKey);
 }
