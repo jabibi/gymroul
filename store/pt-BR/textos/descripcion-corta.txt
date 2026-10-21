@@ -1,1 +1,1 @@
-GymRoulette: gire, receba um exercício aleatório e crie rotinas aleatórias.
+A roleta de exercícios aleatória para treinar em casa ou na academia.

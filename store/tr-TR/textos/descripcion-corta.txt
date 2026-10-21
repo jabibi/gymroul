@@ -1,1 +1,1 @@
-GymRoulette: çevir, rastgele egzersiz al, rastgele antrenman rutini oluştur.
+Evde veya spor salonunda antrenman için rastgele egzersiz çarkı.

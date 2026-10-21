@@ -1,1 +1,1 @@
-GymRoulette : tourne, reçois un exercice aléatoire et des routines aléatoires.
+La roue d'exercices aléatoires pour s'entraîner chez soi ou en salle.

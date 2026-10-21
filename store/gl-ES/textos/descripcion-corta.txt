@@ -1,1 +1,1 @@
-GymRoulette: xira, recibe un exercicio aleatorio e crea rutinas aleatorias.
+A ruleta de exercicios aleatoria para adestrar na casa ou no ximnasio.

@@ -45,8 +45,8 @@ const notesText = (word, ...versions) =>
 
 export const LISTINGS = {
   en: {
-    title: 'Exercise Wheel: Random Workout',
-    short: 'GymRoulette: spin, get a random exercise and build random workout routines.',
+    title: 'GymRoulette: Exercise Wheel',
+    short: 'The random exercise wheel to work out at home or at the gym.',
     banner: { line1: 'Spin the wheel', line2: 'and get training', tagline: 'Random exercises to challenge you every day', button: 'Spin the wheel' },
     notes: notesText('Version', [
       'New look: new icon and a choice of two appearances, Soft and Classic.',
@@ -94,8 +94,8 @@ Spin the wheel and let's train.`,
   },
 
   es: {
-    title: 'Ruleta de ejercicios aleatoria',
-    short: 'GymRoulette: gira, recibe un ejercicio aleatorio y crea rutinas aleatorias.',
+    title: 'GymRoulette: Ruleta Ejercicios',
+    short: 'La ruleta de ejercicios aleatoria para entrenar en casa o en el gimnasio.',
     banner: { line1: 'Gira la ruleta', line2: 'y a entrenar', tagline: 'Ejercicios aleatorios para retarte cada día', button: 'Girar ruleta' },
     notes: notesText('Versión', [
       'Nuevo aspecto: icono nuevo y dos apariencias a elegir, Suave y Clásico.',
@@ -143,8 +143,8 @@ Gira la ruleta y a entrenar.`,
   },
 
   eu: {
-    title: 'Ariketen gurpila ausazkoa',
-    short: 'GymRoulette: biratu, jaso ausazko ariketa bat eta sortu ausazko errutinak.',
+    title: 'GymRoulette: Ariketa Gurpila',
+    short: 'Ariketa aleatorioen gurpila etxean edo gimnasioan entrenatzeko.',
     banner: { line1: 'Biratu gurpila', line2: 'eta entrenatzera', tagline: 'Ausazko ariketak egunero zure burua probatzeko', button: 'Biratu gurpila' },
     notes: notesText('Bertsioa', [
       'Itxura berria: ikono berria eta aukeratzeko bi itxura, Leuna eta Klasikoa.',
@@ -192,8 +192,8 @@ Biratu gurpila eta entrenatzera.`,
   },
 
   gl: {
-    title: 'Ruleta de exercicios aleatoria',
-    short: 'GymRoulette: xira, recibe un exercicio aleatorio e crea rutinas aleatorias.',
+    title: 'GymRoulette: Ruleta Exercicios',
+    short: 'A ruleta de exercicios aleatoria para adestrar na casa ou no ximnasio.',
     banner: { line1: 'Xira a ruleta', line2: 'e a adestrar', tagline: 'Exercicios aleatorios para retarte cada día', button: 'Xirar a ruleta' },
     notes: notesText('Versión', [
       'Novo aspecto: icona nova e dúas aparencias para elixir, Suave e Clásico.',
@@ -241,8 +241,8 @@ Xira a ruleta e a adestrar.`,
   },
 
   ar: {
-    title: 'عجلة التمارين: تمرين عشوائي',
-    short: 'GymRoulette: أدر العجلة، واحصل على تمرين عشوائي وروتين تمارين عشوائي.',
+    title: 'GymRoulette: عجلة التمارين',
+    short: 'عجلة التمارين العشوائية للتمرن في المنزل أو في النادي الرياضي.',
     banner: { line1: 'أدر العجلة', line2: 'وهيّا إلى التمرين', tagline: 'تمارين عشوائية تتحداك كل يوم', button: 'أدر العجلة' },
     notes: notesText('الإصدار', [
       'مظهر جديد: أيقونة جديدة ومظهران للاختيار، ناعم وكلاسيكي.',
@@ -290,8 +290,8 @@ GymRoulette عجلة للتمارين: كل قطاع هو تمرين، وعند�
   },
 
   ca: {
-    title: 'Ruleta d\'exercicis aleatoris',
-    short: 'GymRoulette: gira, rep un exercici aleatori i crea rutines aleatòries.',
+    title: 'GymRoulette: Ruleta Exercicis',
+    short: 'La ruleta d\'exercicis aleatòria per entrenar a casa o al gimnàs.',
     banner: { line1: 'Gira la ruleta', line2: 'i a entrenar', tagline: 'Exercicis aleatoris per reptar-te cada dia', button: 'Gira la ruleta' },
     notes: notesText('Versió', [
       'Nou aspecte: icona nova i dues aparences a triar, Suau i Clàssic.',
@@ -339,8 +339,8 @@ Gira la ruleta i a entrenar.`,
   },
 
   fr: {
-    title: 'Roue d\'exercices aléatoire',
-    short: 'GymRoulette : tourne, reçois un exercice aléatoire et des routines aléatoires.',
+    title: 'GymRoulette : Roue d\'exercices',
+    short: 'La roue d\'exercices aléatoires pour s\'entraîner chez soi ou en salle.',
     banner: { line1: 'Lance la roue', line2: "et c'est parti", tagline: 'Des exercices au hasard pour te défier chaque jour', button: 'Lancer la roue' },
     notes: notesText('Version', [
       'Nouvel aspect : nouvelle icône et deux apparences au choix, Doux et Classique.',
@@ -388,8 +388,8 @@ Lance la roue et c'est parti.`,
   },
 
   de: {
-    title: 'Übungsrad: Zufälliges Training',
-    short: 'GymRoulette: Dreh das Rad, erhalte eine zufällige Übung und zufällige Workouts.',
+    title: 'GymRoulette: Übungsrad',
+    short: 'Das Zufalls-Übungsrad für dein Training zu Hause oder im Fitnessstudio.',
     banner: { line1: 'Dreh das Rad', line2: 'und ab ins Training', tagline: 'Zufällige Übungen, die dich jeden Tag fordern', button: 'Rad drehen' },
     notes: notesText('Version', [
       'Neuer Look: neues Symbol und zwei Designs zur Wahl, Sanft und Klassisch.',
@@ -437,8 +437,8 @@ Dreh das Rad und ab ins Training.`,
   },
 
   it: {
-    title: 'Ruota degli esercizi casuali',
-    short: 'GymRoulette: gira, ricevi un esercizio casuale e crea routine casuali.',
+    title: 'GymRoulette: Ruota Esercizi',
+    short: 'La ruota di esercizi casuali per allenarti a casa o in palestra.',
     banner: { line1: 'Gira la ruota', line2: 'e allenati', tagline: 'Esercizi casuali per metterti alla prova ogni giorno', button: 'Gira la ruota' },
     notes: notesText('Versione', [
       'Nuovo aspetto: nuova icona e due aspetti a scelta, Morbido e Classico.',
@@ -486,8 +486,8 @@ Gira la ruota e allenati.`,
   },
 
   'pt-BR': {
-    title: 'Roleta de exercícios aleatória',
-    short: 'GymRoulette: gire, receba um exercício aleatório e crie rotinas aleatórias.',
+    title: 'GymRoulette: Roleta Exercícios',
+    short: 'A roleta de exercícios aleatória para treinar em casa ou na academia.',
     banner: { line1: 'Gire a roleta', line2: 'e vá treinar', tagline: 'Exercícios aleatórios para te desafiar todo dia', button: 'Girar roleta' },
     notes: notesText('Versão', [
       'Novo visual: ícone novo e duas aparências à escolha, Suave e Clássico.',
@@ -535,8 +535,8 @@ Gire a roleta e vá treinar.`,
   },
 
   'pt-PT': {
-    title: 'Roleta de exercícios aleatória',
-    short: 'GymRoulette: gira, recebe um exercício aleatório e cria rotinas aleatórias.',
+    title: 'GymRoulette: Roleta Exercícios',
+    short: 'A roleta de exercícios aleatória para treinar em casa ou no ginásio.',
     banner: { line1: 'Gira a roleta', line2: 'e vai treinar', tagline: 'Exercícios aleatórios para te desafiares todos os dias', button: 'Girar roleta' },
     notes: notesText('Versão', [
       'Novo visual: ícone novo e duas aparências à escolha, Suave e Clássico.',
@@ -584,8 +584,8 @@ Gira a roleta e vai treinar.`,
   },
 
   pl: {
-    title: 'Koło ćwiczeń: losowe treningi',
-    short: 'GymRoulette: zakręć, wylosuj ćwiczenie i twórz losowe treningi.',
+    title: 'GymRoulette: Koło ćwiczeń',
+    short: 'Losowa ruletka ćwiczeń do treningu w domu lub na siłowni.',
     banner: { line1: 'Zakręć kołem', line2: 'i ruszaj na trening', tagline: 'Losowe ćwiczenia, które rzucają ci wyzwanie każdego dnia', button: 'Zakręć kołem' },
     notes: notesText('Wersja', [
       'Nowy wygląd: nowa ikona i dwa style do wyboru, Delikatny i Klasyczny.',
@@ -633,8 +633,8 @@ Zakręć kołem i trenujemy.`,
   },
 
   hi: {
-    title: 'एक्सरसाइज़ व्हील: रैंडम रूटीन',
-    short: 'GymRoulette: व्हील घुमाएँ, रैंडम एक्सरसाइज़ पाएँ और रैंडम रूटीन बनाएँ।',
+    title: 'GymRoulette: एक्सरसाइज़ व्हील',
+    short: 'घर पर या जिम में वर्कआउट के लिए रैंडम एक्सरसाइज़ व्हील।',
     banner: { line1: 'चक्र घुमाएँ', line2: 'और वर्कआउट करें', tagline: 'हर दिन आपको चुनौती देने वाली रैंडम एक्सरसाइज़', button: 'चक्र घुमाएँ' },
     notes: notesText('संस्करण', [
       'नया रूप: नया आइकन और चुनने के लिए दो रूप, सॉफ्ट और क्लासिक।',
@@ -682,8 +682,8 @@ GymRoulette पूरी तरह ऑफ़लाइन है और कोई
   },
 
   tr: {
-    title: 'Rastgele Egzersiz Çarkı',
-    short: 'GymRoulette: çevir, rastgele egzersiz al, rastgele antrenman rutini oluştur.',
+    title: 'GymRoulette: Egzersiz Çarkı',
+    short: 'Evde veya spor salonunda antrenman için rastgele egzersiz çarkı.',
     banner: { line1: 'Çarkı çevir', line2: 've antrenmana başla', tagline: 'Seni her gün zorlayacak rastgele egzersizler', button: 'Çarkı çevir' },
     notes: notesText('Sürüm', [
       'Yeni görünüm: yeni simge ve seçebileceğin iki görünüm, Yumuşak ve Klasik.',
@@ -731,8 +731,8 @@ GymRoulette tamamen çevrimdışıdır ve hiçbir veri toplamaz: analiz yok, izl
   },
 
   ja: {
-    title: 'エクササイズルーレット：ランダムトレーニング',
-    short: 'GymRoulette：ルーレットを回してランダムなエクササイズとトレーニングメニューを作ろう。',
+    title: 'GymRoulette：エクササイズルーレット',
+    short: '自宅でもジムでも使える、ランダムなエクササイズルーレット。',
     banner: { line1: 'ルーレットを回して', line2: 'トレーニングを始めよう', tagline: 'ランダムなエクササイズで毎日チャレンジ', button: 'ルーレットを回す' },
     notes: notesText('バージョン', [
       '新しい見た目：アイコンを刷新し、ソフトとクラシックの2つの外観から選べます。',
@@ -779,8 +779,8 @@ GymRouletteは完全オフラインで、データを一切収集しません。
 さあ、ルーレットを回してトレーニングを始めましょう。`,
   },
   nl: {
-    title: 'Willekeurig oefeningenrad',
-    short: 'GymRoulette: draai, krijg een willekeurige oefening en willekeurige routines.',
+    title: 'GymRoulette: Oefeningenrad',
+    short: 'Het willekeurige oefeningenrad om thuis of in de sportschool te trainen.',
     banner: { line1: 'Draai aan het rad', line2: 'en ga trainen', tagline: 'Willekeurige oefeningen die je elke dag uitdagen', button: 'Draai het rad' },
     notes: notesText('Versie', [
       'Nieuwe look: nieuw pictogram en twee uiterlijken om uit te kiezen, Zacht en Klassiek.',

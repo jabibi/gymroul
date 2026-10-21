@@ -1,1 +1,1 @@
-GymRoulette: biratu, jaso ausazko ariketa bat eta sortu ausazko errutinak.
+Ariketa aleatorioen gurpila etxean edo gimnasioan entrenatzeko.

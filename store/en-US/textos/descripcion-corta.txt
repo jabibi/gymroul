@@ -1,1 +1,1 @@
-GymRoulette: spin, get a random exercise and build random workout routines.
+The random exercise wheel to work out at home or at the gym.

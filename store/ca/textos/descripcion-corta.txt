@@ -1,1 +1,1 @@
-GymRoulette: gira, rep un exercici aleatori i crea rutines aleatòries.
+La ruleta d'exercicis aleatòria per entrenar a casa o al gimnàs.

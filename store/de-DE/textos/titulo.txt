@@ -1,1 +1,1 @@
-Übungsrad: Zufälliges Training
+GymRoulette: Übungsrad

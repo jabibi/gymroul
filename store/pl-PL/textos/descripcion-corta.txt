@@ -1,1 +1,1 @@
-GymRoulette: zakręć, wylosuj ćwiczenie i twórz losowe treningi.
+Losowa ruletka ćwiczeń do treningu w domu lub na siłowni.

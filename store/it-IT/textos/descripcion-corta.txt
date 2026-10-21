@@ -1,1 +1,1 @@
-GymRoulette: gira, ricevi un esercizio casuale e crea routine casuali.
+La ruota di esercizi casuali per allenarti a casa o in palestra.

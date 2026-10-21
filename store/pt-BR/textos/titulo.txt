@@ -1,1 +1,1 @@
-Roleta de exercícios aleatória
+GymRoulette: Roleta Exercícios
