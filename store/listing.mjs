@@ -246,7 +246,7 @@ Xira a ruleta e a adestrar!`,
     banner: { line1: 'أدر العجلة', line2: 'وهيّا إلى التمرين!', tagline: 'تمارين عشوائية تتحداك كل يوم', button: 'أدر العجلة!' },
     notes: notesText('الإصدار', [
       'مظهر جديد: أيقونة جديدة ومظهران للاختيار، ناعم وكلاسيكي.',
-      'أصبحت الإعدادات قائمة: العجلة والمظهر واللغة والخصوصية والشكر.',
+      'أصبحت الإعدادات قائمة: العجلة والمظهر واللغة والخصوصية وشكر وتقدير.',
       'أسماء التمارين كاملة على العجلة ونص أكبر وأوضح.',
     ], [
       'سجل أوضح: يعرض كل تمرين أيقونته، وملخص يجمع جلستك.',
@@ -393,7 +393,7 @@ Lance la roue et c'est parti !`,
     banner: { line1: 'Dreh das Rad', line2: 'und ab ins Training!', tagline: 'Zufällige Übungen, die dich jeden Tag fordern', button: 'RAD DREHEN!' },
     notes: notesText('Version', [
       'Neuer Look: neues Symbol und zwei Designs zur Wahl, Sanft und Klassisch.',
-      'Einstellungen als Menü: Rad, Darstellung, Sprache, Datenschutz und Credits.',
+      'Einstellungen als Menü: Rad, Darstellung, Sprache, Datenschutz und Danksagungen.',
       'Vollständige Übungsnamen auf dem Rad und größere, lesbarere Schrift.',
     ], [
       'Ein übersichtlicherer Verlauf: Jede Übung zeigt ihr Symbol, und eine Zusammenfassung zählt dein Training zusammen.',
@@ -589,7 +589,7 @@ Gira a roleta e vai treinar!`,
     banner: { line1: 'Zakręć kołem', line2: 'i ruszaj na trening!', tagline: 'Losowe ćwiczenia, które rzucają ci wyzwanie każdego dnia', button: 'ZAKRĘĆ KOŁEM!' },
     notes: notesText('Wersja', [
       'Nowy wygląd: nowa ikona i dwa style do wyboru, Delikatny i Klasyczny.',
-      'Ustawienia jako menu: koło, wygląd, język, prywatność i autorzy.',
+      'Ustawienia jako menu: koło, wygląd, język, prywatność i podziękowania.',
       'Pełne nazwy ćwiczeń na kole oraz większy, czytelniejszy tekst.',
     ], [
       'Czytelniejsza historia: każde ćwiczenie ma swoją ikonę, a podsumowanie zlicza twój trening.',
@@ -638,7 +638,7 @@ Zakręć kołem i trenujemy!`,
     banner: { line1: 'चक्र घुमाएँ', line2: 'और वर्कआउट करें!', tagline: 'हर दिन आपको चुनौती देने वाली रैंडम एक्सरसाइज़', button: 'चक्र घुमाएँ!' },
     notes: notesText('संस्करण', [
       'नया रूप: नया आइकन और चुनने के लिए दो रूप, सॉफ्ट और क्लासिक।',
-      'सेटिंग्स अब एक मेन्यू है: व्हील, दिखावट, भाषा, गोपनीयता और क्रेडिट।',
+      'सेटिंग्स अब एक मेन्यू है: व्हील, दिखावट, भाषा, गोपनीयता और श्रेय।',
       'व्हील पर एक्सरसाइज़ के पूरे नाम और बड़ा, पढ़ने में आसान टेक्स्ट।',
     ], [
       'ज़्यादा साफ़ इतिहास: हर एक्सरसाइज़ अपने आइकन के साथ दिखती है, और एक सारांश आपके सेशन का जोड़ बताता है।',
@@ -687,7 +687,7 @@ GymRoulette पूरी तरह ऑफ़लाइन है और कोई
     banner: { line1: 'Çarkı çevir', line2: 've antrenmana başla!', tagline: 'Seni her gün zorlayacak rastgele egzersizler', button: 'ÇARKI ÇEVİR!' },
     notes: notesText('Sürüm', [
       'Yeni görünüm: yeni simge ve seçebileceğin iki görünüm, Yumuşak ve Klasik.',
-      'Ayarlar artık bir menü: çark, görünüm, dil, gizlilik ve emeği geçenler.',
+      'Ayarlar artık bir menü: çark, görünüm, dil, gizlilik ve katkıda bulunanlar.',
       'Çarkta tam egzersiz adları ve daha büyük, okunaklı yazı.',
     ], [
       'Daha net bir geçmiş: her egzersiz simgesiyle görünür ve bir özet antrenmanını toplar.',
@@ -784,7 +784,7 @@ GymRouletteは完全オフラインで、データを一切収集しません。
     banner: { line1: 'Draai aan het rad', line2: 'en ga trainen!', tagline: 'Willekeurige oefeningen die je elke dag uitdagen', button: 'DRAAI HET RAD!' },
     notes: notesText('Versie', [
       'Nieuwe look: nieuw pictogram en twee uiterlijken om uit te kiezen, Zacht en Klassiek.',
-      'Instellingen is nu een menu: rad, uiterlijk, taal, privacy en credits.',
+      'Instellingen is nu een menu: rad, uiterlijk, taal, privacy en dankbetuigingen.',
       'Volledige oefennamen op het rad en grotere, beter leesbare tekst.',
     ], [
       'Een overzichtelijker geschiedenis: elke oefening toont zijn pictogram en een samenvatting telt je training op.',

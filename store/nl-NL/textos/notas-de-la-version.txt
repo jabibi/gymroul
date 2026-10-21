@@ -1,6 +1,6 @@
 Versie 1.17 (Muted Tones):
 • Nieuwe look: nieuw pictogram en twee uiterlijken om uit te kiezen, Zacht en Klassiek.
-• Instellingen is nu een menu: rad, uiterlijk, taal, privacy en credits.
+• Instellingen is nu een menu: rad, uiterlijk, taal, privacy en dankbetuigingen.
 • Volledige oefennamen op het rad en grotere, beter leesbare tekst.
 
 Versie 1.16 (Six Pack):

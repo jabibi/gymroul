@@ -1,7 +1,7 @@
 // Comprueba, con la app real en Chrome sin interfaz, que ningún texto se corta ni se pisa en cada pantalla y en
 // cada idioma (sobre todo en los de derecha a izquierda, donde cambian el orden y las alturas de línea).
 //
-// Para cada idioma y cada tamaño de móvil recorre: ruleta, resultado, historial, ajustes (menú, apariencia, idioma y editor de ejercicios), selector de
+// Para cada idioma y cada tamaño de móvil recorre: ruleta, resultado, historial, ajustes (menú, apariencia, idioma y editor de ejercicios), novedades, selector de
 // iconos, compromiso de privacidad y visor de documentos, y en cada pantalla busca:
 //   - texto que sobresale de su contenedor recortado (overflow oculto, p. ej. «truncate» o una caja de altura fija)
 //   - texto que se sale de la pantalla o genera desplazamiento horizontal
@@ -190,7 +190,7 @@ let total = 0;
 const browsers = [];
 
 /** @param {string} lang @param {{ width: number, height: number }} vp */
-async function openApp(browser, lang, vp) {
+async function openApp(browser, lang, vp, existingUser = false) {
   const page = await browser.newPage();
   await page.setViewport({ ...vp, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
   await page.setRequestInterception(true);
@@ -201,8 +201,16 @@ async function openApp(browser, lang, vp) {
   if (stress) {
     await page.evaluateOnNewDocument(list => {
       localStorage.setItem('gym_schema_version', '8');
+      localStorage.setItem('gym_whatsnew_seen', JSON.stringify('1.17')); // sin esto saldría el aviso de novedades, que tapa la ruleta
       localStorage.setItem('gym_exercises', JSON.stringify(list));
     }, STRESS_EXERCISES);
+  } else if (existingUser) {
+    // Quien ya tenía la app: la instalación nueva no ve las novedades
+    // (el almacenamiento se comparte entre las páginas de un mismo Chrome: la primera ya dio las novedades por vistas)
+    await page.evaluateOnNewDocument(() => {
+      localStorage.setItem('gym_schema_version', '11');
+      localStorage.removeItem('gym_whatsnew_seen');
+    });
   }
   await page.goto(`${BASE}?lang=${lang}`, { waitUntil: 'networkidle0' });
   await page.evaluate(() => document.fonts.ready);
@@ -297,6 +305,16 @@ async function checkViewport(browser, lang, vp) {
   await wait(300);
   await check(page, lang, vp, '07-sin-iconos');
   await page.close();
+
+  // Novedades tras actualizar (salen solas un instante después de abrir la app) y el salto a Apariencia
+  const news = await openApp(browser, lang, vp, true);
+  await news.waitForFunction(() => !document.getElementById('whatsNewModal').classList.contains('pointer-events-none'), { timeout: 10000 });
+  await wait(600);
+  await check(news, lang, vp, '10-novedades');
+  await news.click('[data-action=whatsnew-appearance]');
+  await wait(600);
+  await check(news, lang, vp, '10b-novedades-a-apariencia');
+  await news.close();
 
   // Compromiso de privacidad (desde Configuración) y, encima, la política completa
   const privacy = await openApp(browser, lang, vp);

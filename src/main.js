@@ -7,7 +7,7 @@ import { App as CapacitorApp } from '@capacitor/app';
 import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, getSpinSpeed, refreshBrand } from './wheel.js';
 import { generateSegments, rollReps, CONFIG_SEGMENT } from './wheel-math.js';
 import {
-  migrate, loadActive, getExercises, active, setActive,
+  migrate, isFreshInstall, loadActive, getExercises, active, setActive,
   addExercise, removeExercise, updateExerciseReps,
 } from './store.js';
 import { toggleSound, initAudio } from './audio.js';
@@ -15,6 +15,7 @@ import * as ui from './ui.js';
 import { cleanShareCache } from './share.js';
 import { exerciseName } from './exercise-names.js';
 import { loadTheme, setTheme, themeColor } from './theme.js';
+import { shouldShowWhatsNew, markWhatsNewSeen } from './whats-new.js';
 import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from './i18n/index.js';
 
 /** @typedef {import('./wheel-math.js').Segment} Segment */
@@ -35,6 +36,9 @@ function redirectIfUnconfigured() {
   }
   return false;
 }
+
+/** Pausa entre que se pinta la ruleta y salen las novedades */
+const WHATS_NEW_DELAY_MS = 700;
 
 /** Por encima de esta velocidad (rad/fotograma) los nombres pasan tan deprisa que el marcador se desenfoca */
 const BLUR_SPEED = 0.1;
@@ -98,6 +102,8 @@ const actions = {
   'close-history': () => ui.closeHistory(),
   'clear-history': () => ui.requestClearHistory(),
   'open-settings': () => ui.openSettings(),
+  'close-whatsnew': () => ui.closeWhatsNew(),
+  'whatsnew-appearance': () => ui.whatsNewToAppearance(),
   'settings-open': arg => arg && ui.showSettingsView(/** @type {'wheel' | 'appearance' | 'language'} */ (arg)),
   'settings-back': () => ui.settingsBack(),
   'set-language': arg => { if (arg && isSupported(arg) && setLanguage(arg)) applyLanguage(); },
@@ -173,6 +179,7 @@ function init() {
   // El idioma elegido a mano se guarda; el detectado del dispositivo no, para seguir sus cambios
   setLanguage(detectLanguage(), { persist: false });
   applyTranslations();
+  const freshInstall = isFreshInstall(); // antes de migrate(), que deja guardada la versión del esquema
   migrate();
   loadTheme();
   loadActive();
@@ -191,6 +198,12 @@ function init() {
   resize();
   ui.renderHistory();
   cleanShareCache(); // por si quedó la imagen temporal de un reto compartido en otra sesión
+
+  // Novedades tras actualizar: un instante después de pintar la ruleta, y se dan por vistas al enseñarlas para no repetirlas
+  if (shouldShowWhatsNew(freshInstall)) {
+    markWhatsNewSeen();
+    setTimeout(() => ui.openWhatsNew(), WHATS_NEW_DELAY_MS);
+  }
 }
 
 init();

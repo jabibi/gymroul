@@ -1,6 +1,6 @@
 Sürüm 1.17 (Muted Tones):
 • Yeni görünüm: yeni simge ve seçebileceğin iki görünüm, Yumuşak ve Klasik.
-• Ayarlar artık bir menü: çark, görünüm, dil, gizlilik ve emeği geçenler.
+• Ayarlar artık bir menü: çark, görünüm, dil, gizlilik ve katkıda bulunanlar.
 • Çarkta tam egzersiz adları ve daha büyük, okunaklı yazı.
 
 Sürüm 1.16 (Six Pack):

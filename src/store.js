@@ -182,6 +182,14 @@ const MIGRATIONS = {
   },
 };
 
+/**
+ * true si la app nunca guardó nada en este dispositivo (instalación nueva). Hay que preguntarlo antes de migrate(), que
+ * fija la versión del esquema.
+ */
+export function isFreshInstall() {
+  try { return localStorage.getItem(KEY_SCHEMA) === null; } catch (e) { return true; }
+}
+
 /** Aplica las migraciones pendientes y fija la versión actual. */
 export function migrate() {
   let version = readStorage(KEY_SCHEMA, 0, v => Number.isInteger(v) && v >= 0);

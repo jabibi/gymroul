@@ -5,6 +5,7 @@ import { exerciseName } from './exercise-names.js';
 import { isolate } from './wheel-math.js';
 import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE, COLOR_PALETTE } from './store.js';
 import { THEMES, THEME_BRAND, getTheme, themeColor } from './theme.js';
+import { WHATS_NEW_VERSION } from './whats-new.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
 import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
 import { shareChallenge } from './share.js';
@@ -82,7 +83,7 @@ export function pulseIndicator() {
 // Cada modal que se abre añade una entrada al historial del navegador: así el botón
 // "Atrás" de Android (o del navegador) lo cierra en lugar de salir de la app.
 
-/** @typedef {'result' | 'history' | 'config' | 'share' | 'commitment' | 'document'} ModalName */
+/** @typedef {'result' | 'history' | 'config' | 'share' | 'commitment' | 'document' | 'whatsnew'} ModalName */
 // Pila de modales abiertos (el último es el que está encima): la política de privacidad
 // puede abrirse sobre la configuración y Atrás debe cerrar primero la de arriba
 /** @type {ModalName[]} */
@@ -98,6 +99,7 @@ const closers = {
   share: () => cancelShare(),
   commitment: () => closeCommitment(),
   document: () => closeDocument(),
+  whatsnew: () => closeWhatsNew(),
 };
 
 /** @param {ModalName} name */
@@ -170,7 +172,7 @@ export function initModals() {
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeActiveModal(); });
 
   // Tocar el fondo cierra historial, configuración y compromiso de privacidad (el reto pendiente solo se cierra con sus botones, Esc o Atrás)
-  ['historyModal', 'configModal', 'commitmentModal'].forEach(id => {
+  ['historyModal', 'configModal', 'commitmentModal', 'whatsNewModal'].forEach(id => {
     const modal = $(id);
     modal.addEventListener('click', e => { if (e.target === modal) closeActiveModal(); });
   });
@@ -545,6 +547,36 @@ export function renderSettings() {
   });
 }
 
+// --- Novedades ---------------------------------------------------------------------------
+
+/** Pinta los textos con parámetros (título y cómo recuperar la apariencia original); el resto va con data-i18n. */
+export function renderWhatsNew() {
+  $('whatsNewTitle').textContent = t('whatsnew.title', { version: WHATS_NEW_VERSION });
+  // Los nombres salen de los mismos textos que Ajustes: lo que dice el aviso es siempre lo que se verá en pantalla
+  $('whatsNewClassicText').textContent = t('whatsnew.classicText', {
+    settings: t('settings.title'),
+    appearance: t('settings.appearance'),
+    classic: t('appearance.classic'),
+  });
+}
+
+export function openWhatsNew() {
+  renderWhatsNew();
+  setSheetVisible('whatsNewModal', 'whatsNewCard', true);
+  pushModal('whatsnew');
+}
+
+export function closeWhatsNew() {
+  setSheetVisible('whatsNewModal', 'whatsNewCard', false);
+  dismissModal('whatsnew');
+}
+
+/** Del aviso a Apariencia: Ajustes ocupa el sitio de las novedades en la pila, así que Atrás lo cierra sin volver al aviso. */
+export function whatsNewToAppearance() {
+  setSheetVisible('whatsNewModal', 'whatsNewCard', false);
+  openSettingsAt('appearance', 'whatsnew');
+}
+
 /** Abre Ajustes en el menú. */
 export function openSettings() {
   openSettingsAt('menu');
@@ -555,14 +587,22 @@ export function openConfig() {
   openSettingsAt('wheel');
 }
 
-/** @param {SettingsView} view */
-function openSettingsAt(view) {
+/**
+ * @param {SettingsView} view
+ * @param {ModalName} [replacing] panel de la cima de la pila al que sustituye Ajustes (sin añadir otra entrada al historial)
+ */
+function openSettingsAt(view, replacing) {
   repsEditorOpen = '';
   renderConfig();
   renderSettings();
   showSettingsView(view, false); // al abrir, manageFocus ya lleva el foco al panel
   setSheetVisible('configModal', 'configCard', true);
-  pushModal('config');
+  if (replacing && modalStack[modalStack.length - 1] === replacing) {
+    modalStack[modalStack.length - 1] = 'config';
+    window.history.replaceState({ modal: 'config' }, '');
+  } else {
+    pushModal('config');
+  }
 }
 
 export function closeConfig() {
@@ -784,6 +824,7 @@ export function closeDocument() {
 /** Vuelve a pintar lo que se genera por código cuando cambia el idioma (el marcado fijo lo hace applyTranslations). */
 export function refreshLanguage() {
   renderSettings();
+  renderWhatsNew();
   renderConfig(true);
   renderHistory();
   updateIconButton();
