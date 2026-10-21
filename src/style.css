@@ -92,6 +92,12 @@ input, textarea {
     border: solid transparent;
     border-width: var(--sat) var(--sar) var(--sab) var(--sal);
 }
+/* Panel inferior: el fondo respeta las barras de arriba y de los lados, pero el panel llega hasta el borde de abajo
+   (la barra de gestos se ve sobre el propio panel) y su relleno inferior suma --sab para que ningún elemento la ocupe */
+.safe-edge-sheet {
+    border: solid transparent;
+    border-width: var(--sat) var(--sar) 0 var(--sal);
+}
 .wheel-shadow {
     filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.85));
 }

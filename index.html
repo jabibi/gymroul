@@ -114,8 +114,8 @@
     </div>
 
     <!-- Modal de Historial -->
-    <div id="historyModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="historyTitle" aria-hidden="true" class="outline-none safe-edge fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
-        <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-6 max-h-[80dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="historyCard">
+    <div id="historyModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="historyTitle" aria-hidden="true" class="outline-none safe-edge-sheet fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-6 pb-[calc(1.5rem+var(--sab))] max-h-[80dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="historyCard">
             <div class="flex justify-between items-center gap-3 mb-3">
                 <h3 id="historyTitle" class="font-black text-lg leading-tight text-white min-w-0 break-words" data-i18n="history.title">Session history</h3>
                 <button data-action="close-history" aria-label="Close history" data-i18n-aria-label="history.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
@@ -182,8 +182,8 @@
     </div>
 
     <!-- Modal de Configuración & CRUD -->
-    <div id="configModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="configTitle" aria-hidden="true" class="outline-none safe-edge fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
-        <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 sm:p-6 max-h-[calc(100dvh-0.5rem-var(--sat)-var(--sab))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="configCard">
+    <div id="configModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="configTitle" aria-hidden="true" class="outline-none safe-edge-sheet fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 pb-[calc(1rem+var(--sab))] sm:p-6 max-h-[calc(100dvh-0.5rem-var(--sat))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="configCard">
             <div class="flex justify-between items-center gap-3 mb-3">
                 <div class="flex items-center gap-2.5 min-w-0">
                     <button id="settingsBack" type="button" data-action="settings-back" aria-label="Back" data-i18n-aria-label="settings.back" class="hidden w-11 h-11 -ms-2 shrink-0 rounded-xl text-slate-300 hover:text-white items-center justify-center">
