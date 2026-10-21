@@ -24,22 +24,22 @@ store/
 ## Idiomas y longitud de los textos
 | Carpeta | Idioma en Play Console | Descripción breve | Descripción completa | Novedades |
 |---|---|---|---|---|
-| `ar` | Árabe | 69/80 | 2127/4000 | 335/500 |
-| `ca` | Catalán | 70/80 | 2576/4000 | 426/500 |
-| `de-DE` | Alemán | 79/80 | 2790/4000 | 469/500 |
-| `en-US` | Inglés (Estados Unidos) | 75/80 | 2470/4000 | 409/500 |
-| `es-ES` | Español (España) | 75/80 | 2563/4000 | 445/500 |
-| `eu-ES` | Euskera | 74/80 | 2694/4000 | 473/500 |
-| `fr-FR` | Francés (Francia) | 78/80 | 2788/4000 | 485/500 |
-| `gl-ES` | Gallego | 75/80 | 2555/4000 | 444/500 |
-| `hi-IN` | Hindi | 70/80 | 2477/4000 | 432/500 |
-| `it-IT` | Italiano | 70/80 | 2608/4000 | 471/500 |
-| `ja-JP` | Japonés | 48/80 | 1373/4000 | 255/500 |
-| `nl-NL` | Neerlandés | 77/80 | 2714/4000 | 484/500 |
-| `pl-PL` | Polaco | 63/80 | 2528/4000 | 434/500 |
-| `pt-BR` | Portugués (Brasil) | 75/80 | 2574/4000 | 441/500 |
-| `pt-PT` | Portugués (Portugal) | 75/80 | 2598/4000 | 442/500 |
-| `tr-TR` | Turco | 76/80 | 2450/4000 | 422/500 |
+| `ar` | Árabe | 69/80 | 2126/4000 | 335/500 |
+| `ca` | Catalán | 70/80 | 2575/4000 | 426/500 |
+| `de-DE` | Alemán | 79/80 | 2789/4000 | 469/500 |
+| `en-US` | Inglés (Estados Unidos) | 75/80 | 2469/4000 | 409/500 |
+| `es-ES` | Español (España) | 75/80 | 2560/4000 | 445/500 |
+| `eu-ES` | Euskera | 74/80 | 2693/4000 | 473/500 |
+| `fr-FR` | Francés (Francia) | 78/80 | 2785/4000 | 485/500 |
+| `gl-ES` | Gallego | 75/80 | 2554/4000 | 444/500 |
+| `hi-IN` | Hindi | 70/80 | 2476/4000 | 432/500 |
+| `it-IT` | Italiano | 70/80 | 2607/4000 | 471/500 |
+| `ja-JP` | Japonés | 48/80 | 1372/4000 | 255/500 |
+| `nl-NL` | Neerlandés | 77/80 | 2713/4000 | 484/500 |
+| `pl-PL` | Polaco | 63/80 | 2527/4000 | 434/500 |
+| `pt-BR` | Portugués (Brasil) | 75/80 | 2573/4000 | 441/500 |
+| `pt-PT` | Portugués (Portugal) | 75/80 | 2597/4000 | 442/500 |
+| `tr-TR` | Turco | 76/80 | 2449/4000 | 422/500 |
 
 ## Dónde sube cada archivo en Play Console
 En **Presencia en Google Play Store → Fichas de Play Store**, elige el idioma arriba (*Gestionar idiomas* para añadirlos) y rellena:

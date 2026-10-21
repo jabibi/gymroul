@@ -37,7 +37,7 @@ CI (`.github/workflows/ci.yml`) ejecuta `typecheck`, `test` y `build`, y en un j
 ## Reglas que no son obvias
 
 - **Iconos**: la clase de Tailwind debe aparecer literal (`icon-[mdi--karate]`); si se compone con una cadena, no se genera el CSS. Hay que añadir etiquetas del icono en todos los idiomas.
-- **Textos**: toda clave nueva va en `en.js` y en todos los idiomas, con `t('clave')` o `data-i18n`. `npm test` falla si falta alguna o si cambian los parámetros `{x}`.
+- **Textos**: toda clave nueva va en `en.js` y en todos los idiomas, con `t('clave')` o `data-i18n`. `npm test` falla si falta alguna o si cambian los parámetros `{x}`. Estilo: frases normales, sin exclamaciones ni palabras en mayúsculas, en la app y en la ficha de Play (incluidos los títulos de sección de la descripción y el gráfico); tampoco pongas `uppercase` en las clases.
 - **Derecha a izquierda (árabe)**: usa propiedades lógicas (`ps-`/`pe-`/`start`/`end`, `rtl:space-x-reverse`) y no `pl-`/`pr-`/`left`/`right` para espaciar o colocar texto. El árabe es cursiva: el espaciado entre letras (`tracking-*`) lo rompe y está anulado con `:lang(ar)` en `src/style.css`. Tras cambiar la interfaz o los textos, ejecuta `npm run check:layout`.
 - **Tailwind**: no escribas ejemplos de clases en comentarios; el escáner los detecta y emite avisos.
 - **CSP estricta** (meta en `index.html`, solo `'self'`): sin scripts ni estilos en línea nuevos que requieran `unsafe-inline`.

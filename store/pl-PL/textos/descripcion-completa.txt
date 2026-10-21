@@ -2,26 +2,26 @@ Nie wiesz, co dziś trenować? Zakręć kołem i pozwól, by GymRoulette wybrał
 
 GymRoulette to koło ćwiczeń: każdy sektor to ćwiczenie, a gdy je zakręcisz, wylosuje dla ciebie ćwiczenie z liczbą powtórzeń (na przykład „20 Burpee”) do wykonania w domu, na siłowni lub na świeżym powietrzu. Zakręć kilka razy, a każdego dnia będziesz mieć inny losowy trening. Stworzona, by wnieść różnorodność do twoich treningów, do obwodów, do wyzwań ze znajomymi i dla każdego, kto chce poćwiczyć bez zbędnego główkowania.
 
-<b>JAK TO DZIAŁA</b>
+<b>Jak to działa</b>
 • Naciśnij „Zakręć kołem” albo szarpnij koło palcem.
 • Gdy się zatrzyma, zobaczysz swoje wyzwanie: powtórzenia i ćwiczenie.
 • Oznacz je jako zrobione albo pomiń i zakręć ponownie.
 • W historii sprawdzisz wyzwania, które udało ci się wykonać podczas sesji.
 • Udostępnij wyzwanie jako obraz znajomym.
 
-<b>TY DECYDUJESZ, CO JEST NA KOLE</b>
+<b>Ty decydujesz, co jest na kole</b>
 • Włączaj i wyłączaj ćwiczenia, których chcesz.
 • Twórz własne ćwiczenia z nazwą i ikoną.
 • Ustaw zakres powtórzeń każdego ćwiczenia, od minimum do maksimum, aby dostosować poziom trudności.
 • Koło dopasowuje się do twoich ustawień, które są zapisywane na urządzeniu.
 
-<b>PONAD 100 IKON DLA TWOICH ĆWICZEŃ</b>
+<b>Ponad 100 ikon dla twoich ćwiczeń</b>
 Wybieraj spośród ponad 100 ikon z wielu dyscyplin, z wyszukiwarką: siła i ciężary, kalistenika, cardio, joga, pilates, tai chi, boks, karate i inne sztuki walki, trening funkcjonalny, biegi z przeszkodami, sporty, woda i góry. Zawiera nasze własne piktogramy pompek, deski, brzuszków, burpee, przysiadu i wspinaczki w podporze.
 
-<b>W TWOIM JĘZYKU</b>
+<b>W twoim języku</b>
 العربية, English (USA, Wielka Brytania i Australia), Español (Hiszpania i Ameryka Łacińska), Euskara, Galego, Català, Français (Francja i Kanada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe i Português (Brazylia i Portugalia). Aplikacja korzysta z języka telefonu, a zmienisz go w Ustawieniach.
 
-<b>MIŁE SZCZEGÓŁY</b>
+<b>Miłe szczegóły</b>
 • <b>Dźwięki koła i wibracja</b> po wylosowaniu wyniku.
 • <b>Dwa wyglądy</b>, Delikatny i Klasyczny, w ciemnej oprawie wygodnej dla oczu na siłowni.
 • <b>Bez rejestracji</b> i kont użytkowników.
@@ -29,7 +29,7 @@ Wybieraj spośród ponad 100 ikon z wielu dyscyplin, z wyszukiwarką: siła i ci
 • <b>100% offline</b>: nie potrzebuje połączenia z Internetem.
 • <b>Bez trackerów</b> i zbędnych plików cookie, nigdy nie prosi o twoją lokalizację.
 
-<b>PRYWATNOŚĆ</b>
+<b>Prywatność</b>
 GymRoulette działa całkowicie offline i nie zbiera żadnych danych: bez analityki, bez trackerów, bez reklam i bez dostępu do twojej lokalizacji. Twoje ustawienia są zapisywane wyłącznie na urządzeniu. Politykę prywatności przeczytasz w aplikacji.
 
-Zakręć kołem i trenujemy!
+Zakręć kołem i trenujemy.

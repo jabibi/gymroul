@@ -14,7 +14,7 @@ export default {
 
     'result.skip': 'Saltar este desafio',
 
-    'history.empty': 'Ainda não registaste exercícios hoje. Gira a roleta!',
+    'history.empty': 'Ainda não registaste exercícios hoje. Gira a roleta para começar.',
 
     'config.close': 'Fechar definições',
     'config.apply': 'Guardar alterações',
@@ -35,7 +35,7 @@ export default {
     'commitment.yourData.title': 'Os teus dados são teus',
     'commitment.yourData.text': 'Tudo o que crias fica no teu dispositivo. Se apagares a aplicação ou os respetivos dados, não fica nenhum rasto na nuvem.',
     'result.share': 'Partilhar desafio',
-    'share.text': 'O meu desafio do GymRoulette: {challenge}! Gira a roleta e treina também: {url}',
+    'share.text': 'O meu desafio do GymRoulette: {challenge}. Gira a roleta e treina também: {url}',
     'share.saved': 'Imagem transferida',
     'share.failed': 'Não foi possível partilhar o desafio',
     'share.preparing': 'A preparar a imagem…',

@@ -2,26 +2,26 @@ Sem vontade de decidir o que treinar hoje? Gire a roleta e deixe o GymRoulette e
 
 O GymRoulette é uma roleta de exercícios: cada setor é um exercício e, ao girá-la, propõe um exercício aleatório com o seu número de repetições (por exemplo, “20 Burpee”) para treinar em casa, na academia ou ao ar livre. Gire várias vezes e terá uma rotina aleatória diferente a cada dia. Pensada para dar variedade aos seus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicação.
 
-<b>COMO FUNCIONA</b>
+<b>Como funciona</b>
 • Toque em “Girar roleta” ou lance a roleta com o dedo.
 • Quando ela para, você vê o seu desafio: repetições e exercício.
 • Marque como concluído ou pule e gire de novo.
 • Veja no histórico os desafios que você concluiu na sessão.
 • Compartilhe seu desafio como imagem com seus amigos.
 
-<b>VOCÊ DECIDE O QUE ENTRA NA ROLETA</b>
+<b>Você decide o que entra na roleta</b>
 • Ative ou desative os exercícios que quiser.
 • Crie seus próprios exercícios com nome e ícone.
 • Defina o intervalo de repetições de cada exercício, de um mínimo a um máximo, para ajustar a dificuldade.
 • A roleta se adapta às suas configurações, que ficam salvas no seu dispositivo.
 
-<b>MAIS DE 100 ÍCONES PARA SEUS EXERCÍCIOS</b>
+<b>Mais de 100 ícones para seus exercícios</b>
 Escolha entre mais de 100 ícones de muitas modalidades, com busca: força e pesos, calistenia, cardio, yoga, pilates, tai chi, boxe, caratê e outras artes marciais, treino funcional, corridas de obstáculos, esportes, água e montanha. Inclui pictogramas próprios de flexões, prancha, abdominais, burpee, agachamento e mountain climbers.
 
-<b>NO SEU IDIOMA</b>
+<b>No seu idioma</b>
 العربية, English (EUA, Reino Unido e Austrália), Español (Espanha e América Latina), Euskara, Galego, Català, Français (França e Canadá), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe e Português (Brasil e Portugal). O app segue o idioma do seu celular e você pode mudá-lo em Configurações.
 
-<b>DETALHES QUE FAZEM DIFERENÇA</b>
+<b>Detalhes que fazem diferença</b>
 • <b>Som da roleta e vibração</b> quando o resultado aparece.
 • <b>Duas aparências</b>, Suave e Clássico, sobre um visual escuro e confortável para usar na academia.
 • <b>Sem cadastro</b> nem contas de usuário.
@@ -29,7 +29,7 @@ Escolha entre mais de 100 ícones de muitas modalidades, com busca: força e pes
 • <b>100% offline</b>: não precisa de conexão com a Internet.
 • <b>Sem rastreadores</b> nem cookies desnecessários, e nunca pede a sua localização.
 
-<b>PRIVACIDADE</b>
+<b>Privacidade</b>
 O GymRoulette é totalmente offline e não coleta nenhum dado: sem análise, sem rastreadores, sem anúncios e sem acesso à sua localização. Suas configurações ficam salvas apenas no seu dispositivo. Você pode ler a política de privacidade dentro do app.
 
-Gire a roleta e vá treinar!
+Gire a roleta e vá treinar.

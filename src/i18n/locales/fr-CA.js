@@ -7,10 +7,6 @@ export default {
     'settings.title': 'Paramètres',
 
     'wheel.setup': 'Paramètres',
-    'result.done': 'Terminé!',
-    'share.text': 'Mon défi GymRoulette : {challenge}! Fais tourner la roue et entraîne-toi aussi : {url}',
-
-    'history.empty': "Tu n'as encore enregistré aucun exercice. Lance la roue!",
 
     'config.title': 'Paramètres de la roue',
     'config.close': 'Fermer les paramètres',

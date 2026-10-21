@@ -639,7 +639,7 @@ function renderIconGrid(query = '') {
     const icons = group.icons.filter(i => matches.has(i.id));
     if (icons.length === 0) return '';
     return `
-      <div class="col-span-full text-xs font-black uppercase tracking-wider text-slate-500 mt-2 first:mt-0">${escapeHTML(groupName(group.id))}</div>
+      <div class="col-span-full text-xs font-bold text-slate-400 mt-2 first:mt-0">${escapeHTML(groupName(group.id))}</div>
       ${icons.map(i => `
         <button type="button" data-action="pick-icon" data-arg="${escapeHTML(i.id)}" title="${escapeHTML(iconLabel(i.id))}" aria-label="${escapeHTML(iconLabel(i.id))}" aria-pressed="${i.id === selectedIcon}"
           class="aspect-square rounded-xl flex items-center justify-center text-xl border transition-colors ${i.id === selectedIcon ? 'bg-brand-500/25 border-brand-500 text-brand-400' : 'bg-dark-950 border-slate-800 text-slate-300 hover:border-slate-600'}">

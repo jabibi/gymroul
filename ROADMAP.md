@@ -38,6 +38,7 @@ Va en la rama `roadmap-17` y no está publicada. Incluye:
 - **Logo e icono nuevos**, más sobrios, y barras del sistema de Android con el color de la app.
 - **Ruleta más grande**, con el nombre completo de cada ejercicio (el nombre corto desaparece), letra de 12 px como mínimo y textos de lectura a 14 px.
 - **Aviso de novedades al abrir la app** tras actualizar, una sola vez y solo para quien ya la tenía, con una explicación de cómo recuperar la apariencia original (Ajustes → Apariencia → Clásico) y un botón que lleva allí.
+- **Tono más sereno**: sin exclamaciones ni mayúsculas en la app ni en la ficha de Play («Girar ruleta», «Ejercicio seleccionado», «Completado», «Empezar» en las novedades).
 - **Sin el subtítulo «Workout Generator»** en ninguna parte.
 - **Ficha de Play**: textos pensados para la búsqueda («ruleta de ejercicios», «ejercicio aleatorio», «rutinas aleatorias») y novedades de la 1.17 en los 16 idiomas con ficha (`en-GB`, `en-AU`, `es-419` y `fr-CA` no tienen ficha propia).
 
