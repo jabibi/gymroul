@@ -3,7 +3,7 @@ Can't decide what to train today? Spin the wheel and let GymRoulette choose for 
 GymRoulette is an exercise wheel: each segment is an exercise, and when you spin it, it gives you a random exercise with its number of reps (for example, “20 Burpee”) to train at home, at the gym or outdoors. Spin several times and you'll have a different random workout routine every day. Made to add variety to your sessions, for circuits, for challenges with friends, and for anyone who wants to work out without overthinking it.
 
 <b>HOW IT WORKS</b>
-• Tap “SPIN THE WHEEL!” or fling the wheel with your finger.
+• Tap “Spin the wheel” or fling the wheel with your finger.
 • When it stops, you see your challenge: reps and exercise.
 • Mark it as done or skip it and spin again.
 • Check the history for the challenges you completed during the session.

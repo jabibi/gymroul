@@ -3,7 +3,7 @@ Bugün ne çalışacağına karar veremiyor musun? Çarkı çevir, GymRoulette s
 GymRoulette bir egzersiz çarkıdır: her dilim bir egzersizdir ve çevirdiğinde sana evde, spor salonunda veya açık havada yapabileceğin, tekrar sayısıyla birlikte rastgele bir egzersiz sunar (örneğin “20 Burpee”). Birkaç kez çevir, her gün farklı bir rastgele antrenman rutinin olsun. Antrenmanlarına çeşitlilik katmak, devreler, arkadaşlarınla meydan okumalar ve fazla düşünmeden spor yapmak isteyen herkes için tasarlandı.
 
 <b>NASIL ÇALIŞIR</b>
-• “ÇARKI ÇEVİR!” düğmesine dokun ya da çarkı parmağınla fırlat.
+• “Çarkı çevir” düğmesine dokun ya da çarkı parmağınla fırlat.
 • Çark durunca meydan okumanı görürsün: tekrar sayısı ve egzersiz.
 • Tamamlandı olarak işaretle ya da geç ve yeniden çevir.
 • Geçmişten oturum boyunca tamamladığın meydan okumalara göz at.

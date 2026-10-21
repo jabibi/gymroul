@@ -3,7 +3,7 @@ Non hai voglia di decidere cosa allenare oggi? Gira la ruota e lascia scegliere 
 GymRoulette è una ruota di esercizi: ogni settore è un esercizio e, quando la fai girare, ti propone un esercizio casuale con il suo numero di ripetizioni (per esempio «20 Burpee») per allenarti a casa, in palestra o all'aperto. Gira più volte e avrai ogni giorno una routine casuale diversa. Pensata per dare varietà alle tue sessioni, per i circuiti, per le sfide con gli amici e per chi vuole allenarsi senza complicarsi la vita.
 
 <b>COME FUNZIONA</b>
-• Tocca «GIRA LA RUOTA!» o lancia la ruota con il dito.
+• Tocca «Gira la ruota» o lancia la ruota con il dito.
 • Quando si ferma, vedi la tua sfida: ripetizioni ed esercizio.
 • Segnala come completata oppure saltala e gira di nuovo.
 • Consulta la cronologia per vedere le sfide completate durante la sessione.

@@ -3,7 +3,7 @@ No tens ganes de decidir què entrenar avui? Gira la ruleta i deixa que GymRoule
 GymRoulette és una ruleta d'exercicis: cada sector és un exercici i, en girar-la, et proposa un exercici aleatori amb el seu nombre de repeticions (per exemple, «20 Burpee») per entrenar a casa, al gimnàs o a l'aire lliure. Gira diverses vegades i tindràs cada dia una rutina aleatòria diferent. Pensada per donar varietat a les teves sessions, per a circuits, per a reptes amb amics i per a qui vol entrenar sense complicar-se.
 
 <b>COM FUNCIONA</b>
-• Prem “GIRA LA RULETA!” o llança la ruleta amb el dit.
+• Prem “Gira la ruleta” o llança la ruleta amb el dit.
 • Quan s'atura, veus el teu repte: repeticions i exercici.
 • Marca'l com a completat o salta'l i torna a girar.
 • Consulta a l'historial els reptes que has completat a la sessió.

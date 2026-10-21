@@ -7,10 +7,6 @@ export default {
     'settings.title': 'Paramètres',
 
     'wheel.setup': 'Paramètres',
-    'spin.button': 'LANCER LA ROUE!',
-
-
-    'result.badge': 'EXERCICE CHOISI!',
     'result.done': 'Terminé!',
     'share.text': 'Mon défi GymRoulette : {challenge}! Fais tourner la roue et entraîne-toi aussi : {url}',
 

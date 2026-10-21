@@ -7,7 +7,6 @@ export default {
     'whatsnew.settings': 'As definições passam a ser um menu: roleta, aparência, idioma, privacidade e créditos.',
     'whatsnew.classicTitle': 'Preferes o visual de sempre?',
     'whatsnew.classicText': 'Abre {settings}, depois {appearance} e escolhe {classic} para recuperar as cores vivas da roleta e o verde intenso.',
-    'whatsnew.close': 'Percebi',
     'header.settings': 'Abrir definições',
 
     'live.drag': 'Arrasta a roleta para girar',

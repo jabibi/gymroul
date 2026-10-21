@@ -47,7 +47,7 @@ export const LISTINGS = {
   en: {
     title: 'Exercise Wheel: Random Workout',
     short: 'GymRoulette: spin, get a random exercise and build random workout routines.',
-    banner: { line1: 'Spin the wheel', line2: 'and get training!', tagline: 'Random exercises to challenge you every day', button: 'SPIN THE WHEEL!' },
+    banner: { line1: 'Spin the wheel', line2: 'and get training!', tagline: 'Random exercises to challenge you every day', button: 'Spin the wheel' },
     notes: notesText('Version', [
       'New look: new icon and a choice of two appearances, Soft and Classic.',
       'Settings is now a menu: wheel, appearance, language, privacy and credits.',
@@ -61,7 +61,7 @@ export const LISTINGS = {
 GymRoulette is an exercise wheel: each segment is an exercise, and when you spin it, it gives you a random exercise with its number of reps (for example, “20 Burpee”) to train at home, at the gym or outdoors. Spin several times and you'll have a different random workout routine every day. Made to add variety to your sessions, for circuits, for challenges with friends, and for anyone who wants to work out without overthinking it.
 
 <b>HOW IT WORKS</b>
-• Tap “SPIN THE WHEEL!” or fling the wheel with your finger.
+• Tap “Spin the wheel” or fling the wheel with your finger.
 • When it stops, you see your challenge: reps and exercise.
 • Mark it as done or skip it and spin again.
 • Check the history for the challenges you completed during the session.
@@ -96,7 +96,7 @@ Spin the wheel and let's train!`,
   es: {
     title: 'Ruleta de ejercicios aleatoria',
     short: 'GymRoulette: gira, recibe un ejercicio aleatorio y crea rutinas aleatorias.',
-    banner: { line1: '¡Gira la ruleta', line2: 'y a entrenar!', tagline: 'Ejercicios aleatorios para retarte cada día', button: '¡GIRAR RULETA!' },
+    banner: { line1: '¡Gira la ruleta', line2: 'y a entrenar!', tagline: 'Ejercicios aleatorios para retarte cada día', button: 'Girar ruleta' },
     notes: notesText('Versión', [
       'Nuevo aspecto: icono nuevo y dos apariencias a elegir, Suave y Clásico.',
       'Ajustes en forma de menú: ruleta, apariencia, idioma, privacidad y créditos.',
@@ -110,7 +110,7 @@ Spin the wheel and let's train!`,
 GymRoulette es una ruleta de ejercicios: cada sector es un ejercicio y, al girarla, te propone un ejercicio aleatorio con su número de repeticiones (por ejemplo, «20 Burpee») para entrenar en casa, en el gimnasio o al aire libre. Gira varias veces y tendrás una rutina aleatoria distinta cada día. Pensada para dar variedad a tus sesiones, para circuitos, para retos con amigos y para quien quiere entrenar sin complicarse.
 
 <b>CÓMO FUNCIONA</b>
-• Pulsa “¡GIRAR RULETA!” o lanza la ruleta con el dedo.
+• Pulsa “Girar ruleta” o lanza la ruleta con el dedo.
 • Cuando se detiene, ves tu reto: repeticiones y ejercicio.
 • Márcalo como completado o sáltalo y vuelve a girar.
 • Consulta en el historial los retos que has completado en la sesión.
@@ -145,7 +145,7 @@ GymRoulette funciona totalmente sin conexión y no recopila ningún dato: sin an
   eu: {
     title: 'Ariketen gurpila ausazkoa',
     short: 'GymRoulette: biratu, jaso ausazko ariketa bat eta sortu ausazko errutinak.',
-    banner: { line1: 'Biratu gurpila', line2: 'eta entrenatzera!', tagline: 'Ausazko ariketak egunero zure burua probatzeko', button: 'BIRATU GURPILA!' },
+    banner: { line1: 'Biratu gurpila', line2: 'eta entrenatzera!', tagline: 'Ausazko ariketak egunero zure burua probatzeko', button: 'Biratu gurpila' },
     notes: notesText('Bertsioa', [
       'Itxura berria: ikono berria eta aukeratzeko bi itxura, Leuna eta Klasikoa.',
       'Ezarpenak menu bihurtu dira: gurpila, itxura, hizkuntza, pribatutasuna eta kredituak.',
@@ -159,7 +159,7 @@ GymRoulette funciona totalmente sin conexión y no recopila ningún dato: sin an
 GymRoulette ariketen gurpila da: sektore bakoitza ariketa bat da, eta biratzean ausazko ariketa bat proposatzen dizu errepikapen kopuruarekin (adibidez, «20 Burpee») etxean, gimnasioan edo kanpoan entrenatzeko. Biratu hainbat aldiz eta egunero ausazko errutina desberdina izango duzu. Zure saioei aniztasuna emateko pentsatua dago, zirkuituetarako, lagunekin erronkak egiteko eta konplikatu gabe entrenatu nahi duenarentzat.
 
 <b>NOLA FUNTZIONATZEN DU</b>
-• Sakatu “BIRATU GURPILA!” edo bota gurpila hatzarekin.
+• Sakatu “Biratu gurpila” edo bota gurpila hatzarekin.
 • Gelditzen denean, zure erronka ikusiko duzu: errepikapenak eta ariketa.
 • Markatu egin duzula edo saltatu eta biratu berriro.
 • Begiratu historian saioan zehar egin dituzun erronkak.
@@ -194,7 +194,7 @@ Biratu gurpila eta entrenatzera!`,
   gl: {
     title: 'Ruleta de exercicios aleatoria',
     short: 'GymRoulette: xira, recibe un exercicio aleatorio e crea rutinas aleatorias.',
-    banner: { line1: 'Xira a ruleta', line2: 'e a adestrar!', tagline: 'Exercicios aleatorios para retarte cada día', button: 'XIRAR A RULETA!' },
+    banner: { line1: 'Xira a ruleta', line2: 'e a adestrar!', tagline: 'Exercicios aleatorios para retarte cada día', button: 'Xirar a ruleta' },
     notes: notesText('Versión', [
       'Novo aspecto: icona nova e dúas aparencias para elixir, Suave e Clásico.',
       'Axustes en forma de menú: ruleta, aparencia, idioma, privacidade e créditos.',
@@ -208,7 +208,7 @@ Biratu gurpila eta entrenatzera!`,
 GymRoulette é unha ruleta de exercicios: cada sector é un exercicio e, ao xirala, proponche un exercicio aleatorio co seu número de repeticións (por exemplo, «20 Burpee») para adestrar na casa, no ximnasio ou ao aire libre. Xira varias veces e terás cada día unha rutina aleatoria diferente. Pensada para darlle variedade ás túas sesións, para circuítos, para retos con amizades e para quen quere adestrar sen complicarse.
 
 <b>COMO FUNCIONA</b>
-• Preme “XIRAR A RULETA!” ou lanza a ruleta co dedo.
+• Preme “Xirar a ruleta” ou lanza a ruleta co dedo.
 • Cando se detén, ves o teu reto: repeticións e exercicio.
 • Márcao como completado ou sáltao e volve xirar.
 • Consulta no historial os retos que completaches na sesión.
@@ -243,7 +243,7 @@ Xira a ruleta e a adestrar!`,
   ar: {
     title: 'عجلة التمارين: تمرين عشوائي',
     short: 'GymRoulette: أدر العجلة، واحصل على تمرين عشوائي وروتين تمارين عشوائي.',
-    banner: { line1: 'أدر العجلة', line2: 'وهيّا إلى التمرين!', tagline: 'تمارين عشوائية تتحداك كل يوم', button: 'أدر العجلة!' },
+    banner: { line1: 'أدر العجلة', line2: 'وهيّا إلى التمرين!', tagline: 'تمارين عشوائية تتحداك كل يوم', button: 'أدر العجلة' },
     notes: notesText('الإصدار', [
       'مظهر جديد: أيقونة جديدة ومظهران للاختيار، ناعم وكلاسيكي.',
       'أصبحت الإعدادات قائمة: العجلة والمظهر واللغة والخصوصية وشكر وتقدير.',
@@ -257,7 +257,7 @@ Xira a ruleta e a adestrar!`,
 GymRoulette عجلة للتمارين: كل قطاع هو تمرين، وعندما تديرها تقترح عليك تمرينًا عشوائيًا بعدد تكرارات خاص به (مثل «20 بيربي») لتتمرّن في المنزل أو في النادي أو في الهواء الطلق. أدرها عدة مرات لتحصل كل يوم على روتين تمارين عشوائي مختلف. صُمّمت لتنويع جلساتك، وللتمارين الدائرية، وللتحديات مع الأصدقاء، ولكل من يريد أن يتمرّن دون تعقيد.
 
 <b>كيف تعمل</b>
-• اضغط على «أدر العجلة!» أو أطلق العجلة بإصبعك.
+• اضغط على «أدر العجلة» أو أطلق العجلة بإصبعك.
 • عندما تتوقف يظهر لك تحديك: عدد التكرارات والتمرين.
 • حدّده كمكتمل أو تخطَّه وأدر العجلة من جديد.
 • راجع في السجل التحديات التي أنجزتها خلال الجلسة.
@@ -292,7 +292,7 @@ GymRoulette عجلة للتمارين: كل قطاع هو تمرين، وعند�
   ca: {
     title: 'Ruleta d\'exercicis aleatoris',
     short: 'GymRoulette: gira, rep un exercici aleatori i crea rutines aleatòries.',
-    banner: { line1: 'Gira la ruleta', line2: 'i a entrenar!', tagline: 'Exercicis aleatoris per reptar-te cada dia', button: 'GIRA LA RULETA!' },
+    banner: { line1: 'Gira la ruleta', line2: 'i a entrenar!', tagline: 'Exercicis aleatoris per reptar-te cada dia', button: 'Gira la ruleta' },
     notes: notesText('Versió', [
       'Nou aspecte: icona nova i dues aparences a triar, Suau i Clàssic.',
       'Ajustos en forma de menú: ruleta, aparença, idioma, privadesa i crèdits.',
@@ -306,7 +306,7 @@ GymRoulette عجلة للتمارين: كل قطاع هو تمرين، وعند�
 GymRoulette és una ruleta d'exercicis: cada sector és un exercici i, en girar-la, et proposa un exercici aleatori amb el seu nombre de repeticions (per exemple, «20 Burpee») per entrenar a casa, al gimnàs o a l'aire lliure. Gira diverses vegades i tindràs cada dia una rutina aleatòria diferent. Pensada per donar varietat a les teves sessions, per a circuits, per a reptes amb amics i per a qui vol entrenar sense complicar-se.
 
 <b>COM FUNCIONA</b>
-• Prem “GIRA LA RULETA!” o llança la ruleta amb el dit.
+• Prem “Gira la ruleta” o llança la ruleta amb el dit.
 • Quan s'atura, veus el teu repte: repeticions i exercici.
 • Marca'l com a completat o salta'l i torna a girar.
 • Consulta a l'historial els reptes que has completat a la sessió.
@@ -341,7 +341,7 @@ Gira la ruleta i a entrenar!`,
   fr: {
     title: 'Roue d\'exercices aléatoire',
     short: 'GymRoulette : tourne, reçois un exercice aléatoire et des routines aléatoires.',
-    banner: { line1: 'Lance la roue', line2: "et c'est parti !", tagline: 'Des exercices au hasard pour te défier chaque jour', button: 'LANCER LA ROUE !' },
+    banner: { line1: 'Lance la roue', line2: "et c'est parti !", tagline: 'Des exercices au hasard pour te défier chaque jour', button: 'Lancer la roue' },
     notes: notesText('Version', [
       'Nouvel aspect : nouvelle icône et deux apparences au choix, Doux et Classique.',
       'Les réglages deviennent un menu : roue, apparence, langue, confidentialité et crédits.',
@@ -355,7 +355,7 @@ Gira la ruleta i a entrenar!`,
 GymRoulette est une roue d'exercices : chaque secteur est un exercice et, quand tu la fais tourner, elle te propose un exercice aléatoire avec son nombre de répétitions (par exemple « 20 Burpee ») pour t'entraîner à la maison, en salle ou en plein air. Tourne plusieurs fois et tu obtiens chaque jour une routine aléatoire différente. Pensée pour varier tes séances, pour des circuits, des défis entre amis et pour tous ceux qui veulent s'entraîner sans se compliquer la vie.
 
 <b>COMMENT ÇA MARCHE</b>
-• Appuie sur « LANCER LA ROUE ! » ou lance-la d'un geste du doigt.
+• Appuie sur « Lancer la roue » ou lance-la d'un geste du doigt.
 • Quand elle s'arrête, tu vois ton défi : répétitions et exercice.
 • Marque-le comme terminé ou passe-le et relance la roue.
 • Consulte l'historique des défis terminés pendant la séance.
@@ -390,7 +390,7 @@ Lance la roue et c'est parti !`,
   de: {
     title: 'Übungsrad: Zufälliges Training',
     short: 'GymRoulette: Dreh das Rad, erhalte eine zufällige Übung und zufällige Workouts.',
-    banner: { line1: 'Dreh das Rad', line2: 'und ab ins Training!', tagline: 'Zufällige Übungen, die dich jeden Tag fordern', button: 'RAD DREHEN!' },
+    banner: { line1: 'Dreh das Rad', line2: 'und ab ins Training!', tagline: 'Zufällige Übungen, die dich jeden Tag fordern', button: 'Rad drehen' },
     notes: notesText('Version', [
       'Neuer Look: neues Symbol und zwei Designs zur Wahl, Sanft und Klassisch.',
       'Einstellungen als Menü: Rad, Darstellung, Sprache, Datenschutz und Danksagungen.',
@@ -404,7 +404,7 @@ Lance la roue et c'est parti !`,
 GymRoulette ist ein Übungsrad: Jedes Segment ist eine Übung und gibt dir beim Drehen eine zufällige Übung mit der passenden Anzahl Wiederholungen (zum Beispiel „20 Burpee“) für dein Training zu Hause, im Fitnessstudio oder draußen. Dreh mehrmals und du hast jeden Tag ein anderes zufälliges Workout. Gemacht, um Abwechslung in deine Einheiten zu bringen, für Zirkeltraining, für Challenges mit Freunden und für alle, die einfach trainieren wollen, ohne lange zu überlegen.
 
 <b>SO FUNKTIONIERT'S</b>
-• Tippe auf „RAD DREHEN!“ oder wirf das Rad mit dem Finger an.
+• Tippe auf „Rad drehen“ oder wirf das Rad mit dem Finger an.
 • Sobald es stehen bleibt, siehst du deine Aufgabe: Wiederholungen und Übung.
 • Hake sie als erledigt ab oder überspring sie und dreh erneut.
 • Im Verlauf siehst du die Aufgaben, die du in der Einheit geschafft hast.
@@ -439,7 +439,7 @@ Dreh das Rad und ab ins Training!`,
   it: {
     title: 'Ruota degli esercizi casuali',
     short: 'GymRoulette: gira, ricevi un esercizio casuale e crea routine casuali.',
-    banner: { line1: 'Gira la ruota', line2: 'e allenati!', tagline: 'Esercizi casuali per metterti alla prova ogni giorno', button: 'GIRA LA RUOTA!' },
+    banner: { line1: 'Gira la ruota', line2: 'e allenati!', tagline: 'Esercizi casuali per metterti alla prova ogni giorno', button: 'Gira la ruota' },
     notes: notesText('Versione', [
       'Nuovo aspetto: nuova icona e due aspetti a scelta, Morbido e Classico.',
       'Le impostazioni diventano un menu: ruota, aspetto, lingua, privacy e crediti.',
@@ -453,7 +453,7 @@ Dreh das Rad und ab ins Training!`,
 GymRoulette è una ruota di esercizi: ogni settore è un esercizio e, quando la fai girare, ti propone un esercizio casuale con il suo numero di ripetizioni (per esempio «20 Burpee») per allenarti a casa, in palestra o all'aperto. Gira più volte e avrai ogni giorno una routine casuale diversa. Pensata per dare varietà alle tue sessioni, per i circuiti, per le sfide con gli amici e per chi vuole allenarsi senza complicarsi la vita.
 
 <b>COME FUNZIONA</b>
-• Tocca «GIRA LA RUOTA!» o lancia la ruota con il dito.
+• Tocca «Gira la ruota» o lancia la ruota con il dito.
 • Quando si ferma, vedi la tua sfida: ripetizioni ed esercizio.
 • Segnala come completata oppure saltala e gira di nuovo.
 • Consulta la cronologia per vedere le sfide completate durante la sessione.
@@ -488,7 +488,7 @@ Gira la ruota e allenati!`,
   'pt-BR': {
     title: 'Roleta de exercícios aleatória',
     short: 'GymRoulette: gire, receba um exercício aleatório e crie rotinas aleatórias.',
-    banner: { line1: 'Gire a roleta', line2: 'e vá treinar!', tagline: 'Exercícios aleatórios para te desafiar todo dia', button: 'GIRAR ROLETA!' },
+    banner: { line1: 'Gire a roleta', line2: 'e vá treinar!', tagline: 'Exercícios aleatórios para te desafiar todo dia', button: 'Girar roleta' },
     notes: notesText('Versão', [
       'Novo visual: ícone novo e duas aparências à escolha, Suave e Clássico.',
       'As configurações viram um menu: roleta, aparência, idioma, privacidade e créditos.',
@@ -502,7 +502,7 @@ Gira la ruota e allenati!`,
 O GymRoulette é uma roleta de exercícios: cada setor é um exercício e, ao girá-la, propõe um exercício aleatório com o seu número de repetições (por exemplo, “20 Burpee”) para treinar em casa, na academia ou ao ar livre. Gire várias vezes e terá uma rotina aleatória diferente a cada dia. Pensada para dar variedade aos seus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicação.
 
 <b>COMO FUNCIONA</b>
-• Toque em “GIRAR ROLETA!” ou lance a roleta com o dedo.
+• Toque em “Girar roleta” ou lance a roleta com o dedo.
 • Quando ela para, você vê o seu desafio: repetições e exercício.
 • Marque como concluído ou pule e gire de novo.
 • Veja no histórico os desafios que você concluiu na sessão.
@@ -537,7 +537,7 @@ Gire a roleta e vá treinar!`,
   'pt-PT': {
     title: 'Roleta de exercícios aleatória',
     short: 'GymRoulette: gira, recebe um exercício aleatório e cria rotinas aleatórias.',
-    banner: { line1: 'Gira a roleta', line2: 'e vai treinar!', tagline: 'Exercícios aleatórios para te desafiares todos os dias', button: 'GIRAR ROLETA!' },
+    banner: { line1: 'Gira a roleta', line2: 'e vai treinar!', tagline: 'Exercícios aleatórios para te desafiares todos os dias', button: 'Girar roleta' },
     notes: notesText('Versão', [
       'Novo visual: ícone novo e duas aparências à escolha, Suave e Clássico.',
       'As definições passam a menu: roleta, aparência, idioma, privacidade e créditos.',
@@ -551,7 +551,7 @@ Gire a roleta e vá treinar!`,
 O GymRoulette é uma roleta de exercícios: cada setor é um exercício e, ao girá-la, propõe-te um exercício aleatório com o seu número de repetições (por exemplo, “20 Burpee”) para treinares em casa, no ginásio ou ao ar livre. Gira várias vezes e terás uma rotina aleatória diferente todos os dias. Pensada para dar variedade aos teus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicações.
 
 <b>COMO FUNCIONA</b>
-• Toca em “GIRAR ROLETA!” ou lança a roleta com o dedo.
+• Toca em “Girar roleta” ou lança a roleta com o dedo.
 • Quando pára, vês o teu desafio: repetições e exercício.
 • Marca-o como concluído ou salta-o e gira outra vez.
 • Consulta no histórico os desafios que concluíste na sessão.
@@ -586,7 +586,7 @@ Gira a roleta e vai treinar!`,
   pl: {
     title: 'Koło ćwiczeń: losowe treningi',
     short: 'GymRoulette: zakręć, wylosuj ćwiczenie i twórz losowe treningi.',
-    banner: { line1: 'Zakręć kołem', line2: 'i ruszaj na trening!', tagline: 'Losowe ćwiczenia, które rzucają ci wyzwanie każdego dnia', button: 'ZAKRĘĆ KOŁEM!' },
+    banner: { line1: 'Zakręć kołem', line2: 'i ruszaj na trening!', tagline: 'Losowe ćwiczenia, które rzucają ci wyzwanie każdego dnia', button: 'Zakręć kołem' },
     notes: notesText('Wersja', [
       'Nowy wygląd: nowa ikona i dwa style do wyboru, Delikatny i Klasyczny.',
       'Ustawienia jako menu: koło, wygląd, język, prywatność i podziękowania.',
@@ -600,7 +600,7 @@ Gira a roleta e vai treinar!`,
 GymRoulette to koło ćwiczeń: każdy sektor to ćwiczenie, a gdy je zakręcisz, wylosuje dla ciebie ćwiczenie z liczbą powtórzeń (na przykład „20 Burpee”) do wykonania w domu, na siłowni lub na świeżym powietrzu. Zakręć kilka razy, a każdego dnia będziesz mieć inny losowy trening. Stworzona, by wnieść różnorodność do twoich treningów, do obwodów, do wyzwań ze znajomymi i dla każdego, kto chce poćwiczyć bez zbędnego główkowania.
 
 <b>JAK TO DZIAŁA</b>
-• Naciśnij „ZAKRĘĆ KOŁEM!” albo szarpnij koło palcem.
+• Naciśnij „Zakręć kołem” albo szarpnij koło palcem.
 • Gdy się zatrzyma, zobaczysz swoje wyzwanie: powtórzenia i ćwiczenie.
 • Oznacz je jako zrobione albo pomiń i zakręć ponownie.
 • W historii sprawdzisz wyzwania, które udało ci się wykonać podczas sesji.
@@ -635,7 +635,7 @@ Zakręć kołem i trenujemy!`,
   hi: {
     title: 'एक्सरसाइज़ व्हील: रैंडम रूटीन',
     short: 'GymRoulette: व्हील घुमाएँ, रैंडम एक्सरसाइज़ पाएँ और रैंडम रूटीन बनाएँ।',
-    banner: { line1: 'चक्र घुमाएँ', line2: 'और वर्कआउट करें!', tagline: 'हर दिन आपको चुनौती देने वाली रैंडम एक्सरसाइज़', button: 'चक्र घुमाएँ!' },
+    banner: { line1: 'चक्र घुमाएँ', line2: 'और वर्कआउट करें!', tagline: 'हर दिन आपको चुनौती देने वाली रैंडम एक्सरसाइज़', button: 'चक्र घुमाएँ' },
     notes: notesText('संस्करण', [
       'नया रूप: नया आइकन और चुनने के लिए दो रूप, सॉफ्ट और क्लासिक।',
       'सेटिंग्स अब एक मेन्यू है: व्हील, दिखावट, भाषा, गोपनीयता और श्रेय।',
@@ -649,7 +649,7 @@ Zakręć kołem i trenujemy!`,
 GymRoulette एक्सरसाइज़ का चक्र है: हर खंड एक एक्सरसाइज़ है, और इसे घुमाने पर यह आपको घर पर, जिम में या खुली हवा में वर्कआउट करने के लिए रेप्स की संख्या के साथ कोई भी एक रैंडम एक्सरसाइज़ देता है (जैसे “20 बर्पी”)। कई बार घुमाएँ और हर दिन एक नया रैंडम वर्कआउट रूटीन पाएँ। इसे आपके सेशन में विविधता लाने, सर्किट, दोस्तों के साथ चुनौतियों और उन सभी के लिए बनाया गया है जो ज़्यादा सोचे बिना वर्कआउट करना चाहते हैं।
 
 <b>यह कैसे काम करता है</b>
-• “चक्र घुमाएँ!” दबाएँ या उँगली से चक्र को घुमा दें।
+• “चक्र घुमाएँ” दबाएँ या उँगली से चक्र को घुमा दें।
 • रुकने पर आपको अपनी चुनौती दिखती है: रेप्स और एक्सरसाइज़।
 • उसे पूरा हुआ चिह्नित करें या छोड़ दें और फिर घुमाएँ।
 • इतिहास में देखें कि सेशन में आपने कौन-सी चुनौतियाँ पूरी कीं।
@@ -684,7 +684,7 @@ GymRoulette पूरी तरह ऑफ़लाइन है और कोई
   tr: {
     title: 'Rastgele Egzersiz Çarkı',
     short: 'GymRoulette: çevir, rastgele egzersiz al, rastgele antrenman rutini oluştur.',
-    banner: { line1: 'Çarkı çevir', line2: 've antrenmana başla!', tagline: 'Seni her gün zorlayacak rastgele egzersizler', button: 'ÇARKI ÇEVİR!' },
+    banner: { line1: 'Çarkı çevir', line2: 've antrenmana başla!', tagline: 'Seni her gün zorlayacak rastgele egzersizler', button: 'Çarkı çevir' },
     notes: notesText('Sürüm', [
       'Yeni görünüm: yeni simge ve seçebileceğin iki görünüm, Yumuşak ve Klasik.',
       'Ayarlar artık bir menü: çark, görünüm, dil, gizlilik ve katkıda bulunanlar.',
@@ -698,7 +698,7 @@ GymRoulette पूरी तरह ऑफ़लाइन है और कोई
 GymRoulette bir egzersiz çarkıdır: her dilim bir egzersizdir ve çevirdiğinde sana evde, spor salonunda veya açık havada yapabileceğin, tekrar sayısıyla birlikte rastgele bir egzersiz sunar (örneğin “20 Burpee”). Birkaç kez çevir, her gün farklı bir rastgele antrenman rutinin olsun. Antrenmanlarına çeşitlilik katmak, devreler, arkadaşlarınla meydan okumalar ve fazla düşünmeden spor yapmak isteyen herkes için tasarlandı.
 
 <b>NASIL ÇALIŞIR</b>
-• “ÇARKI ÇEVİR!” düğmesine dokun ya da çarkı parmağınla fırlat.
+• “Çarkı çevir” düğmesine dokun ya da çarkı parmağınla fırlat.
 • Çark durunca meydan okumanı görürsün: tekrar sayısı ve egzersiz.
 • Tamamlandı olarak işaretle ya da geç ve yeniden çevir.
 • Geçmişten oturum boyunca tamamladığın meydan okumalara göz at.
@@ -733,7 +733,7 @@ GymRoulette tamamen çevrimdışıdır ve hiçbir veri toplamaz: analiz yok, izl
   ja: {
     title: 'エクササイズルーレット：ランダムトレーニング',
     short: 'GymRoulette：ルーレットを回してランダムなエクササイズとトレーニングメニューを作ろう。',
-    banner: { line1: 'ルーレットを回して', line2: 'トレーニングを始めよう！', tagline: 'ランダムなエクササイズで毎日チャレンジ', button: 'ルーレットを回す！' },
+    banner: { line1: 'ルーレットを回して', line2: 'トレーニングを始めよう！', tagline: 'ランダムなエクササイズで毎日チャレンジ', button: 'ルーレットを回す' },
     notes: notesText('バージョン', [
       '新しい見た目：アイコンを刷新し、ソフトとクラシックの2つの外観から選べます。',
       '設定がメニューになりました：ルーレット、外観、言語、プライバシー、クレジット。',
@@ -747,7 +747,7 @@ GymRoulette tamamen çevrimdışıdır ve hiçbir veri toplamaz: analiz yok, izl
 GymRouletteはエクササイズのルーレットです。各セクターが1つのエクササイズになっていて、回すと、自宅でもジムでも屋外でもできる、回数つきのランダムなエクササイズが出ます（たとえば「20 バーピー」）。何度か回せば、毎日違うランダムなトレーニングメニューになります。トレーニングに変化をつけたい方、サーキット、友だちとのチャレンジ、あれこれ考えずに体を動かしたい方のためのアプリです。
 
 <b>使い方</b>
-• 「ルーレットを回す！」をタップするか、指でルーレットをはじきます。
+• 「ルーレットを回す」をタップするか、指でルーレットをはじきます。
 • 止まるとチャレンジ（回数とエクササイズ）が表示されます。
 • 完了にするか、スキップしてもう一度回します。
 • 履歴で、セッション中に完了したチャレンジを確認できます。
@@ -781,7 +781,7 @@ GymRouletteは完全オフラインで、データを一切収集しません。
   nl: {
     title: 'Willekeurig oefeningenrad',
     short: 'GymRoulette: draai, krijg een willekeurige oefening en willekeurige routines.',
-    banner: { line1: 'Draai aan het rad', line2: 'en ga trainen!', tagline: 'Willekeurige oefeningen die je elke dag uitdagen', button: 'DRAAI HET RAD!' },
+    banner: { line1: 'Draai aan het rad', line2: 'en ga trainen!', tagline: 'Willekeurige oefeningen die je elke dag uitdagen', button: 'Draai het rad' },
     notes: notesText('Versie', [
       'Nieuwe look: nieuw pictogram en twee uiterlijken om uit te kiezen, Zacht en Klassiek.',
       'Instellingen is nu een menu: rad, uiterlijk, taal, privacy en dankbetuigingen.',
@@ -795,7 +795,7 @@ GymRouletteは完全オフラインで、データを一切収集しません。
 GymRoulette is een oefeningenrad: elk vak is een oefening, en als je het rad draait, krijg je een willekeurige oefening met het bijbehorende aantal herhalingen (bijvoorbeeld “20 Burpee”) om thuis, in de sportschool of buiten te trainen. Draai meerdere keren en je hebt elke dag een andere willekeurige workout. Gemaakt om variatie in je trainingen te brengen, voor circuits, voor uitdagingen met vrienden en voor iedereen die wil sporten zonder er lang over na te denken.
 
 <b>ZO WERKT HET</b>
-• Tik op “DRAAI HET RAD!” of geef het rad een zwieper met je vinger.
+• Tik op “Draai het rad” of geef het rad een zwieper met je vinger.
 • Als het stopt, zie je je uitdaging: herhalingen en oefening.
 • Markeer de uitdaging als gedaan of sla hem over en draai opnieuw.
 • Bekijk in de geschiedenis welke uitdagingen je tijdens de sessie hebt voltooid.

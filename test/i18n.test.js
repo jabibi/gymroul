@@ -109,10 +109,10 @@ describe('traducción', () => {
     expect(iconLabel('basketball')).toBe('Básquetbol');
     expect(t('config.title')).toBe(DICTIONARIES.es.strings['config.title']);
     setLanguage('fr', { persist: false });
-    expect(t('spin.button')).toBe('LANCER LA ROUE\u202f!');
+    expect(t('spin.button')).toBe('Lancer la roue');
     expect(iconLabel('soccer')).toBe('Football');
     setLanguage('fr-CA', { persist: false });
-    expect(t('spin.button')).toBe('LANCER LA ROUE!');
+    expect(t('spin.button')).toBe(DICTIONARIES.fr.strings['spin.button']);
     expect(iconLabel('soccer')).toBe('Soccer');
     expect(t('config.reps')).toBe(DICTIONARIES.fr.strings['config.reps']);
   });
