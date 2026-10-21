@@ -1,6 +1,6 @@
 Ez dakizu gaur zer entrenatu? Biratu gurpila eta utzi GymRoulette-ri zure ordez aukeratzen.
 
-GymRoulette ariketen gurpila da: sektore bakoitza ariketa bat da, eta biratzean ausazko erronka bat proposatzen dizu errepikapen kopuruarekin (adibidez, «20 Burpee») etxean, gimnasioan edo kanpoan entrenatzeko. Zure saioei aniztasuna emateko pentsatua dago, zirkuituetarako, lagunekin erronkak egiteko eta konplikatu gabe entrenatu nahi duenarentzat.
+GymRoulette ariketen gurpila da: sektore bakoitza ariketa bat da, eta biratzean ausazko ariketa bat proposatzen dizu errepikapen kopuruarekin (adibidez, «20 Burpee») etxean, gimnasioan edo kanpoan entrenatzeko. Biratu hainbat aldiz eta egunero ausazko errutina desberdina izango duzu. Zure saioei aniztasuna emateko pentsatua dago, zirkuituetarako, lagunekin erronkak egiteko eta konplikatu gabe entrenatu nahi duenarentzat.
 
 <b>NOLA FUNTZIONATZEN DU</b>
 • Sakatu “BIRATU GURPILA!” edo bota gurpila hatzarekin.
@@ -11,7 +11,7 @@ GymRoulette ariketen gurpila da: sektore bakoitza ariketa bat da, eta biratzean 
 
 <b>ZUK ERABAKITZEN DUZU ZER DAGOEN GURPILEAN</b>
 • Aktibatu edo desaktibatu nahi dituzun ariketak.
-• Sortu zure ariketak izenarekin, izen laburrarekin eta ikonoarekin.
+• Sortu zure ariketak izenarekin eta ikonoarekin.
 • Zehaztu ariketa bakoitzaren errepikapen-tartea, gutxienekoa eta gehienekoa, zailtasuna doitzeko.
 • Gurpila zure konfiguraziora egokitzen da, eta zure gailuan gordetzen da.
 
@@ -23,7 +23,7 @@ Aukeratu 100 ikono baino gehiagoren artean, disziplina askotakoak eta bilatzaile
 
 <b>XEHETASUN POLITAK</b>
 • <b>Gurpilaren soinuak eta bibrazioa</b> emaitza ateratzen denean.
-• <b>Diseinu iluna</b>, gimnasioan begientzat erosoa.
+• <b>Bi itxura</b>, Leuna eta Klasikoa, diseinu ilun eta gimnasioan begientzat erosoan.
 • <b>Izen-emate edo erabiltzaile-konturik gabe</b>.
 • <b>Iragarkirik gabe.</b>
 • <b>% 100 konexiorik gabe</b>: ez du Interneteko konexiorik behar.

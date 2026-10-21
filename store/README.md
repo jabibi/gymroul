@@ -24,22 +24,22 @@ store/
 ## Idiomas y longitud de los textos
 | Carpeta | Idioma en Play Console | Descripción breve | Descripción completa | Novedades |
 |---|---|---|---|---|
-| `ar` | Árabe | 54/80 | 2051/4000 | 302/500 |
-| `ca` | Catalán | 74/80 | 2475/4000 | 414/500 |
-| `de-DE` | Alemán | 72/80 | 2689/4000 | 442/500 |
-| `en-US` | Inglés (Estados Unidos) | 68/80 | 2372/4000 | 370/500 |
+| `ar` | Árabe | 69/80 | 2127/4000 | 302/500 |
+| `ca` | Catalán | 70/80 | 2576/4000 | 414/500 |
+| `de-DE` | Alemán | 79/80 | 2790/4000 | 442/500 |
+| `en-US` | Inglés (Estados Unidos) | 75/80 | 2470/4000 | 370/500 |
 | `es-ES` | Español (España) | 75/80 | 2563/4000 | 414/500 |
-| `eu-ES` | Euskera | 74/80 | 2605/4000 | 441/500 |
-| `fr-FR` | Francés (Francia) | 77/80 | 2677/4000 | 452/500 |
-| `gl-ES` | Gallego | 76/80 | 2457/4000 | 418/500 |
-| `hi-IN` | Hindi | 65/80 | 2391/4000 | 412/500 |
-| `it-IT` | Italiano | 77/80 | 2514/4000 | 445/500 |
-| `ja-JP` | Japonés | 41/80 | 1328/4000 | 232/500 |
-| `nl-NL` | Neerlandés | 76/80 | 2617/4000 | 451/500 |
-| `pl-PL` | Polaco | 70/80 | 2432/4000 | 402/500 |
-| `pt-BR` | Portugués (Brasil) | 75/80 | 2472/4000 | 410/500 |
-| `pt-PT` | Portugués (Portugal) | 75/80 | 2497/4000 | 422/500 |
-| `tr-TR` | Turco | 70/80 | 2363/4000 | 390/500 |
+| `eu-ES` | Euskera | 74/80 | 2694/4000 | 441/500 |
+| `fr-FR` | Francés (Francia) | 78/80 | 2788/4000 | 452/500 |
+| `gl-ES` | Gallego | 75/80 | 2555/4000 | 418/500 |
+| `hi-IN` | Hindi | 70/80 | 2477/4000 | 412/500 |
+| `it-IT` | Italiano | 70/80 | 2608/4000 | 445/500 |
+| `ja-JP` | Japonés | 48/80 | 1373/4000 | 232/500 |
+| `nl-NL` | Neerlandés | 77/80 | 2714/4000 | 451/500 |
+| `pl-PL` | Polaco | 63/80 | 2528/4000 | 402/500 |
+| `pt-BR` | Portugués (Brasil) | 75/80 | 2574/4000 | 410/500 |
+| `pt-PT` | Portugués (Portugal) | 75/80 | 2598/4000 | 422/500 |
+| `tr-TR` | Turco | 76/80 | 2450/4000 | 390/500 |
 
 ## Dónde sube cada archivo en Play Console
 En **Presencia en Google Play Store → Fichas de Play Store**, elige el idioma arriba (*Gestionar idiomas* para añadirlos) y rellena:

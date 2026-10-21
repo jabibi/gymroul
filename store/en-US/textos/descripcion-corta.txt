@@ -1,1 +1,1 @@
-Spin the wheel and get a random exercise challenge for your workout.
+GymRoulette: spin, get a random exercise and build random workout routines.

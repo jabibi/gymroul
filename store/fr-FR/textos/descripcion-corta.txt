@@ -1,1 +1,1 @@
-Fais tourner la roue et reçois un défi d'exercice au hasard pour t'entraîner.
+GymRoulette : tourne, reçois un exercice aléatoire et des routines aléatoires.

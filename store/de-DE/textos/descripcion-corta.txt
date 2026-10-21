@@ -1,1 +1,1 @@
-Dreh das Rad und erhalte eine zufällige Übungsaufgabe für dein Training.
+GymRoulette: Dreh das Rad, erhalte eine zufällige Übung und zufällige Workouts.

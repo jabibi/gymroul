@@ -1,1 +1,1 @@
-Gira la ruota e ricevi una sfida di esercizio casuale per il tuo allenamento.
+GymRoulette: gira, ricevi un esercizio casuale e crea routine casuali.

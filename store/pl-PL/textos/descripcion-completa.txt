@@ -1,6 +1,6 @@
 Nie wiesz, co dziś trenować? Zakręć kołem i pozwól, by GymRoulette wybrała za ciebie.
 
-GymRoulette to koło ćwiczeń: każdy sektor to ćwiczenie, a gdy je zakręcisz, wylosuje dla ciebie wyzwanie z liczbą powtórzeń (na przykład „20 Burpee”) do wykonania w domu, na siłowni lub na świeżym powietrzu. Stworzona, by wnieść różnorodność do twoich treningów, do obwodów, do wyzwań ze znajomymi i dla każdego, kto chce poćwiczyć bez zbędnego główkowania.
+GymRoulette to koło ćwiczeń: każdy sektor to ćwiczenie, a gdy je zakręcisz, wylosuje dla ciebie ćwiczenie z liczbą powtórzeń (na przykład „20 Burpee”) do wykonania w domu, na siłowni lub na świeżym powietrzu. Zakręć kilka razy, a każdego dnia będziesz mieć inny losowy trening. Stworzona, by wnieść różnorodność do twoich treningów, do obwodów, do wyzwań ze znajomymi i dla każdego, kto chce poćwiczyć bez zbędnego główkowania.
 
 <b>JAK TO DZIAŁA</b>
 • Naciśnij „ZAKRĘĆ KOŁEM!” albo szarpnij koło palcem.
@@ -11,7 +11,7 @@ GymRoulette to koło ćwiczeń: każdy sektor to ćwiczenie, a gdy je zakręcisz
 
 <b>TY DECYDUJESZ, CO JEST NA KOLE</b>
 • Włączaj i wyłączaj ćwiczenia, których chcesz.
-• Twórz własne ćwiczenia z nazwą, krótką nazwą i ikoną.
+• Twórz własne ćwiczenia z nazwą i ikoną.
 • Ustaw zakres powtórzeń każdego ćwiczenia, od minimum do maksimum, aby dostosować poziom trudności.
 • Koło dopasowuje się do twoich ustawień, które są zapisywane na urządzeniu.
 
@@ -23,7 +23,7 @@ Wybieraj spośród ponad 100 ikon z wielu dyscyplin, z wyszukiwarką: siła i ci
 
 <b>MIŁE SZCZEGÓŁY</b>
 • <b>Dźwięki koła i wibracja</b> po wylosowaniu wyniku.
-• <b>Ciemny wygląd</b>, wygodny dla oczu na siłowni.
+• <b>Dwa wyglądy</b>, Delikatny i Klasyczny, w ciemnej oprawie wygodnej dla oczu na siłowni.
 • <b>Bez rejestracji</b> i kont użytkowników.
 • <b>Bez reklam.</b>
 • <b>100% offline</b>: nie potrzebuje połączenia z Internetem.

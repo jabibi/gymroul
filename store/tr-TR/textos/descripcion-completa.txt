@@ -1,6 +1,6 @@
 Bugün ne çalışacağına karar veremiyor musun? Çarkı çevir, GymRoulette senin yerine seçsin.
 
-GymRoulette bir egzersiz çarkıdır: her dilim bir egzersizdir ve çevirdiğinde sana evde, spor salonunda veya açık havada yapabileceğin, tekrar sayısıyla birlikte rastgele bir meydan okuma sunar (örneğin “20 Burpee”). Antrenmanlarına çeşitlilik katmak, devreler, arkadaşlarınla meydan okumalar ve fazla düşünmeden spor yapmak isteyen herkes için tasarlandı.
+GymRoulette bir egzersiz çarkıdır: her dilim bir egzersizdir ve çevirdiğinde sana evde, spor salonunda veya açık havada yapabileceğin, tekrar sayısıyla birlikte rastgele bir egzersiz sunar (örneğin “20 Burpee”). Birkaç kez çevir, her gün farklı bir rastgele antrenman rutinin olsun. Antrenmanlarına çeşitlilik katmak, devreler, arkadaşlarınla meydan okumalar ve fazla düşünmeden spor yapmak isteyen herkes için tasarlandı.
 
 <b>NASIL ÇALIŞIR</b>
 • “ÇARKI ÇEVİR!” düğmesine dokun ya da çarkı parmağınla fırlat.
@@ -11,7 +11,7 @@ GymRoulette bir egzersiz çarkıdır: her dilim bir egzersizdir ve çevirdiğind
 
 <b>ÇARKTA NELER OLACAĞINA SEN KARAR VERİRSİN</b>
 • İstediğin egzersizleri aç ya da kapat.
-• Ad, kısa ad ve simgeyle kendi egzersizlerini oluştur.
+• Ad ve simgeyle kendi egzersizlerini oluştur.
 • Zorluğu ayarlamak için her egzersizin tekrar aralığını (en az – en çok) belirle.
 • Çark ayarlarına uyum sağlar; ayarların cihazında saklanır.
 
@@ -23,7 +23,7 @@ Aramalı simge listesinden birçok disiplin arasında seçim yap: kuvvet ve ağ�
 
 <b>GÜZEL DETAYLAR</b>
 • Sonuç çıkınca <b>çark sesleri ve titreşim</b>.
-• Spor salonunda gözlerini yormayan <b>koyu bir tasarım</b>.
+• Spor salonunda gözlerini yormayan koyu tasarımda <b>iki görünüm</b>: Yumuşak ve Klasik.
 • <b>Kayıt yok</b>, kullanıcı hesabı yok.
 • <b>Reklam yok.</b>
 • <b>%100 çevrimdışı</b>: İnternet bağlantısı gerektirmez.

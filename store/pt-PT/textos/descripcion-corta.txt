@@ -1,1 +1,1 @@
-Gira a roleta e recebe um desafio de exercício aleatório para o teu treino.
+GymRoulette: gira, recebe um exercício aleatório e cria rotinas aleatórias.

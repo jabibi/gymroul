@@ -1,6 +1,6 @@
 Keine Lust zu entscheiden, was du heute trainierst? Dreh das Rad und lass GymRoulette für dich wählen.
 
-GymRoulette ist ein Übungsrad: Jedes Segment ist eine Übung und gibt dir beim Drehen eine zufällige Aufgabe mit der passenden Anzahl Wiederholungen (zum Beispiel „20 Burpee“) für dein Training zu Hause, im Fitnessstudio oder draußen. Gemacht, um Abwechslung in deine Einheiten zu bringen, für Zirkeltraining, für Challenges mit Freunden und für alle, die einfach trainieren wollen, ohne lange zu überlegen.
+GymRoulette ist ein Übungsrad: Jedes Segment ist eine Übung und gibt dir beim Drehen eine zufällige Übung mit der passenden Anzahl Wiederholungen (zum Beispiel „20 Burpee“) für dein Training zu Hause, im Fitnessstudio oder draußen. Dreh mehrmals und du hast jeden Tag ein anderes zufälliges Workout. Gemacht, um Abwechslung in deine Einheiten zu bringen, für Zirkeltraining, für Challenges mit Freunden und für alle, die einfach trainieren wollen, ohne lange zu überlegen.
 
 <b>SO FUNKTIONIERT'S</b>
 • Tippe auf „RAD DREHEN!“ oder wirf das Rad mit dem Finger an.
@@ -11,7 +11,7 @@ GymRoulette ist ein Übungsrad: Jedes Segment ist eine Übung und gibt dir beim 
 
 <b>DU BESTIMMST, WAS AUF DEM RAD IST</b>
 • Schalte die Übungen, die du willst, ein oder aus.
-• Erstelle eigene Übungen mit Name, Kurzname und Symbol.
+• Erstelle eigene Übungen mit Name und Symbol.
 • Lege für jede Übung den Wiederholungsbereich fest, von einem Minimum bis zu einem Maximum, um den Schwierigkeitsgrad anzupassen.
 • Das Rad passt sich deinen Einstellungen an, die auf deinem Gerät gespeichert werden.
 
@@ -23,7 +23,7 @@ Wähle mit Suchfunktion aus über 100 Symbolen aus vielen Disziplinen: Kraft und
 
 <b>PRAKTISCHE DETAILS</b>
 • <b>Radgeräusche und Vibration</b>, wenn das Ergebnis erscheint.
-• <b>Dunkles Design</b>, angenehm für die Augen im Fitnessstudio.
+• <b>Zwei Designs</b>, Sanft und Klassisch, auf einem dunklen Layout, angenehm für die Augen im Fitnessstudio.
 • <b>Ohne Registrierung</b> und ohne Benutzerkonten.
 • <b>Ohne Werbung.</b>
 • <b>100 % offline</b>: sie braucht keine Internetverbindung.

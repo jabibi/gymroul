@@ -1,6 +1,6 @@
 Non hai voglia di decidere cosa allenare oggi? Gira la ruota e lascia scegliere a GymRoulette.
 
-GymRoulette è una ruota di esercizi: ogni settore è un esercizio e, quando la fai girare, ti propone una sfida casuale con il suo numero di ripetizioni (per esempio «20 Burpee») per allenarti a casa, in palestra o all'aperto. Pensata per dare varietà alle tue sessioni, per i circuiti, per le sfide con gli amici e per chi vuole allenarsi senza complicarsi la vita.
+GymRoulette è una ruota di esercizi: ogni settore è un esercizio e, quando la fai girare, ti propone un esercizio casuale con il suo numero di ripetizioni (per esempio «20 Burpee») per allenarti a casa, in palestra o all'aperto. Gira più volte e avrai ogni giorno una routine casuale diversa. Pensata per dare varietà alle tue sessioni, per i circuiti, per le sfide con gli amici e per chi vuole allenarsi senza complicarsi la vita.
 
 <b>COME FUNZIONA</b>
 • Tocca «GIRA LA RUOTA!» o lancia la ruota con il dito.
@@ -11,7 +11,7 @@ GymRoulette è una ruota di esercizi: ogni settore è un esercizio e, quando la 
 
 <b>DECIDI TU COSA C'È SULLA RUOTA</b>
 • Attiva o disattiva gli esercizi che vuoi.
-• Crea i tuoi esercizi con nome, nome breve e icona.
+• Crea i tuoi esercizi con nome e icona.
 • Imposta l'intervallo di ripetizioni di ogni esercizio, da un minimo a un massimo, per regolare la difficoltà.
 • La ruota si adatta alle tue impostazioni, che vengono salvate sul tuo dispositivo.
 
@@ -23,7 +23,7 @@ Scegli tra più di 100 icone di tante discipline, con ricerca: forza e pesi, cal
 
 <b>DETTAGLI CHE FANNO LA DIFFERENZA</b>
 • <b>Suoni della ruota e vibrazione</b> quando esce il risultato.
-• <b>Design scuro</b> e comodo per la palestra.
+• <b>Due aspetti</b>, Morbido e Classico, su un design scuro e comodo per la palestra.
 • <b>Senza registrazione</b> né account utente.
 • <b>Senza pubblicità.</b>
 • <b>100% offline</b>: non richiede una connessione a Internet.

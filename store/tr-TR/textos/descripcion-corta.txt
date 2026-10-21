@@ -1,1 +1,1 @@
-Çarkı çevir, antrenmanın için rastgele bir egzersiz meydan okuması al.
+GymRoulette: çevir, rastgele egzersiz al, rastgele antrenman rutini oluştur.
