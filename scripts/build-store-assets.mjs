@@ -286,7 +286,8 @@ try {
     await wait(500);
     await page.click('#iconPickerBtn');
     await wait(300);
-    await page.evaluate(() => document.getElementById('iconPicker').scrollIntoView({ block: 'center' }));
+    // La ventana de nuevo ejercicio se enseña desde arriba: con el nombre cortado la captura quedaba descuidada
+    await page.evaluate(() => { document.getElementById('iconPicker').closest('.overflow-y-auto').scrollTop = 0; });
     await wait(400);
     await shot(page, '05-selector-de-iconos');
     await page.type('#iconSearch', 'karate');
