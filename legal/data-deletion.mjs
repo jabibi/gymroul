@@ -276,7 +276,7 @@ export default {
     blocks: [
       ['h1', 'Usuwanie danych - GymRoulette'],
       ['p', 'Ostatnia aktualizacja: październik 2026'],
-      ['p', `Ta strona wyjaśnia, jak zażądać usunięcia danych powiązanych z aplikacją <strong>GymRoulette</strong> (Android, ${APP_ID}, oraz jej wersją internetową), stworzoną przez Javiera Melendeza. GymRoulette nie ma kont użytkowników: nie jest przechowywane żadne imię i nazwisko, adres e-mail ani hasło.`],
+      ['p', `Ta strona wyjaśnia, jak zażądać usunięcia danych powiązanych z aplikacją <strong>GymRoulette</strong> (Android, ${APP_ID}, oraz jej wersją internetową), stworzoną przez PointedIO (Javier Melendez). GymRoulette nie ma kont użytkowników: nie jest przechowywane żadne imię i nazwisko, adres e-mail ani hasło.`],
 
       ['h2', '1. Dane przechowywane na urządzeniu Użytkownika'],
       ['p', 'Ustawienia ćwiczeń i powtórzeń są przechowywane wyłącznie na urządzeniu Użytkownika i nigdy nie są wysyłane na nasze serwery. Aby je usunąć:'],
