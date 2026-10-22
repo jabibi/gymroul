@@ -386,6 +386,13 @@ export function renderHistory() {
     </div>`).join('');
 }
 
+/** Bloquea o libera los botones de Historial y Ajustes de la cabecera (mientras gira la ruleta). @param {boolean} locked */
+export function setPanelsLocked(locked) {
+  document.querySelectorAll('[data-action=open-history], [data-action=open-settings]').forEach(btn => {
+    /** @type {HTMLButtonElement} */ (btn).disabled = locked;
+  });
+}
+
 export function openHistory() {
   setSheetVisible('historyModal', 'historyCard', true);
   pushModal('history');

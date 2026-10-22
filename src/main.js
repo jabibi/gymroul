@@ -4,7 +4,7 @@ import './style.css';
 import { Capacitor } from '@capacitor/core';
 import { App as CapacitorApp } from '@capacitor/app';
 
-import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, getSpinSpeed, refreshBrand } from './wheel.js';
+import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, getSpinSpeed, refreshBrand, isBusy } from './wheel.js';
 import { generateSegments, rollReps, CONFIG_SEGMENT } from './wheel-math.js';
 import {
   migrate, isFreshInstall, loadActive, active, setActive,
@@ -46,20 +46,36 @@ const BLUR_SPEED = 0.1;
 const RESULT_DELAY_MS = 600;
 let resultPending = false;
 
+/**
+ * Mientras la ruleta gira (y hasta que sale el resultado) Historial y Ajustes no se abren: el resultado aparecía debajo
+ * del panel, Atrás cerraba primero el resultado oculto y, además, cambiar los ejercicios a mitad de giro cambiaba los sectores.
+ */
+const isTurning = () => isBusy() || resultPending;
+let panelsLocked = false;
+function syncPanelsLock() {
+  const turning = isTurning();
+  if (turning === panelsLocked) return;
+  panelsLocked = turning;
+  ui.setPanelsLocked(turning);
+}
+
 /** Refresca el marcador del sector activo (con desenfoque si la ruleta gira deprisa). */
 function refreshMarker() {
   ui.updateLiveIndicator(getActiveSegment(), getSpinSpeed() > BLUR_SPEED);
+  syncPanelsLock();
 }
 
 function handleSpin() {
   if (resultPending || redirectIfUnconfigured()) return;
   initAudio();
   spin();
+  syncPanelsLock();
 }
 
 /** @param {Segment} winner */
 function handleFinish(winner) {
   if (winner === CONFIG_SEGMENT) {
+    syncPanelsLock();
     ui.openConfig();
     return;
   }
@@ -67,10 +83,12 @@ function handleFinish(winner) {
   const challenge = { ...winner, reps: rollReps(winner.repsMin, winner.repsMax) };
   // Primero rebota el marcador sobre el sector ganador y, un instante después, aparece el resultado
   resultPending = true;
+  syncPanelsLock();
   ui.pulseIndicator();
   setTimeout(() => {
     resultPending = false;
     ui.showResult(challenge);
+    syncPanelsLock();
   }, RESULT_DELAY_MS);
 }
 
@@ -98,10 +116,10 @@ function applyTheme() {
 /** @type {Record<string, (arg: string | undefined) => void>} */
 const actions = {
   'toggle-sound': () => ui.setSoundIcon(toggleSound()),
-  'open-history': () => ui.openHistory(),
+  'open-history': () => { if (!isTurning()) ui.openHistory(); },
   'close-history': () => ui.closeHistory(),
   'clear-history': () => ui.requestClearHistory(),
-  'open-settings': () => ui.openSettings(),
+  'open-settings': () => { if (!isTurning()) ui.openSettings(); },
   'close-whatsnew': () => ui.closeWhatsNew(),
   'whatsnew-appearance': () => ui.whatsNewToAppearance(),
   'settings-open': arg => arg && ui.showSettingsView(/** @type {'wheel' | 'appearance' | 'language'} */ (arg)),
