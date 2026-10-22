@@ -50,12 +50,15 @@ describe('páginas legales multilingües', () => {
         for (const fact of [CONTACT_EMAIL, 'eus.jabibi.gymroul', 'gymroul.web.app', '14', 'Firebase', 'data-deletion.html', 'aepd.es']) {
           expect(text, fact).toContain(fact);
         }
-        // La política se muestra dentro de la app: habla de la analítica antigua en genérico, sin nombrar el producto
+        // La app publicada nunca ha tenido analítica ni rastreadores: la política no habla de versiones antiguas
         expect(text).not.toContain('Google Analytics');
+        expect(text).not.toContain('1.13');
       });
       it(`${code}: eliminación de datos`, () => {
         const text = flat(LEGAL_PAGES['data-deletion.html'][code]);
-        for (const fact of [CONTACT_EMAIL, 'subject=', 'privacy.html', '12', '14', 'gymroul.web.app']) expect(text, fact).toContain(fact);
+        for (const fact of [CONTACT_EMAIL, 'subject=', 'privacy.html', '12', 'gymroul.web.app']) expect(text, fact).toContain(fact);
+        expect(text).not.toContain('Google Analytics');
+        expect(text).not.toContain('1.13');
       });
     }
   });

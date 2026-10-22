@@ -21,7 +21,7 @@ export default {
       ['p', 'Your wheel settings (the exercises and reps you create or turn on), your preferences (language and appearance) and whether you have already seen the what\'s-new notice are stored only in your device\'s local storage (<code>localStorage</code>). The session history exists only in memory and is lost when you close the app. This data is not sent to any server, and you remove it by clearing the app\'s data or uninstalling it.'],
       ['p', 'If you choose to share a challenge, the app creates an image and a short text on your device and hands them to the app you pick in your device\'s share menu. GymRoulette does not send them anywhere and needs no Internet connection to do it. The image is kept temporarily in the app\'s cache and is deleted the next time you share or open the app. What the app you choose does with it is governed by that app\'s own privacy policy.'],
       ['h3', '2.2 No analytics, no trackers, no ads'],
-      ['p', 'Since version 1.13 the app has no analytics or tracking tools of any kind: it does not include any third-party SDK, it shows no ads, it does not use advertising or tracking identifiers, and it does not use cookies beyond the local storage described above, which is strictly necessary for the app to work. The Android app does not connect to the Internet.'],
+      ['p', 'The app has no analytics or tracking tools of any kind: it does not include any third-party SDK, it shows no ads, it does not use advertising or tracking identifiers, and it does not use cookies beyond the local storage described above, which is strictly necessary for the app to work. The Android app does not connect to the Internet.'],
       ['p', 'GymRoulette does <strong>not</strong> collect your name, email address, contacts, photos, microphone, camera, location (not even approximate), or any health or fitness data. The app has no user accounts.'],
       ['h3', '2.3 Web version'],
       ['p', `If you use the web version at ${WEB}, the page is served by Firebase Hosting, a Google service. Like any web server, it may process technical data needed to deliver the page (such as your IP address and browser type) in its server logs. The web version itself does not collect any other data or load any third-party scripts.`],
@@ -33,12 +33,10 @@ export default {
       ['p', 'The app does not send data to anyone, so there are no recipients or international transfers. We do not sell or share data with advertising networks, and we do not show ads.'],
 
       ['h2', '5. Retention'],
-      ['p', 'Local data is kept until you delete it. Earlier versions of the app (before 1.13) offered an optional third-party usage statistics service. If you accepted it, the data it collected stays with that provider only for the service\'s retention period (at most 14 months) and is then deleted automatically; no new data has been collected since version 1.13.'],
-      ['p', 'More information about how that provider handles that data is available in its privacy policy.'],
+      ['p', 'Local data is kept until you delete it.'],
 
       ['h2', '6. Your rights'],
       ['p', `You can exercise your rights of access, rectification, erasure, objection, restriction and portability by writing to the contact address above. Instructions for deleting your data are at ${link}. If you believe your rights have not been respected, you can lodge a complaint with your data protection authority (in Spain, the Spanish Data Protection Agency: ${AEPD}).`],
-      ['p', 'If you used an earlier version with that optional usage statistics service and want its data deleted, we may ask you for the pseudonymous identifier of your installation to handle the request; you can also reset it by clearing the app\'s data or uninstalling it.'],
 
       ['h2', '7. Device permissions'],
       ['p', 'The app requests only one permission: <strong>vibration</strong> (for the wheel\'s effects). It is a normal permission that does not require your confirmation, and no information is collected through it. The app does not request Internet access or location. The device\'s audio is used only to play the wheel\'s sounds.'],
@@ -70,7 +68,7 @@ export default {
       ['p', 'La configuración de la ruleta (ejercicios y repeticiones que creas o activas), tus preferencias (idioma y apariencia) y si ya has visto el aviso de novedades se guardan únicamente en el almacenamiento local de tu dispositivo (<code>localStorage</code>). El historial de la sesión solo existe en memoria y se pierde al cerrar la aplicación. Estos datos no se envían a ningún servidor y los eliminas borrando los datos de la aplicación o desinstalándola.'],
       ['p', 'Si decides compartir un reto, la app crea en tu dispositivo una imagen y un texto breve y se los entrega a la aplicación que elijas en el menú de compartir. GymRoulette no los envía a ningún sitio y no necesita conexión a Internet para hacerlo. La imagen se guarda temporalmente en la caché de la app y se borra la próxima vez que compartas o abras la app. Lo que haga con ella la aplicación elegida se rige por su propia política de privacidad.'],
       ['h3', '2.2 Sin analítica, sin rastreadores, sin anuncios'],
-      ['p', 'Desde la versión 1.13 la aplicación no incluye ninguna herramienta de analítica ni de seguimiento: no incluye ningún SDK de terceros, no muestra anuncios, no usa identificadores publicitarios ni de seguimiento y no utiliza cookies más allá del almacenamiento local descrito arriba, que es estrictamente necesario para el funcionamiento de la app. La aplicación de Android no se conecta a Internet.'],
+      ['p', 'La aplicación no incluye ninguna herramienta de analítica ni de seguimiento: no incluye ningún SDK de terceros, no muestra anuncios, no usa identificadores publicitarios ni de seguimiento y no utiliza cookies más allá del almacenamiento local descrito arriba, que es estrictamente necesario para el funcionamiento de la app. La aplicación de Android no se conecta a Internet.'],
       ['p', 'GymRoulette <strong>no</strong> recopila nombre, correo electrónico, contactos, fotos, micrófono, cámara, ubicación (ni siquiera aproximada) ni ningún dato de salud o de condición física. La aplicación no tiene cuentas de usuario.'],
       ['h3', '2.3 Versión web'],
       ['p', `Si usas la versión web en ${WEB}, la página la sirve Firebase Hosting, un servicio de Google. Como cualquier servidor web, puede tratar en sus registros datos técnicos necesarios para entregar la página (como tu dirección IP y el tipo de navegador). La propia versión web no recopila ningún otro dato ni carga scripts de terceros.`],
@@ -82,12 +80,10 @@ export default {
       ['p', 'La aplicación no envía datos a nadie, por lo que no hay destinatarios ni transferencias internacionales. No vendemos ni compartimos datos con redes publicitarias, ni mostramos anuncios.'],
 
       ['h2', '5. Conservación'],
-      ['p', 'Los datos locales se conservan hasta que los borres. Las versiones anteriores de la aplicación (anteriores a la 1.13) ofrecían de forma opcional un servicio de estadísticas de uso de un tercero. Si lo aceptaste, los datos que recopiló permanecen en ese proveedor solo durante el periodo de retención del servicio (como máximo 14 meses) y después se eliminan automáticamente; desde la versión 1.13 no se recopila ningún dato nuevo.'],
-      ['p', 'Puedes consultar más información sobre cómo trata ese proveedor esos datos en su política de privacidad.'],
+      ['p', 'Los datos locales se conservan hasta que los borres.'],
 
       ['h2', '6. Tus derechos'],
       ['p', `Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a la dirección de contacto indicada arriba. Las instrucciones para eliminar tus datos están en ${link}. Si consideras que tus derechos no han sido atendidos, puedes reclamar ante la Agencia Española de Protección de Datos (${AEPD}).`],
-      ['p', 'Si usaste una versión anterior con ese servicio opcional de estadísticas de uso y quieres que se eliminen sus datos, para atender la solicitud podríamos pedirte el identificador pseudónimo de tu instalación; puedes además restablecerlo borrando los datos de la aplicación o desinstalándola.'],
 
       ['h2', '7. Permisos del dispositivo'],
       ['p', 'La aplicación solo solicita un permiso: <strong>vibración</strong> (para los efectos de la ruleta). Es un permiso normal que no requiere tu confirmación y con él no se recopila ninguna información. La aplicación no solicita acceso a Internet ni a la ubicación. El audio del dispositivo se usa solo para reproducir los sonidos de la ruleta.'],
@@ -119,7 +115,7 @@ export default {
       ['p', 'Gurpilaren konfigurazioa (sortzen edo aktibatzen dituzun ariketak eta errepikapenak) zure hobespenak (hizkuntza eta itxura) eta berritasunen oharra ikusi duzun ala ez zure gailuaren biltegiratze lokalean (<code>localStorage</code>) soilik gordetzen dira. Saioko historia memorian bakarrik dago eta aplikazioa ixtean galtzen da. Datu hauek ez dira inongo zerbitzaritara bidaltzen, eta aplikazioaren datuak ezabatuz edo desinstalatuz kentzen dituzu.'],
       ['p', 'Erronka bat partekatzea erabakitzen baduzu, aplikazioak irudi bat eta testu labur bat sortzen ditu zure gailuan eta partekatzeko menuan aukeratzen duzun aplikazioari ematen dizkio. GymRoulette-k ez ditu inora bidaltzen eta ez du Interneteko konexiorik behar horretarako. Irudia aplikazioaren cachean gordetzen da aldi baterako, eta hurrengo aldian partekatzean edo aplikazioa irekitzean ezabatzen da. Aukeratutako aplikazioak harekin egiten duena bere pribatutasun-politikak arautzen du.'],
       ['h3', '2.2 Analitikarik, aztarnarik eta iragarkirik gabe'],
-      ['p', '1.13 bertsiotik aurrera aplikazioak ez du inolako analitika- edo jarraipen-tresnarik: ez du hirugarrenen SDKrik barne hartzen, ez du iragarkirik erakusten, ez ditu publizitate- edo jarraipen-identifikatzaileak erabiltzen eta ez du cookierik erabiltzen goian azaldutako biltegiratze lokalaz harago, hori guztiz beharrezkoa baita aplikazioak funtziona dezan. Android aplikazioak ez du Internetera konektatzen.'],
+      ['p', 'Aplikazioak ez du inolako analitika- edo jarraipen-tresnarik: ez du hirugarrenen SDKrik barne hartzen, ez du iragarkirik erakusten, ez ditu publizitate- edo jarraipen-identifikatzaileak erabiltzen eta ez du cookierik erabiltzen goian azaldutako biltegiratze lokalaz harago, hori guztiz beharrezkoa baita aplikazioak funtziona dezan. Android aplikazioak ez du Internetera konektatzen.'],
       ['p', 'GymRoulette-k <strong>ez</strong> du biltzen izenik, posta elektronikorik, kontakturik, argazkirik, mikrofonorik, kamerarik, kokapenik (ezta gutxi gorabeherakoa ere) ezta osasun- edo kondizio fisikoko daturik ere. Aplikazioak ez du erabiltzaile-konturik.'],
       ['h3', '2.3 Web bertsioa'],
       ['p', `${WEB} helbideko web bertsioa erabiltzen baduzu, orria Firebase Hosting-ek zerbitzatzen du, Google-ren zerbitzu batek. Edozein web-zerbitzarik bezala, orria emateko behar diren datu teknikoak (zure IP helbidea eta nabigatzaile mota, adibidez) tratatu ditzake bere erregistroetan. Web bertsioak berak ez du beste daturik biltzen eta ez du hirugarrenen script-ik kargatzen.`],
@@ -131,12 +127,10 @@ export default {
       ['p', 'Aplikazioak ez dio inori daturik bidaltzen, beraz ez dago hartzailerik ez nazioarteko transferentziarik. Ez ditugu datuak saltzen ez partekatzen publizitate-sareekin, eta ez ditugu iragarkirik erakusten.'],
 
       ['h2', '5. Kontserbazioa'],
-      ['p', 'Datu lokalak zuk ezabatu arte gordetzen dira. Aplikazioaren aurreko bertsioek (1.13 baino lehenagokoek) hirugarren baten erabilera-estatistiken zerbitzu bat eskaintzen zuten, aukeran. Onartu baduzu, bildutako datuak hornitzaile horrengan geratzen dira soilik zerbitzuaren atxikitze-epean (gehienez 14 hilabete) eta, ondoren, automatikoki ezabatzen dira; 1.13 bertsiotik aurrera ez da datu berririk biltzen.'],
-      ['p', 'Hornitzaile horrek datu horiek nola tratatzen dituen jakiteko informazio gehiago, haren pribatutasun-politikan.'],
+      ['p', 'Datu lokalak zuk ezabatu arte gordetzen dira.'],
 
       ['h2', '6. Zure eskubideak'],
       ['p', `Sarbide, zuzenketa, ezabatze, aurkaratze, murrizketa eta eramangarritasun eskubideak baliatu ditzakezu goian adierazitako kontaktu-helbidera idatziz. Zure datuak ezabatzeko argibideak ${link} orrian daude. Zure eskubideak bete ez direla uste baduzu, datuak babesteko zure agintaritzari erreklamazioa aurkez diezaiokezu (Espainian, Datuak Babesteko Espainiako Agentziari: ${AEPD}).`],
-      ['p', 'erabilera-estatistiken aukerako zerbitzu hori duen aurreko bertsio bat erabili baduzu eta bere datuak ezabatzea nahi baduzu, eskaera bideratzeko zure instalazioaren identifikatzaile pseudonimoa eska diezazukegu; hura berrezar dezakezu ere aplikazioaren datuak ezabatuz edo desinstalatuz.'],
 
       ['h2', '7. Gailuaren baimenak'],
       ['p', 'Aplikazioak baimen bakarra eskatzen du: <strong>bibrazioa</strong> (gurpilaren efektuetarako). Baimen arrunta da, ez du zure berrespenik behar eta berarekin ez da informaziorik biltzen. Aplikazioak ez du Interneterako sarbiderik ez kokapenik eskatzen. Gailuaren audioa gurpilaren soinuak erreproduzitzeko soilik erabiltzen da.'],
@@ -168,7 +162,7 @@ export default {
       ['p', 'A configuración da ruleta (exercicios e repeticións que creas ou activas), as túas preferencias (idioma e aparencia) e se xa viches o aviso de novidades gárdanse unicamente no almacenamento local do teu dispositivo (<code>localStorage</code>). O historial da sesión só existe na memoria e perdese ao pechar a aplicación. Estes datos non se envían a ningún servidor e elimínalos borrando os datos da aplicación ou desinstalándoa.'],
       ['p', 'Se decides compartir un reto, a app crea no teu dispositivo unha imaxe e un texto breve e entrégallos á aplicación que escollas no menú de compartir. GymRoulette non os envía a ningún sitio e non precisa conexión a Internet para facelo. A imaxe gárdase temporalmente na caché da app e bórrase a próxima vez que compartas ou abras a app. O que faga con ela a aplicación escollida réxese pola súa propia política de privacidade.'],
       ['h3', '2.2 Sen analítica, sen rastreadores, sen anuncios'],
-      ['p', 'Desde a versión 1.13 a aplicación non ten ningunha ferramenta de analítica nin de seguimento: non inclúe ningún SDK de terceiros, non mostra anuncios, non usa identificadores publicitarios nin de seguimento e non usa cookies máis alá do almacenamento local descrito arriba, que é estritamente necesario para o funcionamento da app. A aplicación Android non se conecta a Internet.'],
+      ['p', 'A aplicación non ten ningunha ferramenta de analítica nin de seguimento: non inclúe ningún SDK de terceiros, non mostra anuncios, non usa identificadores publicitarios nin de seguimento e non usa cookies máis alá do almacenamento local descrito arriba, que é estritamente necesario para o funcionamento da app. A aplicación Android non se conecta a Internet.'],
       ['p', 'GymRoulette <strong>non</strong> recolle nome, correo electrónico, contactos, fotos, micrófono, cámara, localización (nin sequera aproximada) nin ningún dato de saúde ou de condición física. A aplicación non ten contas de usuario.'],
       ['h3', '2.3 Versión web'],
       ['p', `Se usas a versión web en ${WEB}, a páxina é servida por Firebase Hosting, un servizo de Google. Como calquera servidor web, pode tratar nos seus rexistros do servidor os datos técnicos necesarios para entregar a páxina (como o teu enderezo IP e o tipo de navegador). A propia versión web non recolle ningún outro dato nin carga scripts de terceiros.`],
@@ -180,12 +174,10 @@ export default {
       ['p', 'A aplicación non envía datos a ninguén, polo que non hai destinatarios nin transferencias internacionais. Non vendemos nin compartimos datos con redes publicitarias, nin mostramos anuncios.'],
 
       ['h2', '5. Conservación'],
-      ['p', 'Os datos locais consérvanse ata que os borres. As versións anteriores da aplicación (anteriores á 1.13) ofrecían de forma opcional un servizo de estatísticas de uso dun terceiro. Se o aceptaches, os datos que recolleu só permanecen nese provedor durante o período de retención do servizo (como máximo 14 meses) e despois elimínanse automaticamente; desde a versión 1.13 non se recolleu ningún dato novo.'],
-      ['p', 'Podes consultar máis información sobre como trata ese provedor eses datos na súa política de privacidade.'],
+      ['p', 'Os datos locais consérvanse ata que os borres.'],
 
       ['h2', '6. Os teus dereitos'],
       ['p', `Podes exercer os teus dereitos de acceso, rectificación, supresión, oposición, limitación e portabilidade escribindo ao enderezo de contacto indicado arriba. As instrucións para eliminar os teus datos están en ${link}. Se consideras que os teus dereitos non foron atendidos, podes reclamar ante a túa autoridade de protección de datos (en España, a Axencia Española de Protección de Datos: ${AEPD}).`],
-      ['p', 'Se usaches unha versión anterior con ese servizo opcional de estatísticas de uso e queres que se eliminen os seus datos, para atender a solicitude poderiamos pedirche o identificador pseudónimo da túa instalación; podes ademais restablecelo borrando os datos da aplicación ou desinstalándoa.'],
 
       ['h2', '7. Permisos do dispositivo'],
       ['p', 'A aplicación só solicita un permiso: <strong>vibración</strong> (para os efectos da ruleta). É un permiso normal que non require a túa confirmación e con el non se recolle ningunha información. A aplicación non solicita acceso a Internet nin á localización. O audio do dispositivo úsase só para reproducir os sons da ruleta.'],
@@ -217,7 +209,7 @@ export default {
       ['p', 'La configuració de la ruleta (exercicis i repeticions que crees o actives), les teves preferències (idioma i aparença) i si ja has vist l\'avís de novetats es desen únicament a l\'emmagatzematge local del teu dispositiu (<code>localStorage</code>). L\'historial de la sessió només existeix a la memòria i es perd en tancar l\'aplicació. Aquestes dades no s\'envien a cap servidor i les elimines esborrant les dades de l\'aplicació o desinstal·lant-la.'],
       ['p', 'Si decideixes compartir un repte, l\'app crea al teu dispositiu una imatge i un text breu i els lliura a l\'aplicació que triïs al menú de compartir. GymRoulette no els envia enlloc i no necessita connexió a Internet per fer-ho. La imatge es desa temporalment a la memòria cau de l\'app i s\'esborra la propera vegada que comparteixis o obris l\'app. El que en faci l\'aplicació triada es regeix per la seva pròpia política de privadesa.'],
       ['h3', '2.2 Sense analítica, sense rastrejadors, sense anuncis'],
-      ['p', 'Des de la versió 1.13 l\'aplicació no té cap eina d\'analítica ni de seguiment: no inclou cap SDK de tercers, no mostra anuncis, no utilitza identificadors publicitaris ni de seguiment i no utilitza galetes més enllà de l\'emmagatzematge local descrit a dalt, que és estrictament necessari per al funcionament de l\'app. L\'aplicació Android no es connecta a Internet.'],
+      ['p', 'L\'aplicació no té cap eina d\'analítica ni de seguiment: no inclou cap SDK de tercers, no mostra anuncis, no utilitza identificadors publicitaris ni de seguiment i no utilitza galetes més enllà de l\'emmagatzematge local descrit a dalt, que és estrictament necessari per al funcionament de l\'app. L\'aplicació Android no es connecta a Internet.'],
       ['p', 'GymRoulette <strong>no</strong> recopila nom, correu electrònic, contactes, fotos, micròfon, càmera, ubicació (ni tan sols aproximada) ni cap dada de salut o de condició física. L\'aplicació no té comptes d\'usuari.'],
       ['h3', '2.3 Versió web'],
       ['p', `Si utilitzes la versió web a ${WEB}, la pàgina és servida per Firebase Hosting, un servei de Google. Com qualsevol servidor web, pot tractar als seus registres del servidor les dades tècniques necessàries per lliurar la pàgina (com la teva adreça IP i el tipus de navegador). La versió web en si no recopila cap altra dada ni carrega scripts de tercers.`],
@@ -229,12 +221,10 @@ export default {
       ['p', 'L\'aplicació no envia dades a ningú, de manera que no hi ha destinataris ni transferències internacionals. No venem ni compartim dades amb xarxes publicitàries, ni mostrem anuncis.'],
 
       ['h2', '5. Conservació'],
-      ['p', 'Les dades locals es conserven fins que les esborris. Les versions anteriors de l\'aplicació (anteriors a la 1.13) oferien de manera opcional un servei d\'estadístiques d\'ús d\'un tercer. Si el vas acceptar, les dades que va recopilar només romanen en aquest proveïdor durant el període de retenció del servei (com a màxim 14 mesos) i després s\'eliminen automàticament; des de la versió 1.13 no s\'ha recopilat cap dada nova.'],
-      ['p', 'Pots consultar més informació sobre com tracta aquest proveïdor aquestes dades a la seva política de privacitat.'],
+      ['p', 'Les dades locals es conserven fins que les esborris.'],
 
       ['h2', '6. Els teus drets'],
       ['p', `Pots exercir els teus drets d'accés, rectificació, supressió, oposició, limitació i portabilitat escrivint a l'adreça de contacte indicada a dalt. Les instruccions per eliminar les teves dades són a ${link}. Si consideres que els teus drets no han estat atesos, pots reclamar davant la teva autoritat de protecció de dades (a Espanya, l'Agència Espanyola de Protecció de Dades: ${AEPD}).`],
-      ['p', 'Si has utilitzat una versió anterior amb aquest servei opcional d\'estadístiques d\'ús i vols que se n\'eliminin les dades, per atendre la sol·licitud et podríem demanar l\'identificador pseudònim de la teva instal·lació; també el pots restablir esborrant les dades de l\'aplicació o desinstal·lant-la.'],
 
       ['h2', '7. Permisos del dispositiu'],
       ['p', 'L\'aplicació només sol·licita un permís: <strong>vibració</strong> (per als efectes de la ruleta). És un permís normal que no requereix la teva confirmació i amb ell no es recopila cap informació. L\'aplicació no sol·licita accés a Internet ni a la ubicació. L\'àudio del dispositiu només s\'utilitza per reproduir els sons de la ruleta.'],
@@ -266,7 +256,7 @@ export default {
       ['p', 'La configuration de la roue (les exercices et répétitions que tu crées ou actives), tes préférences (langue et apparence) et le fait d\'avoir déjà vu l\'annonce des nouveautés sont enregistrés uniquement dans le stockage local de ton appareil (<code>localStorage</code>). L\'historique de la séance n\'existe qu\'en mémoire et disparaît à la fermeture de l\'application. Ces données ne sont envoyées à aucun serveur et tu les supprimes en effaçant les données de l\'application ou en la désinstallant.'],
       ['p', 'Si tu choisis de partager un défi, l\'application crée sur ton appareil une image et un court texte, puis les remet à l\'application que tu sélectionnes dans le menu de partage. GymRoulette ne les envoie nulle part et n\'a pas besoin de connexion Internet pour cela. L\'image est conservée temporairement dans le cache de l\'application et supprimée au prochain partage ou à la prochaine ouverture. L\'usage qu\'en fait l\'application choisie relève de sa propre politique de confidentialité.'],
       ['h3', '2.2 Ni analyse, ni traceurs, ni publicité'],
-      ['p', 'Depuis la version 1.13, l\'application ne contient aucun outil d\'analyse ou de suivi : elle n\'inclut aucun SDK tiers, n\'affiche pas de publicité, n\'utilise pas d\'identifiants publicitaires ou de suivi et n\'utilise pas de cookies en dehors du stockage local décrit ci-dessus, qui est strictement nécessaire au fonctionnement de l\'application. L\'application Android ne se connecte pas à Internet.'],
+      ['p', 'L\'application ne contient aucun outil d\'analyse ou de suivi : elle n\'inclut aucun SDK tiers, n\'affiche pas de publicité, n\'utilise pas d\'identifiants publicitaires ou de suivi et n\'utilise pas de cookies en dehors du stockage local décrit ci-dessus, qui est strictement nécessaire au fonctionnement de l\'application. L\'application Android ne se connecte pas à Internet.'],
       ['p', 'GymRoulette ne collecte <strong>ni</strong> nom, adresse e-mail, contacts, photos, microphone, caméra, localisation (pas même approximative), ni aucune donnée de santé ou de condition physique. L\'application n\'a pas de comptes utilisateur.'],
       ['h3', '2.3 Version web'],
       ['p', `Si tu utilises la version web sur ${WEB}, la page est servie par Firebase Hosting, un service de Google. Comme tout serveur web, il peut traiter dans ses journaux les données techniques nécessaires à la diffusion de la page (comme ton adresse IP et le type de navigateur). La version web elle-même ne collecte aucune autre donnée et ne charge aucun script tiers.`],
@@ -278,12 +268,10 @@ export default {
       ['p', 'L\'application n\'envoie de données à personne : il n\'y a donc ni destinataires ni transferts internationaux. Nous ne vendons ni ne partageons de données avec des réseaux publicitaires, et nous n\'affichons pas de publicité.'],
 
       ['h2', '5. Conservation'],
-      ['p', 'Les données locales sont conservées jusqu\'à ce que tu les supprimes. Les versions précédentes de l\'application (avant la 1.13) proposaient en option un service tiers de statistiques d\'utilisation. Si tu l\'avais accepté, les données collectées ne restent chez ce fournisseur que pendant la durée de conservation du service (14 mois au maximum), puis sont supprimées automatiquement ; aucune nouvelle donnée n\'est collectée depuis la version 1.13.'],
-      ['p', 'Tu peux trouver plus d\'informations sur le traitement de ces données par ce fournisseur dans sa politique de confidentialité.'],
+      ['p', 'Les données locales sont conservées jusqu\'à ce que tu les supprimes.'],
 
       ['h2', '6. Tes droits'],
       ['p', `Tu peux exercer tes droits d'accès, de rectification, d'effacement, d'opposition, de limitation et de portabilité en écrivant à l'adresse de contact indiquée ci-dessus. Les instructions pour supprimer tes données se trouvent sur ${link}. Si tu estimes que tes droits n'ont pas été respectés, tu peux introduire une réclamation auprès de ton autorité de protection des données (en France, la CNIL ; en Espagne, l'Agence espagnole de protection des données : ${AEPD}).`],
-      ['p', 'Si tu as utilisé une version précédente avec ce service facultatif de statistiques d\'utilisation et souhaites que ses données soient supprimées, nous pourrions te demander l\'identifiant pseudonyme de ton installation pour traiter ta demande ; tu peux aussi le réinitialiser en effaçant les données de l\'application ou en la désinstallant.'],
 
       ['h2', '7. Autorisations de l\'appareil'],
       ['p', 'L\'application ne demande qu\'une seule autorisation : <strong>la vibration</strong> (pour les effets de la roue). C\'est une autorisation normale qui ne nécessite pas ta confirmation et aucune information n\'est collectée par son intermédiaire. L\'application ne demande ni accès à Internet ni localisation. Le son de l\'appareil sert uniquement à jouer les sons de la roue.'],
@@ -315,7 +303,7 @@ export default {
       ['p', 'Die Einstellungen Ihres Rads (die Übungen und Wiederholungen, die Sie erstellen oder aktivieren), Ihre Präferenzen (Sprache und Erscheinungsbild) und ob Sie den Hinweis auf Neuigkeiten bereits gesehen haben werden ausschließlich im lokalen Speicher Ihres Geräts (<code>localStorage</code>) abgelegt. Der Verlauf der Sitzung existiert nur im Arbeitsspeicher und geht beim Schließen der App verloren. Diese Daten werden an keinen Server gesendet; Sie entfernen sie, indem Sie die Daten der App löschen oder sie deinstallieren.'],
       ['p', 'Wenn Sie eine Challenge teilen, erstellt die App auf Ihrem Gerät ein Bild und einen kurzen Text und übergibt sie an die App, die Sie im Teilen-Menü Ihres Geräts auswählen. GymRoulette sendet sie nirgendwohin und benötigt dafür keine Internetverbindung. Das Bild wird vorübergehend im Cache der App gespeichert und beim nächsten Teilen oder Öffnen der App gelöscht. Was die von Ihnen gewählte App damit macht, richtet sich nach deren eigener Datenschutzerklärung.'],
       ['h3', '2.2 Keine Analyse, keine Tracker, keine Werbung'],
-      ['p', 'Seit Version 1.13 enthält die App keinerlei Analyse- oder Tracking-Werkzeuge: Sie enthält kein SDK von Drittanbietern, zeigt keine Werbung, verwendet keine Werbe- oder Tracking-Kennungen und nutzt keine Cookies über den oben beschriebenen lokalen Speicher hinaus, der für den Betrieb der App unbedingt erforderlich ist. Die Android-App stellt keine Verbindung zum Internet her.'],
+      ['p', 'Die App enthält keinerlei Analyse- oder Tracking-Werkzeuge: Sie enthält kein SDK von Drittanbietern, zeigt keine Werbung, verwendet keine Werbe- oder Tracking-Kennungen und nutzt keine Cookies über den oben beschriebenen lokalen Speicher hinaus, der für den Betrieb der App unbedingt erforderlich ist. Die Android-App stellt keine Verbindung zum Internet her.'],
       ['p', 'GymRoulette erfasst <strong>weder</strong> Ihren Namen, Ihre E-Mail-Adresse, Kontakte, Fotos, Mikrofon, Kamera, Standort (nicht einmal ungefähr) <strong>noch</strong> Gesundheits- oder Fitnessdaten. Die App hat keine Benutzerkonten.'],
       ['h3', '2.3 Webversion'],
       ['p', `Wenn Sie die Webversion unter ${WEB} nutzen, wird die Seite von Firebase Hosting, einem Dienst von Google, ausgeliefert. Wie jeder Webserver kann er in seinen Server-Logs technische Daten verarbeiten, die zur Auslieferung der Seite nötig sind (etwa Ihre IP-Adresse und den Browsertyp). Die Webversion selbst erfasst keine weiteren Daten und lädt keine Skripte von Drittanbietern.`],
@@ -327,12 +315,10 @@ export default {
       ['p', 'Die App sendet keine Daten an Dritte, daher gibt es weder Empfänger noch internationale Übermittlungen. Wir verkaufen keine Daten und geben keine Daten an Werbenetzwerke weiter, und wir zeigen keine Werbung an.'],
 
       ['h2', '5. Speicherdauer'],
-      ['p', 'Lokale Daten bleiben gespeichert, bis Sie sie löschen. Frühere Versionen der App (vor 1.13) boten optional einen Statistikdienst zur Nutzung von einem Drittanbieter an. Wenn Sie zugestimmt hatten, bleiben die dabei erfassten Daten nur für die Aufbewahrungsdauer des Dienstes (höchstens 14 Monate) bei diesem Anbieter und werden danach automatisch gelöscht; seit Version 1.13 werden keine neuen Daten mehr erfasst.'],
-      ['p', 'Weitere Informationen dazu, wie dieser Anbieter diese Daten behandelt, finden Sie in dessen Datenschutzerklärung.'],
+      ['p', 'Lokale Daten bleiben gespeichert, bis Sie sie löschen.'],
 
       ['h2', '6. Ihre Rechte'],
       ['p', `Sie können Ihre Rechte auf Auskunft, Berichtigung, Löschung, Widerspruch, Einschränkung und Datenübertragbarkeit ausüben, indem Sie an die oben genannte Kontaktadresse schreiben. Anleitungen zum Löschen Ihrer Daten finden Sie unter ${link}. Wenn Sie der Ansicht sind, dass Ihre Rechte nicht gewahrt wurden, können Sie sich bei Ihrer Datenschutzaufsichtsbehörde beschweren (in Spanien bei der Spanischen Datenschutzbehörde: ${AEPD}).`],
-      ['p', 'Wenn Sie eine frühere Version mit diesem optionalen Statistikdienst zur Nutzung genutzt haben und möchten, dass deren Daten gelöscht werden, können wir Sie zur Bearbeitung der Anfrage um die pseudonyme Kennung Ihrer Installation bitten; Sie können sie auch zurücksetzen, indem Sie die Daten der App löschen oder sie deinstallieren.'],
 
       ['h2', '7. Geräteberechtigungen'],
       ['p', 'Die App fordert nur eine Berechtigung an: <strong>Vibration</strong> (für die Effekte des Rads). Sie ist eine normale Berechtigung, die Ihre Bestätigung nicht erfordert, und über sie werden keine Informationen erfasst. Die App fordert weder Internetzugriff noch Standort an. Die Audioausgabe des Geräts wird nur verwendet, um die Geräusche des Rads abzuspielen.'],
@@ -364,7 +350,7 @@ export default {
       ['p', 'Le impostazioni della ruota (gli esercizi e le ripetizioni che crei o attivi), le tue preferenze (lingua e aspetto) e se hai già visto l\'avviso delle novità vengono salvati esclusivamente nella memoria locale del tuo dispositivo (<code>localStorage</code>). La cronologia della sessione esiste solo in memoria e va persa alla chiusura dell\'app. Questi dati non vengono inviati ad alcun server e li rimuovi cancellando i dati dell\'app o disinstallandola.'],
       ['p', 'Se scegli di condividere una sfida, l\'app crea sul tuo dispositivo un\'immagine e un breve testo e li consegna all\'app che selezioni nel menu di condivisione. GymRoulette non li invia da nessuna parte e non richiede una connessione a Internet per farlo. L\'immagine viene conservata temporaneamente nella cache dell\'app e viene eliminata alla successiva condivisione o apertura dell\'app. Ciò che fa l\'app scelta è regolato dalla sua informativa sulla privacy.'],
       ['h3', '2.2 Nessuna analisi, nessun tracker, nessuna pubblicità'],
-      ['p', 'Dalla versione 1.13 l\'app non ha strumenti di analisi o di tracciamento di alcun tipo: non include alcun SDK di terze parti, non mostra annunci, non usa identificativi pubblicitari o di tracciamento e non usa cookie oltre alla memoria locale descritta sopra, strettamente necessaria per il funzionamento dell\'app. L\'app Android non si connette a Internet.'],
+      ['p', 'L\'app non ha strumenti di analisi o di tracciamento di alcun tipo: non include alcun SDK di terze parti, non mostra annunci, non usa identificativi pubblicitari o di tracciamento e non usa cookie oltre alla memoria locale descritta sopra, strettamente necessaria per il funzionamento dell\'app. L\'app Android non si connette a Internet.'],
       ['p', 'GymRoulette <strong>non</strong> raccoglie il tuo nome, indirizzo e-mail, contatti, foto, microfono, fotocamera, posizione (nemmeno approssimativa) né alcun dato relativo alla salute o alla forma fisica. L\'app non ha account utente.'],
       ['h3', '2.3 Versione web'],
       ['p', `Se usi la versione web su ${WEB}, la pagina viene servita da Firebase Hosting, un servizio di Google. Come qualsiasi server web, può trattare nei propri registri del server i dati tecnici necessari per fornire la pagina (come il tuo indirizzo IP e il tipo di browser). La versione web non raccoglie di per sé altri dati né carica script di terze parti.`],
@@ -376,12 +362,10 @@ export default {
       ['p', 'L\'app non invia dati a nessuno, quindi non ci sono destinatari né trasferimenti internazionali. Non vendiamo né condividiamo dati con reti pubblicitarie e non mostriamo annunci.'],
 
       ['h2', '5. Conservazione'],
-      ['p', 'I dati locali vengono conservati finché non li cancelli. Le versioni precedenti dell\'app (anteriori alla 1.13) offrivano in via facoltativa un servizio di statistiche di utilizzo di terze parti. Se lo hai accettato, i dati raccolti restano presso quel fornitore solo per il periodo di conservazione del servizio (al massimo 14 mesi) e poi vengono eliminati automaticamente; dalla versione 1.13 non viene raccolto alcun nuovo dato.'],
-      ['p', 'Puoi trovare maggiori informazioni su come quel fornitore tratta tali dati nella sua informativa sulla privacy.'],
+      ['p', 'I dati locali vengono conservati finché non li cancelli.'],
 
       ['h2', '6. I tuoi diritti'],
       ['p', `Puoi esercitare i tuoi diritti di accesso, rettifica, cancellazione, opposizione, limitazione e portabilità scrivendo all'indirizzo di contatto indicato sopra. Le istruzioni per eliminare i tuoi dati si trovano su ${link}. Se ritieni che i tuoi diritti non siano stati rispettati, puoi presentare un reclamo alla tua autorità di protezione dei dati (in Italia, il Garante per la protezione dei dati personali; in Spagna, l'Agenzia spagnola per la protezione dei dati: ${AEPD}).`],
-      ['p', 'Se hai usato una versione precedente con quel servizio facoltativo di statistiche di utilizzo e vuoi che i relativi dati vengano eliminati, per gestire la richiesta potremmo chiederti l\'identificativo pseudonimo della tua installazione; puoi anche reimpostarlo cancellando i dati dell\'app o disinstallandola.'],
 
       ['h2', '7. Autorizzazioni del dispositivo'],
       ['p', 'L\'app richiede una sola autorizzazione: <strong>vibrazione</strong> (per gli effetti della ruota). È un\'autorizzazione normale che non richiede la tua conferma e tramite essa non viene raccolta alcuna informazione. L\'app non richiede l\'accesso a Internet né alla posizione. L\'audio del dispositivo viene usato solo per riprodurre i suoni della ruota.'],
@@ -413,7 +397,7 @@ export default {
       ['p', 'A configuração da roleta (os exercícios e repetições que você cria ou ativa), suas preferências (idioma e aparência) e se você já viu o aviso de novidades são guardados apenas no armazenamento local do seu dispositivo (<code>localStorage</code>). O histórico da sessão existe somente na memória e se perde ao fechar o aplicativo. Esses dados não são enviados a nenhum servidor e você os remove apagando os dados do aplicativo ou desinstalando-o.'],
       ['p', 'Se você decidir compartilhar um desafio, o app cria no seu dispositivo uma imagem e um texto curto e os entrega ao aplicativo que você escolher no menu de compartilhamento. O GymRoulette não os envia a lugar nenhum e não precisa de conexão com a Internet para isso. A imagem fica guardada temporariamente no cache do app e é apagada na próxima vez que você compartilhar ou abrir o app. O que o aplicativo escolhido faz com ela é regido pela política de privacidade dele.'],
       ['h3', '2.2 Sem análise, sem rastreadores, sem anúncios'],
-      ['p', 'Desde a versão 1.13 o aplicativo não tem nenhuma ferramenta de análise ou rastreamento: não inclui nenhum SDK de terceiros, não exibe anúncios, não usa identificadores de publicidade ou rastreamento e não usa cookies além do armazenamento local descrito acima, que é estritamente necessário para o funcionamento do app. O aplicativo Android não se conecta à Internet.'],
+      ['p', 'O aplicativo não tem nenhuma ferramenta de análise ou rastreamento: não inclui nenhum SDK de terceiros, não exibe anúncios, não usa identificadores de publicidade ou rastreamento e não usa cookies além do armazenamento local descrito acima, que é estritamente necessário para o funcionamento do app. O aplicativo Android não se conecta à Internet.'],
       ['p', 'O GymRoulette <strong>não</strong> coleta nome, e-mail, contatos, fotos, microfone, câmera, localização (nem mesmo aproximada) nem qualquer dado de saúde ou condicionamento físico. O aplicativo não tem contas de usuário.'],
       ['h3', '2.3 Versão web'],
       ['p', `Se você usa a versão web em ${WEB}, a página é servida pelo Firebase Hosting, um serviço do Google. Como qualquer servidor web, ele pode tratar nos seus registros de servidor os dados técnicos necessários para entregar a página (como seu endereço IP e o tipo de navegador). A versão web em si não coleta nenhum outro dado nem carrega scripts de terceiros.`],
@@ -425,12 +409,10 @@ export default {
       ['p', 'O aplicativo não envia dados a ninguém, portanto não há destinatários nem transferências internacionais. Não vendemos nem compartilhamos dados com redes de publicidade e não exibimos anúncios.'],
 
       ['h2', '5. Retenção'],
-      ['p', 'Os dados locais são mantidos até que você os apague. As versões anteriores do aplicativo (anteriores à 1.13) ofereciam, de forma opcional, um serviço de estatísticas de uso de terceiros. Se você o aceitou, os dados coletados ficam com esse provedor apenas pelo período de retenção do serviço (no máximo 14 meses) e depois são excluídos automaticamente; nenhum dado novo é coletado desde a versão 1.13.'],
-      ['p', 'Você pode encontrar mais informações sobre como esse provedor trata esses dados na política de privacidade dele.'],
+      ['p', 'Os dados locais são mantidos até que você os apague.'],
 
       ['h2', '6. Seus direitos'],
       ['p', `Você pode exercer seus direitos de acesso, retificação, exclusão, oposição, limitação e portabilidade escrevendo ao endereço de contato indicado acima. As instruções para excluir seus dados estão em ${link}. Se considerar que seus direitos não foram atendidos, você pode apresentar uma reclamação à autoridade de proteção de dados do seu país (no Brasil, a ANPD; na Espanha, a Agência Espanhola de Proteção de Dados: ${AEPD}).`],
-      ['p', 'Se você usou uma versão anterior com esse serviço opcional de estatísticas de uso e quer que os dados dela sejam excluídos, para atender à solicitação podemos pedir o identificador pseudônimo da sua instalação; você também pode redefini-lo apagando os dados do aplicativo ou desinstalando-o.'],
 
       ['h2', '7. Permissões do dispositivo'],
       ['p', 'O aplicativo solicita apenas uma permissão: <strong>vibração</strong> (para os efeitos da roleta). É uma permissão normal que não exige sua confirmação e nenhuma informação é coletada por meio dela. O aplicativo não solicita acesso à Internet nem à localização. O áudio do dispositivo é usado apenas para reproduzir os sons da roleta.'],
@@ -462,7 +444,7 @@ export default {
       ['p', 'A configuração da roleta (os exercícios e repetições que crias ou ativas), as tuas preferências (idioma e aparência) e se já viste o aviso de novidades são guardados apenas no armazenamento local do teu dispositivo (<code>localStorage</code>). O histórico da sessão existe apenas na memória e perde-se ao fechar a aplicação. Estes dados não são enviados para nenhum servidor e removes-os apagando os dados da aplicação ou desinstalando-a.'],
       ['p', 'Se decidires partilhar um desafio, a aplicação cria no teu dispositivo uma imagem e um texto curto e entrega-os à aplicação que escolheres no menu de partilha. O GymRoulette não os envia para lado nenhum e não precisa de ligação à Internet para isso. A imagem fica guardada temporariamente na cache da aplicação e é apagada na próxima vez que partilhares ou abrires a aplicação. O que a aplicação escolhida faz com ela rege-se pela sua própria política de privacidade.'],
       ['h3', '2.2 Sem análise, sem rastreadores, sem anúncios'],
-      ['p', 'Desde a versão 1.13 a aplicação não tem nenhuma ferramenta de análise ou de rastreio: não inclui nenhum SDK de terceiros, não apresenta anúncios, não utiliza identificadores de publicidade ou de rastreio e não utiliza cookies para além do armazenamento local descrito acima, que é estritamente necessário para o funcionamento da aplicação. A aplicação Android não se liga à Internet.'],
+      ['p', 'A aplicação não tem nenhuma ferramenta de análise ou de rastreio: não inclui nenhum SDK de terceiros, não apresenta anúncios, não utiliza identificadores de publicidade ou de rastreio e não utiliza cookies para além do armazenamento local descrito acima, que é estritamente necessário para o funcionamento da aplicação. A aplicação Android não se liga à Internet.'],
       ['p', 'O GymRoulette <strong>não</strong> recolhe nome, e-mail, contactos, fotografias, microfone, câmara, localização (nem sequer aproximada) nem quaisquer dados de saúde ou de condição física. A aplicação não tem contas de utilizador.'],
       ['h3', '2.3 Versão web'],
       ['p', `Se utilizas a versão web em ${WEB}, a página é servida pelo Firebase Hosting, um serviço da Google. Como qualquer servidor web, pode tratar nos seus registos do servidor os dados técnicos necessários para entregar a página (como o teu endereço IP e o tipo de navegador). A versão web em si não recolhe quaisquer outros dados nem carrega scripts de terceiros.`],
@@ -474,12 +456,10 @@ export default {
       ['p', 'A aplicação não envia dados a ninguém, pelo que não existem destinatários nem transferências internacionais. Não vendemos nem partilhamos dados com redes publicitárias e não apresentamos anúncios.'],
 
       ['h2', '5. Conservação'],
-      ['p', 'Os dados locais são conservados até os apagares. As versões anteriores da aplicação (anteriores à 1.13) ofereciam, de forma opcional, um serviço de estatísticas de utilização de terceiros. Se o aceitaste, os dados recolhidos ficam com esse fornecedor apenas durante o período de retenção do serviço (no máximo 14 meses) e depois são eliminados automaticamente; não é recolhido nenhum dado novo desde a versão 1.13.'],
-      ['p', 'Podes encontrar mais informações sobre como esse fornecedor trata esses dados na respetiva política de privacidade.'],
+      ['p', 'Os dados locais são conservados até os apagares.'],
 
       ['h2', '6. Os teus direitos'],
       ['p', `Podes exercer os teus direitos de acesso, retificação, apagamento, oposição, limitação e portabilidade escrevendo para o endereço de contacto indicado acima. As instruções para eliminar os teus dados estão em ${link}. Se considerares que os teus direitos não foram respeitados, podes apresentar reclamação à autoridade de proteção de dados (em Portugal, a CNPD; em Espanha, a Agência Espanhola de Proteção de Dados: ${AEPD}).`],
-      ['p', 'Se utilizaste uma versão anterior com esse serviço opcional de estatísticas de utilização e queres que os respetivos dados sejam eliminados, para dar resposta ao pedido poderemos solicitar-te o identificador pseudónimo da tua instalação; podes também repô-lo apagando os dados da aplicação ou desinstalando-a.'],
 
       ['h2', '7. Permissões do dispositivo'],
       ['p', 'A aplicação solicita apenas uma permissão: <strong>vibração</strong> (para os efeitos da roleta). É uma permissão normal que não requer a tua confirmação e não é recolhida qualquer informação através dela. A aplicação não solicita acesso à Internet nem à localização. O áudio do dispositivo é utilizado apenas para reproduzir os sons da roleta.'],
@@ -510,7 +490,7 @@ export default {
       ['p', 'Ustawienia koła (ćwiczenia i powtórzenia, które Użytkownik tworzy lub włącza), preferencje (język i wygląd) oraz informacja, czy Użytkownik widział już komunikat o nowościach są zapisywane wyłącznie w pamięci lokalnej urządzenia (<code>localStorage</code>). Historia sesji istnieje tylko w pamięci i znika po zamknięciu aplikacji. Dane te nie są wysyłane na żaden serwer; Użytkownik usuwa je, czyszcząc dane aplikacji lub odinstalowując ją.'],
       ['p', 'Jeśli Użytkownik zdecyduje się udostępnić wyzwanie, aplikacja tworzy na jego urządzeniu obraz i krótki tekst i przekazuje je aplikacji wybranej w menu udostępniania. GymRoulette nie wysyła ich nigdzie i nie wymaga do tego połączenia z internetem. Obraz jest tymczasowo przechowywany w pamięci podręcznej aplikacji i usuwany przy następnym udostępnianiu lub otwarciu aplikacji. To, co wybrana aplikacja z nim zrobi, podlega jej własnej polityce prywatności.'],
       ['h3', '2.2 Brak analityki, trackerów i reklam'],
-      ['p', 'Od wersji 1.13 aplikacja nie zawiera żadnych narzędzi analitycznych ani śledzących: nie obejmuje żadnego zewnętrznego pakietu SDK, nie wyświetla reklam, nie używa identyfikatorów reklamowych ani śledzących i nie korzysta z plików cookie poza opisaną wyżej pamięcią lokalną, która jest niezbędna do działania aplikacji. Aplikacja na Androida nie łączy się z Internetem.'],
+      ['p', 'Aplikacja nie zawiera żadnych narzędzi analitycznych ani śledzących: nie obejmuje żadnego zewnętrznego pakietu SDK, nie wyświetla reklam, nie używa identyfikatorów reklamowych ani śledzących i nie korzysta z plików cookie poza opisaną wyżej pamięcią lokalną, która jest niezbędna do działania aplikacji. Aplikacja na Androida nie łączy się z Internetem.'],
       ['p', 'GymRoulette <strong>nie</strong> zbiera imienia i nazwiska, adresu e-mail, kontaktów, zdjęć, mikrofonu, aparatu, lokalizacji (nawet przybliżonej) ani żadnych danych o zdrowiu czy kondycji. Aplikacja nie ma kont użytkowników.'],
       ['h3', '2.3 Wersja internetowa'],
       ['p', `Jeśli Użytkownik korzysta z wersji internetowej pod adresem ${WEB}, strona jest udostępniana przez Firebase Hosting, usługę Google. Jak każdy serwer internetowy, może on przetwarzać w dziennikach serwera dane techniczne potrzebne do dostarczenia strony (takie jak adres IP i typ przeglądarki). Sama wersja internetowa nie zbiera żadnych innych danych i nie ładuje skryptów podmiotów trzecich.`],
@@ -522,12 +502,10 @@ export default {
       ['p', 'Aplikacja nie wysyła danych nikomu, więc nie ma odbiorców ani przekazywania danych do państw trzecich. Nie sprzedajemy danych ani nie udostępniamy ich sieciom reklamowym, a także nie wyświetlamy reklam.'],
 
       ['h2', '5. Okres przechowywania'],
-      ['p', 'Dane lokalne są przechowywane do chwili ich usunięcia przez Użytkownika. Wcześniejsze wersje aplikacji (przed 1.13) oferowały opcjonalnie zewnętrzną usługę statystyk użytkowania. Jeśli Użytkownik wyraził na nią zgodę, zebrane dane pozostają u tego dostawcy wyłącznie przez okres przechowywania przewidziany przez usługę (maksymalnie 14 miesięcy), a następnie są usuwane automatycznie; od wersji 1.13 nie są zbierane żadne nowe dane.'],
-      ['p', 'Więcej informacji o tym, jak ten dostawca przetwarza te dane, znajduje się w jego polityce prywatności.'],
+      ['p', 'Dane lokalne są przechowywane do chwili ich usunięcia przez Użytkownika.'],
 
       ['h2', '6. Prawa Użytkownika'],
       ['p', `Użytkownik może wykonywać swoje prawa dostępu, sprostowania, usunięcia, sprzeciwu, ograniczenia przetwarzania i przenoszenia danych, pisząc na powyższy adres kontaktowy. Instrukcje usuwania danych znajdują się pod adresem ${link}. Jeżeli Użytkownik uważa, że jego prawa nie zostały uszanowane, może złożyć skargę do organu ochrony danych (w Polsce jest to Prezes Urzędu Ochrony Danych Osobowych, UODO; w Hiszpanii: Hiszpańska Agencja Ochrony Danych, ${AEPD}).`],
-      ['p', 'Jeśli Użytkownik korzystał z wcześniejszej wersji z opcjonalną usługą statystyk użytkowania i chce usunąć jej dane, możemy poprosić o pseudonimowy identyfikator jego instalacji, aby rozpatrzyć wniosek; można go także zresetować, czyszcząc dane aplikacji lub odinstalowując ją.'],
 
       ['h2', '7. Uprawnienia urządzenia'],
       ['p', 'Aplikacja żąda tylko jednego uprawnienia: <strong>wibracji</strong> (dla efektów koła). Jest to uprawnienie zwykłe, które nie wymaga potwierdzenia Użytkownika, a za jego pośrednictwem nie są zbierane żadne informacje. Aplikacja nie żąda dostępu do Internetu ani do lokalizacji. Dźwięk urządzenia jest używany wyłącznie do odtwarzania dźwięków koła.'],
@@ -559,7 +537,7 @@ export default {
       ['p', 'تُحفظ إعدادات العجلة لديك (التمارين والتكرارات التي تنشئها أو تفعّلها)، وتفضيلاتك (اللغة والمظهر)، وما إذا كنت قد شاهدت إشعار المستجدات في وحدة التخزين المحلية لجهازك فقط (<code>localStorage</code>). أما سجل الجلسة فيوجد في الذاكرة فقط ويضيع عند إغلاق التطبيق. لا تُرسَل هذه البيانات إلى أي خادم، ويمكنك إزالتها بمسح بيانات التطبيق أو بإلغاء تثبيته.'],
       ['p', 'إذا اخترت مشاركة تحدٍّ، ينشئ التطبيق على جهازك صورة ونصًّا قصيرًا ويسلّمهما إلى التطبيق الذي تختاره من قائمة المشاركة. لا يرسلهما GymRoulette إلى أي جهة ولا يحتاج إلى اتصال بالإنترنت للقيام بذلك. تُحفظ الصورة مؤقتًا في ذاكرة التخزين المؤقت للتطبيق وتُحذف عند المشاركة التالية أو عند فتح التطبيق مرة أخرى. وما يفعله التطبيق الذي تختاره بها تحكمه سياسة الخصوصية الخاصة به.'],
       ['h3', '2.2 لا تحليلات ولا أدوات تتبّع ولا إعلانات'],
-      ['p', 'منذ الإصدار 1.13 لا يتضمن التطبيق أي أدوات تحليلات أو تتبّع من أي نوع: فهو لا يتضمن أي حزمة تطوير (SDK) من جهات خارجية، ولا يعرض إعلانات، ولا يستخدم معرّفات إعلانية أو معرّفات تتبّع، ولا يستخدم ملفات تعريف الارتباط باستثناء التخزين المحلي الموصوف أعلاه، وهو ضروري تمامًا لعمل التطبيق. ولا يتصل تطبيق Android بالإنترنت.'],
+      ['p', 'لا يتضمن التطبيق أي أدوات تحليلات أو تتبّع من أي نوع: فهو لا يتضمن أي حزمة تطوير (SDK) من جهات خارجية، ولا يعرض إعلانات، ولا يستخدم معرّفات إعلانية أو معرّفات تتبّع، ولا يستخدم ملفات تعريف الارتباط باستثناء التخزين المحلي الموصوف أعلاه، وهو ضروري تمامًا لعمل التطبيق. ولا يتصل تطبيق Android بالإنترنت.'],
       ['p', 'لا يجمع GymRoulette <strong>أيًّا</strong> من اسمك أو عنوان بريدك الإلكتروني أو جهات اتصالك أو صورك أو الميكروفون أو الكاميرا أو موقعك (ولو التقريبي) أو أي بيانات صحية أو بدنية. ولا توجد في التطبيق حسابات مستخدمين.'],
       ['h3', '2.3 النسخة على الويب'],
       ['p', `إذا استخدمت النسخة على الويب في ${WEB}، فإن الصفحة تُقدَّم عبر Firebase Hosting، وهي خدمة من Google. وكأي خادم ويب، قد يعالج سجلّات خوادمه بيانات تقنية لازمة لتقديم الصفحة (مثل عنوان IP ونوع المتصفح). ولا تجمع النسخة على الويب نفسها أي بيانات أخرى ولا تحمّل أي سكربتات من جهات خارجية.`],
@@ -571,12 +549,10 @@ export default {
       ['p', 'لا يرسل التطبيق بيانات إلى أي جهة، ولذلك لا يوجد مستلمون ولا نقل دولي للبيانات. ونحن لا نبيع البيانات ولا نشاركها مع شبكات الإعلانات، ولا نعرض إعلانات.'],
 
       ['h2', '5. مدة الاحتفاظ'],
-      ['p', 'تُحفظ البيانات المحلية إلى أن تحذفها. وكانت الإصدارات السابقة من التطبيق (قبل 1.13) توفّر بشكل اختياري خدمة إحصاءات استخدام من جهة خارجية. فإذا وافقت عليها، فإن البيانات التي جمعتها تبقى لدى ذلك المزوّد طوال مدة الاحتفاظ الخاصة بالخدمة فقط (14 شهرًا كحد أقصى) ثم تُحذف تلقائيًا؛ ولم تُجمع أي بيانات جديدة منذ الإصدار 1.13.'],
-      ['p', 'يمكنك الاطلاع على مزيد من المعلومات حول كيفية تعامل ذلك المزوّد مع تلك البيانات في سياسة الخصوصية الخاصة به.'],
+      ['p', 'تُحفظ البيانات المحلية إلى أن تحذفها.'],
 
       ['h2', '6. حقوقك'],
       ['p', `يمكنك ممارسة حقوقك في الاطلاع والتصحيح والمحو والاعتراض والتقييد ونقل البيانات بمراسلتنا على عنوان التواصل المذكور أعلاه. وتجد تعليمات حذف بياناتك في ${link}. وإذا رأيت أن حقوقك لم تُحترم، فيمكنك تقديم شكوى إلى سلطة حماية البيانات في بلدك (في إسبانيا، الوكالة الإسبانية لحماية البيانات: ${AEPD}).`],
-      ['p', 'إذا كنت قد استخدمت إصدارًا سابقًا يتضمن خدمة إحصاءات الاستخدام الاختيارية تلك وتريد حذف بياناته، فقد نطلب منك المعرّف المستعار لتثبيتك لمعالجة الطلب؛ ويمكنك أيضًا إعادة ضبطه بمسح بيانات التطبيق أو بإلغاء تثبيته.'],
 
       ['h2', '7. أذونات الجهاز'],
       ['p', 'لا يطلب التطبيق سوى إذن واحد: <strong>الاهتزاز</strong> (لمؤثرات العجلة). وهو إذن عادي لا يتطلب تأكيدك، ولا تُجمع أي معلومات من خلاله. ولا يطلب التطبيق الوصول إلى الإنترنت ولا إلى الموقع. ويُستخدم صوت الجهاز فقط لتشغيل أصوات العجلة.'],
@@ -608,7 +584,7 @@ export default {
       ['p', 'आपके चक्र की सेटिंग (आपके बनाए या चालू किए हुए एक्सरसाइज़ और रेप्स), आपकी पसंद (भाषा और रूप) और क्या आपने नई सुविधाओं की सूचना देख ली है, केवल आपके डिवाइस की लोकल स्टोरेज (<code>localStorage</code>) में सहेजे जाते हैं। सेशन का इतिहास केवल मेमोरी में रहता है और ऐप बंद करते ही मिट जाता है। यह डेटा किसी सर्वर को नहीं भेजा जाता, और आप इसे ऐप का डेटा साफ़ करके या ऐप अनइंस्टॉल करके हटा सकते हैं।'],
       ['p', 'अगर आप कोई चुनौती शेयर करना चुनते हैं, तो ऐप आपके डिवाइस पर एक इमेज और एक छोटा टेक्स्ट बनाता है और उन्हें शेयर मेन्यू में आपके चुने हुए ऐप को सौंप देता है। GymRoulette उन्हें कहीं नहीं भेजता और इसके लिए इंटरनेट कनेक्शन की ज़रूरत नहीं होती। इमेज ऐप के कैश में कुछ समय के लिए रहती है और अगली बार शेयर करने या ऐप खोलने पर हटा दी जाती है। चुना गया ऐप उसके साथ क्या करता है, यह उसकी अपनी गोपनीयता नीति से तय होता है।'],
       ['h3', '2.2 कोई एनालिटिक्स नहीं, कोई ट्रैकर नहीं, कोई विज्ञापन नहीं'],
-      ['p', 'संस्करण 1.13 से ऐप में किसी भी तरह का एनालिटिक्स या ट्रैकिंग टूल नहीं है: इसमें कोई थर्ड-पार्टी SDK शामिल नहीं है, यह विज्ञापन नहीं दिखाता, विज्ञापन या ट्रैकिंग पहचानकर्ताओं का उपयोग नहीं करता, और ऊपर बताई गई लोकल स्टोरेज के अलावा कुकी का उपयोग नहीं करता, जो ऐप के चलने के लिए अत्यंत आवश्यक है। Android ऐप इंटरनेट से कनेक्ट नहीं होता।'],
+      ['p', 'ऐप में किसी भी तरह का एनालिटिक्स या ट्रैकिंग टूल नहीं है: इसमें कोई थर्ड-पार्टी SDK शामिल नहीं है, यह विज्ञापन नहीं दिखाता, विज्ञापन या ट्रैकिंग पहचानकर्ताओं का उपयोग नहीं करता, और ऊपर बताई गई लोकल स्टोरेज के अलावा कुकी का उपयोग नहीं करता, जो ऐप के चलने के लिए अत्यंत आवश्यक है। Android ऐप इंटरनेट से कनेक्ट नहीं होता।'],
       ['p', 'GymRoulette आपका नाम, ईमेल पता, संपर्क, फ़ोटो, माइक्रोफ़ोन, कैमरा, लोकेशन (अनुमानित भी नहीं), या स्वास्थ्य अथवा फ़िटनेस से जुड़ा कोई डेटा इकट्ठा <strong>नहीं</strong> करता। ऐप में यूज़र अकाउंट नहीं हैं।'],
       ['h3', '2.3 वेब संस्करण'],
       ['p', `यदि आप ${WEB} पर वेब संस्करण का उपयोग करते हैं, तो पेज Firebase Hosting से दिया जाता है, जो Google की एक सेवा है। किसी भी वेब सर्वर की तरह, यह पेज पहुँचाने के लिए ज़रूरी तकनीकी डेटा (जैसे आपका IP पता और ब्राउज़र का प्रकार) अपने सर्वर लॉग में प्रोसेस कर सकता है। वेब संस्करण स्वयं कोई अन्य डेटा इकट्ठा नहीं करता और कोई थर्ड-पार्टी स्क्रिप्ट लोड नहीं करता।`],
@@ -620,12 +596,10 @@ export default {
       ['p', 'ऐप किसी को डेटा नहीं भेजता, इसलिए कोई प्राप्तकर्ता या अंतरराष्ट्रीय स्थानांतरण नहीं है। हम डेटा बेचते नहीं हैं और न ही उसे विज्ञापन नेटवर्क के साथ साझा करते हैं, और हम विज्ञापन नहीं दिखाते।'],
 
       ['h2', '5. डेटा कितने समय रखा जाता है'],
-      ['p', 'लोकल डेटा तब तक रहता है जब तक आप उसे मिटा नहीं देते। ऐप के पुराने संस्करणों (1.13 से पहले) में किसी थर्ड-पार्टी की उपयोग-आँकड़ों की सेवा वैकल्पिक रूप से उपलब्ध थी। यदि आपने उसे स्वीकार किया था, तो उसके द्वारा इकट्ठा किया गया डेटा उस प्रदाता के पास केवल सेवा की प्रतिधारण अवधि (अधिकतम 14 महीने) तक रहता है और फिर अपने-आप मिट जाता है; संस्करण 1.13 से कोई नया डेटा इकट्ठा नहीं किया गया है।'],
-      ['p', 'वह प्रदाता इस डेटा को कैसे संभालता है, इसकी अधिक जानकारी उसकी गोपनीयता नीति में मिल सकती है।'],
+      ['p', 'लोकल डेटा तब तक रहता है जब तक आप उसे मिटा नहीं देते।'],
 
       ['h2', '6. आपके अधिकार'],
       ['p', `आप ऊपर दिए संपर्क पते पर लिखकर पहुँच, सुधार, मिटाने, आपत्ति, प्रतिबंध और पोर्टेबिलिटी के अपने अधिकारों का उपयोग कर सकते हैं। अपना डेटा मिटाने के निर्देश ${link} पर हैं। यदि आपको लगता है कि आपके अधिकारों का सम्मान नहीं किया गया, तो आप अपने डेटा संरक्षण प्राधिकरण में शिकायत दर्ज कर सकते हैं (स्पेन में, स्पैनिश डेटा संरक्षण एजेंसी: ${AEPD})।`],
-      ['p', 'यदि आपने उपयोग-आँकड़ों की उस वैकल्पिक सेवा वाले किसी पुराने संस्करण का उपयोग किया था और उसका डेटा मिटवाना चाहते हैं, तो अनुरोध पर कार्रवाई के लिए हम आपसे आपके इंस्टॉलेशन का छद्मनामी पहचानकर्ता माँग सकते हैं; आप उसे ऐप का डेटा साफ़ करके या ऐप अनइंस्टॉल करके रीसेट भी कर सकते हैं।'],
 
       ['h2', '7. डिवाइस अनुमतियाँ'],
       ['p', 'ऐप केवल एक अनुमति माँगता है: <strong>वाइब्रेशन</strong> (चक्र के प्रभावों के लिए)। यह एक सामान्य अनुमति है जिसमें आपकी पुष्टि की आवश्यकता नहीं होती, और इससे कोई जानकारी इकट्ठा नहीं होती। ऐप इंटरनेट एक्सेस या लोकेशन की अनुमति नहीं माँगता। डिवाइस का ऑडियो केवल चक्र की आवाज़ें बजाने के लिए उपयोग होता है।'],
@@ -657,7 +631,7 @@ export default {
       ['p', 'Çark ayarlarınız (oluşturduğunuz veya etkinleştirdiğiniz egzersizler ve tekrarlar), tercihleriniz (dil ve görünüm) ve yenilikler bildirimini görüp görmediğiniz yalnızca cihazınızın yerel depolama alanında (<code>localStorage</code>) saklanır. Oturum geçmişi yalnızca bellekte bulunur ve uygulamayı kapattığınızda kaybolur. Bu veriler hiçbir sunucuya gönderilmez; uygulamanın verilerini temizleyerek veya uygulamayı kaldırarak silebilirsiniz.'],
       ['p', 'Bir meydan okumayı paylaşmayı seçersen, uygulama cihazında bir görsel ve kısa bir metin oluşturur ve bunları paylaşım menüsünde seçtiğin uygulamaya teslim eder. GymRoulette bunları hiçbir yere göndermez ve bunun için İnternet bağlantısına ihtiyaç duymaz. Görsel, uygulamanın önbelleğinde geçici olarak tutulur ve bir sonraki paylaşımda ya da uygulama açıldığında silinir. Seçtiğin uygulamanın bunlarla ne yaptığı, o uygulamanın kendi gizlilik politikasına tabidir.'],
       ['h3', '2.2 Analiz, izleyici ve reklam yok'],
-      ['p', '1.13 sürümünden itibaren uygulamada hiçbir türde analiz veya izleme aracı bulunmaz: herhangi bir üçüncü taraf SDK\'sı içermez, reklam göstermez, reklam veya izleme tanımlayıcıları kullanmaz ve uygulamanın çalışması için kesinlikle gerekli olan yukarıda açıklanan yerel depolama dışında çerez kullanmaz. Android uygulaması İnternet\'e bağlanmaz.'],
+      ['p', 'Uygulamada hiçbir türde analiz veya izleme aracı bulunmaz: herhangi bir üçüncü taraf SDK\'sı içermez, reklam göstermez, reklam veya izleme tanımlayıcıları kullanmaz ve uygulamanın çalışması için kesinlikle gerekli olan yukarıda açıklanan yerel depolama dışında çerez kullanmaz. Android uygulaması İnternet\'e bağlanmaz.'],
       ['p', 'GymRoulette adınızı, e-posta adresinizi, kişilerinizi, fotoğraflarınızı, mikrofonunuzu, kameranızı, konumunuzu (yaklaşık olarak bile) veya herhangi bir sağlık ya da fitness verinizi <strong>toplamaz</strong>. Uygulamada kullanıcı hesabı yoktur.'],
       ['h3', '2.3 Web sürümü'],
       ['p', `${WEB} adresindeki web sürümünü kullanırsanız sayfa, bir Google hizmeti olan Firebase Hosting tarafından sunulur. Her web sunucusunda olduğu gibi, sayfayı iletmek için gerekli teknik verileri (IP adresiniz ve tarayıcı türünüz gibi) sunucu günlüklerinde işleyebilir. Web sürümünün kendisi başka hiçbir veri toplamaz ve üçüncü taraf betik yüklemez.`],
@@ -669,12 +643,10 @@ export default {
       ['p', 'Uygulama verileri hiç kimseye göndermez; dolayısıyla alıcı veya yurt dışına aktarım yoktur. Veri satmayız, reklam ağlarıyla paylaşmayız ve reklam göstermeyiz.'],
 
       ['h2', '5. Saklama süresi'],
-      ['p', 'Yerel veriler siz silene kadar saklanır. Uygulamanın önceki sürümleri (1.13\'ten önce) isteğe bağlı olarak bir üçüncü tarafın kullanım istatistikleri hizmetini sunuyordu. Kabul ettiyseniz topladığı veriler bu sağlayıcıda yalnızca hizmetin saklama süresi boyunca (en fazla 14 ay) kalır ve ardından otomatik olarak silinir; 1.13 sürümünden bu yana yeni veri toplanmamaktadır.'],
-      ['p', 'Bu sağlayıcının bu verileri nasıl işlediği hakkında daha fazla bilgiyi gizlilik politikasında bulabilirsiniz.'],
+      ['p', 'Yerel veriler siz silene kadar saklanır.'],
 
       ['h2', '6. Haklarınız'],
       ['p', `GDPR ve KVKK (madde 11) kapsamındaki erişim, düzeltme, silme, itiraz, kısıtlama ve taşınabilirlik haklarınızı yukarıdaki iletişim adresine yazarak kullanabilirsiniz. Verilerinizin nasıl silineceğine ilişkin talimatlar ${link} adresindedir. Haklarınıza saygı gösterilmediğini düşünüyorsanız veri koruma otoritenize şikâyette bulunabilirsiniz (İspanya'da İspanya Veri Koruma Kurumu: ${AEPD}; Türkiye'de Kişisel Verileri Koruma Kurulu).`],
-      ['p', 'isteğe bağlı kullanım istatistikleri hizmetini içeren önceki bir sürümü kullandıysanız ve verilerinizin silinmesini istiyorsanız, talebi işleme almak için sizden kurulumunuzun takma adlı tanımlayıcısını isteyebiliriz; bu tanımlayıcıyı uygulamanın verilerini temizleyerek veya uygulamayı kaldırarak da sıfırlayabilirsiniz.'],
 
       ['h2', '7. Cihaz izinleri'],
       ['p', 'Uygulama yalnızca bir izin ister: <strong>titreşim</strong> (çarkın efektleri için). Bu, onayınızı gerektirmeyen normal bir izindir ve bu izin üzerinden hiçbir bilgi toplanmaz. Uygulama İnternet erişimi veya konum izni istemez. Cihazın sesi yalnızca çarkın seslerini çalmak için kullanılır.'],
@@ -706,7 +678,7 @@ export default {
       ['p', 'De instellingen van je rad (de oefeningen en herhalingen die je maakt of aanzet), je voorkeuren (taal en uiterlijk) en of je de melding over nieuwigheden al hebt gezien worden alleen opgeslagen in de lokale opslag van je apparaat (<code>localStorage</code>). De geschiedenis van de sessie bestaat alleen in het geheugen en verdwijnt zodra je de app sluit. Deze gegevens worden naar geen enkele server gestuurd en je verwijdert ze door de gegevens van de app te wissen of de app te verwijderen.'],
       ['p', 'Als je ervoor kiest een uitdaging te delen, maakt de app op je apparaat een afbeelding en een korte tekst en geeft die door aan de app die je kiest in het deelmenu. GymRoulette stuurt ze nergens naartoe en heeft daarvoor geen internetverbinding nodig. De afbeelding wordt tijdelijk bewaard in de cache van de app en verwijderd bij de volgende keer dat je deelt of de app opent. Wat de gekozen app ermee doet, valt onder het eigen privacybeleid van die app.'],
       ['h3', '2.2 Geen analyse, geen trackers, geen advertenties'],
-      ['p', 'Sinds versie 1.13 bevat de app geen enkel hulpmiddel voor analyse of tracking: er zit geen SDK van derden in, er worden geen advertenties getoond, er worden geen advertentie- of trackingidentificatoren gebruikt en er worden geen cookies gebruikt, behalve de hierboven beschreven lokale opslag, die strikt noodzakelijk is om de app te laten werken. De Android-app maakt geen verbinding met internet.'],
+      ['p', 'De app bevat geen enkel hulpmiddel voor analyse of tracking: er zit geen SDK van derden in, er worden geen advertenties getoond, er worden geen advertentie- of trackingidentificatoren gebruikt en er worden geen cookies gebruikt, behalve de hierboven beschreven lokale opslag, die strikt noodzakelijk is om de app te laten werken. De Android-app maakt geen verbinding met internet.'],
       ['p', 'GymRoulette verzamelt <strong>geen</strong> naam, e-mailadres, contacten, foto\'s, microfoon, camera, locatie (zelfs niet bij benadering) en ook geen gezondheids- of fitnessgegevens. De app heeft geen gebruikersaccounts.'],
       ['h3', '2.3 Webversie'],
       ['p', `Als je de webversie op ${WEB} gebruikt, wordt de pagina geleverd door Firebase Hosting, een dienst van Google. Zoals elke webserver kan die in zijn serverlogboeken technische gegevens verwerken die nodig zijn om de pagina te leveren (zoals je IP-adres en browsertype). De webversie zelf verzamelt geen andere gegevens en laadt geen scripts van derden.`],
@@ -718,12 +690,10 @@ export default {
       ['p', 'De app stuurt geen gegevens naar wie dan ook, dus er zijn geen ontvangers en geen internationale doorgiften. We verkopen geen gegevens en delen ze niet met advertentienetwerken, en we tonen geen advertenties.'],
 
       ['h2', '5. Bewaartermijn'],
-      ['p', 'Lokale gegevens blijven bewaard tot je ze verwijdert. Eerdere versies van de app (vóór 1.13) boden optioneel een gebruiksstatistiekendienst van een derde partij aan. Als je die hebt geaccepteerd, blijven de verzamelde gegevens alleen bij die aanbieder gedurende de bewaartermijn van de dienst (maximaal 14 maanden) en worden ze daarna automatisch verwijderd; sinds versie 1.13 worden er geen nieuwe gegevens meer verzameld.'],
-      ['p', 'Meer informatie over hoe die aanbieder deze gegevens verwerkt, vind je in zijn privacybeleid.'],
+      ['p', 'Lokale gegevens blijven bewaard tot je ze verwijdert.'],
 
       ['h2', '6. Je rechten'],
       ['p', `Je kunt je rechten op inzage, rectificatie, verwijdering, bezwaar, beperking en overdraagbaarheid uitoefenen door te schrijven naar het hierboven vermelde contactadres. Instructies om je gegevens te verwijderen vind je op ${link}. Als je vindt dat je rechten niet zijn nageleefd, kun je een klacht indienen bij je gegevensbeschermingsautoriteit (in Nederland de Autoriteit Persoonsgegevens; in Spanje het Spaanse agentschap voor gegevensbescherming: ${AEPD}).`],
-      ['p', 'Als je een eerdere versie met die optionele gebruiksstatistiekendienst hebt gebruikt en wilt dat de bijbehorende gegevens worden verwijderd, kunnen we je om de pseudonieme identificatiecode van je installatie vragen om het verzoek af te handelen; je kunt die ook opnieuw instellen door de gegevens van de app te wissen of de app te verwijderen.'],
 
       ['h2', '7. Toestemmingen van het apparaat'],
       ['p', 'De app vraagt maar één toestemming aan: <strong>trillen</strong> (voor de effecten van het rad). Het is een gewone toestemming waarvoor je geen bevestiging hoeft te geven, en er wordt via deze toestemming geen informatie verzameld. De app vraagt geen toegang tot internet of locatie aan. De audio van het apparaat wordt alleen gebruikt om de geluiden van het rad af te spelen.'],
@@ -755,7 +725,7 @@ export default {
       ['p', 'ルーレットの設定（作成した、またはオンにしたエクササイズと回数）、環境設定（言語と外観）、新機能のお知らせを見たかどうかは、端末のローカルストレージ（<code>localStorage</code>）にのみ保存されます。セッション履歴はメモリ上にのみ存在し、アプリを閉じると消えます。これらのデータはどのサーバーにも送信されません。削除するには、アプリのデータを消去するか、アプリをアンインストールしてください。'],
       ['p', 'チャレンジを共有すると、アプリは端末上で画像と短いテキストを作成し、共有メニューで選んだアプリに渡します。GymRouletteがこれらをどこかへ送信することはなく、そのためにインターネット接続も必要ありません。画像はアプリのキャッシュに一時的に保存され、次に共有するときまたはアプリを開いたときに削除されます。選んだアプリがそれをどう扱うかは、そのアプリ自身のプライバシーポリシーに従います。'],
       ['h3', '2.2 分析ツール、トラッカー、広告は一切なし'],
-      ['p', 'バージョン1.13以降、アプリにはいかなる種類の分析・トラッキングツールもありません。サードパーティ製SDKは含まれず、広告は表示されず、広告用やトラッキング用の識別子も使用せず、アプリの動作に不可欠な上記のローカルストレージ以外にCookieも使用しません。Androidアプリはインターネットに接続しません。'],
+      ['p', 'アプリにはいかなる種類の分析・トラッキングツールもありません。サードパーティ製SDKは含まれず、広告は表示されず、広告用やトラッキング用の識別子も使用せず、アプリの動作に不可欠な上記のローカルストレージ以外にCookieも使用しません。Androidアプリはインターネットに接続しません。'],
       ['p', 'GymRouletteは、お名前、メールアドレス、連絡先、写真、マイク、カメラ、位置情報（おおよその位置も含む）、健康やフィットネスに関するデータを<strong>収集しません</strong>。アプリにユーザーアカウントはありません。'],
       ['h3', '2.3 ウェブ版'],
       ['p', `${WEB} のウェブ版をご利用の場合、ページはGoogleのサービスであるFirebase Hostingから配信されます。一般的なウェブサーバーと同様に、ページの配信に必要な技術的データ（IPアドレスやブラウザの種類など）がサーバーログで処理されることがあります。ウェブ版自体は、それ以外のデータを収集せず、サードパーティのスクリプトも読み込みません。`],
@@ -767,12 +737,10 @@ export default {
       ['p', 'アプリは誰にもデータを送信しないため、受領者や国際移転はありません。データの販売や広告ネットワークとの共有は行わず、広告も表示しません。'],
 
       ['h2', '5. 保存期間'],
-      ['p', 'ローカルデータは、お客様が削除するまで保持されます。以前のバージョン（1.13より前）には、サードパーティの利用統計サービスが任意で用意されていました。そのサービスを承諾された場合、収集されたデータは、そのサービスの保存期間（最長14か月）のみ当該事業者に残り、その後自動的に削除されます。バージョン1.13以降、新たなデータは収集されていません。'],
-      ['p', '当該事業者によるデータの取り扱いについて詳しくは、その事業者のプライバシーポリシーをご覧ください。'],
+      ['p', 'ローカルデータは、お客様が削除するまで保持されます。'],
 
       ['h2', '6. お客様の権利'],
       ['p', `上記の連絡先までご連絡いただくことで、開示、訂正、削除、異議申し立て、処理の制限、データポータビリティの権利を行使できます。データの削除方法は ${link} をご覧ください。お客様の権利が尊重されていないとお考えの場合は、お住まいの地域のデータ保護当局に苦情を申し立てることができます（スペインの場合はスペインデータ保護庁：${AEPD}）。`],
-      ['p', '以前のバージョンで任意の利用統計サービスを使用していて、そのデータの削除をご希望の場合、対応のためにお客様のインストールの仮名識別子をお尋ねすることがあります。この識別子は、アプリのデータを消去するかアンインストールすることでリセットすることもできます。'],
 
       ['h2', '7. 端末の権限'],
       ['p', 'アプリが要求する権限は<strong>バイブレーション</strong>（ルーレットの演出用）の1つだけです。これは確認を必要としない通常の権限で、これを通じて情報が収集されることはありません。アプリはインターネットへのアクセスや位置情報を要求しません。端末の音声は、ルーレットの効果音を再生するためにのみ使用されます。'],
