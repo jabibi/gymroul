@@ -19,6 +19,7 @@
 //
 // Sale con código 1 si encuentra algún problema. Requiere haber compilado antes (npm run build).
 
+import { WHATS_NEW_VERSION } from '../src/whats-new.js';
 import { existsSync, mkdirSync } from 'node:fs';
 import { availableParallelism } from 'node:os';
 import puppeteer from 'puppeteer-core';
@@ -204,11 +205,13 @@ async function openApp(browser, lang, vp, existingUser = false) {
     Math.random = () => 0.5;
   });
   if (stress) {
-    await page.evaluateOnNewDocument(list => {
+    await page.evaluateOnNewDocument((list, seen, showNews) => {
       localStorage.setItem('gym_schema_version', '8');
-      localStorage.setItem('gym_whatsnew_seen', JSON.stringify('1.17')); // sin esto saldría el aviso de novedades, que tapa la ruleta
+      // Sin esto saldría el aviso de novedades, que tapa la ruleta; solo se quita en la pantalla que lo revisa
+      if (!showNews) localStorage.setItem('gym_whatsnew_seen', JSON.stringify(seen));
+      else localStorage.removeItem('gym_whatsnew_seen');
       localStorage.setItem('gym_exercises', JSON.stringify(list));
-    }, STRESS_EXERCISES);
+    }, STRESS_EXERCISES, WHATS_NEW_VERSION, existingUser);
   } else if (existingUser) {
     // Quien ya tenía la app: la instalación nueva no ve las novedades
     // (el almacenamiento se comparte entre las páginas de un mismo Chrome: la primera ya dio las novedades por vistas)

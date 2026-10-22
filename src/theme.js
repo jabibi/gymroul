@@ -18,6 +18,8 @@ export const THEME_CHOICES = /** @type {const} */ (['system', 'calm', 'light', '
 /** @typedef {typeof THEME_CHOICES[number]} ThemeChoice */
 /** Color de marca de cada apariencia (el mismo de --brand-500 en src/style.css), para las vistas previas */
 export const THEME_BRAND = /** @type {Record<Theme, string>} */ ({ calm: '#10b981', light: '#10b981', classic: '#22c55e' });
+/** Fondo de cada apariencia (el de --slate-950 en src/style.css), para las vistas previas */
+export const THEME_BG = /** @type {Record<Theme, string>} */ ({ calm: '#020617', light: '#fafaf9', classic: '#020617' });
 export const DEFAULT_THEME = /** @type {ThemeChoice} */ ('system');
 
 const KEY_THEME = 'gym_theme';

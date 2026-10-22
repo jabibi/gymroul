@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, it, expect, vi, afterEach } from 'vitest';
 import { COLOR_PALETTE, CLASSIC_COLOR_PALETTE, LIGHT_COLOR_PALETTE } from '../src/store.js';
-import { THEMES, THEME_CHOICES, THEME_BRAND, DEFAULT_THEME, isThemeChoice, themeColor, getTheme, getThemeChoice, setTheme } from '../src/theme.js';
+import { THEMES, THEME_CHOICES, THEME_BRAND, THEME_BG, DEFAULT_THEME, isThemeChoice, themeColor, getTheme, getThemeChoice, setTheme } from '../src/theme.js';
 
 describe('apariencias', () => {
   afterEach(() => vi.unstubAllGlobals());
@@ -14,6 +14,7 @@ describe('apariencias', () => {
     expect(isThemeChoice('system')).toBe(true);
     expect(isThemeChoice('neon')).toBe(false);
     expect(Object.keys(THEME_BRAND).sort()).toEqual([...THEMES].sort());
+    expect(Object.keys(THEME_BG).sort()).toEqual([...THEMES].sort());
   });
 
   it('«Sistema» se resuelve a una apariencia que se ve y Clásico nunca sale solo', () => {

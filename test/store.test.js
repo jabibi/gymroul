@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import {
   readStorage, getExercises, loadActive, active, migrate, SCHEMA_VERSION,
-  addExercise, removeExercise, updateExerciseReps, parseRepRange, MAX_NAME_LENGTH, MAX_REP_VALUE, DEFAULT_EXERCISES, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_EXERCISES, pickColor, COLOR_PALETTE,
+  addExercise, removeExercise, restoreExercise, updateExerciseReps, parseRepRange, MAX_NAME_LENGTH, MAX_REP_VALUE, DEFAULT_EXERCISES, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_EXERCISES, pickColor, COLOR_PALETTE,
 } from '../src/store.js';
 
 function installLocalStorage() {
@@ -83,6 +83,33 @@ describe('ejercicios', () => {
     removeExercise(created.id);
     expect(getExercises().some(e => e.name === 'Plancha')).toBe(false);
     expect(active.exercises).not.toContain('Plancha');
+  });
+
+  it('deshacer un borrado devuelve el ejercicio con su id, su sitio y su estado activo', () => {
+    const before = getExercises().map(e => e.id);
+    const target = getExercises()[1];
+    const removed = removeExercise(target.id);
+    expect(removed).toMatchObject({ index: 1, wasActive: true });
+    expect(getExercises().some(e => e.id === target.id)).toBe(false);
+    expect(restoreExercise(removed).ok).toBe(true);
+    expect(getExercises().map(e => e.id)).toEqual(before);
+    expect(active.exercises).toContain(target.name);
+  });
+
+  it('un ejercicio desactivado vuelve desactivado, y borrar uno que no existe no hace nada', () => {
+    const target = getExercises()[0];
+    active.exercises = active.exercises.filter(n => n !== target.name);
+    const removed = removeExercise(target.id);
+    expect(removed.wasActive).toBe(false);
+    expect(restoreExercise(removed).ok).toBe(true);
+    expect(active.exercises).not.toContain(target.name);
+    expect(removeExercise('no-existe')).toBeNull();
+  });
+
+  it('no se puede deshacer un borrado si ya hay otro ejercicio con ese nombre', () => {
+    const removed = removeExercise(getExercises()[0].id);
+    expect(addExercise({ name: removed.exercise.name, icon: 'dumbbell' }).ok).toBe(true);
+    expect(restoreExercise(removed).ok).toBe(false);
   });
 
   it('respeta el máximo de ejercicios', () => {

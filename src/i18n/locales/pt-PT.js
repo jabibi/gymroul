@@ -4,6 +4,7 @@ export default {
   strings: {
     'history.clearConfirm': 'Toca outra vez',
     'settings.title': 'Definições',
+    'config.deleted': '{name} eliminado',
     'whatsnew.settings': 'A aparência Suave passa a chamar-se Escuro, e Sistema acompanha o teu dispositivo.',
     'whatsnew.classicTitle': 'Preferes outra aparência?',
     'whatsnew.classicText': 'Agora a app segue o teu dispositivo por defeito. Abre {settings}, depois {appearance} e escolhe {options} para voltar ao que preferires.',
@@ -17,9 +18,8 @@ export default {
     'history.empty': 'Ainda não registaste exercícios hoje. Gira a roleta para começar.',
 
     'config.close': 'Fechar definições',
-    'config.apply': 'Guardar alterações',
     'config.save': 'Guardar',
-    'config.intro': 'Ativa ou desativa exercícios, define o intervalo de repetições de cada um, ou cria e elimina exercícios.',
+    'config.intro': 'Ativa ou desativa exercícios, define o intervalo de repetições de cada um, ou cria e elimina exercícios. As alterações são guardadas de imediato.',
     'config.searchPlaceholder': 'Pesquisar: yoga, karaté, boxe, pesos…',
     'config.searchAria': 'Pesquisar ícone',
     'config.noIcons': 'Nenhum ícone encontrado para essa pesquisa',

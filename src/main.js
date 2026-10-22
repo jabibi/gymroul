@@ -8,7 +8,7 @@ import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, ge
 import { generateSegments, rollReps, CONFIG_SEGMENT } from './wheel-math.js';
 import {
   migrate, isFreshInstall, loadActive, active, setActive,
-  addExercise, removeExercise, updateExerciseReps,
+  addExercise, removeExercise, restoreExercise, updateExerciseReps,
 } from './store.js';
 import { toggleSound, initAudio } from './audio.js';
 import * as ui from './ui.js';
@@ -25,6 +25,12 @@ function rebuildWheel() {
   const segments = generateSegments(sortedExercises(), active.exercises, exerciseName);
   // Los colores guardados son los de la apariencia Suave; con Clásico se cambian al mostrarlos (el sector «Configurar» se deja tal cual: se reconoce por identidad)
   setSegments(segments.map(s => (s === CONFIG_SEGMENT ? s : { ...s, color: themeColor(s.color) })));
+}
+
+/** Guarda al momento qué ejercicios están marcados: Ajustes no tiene botón de guardar. */
+function saveSelection() {
+  setActive(ui.readCheckedExercises());
+  rebuildWheel();
 }
 
 /** Abre la configuración si la ruleta no tiene nada activo; devuelve true si lo hizo. */
@@ -129,7 +135,7 @@ const actions = {
   'close-config': () => ui.closeConfig(),
   'spin': () => handleSpin(),
   'close-result': arg => ui.closeResult(arg === 'done'),
-  'toggle-exs': arg => ui.setAllChecked(arg === 'on'),
+  'toggle-exs': arg => { ui.setAllChecked(arg === 'on'); saveSelection(); },
 
   'edit-reps': arg => arg && ui.toggleRepsEditor(arg),
   'save-reps': arg => {
@@ -152,17 +158,23 @@ const actions = {
     ui.revealLastExercise();
   },
   'delete-exercise': arg => {
-    if (arg) removeExercise(arg);
+    const removed = arg ? removeExercise(arg) : null;
     rebuildWheel();
     ui.renderConfig(true);
+    if (!removed) return;
+    // Borrar es inmediato, pero se puede deshacer unos segundos (vuelve con el mismo id, así conserva la traducción)
+    ui.showToast(t('config.deleted', { name: exerciseName(removed.exercise) }), {
+      label: t('config.undo'),
+      run: () => {
+        const result = restoreExercise(removed);
+        reportError(result);
+        if (!result.ok) return;
+        rebuildWheel();
+        ui.renderConfig(true);
+      },
+    });
   },
-  // La apariencia y el idioma ya se aplican al elegirlos: el botón solo cierra Ajustes
-  'close-settings': () => ui.closeConfig(),
-  'save-config': () => {
-    setActive(ui.readCheckedExercises());
-    rebuildWheel();
-    ui.closeConfig();
-  },
+  'toast-action': () => ui.runToastAction(),
 
   'share-result': () => ui.shareResult(),
   'cancel-share': () => ui.cancelShare(),
@@ -195,6 +207,10 @@ if (Capacitor.isNativePlatform()) {
     CapacitorApp.exitApp();
   });
 }
+
+document.addEventListener('change', e => {
+  if (/** @type {HTMLElement} */ (e.target).classList?.contains('ex-checkbox')) saveSelection();
+});
 
 document.getElementById('iconSearch')?.addEventListener('input', e => ui.filterIcons(/** @type {HTMLInputElement} */ (e.target).value));
 

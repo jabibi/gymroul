@@ -35,6 +35,7 @@ Solicitud enviada el 18 oct 2026 a las 21:53, con 15 testers y la 1.16 en las pr
 Va en la rama `roadmap-18`, sin publicar. Un toque más fresco, elegante y suave, con el ruso como gran novedad y el tema claro. Incluye:
 - **Tema Claro** y **Sistema** (por defecto): cuatro opciones en Apariencia: Sistema (sigue el modo claro u oscuro del dispositivo; nunca elige Clásico), Oscuro (antes Suave; el identificador guardado sigue siendo `calm`), Claro (nuevo, con `public/logo-light.svg` generado por `scripts/build-icons.mjs`) y Clásico. La escala de neutros de Tailwind y el texto «blanco» salen de variables CSS que Claro invierte. La imagen de compartir y las barras del sistema de Android también siguen la apariencia. La apariencia por defecto es Sistema; el aviso de novedades vuelve a ofrecer elegir la apariencia. Claro lleva una ruleta de tonos cálidos pastel con texto casi negro (más de 9:1 de contraste) y neutros cálidos, y la pantalla de arranque de Android tiene versión clara y oscura.
 - **Ruso** como idioma 21 (app, ficha de Play y páginas legales), con Manrope para el cirílico.
+- **Ajustes sin botones de guardar** (todo se guarda al momento; las pantallas internas solo llevan la flecha), **deshacer al borrar un ejercicio** y **vista previa con mini ruleta** y botón de opción en Apariencia.
 - **Visor de documentos** que siempre abre desde arriba y sin añadir entradas al historial al navegar entre páginas legales.
 - **Imagen de compartir** con los colores de la apariencia activa.
 - Aviso de novedades de la 1.18 (`WHATS_NEW_VERSION`) y novedades de Play con la 1.18 y la 1.17.
@@ -62,11 +63,11 @@ La ficha de `pt-PT` se queda como está: decisión congelada, no se toca ni a co
 
 Antes de publicar: pasar la CI del Android (PR #24), probar en dispositivo, y subir el icono, los textos, el CSV y las imágenes de `store/` en Play Console.
 
-Los puntos de diseño que quedaron por revisar tras estos cambios (distribución, textos, apariencia) están en [`PENDIENTE-DISENO.md`](PENDIENTE-DISENO.md).
+Los puntos de diseño que quedaron tras estos cambios se han ido resolviendo en la 1.18 (ver abajo).
 
 ### Lista de Configuración más compacta (hecho en la 1.17)
 
-Hecho: el rango de repeticiones va en la misma línea que el nombre (pasa a una segunda solo si no cabe), la lista se desplaza dentro de su tarjeta y añadir un ejercicio es una ventana aparte. Queda por decidir el guardado automático (ver `PENDIENTE-DISENO.md`).
+Hecho: el rango de repeticiones va en la misma línea que el nombre (pasa a una segunda solo si no cabe), la lista se desplaza dentro de su tarjeta y añadir un ejercicio es una ventana aparte. El guardado automático se hizo en la 1.18.
 
 ## Hecho en la versión 1.17 — ruleta más grande
 
