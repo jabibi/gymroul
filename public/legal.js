@@ -50,5 +50,17 @@
     nav.appendChild(b);
   });
 
+  // Dentro del visor de la app (iframe), pasar de una página legal a otra sustituye la entrada del historial en vez de
+  // añadir una: si no, Atrás desharía primero esa navegación en lugar de cerrar el visor
+  if (window.parent !== window) {
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || a.target) return;
+      if (!/^[a-z-]+\.html(\?|$)/.test(a.getAttribute('href'))) return;
+      e.preventDefault();
+      location.replace(a.href);
+    });
+  }
+
   show(initial(), false);
 })();
