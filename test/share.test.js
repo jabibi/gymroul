@@ -1,6 +1,7 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { shareText, challengeLabel, fitFontSize, shareChallenge, APP_URL, IMAGE_SIZE } from '../src/share.js';
+import { CARD_THEMES, shareText, challengeLabel, fitFontSize, shareChallenge, APP_URL, IMAGE_SIZE } from '../src/share.js';
+import { THEMES } from '../src/theme.js';
 import { LANGUAGES, setLanguage, DEFAULT_LANGUAGE, DICTIONARIES } from '../src/i18n/index.js';
 
 const winner = { text: '20 Burpee', fullName: 'Burpee', reps: 20, exercise: 'Burpee', shortName: 'Burpee', color: '#22c55e', icon: 'burpee' };
@@ -75,5 +76,20 @@ describe('pantalla de carga al compartir', () => {
     // Una ejecución cancelada que termina tarde no toca la pantalla de carga de la siguiente
     expect(ui).toMatch(/const current = \(\) => shareAbort === abort/);
     expect(ui).toMatch(/if \(current\(\)\) hideShareLoading\(\)/);
+  });
+});
+
+describe('colores de la imagen compartida', () => {
+  it('hay una paleta por cada apariencia y su logo existe', () => {
+    for (const theme of THEMES) {
+      expect(CARD_THEMES[theme]).toBeTruthy();
+      expect(() => readFileSync(`public/${CARD_THEMES[theme].logo}`)).not.toThrow();
+    }
+  });
+
+  it('el color de marca de cada apariencia coincide con el de src/style.css', () => {
+    const css = readFileSync('src/style.css', 'utf8');
+    const brand = { calm: css.match(/:root \{[^}]*--brand-500: ([\d ]+);/)?.[1], classic: css.match(/data-theme="classic"\] \{[^}]*--brand-500: ([\d ]+);/)?.[1] };
+    for (const theme of THEMES) expect(CARD_THEMES[theme].brand.replace(/, /g, ' ')).toBe(brand[theme]);
   });
 });

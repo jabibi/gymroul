@@ -8,6 +8,7 @@ import { Share } from '@capacitor/share';
 import { Filesystem, Directory } from '@capacitor/filesystem';
 import { t, getLanguage, isRtl } from './i18n/index.js';
 import { fitText } from './wheel-math.js';
+import { getTheme } from './theme.js';
 
 /** @typedef {import('./wheel-math.js').Challenge} Challenge */
 
@@ -23,6 +24,16 @@ const uniqueName = () => `gymroulette-reto-${Date.now()}.png`;
 /** Carpeta de la caché de la app donde se deja la imagen mientras se comparte. */
 const CACHE_DIR = 'share';
 const FONT = "'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', sans-serif";
+
+/**
+ * Colores de la tarjeta por apariencia (los mismos --brand-* de src/style.css). Un tema nuevo (por ejemplo uno claro)
+ * se añade aquí con su fondo, sus textos y su logo.
+ * @type {Record<import('./theme.js').Theme, { bg: string, brand: string, brandText: string, button: string, buttonText: string, title: string, muted: string, logo: string }>}
+ */
+export const CARD_THEMES = {
+  calm: { bg: '#060D1B', brand: '16, 185, 129', brandText: '#34D399', button: '#10B981', buttonText: '#020617', title: '#FFFFFF', muted: '#94A3B8', logo: 'logo-mark.svg' },
+  classic: { bg: '#060D1B', brand: '34, 197, 94', brandText: '#4ADE80', button: '#22C55E', buttonText: '#020617', title: '#FFFFFF', muted: '#94A3B8', logo: 'logo-classic.svg' },
+};
 
 /** @param {Challenge} winner */
 export const challengeLabel = winner => `${winner.reps} ${winner.exercise}`;
@@ -58,21 +69,24 @@ function roundRect(ctx, x, y, w, h, r) {
 }
 
 /**
- * Dibuja la tarjeta del reto (marca, reto, color del sector, botón y dirección) en un lienzo cuadrado.
+ * Dibuja la tarjeta del reto (marca, reto, color del sector, botón y dirección) en un lienzo cuadrado, con los colores
+ * de la apariencia activa.
  * @param {HTMLCanvasElement} canvas @param {Challenge} winner @param {HTMLImageElement | null} logo
+ * @param {import('./theme.js').Theme} [theme]
  */
-export function drawCard(canvas, winner, logo) {
+export function drawCard(canvas, winner, logo, theme = getTheme()) {
   const S = IMAGE_SIZE;
   canvas.width = S;
   canvas.height = S;
   const ctx = /** @type {CanvasRenderingContext2D} */ (canvas.getContext('2d'));
   const rtl = isRtl(getLanguage());
   ctx.direction = rtl ? 'rtl' : 'ltr';
-  const green = '34, 197, 94';
+  const c = CARD_THEMES[theme];
+  const green = c.brand;
 
   // Colores planos, sin degradados: un PNG con degradados pesa más de 1 MB y tarda mucho en pasar por el puente
   // de Capacitor (va como texto base64); así pesa unas decenas de KB. El brillo del centro son círculos planos.
-  ctx.fillStyle = '#060D1B';
+  ctx.fillStyle = c.bg;
   ctx.fillRect(0, 0, S, S);
   for (const [radius, alpha] of [[S * 0.62, 0.022], [S * 0.46, 0.028], [S * 0.3, 0.036]]) {
     ctx.beginPath();
@@ -90,7 +104,7 @@ export function drawCard(canvas, winner, logo) {
   const brandW = 160 + gymW + ctx.measureText('Roulette').width;
   const bx = (S - brandW) / 2;
   if (logo) ctx.drawImage(logo, bx, 96, 128, 128);
-  ctx.fillStyle = '#fff';
+  ctx.fillStyle = c.title;
   ctx.fillText('Gym', bx + 160, 186);
   ctx.fillStyle = `rgb(${green})`;
   ctx.fillText('Roulette', bx + 160 + gymW, 186);
@@ -107,7 +121,7 @@ export function drawCard(canvas, winner, logo) {
   ctx.strokeStyle = `rgba(${green}, .45)`;
   ctx.lineWidth = 3;
   ctx.stroke();
-  ctx.fillStyle = '#4ADE80';
+  ctx.fillStyle = c.brandText;
   ctx.fillText(badge, S / 2, 352);
 
   // El reto en dos niveles, como en pantalla: repeticiones grandes, su etiqueta y el ejercicio. Lo más grande que
@@ -115,16 +129,16 @@ export function drawCard(canvas, winner, logo) {
   const measureAt = (/** @type {string} */ text, /** @type {number} */ px) => (ctx.font = `800 ${px}px ${FONT}`, ctx.measureText(text).width);
   const reps = fitText(measureAt, String(winner.reps), S - 160, 240, 120);
   ctx.font = `800 ${reps.size}px ${FONT}`;
-  ctx.fillStyle = '#4ADE80';
+  ctx.fillStyle = c.brandText;
   ctx.fillText(reps.text, S / 2, 580);
 
   ctx.font = `700 40px ${FONT}`;
-  ctx.fillStyle = '#94A3B8';
+  ctx.fillStyle = c.muted;
   ctx.fillText(t('result.reps'), S / 2, 628);
 
   const name = fitText(measureAt, winner.exercise, S - 160, 96, 44);
   ctx.font = `800 ${name.size}px ${FONT}`;
-  ctx.fillStyle = '#fff';
+  ctx.fillStyle = c.title;
   ctx.fillText(name.text, S / 2, 756);
 
   // Barra con el color del sector de la ruleta
@@ -137,15 +151,15 @@ export function drawCard(canvas, winner, logo) {
   ctx.font = `800 44px ${FONT}`;
   const ctaW = Math.min(S - 160, ctx.measureText(cta).width + 160);
   roundRect(ctx, (S - ctaW) / 2, 848, ctaW, 124, 36);
-  ctx.fillStyle = '#22C55E';
+  ctx.fillStyle = c.button;
   ctx.fill();
-  ctx.fillStyle = '#020617';
+  ctx.fillStyle = c.buttonText;
   ctx.fillText(cta, S / 2, 926);
 
   // Dirección de la web al pie
   ctx.direction = 'ltr';
   ctx.font = `700 34px ${FONT}`;
-  ctx.fillStyle = '#94A3B8';
+  ctx.fillStyle = c.muted;
   ctx.fillText(WEB_HOST, S / 2, 1022);
 }
 
@@ -156,9 +170,10 @@ export async function renderCard(winner) {
     document.fonts?.load(`800 48px 'Plus Jakarta Sans'`),
     document.fonts?.load(`700 34px 'Plus Jakarta Sans'`),
   ]).catch(() => {});
-  const logo = await loadImage('favicon.svg');
+  const theme = getTheme();
+  const logo = await loadImage(CARD_THEMES[theme].logo);
   const canvas = document.createElement('canvas');
-  drawCard(canvas, winner, logo);
+  drawCard(canvas, winner, logo, theme);
   return await new Promise((resolve, reject) => canvas.toBlob(b => (b ? resolve(b) : reject(new Error('toBlob'))), 'image/png'));
 }
 
