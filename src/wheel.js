@@ -71,7 +71,7 @@ const MAX_LABEL_SIZE = 18;
 const MAX_LABEL_SCALED = 24;
 /** Fracción del radio que ocupa el botón central: el texto de los sectores empieza después */
 const LABEL_HUB_RESERVE = 0.32;
-const labelFont = (/** @type {number} */ px) => `800 ${px}px 'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', sans-serif`;
+const labelFont = (/** @type {number} */ px) => `800 ${px}px 'Plus Jakarta Sans', 'Manrope', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', sans-serif`;
 
 function buildCache() {
   const size = wheelSize;

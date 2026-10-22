@@ -23,7 +23,7 @@ const FILE_NAME = 'gymroulette-reto.png';
 const uniqueName = () => `gymroulette-reto-${Date.now()}.png`;
 /** Carpeta de la caché de la app donde se deja la imagen mientras se comparte. */
 const CACHE_DIR = 'share';
-const FONT = "'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', sans-serif";
+const FONT = "'Plus Jakarta Sans', 'Manrope', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', sans-serif";
 
 /**
  * Colores de la tarjeta por apariencia (los mismos --brand-* de src/style.css). Un tema nuevo (por ejemplo uno claro)

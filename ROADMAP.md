@@ -76,7 +76,9 @@ Petición de una reseña de Play (ver «Peticiones de usuarios»). Hecho: la rul
 
 **Qué implicaría**: sobre todo maquetación (`index.html`, `src/wheel.js`, `src/style.css`), sin cambios en los datos guardados. Hay que pasar `npm run check:layout`, incluido `--stress`, en los 20 idiomas y con el árabe de derecha a izquierda, y regenerar las capturas de la ficha de Play (`npm run store`).
 
-## Por revisar en la versión 1.18 — apertura de las páginas de Privacidad y Acerca de
+## Hecho en la 1.18 — apertura de las páginas de Privacidad y Acerca de
+
+Hecho: `openDocument` recrea el marco en cada apertura (siempre empieza arriba y en el documento pedido) y `public/legal.js` hace que, dentro del visor, los enlaces entre páginas legales sustituyan la entrada del historial en lugar de añadir otra. Lo que sigue es el análisis original.
 
 Detectado probando la 1.17 en el móvil. Los documentos (política de privacidad y créditos, desde «Privacidad» y «Acerca de» en Ajustes) se abren en un visor dentro de la app (`documentModal`, un `iframe`).
 
@@ -88,9 +90,9 @@ Detectado probando la 1.17 en el móvil. Los documentos (política de privacidad
 
 **Dónde mirar**: `renderDocument` y `openDocument` en `src/ui.js`. El marco solo se sustituye cuando cambia el documento (`documentSrc`); si se abre el mismo dos veces seguidas, se reutiliza el mismo marco con su desplazamiento. Hay que volver a empezar arriba al abrirlo (por ejemplo, recrear el marco en cada apertura) sin romper el arreglo de Atrás de la 1.17, que depende de que la primera carga de un marco nuevo no añada una entrada al historial. Conviene reproducirlo en el navegador y en el móvil, con los tres documentos (privacidad, créditos y eliminación de datos) y en varios idiomas, y comprobar también Atrás.
 
-## Por valorar en la versión 1.18 — ruso como idioma nuevo
+## Hecho en la 1.18 — ruso como idioma nuevo
 
-Aún no está empezado. Se apunta el ruso (`ru`) como el siguiente idioma. No es un compromiso: antes hay que cubrir lo de abajo.
+Hecho: app, ficha de Play y las cinco páginas legales en ruso (21 idiomas). Como Plus Jakarta Sans no trae el cirílico básico, se añade Manrope para el cirílico. Pendiente: que un hablante nativo revise la traducción antes de publicar. Lo que sigue es el análisis original.
 
 **Qué implicaría** (según `CLAUDE.md`, un idioma nuevo hay que añadirlo en tres sitios):
 - **La app**: `src/i18n/locales/ru.js` con todas las claves de `en.js` (incluidos `exercise.<clave>` de los seis ejercicios por defecto y las etiquetas de los iconos) y alta en `LANGUAGES` de `src/i18n/index.js`. `npm test` falla si falta alguna clave o si cambian los parámetros `{x}`. Pasa de 20 a 21 idiomas, y todos los textos que hablan de «20 idiomas» (`CLAUDE.md`, ficha de Play, solicitud de producción) hay que actualizarlos.

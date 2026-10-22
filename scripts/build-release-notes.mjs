@@ -15,7 +15,7 @@ import { writeFileSync } from 'node:fs';
 import { STORE_LOCALES, LISTINGS } from '../store/listing.mjs';
 
 /** Orden de la plantilla de Play: el idioma predeterminado primero y el resto por código. */
-export const RELEASE_NOTES_ORDER = ['en-US', 'ar', 'ca', 'de-DE', 'es-ES', 'eu-ES', 'fr-FR', 'gl-ES', 'hi-IN', 'it-IT', 'ja-JP', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'tr-TR'];
+export const RELEASE_NOTES_ORDER = ['en-US', 'ar', 'ca', 'de-DE', 'es-ES', 'eu-ES', 'fr-FR', 'gl-ES', 'hi-IN', 'it-IT', 'ja-JP', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'tr-TR'];
 
 export function buildReleaseNotes() {
   const byPlay = Object.fromEntries(STORE_LOCALES.map(l => [l.play, l]));

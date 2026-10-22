@@ -14,8 +14,8 @@ const placeholders = text => [...text.matchAll(/\{(\w+)\}/g)].map(m => m[1]).sor
 afterEach(() => setLanguage(DEFAULT_LANGUAGE, { persist: false }));
 
 describe('idiomas disponibles', () => {
-  it('son los veinte esperados, por orden alfabético del nombre y con las variantes junto a su idioma', () => {
-    expect(codes).toEqual(['ar', 'ca', 'de', 'en', 'en-GB', 'en-AU', 'es', 'es-419', 'eu', 'fr', 'fr-CA', 'gl', 'hi', 'it', 'ja', 'nl', 'pl', 'pt-BR', 'pt-PT', 'tr']);
+  it('son los veintiuno esperados, por orden alfabético del nombre y con las variantes junto a su idioma', () => {
+    expect(codes).toEqual(['ar', 'ca', 'de', 'en', 'en-GB', 'en-AU', 'es', 'es-419', 'eu', 'fr', 'fr-CA', 'gl', 'hi', 'it', 'ja', 'nl', 'pl', 'pt-BR', 'pt-PT', 'ru', 'tr']);
   });
 });
 

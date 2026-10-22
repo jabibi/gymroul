@@ -23,4 +23,5 @@ export default {
 
   ja: page('ページが見つかりません - GymRoulette', 'お探しのページは存在しません。', 'GymRouletteに戻る'),
 
+  ru: page('Страница не найдена - GymRoulette', 'Страница, которую вы ищете, не существует.', 'Вернуться в GymRoulette'),
 };

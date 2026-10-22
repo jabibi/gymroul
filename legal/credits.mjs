@@ -9,7 +9,7 @@ const faSite = '<a href="https://fontawesome.com/license/free" target="_blank" r
 /** «Versión» en cada idioma: el número sale de package.json al generar la página (scripts/build-legal.mjs). */
 export const versionLabel = {
   en: 'Version', es: 'Versión', eu: 'Bertsioa', gl: 'Versión', ca: 'Versió', fr: 'Version', 'pt-BR': 'Versão', 'pt-PT': 'Versão',
-  de: 'Version', it: 'Versione', pl: 'Wersja', ar: 'الإصدار', hi: 'संस्करण', tr: 'Sürüm', nl: 'Versie', ja: 'バージョン',
+  de: 'Version', it: 'Versione', pl: 'Wersja', ar: 'الإصدار', hi: 'संस्करण', tr: 'Sürüm', nl: 'Versie', ja: 'バージョン', ru: 'Версия',
 };
 
 export default {
@@ -243,4 +243,18 @@ export default {
     ['ul', ['<strong>Plus Jakarta Sans</strong>、SIL Open Font License 1.1。']],
   ] },
 
+  ru: { title: 'Благодарности и лицензии - GymRoulette', blocks: [
+    ['h1', 'Благодарности и лицензии'],
+    ['p', 'GymRoulette использует следующие ресурсы третьих лиц. Благодарим их авторов.'],
+    ['h2', 'Значки упражнений'],
+    ['ul', [
+      `<strong>Material Design Icons</strong> (Pictogrammers), лицензия ${mdi}. ${mdiSite}`,
+      '<strong>Собственные пиктограммы GymRoulette</strong> (отжимания, планка, скручивания, бёрпи, скалолаз и приседания).',
+      `<strong>Game Icons</strong> (${gameSite}), значки Lorc, Delapouite и других авторов, лицензия ${ccBy3}. Некоторые значки перекрашены и изменены по размеру.`,
+    ]],
+    ['h2', 'Значки интерфейса'],
+    ['ul', [`<strong>Font Awesome Free</strong>, значки по лицензии ${ccBy4}, шрифты по SIL OFL 1.1, код по MIT. ${faSite}`]],
+    ['h2', 'Типографика'],
+    ['ul', ['<strong>Plus Jakarta Sans</strong>, лицензия SIL Open Font License 1.1.']],
+  ] },
 };
