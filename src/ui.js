@@ -349,6 +349,9 @@ function historySummary() {
   return t('history.total', { n: sessionHistory.length, reps: reps.toLocaleString(getLanguageTag()) });
 }
 
+/** Con ejercicios, la lista es un recuadro redondeado con una fila por ejercicio separadas por una línea; vacía, solo el aviso. */
+const HISTORY_BOX = ['rounded-2xl', 'bg-dark-900/60', 'border', 'border-slate-800', 'divide-y', 'divide-slate-800/80'];
+
 export function renderHistory() {
   const listEl = $('historyList');
   const badge = $('historyBadge');
@@ -357,6 +360,7 @@ export function renderHistory() {
   if (sessionHistory.length === 0) {
     badge.classList.add('hidden');
     total.textContent = historySummary();
+    listEl.classList.remove(...HISTORY_BOX);
     listEl.innerHTML = `
       <div class="text-center py-8 text-slate-500 text-xs">
         <i class="fa-solid fa-clipboard-list text-2xl mb-2 block opacity-40"></i>
@@ -368,8 +372,9 @@ export function renderHistory() {
   badge.textContent = String(sessionHistory.length);
   badge.classList.remove('hidden');
   total.textContent = historySummary();
+  listEl.classList.add(...HISTORY_BOX);
   listEl.innerHTML = sessionHistory.map(h => `
-    <div class="bg-dark-900 border border-slate-800 rounded-2xl p-3 flex justify-between items-center gap-3">
+    <div class="px-3.5 py-3 flex justify-between items-center gap-3">
       <div class="flex items-center gap-3 min-w-0">
         <div class="min-w-10 h-10 px-1.5 shrink-0 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center font-black ${String(h.reps).length > 3 ? 'text-xs' : 'text-sm'} border border-brand-500/20">${h.reps}</div>
         <div class="min-w-0">
