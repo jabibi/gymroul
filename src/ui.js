@@ -171,12 +171,8 @@ export function initModals() {
     if (name) closers[name]();
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeActiveModal(); });
-
-  // Tocar el fondo cierra historial, configuración y compromiso de privacidad (el reto pendiente solo se cierra con sus botones, Esc o Atrás)
-  ['historyModal', 'configModal', 'commitmentModal', 'whatsNewModal', 'addExerciseModal'].forEach(id => {
-    const modal = $(id);
-    modal.addEventListener('click', e => { if (e.target === modal) closeActiveModal(); });
-  });
+  // Tocar fuera de un panel no lo cierra: una pulsación errada no debe hacer perder lo que se estaba haciendo. Se sale con
+  // Atrás, Esc o los botones del propio panel.
 }
 
 // --- Resultado -----------------------------------------------------------------------
