@@ -14,7 +14,7 @@ export default {
       ['p', '<strong>In short: GymRoulette works completely offline and does not collect, send or share any personal data.</strong>'],
 
       ['h2', '1. Data controller'],
-      ['p', `Controller: Javier Melendez (independent developer).<br>Contact: ${MAIL}`],
+      ['p', `Controller: PointedIO (Javier Melendez).<br>Contact: ${MAIL}`],
 
       ['h2', '2. Data we process'],
       ['h3', '2.1 Data that stays on your device'],
@@ -61,7 +61,7 @@ export default {
       ['p', '<strong>En resumen: GymRoulette funciona totalmente sin conexión y no recopila, envía ni comparte ningún dato personal.</strong>'],
 
       ['h2', '1. Responsable del tratamiento'],
-      ['p', `Responsable: Javier Melendez (desarrollador independiente).<br>Contacto: ${MAIL}`],
+      ['p', `Responsable: PointedIO (Javier Melendez).<br>Contacto: ${MAIL}`],
 
       ['h2', '2. Datos que se tratan'],
       ['h3', '2.1 Datos que permanecen en tu dispositivo'],
@@ -108,7 +108,7 @@ export default {
       ['p', '<strong>Laburbilduz: GymRoulette erabat konexiorik gabe funtzionatzen du eta ez du datu pertsonalik biltzen, bidaltzen ez partekatzen.</strong>'],
 
       ['h2', '1. Tratamenduaren arduraduna'],
-      ['p', `Arduraduna: Javier Melendez (garatzaile independentea).<br>Kontaktua: ${MAIL}`],
+      ['p', `Arduraduna: PointedIO (Javier Melendez).<br>Kontaktua: ${MAIL}`],
 
       ['h2', '2. Tratatzen diren datuak'],
       ['h3', '2.1 Zure gailuan geratzen diren datuak'],
@@ -155,7 +155,7 @@ export default {
       ['p', '<strong>En resumo: GymRoulette funciona completamente sen conexión e non recolle, envía nin comparte ningún dato persoal.</strong>'],
 
       ['h2', '1. Responsable do tratamento'],
-      ['p', `Responsable: Javier Melendez (desenvolvedor independente).<br>Contacto: ${MAIL}`],
+      ['p', `Responsable: PointedIO (Javier Melendez).<br>Contacto: ${MAIL}`],
 
       ['h2', '2. Datos que se tratan'],
       ['h3', '2.1 Datos que permanecen no teu dispositivo'],
@@ -202,7 +202,7 @@ export default {
       ['p', '<strong>En resum: GymRoulette funciona completament sense connexió i no recopila, envia ni comparteix cap dada personal.</strong>'],
 
       ['h2', '1. Responsable del tractament'],
-      ['p', `Responsable: Javier Melendez (desenvolupador independent).<br>Contacte: ${MAIL}`],
+      ['p', `Responsable: PointedIO (Javier Melendez).<br>Contacte: ${MAIL}`],
 
       ['h2', '2. Dades que es tracten'],
       ['h3', '2.1 Dades que es queden al teu dispositiu'],
@@ -249,7 +249,7 @@ export default {
       ['p', '<strong>En bref : GymRoulette fonctionne entièrement hors connexion et ne collecte, n\'envoie ni ne partage aucune donnée personnelle.</strong>'],
 
       ['h2', '1. Responsable du traitement'],
-      ['p', `Responsable : Javier Melendez (développeur indépendant).<br>Contact : ${MAIL}`],
+      ['p', `Responsable : PointedIO (Javier Melendez).<br>Contact : ${MAIL}`],
 
       ['h2', '2. Données traitées'],
       ['h3', '2.1 Données qui restent sur ton appareil'],
@@ -296,7 +296,7 @@ export default {
       ['p', '<strong>Kurz gesagt: GymRoulette funktioniert vollständig offline und erfasst, sendet oder teilt keinerlei personenbezogene Daten.</strong>'],
 
       ['h2', '1. Verantwortlicher'],
-      ['p', `Verantwortlicher: Javier Melendez (unabhängiger Entwickler).<br>Kontakt: ${MAIL}`],
+      ['p', `Verantwortlicher: PointedIO (Javier Melendez).<br>Kontakt: ${MAIL}`],
 
       ['h2', '2. Verarbeitete Daten'],
       ['h3', '2.1 Daten, die auf Ihrem Gerät bleiben'],
@@ -343,7 +343,7 @@ export default {
       ['p', '<strong>In breve: GymRoulette funziona completamente offline e non raccoglie, non invia né condivide alcun dato personale.</strong>'],
 
       ['h2', '1. Titolare del trattamento'],
-      ['p', `Titolare: Javier Melendez (sviluppatore indipendente).<br>Contatto: ${MAIL}`],
+      ['p', `Titolare: PointedIO (Javier Melendez).<br>Contatto: ${MAIL}`],
 
       ['h2', '2. Dati trattati'],
       ['h3', '2.1 Dati che restano sul tuo dispositivo'],
@@ -390,7 +390,7 @@ export default {
       ['p', '<strong>Em resumo: o GymRoulette funciona totalmente offline e não coleta, envia nem compartilha nenhum dado pessoal.</strong>'],
 
       ['h2', '1. Controlador dos dados'],
-      ['p', `Controlador: Javier Melendez (desenvolvedor independente).<br>Contato: ${MAIL}`],
+      ['p', `Controlador: PointedIO (Javier Melendez).<br>Contato: ${MAIL}`],
 
       ['h2', '2. Dados tratados'],
       ['h3', '2.1 Dados que ficam no seu dispositivo'],
@@ -437,7 +437,7 @@ export default {
       ['p', '<strong>Em resumo: o GymRoulette funciona totalmente offline e não recolhe, envia nem partilha quaisquer dados pessoais.</strong>'],
 
       ['h2', '1. Responsável pelo tratamento'],
-      ['p', `Responsável: Javier Melendez (programador independente).<br>Contacto: ${MAIL}`],
+      ['p', `Responsável: PointedIO (Javier Melendez).<br>Contacto: ${MAIL}`],
 
       ['h2', '2. Dados tratados'],
       ['h3', '2.1 Dados que ficam no teu dispositivo'],
@@ -483,7 +483,7 @@ export default {
       ['p', '<strong>W skrócie: GymRoulette działa całkowicie offline i nie zbiera, nie wysyła ani nie udostępnia żadnych danych osobowych.</strong>'],
 
       ['h2', '1. Administrator danych'],
-      ['p', `Administrator: Javier Melendez (niezależny deweloper).<br>Kontakt: ${MAIL}`],
+      ['p', `Administrator: PointedIO (Javier Melendez).<br>Kontakt: ${MAIL}`],
 
       ['h2', '2. Przetwarzane dane'],
       ['h3', '2.1 Dane, które pozostają na urządzeniu Użytkownika'],
@@ -530,7 +530,7 @@ export default {
       ['p', '<strong>باختصار: يعمل GymRoulette دون اتصال بالإنترنت بالكامل، ولا يجمع أي بيانات شخصية ولا يرسلها ولا يشاركها.</strong>'],
 
       ['h2', '1. المسؤول عن البيانات'],
-      ['p', `المسؤول: Javier Melendez (مطوّر مستقل).<br>التواصل: ${MAIL}`],
+      ['p', `المسؤول: PointedIO (Javier Melendez).<br>التواصل: ${MAIL}`],
 
       ['h2', '2. البيانات التي نعالجها'],
       ['h3', '2.1 بيانات تبقى على جهازك'],
@@ -577,7 +577,7 @@ export default {
       ['p', '<strong>संक्षेप में: GymRoulette पूरी तरह ऑफ़लाइन चलता है और कोई भी व्यक्तिगत डेटा न इकट्ठा करता है, न भेजता है, न साझा करता है।</strong>'],
 
       ['h2', '1. डेटा नियंत्रक'],
-      ['p', `नियंत्रक: Javier Melendez (स्वतंत्र डेवलपर)।<br>संपर्क: ${MAIL}`],
+      ['p', `नियंत्रक: PointedIO (Javier Melendez)।<br>संपर्क: ${MAIL}`],
 
       ['h2', '2. हम कौन-सा डेटा प्रोसेस करते हैं'],
       ['h3', '2.1 वह डेटा जो आपके डिवाइस पर ही रहता है'],
@@ -624,7 +624,7 @@ export default {
       ['p', '<strong>Kısaca: GymRoulette tamamen çevrimdışı çalışır ve hiçbir kişisel veriyi toplamaz, göndermez veya paylaşmaz.</strong>'],
 
       ['h2', '1. Veri sorumlusu'],
-      ['p', `Sorumlu: Javier Melendez (bağımsız geliştirici).<br>İletişim: ${MAIL}`],
+      ['p', `Sorumlu: PointedIO (Javier Melendez).<br>İletişim: ${MAIL}`],
 
       ['h2', '2. İşlediğimiz veriler'],
       ['h3', '2.1 Cihazınızda kalan veriler'],
@@ -671,7 +671,7 @@ export default {
       ['p', '<strong>Kort gezegd: GymRoulette werkt volledig offline en verzamelt, verstuurt of deelt geen enkel persoonsgegeven.</strong>'],
 
       ['h2', '1. Verwerkingsverantwoordelijke'],
-      ['p', `Verantwoordelijke: Javier Melendez (onafhankelijk ontwikkelaar).<br>Contact: ${MAIL}`],
+      ['p', `Verantwoordelijke: PointedIO (Javier Melendez).<br>Contact: ${MAIL}`],
 
       ['h2', '2. Gegevens die we verwerken'],
       ['h3', '2.1 Gegevens die op je apparaat blijven'],
@@ -718,7 +718,7 @@ export default {
       ['p', '<strong>要点：GymRouletteは完全オフラインで動作し、個人データを収集・送信・共有することは一切ありません。</strong>'],
 
       ['h2', '1. データ管理者'],
-      ['p', `管理者：Javier Melendez（個人開発者）<br>連絡先：${MAIL}`],
+      ['p', `管理者：PointedIO（Javier Melendez）<br>連絡先：${MAIL}`],
 
       ['h2', '2. 処理するデータ'],
       ['h3', '2.1 お使いの端末内にとどまるデータ'],

@@ -47,7 +47,7 @@ describe('páginas legales multilingües', () => {
     for (const code of LANGUAGE_ORDER) {
       it(`${code}: privacidad`, () => {
         const text = flat(LEGAL_PAGES['privacy.html'][code]);
-        for (const fact of [CONTACT_EMAIL, 'eus.jabibi.gymroul', 'gymroul.web.app', '14', 'Firebase', 'data-deletion.html', 'aepd.es']) {
+        for (const fact of [CONTACT_EMAIL, 'eus.jabibi.gymroul', 'gymroul.web.app', '14', 'Firebase', 'data-deletion.html', 'aepd.es', 'PointedIO']) {
           expect(text, fact).toContain(fact);
         }
         // La app publicada nunca ha tenido analítica ni rastreadores: la política no habla de versiones antiguas
@@ -57,7 +57,7 @@ describe('páginas legales multilingües', () => {
       });
       it(`${code}: eliminación de datos`, () => {
         const text = flat(LEGAL_PAGES['data-deletion.html'][code]);
-        for (const fact of [CONTACT_EMAIL, 'subject=', 'privacy.html', '12', 'gymroul.web.app']) expect(text, fact).toContain(fact);
+        for (const fact of [CONTACT_EMAIL, 'subject=', 'privacy.html', '12', 'gymroul.web.app', 'PointedIO']) expect(text, fact).toContain(fact);
         expect(text).not.toContain('Google Analytics');
         expect(text).not.toContain('1.13');
         expect(text.replace(/eus\.jabibi\.gymroul/g, '')).not.toContain('jabibi');
