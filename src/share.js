@@ -42,17 +42,6 @@ export const challengeLabel = winner => `${winner.reps} ${winner.exercise}`;
 /** @param {Challenge} winner @returns {string} texto que acompaña a la imagen */
 export const shareText = winner => t('share.text', { challenge: challengeLabel(winner), url: APP_URL });
 
-/**
- * Mayor tamaño de letra (entre min y start) con el que el texto cabe en el ancho dado.
- * @param {(size: number) => number} widthAt ancho del texto con ese tamaño
- * @param {number} maxWidth @param {number} start @param {number} min
- */
-export function fitFontSize(widthAt, maxWidth, start, min) {
-  let size = start;
-  while (size > min && widthAt(size) > maxWidth) size--;
-  return size;
-}
-
 /** @param {string} src @returns {Promise<HTMLImageElement | null>} */
 function loadImage(src) {
   return new Promise(resolve => {
@@ -75,7 +64,7 @@ function roundRect(ctx, x, y, w, h, r) {
  * @param {HTMLCanvasElement} canvas @param {Challenge} winner @param {HTMLImageElement | null} logo
  * @param {import('./theme.js').Theme} [theme]
  */
-export function drawCard(canvas, winner, logo, theme = getTheme()) {
+function drawCard(canvas, winner, logo, theme = getTheme()) {
   const S = IMAGE_SIZE;
   canvas.width = S;
   canvas.height = S;
@@ -165,7 +154,7 @@ export function drawCard(canvas, winner, logo, theme = getTheme()) {
 }
 
 /** @param {Challenge} winner @returns {Promise<Blob>} */
-export async function renderCard(winner) {
+async function renderCard(winner) {
   // Las letras y el logo deben estar cargados antes de dibujar
   await Promise.all([
     document.fonts?.load(`800 48px 'Plus Jakarta Sans'`),

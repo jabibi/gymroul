@@ -231,7 +231,7 @@ export function loadActive() {
     : allExs.map(e => e.name);
 }
 
-export function persistActive() {
+function persistActive() {
   writeStorage(KEY_ACTIVE_EXS, active.exercises);
 }
 

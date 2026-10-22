@@ -73,9 +73,9 @@ export function playWinFanfare() {
 // se notan; por eso se usan estas dos. En la web se mantiene navigator.vibrate.
 
 /** Patrón de la web para el inicio del giro: un único toque corto */
-export const SPIN_START_VIBRATION = [45];
+const SPIN_START_VIBRATION = [45];
 /** Patrón de la web para el resultado: [vibra, pausa, vibra, ...] en ms */
-export const RESULT_VIBRATION = [150, 80, 150, 80, 320];
+const RESULT_VIBRATION = [150, 80, 150, 80, 320];
 /** En la app el resultado es una notificación fuerte seguida de dos golpes (ms desde el inicio) */
 const NATIVE_RESULT_FOLLOWUPS_MS = [380, 540];
 

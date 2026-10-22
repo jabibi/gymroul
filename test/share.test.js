@@ -1,6 +1,6 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { CARD_THEMES, shareText, challengeLabel, fitFontSize, shareChallenge, APP_URL, IMAGE_SIZE } from '../src/share.js';
+import { CARD_THEMES, shareText, challengeLabel, shareChallenge, APP_URL, IMAGE_SIZE } from '../src/share.js';
 import { THEMES } from '../src/theme.js';
 import { LANGUAGES, setLanguage, DEFAULT_LANGUAGE, DICTIONARIES } from '../src/i18n/index.js';
 
@@ -32,12 +32,8 @@ describe('compartir el reto', () => {
     }
   });
 
-  it('la imagen es cuadrada y el titular se encoge hasta caber', () => {
+  it('la imagen es cuadrada', () => {
     expect(IMAGE_SIZE).toBe(1080);
-    const widthAt = size => size * 10; // 10 px por punto de tamaño
-    expect(fitFontSize(widthAt, 920, 200, 64)).toBe(92);
-    expect(fitFontSize(widthAt, 5000, 200, 64)).toBe(200);
-    expect(fitFontSize(widthAt, 10, 200, 64)).toBe(64);
   });
 
   it('si ya está cancelado no genera nada y devuelve «cancelled»', async () => {
