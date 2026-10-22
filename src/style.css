@@ -3,6 +3,12 @@
 @import '@fontsource/plus-jakarta-sans/latin-600.css';
 @import '@fontsource/plus-jakarta-sans/latin-700.css';
 @import '@fontsource/plus-jakarta-sans/latin-800.css';
+/* Plus Jakarta Sans no trae el cirílico básico: para el ruso se usa Manrope, de trazo parecido (solo se descarga si hace falta) */
+@import '@fontsource/manrope/cyrillic-400.css';
+@import '@fontsource/manrope/cyrillic-500.css';
+@import '@fontsource/manrope/cyrillic-600.css';
+@import '@fontsource/manrope/cyrillic-700.css';
+@import '@fontsource/manrope/cyrillic-800.css';
 @import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
 @import '@fortawesome/fontawesome-free/css/solid.min.css';
 
@@ -49,7 +55,7 @@ body {
     padding-right: var(--sar);
     padding-bottom: var(--sab);
     padding-left: var(--sal);
-    font-family: 'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', 'Segoe UI', Tahoma, sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Manrope', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', 'Segoe UI', Tahoma, sans-serif;
     touch-action: manipulation;
     user-select: none;
     -webkit-user-select: none;
@@ -133,6 +139,11 @@ input, textarea {
 /* Árabe (escritura cursiva, de derecha a izquierda): el espaciado entre letras rompe las uniones entre ellas,
    así que se anula el de las clases de Tailwind (tracking-*) y el de los textos con mayúsculas. */
 :lang(ar), :lang(ar) * {
+    letter-spacing: normal !important;
+}
+
+/* Ruso: el espaciado entre letras de las clases tracking-* se ve forzado en cirílico, sin mayúsculas a las que ayude */
+:lang(ru), :lang(ru) * {
     letter-spacing: normal !important;
 }
 

@@ -12,7 +12,7 @@ Disponible como aplicación web (Firebase Hosting) y como app Android (Capacitor
 - Dos apariencias: Suave (la actual, tonos suaves) y Clásico (la original, con colores vivos en la ruleta y un verde más intenso).
 - Editor de la ruleta: activar/desactivar, crear (en una ventana aparte) y eliminar ejercicios (nombre e icono) y rango de repeticiones de cada uno (máx. 12 ejercicios). Los ejercicios salen por orden alfabético del idioma activo.
 - Selector con ≈100 iconos de muchas disciplinas (fuerza, calistenia, cardio, fitness funcional, OCR, artes marciales, yoga, pilates, tai chi, deportes…) con búsqueda; no se admite texto libre ni emojis.
-- Interfaz en 20 idiomas: árabe (de derecha a izquierda), inglés (EE. UU., Reino Unido y Australia), español (España y Latinoamérica), euskera, gallego, catalán, francés (Francia y Canadá), alemán, italiano, japonés, neerlandés, polaco, hindi, turco y portugués (Brasil y Portugal). Se elige según el dispositivo y se puede cambiar en Ajustes.
+- Interfaz en 21 idiomas: árabe (de derecha a izquierda), inglés (EE. UU., Reino Unido y Australia), español (España y Latinoamérica), euskera, gallego, catalán, francés (Francia y Canadá), alemán, italiano, japonés, neerlandés, polaco, ruso, hindi, turco y portugués (Brasil y Portugal). Se elige según el dispositivo y se puede cambiar en Ajustes.
 - Historial de la sesión con los retos completados. Mientras la ruleta gira, Historial y Ajustes no se abren; tocar fuera de un panel no lo cierra.
 - La configuración se guarda en `localStorage` (con versión de esquema y migraciones).
 - Funciona sin conexión: Tailwind, Font Awesome y la fuente van empaquetados. La app de Android no declara el permiso de Internet.

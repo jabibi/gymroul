@@ -22,6 +22,7 @@ import it from './locales/it.js';
 import ja from './locales/ja.js';
 import nl from './locales/nl.js';
 import pl from './locales/pl.js';
+import ru from './locales/ru.js';
 import hi from './locales/hi.js';
 import tr from './locales/tr.js';
 import frCA from './locales/fr-CA.js';
@@ -31,7 +32,7 @@ import { parseIconTable } from './icon-table.js';
 
 /**
  * @typedef {{ strings: Record<string, string>, groups?: Record<string, string>, icons?: string }} LocaleData
- * @typedef {'ar' | 'en' | 'en-GB' | 'en-AU' | 'es' | 'es-419' | 'eu' | 'gl' | 'ca' | 'fr' | 'fr-CA' | 'de' | 'it' | 'ja' | 'nl' | 'pl' | 'hi' | 'tr' | 'pt-BR' | 'pt-PT'} LanguageCode
+ * @typedef {'ar' | 'en' | 'en-GB' | 'en-AU' | 'es' | 'es-419' | 'eu' | 'gl' | 'ca' | 'fr' | 'fr-CA' | 'de' | 'it' | 'ja' | 'nl' | 'pl' | 'ru' | 'hi' | 'tr' | 'pt-BR' | 'pt-PT'} LanguageCode
  */
 
 /**
@@ -58,6 +59,7 @@ export const LANGUAGES = /** @type {{ code: LanguageCode, name: string, tag: str
   { code: 'pl', name: 'Polski', tag: 'pl-PL' },
   { code: 'pt-BR', name: 'Português (Brasil)', tag: 'pt-BR' },
   { code: 'pt-PT', name: 'Português (Portugal)', tag: 'pt-PT' },
+  { code: 'ru', name: 'Русский', tag: 'ru-RU' },
   { code: 'tr', name: 'Türkçe', tag: 'tr-TR' },
 ]);
 
@@ -89,7 +91,7 @@ function mergeTables(/** @type {string} */ a, /** @type {string} */ b) {
 
 /** @type {Record<LanguageCode, LocaleData>} */
 export const DICTIONARIES = {
-  en, ar, es, eu, gl, ca, fr, de, it, ja, nl, pl, hi, tr,
+  en, ar, es, eu, gl, ca, fr, de, it, ja, nl, pl, ru, hi, tr,
   'en-GB': extend(en, enGB),
   'en-AU': extend(en, enAU),
   'es-419': extend(es, es419),

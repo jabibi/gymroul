@@ -98,6 +98,7 @@ const ROTATE_ICON = readFileSync('node_modules/@fortawesome/fontawesome-free/svg
 
 /** Gráfico de funciones 1024x500: texto a la izquierda y la ruleta entera a la derecha. */
 async function buildBanner(listing, wheel, path, rtl = false) {
+  const cyrillicFont = w => readFileSync(`node_modules/@fontsource/manrope/files/manrope-cyrillic-${w}-normal.woff2`).toString('base64');
   const font = w => readFileSync(`node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-${w}-normal.woff2`).toString('base64');
   const logo = `data:image/svg+xml;base64,${readFileSync('public/logo-mark.svg').toString('base64')}`;
   const wheelUri = `data:image/png;base64,${wheel.png.toString('base64')}`;
@@ -115,8 +116,10 @@ async function buildBanner(listing, wheel, path, rtl = false) {
   const html = `<!doctype html><html lang="${rtl ? 'ar' : 'en'}" dir="${rtl ? 'rtl' : 'ltr'}"><meta charset="utf-8"><style>
     @font-face{font-family:J;font-weight:700;src:url(data:font/woff2;base64,${font(700)}) format('woff2')}
     @font-face{font-family:J;font-weight:800;src:url(data:font/woff2;base64,${font(800)}) format('woff2')}
+    @font-face{font-family:M;font-weight:700;src:url(data:font/woff2;base64,${cyrillicFont(700)}) format('woff2')}
+    @font-face{font-family:M;font-weight:800;src:url(data:font/woff2;base64,${cyrillicFont(800)}) format('woff2')}
     *{margin:0;box-sizing:border-box}
-    body{width:1024px;height:500px;overflow:hidden;font-family:J,'Noto Sans Arabic','Noto Sans JP','Hiragino Sans','Yu Gothic','IPAGothic',sans-serif;color:#fff;position:relative;
+    body{width:1024px;height:500px;overflow:hidden;font-family:J,M,'Noto Sans Arabic','Noto Sans JP','Hiragino Sans','Yu Gothic','IPAGothic',sans-serif;color:#fff;position:relative;
       background:radial-gradient(circle at ${rtl ? 24 : 76}% 52%, rgb(${green} / .22), transparent 55%), linear-gradient(135deg,#0B1220,#020617)}
     .brand{position:absolute;${START}:${SIDE}px;top:56px;display:flex;align-items:center;gap:16px}
     .brand img{width:64px;height:64px}

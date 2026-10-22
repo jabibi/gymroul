@@ -11,7 +11,7 @@ store/
 ├── importar-traducciones.csv                Título y descripciones de TODOS los idiomas para «Importar un archivo» (npm run store)
 ├── datos-de-la-ficha.md                     Enlaces, clasificación y Seguridad de los datos
 ├── listing.mjs                              Fuente de los textos de cada idioma
-└── <idioma de Play>/                        ar, ca, de-DE, en-US, es-ES, eu-ES, fr-FR, gl-ES, hi-IN, it-IT, ja-JP, nl-NL, pl-PL, pt-BR, pt-PT, tr-TR
+└── <idioma de Play>/                        ar, ca, de-DE, en-US, es-ES, eu-ES, fr-FR, gl-ES, hi-IN, it-IT, ja-JP, nl-NL, pl-PL, pt-BR, pt-PT, ru-RU, tr-TR
     ├── grafico-de-funciones-1024x500.png    Gráfico de funciones con el texto traducido
     ├── capturas-telefono/                   Siete capturas 1080 x 1920 (9:16) con la app en ese idioma
     └── textos/
@@ -24,22 +24,23 @@ store/
 ## Idiomas y longitud de los textos
 | Carpeta | Idioma en Play Console | Descripción breve | Descripción completa | Novedades |
 |---|---|---|---|---|
-| `ar` | Árabe | 62/80 | 2126/4000 | 335/500 |
-| `ca` | Catalán | 64/80 | 2576/4000 | 426/500 |
-| `de-DE` | Alemán | 71/80 | 2789/4000 | 469/500 |
-| `en-US` | Inglés (Estados Unidos) | 60/80 | 2469/4000 | 409/500 |
-| `es-ES` | Español (España) | 73/80 | 2561/4000 | 445/500 |
-| `eu-ES` | Euskera | 63/80 | 2693/4000 | 473/500 |
-| `fr-FR` | Francés (Francia) | 69/80 | 2785/4000 | 485/500 |
-| `gl-ES` | Gallego | 70/80 | 2555/4000 | 444/500 |
-| `hi-IN` | Hindi | 55/80 | 2476/4000 | 432/500 |
-| `it-IT` | Italiano | 64/80 | 2607/4000 | 471/500 |
-| `ja-JP` | Japonés | 29/80 | 1372/4000 | 255/500 |
-| `nl-NL` | Neerlandés | 72/80 | 2714/4000 | 484/500 |
-| `pl-PL` | Polaco | 54/80 | 2527/4000 | 434/500 |
-| `pt-BR` | Portugués (Brasil) | 69/80 | 2574/4000 | 441/500 |
-| `pt-PT` | Portugués (Portugal) | 68/80 | 2598/4000 | 442/500 |
-| `tr-TR` | Turco | 64/80 | 2449/4000 | 422/500 |
+| `ar` | Árabe | 62/80 | 2135/4000 | 335/500 |
+| `ca` | Catalán | 64/80 | 2585/4000 | 426/500 |
+| `de-DE` | Alemán | 71/80 | 2798/4000 | 469/500 |
+| `en-US` | Inglés (Estados Unidos) | 60/80 | 2478/4000 | 409/500 |
+| `es-ES` | Español (España) | 73/80 | 2570/4000 | 445/500 |
+| `eu-ES` | Euskera | 63/80 | 2702/4000 | 473/500 |
+| `fr-FR` | Francés (Francia) | 69/80 | 2794/4000 | 485/500 |
+| `gl-ES` | Gallego | 70/80 | 2564/4000 | 444/500 |
+| `hi-IN` | Hindi | 55/80 | 2485/4000 | 432/500 |
+| `it-IT` | Italiano | 64/80 | 2616/4000 | 471/500 |
+| `ja-JP` | Japonés | 29/80 | 1381/4000 | 255/500 |
+| `nl-NL` | Neerlandés | 72/80 | 2723/4000 | 484/500 |
+| `pl-PL` | Polaco | 54/80 | 2536/4000 | 434/500 |
+| `pt-BR` | Portugués (Brasil) | 69/80 | 2583/4000 | 441/500 |
+| `pt-PT` | Portugués (Portugal) | 68/80 | 2607/4000 | 442/500 |
+| `ru-RU` | Ruso | 59/80 | 2638/4000 | 449/500 |
+| `tr-TR` | Turco | 64/80 | 2458/4000 | 422/500 |
 
 ## Dónde sube cada archivo en Play Console
 En **Presencia en Google Play Store → Fichas de Play Store**, elige el idioma arriba (*Gestionar idiomas* para añadirlos) y rellena:
