@@ -4,9 +4,12 @@ import { buildReleaseNotes, RELEASE_NOTES_ORDER } from '../scripts/build-release
 import { LISTINGS, STORE_LOCALES, LIMITS, NOTES_VERSIONS } from '../store/listing.mjs';
 import { LANGUAGES } from '../src/i18n/index.js';
 
+/** Variantes regionales de la app que no tienen ficha en Play: ahí se enseña la de su idioma base (así no hay que subir las capturas varias veces) */
+const NO_STORE_LISTING = ['en-GB', 'en-AU', 'es-419', 'fr-CA'];
+
 describe('ficha de Google Play', () => {
-  it('hay una ficha para cada idioma de la app, con códigos de Play únicos', () => {
-    expect(STORE_LOCALES.map(l => l.app)).toEqual(LANGUAGES.map(l => l.code));
+  it('hay una ficha para cada idioma de la app salvo las variantes regionales sin ficha propia (Play enseña la de su idioma base), con códigos de Play únicos', () => {
+    expect(STORE_LOCALES.map(l => l.app)).toEqual(LANGUAGES.map(l => l.code).filter(code => !NO_STORE_LISTING.includes(code)));
     expect(new Set(STORE_LOCALES.map(l => l.play)).size).toBe(STORE_LOCALES.length);
     for (const l of STORE_LOCALES) expect(LISTINGS[l.app], l.app).toBeDefined();
   });
@@ -31,17 +34,6 @@ describe('ficha de Google Play', () => {
         // Evita viñetas sueltas o pegadas a otra sección (y en otro idioma) al añadir una a todas las fichas
         const bulletsPerBlock = text => text.split('\n\n').map(b => b.split('\n').filter(x => x.startsWith('• ')).length);
         expect(bulletsPerBlock(listing.full)).toEqual(bulletsPerBlock(LISTINGS.en.full));
-      });
-
-      it('las variantes regionales usan su ortografía', () => {
-        if (l.app === 'fr-CA') {
-          expect(listing.full).not.toMatch(/[\u00a0 ][!?]/);
-          expect(listing.full).not.toContain('Réglages');
-        }
-        if (l.app === 'es-419') {
-          expect(listing.full).not.toMatch(/\bPulsa|\bAñade|tu móvil/);
-          expect(listing.full).toContain('Presiona');
-        }
       });
 
       it('la descripción completa no menciona Google Analytics y cita los idiomas disponibles', () => {

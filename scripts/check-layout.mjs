@@ -1,7 +1,7 @@
 // Comprueba, con la app real en Chrome sin interfaz, que ningún texto se corta ni se pisa en cada pantalla y en
 // cada idioma (sobre todo en los de derecha a izquierda, donde cambian el orden y las alturas de línea).
 //
-// Para cada idioma y cada tamaño de móvil recorre: ruleta, resultado, historial, configuración, selector de
+// Para cada idioma y cada tamaño de móvil recorre: ruleta, resultado, historial, ajustes (menú, apariencia, idioma y editor de ejercicios), novedades, selector de
 // iconos, compromiso de privacidad y visor de documentos, y en cada pantalla busca:
 //   - texto que sobresale de su contenedor recortado (overflow oculto, p. ej. «truncate» o una caja de altura fija)
 //   - texto que se sale de la pantalla o genera desplazamiento horizontal
@@ -9,6 +9,8 @@
 //
 //   npm run check:layout                      todos los idiomas
 //   npm run check:layout -- --lang=ar,de      solo algunos (códigos de la app)
+//   npm run check:layout -- --part=2/4        solo el bloque 2 de 4 de los idiomas (para repartirlos entre varias ejecuciones)
+//   npm run check:layout -- --jobs=6          pantallas en paralelo (por defecto 4 o los núcleos si son menos)
 //   npm run check:layout -- --shots=dir       además guarda una captura de cada pantalla en ese directorio
 //   npm run check:layout -- --stress          con 12 ejercicios de nombres larguísimos (más que el límite actual, como
 //                                             los que guardaron versiones anteriores) y repeticiones de hasta 999999
@@ -17,6 +19,7 @@
 // Sale con código 1 si encuentra algún problema. Requiere haber compilado antes (npm run build).
 
 import { existsSync, mkdirSync } from 'node:fs';
+import { availableParallelism } from 'node:os';
 import puppeteer from 'puppeteer-core';
 import { preview } from 'vite';
 import { LANGUAGES } from '../src/i18n/index.js';
@@ -30,7 +33,10 @@ const arg = name => process.argv.find(a => a.startsWith(`--${name}=`))?.slice(na
 const only = arg('lang')?.split(',');
 const shotsDir = arg('shots');
 const stress = process.argv.includes('--stress');
-const languages = LANGUAGES.map(l => l.code).filter(code => !only || only.includes(code));
+const jobs = Math.max(1, Number(arg('jobs')) || Math.min(4, availableParallelism()));
+const part = arg('part')?.split('/').map(Number); // --part=2/4: el segundo de cuatro bloques de idiomas
+const languages = LANGUAGES.map(l => l.code).filter(code => !only || only.includes(code))
+  .filter((_, i, all) => !part || Math.floor(i * part[1] / all.length) === part[0] - 1);
 if (languages.length === 0) throw new Error(`Ningún idioma coincide con --lang=${arg('lang')}`);
 if (!existsSync('www/index.html')) throw new Error('Falta www/: ejecuta "npm run build" antes.');
 if (!existsSync(CHROME)) throw new Error(`No encuentro Chrome en ${CHROME}. Indica la ruta con CHROME_PATH.`);
@@ -38,21 +44,21 @@ if (shotsDir) mkdirSync(shotsDir, { recursive: true });
 
 /** Ejercicios de prueba (--stress): nombres largos de todo tipo y rangos hasta el máximo de repeticiones. */
 const STRESS_EXERCISES = [
-  ['Supercalifragilisticexpialidocious Press Extended', 'Supercalifragilistic'],
-  ['Extremely long exercise name that keeps going and going', 'Extremely long short'],
-  ['W'.repeat(30), 'W'.repeat(12)],
-  ['Mountain Climbers', 'Climbers'],
-  ['تمرين طويل جدا جدا جدا جدا جدا جدا جدا', 'تمرين طويل جدا جدا جدا'],
-  ['とても長いエクササイズの名前がここに入ります', 'とても長いエクササイズ名前'],
-  ['Burpee', 'Burpee'],
-  ['Split Jumps', 'Split J'],
-  ['Air Squat', 'Squat'],
-  ['Elevaciones laterales con mancuernas', 'Elev. lat…'],
-  ['Push-up', 'Push-up'],
-  ['Lunge', 'Lunge'],
-].map(([name, shortName], i) => ({
-  id: `s${i}`, name, shortName, icon: ['burpee', 'walk', 'pushup', 'squat', 'climbers', 'jump', 'dumbbell', 'karate', 'yoga', 'timer', 'run', 'boxing'][i % 12],
-  color: ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'][i % 8],
+  'Supercalifragilisticexpialidocious Press Extended',
+  'Extremely long exercise name that keeps going and going',
+  'W'.repeat(30),
+  'Mountain Climbers',
+  'تمرين طويل جدا جدا جدا جدا جدا جدا جدا',
+  'とても長いエクササイズの名前がここに入ります',
+  'Burpee',
+  'Split Jumps',
+  'Air Squat',
+  'Elevaciones laterales con mancuernas',
+  'Push-up',
+  'Lunge',
+].map((name, i) => ({
+  id: `s${i}`, name, icon: ['burpee', 'walk', 'pushup', 'squat', 'climbers', 'jump', 'dumbbell', 'karate', 'yoga', 'timer', 'run', 'boxing'][i % 12],
+  color: ['#0f766e', '#475569', '#15803d', '#2563eb', '#0e7490', '#4f46e5', '#64748b', '#0369a1'][i % 8],
   repsMin: i % 3 === 0 ? 1 : 10, repsMax: i % 3 === 0 ? 999999 : 60,
 }));
 
@@ -121,10 +127,12 @@ function inspectPage() {
   };
   const seen = new Set();
   for (const b of boxes) {
+    let inScroller = false; // dentro de una lista con desplazamiento: una fila a medio ver en su borde no es un corte
     for (const c of clipOf(b.el)) {
       if (c.n === b.el && c.n.tagName === 'SELECT') continue;
       const outX = c.clipsX && (b.left < c.r.left - 1 || b.right > c.r.right + 1);
-      const outY = c.clipsY && !c.scrolls && (b.top < c.r.top - 1 || b.bottom > c.r.bottom + 1);
+      const outY = c.clipsY && !c.scrolls && !inScroller && (b.top < c.r.top - 1 || b.bottom > c.r.bottom + 1);
+      if (c.scrolls) inScroller = true;
       // Un contenedor que se desplaza (auto/scroll) puede tener texto fuera de la vista: no es un corte
       if ((outX && !c.scrolls) || outY) {
         const key = `${label(b.el)}|${label(c.n)}|${b.text}`;
@@ -174,11 +182,17 @@ function inspectPage() {
 }
 
 const server = await preview({ preview: { port: PORT, host: '127.0.0.1', open: false }, logLevel: 'silent' });
-const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--no-sandbox'] });
+const launchBrowser = () => puppeteer.launch({
+  executablePath: CHROME,
+  headless: true,
+  args: ['--no-sandbox'],
+});
 let total = 0;
+/** @type {import('puppeteer-core').Browser[]} */
+const browsers = [];
 
 /** @param {string} lang @param {{ width: number, height: number }} vp */
-async function openApp(lang, vp) {
+async function openApp(browser, lang, vp, existingUser = false) {
   const page = await browser.newPage();
   await page.setViewport({ ...vp, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
   await page.setRequestInterception(true);
@@ -189,8 +203,16 @@ async function openApp(lang, vp) {
   if (stress) {
     await page.evaluateOnNewDocument(list => {
       localStorage.setItem('gym_schema_version', '8');
+      localStorage.setItem('gym_whatsnew_seen', JSON.stringify('1.17')); // sin esto saldría el aviso de novedades, que tapa la ruleta
       localStorage.setItem('gym_exercises', JSON.stringify(list));
     }, STRESS_EXERCISES);
+  } else if (existingUser) {
+    // Quien ya tenía la app: la instalación nueva no ve las novedades
+    // (el almacenamiento se comparte entre las páginas de un mismo Chrome: la primera ya dio las novedades por vistas)
+    await page.evaluateOnNewDocument(() => {
+      localStorage.setItem('gym_schema_version', '11');
+      localStorage.removeItem('gym_whatsnew_seen');
+    });
   }
   await page.goto(`${BASE}?lang=${lang}`, { waitUntil: 'networkidle0' });
   await page.evaluate(() => document.fonts.ready);
@@ -209,90 +231,138 @@ async function check(page, lang, vp, screen) {
   for (const p of [...new Set(problems)]) console.log(`  ✗ ${lang} ${vp.width}x${vp.height} ${screen}: ${p}`);
 }
 
-try {
-  for (const lang of languages) {
-    for (const vp of VIEWPORTS) {
-      const page = await openApp(lang, vp);
-      await check(page, lang, vp, '01-ruleta');
+/** Recorre todas las pantallas de un idioma en un tamaño de móvil. Cada una usa sus propias páginas, así que pueden ir en paralelo. */
+async function checkViewport(browser, lang, vp) {
+  const page = await openApp(browser, lang, vp);
+  await check(page, lang, vp, '01-ruleta');
+  await page.click('#spinBtn');
+  await page.waitForFunction(() => !document.getElementById('resultModal').classList.contains('pointer-events-none'), { timeout: 30000 });
+  await wait(700);
+  await check(page, lang, vp, '02-resultado');
+  await page.click('[data-action=close-result][data-arg=done]');
+  await wait(500);
+  for (let i = 0; i < 3; i++) {
+    await page.click('#spinBtn');
+    await page.waitForFunction(() => !document.getElementById('resultModal').classList.contains('pointer-events-none'), { timeout: 30000 });
+    await wait(600);
+    await page.click('[data-action=close-result][data-arg=done]');
+    await wait(500);
+  }
+  if (stress) {
+    // Un resultado con cada tirada: así salen distintos ejercicios largos en la tarjeta
+    for (const [i, value] of [0.04, 0.2, 0.31, 0.45, 0.6, 0.72, 0.9].entries()) {
+      await page.evaluate(v => { Math.random = () => v; }, value);
       await page.click('#spinBtn');
       await page.waitForFunction(() => !document.getElementById('resultModal').classList.contains('pointer-events-none'), { timeout: 30000 });
       await wait(700);
-      await check(page, lang, vp, '02-resultado');
+      await check(page, lang, vp, `02-resultado-${i + 1}`);
       await page.click('[data-action=close-result][data-arg=done]');
       await wait(500);
-      for (let i = 0; i < 3; i++) {
-        await page.click('#spinBtn');
-        await page.waitForFunction(() => !document.getElementById('resultModal').classList.contains('pointer-events-none'), { timeout: 30000 });
-        await wait(600);
-        await page.click('[data-action=close-result][data-arg=done]');
-        await wait(500);
-      }
-      if (stress) {
-        // Un resultado con cada tirada: así salen distintos ejercicios largos en la tarjeta
-        for (const [i, value] of [0.04, 0.2, 0.31, 0.45, 0.6, 0.72, 0.9].entries()) {
-          await page.evaluate(v => { Math.random = () => v; }, value);
-          await page.click('#spinBtn');
-          await page.waitForFunction(() => !document.getElementById('resultModal').classList.contains('pointer-events-none'), { timeout: 30000 });
-          await wait(700);
-          await check(page, lang, vp, `02-resultado-${i + 1}`);
-          await page.click('[data-action=close-result][data-arg=done]');
-          await wait(500);
-        }
-      }
-      await page.click('[data-action=open-history]');
-      await wait(600);
-      await check(page, lang, vp, '03-historial');
-      await page.click('[data-action=close-history]');
-      await wait(500);
-      await page.click('[data-action=open-config]');
-      await wait(600);
-      await check(page, lang, vp, '04-configuracion');
-      await page.evaluate(() => document.getElementById('exsCheckboxes').scrollIntoView({ block: 'start' }));
-      await check(page, lang, vp, '05-ejercicios');
-      await page.click('#iconPickerBtn');
-      await wait(300);
-      await page.evaluate(() => document.getElementById('iconPicker').scrollIntoView({ block: 'center' }));
-      await check(page, lang, vp, '06-selector-de-iconos');
-      // Teclado abierto (se simula con un viewport más bajo): la cuadrícula de iconos tiene que verse entera. Si queda
-      // medio fuera de la zona visible, al arrastrar sobre ella se mueve la parte oculta y la pantalla parece bloqueada.
-      await page.setViewport({ ...vp, height: Math.round(vp.height * 0.6), deviceScaleFactor: 1, isMobile: true, hasTouch: true });
-      await page.focus('#iconSearch');
-      await page.keyboard.type('a');
-      await wait(700);
-      await check(page, lang, vp, '06b-teclado-abierto');
-      const gridCut = await page.evaluate(() => {
-        const grid = document.getElementById('iconGrid').getBoundingClientRect();
-        const box = document.getElementById('iconPicker').closest('.overflow-y-auto').getBoundingClientRect();
-        return grid.bottom > box.bottom + 1 || grid.top < box.top - 1;
-      });
-      if (gridCut) {
-        total++;
-        console.log(`  ✗ ${lang} ${vp.width}x${vp.height} 06b-teclado-abierto: la cuadrícula de iconos queda fuera de la zona visible`);
-      }
-      await page.setViewport({ ...vp, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
-      await wait(400);
-      await page.evaluate(() => { document.getElementById('iconSearch').value = ''; });
-      await page.type('#iconSearch', 'zzzzzz');
-      await wait(300);
-      await check(page, lang, vp, '07-sin-iconos');
-      await page.close();
-
-      // Compromiso de privacidad (desde Configuración) y, encima, la política completa
-      const privacy = await openApp(lang, vp);
-      await privacy.click('[data-action=open-config]');
-      await wait(500);
-      await privacy.evaluate(() => document.querySelector('#configModal [data-action=open-commitment]').click());
-      await wait(300);
-      await check(privacy, lang, vp, '08-compromiso-de-privacidad');
-      await privacy.click('#commitmentModal [data-action=open-privacy]');
-      await wait(600);
-      await check(privacy, lang, vp, '09-politica-de-privacidad');
-      await privacy.close();
     }
-    console.log(`${lang}: revisado`);
   }
+  await page.click('[data-action=open-history]');
+  await wait(600);
+  await check(page, lang, vp, '03-historial');
+  await page.click('[data-action=close-history]');
+  await wait(500);
+  await page.click('[data-action=open-settings]');
+  await wait(600);
+  await check(page, lang, vp, '04-ajustes');
+  for (const [view, name] of [['appearance', '04b-apariencia'], ['language', '04c-idioma']]) {
+    await page.click(`#settingsMenu [data-arg=${view}]`);
+    await wait(300);
+    await check(page, lang, vp, name);
+    await page.click('[data-action=settings-back]');
+    await wait(300);
+  }
+  await page.click('#settingsMenu [data-arg=wheel]');
+  await wait(300);
+  await check(page, lang, vp, '04d-configurar-ruleta');
+  await page.evaluate(() => document.getElementById('exsCheckboxes').scrollIntoView({ block: 'start' }));
+  await check(page, lang, vp, '05-ejercicios');
+  await page.click('#configHelpBtn');
+  await wait(300);
+  await check(page, lang, vp, '05b-ayuda-del-editor');
+  await page.click('#configHelpBtn');
+  await page.click('[data-action=open-add-exercise]');
+  await wait(500);
+  await check(page, lang, vp, '05c-nuevo-ejercicio');
+  await page.click('#iconPickerBtn');
+  await wait(300);
+  await page.evaluate(() => document.getElementById('iconPicker').scrollIntoView({ block: 'center' }));
+  await check(page, lang, vp, '06-selector-de-iconos');
+  // Teclado abierto (se simula con un viewport más bajo): la cuadrícula de iconos tiene que verse entera. Si queda
+  // medio fuera de la zona visible, al arrastrar sobre ella se mueve la parte oculta y la pantalla parece bloqueada.
+  await page.setViewport({ ...vp, height: Math.round(vp.height * 0.6), deviceScaleFactor: 1, isMobile: true, hasTouch: true });
+  await page.focus('#iconSearch');
+  await page.keyboard.type('a');
+  await wait(700);
+  await check(page, lang, vp, '06b-teclado-abierto');
+  const gridCut = await page.evaluate(() => {
+    const grid = document.getElementById('iconGrid').getBoundingClientRect();
+    const box = document.getElementById('iconPicker').closest('.overflow-y-auto').getBoundingClientRect();
+    return grid.bottom > box.bottom + 1 || grid.top < box.top - 1;
+  });
+  if (gridCut) {
+    total++;
+    console.log(`  ✗ ${lang} ${vp.width}x${vp.height} 06b-teclado-abierto: la cuadrícula de iconos queda fuera de la zona visible`);
+  }
+  await page.setViewport({ ...vp, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
+  await wait(400);
+  await page.evaluate(() => { document.getElementById('iconSearch').value = ''; });
+  await page.type('#iconSearch', 'zzzzzz');
+  await wait(300);
+  await check(page, lang, vp, '07-sin-iconos');
+  // Atrás cierra solo la ventana de nuevo ejercicio: Ajustes sigue abierto y no se ha creado nada
+  await page.evaluate(() => history.back());
+  await wait(500);
+  const backOk = await page.evaluate(() => document.getElementById('addExerciseModal').getAttribute('aria-hidden') === 'true'
+    && document.getElementById('configModal').getAttribute('aria-hidden') === 'false');
+  if (!backOk) {
+    total++;
+    console.log(`  ✗ ${lang} ${vp.width}x${vp.height} 07b-atras: Atrás no cierra solo la ventana de nuevo ejercicio`);
+  }
+  await page.close();
+
+  // Novedades tras actualizar (salen solas un instante después de abrir la app) y el salto a Apariencia
+  const news = await openApp(browser, lang, vp, true);
+  await news.waitForFunction(() => !document.getElementById('whatsNewModal').classList.contains('pointer-events-none'), { timeout: 10000 });
+  await wait(600);
+  await check(news, lang, vp, '10-novedades');
+  await news.click('[data-action=whatsnew-appearance]');
+  await wait(600);
+  await check(news, lang, vp, '10b-novedades-a-apariencia');
+  await news.close();
+
+  // Compromiso de privacidad (desde Configuración) y, encima, la política completa
+  const privacy = await openApp(browser, lang, vp);
+  await privacy.click('[data-action=open-settings]');
+  await wait(500);
+  await privacy.evaluate(() => document.querySelector('#configModal [data-action=open-commitment]').click());
+  await wait(300);
+  await check(privacy, lang, vp, '08-compromiso-de-privacidad');
+  await privacy.click('#commitmentModal [data-action=open-privacy]');
+  await wait(600);
+  await check(privacy, lang, vp, '09-politica-de-privacidad');
+  await privacy.close();
+}
+
+const pending = languages.flatMap(lang => VIEWPORTS.map(vp => ({ lang, vp })));
+const remaining = Object.fromEntries(languages.map(lang => [lang, VIEWPORTS.length]));
+
+try {
+  // Un Chrome por trabajador: en un mismo Chrome solo la página al frente recibe fotogramas y el giro de la ruleta
+  // de las demás se queda parado
+  await Promise.all(Array.from({ length: Math.min(jobs, pending.length) }, async () => {
+    const browser = await launchBrowser();
+    browsers.push(browser);
+    for (let task; (task = pending.shift());) {
+      await checkViewport(browser, task.lang, task.vp);
+      if (--remaining[task.lang] === 0) console.log(`${task.lang}: revisado`);
+    }
+  }));
 } finally {
-  await browser.close();
+  await Promise.all(browsers.map(b => b.close()));
   await new Promise(r => server.httpServer.close(r));
 }
 

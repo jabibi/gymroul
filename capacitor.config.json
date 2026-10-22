@@ -1,5 +1,11 @@
 {
   "appId": "eus.jabibi.gymroul",
   "appName": "GymRoulette",
-  "webDir": "www"
+  "webDir": "www",
+  "backgroundColor": "#020617",
+  "plugins": {
+    "SystemBars": {
+      "style": "DARK"
+    }
+  }
 }

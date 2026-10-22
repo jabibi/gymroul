@@ -13,13 +13,42 @@
 /* Color de marca: única fuente. Tailwind (brand-*), los brillos y el aro de la ruleta lo leen de aquí.
    Canales RGB separados por espacios para poder aplicar opacidad (rgb(var(--brand-500) / .35)). */
 :root {
+    /* Zonas de las barras del sistema en Android (viewport-fit=cover). Capacitor inyecta --safe-area-inset-*;
+       en el navegador valen 0 */
+    --sat: var(--safe-area-inset-top, env(safe-area-inset-top, 0px));
+    --sar: var(--safe-area-inset-right, env(safe-area-inset-right, 0px));
+    --sab: var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px));
+    --sal: var(--safe-area-inset-left, env(safe-area-inset-left, 0px));
+    --brand-400: 52 211 153;
+    --brand-500: 16 185 129;
+    --brand-600: 5 150 105;
+    --brand-900: 6 78 59;
+    --pointer-share: #10b981;
+    --spinner-share: conic-gradient(#0f766e 0 14.28%, #475569 0 28.57%, #15803d 0 42.85%, #2563eb 0 57.14%, #0e7490 0 71.42%, #4f46e5 0 85.71%, #64748b 0);
+}
+/* Apariencia Clásico: el verde intenso y los colores vivos de la ruleta de las primeras versiones */
+:root[data-theme="classic"] {
     --brand-400: 74 222 128;
     --brand-500: 34 197 94;
     --brand-600: 22 163 74;
     --brand-900: 20 83 45;
+    --pointer-share: #22c55e;
+    --spinner-share: conic-gradient(#ef4444 0 14.28%, #f97316 0 28.57%, #eab308 0 42.85%, #22c55e 0 57.14%, #06b6d4 0 71.42%, #8b5cf6 0 85.71%, #ec4899 0);
+}
+/* Logo de la cabecera: en Suave es solo la ruleta, sin fondo; en Clásico, el icono original de esquinas redondeadas */
+.logo-classic { display: none; }
+:root[data-theme="classic"] .logo-classic { display: block; }
+:root[data-theme="classic"] .logo-calm { display: none; }
+:root[data-theme="classic"] .logo-box {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgb(var(--brand-500) / 0.3), 0 4px 6px -4px rgb(var(--brand-500) / 0.3);
 }
 
 body {
+    padding-right: var(--sar);
+    padding-bottom: var(--sab);
+    padding-left: var(--sal);
     font-family: 'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', 'Segoe UI', Tahoma, sans-serif;
     touch-action: manipulation;
     user-select: none;
@@ -52,6 +81,23 @@ input, textarea {
 }
 .pointer-stop-base { stop-color: rgb(var(--brand-600)); }
 .pointer-stop-tip { stop-color: rgb(var(--brand-400)); }
+/* Ruleta: ocupa el ancho del contenido (416 px como máximo, el de max-w-md), pero baja si la pantalla es baja
+   para que el botón de girar siga a la vista (290 px = cabecera, marcador, botón y márgenes, más las barras del sistema); nunca menos de 320 px (el tamaño de antes) */
+.wheel-box {
+    width: max(320px, min(100%, 416px, calc(100dvh - 290px - var(--sat) - var(--sab))));
+    aspect-ratio: 1;
+}
+/* Capas a pantalla completa: dejan libres las barras del sistema (el fondo se pinta bajo el borde transparente) */
+.safe-edge {
+    border: solid transparent;
+    border-width: var(--sat) var(--sar) var(--sab) var(--sal);
+}
+/* Panel inferior: el fondo respeta las barras de arriba y de los lados, pero el panel llega hasta el borde de abajo
+   (la barra de gestos se ve sobre el propio panel) y su relleno inferior suma --sab para que ningún elemento la ocupe */
+.safe-edge-sheet {
+    border: solid transparent;
+    border-width: var(--sat) var(--sar) 0 var(--sal);
+}
 .wheel-shadow {
     filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.85));
 }
@@ -117,7 +163,7 @@ input, textarea {
     margin-left: -8px;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 12px solid #22c55e;
+    border-top: 12px solid var(--pointer-share);
     z-index: 1;
 }
 .share-spinner {
@@ -125,8 +171,8 @@ input, textarea {
     width: 76px;
     height: 76px;
     border-radius: 9999px;
-    background: conic-gradient(#ef4444 0 14.28%, #f97316 0 28.57%, #eab308 0 42.85%, #22c55e 0 57.14%, #06b6d4 0 71.42%, #8b5cf6 0 85.71%, #ec4899 0);
-    box-shadow: 0 0 0 4px #0f172a, 0 0 28px rgba(34, 197, 94, 0.35);
+    background: var(--spinner-share);
+    box-shadow: 0 0 0 4px #0f172a, 0 0 28px rgb(var(--brand-500) / 0.35);
     animation: share-spin 1s linear infinite;
 }
 .share-spinner::after {
@@ -143,16 +189,9 @@ input, textarea {
     .share-spinner { animation-duration: 3s; }
 }
 
-/* Selector de idioma: la flecha nativa va pegada al borde y no se puede separar; se dibuja la propia, con el
-   mismo tamaño, color y distancia al borde que el chevron del selector de iconos (a la derecha, y a la izquierda en árabe) */
-select.lang-select {
-    -webkit-appearance: none;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.6rem center;
-    padding-inline-end: 2rem;
-}
-html[dir='rtl'] select.lang-select {
-    background-position: left 0.6rem center;
+
+/* Casillas y botones de opción con el color de marca (si no, el navegador los pinta en azul) */
+input[type='checkbox'],
+input[type='radio'] {
+    accent-color: rgb(var(--brand-500));
 }

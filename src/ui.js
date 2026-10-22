@@ -1,13 +1,15 @@
 // @ts-check
 // Modales, historial, configuración y avisos
 
-import { exerciseLabels } from './exercise-names.js';
+import { exerciseName, sortedExercises } from './exercise-names.js';
 import { isolate } from './wheel-math.js';
-import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE } from './store.js';
+import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE, COLOR_PALETTE } from './store.js';
+import { THEMES, THEME_BRAND, getTheme, themeColor } from './theme.js';
+import { WHATS_NEW_VERSION } from './whats-new.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
 import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
 import { shareChallenge } from './share.js';
-import { t, getLanguage, getLanguageTag, groupName, iconLabel, isRtl, LANGUAGES } from './i18n/index.js';
+import { t, getLanguage, getLanguageTag, groupName, iconLabel, LANGUAGES } from './i18n/index.js';
 
 /**
  * @typedef {import('./wheel-math.js').Segment} Segment
@@ -81,7 +83,7 @@ export function pulseIndicator() {
 // Cada modal que se abre añade una entrada al historial del navegador: así el botón
 // "Atrás" de Android (o del navegador) lo cierra en lugar de salir de la app.
 
-/** @typedef {'result' | 'history' | 'config' | 'share' | 'commitment' | 'document'} ModalName */
+/** @typedef {'result' | 'history' | 'config' | 'share' | 'commitment' | 'document' | 'whatsnew' | 'addexercise'} ModalName */
 // Pila de modales abiertos (el último es el que está encima): la política de privacidad
 // puede abrirse sobre la configuración y Atrás debe cerrar primero la de arriba
 /** @type {ModalName[]} */
@@ -93,10 +95,12 @@ let ownPops = 0;
 const closers = {
   result: () => closeResult(false),
   history: () => closeHistory(),
-  config: () => closeConfig(),
+  config: () => backInSettings(),
   share: () => cancelShare(),
   commitment: () => closeCommitment(),
   document: () => closeDocument(),
+  whatsnew: () => closeWhatsNew(),
+  addexercise: () => closeAddExercise(),
 };
 
 /** @param {ModalName} name */
@@ -167,12 +171,8 @@ export function initModals() {
     if (name) closers[name]();
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeActiveModal(); });
-
-  // Tocar el fondo cierra historial, configuración y compromiso de privacidad (el reto pendiente solo se cierra con sus botones, Esc o Atrás)
-  ['historyModal', 'configModal', 'commitmentModal'].forEach(id => {
-    const modal = $(id);
-    modal.addEventListener('click', e => { if (e.target === modal) closeActiveModal(); });
-  });
+  // Tocar fuera de un panel no lo cierra: una pulsación errada no debe hacer perder lo que se estaba haciendo. Se sale con
+  // Atrás, Esc o los botones del propio panel.
 }
 
 // --- Resultado -----------------------------------------------------------------------
@@ -345,6 +345,9 @@ function historySummary() {
   return t('history.total', { n: sessionHistory.length, reps: reps.toLocaleString(getLanguageTag()) });
 }
 
+/** Con ejercicios, la lista es un recuadro redondeado con una fila por ejercicio separadas por una línea; vacía, solo el aviso. */
+const HISTORY_BOX = ['rounded-2xl', 'bg-dark-900/60', 'border', 'border-slate-800', 'divide-y', 'divide-slate-800/80'];
+
 export function renderHistory() {
   const listEl = $('historyList');
   const badge = $('historyBadge');
@@ -353,6 +356,7 @@ export function renderHistory() {
   if (sessionHistory.length === 0) {
     badge.classList.add('hidden');
     total.textContent = historySummary();
+    listEl.classList.remove(...HISTORY_BOX);
     listEl.innerHTML = `
       <div class="text-center py-8 text-slate-500 text-xs">
         <i class="fa-solid fa-clipboard-list text-2xl mb-2 block opacity-40"></i>
@@ -364,17 +368,25 @@ export function renderHistory() {
   badge.textContent = String(sessionHistory.length);
   badge.classList.remove('hidden');
   total.textContent = historySummary();
+  listEl.classList.add(...HISTORY_BOX);
   listEl.innerHTML = sessionHistory.map(h => `
-    <div class="bg-dark-900 border border-slate-800 rounded-2xl p-3 flex justify-between items-center gap-3">
+    <div class="px-3.5 py-3 flex justify-between items-center gap-3">
       <div class="flex items-center gap-3 min-w-0">
-        <div class="min-w-10 h-10 px-1.5 shrink-0 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center font-black ${String(h.reps).length > 3 ? 'text-[11px]' : 'text-sm'} border border-brand-500/20">${h.reps}</div>
+        <div class="min-w-10 h-10 px-1.5 shrink-0 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center font-black ${String(h.reps).length > 3 ? 'text-xs' : 'text-sm'} border border-brand-500/20">${h.reps}</div>
         <div class="min-w-0">
           <h4 class="font-bold text-white text-xs break-words">${escapeHTML(isolate(h.exercise))}</h4>
-          <span class="text-[11px] text-slate-300 font-medium">${escapeHTML(h.time)}</span>
+          <span class="text-xs text-slate-300 font-medium">${escapeHTML(h.time)}</span>
         </div>
       </div>
       <span class="shrink-0 text-xl text-brand-400/80 flex items-center">${renderIconHTML(h.icon)}</span>
     </div>`).join('');
+}
+
+/** Bloquea o libera los botones de Historial y Ajustes de la cabecera (mientras gira la ruleta). @param {boolean} locked */
+export function setPanelsLocked(locked) {
+  document.querySelectorAll('[data-action=open-history], [data-action=open-settings]').forEach(btn => {
+    /** @type {HTMLButtonElement} */ (btn).disabled = locked;
+  });
 }
 
 export function openHistory() {
@@ -404,38 +416,76 @@ export function renderConfig(keepChecks = false) {
   const isOn = (/** @type {string} */ name) => (pending?.has(name) ? !!pending.get(name) : active.exercises.includes(name));
   const inputClass = 'min-h-[44px] w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500';
 
-  $('exsCheckboxes').innerHTML = getExercises().map(ex => {
+  $('exsCheckboxes').innerHTML = sortedExercises().map(ex => {
     const open = repsEditorOpen === ex.id;
     const range = t('config.repsRange', { min: ex.repsMin, max: ex.repsMax });
-    const name = exerciseLabels(ex).name;
+    const name = exerciseName(ex);
     return `
     <div class="rounded-xl bg-dark-950 border border-slate-800">
-      <div class="flex items-stretch min-h-[46px]">
-        <label class="flex items-center gap-2 cursor-pointer flex-1 min-w-0 ps-2.5 py-2">
+      <div class="flex flex-wrap items-stretch min-h-[48px]">
+        <label class="flex items-center gap-2 cursor-pointer flex-1 min-w-[9rem] ps-2.5 pe-2 py-2">
           <input type="checkbox" value="${escapeHTML(ex.name)}" ${isOn(ex.name) ? 'checked' : ''} class="ex-checkbox w-4 h-4 shrink-0 rounded text-brand-500 focus:ring-brand-500 bg-dark-900 border-slate-700">
           <span class="text-xs font-bold text-white flex items-center gap-2 min-w-0">
             <span class="text-brand-400 text-lg flex items-center shrink-0">${renderIconHTML(ex.icon)}</span>
             <span class="min-w-0 break-words">${escapeHTML(name)}</span>
           </span>
         </label>
-        <button data-action="delete-exercise" data-arg="${escapeHTML(ex.id)}" aria-label="${escapeHTML(t('config.deleteExercise', { name }))}" class="flex items-center justify-center w-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors">
-          <i class="fa-solid fa-trash-can"></i>
-        </button>
+        <div class="flex items-stretch shrink-0 ms-auto">
+          <button data-action="edit-reps" data-arg="${escapeHTML(ex.id)}" aria-expanded="${open}" aria-label="${escapeHTML(t('config.editReps', { name }))}" class="flex items-center justify-center min-h-[44px] px-2 shrink-0 text-xs font-bold text-brand-400 hover:underline">
+            <bdi dir="ltr">${escapeHTML(range)}</bdi>
+          </button>
+          <button data-action="delete-exercise" data-arg="${escapeHTML(ex.id)}" aria-label="${escapeHTML(t('config.deleteExercise', { name }))}" class="flex items-center justify-center w-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
       </div>
-      <button data-action="edit-reps" data-arg="${escapeHTML(ex.id)}" aria-expanded="${open}" aria-label="${escapeHTML(t('config.editReps', { name }))}" class="flex items-center min-h-[44px] ps-2.5 pe-3 text-[11px] font-bold text-brand-400 hover:underline">
-        <bdi dir="ltr">${escapeHTML(range)}</bdi>
-      </button>
       <div class="${open ? '' : 'hidden'} grid grid-cols-[1fr_1fr_auto] items-end gap-2 px-2.5 pb-2.5 pt-1 border-t border-slate-800/80">
-        <label class="block text-[11px] font-bold text-slate-400">${escapeHTML(t('config.repsMin'))}
+        <label class="block text-xs font-bold text-slate-400">${escapeHTML(t('config.repsMin'))}
           <input type="number" dir="ltr" inputmode="numeric" id="${repsInputId(ex.id, 'Min')}" value="${ex.repsMin}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
         </label>
-        <label class="block text-[11px] font-bold text-slate-400">${escapeHTML(t('config.repsMax'))}
+        <label class="block text-xs font-bold text-slate-400">${escapeHTML(t('config.repsMax'))}
           <input type="number" dir="ltr" inputmode="numeric" id="${repsInputId(ex.id, 'Max')}" value="${ex.repsMax}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
         </label>
         <button data-action="save-reps" data-arg="${escapeHTML(ex.id)}" class="min-h-[44px] px-3 py-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all">${escapeHTML(t('config.repsSave'))}</button>
       </div>
     </div>`;
   }).join('');
+}
+
+/**
+ * Muestra u oculta un bloque plegable y mantiene aria-expanded de su botón.
+ * @param {string} buttonId @param {string} panelId @param {boolean} open
+ */
+function setDisclosure(buttonId, panelId, open) {
+  $(panelId).classList.toggle('hidden', !open);
+  $(buttonId).setAttribute('aria-expanded', String(open));
+}
+
+/** Muestra u oculta la ayuda del editor (botón con interrogación). */
+export function toggleConfigHelp() {
+  setDisclosure('configHelpBtn', 'configHelp', $('configHelp').classList.contains('hidden'));
+}
+
+/** Abre la ventana de nuevo ejercicio (encima de Ajustes), con el formulario vacío y el cursor en el nombre. */
+export function openAddExercise() {
+  resetNewExerciseForm();
+  setSheetVisible('addExerciseModal', 'addExerciseCard', true);
+  pushModal('addexercise');
+  $('newExName').focus({ preventScroll: true });
+}
+
+/** Cierra la ventana de nuevo ejercicio sin guardar nada: se vuelve a la lista. */
+export function closeAddExercise() {
+  setSheetVisible('addExerciseModal', 'addExerciseCard', false);
+  dismissModal('addexercise');
+}
+
+/** Deja a la vista el último ejercicio creado en la lista del editor. */
+export function revealLastExercise() {
+  const last = getExercises().at(-1);
+  if (!last) return;
+  const box = Array.from(document.querySelectorAll('.ex-checkbox')).find(cb => /** @type {HTMLInputElement} */ (cb).value === last.name);
+  box?.closest('label')?.scrollIntoView({ block: 'nearest' });
 }
 
 /** Abre o cierra el editor de repeticiones de un ejercicio. @param {string} id */
@@ -452,11 +502,157 @@ export function readRepsEditor(id) {
   };
 }
 
+// --- Ajustes ---------------------------------------------------------------------------
+// Un único panel con cuatro pantallas: el menú (Configurar ruleta, Apariencia, Idioma, Compromiso de
+// privacidad y Créditos) y, dentro, el editor de ejercicios, la apariencia y el idioma. Las pantallas no
+// añaden entradas al historial: Atrás vuelve al menú y, desde el menú, cierra el panel.
+
+/** @typedef {'menu' | 'wheel' | 'appearance' | 'language'} SettingsView */
+/** @type {SettingsView} */
+let settingsView = 'menu';
+const VIEW_TITLE_KEYS = /** @type {Record<SettingsView, string>} */ ({
+  menu: 'settings.title',
+  wheel: 'config.title',
+  appearance: 'settings.appearance',
+  language: 'config.language',
+});
+const THEME_NAME_KEYS = { calm: 'appearance.calm', classic: 'appearance.classic' };
+const THEME_DESC_KEYS = { calm: 'appearance.calmDesc', classic: 'appearance.classicDesc' };
+
+/**
+ * @param {SettingsView} view
+ * @param {boolean} [moveFocus] lleva el foco al título de la pantalla nueva: el botón que se pulsó queda oculto y, sin esto,
+ *   el teclado y el lector de pantalla se quedarían sin sitio
+ */
+export function showSettingsView(view, moveFocus = true) {
+  settingsView = view;
+  document.querySelectorAll('#configCard [data-view]').forEach(el => {
+    el.classList.toggle('hidden', /** @type {HTMLElement} */ (el).dataset.view !== view);
+  });
+  $('configTitle').textContent = t(VIEW_TITLE_KEYS[view]);
+  $('settingsBack').classList.toggle('hidden', view === 'menu');
+  $('settingsBack').classList.toggle('flex', view !== 'menu');
+  setDisclosure('configHelpBtn', 'configHelp', false);
+  $('settingsFooter').classList.toggle('hidden', view !== 'wheel' && view !== 'appearance' && view !== 'language');
+  $('saveConfigBtn').classList.toggle('hidden', view !== 'wheel');
+  $('closeSettingsBtn').classList.toggle('hidden', view !== 'appearance' && view !== 'language');
+  $('settingsLinks').classList.toggle('hidden', view !== 'menu');
+  const scroller = $('configCard').querySelector('.overflow-y-auto');
+  if (scroller) scroller.scrollTop = 0;
+  if (moveFocus) $('configTitle').focus({ preventScroll: true });
+}
+
+/** Atrás dentro de Ajustes: de una pantalla al menú; desde el menú, cierra el panel. */
+function backInSettings() {
+  if (settingsView === 'menu') {
+    closeConfig();
+    return;
+  }
+  showSettingsView('menu');
+  pushModal('config'); // si Atrás ya sacó el panel de la pila, vuelve a ponerlo (si no, no hace nada)
+}
+
+/** Vuelve al menú desde la flecha del encabezado. */
+export function settingsBack() {
+  showSettingsView('menu');
+}
+
+/** Pinta los textos que se generan por código: título, valores del menú, apariencias e idiomas. */
+export function renderSettings() {
+  const lang = getLanguage();
+  const theme = getTheme();
+  $('configTitle').textContent = t(VIEW_TITLE_KEYS[settingsView]);
+  $('settingsThemeValue').textContent = t(THEME_NAME_KEYS[theme]);
+  $('settingsLanguageValue').textContent = LANGUAGES.find(l => l.code === lang)?.name ?? '';
+
+  const row = 'w-full flex items-center justify-between gap-3 min-h-[48px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors';
+  const check = '<i class="fa-solid fa-check text-brand-400 text-sm shrink-0" aria-hidden="true"></i>';
+  $('languageOptions').innerHTML = LANGUAGES.map(l => {
+    const selected = l.code === lang;
+    return `<button type="button" role="radio" aria-checked="${selected}" data-action="set-language" data-arg="${l.code}" lang="${l.tag}" class="${row}">
+      <span class="text-sm font-bold ${selected ? 'text-white' : 'text-slate-300'}">${escapeHTML(l.name)}</span>${selected ? check : ''}
+    </button>`;
+  }).join('');
+
+  $('themeOptions').innerHTML = THEMES.map(id => {
+    const selected = id === theme;
+    return `<button type="button" role="radio" aria-checked="${selected}" data-action="set-theme" data-arg="${id}" class="w-full text-start rounded-2xl border p-3.5 transition-colors ${selected ? 'border-brand-500 bg-brand-500/10' : 'border-slate-800 bg-dark-900/60 hover:bg-dark-800/60'}">
+      <span class="flex items-center justify-between gap-3">
+        <span class="text-sm font-black text-white">${escapeHTML(t(THEME_NAME_KEYS[id]))}</span>
+        ${selected ? check : '<span class="w-4 h-4 rounded-full border border-slate-600 shrink-0" aria-hidden="true"></span>'}
+      </span>
+      <span class="block text-xs text-slate-400 mt-1">${escapeHTML(t(THEME_DESC_KEYS[id]))}</span>
+      <span class="flex items-center gap-1.5 mt-3" aria-hidden="true" data-swatches="${id}"></span>
+    </button>`;
+  }).join('');
+  // Los colores se ponen con el DOM: la CSP prohíbe los estilos en línea escritos en el HTML
+  document.querySelectorAll('[data-swatches]').forEach(box => {
+    const id = /** @type {import('./theme.js').Theme} */ (/** @type {HTMLElement} */ (box).dataset.swatches);
+    [THEME_BRAND[id], ...COLOR_PALETTE.slice(0, 6).map(c => themeColor(c, id))].forEach((color, i) => {
+      const dot = document.createElement('span');
+      dot.className = i === 0 ? 'h-4 w-8 rounded-full' : 'h-4 w-4 rounded-full';
+      dot.style.backgroundColor = color;
+      box.appendChild(dot);
+    });
+  });
+}
+
+// --- Novedades ---------------------------------------------------------------------------
+
+/** Pinta los textos con parámetros (título y cómo recuperar la apariencia original); el resto va con data-i18n. */
+export function renderWhatsNew() {
+  $('whatsNewTitle').textContent = t('whatsnew.title', { version: WHATS_NEW_VERSION });
+  // Los nombres salen de los mismos textos que Ajustes: lo que dice el aviso es siempre lo que se verá en pantalla
+  $('whatsNewClassicText').textContent = t('whatsnew.classicText', {
+    settings: t('settings.title'),
+    appearance: t('settings.appearance'),
+    classic: t('appearance.classic'),
+  });
+}
+
+export function openWhatsNew() {
+  renderWhatsNew();
+  setSheetVisible('whatsNewModal', 'whatsNewCard', true);
+  pushModal('whatsnew');
+}
+
+export function closeWhatsNew() {
+  setSheetVisible('whatsNewModal', 'whatsNewCard', false);
+  dismissModal('whatsnew');
+}
+
+/** Del aviso a Apariencia: Ajustes ocupa el sitio de las novedades en la pila, así que Atrás lo cierra sin volver al aviso. */
+export function whatsNewToAppearance() {
+  setSheetVisible('whatsNewModal', 'whatsNewCard', false);
+  openSettingsAt('appearance', 'whatsnew');
+}
+
+/** Abre Ajustes en el menú. */
+export function openSettings() {
+  openSettingsAt('menu');
+}
+
+/** Abre Ajustes directamente en el editor de ejercicios (por ejemplo, cuando la ruleta no tiene nada activo). */
 export function openConfig() {
+  openSettingsAt('wheel');
+}
+
+/**
+ * @param {SettingsView} view
+ * @param {ModalName} [replacing] panel de la cima de la pila al que sustituye Ajustes (sin añadir otra entrada al historial)
+ */
+function openSettingsAt(view, replacing) {
   repsEditorOpen = '';
   renderConfig();
+  renderSettings();
+  showSettingsView(view, false); // al abrir, manageFocus ya lleva el foco al panel
   setSheetVisible('configModal', 'configCard', true);
-  pushModal('config');
+  if (replacing && modalStack[modalStack.length - 1] === replacing) {
+    modalStack[modalStack.length - 1] = 'config';
+    window.history.replaceState({ modal: 'config' }, '');
+  } else {
+    pushModal('config');
+  }
 }
 
 export function closeConfig() {
@@ -493,7 +689,7 @@ function renderIconGrid(query = '') {
     const icons = group.icons.filter(i => matches.has(i.id));
     if (icons.length === 0) return '';
     return `
-      <div class="col-span-full text-[10px] font-black uppercase tracking-wider text-slate-500 mt-2 first:mt-0">${escapeHTML(groupName(group.id))}</div>
+      <div class="col-span-full text-xs font-bold text-slate-400 mt-2 first:mt-0">${escapeHTML(groupName(group.id))}</div>
       ${icons.map(i => `
         <button type="button" data-action="pick-icon" data-arg="${escapeHTML(i.id)}" title="${escapeHTML(iconLabel(i.id))}" aria-label="${escapeHTML(iconLabel(i.id))}" aria-pressed="${i.id === selectedIcon}"
           class="aspect-square rounded-xl flex items-center justify-center text-xl border transition-colors ${i.id === selectedIcon ? 'bg-brand-500/25 border-brand-500 text-brand-400' : 'bg-dark-950 border-slate-800 text-slate-300 hover:border-slate-600'}">
@@ -532,15 +728,13 @@ export function filterIcons(query) {
 /** Lee el formulario de nuevo ejercicio. */
 export function readNewExerciseForm() {
   const name = /** @type {HTMLInputElement} */ ($('newExName')).value.trim();
-  const short = /** @type {HTMLInputElement} */ ($('newExShort')).value.trim();
   const repsMin = /** @type {HTMLInputElement} */ ($('newExRepsMin')).value;
   const repsMax = /** @type {HTMLInputElement} */ ($('newExRepsMax')).value;
-  return { name, shortName: short, icon: selectedIcon, repsMin, repsMax };
+  return { name, icon: selectedIcon, repsMin, repsMax };
 }
 
 export function resetNewExerciseForm() {
   /** @type {HTMLInputElement} */ ($('newExName')).value = '';
-  /** @type {HTMLInputElement} */ ($('newExShort')).value = '';
   /** @type {HTMLInputElement} */ ($('newExRepsMin')).value = String(DEFAULT_REPS_MIN);
   /** @type {HTMLInputElement} */ ($('newExRepsMax')).value = String(DEFAULT_REPS_MAX);
   selectedIcon = DEFAULT_ICON;
@@ -648,14 +842,25 @@ const DOCUMENTS = /** @type {const} */ ({
 
 /** @type {keyof typeof DOCUMENTS | null} */
 let openedDocument = null;
+/** Dirección que muestra ahora el marco del visor. */
+let documentSrc = '';
 
 /** Rellena el visor (título, marco y URL) con el documento abierto en el idioma activo. */
 function renderDocument() {
   if (!openedDocument) return;
   const doc = DOCUMENTS[openedDocument];
   const src = `${doc.page}?lang=${getLanguage()}`;
-  const frame = /** @type {HTMLIFrameElement} */ ($('documentFrame'));
-  if (frame.getAttribute('src') !== src) frame.setAttribute('src', src);
+  let frame = /** @type {HTMLIFrameElement} */ ($('documentFrame'));
+  // Cambiar el src de un marco ya cargado (o usar location.replace desde fuera) añade una entrada al historial del
+  // navegador, y Atrás deshacía primero esa navegación dejando créditos bajo el título de la política. La primera
+  // carga de un marco nuevo no añade entrada: por eso se sustituye el marco entero.
+  if (documentSrc !== src) {
+    documentSrc = src;
+    const fresh = /** @type {HTMLIFrameElement} */ (frame.cloneNode(false));
+    fresh.setAttribute('src', src);
+    frame.replaceWith(fresh);
+    frame = fresh;
+  }
   frame.title = t(doc.titleKey);
   $('documentTitle').textContent = t(doc.titleKey);
 }
@@ -677,20 +882,10 @@ export function closeDocument() {
 
 // --- Idioma --------------------------------------------------------------------------
 
-/** Rellena todos los selectores de idioma (configuración) y los sincroniza. */
-export function renderLanguageSelectors() {
-  document.querySelectorAll('select.lang-select').forEach(el => {
-    const select = /** @type {HTMLSelectElement} */ (el);
-    if (select.options.length !== LANGUAGES.length) {
-      select.innerHTML = LANGUAGES.map(l => `<option value="${l.code}">${escapeHTML(l.name)}</option>`).join('');
-    }
-    select.value = getLanguage();
-  });
-}
-
 /** Vuelve a pintar lo que se genera por código cuando cambia el idioma (el marcado fijo lo hace applyTranslations). */
 export function refreshLanguage() {
-  renderLanguageSelectors();
+  renderSettings();
+  renderWhatsNew();
   renderConfig(true);
   renderHistory();
   updateIconButton();

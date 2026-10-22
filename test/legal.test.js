@@ -47,15 +47,20 @@ describe('páginas legales multilingües', () => {
     for (const code of LANGUAGE_ORDER) {
       it(`${code}: privacidad`, () => {
         const text = flat(LEGAL_PAGES['privacy.html'][code]);
-        for (const fact of [CONTACT_EMAIL, 'eus.jabibi.gymroul', 'gymroul.web.app', '14', 'Firebase', 'data-deletion.html', 'aepd.es']) {
+        for (const fact of [CONTACT_EMAIL, 'eus.jabibi.gymroul', 'gymroul.web.app', '14', 'Firebase', 'data-deletion.html', 'aepd.es', 'PointedIO']) {
           expect(text, fact).toContain(fact);
         }
-        // La política se muestra dentro de la app: habla de la analítica antigua en genérico, sin nombrar el producto
+        // La app publicada nunca ha tenido analítica ni rastreadores: la política no habla de versiones antiguas
         expect(text).not.toContain('Google Analytics');
+        expect(text).not.toContain('1.13');
+        expect(text.replace(/eus\.jabibi\.gymroul/g, '')).not.toContain('jabibi');
       });
       it(`${code}: eliminación de datos`, () => {
         const text = flat(LEGAL_PAGES['data-deletion.html'][code]);
-        for (const fact of [CONTACT_EMAIL, 'subject=', 'privacy.html', '12', '14', 'gymroul.web.app']) expect(text, fact).toContain(fact);
+        for (const fact of [CONTACT_EMAIL, 'subject=', 'privacy.html', '12', 'gymroul.web.app', 'PointedIO']) expect(text, fact).toContain(fact);
+        expect(text).not.toContain('Google Analytics');
+        expect(text).not.toContain('1.13');
+        expect(text.replace(/eus\.jabibi\.gymroul/g, '')).not.toContain('jabibi');
       });
     }
   });
@@ -95,6 +100,13 @@ describe('páginas legales multilingües', () => {
     for (const [file, html] of Object.entries(buildLegalFiles())) {
       expect(readFileSync(`public/${file}`, 'utf8'), file).toBe(html);
     }
+  });
+
+  it('los créditos muestran la versión de package.json en cada idioma', () => {
+    const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
+    const version = `${pkg.version.split('.').slice(0, 2).join('.')} (${pkg.versionCodename})`;
+    const html = buildLegalFiles()['credits.html'];
+    expect(count(html, new RegExp(`<bdi dir="ltr">${version.replace(/[()]/g, '\\$&')}</bdi>`, 'g'))).toBe(LANGUAGE_ORDER.length);
   });
 
   it('cada página incluye una sección por idioma y el script selector', () => {

@@ -3,6 +3,10 @@
 export default {
   strings: {
     'history.clearConfirm': 'Toca outra vez',
+    'settings.title': 'Definições',
+    'whatsnew.settings': 'As definições passam a ser um menu: roleta, aparência, idioma, privacidade e créditos.',
+    'whatsnew.classicTitle': 'Preferes o visual de sempre?',
+    'whatsnew.classicText': 'Abre {settings}, depois {appearance} e escolhe {classic} para recuperar as cores vivas da roleta e o verde intenso.',
     'header.settings': 'Abrir definições',
 
     'live.drag': 'Arrasta a roleta para girar',
@@ -10,19 +14,18 @@ export default {
 
     'result.skip': 'Saltar este desafio',
 
-    'history.empty': 'Ainda não registaste exercícios hoje. Gira a roleta!',
+    'history.empty': 'Ainda não registaste exercícios hoje. Gira a roleta para começar.',
 
     'config.close': 'Fechar definições',
     'config.apply': 'Guardar alterações',
-    'config.intro': 'Ativa ou desativa exercícios, define o intervalo de repetições de cada um, ou cria e elimina exercícios:',
+    'config.save': 'Guardar',
+    'config.intro': 'Ativa ou desativa exercícios, define o intervalo de repetições de cada um, ou cria e elimina exercícios.',
     'config.searchPlaceholder': 'Pesquisar: yoga, karaté, boxe, pesos…',
     'config.searchAria': 'Pesquisar ícone',
     'config.noIcons': 'Nenhum ícone encontrado para essa pesquisa',
     'config.deleteExercise': 'Eliminar {name}',
     'exercise.lunge': 'Avanços',
-    'exercise.lunge.short': 'Avanços',
     'exercise.splitjump': 'Avanços com salto',
-    'exercise.splitjump.short': 'Avanço salto',
 
     'error.nameRequired': 'Escreve um nome para o exercício',
     'error.iconRequired': 'Escolhe um ícone da lista',
@@ -33,7 +36,7 @@ export default {
     'commitment.yourData.title': 'Os teus dados são teus',
     'commitment.yourData.text': 'Tudo o que crias fica no teu dispositivo. Se apagares a aplicação ou os respetivos dados, não fica nenhum rasto na nuvem.',
     'result.share': 'Partilhar desafio',
-    'share.text': 'O meu desafio do GymRoulette: {challenge}! Gira a roleta e treina também: {url}',
+    'share.text': 'O meu desafio do GymRoulette: {challenge}. Gira a roleta e treina também: {url}',
     'share.saved': 'Imagem transferida',
     'share.failed': 'Não foi possível partilhar o desafio',
     'share.preparing': 'A preparar a imagem…',

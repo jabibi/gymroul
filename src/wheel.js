@@ -1,7 +1,7 @@
 // @ts-check
 // Render (canvas), física y arrastre de la ruleta
 
-import { getWinningIndex, normalizeDelta, fitText, CONFIG_SEGMENT } from './wheel-math.js';
+import { getWinningIndex, normalizeDelta, fitLabel, CONFIG_SEGMENT } from './wheel-math.js';
 import { t } from './i18n/index.js';
 import { initAudio, playTickSound, vibrateSpinStart } from './audio.js';
 
@@ -13,7 +13,7 @@ const FRAME_MS = 1000 / 60;
 const MIN_SAMPLE_MS = 4;
 
 /** Color de marca (variable CSS --brand-500), para el aro interior de la ruleta */
-let brandColor = '#22c55e';
+let brandColor = '#10b981';
 
 /** @type {HTMLCanvasElement} */ let canvas;
 /** @type {CanvasRenderingContext2D} */ let ctx;
@@ -30,10 +30,13 @@ let angularVelocity = 0; // rad por fotograma a 60 fps
 let lastFrameTime = 0;
 let lastTickIndex = -1;
 
-// Las etiquetas y sombras son costosas: los sectores se dibujan una vez en un canvas auxiliar
-// y cada fotograma solo lo rota
+// Las etiquetas y sombras son costosas: los sectores y las etiquetas se dibujan una vez en dos canvas auxiliares
+// y cada fotograma solo los rota. Van separados para poder oscurecer los sectores que no están bajo el puntero
+// sin apagar el texto
 /** @type {HTMLCanvasElement | null} */
 let cache = null;
+/** @type {HTMLCanvasElement | null} */
+let labelCache = null;
 let cacheDirty = true;
 
 // Arrastre
@@ -60,8 +63,12 @@ export function setSegments(next) {
   callbacks.onChange();
 }
 
-const MIN_LABEL_SIZE = 9;
+const MIN_LABEL_SIZE = 12;
+/** Separación entre líneas de una etiqueta de dos líneas, en múltiplos del tamaño de letra */
+const LABEL_LINE_HEIGHT = 1.15;
+/** Tamaño máximo de etiqueta en una ruleta de 320 px; crece en proporción con el tamaño de la ruleta (tope en MAX_LABEL_SCALED) */
 const MAX_LABEL_SIZE = 18;
+const MAX_LABEL_SCALED = 24;
 /** Fracción del radio que ocupa el botón central: el texto de los sectores empieza después */
 const LABEL_HUB_RESERVE = 0.32;
 const labelFont = (/** @type {number} */ px) => `800 ${px}px 'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'IPAGothic', sans-serif`;
@@ -80,6 +87,13 @@ function buildCache() {
   c.setTransform(dpr, 0, 0, dpr, 0, 0);
   c.translate(center, center);
 
+  labelCache = document.createElement('canvas');
+  labelCache.width = size * dpr;
+  labelCache.height = size * dpr;
+  const l = /** @type {CanvasRenderingContext2D} */ (labelCache.getContext('2d'));
+  l.setTransform(dpr, 0, 0, dpr, 0, 0);
+  l.translate(center, center);
+
   for (let i = 0; i < total; i++) {
     const start = i * slice;
     const end = (i + 1) * slice;
@@ -94,13 +108,13 @@ function buildCache() {
     c.strokeStyle = '#020617';
     c.stroke();
 
-    c.save();
-    c.rotate(start + slice / 2);
-    c.textAlign = 'right';
-    c.textBaseline = 'middle';
-    c.fillStyle = '#ffffff';
-    c.shadowColor = 'rgba(0, 0, 0, 0.9)';
-    c.shadowBlur = 4;
+    l.save();
+    l.rotate(start + slice / 2);
+    l.textAlign = 'right';
+    l.textBaseline = 'middle';
+    l.fillStyle = '#ffffff';
+    l.shadowColor = 'rgba(0, 0, 0, 0.9)';
+    l.shadowBlur = 4;
     const label = segments[i] === CONFIG_SEGMENT
       ? t('wheel.setup')
       : segments[i].text;
@@ -109,11 +123,15 @@ function buildCache() {
     const textEnd = radius - 16;
     const textStart = radius * LABEL_HUB_RESERVE;
     const thickness = 2 * textStart * Math.sin(Math.min(slice, Math.PI) / 2);
-    const maxSize = Math.max(MIN_LABEL_SIZE, Math.min(MAX_LABEL_SIZE, Math.floor(thickness * 0.55)));
-    const fitted = fitText((text, px) => (c.font = labelFont(px), c.measureText(text).width), label, textEnd - textStart, maxSize, MIN_LABEL_SIZE);
-    c.font = labelFont(fitted.size);
-    c.fillText(fitted.text, textEnd, 0);
-    c.restore();
+    const maxSize = Math.max(MIN_LABEL_SIZE, Math.min(Math.min(MAX_LABEL_SCALED, Math.round(MAX_LABEL_SIZE * size / 320)), Math.floor(thickness * 0.55)));
+    // Hay sitio para dos líneas si, a mitad del texto, el sector es más alto que dos líneas del tamaño mínimo
+    const midThickness = 2 * ((textStart + textEnd) / 2) * Math.sin(Math.min(slice, Math.PI) / 2);
+    const maxLines = midThickness >= MIN_LABEL_SIZE * LABEL_LINE_HEIGHT * 2 + 8 ? 2 : 1;
+    const fitted = fitLabel((text, px) => (l.font = labelFont(px), l.measureText(text).width), label, textEnd - textStart, Math.max(maxSize, MIN_LABEL_SIZE), MIN_LABEL_SIZE, maxLines);
+    l.font = labelFont(fitted.size);
+    const lineGap = fitted.size * LABEL_LINE_HEIGHT;
+    fitted.lines.forEach((line, n) => l.fillText(line, textEnd, (n - (fitted.lines.length - 1) / 2) * lineGap));
+    l.restore();
   }
   cacheDirty = false;
 }
@@ -135,13 +153,16 @@ function draw() {
   ctx.rotate(currentAngle);
   ctx.drawImage(/** @type {HTMLCanvasElement} */ (cache), -center, -center, wheelSize, wheelSize);
 
-  // Resalte del sector activo
-  ctx.beginPath();
-  ctx.moveTo(0, 0);
-  ctx.arc(0, 0, radius, activeIndex * slice, (activeIndex + 1) * slice);
-  ctx.closePath();
-  ctx.fillStyle = 'rgba(255, 255, 255, 0.28)';
-  ctx.fill();
+  // Resalte del sector activo: se oscurecen los demás. Aclarar el activo le quitaría contraste justo al texto blanco que se está leyendo
+  if (total > 1) {
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.arc(0, 0, radius, (activeIndex + 1) * slice, (activeIndex + total) * slice);
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(2, 6, 23, 0.34)';
+    ctx.fill();
+  }
+  ctx.drawImage(/** @type {HTMLCanvasElement} */ (labelCache), -center, -center, wheelSize, wheelSize);
   ctx.restore();
 
   // Anillos exteriores
@@ -166,12 +187,6 @@ function checkTick() {
     playTickSound();
     lastTickIndex = index;
   }
-}
-
-/** Vuelve a dibujar las etiquetas (p. ej. al cambiar de idioma el sector de configuración). */
-export function refreshLabels() {
-  cacheDirty = true;
-  draw();
 }
 
 export function resize() {
@@ -292,14 +307,25 @@ function animate(now) {
   }
 }
 
+function readBrandColor() {
+  const channels = getComputedStyle(document.documentElement).getPropertyValue('--brand-500').trim();
+  if (channels) brandColor = `rgb(${channels.split(/\s+/).join(',')})`;
+}
+
+/** Vuelve a leer el color de marca y repinta la ruleta (al cambiar de apariencia). */
+export function refreshBrand() {
+  readBrandColor();
+  cacheDirty = true;
+  draw();
+}
+
 /**
  * @param {HTMLCanvasElement} canvasEl
  * @param {typeof callbacks} cbs
  */
 export function initWheel(canvasEl, cbs) {
   canvas = canvasEl;
-  const channels = getComputedStyle(document.documentElement).getPropertyValue('--brand-500').trim();
-  if (channels) brandColor = `rgb(${channels.split(/\s+/).join(',')})`;
+  readBrandColor();
   ctx = /** @type {CanvasRenderingContext2D} */ (canvas.getContext('2d'));
   callbacks = cbs;
 

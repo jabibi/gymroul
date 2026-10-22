@@ -1,35 +1,35 @@
 Pas envie de décider quoi t'entraîner aujourd'hui ? Fais tourner la roue et laisse GymRoulette choisir pour toi.
 
-GymRoulette est une roue d'exercices : chaque secteur est un exercice et, quand tu la fais tourner, elle te propose un défi au hasard avec son nombre de répétitions (par exemple « 20 Burpee ») pour t'entraîner à la maison, en salle ou en plein air. Pensée pour varier tes séances, pour des circuits, des défis entre amis et pour tous ceux qui veulent s'entraîner sans se compliquer la vie.
+GymRoulette est une roue d'exercices : chaque secteur est un exercice et, quand tu la fais tourner, elle te propose un exercice aléatoire avec son nombre de répétitions (par exemple « 20 Burpee ») pour t'entraîner à la maison, en salle ou en plein air. Tourne plusieurs fois et tu obtiens chaque jour une routine aléatoire différente. Pensée pour varier tes séances, pour des circuits, des défis entre amis et pour tous ceux qui veulent s'entraîner sans se compliquer la vie.
 
-<b>COMMENT ÇA MARCHE</b>
-• Appuie sur « LANCER LA ROUE ! » ou lance-la d'un geste du doigt.
+<b>Comment ça marche</b>
+• Appuie sur « Lancer la roue » ou lance-la d'un geste du doigt.
 • Quand elle s'arrête, tu vois ton défi : répétitions et exercice.
 • Marque-le comme terminé ou passe-le et relance la roue.
 • Consulte l'historique des défis terminés pendant la séance.
 • Partage ton défi sous forme d'image avec tes amis.
 
-<b>C'EST TOI QUI CHOISIS CE QUI EST SUR LA ROUE</b>
+<b>C'est toi qui choisis ce qui est sur la roue</b>
 • Active ou désactive les exercices que tu veux.
-• Crée tes propres exercices avec un nom, un nom court et une icône.
+• Crée tes propres exercices avec un nom et une icône.
 • Règle la plage de répétitions de chaque exercice, d'un minimum à un maximum, pour ajuster la difficulté.
 • La roue s'adapte à tes réglages, enregistrés sur ton appareil.
 
-<b>PLUS DE 100 ICÔNES POUR TES EXERCICES</b>
+<b>Plus de 100 icônes pour tes exercices</b>
 Choisis parmi plus de 100 icônes de nombreuses disciplines, avec recherche : force et poids, callisthénie, cardio, yoga, pilates, tai chi, boxe, karaté et autres arts martiaux, fitness fonctionnel, courses d'obstacles, sports, eau et montagne. Avec des pictogrammes originaux pour les pompes, le gainage, les abdominaux, le burpee, le squat et les mountain climbers.
 
-<b>DANS TA LANGUE</b>
+<b>Dans ta langue</b>
 العربية, English (États-Unis, Royaume-Uni et Australie), Español (Espagne et Amérique latine), Euskara, Galego, Català, Français (France et Canada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe et Português (Brasil et Portugal). L'application suit la langue de ton téléphone et tu peux la changer dans les Réglages.
 
-<b>DE BONS PETITS DÉTAILS</b>
+<b>De bons petits détails</b>
 • <b>Sons de la roue et vibration</b> à l'apparition du résultat.
-• <b>Un design sombre</b>, agréable à l'œil en salle.
+• <b>Deux apparences</b>, Doux et Classique, sur un design sombre agréable à l'œil en salle.
 • <b>Sans inscription</b> ni compte utilisateur.
 • <b>Sans publicité.</b>
 • <b>100 % hors connexion</b> : aucune connexion Internet nécessaire.
 • <b>Sans traceurs</b> ni cookies superflus, et elle ne demande jamais ta localisation.
 
-<b>CONFIDENTIALITÉ</b>
+<b>Confidentialité</b>
 GymRoulette fonctionne entièrement hors connexion et ne collecte aucune donnée : pas d'analyse, pas de traceurs, pas de publicité et aucun accès à ta localisation. Tes réglages sont enregistrés uniquement sur ton appareil. Tu peux consulter la politique de confidentialité dans l'application.
 
-Lance la roue et c'est parti !
+Lance la roue et c'est parti.

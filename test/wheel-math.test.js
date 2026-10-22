@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import { getWinningIndex, normalizeDelta, generateSegments, rollReps, fitText, isolate, CONFIG_SEGMENT } from '../src/wheel-math.js';
+import { getWinningIndex, normalizeDelta, generateSegments, rollReps, fitText, fitLabel, isolate, CONFIG_SEGMENT } from '../src/wheel-math.js';
 
 const exercises = [
-  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'fa-fire', color: '#ef4444', repsMin: 10, repsMax: 30 },
-  { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'fa-person-walking', color: '#f97316', repsMin: 5, repsMax: 5 },
+  { id: '1', name: 'Burpee', icon: 'fa-fire', color: '#ef4444', repsMin: 10, repsMax: 30 },
+  { id: '2', name: 'Lunge', icon: 'fa-person-walking', color: '#f97316', repsMin: 5, repsMax: 5 },
 ];
 
 describe('getWinningIndex', () => {
@@ -90,9 +90,9 @@ describe('rollReps', () => {
 
 describe('generateSegments con nombres traducidos', () => {
   it('filtra por el nombre guardado y muestra el que da la función de traducción', () => {
-    const segs = generateSegments(exercises, ['Burpee'], ex => ({ name: `T-${ex.name}`, shortName: `S-${ex.name}` }));
+    const segs = generateSegments(exercises, ['Burpee'], ex => `T-${ex.name}`);
     expect(segs).toHaveLength(1);
-    expect(segs[0]).toMatchObject({ exercise: 'T-Burpee', text: 'S-Burpee', shortName: 'S-Burpee' });
+    expect(segs[0]).toMatchObject({ exercise: 'T-Burpee', text: 'T-Burpee' });
   });
 });
 
@@ -135,5 +135,42 @@ describe('isolate', () => {
   it('rodean el texto con marcas de aislamiento que no cambian el texto visible', () => {
     expect(isolate('Burpee')).toBe('⁨Burpee⁩');
     expect(isolate('Burpee').replace(/[⁨⁩]/g, '')).toBe('Burpee');
+  });
+});
+
+describe('fitLabel', () => {
+  const measure = (text, px) => text.length * px * 0.6;
+
+  it('si cabe a tamaño normal, la deja en una línea sin tocar', () => {
+    expect(fitLabel(measure, 'Burpee', 200, 18, 12, 2)).toEqual({ lines: ['Burpee'], size: 18 });
+  });
+
+  it('baja el tamaño hasta el mínimo y nunca por debajo', () => {
+    const r = fitLabel(measure, 'Flexiones', 70, 18, 12, 1);
+    expect(r.size).toBeGreaterThanOrEqual(12);
+    expect(r.lines).toEqual(['Flexiones']);
+  });
+
+  it('si no cabe a tamaño mínimo, la parte en dos líneas por el espacio más equilibrado', () => {
+    const r = fitLabel(measure, 'Zancadas con salto', 80, 18, 12, 2);
+    expect(r).toEqual({ lines: ['Zancadas', 'con salto'], size: 12 });
+  });
+
+  it('también parte por un guion, que se queda en la primera línea', () => {
+    const r = fitLabel(measure, 'Sprung-Ausfälle', 60, 18, 12, 2);
+    expect(r.lines).toEqual(['Sprung-', 'Ausfälle']);
+  });
+
+  it('sin altura para dos líneas, recorta con «…» a tamaño mínimo (la letra no se deforma)', () => {
+    const r = fitLabel(measure, 'Zancadas con salto', 80, 18, 12, 1);
+    expect(r.size).toBe(12);
+    expect(r.lines).toHaveLength(1);
+    expect(r.lines[0].endsWith('…')).toBe(true);
+  });
+
+  it('un nombre largo sin espacios ni guiones se recorta aunque haya sitio para dos líneas', () => {
+    const r = fitLabel(measure, 'Supercalifragilisticexpialidocious', 80, 18, 12, 2);
+    expect(r.lines).toHaveLength(1);
+    expect(r.lines[0].endsWith('…')).toBe(true);
   });
 });

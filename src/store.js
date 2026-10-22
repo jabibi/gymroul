@@ -12,25 +12,29 @@ import { isValidIcon, normalizeIcon, migrateLegacyIcon } from './icons.js';
 
 export const MAX_EXERCISES = 12;
 export const MAX_REP_VALUE = 999999;
-/** Longitud máxima (en caracteres) del nombre y del nombre corto de un ejercicio */
+/** Longitud máxima (en caracteres) del nombre de un ejercicio */
 export const MAX_NAME_LENGTH = 30;
-export const MAX_SHORT_NAME_LENGTH = 12;
 /** Rango de repeticiones de los ejercicios por defecto y de los nuevos */
 export const DEFAULT_REPS_MIN = 10;
 export const DEFAULT_REPS_MAX = 60;
 
 /** @type {Exercise[]} */
 export const DEFAULT_EXERCISES = [
-  { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'burpee', color: '#ef4444', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '2', name: 'Lunge', shortName: 'Lunge', icon: 'walk', color: '#f97316', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '3', name: 'Push-up', shortName: 'Push-up', icon: 'pushup', color: '#f59e0b', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '4', name: 'Air Squat', shortName: 'Squat', icon: 'squat', color: '#22c55e', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '5', name: 'Mountain Climbers', shortName: 'Climbers', icon: 'climbers', color: '#06b6d4', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '6', name: 'Split Jumps', shortName: 'Split J', icon: 'jump', color: '#8b5cf6', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '1', name: 'Burpee', icon: 'burpee', color: '#0f766e', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '2', name: 'Lunge', icon: 'walk', color: '#475569', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '3', name: 'Push-up', icon: 'pushup', color: '#15803d', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '4', name: 'Air Squat', icon: 'squat', color: '#2563eb', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '5', name: 'Mountain Climbers', icon: 'climbers', color: '#0e7490', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '6', name: 'Split Jumps', icon: 'jump', color: '#4f46e5', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
 ];
 /** Lista global de repeticiones de la versión 1.14, solo para migrar (v7 -> v8) */
 const LEGACY_DEFAULT_REPS = [10, 20, 30, 40, 50, 60];
-export const COLOR_PALETTE = ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'];
+/** Paleta de los sectores tal como se guarda en cada ejercicio (apariencia Suave) */
+export const COLOR_PALETTE = ['#0f766e', '#475569', '#15803d', '#2563eb', '#0e7490', '#4f46e5', '#64748b', '#0369a1'];
+/** Primera versión de la paleta Suave (tonos más claros, con poco contraste con el texto blanco), solo para migrar (v10 -> v11) */
+const FIRST_CALM_PALETTE = ['#0d9488', '#475569', '#059669', '#2563eb', '#0891b2', '#4f46e5', '#64748b', '#0369a1'];
+/** Paleta de la apariencia Clásico (la original, arcoíris); misma posición que COLOR_PALETTE. También sirve para migrar (v8 -> v9) */
+export const CLASSIC_COLOR_PALETTE = ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'];
 
 const KEY_EXERCISES = 'gym_exercises';
 // Claves de la lista global de repeticiones, que ya no existe (migración v7 -> v8)
@@ -43,7 +47,7 @@ const KEY_LEGACY_ANALYTICS_CONSENT = 'gymroulette_analytics_consent';
 const KEY_LEGACY_INTRO_SEEN = 'gymroulette_intro_seen';
 
 /** Versión actual del esquema de datos guardados; sube al cambiar su formato */
-export const SCHEMA_VERSION = 8;
+export const SCHEMA_VERSION = 11;
 
 /** Selección activa (se muta con setActive/loadActive) */
 export const active = {
@@ -149,7 +153,42 @@ const MIGRATIONS = {
       localStorage.removeItem(KEY_LEGACY_ACTIVE_REPS);
     } catch (e) { /* ignorado */ }
   },
+  // v8 -> v9: los sectores pasan de la paleta arcoíris a una más sobria; cada color antiguo se cambia por el de su posición
+  8: () => {
+    const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
+    if (!list) return;
+    writeStorage(KEY_EXERCISES, list.map(e => {
+      const i = CLASSIC_COLOR_PALETTE.indexOf(e.color);
+      return i === -1 ? e : { ...e, color: COLOR_PALETTE[i] };
+    }));
+  },
+  // v9 -> v10: desaparece el nombre corto; la ruleta muestra el nombre completo
+  9: () => {
+    const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
+    if (!list) return;
+    writeStorage(KEY_EXERCISES, list.map(e => {
+      const { shortName, ...rest } = /** @type {any} */ (e);
+      return rest;
+    }));
+  },
+  // v10 -> v11: la paleta Suave se oscurece para que el texto blanco de la ruleta se lea bien (contraste mínimo 4,5:1)
+  10: () => {
+    const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
+    if (!list) return;
+    writeStorage(KEY_EXERCISES, list.map(e => {
+      const i = FIRST_CALM_PALETTE.indexOf(e.color);
+      return i === -1 ? e : { ...e, color: COLOR_PALETTE[i] };
+    }));
+  },
 };
+
+/**
+ * true si la app nunca guardó nada en este dispositivo (instalación nueva). Hay que preguntarlo antes de migrate(), que
+ * fija la versión del esquema.
+ */
+export function isFreshInstall() {
+  try { return localStorage.getItem(KEY_SCHEMA) === null; } catch (e) { return true; }
+}
 
 /** Aplica las migraciones pendientes y fija la versión actual. */
 export function migrate() {
@@ -212,14 +251,6 @@ export function pickColor(list) {
 }
 
 /**
- * Nombre corto cuando el usuario no escribe uno: el nombre, o su principio con «…» si no cabe.
- * @param {string} name
- */
-export function deriveShortName(name) {
-  return name.length <= MAX_SHORT_NAME_LENGTH ? name : `${name.slice(0, MAX_SHORT_NAME_LENGTH - 1).trimEnd()}…`;
-}
-
-/**
  * Valida y convierte un rango de repeticiones escrito por el usuario.
  * @param {string | number} min
  * @param {string | number} max
@@ -239,15 +270,13 @@ export function parseRepRange(min, max) {
 
 /**
  * Crea un ejercicio nuevo y lo activa.
- * @param {{ name: string, shortName?: string, icon: string, repsMin?: string | number, repsMax?: string | number }} input
+ * @param {{ name: string, icon: string, repsMin?: string | number, repsMax?: string | number }} input
  * @returns {StoreResult}
  */
-export function addExercise({ name, shortName, icon, repsMin = DEFAULT_REPS_MIN, repsMax = DEFAULT_REPS_MAX }) {
+export function addExercise({ name, icon, repsMin = DEFAULT_REPS_MIN, repsMax = DEFAULT_REPS_MAX }) {
   name = (name || '').replace(/\s+/g, ' ').trim();
   if (!name) return { ok: false, error: { key: 'error.nameRequired' } };
-  shortName = (shortName || '').replace(/\s+/g, ' ').trim();
   if (name.length > MAX_NAME_LENGTH) return { ok: false, error: { key: 'error.maxLength', params: { max: MAX_NAME_LENGTH } } };
-  if (shortName.length > MAX_SHORT_NAME_LENGTH) return { ok: false, error: { key: 'error.maxLength', params: { max: MAX_SHORT_NAME_LENGTH } } };
 
   if (!isValidIcon(icon)) return { ok: false, error: { key: 'error.iconRequired' } };
 
@@ -265,7 +294,6 @@ export function addExercise({ name, shortName, icon, repsMin = DEFAULT_REPS_MIN,
   list.push({
     id: Date.now().toString(),
     name,
-    shortName: shortName || deriveShortName(name),
     icon,
     color: pickColor(list),
     repsMin: range.min,

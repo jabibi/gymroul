@@ -1,35 +1,35 @@
 ¿Sin ganas de decidir qué entrenar hoy? Gira la ruleta y deja que GymRoulette elija por ti.
 
-GymRoulette es una ruleta de ejercicios: cada sector es un ejercicio y, al girarla, te propone un reto aleatorio con su número de repeticiones (por ejemplo, «20 Burpee») para entrenar en casa, en el gimnasio o al aire libre. Pensada para dar variedad a tus sesiones, para circuitos, para retos con amigos y para quien quiere entrenar sin complicarse.
+GymRoulette es una ruleta de ejercicios: cada sector es un ejercicio y, al girarla, te propone un ejercicio aleatorio con su número de repeticiones (por ejemplo, «20 Burpees») para entrenar en casa, en el gimnasio o al aire libre. Gira varias veces y tendrás una rutina aleatoria distinta cada día. Pensada para dar variedad a tus sesiones, para circuitos, para retos con amigos y para quien quiere entrenar sin complicarse.
 
-<b>CÓMO FUNCIONA</b>
-• Pulsa “¡GIRAR RULETA!” o lanza la ruleta con el dedo.
+<b>Cómo funciona</b>
+• Pulsa “Girar ruleta” o lanza la ruleta con el dedo.
 • Cuando se detiene, ves tu reto: repeticiones y ejercicio.
 • Márcalo como completado o sáltalo y vuelve a girar.
 • Consulta en el historial los retos que has completado en la sesión.
 • Comparte tu reto como imagen con tus amigos.
 
-<b>TÚ DECIDES QUÉ HAY EN LA RULETA</b>
+<b>Tú decides qué hay en la ruleta</b>
 • Activa o desactiva los ejercicios que quieras.
-• Crea tus propios ejercicios con nombre, nombre corto e icono.
+• Crea tus propios ejercicios con nombre e icono.
 • Define el rango de repeticiones de cada ejercicio, con un mínimo y un máximo, para ajustar la dificultad.
 • La ruleta se adapta a tu configuración y se guarda en tu dispositivo.
 
-<b>MÁS DE 100 ICONOS PARA TUS EJERCICIOS</b>
+<b>Más de 100 iconos para tus ejercicios</b>
 Elige entre más de 100 iconos de muchas disciplinas, con buscador: fuerza y pesas, calistenia, cardio, yoga, pilates, tai chi, boxeo, karate y otras artes marciales, fitness funcional, carreras de obstáculos, deportes, agua y montaña. Incluye pictogramas propios de flexiones, plancha, abdominales, burpee, sentadilla y mountain climbers.
 
-<b>EN TU IDIOMA</b>
-العربية, English (EE. UU., Reino Unido y Australia), Español (España y Latinoamérica), Euskara, Galego, Català, Français (Francia y Canadá), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe y Português (Brasil y Portugal). La app sigue el idioma de tu móvil y puedes cambiarlo en Configuración.
+<b>En tu idioma</b>
+العربية, English (EE. UU., Reino Unido y Australia), Español (España y Latinoamérica), Euskara, Galego, Català, Français (Francia y Canadá), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe y Português (Brasil y Portugal). La app sigue el idioma de tu móvil y puedes cambiarlo en Ajustes.
 
-<b>DETALLES QUE SE AGRADECEN</b>
+<b>Detalles que se agradecen</b>
 • <b>Sonido de ruleta y vibración</b> al salir el resultado.
-• <b>Diseño oscuro</b> y cómodo para usar en el gimnasio.
+• <b>Dos apariencias</b>, Suave y Clásico, sobre un diseño oscuro y cómodo para el gimnasio.
 • <b>Sin registro</b> ni cuentas de usuario.
 • <b>Sin anuncios.</b>
 • <b>100 % sin conexión</b>: no necesita conexión a Internet.
 • <b>Sin rastreadores</b> ni cookies innecesarias, y nunca te pide la ubicación.
 
-<b>PRIVACIDAD</b>
+<b>Privacidad</b>
 GymRoulette funciona totalmente sin conexión y no recopila ningún dato: sin analítica, sin rastreadores, sin anuncios y sin acceso a tu ubicación. Tu configuración se guarda únicamente en tu dispositivo. Puedes consultar la política de privacidad dentro de la app.
 
-¡Gira la ruleta y a entrenar!
+Gira la ruleta y a entrenar.

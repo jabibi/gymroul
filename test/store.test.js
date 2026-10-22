@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import {
   readStorage, getExercises, loadActive, active, migrate, SCHEMA_VERSION,
-  addExercise, removeExercise, updateExerciseReps, parseRepRange, deriveShortName, MAX_NAME_LENGTH, MAX_SHORT_NAME_LENGTH, MAX_REP_VALUE, DEFAULT_EXERCISES, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_EXERCISES, pickColor, COLOR_PALETTE,
+  addExercise, removeExercise, updateExerciseReps, parseRepRange, MAX_NAME_LENGTH, MAX_REP_VALUE, DEFAULT_EXERCISES, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_EXERCISES, pickColor, COLOR_PALETTE,
 } from '../src/store.js';
 
 function installLocalStorage() {
@@ -53,9 +53,9 @@ describe('catálogo', () => {
 
   it('sustituye por el rango por defecto un rango guardado ausente o inválido', () => {
     data.set('gym_exercises', JSON.stringify([
-      { id: 'a', name: 'Sin rango', shortName: 'A', icon: 'dumbbell', color: '#fff' },
-      { id: 'b', name: 'Invertido', shortName: 'B', icon: 'dumbbell', color: '#fff', repsMin: 30, repsMax: 10 },
-      { id: 'c', name: 'Bueno', shortName: 'C', icon: 'dumbbell', color: '#fff', repsMin: 5, repsMax: 9 },
+      { id: 'a', name: 'Sin rango', icon: 'dumbbell', color: '#fff' },
+      { id: 'b', name: 'Invertido', icon: 'dumbbell', color: '#fff', repsMin: 30, repsMax: 10 },
+      { id: 'c', name: 'Bueno', icon: 'dumbbell', color: '#fff', repsMin: 5, repsMax: 9 },
     ]));
     const byName = Object.fromEntries(getExercises().map(e => [e.name, [e.repsMin, e.repsMax]]));
     expect(byName).toEqual({ 'Sin rango': [10, 60], Invertido: [10, 60], Bueno: [5, 9] });
@@ -80,7 +80,6 @@ describe('ejercicios', () => {
     expect(addExercise({ name: 'Plancha', icon: 'timer' }).ok).toBe(true);
     expect(active.exercises).toContain('Plancha');
     const created = getExercises().find(e => e.name === 'Plancha');
-    expect(created.shortName).toBe('Plancha');
     removeExercise(created.id);
     expect(getExercises().some(e => e.name === 'Plancha')).toBe(false);
     expect(active.exercises).not.toContain('Plancha');
@@ -156,8 +155,6 @@ describe('límites de lo que escribe el usuario', () => {
   it('limita la longitud del nombre y del nombre corto', () => {
     const long = 'x'.repeat(MAX_NAME_LENGTH + 1);
     expect(addExercise({ name: long, icon: 'dumbbell' }).error).toEqual({ key: 'error.maxLength', params: { max: MAX_NAME_LENGTH } });
-    expect(addExercise({ name: 'Bien', shortName: 'y'.repeat(MAX_SHORT_NAME_LENGTH + 1), icon: 'dumbbell' }).error).toEqual({ key: 'error.maxLength', params: { max: MAX_SHORT_NAME_LENGTH } });
-    expect(addExercise({ name: 'x'.repeat(MAX_NAME_LENGTH), shortName: 'y'.repeat(MAX_SHORT_NAME_LENGTH), icon: 'dumbbell' }).ok).toBe(true);
     expect(getExercises().some(e => e.name === long)).toBe(false);
   });
 
@@ -165,15 +162,6 @@ describe('límites de lo que escribe el usuario', () => {
     expect(addExercise({ name: '  Press \n  de   banca\t', icon: 'dumbbell' }).ok).toBe(true);
     expect(getExercises().some(e => e.name === 'Press de banca')).toBe(true);
     expect(addExercise({ name: 'press de banca', icon: 'dumbbell' }).ok).toBe(false);
-  });
-
-  it('sin nombre corto, lo deriva del nombre y lo recorta con «…» si no cabe', () => {
-    expect(deriveShortName('Plancha')).toBe('Plancha');
-    const derived = deriveShortName('Elevaciones laterales');
-    expect(derived.length).toBeLessThanOrEqual(MAX_SHORT_NAME_LENGTH);
-    expect(derived.endsWith('…')).toBe(true);
-    expect(addExercise({ name: 'Elevaciones laterales', icon: 'dumbbell' }).ok).toBe(true);
-    expect(getExercises().find(e => e.name === 'Elevaciones laterales').shortName).toBe(derived);
   });
 
   it('un nombre guardado por versiones anteriores, más largo que el límite, se sigue leyendo', () => {
@@ -197,7 +185,7 @@ describe('iconos', () => {
   });
 
   it('sustituye por el icono por defecto los guardados que no están en el catálogo', () => {
-    data.set('gym_exercises', JSON.stringify([{ id: 'a', name: 'Raro', shortName: 'Raro', icon: '🔥', color: '#fff' }]));
+    data.set('gym_exercises', JSON.stringify([{ id: 'a', name: 'Raro', icon: '🔥', color: '#fff' }]));
     expect(getExercises()[0].icon).toBe('dumbbell');
   });
 });
@@ -206,10 +194,10 @@ describe('migraciones', () => {
   it('v1 -> v2 convierte los iconos antiguos al catálogo', () => {
     data.set('gym_schema_version', '1');
     data.set('gym_exercises', JSON.stringify([
-      { id: 'a', name: 'A', shortName: 'A', icon: 'fa-fire', color: '#fff' },
-      { id: 'b', name: 'B', shortName: 'B', icon: 'fa-person-running', color: '#fff' },
-      { id: 'c', name: 'C', shortName: 'C', icon: '🏋️', color: '#fff' },
-      { id: 'd', name: 'D', shortName: 'D', icon: 'fa-bicycle', color: '#fff' },
+      { id: 'a', name: 'A', icon: 'fa-fire', color: '#fff' },
+      { id: 'b', name: 'B', icon: 'fa-person-running', color: '#fff' },
+      { id: 'c', name: 'C', icon: '🏋️', color: '#fff' },
+      { id: 'd', name: 'D', icon: 'fa-bicycle', color: '#fff' },
     ]));
     migrate();
     const stored = JSON.parse(data.get('gym_exercises'));
@@ -233,7 +221,7 @@ describe('migración v5 -> v6', () => {
   it('borra la elección de analítica de versiones anteriores y conserva el resto', () => {
     data.set('gym_schema_version', '5');
     data.set('gymroulette_analytics_consent', 'granted');
-    data.set('gym_exercises', JSON.stringify([{ id: 'a', name: 'A', shortName: 'A', icon: 'dumbbell', color: '#fff' }]));
+    data.set('gym_exercises', JSON.stringify([{ id: 'a', name: 'A', icon: 'dumbbell', color: '#fff' }]));
     migrate();
     expect(data.has('gymroulette_analytics_consent')).toBe(false);
     expect(JSON.parse(data.get('gym_exercises'))).toHaveLength(1);
@@ -249,8 +237,8 @@ describe('migración v5 -> v6', () => {
 
 describe('migración v7 -> v8', () => {
   const exs = () => JSON.stringify([
-    { id: 'a', name: 'A', shortName: 'A', icon: 'dumbbell', color: '#fff' },
-    { id: 'b', name: 'B', shortName: 'B', icon: 'dumbbell', color: '#fff' },
+    { id: 'a', name: 'A', icon: 'dumbbell', color: '#fff' },
+    { id: 'b', name: 'B', icon: 'dumbbell', color: '#fff' },
   ]);
   const ranges = () => JSON.parse(data.get('gym_exercises')).map(e => [e.repsMin, e.repsMax]);
 
@@ -290,7 +278,7 @@ describe('migración v7 -> v8', () => {
 
   it('respeta un rango ya válido y borra las claves de la lista global', () => {
     data.set('gym_schema_version', '7');
-    data.set('gym_exercises', JSON.stringify([{ id: 'a', name: 'A', shortName: 'A', icon: 'dumbbell', color: '#fff', repsMin: 3, repsMax: 7 }]));
+    data.set('gym_exercises', JSON.stringify([{ id: 'a', name: 'A', icon: 'dumbbell', color: '#fff', repsMin: 3, repsMax: 7 }]));
     data.set('gym_reps', JSON.stringify([10, 20]));
     data.set('gymroulette_active_reps', JSON.stringify([10]));
     migrate();
@@ -329,8 +317,8 @@ describe('migración v4 -> v5', () => {
   it('cambia el icono del Mountain Climbers por defecto y respeta otros ejercicios', () => {
     data.set('gym_schema_version', '4');
     data.set('gym_exercises', JSON.stringify([
-      { id: '5', name: 'Mountain Climbers', shortName: 'Climbers', icon: 'run-fast', color: '#fff' },
-      { id: '88', name: 'Sprint', shortName: 'Sprint', icon: 'run-fast', color: '#fff' },
+      { id: '5', name: 'Mountain Climbers', icon: 'run-fast', color: '#fff' },
+      { id: '88', name: 'Sprint', icon: 'run-fast', color: '#fff' },
     ]));
     migrate();
     expect(JSON.parse(data.get('gym_exercises')).map(e => e.icon)).toEqual(['climbers', 'run-fast']);
@@ -341,8 +329,8 @@ describe('migración v3 -> v4', () => {
   it('cambia la llama del Burpee por defecto por el pictograma de burpee y respeta otros ejercicios', () => {
     data.set('gym_schema_version', '3');
     data.set('gym_exercises', JSON.stringify([
-      { id: '1', name: 'Burpee', shortName: 'Burpee', icon: 'fire', color: '#fff' },
-      { id: '77', name: 'Hiit', shortName: 'Hiit', icon: 'fire', color: '#fff' },
+      { id: '1', name: 'Burpee', icon: 'fire', color: '#fff' },
+      { id: '77', name: 'Hiit', icon: 'fire', color: '#fff' },
     ]));
     migrate();
     expect(JSON.parse(data.get('gym_exercises')).map(e => e.icon)).toEqual(['burpee', 'fire']);
@@ -353,11 +341,46 @@ describe('migración v2 -> v3', () => {
   it('actualiza los iconos de Push-up y Air Squat por defecto, y respeta los demás', () => {
     data.set('gym_schema_version', '2');
     data.set('gym_exercises', JSON.stringify([
-      { id: '3', name: 'Push-up', shortName: 'Push-up', icon: 'push', color: '#fff' },
-      { id: '4', name: 'Air Squat', shortName: 'Squat', icon: 'leg', color: '#fff' },
-      { id: '99', name: 'Mío', shortName: 'Mío', icon: 'push', color: '#fff' },
+      { id: '3', name: 'Push-up', icon: 'push', color: '#fff' },
+      { id: '4', name: 'Air Squat', icon: 'leg', color: '#fff' },
+      { id: '99', name: 'Mío', icon: 'push', color: '#fff' },
     ]));
     migrate();
     expect(JSON.parse(data.get('gym_exercises')).map(e => e.icon)).toEqual(['pushup', 'squat', 'push']);
+  });
+});
+
+describe('migración v8 -> v9', () => {
+  it('cambia los colores de la paleta antigua por los de la nueva y respeta los demás', () => {
+    data.set('gym_schema_version', '8');
+    data.set('gym_exercises', JSON.stringify([
+      { id: '1', name: 'A', icon: 'dumbbell', color: '#ef4444', repsMin: 10, repsMax: 20 },
+      { id: '2', name: 'B', icon: 'dumbbell', color: '#3b82f6', repsMin: 10, repsMax: 20 },
+      { id: '3', name: 'C', icon: 'dumbbell', color: '#123456', repsMin: 10, repsMax: 20 },
+    ]));
+    migrate();
+    expect(JSON.parse(data.get('gym_exercises')).map(e => e.color)).toEqual(['#0f766e', '#0369a1', '#123456']);
+  });
+});
+
+describe('migración v9 -> v10', () => {
+  it('quita el nombre corto de los ejercicios guardados y conserva el resto', () => {
+    data.set('gym_schema_version', '9');
+    data.set('gym_exercises', JSON.stringify([{ id: '1', name: 'Burpee', shortName: 'Burp', icon: 'burpee', color: '#fff', repsMin: 10, repsMax: 20 }]));
+    migrate();
+    expect(JSON.parse(data.get('gym_exercises'))).toEqual([{ id: '1', name: 'Burpee', icon: 'burpee', color: '#fff', repsMin: 10, repsMax: 20 }]);
+  });
+});
+
+describe('migración v10 -> v11', () => {
+  it('cambia los colores de la primera paleta Suave por los oscurecidos y respeta los demás', () => {
+    data.set('gym_schema_version', '10');
+    data.set('gym_exercises', JSON.stringify([
+      { id: '1', name: 'A', icon: 'dumbbell', color: '#0d9488', repsMin: 10, repsMax: 20 },
+      { id: '2', name: 'B', icon: 'dumbbell', color: '#059669', repsMin: 10, repsMax: 20 },
+      { id: '3', name: 'C', icon: 'dumbbell', color: '#123456', repsMin: 10, repsMax: 20 },
+    ]));
+    migrate();
+    expect(JSON.parse(data.get('gym_exercises')).map(e => e.color)).toEqual(['#0f766e', '#15803d', '#123456']);
   });
 });

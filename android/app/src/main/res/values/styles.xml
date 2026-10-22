@@ -13,6 +13,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:background">@null</item>
+        <!-- Fondo de la ventana (franjas bajo las barras del sistema): el de la app, no el gris del tema -->
+        <item name="android:windowBackground">#020617</item>
+        <!-- Android 14 e inferiores (sin pantalla completa forzada): las barras toman el fondo de la app, no el índigo del tema -->
+        <item name="android:statusBarColor">#020617</item>
+        <item name="android:navigationBarColor">#020617</item>
     </style>
 
 

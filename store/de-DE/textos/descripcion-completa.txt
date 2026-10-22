@@ -1,35 +1,35 @@
 Keine Lust zu entscheiden, was du heute trainierst? Dreh das Rad und lass GymRoulette für dich wählen.
 
-GymRoulette ist ein Übungsrad: Jedes Segment ist eine Übung und gibt dir beim Drehen eine zufällige Aufgabe mit der passenden Anzahl Wiederholungen (zum Beispiel „20 Burpee“) für dein Training zu Hause, im Fitnessstudio oder draußen. Gemacht, um Abwechslung in deine Einheiten zu bringen, für Zirkeltraining, für Challenges mit Freunden und für alle, die einfach trainieren wollen, ohne lange zu überlegen.
+GymRoulette ist ein Übungsrad: Jedes Segment ist eine Übung und gibt dir beim Drehen eine zufällige Übung mit der passenden Anzahl Wiederholungen (zum Beispiel „20 Burpee“) für dein Training zu Hause, im Fitnessstudio oder draußen. Dreh mehrmals und du hast jeden Tag ein anderes zufälliges Workout. Gemacht, um Abwechslung in deine Einheiten zu bringen, für Zirkeltraining, für Challenges mit Freunden und für alle, die einfach trainieren wollen, ohne lange zu überlegen.
 
-<b>SO FUNKTIONIERT'S</b>
-• Tippe auf „RAD DREHEN!“ oder wirf das Rad mit dem Finger an.
+<b>So funktioniert's</b>
+• Tippe auf „Rad drehen“ oder wirf das Rad mit dem Finger an.
 • Sobald es stehen bleibt, siehst du deine Aufgabe: Wiederholungen und Übung.
 • Hake sie als erledigt ab oder überspring sie und dreh erneut.
 • Im Verlauf siehst du die Aufgaben, die du in der Einheit geschafft hast.
 • Teile deine Challenge als Bild mit deinen Freunden.
 
-<b>DU BESTIMMST, WAS AUF DEM RAD IST</b>
+<b>Du bestimmst, was auf dem Rad ist</b>
 • Schalte die Übungen, die du willst, ein oder aus.
-• Erstelle eigene Übungen mit Name, Kurzname und Symbol.
+• Erstelle eigene Übungen mit Name und Symbol.
 • Lege für jede Übung den Wiederholungsbereich fest, von einem Minimum bis zu einem Maximum, um den Schwierigkeitsgrad anzupassen.
 • Das Rad passt sich deinen Einstellungen an, die auf deinem Gerät gespeichert werden.
 
-<b>ÜBER 100 SYMBOLE FÜR DEINE ÜBUNGEN</b>
+<b>Über 100 Symbole für deine Übungen</b>
 Wähle mit Suchfunktion aus über 100 Symbolen aus vielen Disziplinen: Kraft und Gewichte, Calisthenics, Cardio, Yoga, Pilates, Tai-Chi, Boxen, Karate und andere Kampfkünste, Functional Fitness, Hindernisläufe, Sport, Wasser und Berge. Mit eigenen Piktogrammen für Liegestütze, Unterarmstütz, Sit-ups, Burpee, Kniebeuge und Mountain Climbers.
 
-<b>IN DEINER SPRACHE</b>
+<b>In deiner Sprache</b>
 العربية, English (USA, Großbritannien und Australien), Español (Spanien und Lateinamerika), Euskara, Galego, Català, Français (Frankreich und Kanada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe und Português (Brasil und Portugal). Die App folgt der Sprache deines Handys, und du kannst sie in den Einstellungen ändern.
 
-<b>PRAKTISCHE DETAILS</b>
+<b>Praktische Details</b>
 • <b>Radgeräusche und Vibration</b>, wenn das Ergebnis erscheint.
-• <b>Dunkles Design</b>, angenehm für die Augen im Fitnessstudio.
+• <b>Zwei Designs</b>, Sanft und Klassisch, auf einem dunklen Layout, angenehm für die Augen im Fitnessstudio.
 • <b>Ohne Registrierung</b> und ohne Benutzerkonten.
 • <b>Ohne Werbung.</b>
 • <b>100 % offline</b>: sie braucht keine Internetverbindung.
 • <b>Keine Tracker</b> und keine unnötigen Cookies, und sie fragt nie nach deinem Standort.
 
-<b>DATENSCHUTZ</b>
+<b>Datenschutz</b>
 GymRoulette funktioniert vollständig offline und erfasst keine Daten: keine Analyse, keine Tracker, keine Werbung und kein Zugriff auf deinen Standort. Deine Einstellungen werden nur auf deinem Gerät gespeichert. Die Datenschutzerklärung findest du in der App.
 
-Dreh das Rad und ab ins Training!
+Dreh das Rad und ab ins Training.

@@ -8,12 +8,19 @@
 //
 //   node scripts/build-legal.mjs          (también lo ejecuta npm run build)
 
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { versionLabel } from '../legal/credits.mjs';
 import { LEGAL_PAGES, LANGUAGE_ORDER, LANGUAGE_NAMES, STEPS_PAGES, RTL_LANGUAGES } from '../legal/index.mjs';
 
 /** Identificador de la aplicación que se muestra en la cabecera de la página de pruebas cerradas. */
 const APP_NAME = 'GymRoulette';
 const APP_PACKAGE = 'eus.jabibi.gymroul';
+
+/** «1.17 (Muted Tones)»: la misma versión que ve Android (major.minor y nombre en clave de package.json). */
+function appVersion() {
+  const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
+  return `${pkg.version.split('.').slice(0, 2).join('.')} (${pkg.versionCodename})`;
+}
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -99,7 +106,11 @@ function renderPage(file, page) {
   const sections = LANGUAGE_ORDER.map(code => {
     const doc = page[code];
     if (!doc) throw new Error(`${file}: falta el idioma ${code}`);
-    const content = STEPS_PAGES.includes(file) ? renderSteps(doc.blocks) : doc.blocks.map(renderBlock).join('\n');
+    // La página de créditos lleva la versión de la app justo bajo el título
+    const blocks = file === 'credits.html'
+      ? doc.blocks.flatMap(b => (b[0] === 'h1' ? [b, ['p', `${versionLabel[code]} <bdi dir="ltr">${esc(appVersion())}</bdi>`]] : [b]))
+      : doc.blocks;
+    const content = STEPS_PAGES.includes(file) ? renderSteps(blocks) : blocks.map(renderBlock).join('\n');
     return `<section lang="${code}"${RTL_LANGUAGES.includes(code) ? ' dir="rtl"' : ''} data-lang="${code}" data-name="${esc(LANGUAGE_NAMES[code])}" data-title="${esc(doc.title)}">\n${content}\n</section>`;
   }).join('\n\n');
   return `<!DOCTYPE html>

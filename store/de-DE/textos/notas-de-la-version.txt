@@ -1,8 +1,8 @@
+Version 1.17 (Muted Tones):
+• Neuer Look: neues Symbol und zwei Designs zur Wahl, Sanft und Klassisch.
+• Einstellungen als Menü: Rad, Darstellung, Sprache, Datenschutz und Danksagungen.
+• Vollständige Übungsnamen auf dem Rad und größere, lesbarere Schrift.
+
 Version 1.16 (Six Pack):
 • Ein übersichtlicherer Verlauf: Jede Übung zeigt ihr Symbol, und eine Zusammenfassung zählt dein Training zusammen.
 • Behoben: Die Wiederholungen standen in jeder Verlaufszeile doppelt.
-
-Version 1.15 (Be Reborn):
-• Neu: Jede Übung hat ihren eigenen Wiederholungsbereich, und die Zahl kommt nach dem Drehen.
-• Ein übersichtlicheres Rad: ein Segment pro Übung.
-• Die Standardübungen erscheinen jetzt in deiner Sprache.

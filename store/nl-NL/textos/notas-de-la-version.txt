@@ -1,8 +1,8 @@
+Versie 1.17 (Muted Tones):
+• Nieuwe look: nieuw pictogram en twee uiterlijken om uit te kiezen, Zacht en Klassiek.
+• Instellingen is nu een menu: rad, uiterlijk, taal, privacy en dankbetuigingen.
+• Volledige oefennamen op het rad en grotere, beter leesbare tekst.
+
 Versie 1.16 (Six Pack):
 • Een overzichtelijker geschiedenis: elke oefening toont zijn pictogram en een samenvatting telt je training op.
 • Opgelost: het aantal herhalingen stond dubbel in elke regel van de geschiedenis.
-
-Versie 1.15 (Be Reborn):
-• Nieuw: elke oefening heeft een eigen bereik van herhalingen, en het aantal komt na het draaien.
-• Een overzichtelijker rad: één vak per oefening.
-• De standaardoefeningen verschijnen nu in je eigen taal.

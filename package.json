@@ -1,8 +1,8 @@
 {
   "name": "gymroul",
-  "version": "1.16.0",
-  "versionCode": 16,
-  "versionCodename": "Six Pack",
+  "version": "1.17.0",
+  "versionCode": 17,
+  "versionCodename": "Muted Tones",
   "description": "GymRoulette: ruleta de ejercicios (web + Android con Capacitor)",
   "main": "index.js",
   "scripts": {

@@ -1,35 +1,35 @@
 Kun je niet kiezen wat je vandaag gaat trainen? Draai aan het rad en laat GymRoulette voor je kiezen.
 
-GymRoulette is een oefeningenrad: elk vak is een oefening, en als je het rad draait, krijg je een willekeurige uitdaging met het bijbehorende aantal herhalingen (bijvoorbeeld “20 Burpee”) om thuis, in de sportschool of buiten te trainen. Gemaakt om variatie in je trainingen te brengen, voor circuits, voor uitdagingen met vrienden en voor iedereen die wil sporten zonder er lang over na te denken.
+GymRoulette is een oefeningenrad: elk vak is een oefening, en als je het rad draait, krijg je een willekeurige oefening met het bijbehorende aantal herhalingen (bijvoorbeeld “20 Burpees”) om thuis, in de sportschool of buiten te trainen. Draai meerdere keren en je hebt elke dag een andere willekeurige workout. Gemaakt om variatie in je trainingen te brengen, voor circuits, voor uitdagingen met vrienden en voor iedereen die wil sporten zonder er lang over na te denken.
 
-<b>ZO WERKT HET</b>
-• Tik op “DRAAI HET RAD!” of geef het rad een zwieper met je vinger.
+<b>Zo werkt het</b>
+• Tik op “Draai het rad” of geef het rad een zwieper met je vinger.
 • Als het stopt, zie je je uitdaging: herhalingen en oefening.
 • Markeer de uitdaging als gedaan of sla hem over en draai opnieuw.
 • Bekijk in de geschiedenis welke uitdagingen je tijdens de sessie hebt voltooid.
 • Deel je uitdaging als afbeelding met vrienden.
 
-<b>JIJ BEPAALT WAT ER OP HET RAD STAAT</b>
+<b>Jij bepaalt wat er op het rad staat</b>
 • Zet de oefeningen die je wilt aan of uit.
-• Maak je eigen oefeningen met een naam, een korte naam en een pictogram.
+• Maak je eigen oefeningen met een naam en een pictogram.
 • Stel per oefening het bereik van herhalingen in, van een minimum tot een maximum, om de moeilijkheid aan te passen.
 • Het rad past zich aan je instellingen aan, die op je apparaat worden bewaard.
 
-<b>MEER DAN 100 PICTOGRAMMEN VOOR JE OEFENINGEN</b>
+<b>Meer dan 100 pictogrammen voor je oefeningen</b>
 Kies met zoekfunctie uit meer dan 100 pictogrammen voor allerlei disciplines: kracht en gewichten, calisthenics, cardio, yoga, pilates, tai chi, boksen, karate en andere vechtsporten, functionele fitness, obstacle runs, sporten, water en bergen. Met onze eigen pictogrammen voor push-ups, plank, sit-ups, burpee, squat en mountain climbers.
 
-<b>IN JOUW TAAL</b>
+<b>In jouw taal</b>
 العربية, English (VS, VK en Australië), Español (Spanje en Latijns-Amerika), Euskara, Galego, Català, Français (Frankrijk en Canada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe en Português (Brazilië en Portugal). De app volgt de taal van je telefoon en je kunt die wijzigen in Instellingen.
 
-<b>FIJNE DETAILS</b>
+<b>Fijne details</b>
 • <b>Radgeluiden en trillingen</b> als de uitslag verschijnt.
-• <b>Een donker ontwerp</b> dat prettig is voor je ogen in de sportschool.
+• <b>Twee uiterlijken</b>, Zacht en Klassiek, op een donker ontwerp dat prettig is voor je ogen in de sportschool.
 • <b>Geen registratie</b> en geen gebruikersaccounts.
 • <b>Geen advertenties.</b>
 • <b>100% offline</b>: je hebt geen internetverbinding nodig.
 • <b>Geen trackers</b> en geen onnodige cookies, en de app vraagt nooit om je locatie.
 
-<b>PRIVACY</b>
+<b>Privacy</b>
 GymRoulette is volledig offline en verzamelt geen gegevens: geen analyse, geen trackers, geen advertenties en geen toegang tot je locatie. Je instellingen worden alleen op je apparaat bewaard. Het privacybeleid kun je in de app lezen.
 
-Draai aan het rad en laten we trainen!
+Draai aan het rad en laten we trainen.

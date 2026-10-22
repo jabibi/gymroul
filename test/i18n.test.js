@@ -14,7 +14,7 @@ const placeholders = text => [...text.matchAll(/\{(\w+)\}/g)].map(m => m[1]).sor
 afterEach(() => setLanguage(DEFAULT_LANGUAGE, { persist: false }));
 
 describe('idiomas disponibles', () => {
-  it('son los dieciocho esperados, por orden alfabético del nombre y con las variantes junto a su idioma', () => {
+  it('son los veinte esperados, por orden alfabético del nombre y con las variantes junto a su idioma', () => {
     expect(codes).toEqual(['ar', 'ca', 'de', 'en', 'en-GB', 'en-AU', 'es', 'es-419', 'eu', 'fr', 'fr-CA', 'gl', 'hi', 'it', 'ja', 'nl', 'pl', 'pt-BR', 'pt-PT', 'tr']);
   });
 });
@@ -102,17 +102,17 @@ describe('traducción', () => {
 
   it('el español de Latinoamérica y el francés de Canadá heredan de su idioma base', () => {
     setLanguage('es', { persist: false });
-    expect(t('config.add')).toBe('Añadir');
+    expect(t('config.addExercise')).toBe('Añadir nuevo ejercicio');
     expect(iconLabel('basketball')).toBe('Baloncesto');
     setLanguage('es-419', { persist: false });
-    expect(t('config.add')).toBe('Agregar');
+    expect(t('config.addExercise')).toBe('Agregar nuevo ejercicio');
     expect(iconLabel('basketball')).toBe('Básquetbol');
     expect(t('config.title')).toBe(DICTIONARIES.es.strings['config.title']);
     setLanguage('fr', { persist: false });
-    expect(t('spin.button')).toBe('LANCER LA ROUE\u202f!');
+    expect(t('spin.button')).toBe('Lancer la roue');
     expect(iconLabel('soccer')).toBe('Football');
     setLanguage('fr-CA', { persist: false });
-    expect(t('spin.button')).toBe('LANCER LA ROUE!');
+    expect(t('spin.button')).toBe(DICTIONARIES.fr.strings['spin.button']);
     expect(iconLabel('soccer')).toBe('Soccer');
     expect(t('config.reps')).toBe(DICTIONARIES.fr.strings['config.reps']);
   });
@@ -200,7 +200,6 @@ describe('compromiso de privacidad', () => {
   it('sustituye al enlace de la política en Configuración', () => {
     expect(html.match(/data-action="open-commitment"/g)).toHaveLength(1);
     expect(html).not.toContain('data-i18n="config.privacy"');
-    expect(html).toContain('fa-shield-halved');
   });
 
   it('resume las cinco prácticas y sigue enlazando la política completa', () => {

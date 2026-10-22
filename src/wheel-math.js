@@ -2,8 +2,8 @@
 // Lógica pura de la ruleta (sin DOM) para poder testearla
 
 /**
- * @typedef {{ id: string, name: string, shortName: string, icon: string, color: string, repsMin: number, repsMax: number }} Exercise
- * @typedef {{ text: string, exercise: string, shortName: string, color: string, icon: string, repsMin: number, repsMax: number }} Segment
+ * @typedef {{ id: string, name: string, icon: string, color: string, repsMin: number, repsMax: number }} Exercise
+ * @typedef {{ text: string, exercise: string, color: string, icon: string, repsMin: number, repsMax: number }} Segment
  * Reto resultante de un giro: el sector ganador con las repeticiones ya tiradas
  * @typedef {Segment & { reps: number }} Challenge
  */
@@ -14,34 +14,32 @@ const TWO_PI = 2 * Math.PI;
 export const CONFIG_SEGMENT = /** @type {Segment} */ ({
   text: 'Configurar',
   exercise: 'Configurar',
-  shortName: 'Config',
   color: '#475569',
   icon: 'dumbbell',
   repsMin: 0,
   repsMax: 0,
 });
 
-/** Nombre y nombre corto tal como están guardados */
-const storedLabels = (/** @type {Exercise} */ ex) => ({ name: ex.name, shortName: ex.shortName || ex.name });
+/** Nombre tal como está guardado */
+const storedName = (/** @type {Exercise} */ ex) => ex.name;
 
 /**
  * Un sector por ejercicio activo; las repeticiones no se ven en la ruleta, salen al terminar el giro.
  * @param {Exercise[]} exercises catálogo completo
  * @param {string[]} activeExercises nombres activos (los guardados)
- * @param {(ex: Exercise) => { name: string, shortName: string }} [labels] nombre y nombre corto que se muestran
+ * @param {(ex: Exercise) => string} [displayName] nombre que se muestra
  * @returns {Segment[]}
  */
-export function generateSegments(exercises, activeExercises, labels = storedLabels) {
+export function generateSegments(exercises, activeExercises, displayName = storedName) {
   const exs = exercises.filter(ex => activeExercises.includes(ex.name));
   if (exs.length === 0) return [CONFIG_SEGMENT];
 
   return exs.map(ex => {
-    const { name, shortName } = labels(ex);
+    const name = displayName(ex);
     return {
-      text: shortName,
+      text: name,
       exercise: name,
-      shortName,
-      color: ex.color || '#f97316',
+      color: ex.color || '#475569',
       icon: ex.icon || 'dumbbell',
       repsMin: ex.repsMin,
       repsMax: ex.repsMax,
@@ -90,6 +88,36 @@ export function fitText(measure, text, maxWidth, maxSize, minSize) {
     else hi = mid - 1;
   }
   return { text: cut(lo), size };
+}
+
+/**
+ * Ajusta la etiqueta de un sector sin bajar de su tamaño mínimo de letra: primero reduce el tamaño hasta el mínimo, después
+ * la parte en dos líneas por un espacio o un guion (si el sector tiene altura) y, si aun así no cabe, la recorta con «…».
+ * La letra nunca se deforma.
+ * @param {(text: string, px: number) => number} measure ancho del texto con ese tamaño de letra
+ * @param {string} text
+ * @param {number} maxWidth ancho disponible
+ * @param {number} maxSize tamaño de letra con el que se empieza
+ * @param {number} minSize tamaño mínimo
+ * @param {number} maxLines líneas que caben en el alto del sector (1 o 2)
+ * @returns {{ lines: string[], size: number }}
+ */
+export function fitLabel(measure, text, maxWidth, maxSize, minSize, maxLines) {
+  const single = fitText(measure, text, maxWidth, maxSize, minSize);
+  if (single.text === text) return { lines: [text], size: single.size };
+
+  if (maxLines >= 2) {
+    // Corte por un espacio (que desaparece) o tras un guion (que se queda en la primera línea), el que deje las dos líneas más parejas
+    let best = null;
+    for (let i = 1; i < text.length - 1; i++) {
+      if (text[i] !== ' ' && text[i] !== '-') continue;
+      const lines = text[i] === ' ' ? [text.slice(0, i), text.slice(i + 1)] : [text.slice(0, i + 1), text.slice(i + 1)];
+      const width = Math.max(...lines.map(line => measure(line, minSize)));
+      if (!best || width < best.width) best = { lines, width };
+    }
+    if (best && best.width <= maxWidth) return { lines: best.lines, size: minSize };
+  }
+  return { lines: [single.text], size: single.size };
 }
 
 /**

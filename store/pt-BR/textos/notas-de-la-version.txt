@@ -1,8 +1,8 @@
+Versão 1.17 (Muted Tones):
+• Novo visual: ícone novo e duas aparências à escolha, Suave e Clássico.
+• As configurações viram um menu: roleta, aparência, idioma, privacidade e créditos.
+• Nomes de exercícios completos na roleta e texto maior e mais legível.
+
 Versão 1.16 (Six Pack):
 • Um histórico mais claro: cada exercício mostra seu ícone e um resumo soma sua sessão.
 • Corrigido o número de repetições repetido em cada linha do histórico.
-
-Versão 1.15 (Be Reborn):
-• Novidade: cada exercício tem seu próprio intervalo de repetições, e o número sai depois do giro.
-• Uma roleta mais limpa: um setor por exercício.
-• Os exercícios padrão agora aparecem no seu idioma.

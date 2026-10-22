@@ -1,1 +1,1 @@
-GymRoulette
+GymRoulette: Roue d'exercices

@@ -1,55 +1,60 @@
 # Solicitud de acceso a producción
 
-Respuestas preparadas para el formulario «Solicitar acceso a producción» de Play Console. Cada respuesta está en inglés y en español, con el mismo contenido: se puede enviar la que se prefiera. Si hay que elegir una sola, el inglés es el idioma que mejor entiende el equipo de revisión.
+Respuestas preparadas para el formulario «Solicitar acceso a producción» de Play Console, con las nueve preguntas tal como aparecen en el formulario. Están solo en español, con un máximo de 300 caracteres por respuesta, y confirmadas una a una.
 
 ## Datos de la prueba cerrada
 - Versión con la que empezó la prueba: 1.0.8, versionCode 8. Durante la prueba se publicaron versiones nuevas con los cambios derivados del feedback de los testers: la 1.15 (Be Reborn, versionCode 15) y la 1.16 (Six Pack, versionCode 16), ya publicada en los dos canales de la prueba cerrada (Alpha y googlegroups). Aún no hay acceso a pruebas abiertas ni a producción.
-- Testers: 16, conseguidos con la app «12 Testers - Testers Community» (Duho Corp).
+- Testers: 15, conseguidos con la app «12 Testers - Testers Community» (Duho Corp). Los grupos de pruebas se forman con 16 miembros, dueño de cada app incluido, y cada miembro prueba las apps del resto, así que cada app la prueban los otros 15.
 - Requisitos de Play: versión de prueba cerrada publicada, al menos 12 testers que aceptaron participar y 14 días de prueba, todos cumplidos.
 
-## 1. ¿Cómo reclutaste a los testers y cómo interactuaron con la app?
+## 1. ¿Cómo reclutaste usuarios para tu prueba cerrada? Por ejemplo, ¿se lo preguntaste a amigos y familiares, o recurriste a algún proveedor de pruebas de pago?
 
-**English**
-> We recruited 16 testers through the "12 Testers - Testers Community" app, a community where developers test each other's apps. The testers installed GymRoulette from the closed-testing link and used it for more than 14 days: spinning the wheel, customising their exercises and repetition ranges, reviewing their history and sharing results. We collected their feedback through the community and used it to improve the app.
+> No usamos amigos, familiares ni proveedores de pago. Reclutamos a 15 testers con la app «12 Testers - Testers Community», una comunidad de desarrolladores que prueban las apps de los demás (grupos de 16 miembros: cada uno prueba las apps del resto). Probaron GymRoulette más de 14 días.
 
-**Español**
-> Reclutamos a 16 testers con la app «12 Testers - Testers Community», una comunidad en la que los desarrolladores prueban las apps de los demás. Los testers instalaron GymRoulette desde el enlace de la prueba cerrada y la usaron durante más de 14 días: giraron la ruleta, personalizaron sus ejercicios y sus rangos de repeticiones, consultaron su historial y compartieron resultados. Recogimos sus comentarios a través de la comunidad y los usamos para mejorar la app.
+## 2. ¿Cómo de fácil te ha resultado reclutar testers para tu aplicación?
 
-## 2. Resume los comentarios recibidos y los cambios que hiciste
+Opción que se selecciona: **Fácil** (Muy difícil, Difícil, Ni difícil ni fácil, **Fácil**, Muy fácil).
 
-**English**
-> Three pieces of tester feedback led to our changes:
-> 1. Default exercises were shown in English regardless of the app language. They are now translated into the user's language (20 languages), while the user's own exercises stay as typed.
-> 2. Testers wanted different repetitions for each exercise and a cleaner wheel. Each exercise now has its own repetition range, and the wheel shows only the exercises; the repetitions are drawn when the spin ends.
-> 3. Native speakers reviewed the translations in context. Testers who are native speakers of Japanese, Arabic, Turkish, English, Polish, Dutch, Portuguese and Spanish sent us feedback on the app in their own language, through Google Play and the testers' community, and we reviewed the Basque translation ourselves as native speakers. For example, a native Japanese tester confirmed that the translated exercise names now appear on the wheel and result card, and pointed out that the short wheel label of one exercise ("Split Jumps") was ambiguous in Japanese, where the short form on its own reads as the leg split rather than a jump. We changed it to the full name in version 1.16, which is already live in our closed-testing channels.
+Si el formulario deja añadir una explicación:
 
-**Español**
-> Tres comentarios de los testers nos llevaron a hacer cambios:
-> 1. Los ejercicios por defecto se mostraban en inglés sea cual fuese el idioma de la app. Ahora se muestran traducidos al idioma del usuario (20 idiomas), y los ejercicios que crea el usuario se quedan como los escribió.
-> 2. Los testers querían repeticiones distintas para cada ejercicio y una ruleta menos recargada. Ahora cada ejercicio tiene su propio rango de repeticiones y la ruleta muestra solo los ejercicios; las repeticiones se sortean al terminar el giro.
-> 3. Hablantes nativos revisaron las traducciones en contexto. Testers nativos de japonés, árabe, turco, inglés, polaco, neerlandés, portugués y español nos enviaron comentarios sobre la app en su idioma, por Google Play y por la comunidad de testers, y la traducción al euskera la revisamos nosotros mismos como hablantes nativos. Por ejemplo, un tester nativo de japonés confirmó que los nombres de ejercicios traducidos ya aparecen en la ruleta y en la tarjeta de resultado, y señaló que el nombre corto de un ejercicio («Split Jumps») era ambiguo en japonés, donde la forma corta por sí sola se lee como la apertura de piernas y no como un salto. Lo cambiamos por el nombre completo en la versión 1.16, que ya está disponible en nuestros canales de prueba cerrada.
+> Fácil. La comunidad formó el grupo por nosotros y todos instalaron la app desde el enlace de la prueba cerrada, sin tener que buscar a las personas una a una.
 
-## 3. ¿Por qué tu app está lista para producción?
+## 3. Describe las interacciones que has recibido de los testers durante la prueba cerrada. Indica si los testers han usado o no todas las funciones de la aplicación y si el uso ha sido coherente con el que esperarías de un usuario real
 
-**English**
-> The app is complete and ready after the closed test. Over the 14+ days of testing, none of our 16 testers reported crashes or freezes; the feedback we received was only suggestions and positive ratings. It requires no account and no Internet permission (only VIBRATE), collects no data and contains no ads. It supports 20 languages, including right-to-left Arabic, and native speakers of nine of those languages (Japanese, Arabic, Turkish, English, Polish, Dutch, Portuguese, Spanish and Basque) have reviewed the translations. Every release passes our CI (type checking, automated tests and release builds). The store listing, privacy policy and data safety declarations are complete.
+> Los testers usaron las funciones principales: giraron la ruleta, personalizaron ejercicios y repeticiones, vieron el historial y compartieron resultados. El uso fue el esperado de un usuario real.
 
-**Español**
-> La app está completa y lista tras la prueba cerrada. Durante los más de 14 días de prueba, ninguno de nuestros 16 testers comunicó cuelgues ni bloqueos; los comentarios que recibimos fueron solo sugerencias y valoraciones positivas. No requiere cuenta ni permiso de Internet (solo VIBRATE), no recoge datos y no contiene anuncios. Está disponible en 20 idiomas, incluido el árabe, que se escribe de derecha a izquierda, y hablantes nativos de nueve de ellos (japonés, árabe, turco, inglés, polaco, neerlandés, portugués, español y euskera) han revisado las traducciones. Cada versión pasa nuestra integración continua (comprobación de tipos, pruebas automáticas y compilaciones de release). La ficha de la tienda, la política de privacidad y las declaraciones de seguridad de los datos están completas.
+## 4. Resume los comentarios que has recibido de los testers e indica cómo los has recogido
+
+> Recogimos los comentarios por Google Play y por la comunidad de testers. Pidieron los ejercicios traducidos, repeticiones propias por ejercicio y una ruleta menos recargada. Un tester japonés señaló que «Split Jumps» era ambiguo; lo corregimos.
+
+## 5. ¿A qué audiencia va dirigida tu aplicación?
+
+> Personas de 16 años en adelante que quieren una forma divertida y aleatoria de elegir su entrenamiento, en el gimnasio o en casa, solas o en grupo, como retos. No hace falta experiencia previa. Disponible en 20 idiomas.
+
+## 6. Describe cómo tu aplicación aporta valor a los usuarios
+
+> Quita la decisión de «qué hago hoy»: se gira la ruleta y sale un ejercicio con repeticiones sorteadas dentro del rango que cada usuario define, adaptado a su nivel. Se puede jugar en grupo, como retos. Sin cuenta, sin anuncios y sin recoger datos.
+
+## 7. ¿Cuántas descargas esperas que tenga tu aplicación durante el primer año?
+
+Opción que se selecciona: **Entre 0 y 10.000** (Entre 0 y 10.000, Entre 10.000 y 100.000, Entre 100.000 y 1 millón, Más de 1 millón, No lo sé).
+
+Es la opción más prudente: no hay publicidad ni inversión en promoción, y el crecimiento previsto es orgánico, por el buscador de la tienda y el boca a boca.
+
+## 8. ¿Qué cambios has realizado en tu aplicación basándote en lo que has aprendido durante tu prueba cerrada?
+
+> Traducimos los ejercicios por defecto, añadimos repeticiones propias por ejercicio y dejamos solo los ejercicios en la ruleta (1.15). Rediseñamos el historial, pedimos confirmación al limpiarlo y corregimos «Split Jumps» en japonés (1.16).
+
+## 9. ¿Cómo decidiste que tu aplicación estaba lista para pasar a producción?
+
+> Completamos los 14 días de prueba con 15 testers, sin cuelgues comunicados y con sus comentarios atendidos en la 1.15 y la 1.16. La ficha, la política de privacidad y la seguridad de los datos están completas, y cada versión pasa las pruebas automáticas.
 
 > Notas para quien envíe el formulario (no van en la respuesta):
-> - Android vitals aún muestra «Datos no disponibles» (pocos usuarios), así que la respuesta no se apoya en esos datos. Confirmado por ti: ningún tester comunicó cuelgues, solo sugerencias y valoraciones positivas.
-> - Confirmado por ti: el tester japonés es nativo y hay revisores nativos de árabe, turco, inglés, polaco, neerlandés, portugués y español, todos con feedback enviado en Play Store o en la app de testers. El euskera lo has revisado tú, que eres hablante: figura como revisión propia del equipo y no como feedback de un tester. El único caso con cambio concreto en la app es el del japonés (reseña de 4 estrellas del 17 oct 2026, OPPO Reno5 A, versión 1.15); en los demás idiomas el texto solo dice que revisaron, sin inventar correcciones. Se describe el caso sin nombrar al usuario.
+> - Las nueve respuestas están confirmadas por ti una a una. La 2 solo con la opción «Fácil»: la explicación opcional la he añadido yo.
+> - Android vitals aún muestra «Datos no disponibles» (pocos usuarios), así que ninguna respuesta se apoya en esos datos. Confirmado por ti: ningún tester comunicó cuelgues, solo sugerencias y valoraciones positivas.
+> - Confirmado por ti: el tester japonés es nativo y hay revisores nativos de árabe, turco, inglés, polaco, neerlandés, portugués y español, todos con feedback enviado en Play Store o en la app de testers. El euskera lo has revisado tú, que eres hablante: figura como revisión propia del equipo y no como feedback de un tester. El único caso con cambio concreto en la app es el del japonés (reseña de 4 estrellas del 17 oct 2026, OPPO Reno5 A, versión 1.15). Se describe el caso sin nombrar al usuario.
+> - El rediseño del historial y la confirmación al limpiarlo (respuesta 8) vienen de lo detectado probando la 1.15 con la app en euskera, no de un comentario concreto de un tester.
 > - La 1.16 (Six Pack) ya está publicada en las pruebas cerradas (Alpha y googlegroups, actualizadas el 18 oct 2026), y el cambio del japonés va en ella. No está en producción: todavía no hay acceso a pruebas abiertas ni a producción.
-> - Cuidado con los límites de caracteres de cada campo del formulario; el español suele ocupar algo más que el inglés.
-
-## 4. Público y uso previsto (si lo preguntan)
-
-**English**
-> People aged 16 and over who want a fun, random way to choose their workout at the gym or at home. We expect organic growth through store search and word of mouth.
-
-**Español**
-> Personas de 16 años en adelante que quieren una forma divertida y aleatoria de elegir su entrenamiento en el gimnasio o en casa. Esperamos un crecimiento orgánico a través del buscador de la tienda y el boca a boca.
 
 ## Qué es Android vitals
-Es un apartado de Play Console con datos de calidad que Google recoge de los dispositivos reales: porcentaje de cierres inesperados (cuelgues) y de aplicación que no responde (ANR). Se encuentra en **Calidad > Android vitals > Resumen** (en algunas cuentas, «Supervisar y mejorar»). Si no aparece ningún dato o los porcentajes son 0 %, no ha habido cuelgues. Con pocos usuarios aparece «Datos no disponibles» (era el caso durante la prueba), y entonces la respuesta 3 no debe apoyarse en esos datos.
+Es un apartado de Play Console con datos de calidad que Google recoge de los dispositivos reales: porcentaje de cierres inesperados (cuelgues) y de aplicación que no responde (ANR). Se encuentra en **Calidad > Android vitals > Resumen** (en algunas cuentas, «Supervisar y mejorar»). Si no aparece ningún dato o los porcentajes son 0 %, no ha habido cuelgues. Con pocos usuarios aparece «Datos no disponibles» (era el caso durante la prueba), y entonces la respuesta 9 no debe apoyarse en esos datos.

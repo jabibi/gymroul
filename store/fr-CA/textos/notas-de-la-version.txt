@@ -1,8 +1,0 @@
-Version 1.16 (Six Pack):
-• Un historique plus clair : chaque exercice affiche son icône, et un résumé additionne ta séance.
-• Correction du nombre de répétitions affiché deux fois dans chaque ligne de l'historique.
-
-Version 1.15 (Be Reborn):
-• Nouveau : chaque exercice a sa propre plage de répétitions, et le nombre sort après le tour.
-• Une roue plus claire : un secteur par exercice.
-• Les exercices par défaut s'affichent maintenant dans ta langue.
