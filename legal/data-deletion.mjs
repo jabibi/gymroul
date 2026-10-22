@@ -28,7 +28,7 @@ export default {
 
       ['h2', '3. What is deleted and what is kept'],
       ['table', ['Data', 'What happens', 'Time frame'], [
-        ['Wheel settings (on your device)', 'Deleted when you clear data or uninstall', 'Immediate'],
+        ['Wheel settings and preferences (on your device)', 'Deleted when you clear data or uninstall', 'Immediate'],
         ['Installation identifier, device data, approximate location and usage events (Google Analytics, earlier versions only)', 'Deleted on your request when they can be located; otherwise deleted automatically', 'Reply within one month; 14-month maximum retention'],
         ['Copy of your email and request', 'Kept only as long as needed to handle the request and prove it was handled', 'Up to 12 months after it is resolved'],
       ]],
@@ -62,7 +62,7 @@ export default {
 
       ['h2', '3. Qué se elimina y qué se conserva'],
       ['table', ['Datos', 'Qué ocurre', 'Plazo'], [
-        ['Configuración de la ruleta (en tu dispositivo)', 'Se elimina al borrar los datos o desinstalar', 'Inmediato'],
+        ['Configuración de la ruleta y preferencias (en tu dispositivo)', 'Se elimina al borrar los datos o desinstalar', 'Inmediato'],
         ['Identificador de instalación, datos del dispositivo, ubicación aproximada y eventos de uso (Google Analytics, solo versiones anteriores)', 'Se eliminan a petición tuya cuando se puedan localizar; si no, se eliminan automáticamente', 'Respuesta en un mes; retención máxima de 14 meses'],
         ['Copia de tu correo y solicitud', 'Se conservan solo el tiempo necesario para atender la solicitud y acreditar su cumplimiento', 'Hasta 12 meses tras resolverla'],
       ]],
@@ -96,7 +96,7 @@ export default {
 
       ['h2', '3. Zer ezabatzen den eta zer gordetzen den'],
       ['table', ['Datuak', 'Zer gertatzen da', 'Epea'], [
-        ['Gurpilaren konfigurazioa (zure gailuan)', 'Datuak garbitzean edo desinstalatzean ezabatzen da', 'Berehala'],
+        ['Gurpilaren konfigurazioa eta hobespenak (zure gailuan)', 'Datuak garbitzean edo desinstalatzean ezabatzen da', 'Berehala'],
         ['Instalazioaren identifikatzailea, gailuaren datuak, gutxi gorabeherako kokapena eta erabilera-gertaerak (Google Analytics, aurreko bertsioetan soilik)', 'Zuk eskatuta ezabatzen dira aurkitu ahal direnean; bestela, automatikoki ezabatzen dira', 'Erantzuna hilabete batean; gehienez 14 hilabeteko atxikitzea'],
         ['Zure posta elektronikoaren eta eskaeraren kopia', 'Eskaera bideratzeko eta bete dela frogatzeko behar den denboran soilik gordetzen dira', 'Ebatzi eta 12 hilabetera arte'],
       ]],
@@ -130,7 +130,7 @@ export default {
 
       ['h2', '3. Que se elimina e que se conserva'],
       ['table', ['Datos', 'Que ocorre', 'Prazo'], [
-        ['Configuración da ruleta (no teu dispositivo)', 'Elimínase ao borrar os datos ou desinstalar', 'Inmediato'],
+        ['Configuración da ruleta e preferencias (no teu dispositivo)', 'Elimínase ao borrar os datos ou desinstalar', 'Inmediato'],
         ['Identificador de instalación, datos do dispositivo, localización aproximada e eventos de uso (Google Analytics, só versións anteriores)', 'Elimínanse a petición túa cando se poidan localizar; se non, elimínanse automaticamente', 'Resposta nun mes; retención máxima de 14 meses'],
         ['Copia do teu correo e solicitude', 'Consérvanse só o tempo necesario para atender a solicitude e acreditar o seu cumprimento', 'Ata 12 meses despois de resolvela'],
       ]],
@@ -164,7 +164,7 @@ export default {
 
       ['h2', '3. Què s\'elimina i què es conserva'],
       ['table', ['Dades', 'Què passa', 'Termini'], [
-        ['Configuració de la ruleta (al teu dispositiu)', 'S\'elimina en esborrar les dades o desinstal·lar', 'Immediat'],
+        ['Configuració de la ruleta i preferències (al teu dispositiu)', 'S\'elimina en esborrar les dades o desinstal·lar', 'Immediat'],
         ['Identificador d\'instal·lació, dades del dispositiu, ubicació aproximada i esdeveniments d\'ús (Google Analytics, només versions anteriors)', 'S\'eliminen a petició teva quan es puguin localitzar; si no, s\'eliminen automàticament', 'Resposta en un mes; retenció màxima de 14 mesos'],
         ['Còpia del teu correu i sol·licitud', 'Es conserven només el temps necessari per atendre la sol·licitud i acreditar-ne el compliment', 'Fins a 12 mesos després de resoldre-la'],
       ]],
@@ -198,7 +198,7 @@ export default {
 
       ['h2', '3. Ce qui est supprimé et ce qui est conservé'],
       ['table', ['Données', 'Ce qui se passe', 'Délai'], [
-        ['Configuration de la roue (sur ton appareil)', 'Supprimée lorsque tu effaces les données ou désinstalles l\'application', 'Immédiat'],
+        ['Configuration de la roue et préférences (sur ton appareil)', 'Supprimée lorsque tu effaces les données ou désinstalles l\'application', 'Immédiat'],
         ['Identifiant d\'installation, données de l\'appareil, localisation approximative et événements d\'utilisation (Google Analytics, versions précédentes uniquement)', 'Supprimés à ta demande lorsqu\'ils peuvent être localisés ; sinon, supprimés automatiquement', 'Réponse sous un mois ; conservation maximale de 14 mois'],
         ['Copie de ton e-mail et de la demande', 'Conservées uniquement le temps nécessaire pour traiter la demande et prouver qu\'elle a été traitée', 'Jusqu\'à 12 mois après sa résolution'],
       ]],
@@ -232,7 +232,7 @@ export default {
 
       ['h2', '3. O que é excluído e o que é mantido'],
       ['table', ['Dados', 'O que acontece', 'Prazo'], [
-        ['Configuração da roleta (no seu dispositivo)', 'Excluída ao limpar os dados ou desinstalar', 'Imediato'],
+        ['Configuração da roleta e preferências (no seu dispositivo)', 'Excluída ao limpar os dados ou desinstalar', 'Imediato'],
         ['Identificador de instalação, dados do dispositivo, localização aproximada e eventos de uso (Google Analytics, somente versões anteriores)', 'Excluídos a seu pedido quando puderem ser localizados; caso contrário, excluídos automaticamente', 'Resposta em um mês; retenção máxima de 14 meses'],
         ['Cópia do seu e-mail e da solicitação', 'Mantidas apenas pelo tempo necessário para atender à solicitação e comprovar seu cumprimento', 'Até 12 meses após a resolução'],
       ]],
@@ -266,7 +266,7 @@ export default {
 
       ['h2', '3. O que é eliminado e o que é conservado'],
       ['table', ['Dados', 'O que acontece', 'Prazo'], [
-        ['Configuração da roleta (no teu dispositivo)', 'Eliminada ao limpar os dados ou desinstalar', 'Imediato'],
+        ['Configuração da roleta e preferências (no teu dispositivo)', 'Eliminada ao limpar os dados ou desinstalar', 'Imediato'],
         ['Identificador de instalação, dados do dispositivo, localização aproximada e eventos de utilização (Google Analytics, apenas versões anteriores)', 'Eliminados a teu pedido quando for possível localizá-los; caso contrário, eliminados automaticamente', 'Resposta num mês; retenção máxima de 14 meses'],
         ['Cópia do teu e-mail e do pedido', 'Conservadas apenas pelo tempo necessário para tratar o pedido e comprovar o seu cumprimento', 'Até 12 meses após a resolução'],
       ]],
@@ -300,7 +300,7 @@ export default {
 
       ['h2', '3. Was gelöscht und was aufbewahrt wird'],
       ['table', ['Daten', 'Was passiert', 'Frist'], [
-        ['Einstellungen des Rads (auf deinem Gerät)', 'Werden beim Löschen der Daten oder Deinstallieren gelöscht', 'Sofort'],
+        ['Einstellungen des Rads und Präferenzen (auf deinem Gerät)', 'Werden beim Löschen der Daten oder Deinstallieren gelöscht', 'Sofort'],
         ['Installationskennung, Gerätedaten, ungefährer Standort und Nutzungsereignisse (Google Analytics, nur frühere Versionen)', 'Werden auf deinen Antrag gelöscht, wenn sie sich auffinden lassen; andernfalls automatisch gelöscht', 'Antwort innerhalb eines Monats; maximale Speicherdauer von 14 Monaten'],
         ['Kopie deiner E-Mail und deines Antrags', 'Werden nur so lange aufbewahrt, wie nötig, um den Antrag zu bearbeiten und die Bearbeitung nachzuweisen', 'Bis zu 12 Monate nach Abschluss'],
       ]],
@@ -334,7 +334,7 @@ export default {
 
       ['h2', '3. Cosa viene eliminato e cosa viene conservato'],
       ['table', ['Dati', 'Cosa succede', 'Tempi'], [
-        ['Impostazioni della ruota (sul tuo dispositivo)', 'Eliminate quando cancelli i dati o disinstalli l\'app', 'Immediato'],
+        ['Impostazioni della ruota e preferenze (sul tuo dispositivo)', 'Eliminate quando cancelli i dati o disinstalli l\'app', 'Immediato'],
         ['Identificatore di installazione, dati del dispositivo, posizione approssimativa ed eventi di utilizzo (Google Analytics, solo versioni precedenti)', 'Eliminati su tua richiesta quando è possibile individuarli; altrimenti eliminati automaticamente', 'Risposta entro un mese; conservazione massima di 14 mesi'],
         ['Copia della tua e-mail e della richiesta', 'Conservate solo per il tempo necessario a gestire la richiesta e dimostrare che è stata gestita', 'Fino a 12 mesi dopo la sua risoluzione'],
       ]],
@@ -367,7 +367,7 @@ export default {
 
       ['h2', '3. Co jest usuwane, a co przechowywane'],
       ['table', ['Dane', 'Co się dzieje', 'Termin'], [
-        ['Ustawienia koła (na urządzeniu Użytkownika)', 'Usuwane po wyczyszczeniu danych lub odinstalowaniu', 'Natychmiast'],
+        ['Ustawienia koła i preferencje (na urządzeniu Użytkownika)', 'Usuwane po wyczyszczeniu danych lub odinstalowaniu', 'Natychmiast'],
         ['Identyfikator instalacji, dane urządzenia, przybliżona lokalizacja i zdarzenia użytkowania (Google Analytics, tylko wcześniejsze wersje)', 'Usuwane na wniosek, jeśli można je odnaleźć; w przeciwnym razie usuwane automatycznie', 'Odpowiedź w ciągu miesiąca; maksymalny okres przechowywania 14 miesięcy'],
         ['Kopia wiadomości e-mail i wniosku', 'Przechowywana tylko tak długo, jak to konieczne do rozpatrzenia wniosku i udowodnienia jego rozpatrzenia', 'Do 12 miesięcy po jego rozstrzygnięciu'],
       ]],
@@ -401,7 +401,7 @@ export default {
 
       ['h2', '3. ما يُحذف وما يُحتفظ به'],
       ['table', ['البيانات', 'ما الذي يحدث', 'المدة'], [
-        ['إعدادات العجلة (على جهازك)', 'تُحذف عند مسح البيانات أو إلغاء التثبيت', 'فوري'],
+        ['إعدادات العجلة والتفضيلات (على جهازك)', 'تُحذف عند مسح البيانات أو إلغاء التثبيت', 'فوري'],
         ['معرّف التثبيت وبيانات الجهاز والموقع التقريبي وأحداث الاستخدام (Google Analytics، الإصدارات السابقة فقط)', 'تُحذف بناءً على طلبك متى أمكن تحديدها، وإلا فتُحذف تلقائيًا', 'الرد خلال شهر؛ ومدة الاحتفاظ القصوى 14 شهرًا'],
         ['نسخة من رسالتك البريدية وطلبك', 'يُحتفظ بها فقط للمدة اللازمة لمعالجة الطلب وإثبات تنفيذه', 'حتى 12 شهرًا بعد البتّ فيه'],
       ]],
@@ -435,7 +435,7 @@ export default {
 
       ['h2', '3. क्या मिटाया जाता है और क्या रखा जाता है'],
       ['table', ['डेटा', 'क्या होता है', 'समय-सीमा'], [
-        ['चक्र की सेटिंग (आपके डिवाइस पर)', 'डेटा साफ़ करने या अनइंस्टॉल करने पर मिट जाती है', 'तुरंत'],
+        ['चक्र की सेटिंग और पसंद (आपके डिवाइस पर)', 'डेटा साफ़ करने या अनइंस्टॉल करने पर मिट जाती है', 'तुरंत'],
         ['इंस्टॉलेशन पहचानकर्ता, डिवाइस डेटा, अनुमानित लोकेशन और उपयोग की घटनाएँ (Google Analytics, केवल पुराने संस्करण)', 'अनुरोध पर मिटाया जाता है यदि मिल जाए; अन्यथा अपने-आप मिट जाता है', 'एक महीने के भीतर उत्तर; अधिकतम 14 महीने तक रखा जाता है'],
         ['आपके ईमेल और अनुरोध की प्रति', 'केवल उतने समय रखी जाती है जितना अनुरोध निपटाने और यह साबित करने के लिए ज़रूरी है कि वह निपटाया गया', 'निपटारे के बाद अधिकतम 12 महीने तक'],
       ]],
@@ -469,7 +469,7 @@ export default {
 
       ['h2', '3. Nelerin silindiği ve nelerin saklandığı'],
       ['table', ['Veri', 'Ne olur', 'Süre'], [
-        ['Çark ayarları (cihazınızda)', 'Verileri temizlediğinizde veya uygulamayı kaldırdığınızda silinir', 'Anında'],
+        ['Çark ayarları ve tercihler (cihazınızda)', 'Verileri temizlediğinizde veya uygulamayı kaldırdığınızda silinir', 'Anında'],
         ['Kurulum tanımlayıcısı, cihaz verileri, yaklaşık konum ve kullanım olayları (Google Analytics, yalnızca önceki sürümler)', 'Bulunabiliyorsa talebiniz üzerine silinir; aksi halde otomatik olarak silinir', 'Bir ay içinde yanıt; en fazla 14 ay saklama'],
         ['E-postanızın ve talebinizin kopyası', 'Yalnızca talebi işleme almak ve işleme alındığını kanıtlamak için gereken süre boyunca saklanır', 'Çözüldükten sonra en fazla 12 ay'],
       ]],
@@ -503,7 +503,7 @@ export default {
 
       ['h2', '3. Wat wordt verwijderd en wat blijft bewaard'],
       ['table', ['Gegevens', 'Wat er gebeurt', 'Termijn'], [
-        ['Instellingen van het rad (op je apparaat)', 'Verwijderd zodra je de gegevens wist of de app verwijdert', 'Direct'],
+        ['Instellingen van het rad en voorkeuren (op je apparaat)', 'Verwijderd zodra je de gegevens wist of de app verwijdert', 'Direct'],
         ['Installatie-identificatiecode, apparaatgegevens, geschatte locatie en gebruiksgebeurtenissen (Google Analytics, alleen eerdere versies)', 'Op jouw verzoek verwijderd als ze te vinden zijn; anders automatisch verwijderd', 'Antwoord binnen een maand; maximale bewaartermijn van 14 maanden'],
         ['Kopie van je e-mail en verzoek', 'Alleen bewaard zolang nodig is om het verzoek af te handelen en aan te tonen dat dit is gebeurd', 'Tot 12 maanden nadat het is afgehandeld'],
       ]],
@@ -537,7 +537,7 @@ export default {
 
       ['h2', '3. 削除されるものと保持されるもの'],
       ['table', ['データ', '対応', '期間'], [
-        ['ルーレットの設定（端末内）', 'データの消去またはアンインストールで削除', '即時'],
+        ['ルーレットの設定と環境設定（端末内）', 'データの消去またはアンインストールで削除', '即時'],
         ['インストール識別子、端末データ、おおよその位置情報、利用イベント（Google Analytics、以前のバージョンのみ）', '特定できる場合はご依頼に応じて削除、特定できない場合は自動的に削除', '1か月以内に返信、保存期間は最長14か月'],
         ['お客様のメールとご依頼の控え', '依頼の対応と、対応したことの証明に必要な期間のみ保持', '解決後最長12か月'],
       ]],

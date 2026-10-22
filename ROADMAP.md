@@ -47,6 +47,8 @@ Va en la rama `roadmap-17` (PR #24) y no está publicada. Incluye:
 - **Corrección**: Atrás en el visor de documentos mostraba el documento anterior.
 - **Ficha de Play**: título «GymRoulette: …» y descripción breve nuevos, pensados para la búsqueda («ruleta de ejercicios», «ejercicio aleatorio», «rutinas aleatorias»), y novedades de la 1.17 en los 16 idiomas con ficha (`en-GB`, `en-AU`, `es-419` y `fr-CA` no tienen ficha propia). Capturas, gráficos, textos y CSV regenerados con `npm run store`.
 
+La ficha de `pt-PT` se queda como está: decisión congelada, no se toca ni a corto ni a medio plazo.
+
 Antes de publicar: pasar la CI del Android (PR #24), probar en dispositivo, y subir el icono, los textos, el CSV y las imágenes de `store/` en Play Console.
 
 Los puntos de diseño que quedaron por revisar tras estos cambios (distribución, textos, apariencia) están en [`PENDIENTE-DISENO.md`](PENDIENTE-DISENO.md).
