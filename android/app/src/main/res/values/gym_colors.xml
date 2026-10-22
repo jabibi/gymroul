@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fondo de la app en modo claro del sistema (el de la apariencia Claro); values-night tiene el oscuro -->
+    <color name="gym_background">#FAFAF9</color>
+</resources>

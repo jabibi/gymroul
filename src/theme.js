@@ -4,11 +4,11 @@
 // Lo que se elige en Ajustes son esas tres más «system»: sigue al sistema (Oscuro si el dispositivo está en modo oscuro y
 // Claro si está en modo claro). Clásico nunca se aplica solo.
 // El tema se aplica con data-theme en <html>: las variables --brand-* y demás colores de src/style.css cambian solos.
-// Los colores de los ejercicios se guardan siempre con la paleta de «calm» (COLOR_PALETTE); con «classic» se
-// sustituyen al mostrarlos por el de la misma posición en CLASSIC_COLOR_PALETTE, así cambiar de apariencia no toca los datos.
+// Los colores de los ejercicios se guardan siempre con la paleta de «calm» (COLOR_PALETTE); con «classic» y «light» se
+// sustituyen al mostrarlos por el de la misma posición en CLASSIC_COLOR_PALETTE o LIGHT_COLOR_PALETTE, así cambiar de apariencia no toca los datos.
 
 import { Capacitor, SystemBars } from '@capacitor/core';
-import { COLOR_PALETTE, CLASSIC_COLOR_PALETTE, readStorage, writeStorage } from './store.js';
+import { COLOR_PALETTE, CLASSIC_COLOR_PALETTE, LIGHT_COLOR_PALETTE, readStorage, writeStorage } from './store.js';
 
 /** Apariencias que se ven. */
 export const THEMES = /** @type {const} */ (['calm', 'light', 'classic']);
@@ -18,7 +18,7 @@ export const THEME_CHOICES = /** @type {const} */ (['system', 'calm', 'light', '
 /** @typedef {typeof THEME_CHOICES[number]} ThemeChoice */
 /** Color de marca de cada apariencia (el mismo de --brand-500 en src/style.css), para las vistas previas */
 export const THEME_BRAND = /** @type {Record<Theme, string>} */ ({ calm: '#10b981', light: '#10b981', classic: '#22c55e' });
-export const DEFAULT_THEME = /** @type {ThemeChoice} */ ('calm');
+export const DEFAULT_THEME = /** @type {ThemeChoice} */ ('system');
 
 const KEY_THEME = 'gym_theme';
 
@@ -76,7 +76,8 @@ export function setTheme(next) {
  * @param {Theme} [theme]
  */
 export function themeColor(color, theme = getTheme()) {
-  if (theme !== 'classic') return color;
+  if (theme === 'calm') return color;
   const i = COLOR_PALETTE.indexOf(color);
-  return i === -1 ? color : CLASSIC_COLOR_PALETTE[i];
+  if (i === -1) return color;
+  return (theme === 'classic' ? CLASSIC_COLOR_PALETTE : LIGHT_COLOR_PALETTE)[i];
 }

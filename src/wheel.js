@@ -17,6 +17,11 @@ let brandColor = '#10b981';
 /** Separación entre sectores y aro exterior: salen de las variables CSS de la apariencia (--wheel-line y --wheel-ring) */
 let lineColor = '#020617';
 let ringColor = '#1e293b';
+/** Etiquetas (color y sombra), velo sobre los sectores no activos y color del sector «Editar» de la ruleta vacía: también salen de las variables CSS */
+let labelColor = '#ffffff';
+let labelShadow = 'rgba(0, 0, 0, 0.9)';
+let veilColor = 'rgba(2, 6, 23, 0.34)';
+let configColor = '#475569';
 
 /** @type {HTMLCanvasElement} */ let canvas;
 /** @type {CanvasRenderingContext2D} */ let ctx;
@@ -105,7 +110,7 @@ function buildCache() {
     c.moveTo(0, 0);
     c.arc(0, 0, radius, start, end);
     c.closePath();
-    c.fillStyle = segments[i].color;
+    c.fillStyle = segments[i] === CONFIG_SEGMENT ? configColor : segments[i].color;
     c.fill();
     c.lineWidth = 1.5;
     c.strokeStyle = lineColor;
@@ -115,8 +120,8 @@ function buildCache() {
     l.rotate(start + slice / 2);
     l.textAlign = 'right';
     l.textBaseline = 'middle';
-    l.fillStyle = '#ffffff';
-    l.shadowColor = 'rgba(0, 0, 0, 0.9)';
+    l.fillStyle = labelColor;
+    l.shadowColor = labelShadow;
     l.shadowBlur = 4;
     const label = segments[i] === CONFIG_SEGMENT
       ? t('wheel.setup')
@@ -162,7 +167,7 @@ function draw() {
     ctx.moveTo(0, 0);
     ctx.arc(0, 0, radius, (activeIndex + 1) * slice, (activeIndex + total) * slice);
     ctx.closePath();
-    ctx.fillStyle = 'rgba(2, 6, 23, 0.34)';
+    ctx.fillStyle = veilColor;
     ctx.fill();
   }
   ctx.drawImage(/** @type {HTMLCanvasElement} */ (labelCache), -center, -center, wheelSize, wheelSize);
@@ -316,6 +321,10 @@ function readBrandColor() {
   if (channels) brandColor = `rgb(${channels.split(/\s+/).join(',')})`;
   lineColor = css.getPropertyValue('--wheel-line').trim() || lineColor;
   ringColor = css.getPropertyValue('--wheel-ring').trim() || ringColor;
+  labelColor = css.getPropertyValue('--wheel-label').trim() || labelColor;
+  labelShadow = css.getPropertyValue('--wheel-label-shadow').trim() || labelShadow;
+  veilColor = css.getPropertyValue('--wheel-veil').trim() || veilColor;
+  configColor = css.getPropertyValue('--wheel-config').trim() || configColor;
 }
 
 /** Vuelve a leer el color de marca y repinta la ruleta (al cambiar de apariencia). */

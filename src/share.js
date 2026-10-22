@@ -32,7 +32,7 @@ const FONT = "'Plus Jakarta Sans', 'Manrope', 'Noto Sans Arabic', 'Noto Sans JP'
  */
 export const CARD_THEMES = {
   calm: { bg: '#060D1B', brand: '16, 185, 129', brandText: '#34D399', button: '#10B981', buttonText: '#020617', title: '#FFFFFF', muted: '#94A3B8', logo: 'logo-mark.svg' },
-  light: { bg: '#F8FAFC', brand: '16, 185, 129', brandText: '#047857', button: '#10B981', buttonText: '#020617', title: '#0F172A', muted: '#475569', logo: 'logo-light.svg' },
+  light: { bg: '#FAFAF9', brand: '16, 185, 129', brandText: '#047857', button: '#10B981', buttonText: '#020617', title: '#1C1917', muted: '#57534E', logo: 'logo-light.svg' },
   classic: { bg: '#060D1B', brand: '34, 197, 94', brandText: '#4ADE80', button: '#22C55E', buttonText: '#020617', title: '#FFFFFF', muted: '#94A3B8', logo: 'logo-classic.svg' },
 };
 

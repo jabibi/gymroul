@@ -11,7 +11,7 @@
 //   - icon-foreground.png      solo la ruleta, con la circunferencia centrada, sobre transparente (icono
 //                              adaptativo; Android lo reduce al 66 % dentro de la zona segura)
 //   - icon-background.png      solo el degradado de fondo (icono adaptativo)
-//   - splash.png               ruleta sobre el fondo oscuro de la app
+//   - splash.png / splash-dark.png   pantalla de arranque, clara y oscura (Android elige según el modo del sistema)
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 import sharp from 'sharp';
@@ -35,12 +35,12 @@ const DEFS = `<defs>
 
 // La ruleta completa (sectores alternos, aro con brillo neón verde y mancuerna central), centrada en 256,256 con radio 190.
 // La variante clara (tema Claro) usa un verde más oscuro y la mancuerna oscura, sin brillo, para leerse sobre fondo claro.
-const wheelShapes = ({ green = '#10B981', dumbbell = '#FFFFFF', ringGlow = 'url(#neon)', dumbbellGlow = 'url(#soft)' } = {}) => `
-  <g opacity="0.2" fill="${green}">
-    <path d="M256,66 A190,190 0 0,1 390.35,121.65 L337.28,174.72 A115,115 0 0,0 256,141 Z"/>
-    <path d="M446,256 A190,190 0 0,1 390.35,390.35 L337.28,337.28 A115,115 0 0,0 371,256 Z"/>
-    <path d="M256,446 A190,190 0 0,1 121.65,390.35 L174.72,337.28 A115,115 0 0,0 256,371 Z"/>
-    <path d="M66,256 A190,190 0 0,1 121.65,121.65 L174.72,174.72 A115,115 0 0,0 141,256 Z"/>
+const wheelShapes = ({ green = '#10B981', dumbbell = '#FFFFFF', ringGlow = 'url(#neon)', dumbbellGlow = 'url(#soft)', sectors = null } = {}) => `
+  <g opacity="${sectors ? 1 : 0.2}" fill="${green}">
+    <path${sectors ? ` fill="${sectors[0]}"` : ''} d="M256,66 A190,190 0 0,1 390.35,121.65 L337.28,174.72 A115,115 0 0,0 256,141 Z"/>
+    <path${sectors ? ` fill="${sectors[1]}"` : ''} d="M446,256 A190,190 0 0,1 390.35,390.35 L337.28,337.28 A115,115 0 0,0 371,256 Z"/>
+    <path${sectors ? ` fill="${sectors[2]}"` : ''} d="M256,446 A190,190 0 0,1 121.65,390.35 L174.72,337.28 A115,115 0 0,0 256,371 Z"/>
+    <path${sectors ? ` fill="${sectors[3]}"` : ''} d="M66,256 A190,190 0 0,1 121.65,121.65 L174.72,174.72 A115,115 0 0,0 141,256 Z"/>
   </g>
   <g filter="${ringGlow}" stroke="${green}" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <circle cx="256" cy="256" r="190" opacity="0.95"/>
@@ -63,7 +63,8 @@ const wheelShapes = ({ green = '#10B981', dumbbell = '#FFFFFF', ringGlow = 'url(
   </g>`;
 
 const WHEEL = wheelShapes();
-const WHEEL_LIGHT = wheelShapes({ green: '#047857', dumbbell: '#0F172A', ringGlow: 'none', dumbbellGlow: 'none' });
+// Ruleta clara: sectores en los tonos cálidos pastel de la apariencia Claro (LIGHT_COLOR_PALETTE), aro esmeralda oscuro y mancuerna oscura
+const WHEEL_LIGHT = wheelShapes({ green: '#047857', dumbbell: '#1C1917', ringGlow: 'none', dumbbellGlow: 'none', sectors: ['#fdba74', '#fde68a', '#fda4af', '#a7d8b4'] });
 
 const svg = (body, { bg = '', size = 512, extra = '' } = {}) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="${size}" height="${size}">${DEFS}${bg}${extra}${body}</svg>`;
@@ -98,12 +99,14 @@ await Promise.all([
   png('icon-background', outputs.background, 1024),
 ]);
 
-// Pantalla de bienvenida: la ruleta (sin fondo propio) centrada sobre el fondo oscuro de la app
+// Pantalla de arranque de Android: capacitor-assets usa splash.png con el modo claro del sistema y splash-dark.png con el
+// oscuro (carpetas drawable-night). Claro: la ruleta clara sobre el fondo cálido de la apariencia Claro; oscuro: la de siempre.
 const splashSize = 2732;
 const wheelPx = 760;
-const wheelBuf = await sharp(Buffer.from(outputs.wheelOnly), { density: 300 }).resize(wheelPx, wheelPx).png().toBuffer();
-for (const name of ['splash', 'splash-dark']) {
-  await sharp({ create: { width: splashSize, height: splashSize, channels: 4, background: APP_BG } })
+const LIGHT_BG = '#FAFAF9';
+for (const [name, source, background] of [['splash', outputs.wheelLight, LIGHT_BG], ['splash-dark', outputs.wheelOnly, APP_BG]]) {
+  const wheelBuf = await sharp(Buffer.from(source), { density: 300 }).resize(wheelPx, wheelPx).png().toBuffer();
+  await sharp({ create: { width: splashSize, height: splashSize, channels: 4, background } })
     .composite([{ input: wheelBuf, gravity: 'center' }])
     .png()
     .toFile(`assets/${name}.png`);

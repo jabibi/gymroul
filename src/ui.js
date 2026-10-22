@@ -611,10 +611,11 @@ export function renderSettings() {
 export function renderWhatsNew() {
   $('whatsNewTitle').textContent = t('whatsnew.title', { version: WHATS_NEW_VERSION });
   // Los nombres salen de los mismos textos que Ajustes: lo que dice el aviso es siempre lo que se verá en pantalla
+  const options = new Intl.ListFormat(getLanguageTag(), { style: 'long', type: 'disjunction' }).format(THEME_CHOICES.map(c => t(THEME_NAME_KEYS[c])));
   $('whatsNewClassicText').textContent = t('whatsnew.classicText', {
     settings: t('settings.title'),
     appearance: t('settings.appearance'),
-    classic: t('appearance.classic'),
+    options,
   });
 }
 
