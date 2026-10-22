@@ -1,6 +1,6 @@
 Sen ganas de decidir que adestrar hoxe? Xira a ruleta e deixa que GymRoulette escolla por ti.
 
-GymRoulette é unha ruleta de exercicios: cada sector é un exercicio e, ao xirala, proponche un exercicio aleatorio co seu número de repeticións (por exemplo, «20 Burpee») para adestrar na casa, no ximnasio ou ao aire libre. Xira varias veces e terás cada día unha rutina aleatoria diferente. Pensada para darlle variedade ás túas sesións, para circuítos, para retos con amizades e para quen quere adestrar sen complicarse.
+GymRoulette é unha ruleta de exercicios: cada sector é un exercicio e, ao xirala, proponche un exercicio aleatorio co seu número de repeticións (por exemplo, «20 Burpees») para adestrar na casa, no ximnasio ou ao aire libre. Xira varias veces e terás cada día unha rutina aleatoria diferente. Pensada para darlle variedade ás túas sesións, para circuítos, para retos con amizades e para quen quere adestrar sen complicarse.
 
 <b>Como funciona</b>
 • Preme “Xirar a ruleta” ou lanza a ruleta co dedo.

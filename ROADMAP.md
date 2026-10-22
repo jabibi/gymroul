@@ -32,34 +32,32 @@ Solicitud enviada el 18 oct 2026 a las 21:53, con 15 testers y la 1.16 en las pr
 
 ## En desarrollo: versión 1.17 «Muted Tones» (versionCode 17)
 
-Va en la rama `roadmap-17` y no está publicada. Incluye:
-- **Ajustes como menú**: configurar ruleta, apariencia, idioma, compromiso de privacidad y créditos.
+Va en la rama `roadmap-17` (PR #24) y no está publicada. Incluye:
+- **Ajustes como menú**: editar ruleta, apariencia, idioma y, abajo, «Privacidad» (resumen del compromiso) y «Acerca de» (créditos y versión). Cabecera común con Historial y el compromiso de privacidad, y paneles inferiores que llegan al borde de abajo (la barra de gestos de Android queda sobre el panel).
 - **Dos apariencias**: Suave (la nueva, por defecto) y Clásico (la original, con colores vivos y verde intenso).
 - **Logo e icono nuevos**, más sobrios, y barras del sistema de Android con el color de la app.
 - **Ruleta más grande**, con el nombre completo de cada ejercicio (el nombre corto desaparece), letra de 12 px como mínimo y textos de lectura a 14 px.
+- **Editor de la ruleta más compacto**: una línea por ejercicio, la lista se desplaza dentro de su tarjeta, «Añadir nuevo ejercicio» siempre visible y en una ventana aparte, y la ayuda tras un botón (?). Ejercicios por orden alfabético del idioma activo (editor y ruleta).
+- **Historial en un recuadro redondeado**, con una fila por ejercicio.
+- **Botón «Guardar»** fijo abajo en Apariencia e Idioma.
+- **Más difícil equivocarse**: tocar fuera de un panel ya no lo cierra, y Historial y Ajustes no se abren mientras la ruleta gira (el resultado aparecía debajo del panel).
 - **Aviso de novedades al abrir la app** tras actualizar, una sola vez y solo para quien ya la tenía, con una explicación de cómo recuperar la apariencia original (Ajustes → Apariencia → Clásico) y un botón que lleva allí.
 - **Tono más sereno**: sin exclamaciones ni mayúsculas en la app ni en la ficha de Play («Girar ruleta», «Ejercicio seleccionado», «Completado», «Empezar» en las novedades).
 - **Sin el subtítulo «Workout Generator»** en ninguna parte.
-- **Ficha de Play**: textos pensados para la búsqueda («ruleta de ejercicios», «ejercicio aleatorio», «rutinas aleatorias») y novedades de la 1.17 en los 16 idiomas con ficha (`en-GB`, `en-AU`, `es-419` y `fr-CA` no tienen ficha propia).
+- **Corrección**: Atrás en el visor de documentos mostraba el documento anterior.
+- **Ficha de Play**: título «GymRoulette: …» y descripción breve nuevos, pensados para la búsqueda («ruleta de ejercicios», «ejercicio aleatorio», «rutinas aleatorias»), y novedades de la 1.17 en los 16 idiomas con ficha (`en-GB`, `en-AU`, `es-419` y `fr-CA` no tienen ficha propia). Capturas, gráficos, textos y CSV regenerados con `npm run store`.
 
-Antes de publicar: `npm run store` (capturas y gráficos de las 16 fichas con el diseño nuevo), subir el icono nuevo y los textos en Play Console, y pasar la CI del Android con una PR.
+Antes de publicar: pasar la CI del Android (PR #24), probar en dispositivo, y subir el icono, los textos, el CSV y las imágenes de `store/` en Play Console.
 
 Los puntos de diseño que quedaron por revisar tras estos cambios (distribución, textos, apariencia) están en [`PENDIENTE-DISENO.md`](PENDIENTE-DISENO.md).
 
-### Lista de Configuración más compacta (por decidir)
+### Lista de Configuración más compacta (hecho en la 1.17)
 
-Aún no está empezada. Desde la 1.15 cada ejercicio lleva su rango de repeticiones en una segunda línea, así que cada fila de Configuración ocupa dos líneas y, con 12 ejercicios, la lista se alarga y obliga a mucho desplazamiento.
+Hecho: el rango de repeticiones va en la misma línea que el nombre (pasa a una segunda solo si no cabe), la lista se desplaza dentro de su tarjeta y añadir un ejercicio es una ventana aparte. Queda por decidir el guardado automático (ver `PENDIENTE-DISENO.md`).
 
-**Opciones** (por decidir):
-- Poner el rango en la misma línea que el nombre cuando haya sitio, y en una segunda solo si no cabe (nombres largos, pantallas estrechas, árabe).
-- Reducir el relleno de cada fila sin bajar de los 44 px de zona táctil.
-- Mostrar el rango como texto compacto (por ejemplo «10-60») y editarlo al tocar la fila.
+## Hecho en la versión 1.17 — ruleta más grande
 
-**Qué implicaría**: solo maquetación (`index.html` y `src/ui.js`), sin cambios en los datos guardados. Hay que pasar `npm run check:layout`, incluido `--stress` (12 ejercicios de nombres larguísimos y repeticiones hasta 999999), en los 20 idiomas y con el árabe de derecha a izquierda, y regenerar las capturas de Configuración de la ficha.
-
-## Por valorar en la versión 1.17 — ruleta más grande
-
-Petición de una reseña de Play (ver «Peticiones de usuarios»). No es un compromiso: primero hay que ver hasta dónde se puede ampliar sin romper nada.
+Petición de una reseña de Play (ver «Peticiones de usuarios»). Hecho: la ruleta ocupa más espacio en los móviles que lo permiten. Lo siguiente es el análisis original, que se conserva como referencia.
 
 **Cómo está hoy**: el contenedor de la ruleta mide 320 px y 360 px desde el punto de corte `sm` (640 px de ancho) en `index.html`, dentro de un `<main>` de `max-w-md` con `px-4` (416 px útiles como máximo). El tamaño del canvas sale del contenedor en `resize` (`src/wheel.js`). En un móvil de unos 412 dp de ancho quedan unos 380 px útiles, así que la ruleta deja unos 60 px de ancho sin usar.
 
@@ -149,7 +147,7 @@ Aún no está decidida ni empezada. Se apunta aquí para no perderla y porque en
 ## Hecho: versión 1.15 «Be Reborn» (versionCode 15)
 
 - **Repeticiones propias por ejercicio**, como rango mínimo-máximo editable en cualquier momento (`repsMin` y `repsMax`; por defecto y al crear, 10-60).
-  - Solo enteros de 1 a 999 999 (`MAX_REP_VALUE`), validados en `src/store.js`. El nombre del ejercicio admite 30 caracteres y el nombre corto 12; si no se escribe corto, se deriva del nombre.
+  - Solo enteros de 1 a 999 999 (`MAX_REP_VALUE`), validados en `src/store.js`. El nombre del ejercicio admite 30 caracteres (hasta la 1.16 había además un nombre corto de 12; desaparece en la 1.17).
   - Migración del esquema v7 -> v8: cada ejercicio hereda el mínimo y el máximo de las repeticiones activas guardadas (si no hay, las de `gym_reps`; si tampoco, 10-60). Es idempotente y borra las claves antiguas (`gym_reps`, `gymroulette_active_reps`), sin vuelta atrás limpia a versiones anteriores.
 - **Ruleta solo con ejercicios**: un sector por ejercicio activo (máximo 12). Las repeticiones se sortean al terminar el giro (`rollReps`, entero uniforme entre mínimo y máximo, ambos incluidos). El marcador en vivo ya no muestra la cantidad.
   - Las etiquetas se ajustan al sector (`fitText` en `src/wheel-math.js`): bajan de tamaño y, si aun así no caben, se recortan con «…».

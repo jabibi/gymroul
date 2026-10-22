@@ -1,6 +1,6 @@
 Kun je niet kiezen wat je vandaag gaat trainen? Draai aan het rad en laat GymRoulette voor je kiezen.
 
-GymRoulette is een oefeningenrad: elk vak is een oefening, en als je het rad draait, krijg je een willekeurige oefening met het bijbehorende aantal herhalingen (bijvoorbeeld “20 Burpee”) om thuis, in de sportschool of buiten te trainen. Draai meerdere keren en je hebt elke dag een andere willekeurige workout. Gemaakt om variatie in je trainingen te brengen, voor circuits, voor uitdagingen met vrienden en voor iedereen die wil sporten zonder er lang over na te denken.
+GymRoulette is een oefeningenrad: elk vak is een oefening, en als je het rad draait, krijg je een willekeurige oefening met het bijbehorende aantal herhalingen (bijvoorbeeld “20 Burpees”) om thuis, in de sportschool of buiten te trainen. Draai meerdere keren en je hebt elke dag een andere willekeurige workout. Gemaakt om variatie in je trainingen te brengen, voor circuits, voor uitdagingen met vrienden en voor iedereen die wil sporten zonder er lang over na te denken.
 
 <b>Zo werkt het</b>
 • Tik op “Draai het rad” of geef het rad een zwieper met je vinger.

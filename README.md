@@ -1,6 +1,6 @@
 # GymRoulette
 
-Ruleta de ejercicios para entrenar. Gira la ruleta (con el botón o arrastrándola) y obtén un reto aleatorio con el formato `repeticiones × ejercicio`, por ejemplo **20 Burpee**: la ruleta solo muestra los ejercicios y las repeticiones salen al terminar el giro, dentro del rango de cada ejercicio.
+Ruleta de ejercicios para entrenar. Gira la ruleta (con el botón o arrastrándola) y obtén un reto aleatorio con el formato `repeticiones × ejercicio`, por ejemplo **20 Burpees**: la ruleta solo muestra los ejercicios y las repeticiones salen al terminar el giro, dentro del rango de cada ejercicio.
 
 Disponible como aplicación web (Firebase Hosting) y como app Android (Capacitor) a partir del mismo código.
 
@@ -8,12 +8,12 @@ Disponible como aplicación web (Firebase Hosting) y como app Android (Capacitor
 
 - Ruleta en `canvas` con física de inercia independiente de la frecuencia de pantalla, sonido de "tick", fanfarria y vibración.
 - Un sector por ejercicio activo (por defecto 6); las repeticiones se sortean al parar, entre el mínimo y el máximo de ese ejercicio.
-- Ajustes en forma de menú: configurar la ruleta, apariencia, idioma, compromiso de privacidad y créditos.
+- Ajustes en forma de menú: editar la ruleta, apariencia, idioma y, abajo, privacidad y acerca de (créditos y versión).
 - Dos apariencias: Suave (la actual, tonos suaves) y Clásico (la original, con colores vivos en la ruleta y un verde más intenso).
-- Editor de la ruleta: activar/desactivar, crear y eliminar ejercicios (nombre e icono) y rango de repeticiones de cada uno (máx. 12 ejercicios).
+- Editor de la ruleta: activar/desactivar, crear (en una ventana aparte) y eliminar ejercicios (nombre e icono) y rango de repeticiones de cada uno (máx. 12 ejercicios). Los ejercicios salen por orden alfabético del idioma activo.
 - Selector con ≈100 iconos de muchas disciplinas (fuerza, calistenia, cardio, fitness funcional, OCR, artes marciales, yoga, pilates, tai chi, deportes…) con búsqueda; no se admite texto libre ni emojis.
 - Interfaz en 20 idiomas: árabe (de derecha a izquierda), inglés (EE. UU., Reino Unido y Australia), español (España y Latinoamérica), euskera, gallego, catalán, francés (Francia y Canadá), alemán, italiano, japonés, neerlandés, polaco, hindi, turco y portugués (Brasil y Portugal). Se elige según el dispositivo y se puede cambiar en Ajustes.
-- Historial de la sesión con los retos completados.
+- Historial de la sesión con los retos completados. Mientras la ruleta gira, Historial y Ajustes no se abren; tocar fuera de un panel no lo cierra.
 - La configuración se guarda en `localStorage` (con versión de esquema y migraciones).
 - Funciona sin conexión: Tailwind, Font Awesome y la fuente van empaquetados. La app de Android no declara el permiso de Internet.
 - Sin analítica, sin anuncios, sin rastreadores y sin acceso a la ubicación: no envía ningún dato fuera del dispositivo.
@@ -33,14 +33,18 @@ src/
   store.js             Catálogo y selección activa, localStorage y migraciones
   wheel-math.js        Lógica pura: sector ganador, combinaciones, normalización de ángulos
   wheel.js             Canvas, física y arrastre
-  ui.js                Modales (con soporte de botón Atrás), historial, configuración
+  ui.js                Modales (con soporte de botón Atrás), historial, Ajustes y novedades
+  theme.js             Apariencia (Suave y Clásico)
+  whats-new.js         Aviso de novedades tras actualizar
+  share.js             Imagen y texto para compartir el reto
+  exercise-names.js    Nombre traducido y orden alfabético de los ejercicios
   icons.js             Catálogo cerrado de iconos (≈100) y búsqueda
   i18n/                Idiomas: índice, detección y locales/ (un archivo por idioma; las variantes regionales solo redefinen lo que cambia)
   audio.js             Sonido y vibración (háptica nativa en Android)
   style.css            Tailwind + fuentes + iconos
 ROADMAP.md             Objetivos de las próximas versiones
 legal/                 Contenido de las páginas legales por idioma (fuente de public/*.html)
-public/                Páginas multilingües generadas (privacy, borrar-datos, creditos, 404, pruebas-cerradas), legal.js, favicon
+public/                Páginas multilingües generadas (privacy, data-deletion, credits, 404, closed-testing), legal.js, favicon
 store/                 Ficha de Google Play por idioma: textos, gráfico de funciones y capturas (npm run store)
 test/                  Tests con Vitest (lógica, i18n, iconos, páginas legales y ficha de Play)
 CLAUDE.md              Guía para trabajar con Claude Code en el repositorio

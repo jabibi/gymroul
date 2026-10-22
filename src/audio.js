@@ -7,8 +7,6 @@ import { Haptics, ImpactStyle, NotificationType } from '@capacitor/haptics';
 let audioCtx = null;
 let soundEnabled = true;
 
-export const isSoundEnabled = () => soundEnabled;
-
 export function toggleSound() {
   soundEnabled = !soundEnabled;
   return soundEnabled;

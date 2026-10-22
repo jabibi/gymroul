@@ -189,12 +189,6 @@ function checkTick() {
   }
 }
 
-/** Vuelve a dibujar las etiquetas (p. ej. al cambiar de idioma el sector de configuración). */
-export function refreshLabels() {
-  cacheDirty = true;
-  draw();
-}
-
 export function resize() {
   const newDpr = window.devicePixelRatio || 1;
   const newSize = canvas.getBoundingClientRect().width || 360;

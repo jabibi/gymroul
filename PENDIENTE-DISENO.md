@@ -17,6 +17,12 @@ Leyenda: `[x]` hecho · `[ ]` pendiente de decidir o de hacer.
 - [x] **Nombre del editor unificado.** «Editar ruleta» en el menú (`settings.wheel`), el título (`config.title`) y el marcador vacío (`live.configure`), y «Editar» en el sector vacío (`wheel.setup`), en los 20 idiomas. `fr-CA` ya no redefine `config.title` ni `wheel.setup`.
 - [x] **Enlaces del pie de Ajustes.** «Privacidad» (`settings.privacy`) y «Acerca de» (`settings.about`) sustituyen a «Compromiso de privacidad» y «Créditos» (`config.credits` desaparece; `config.commitment` sigue siendo el título del modal). En alemán y polaco el pie dejaba un punto colgando porque los textos largos se partían en dos líneas; con los nuevos cabe en una.
 
+- [x] **Historial en un recuadro redondeado**, con una fila por ejercicio separadas por una línea y «Limpiar historial» a la derecha si el resumen no cabe en una línea.
+- [x] **Añadir ejercicio en una ventana aparte** (`addExerciseModal`), con Atrás o la X para volver sin guardar, y la ayuda del editor tras un botón (?).
+- [x] **Tocar fuera de un panel ya no lo cierra** (también en novedades y en nuevo ejercicio): una pulsación errada no hace perder lo que se hacía.
+- [x] **Historial y Ajustes desactivados mientras gira la ruleta**: el resultado aparecía debajo del panel y Atrás lo cerraba antes.
+- [x] **Ejercicios por orden alfabético** del idioma activo, en el editor y en la ruleta.
+
 ## Distribución y equilibrio
 
 - [ ] **Altura del panel de Ajustes.** Mide lo que mide su contenido y salta entre pantallas (menú corto, editor muy alto). Opción: altura mínima fija en las pantallas internas y transición corta de deslizamiento entre ellas.

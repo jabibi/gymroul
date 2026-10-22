@@ -107,7 +107,7 @@ Spin the wheel and let's train.`,
     ]),
     full: `¿Sin ganas de decidir qué entrenar hoy? Gira la ruleta y deja que GymRoulette elija por ti.
 
-GymRoulette es una ruleta de ejercicios: cada sector es un ejercicio y, al girarla, te propone un ejercicio aleatorio con su número de repeticiones (por ejemplo, «20 Burpee») para entrenar en casa, en el gimnasio o al aire libre. Gira varias veces y tendrás una rutina aleatoria distinta cada día. Pensada para dar variedad a tus sesiones, para circuitos, para retos con amigos y para quien quiere entrenar sin complicarse.
+GymRoulette es una ruleta de ejercicios: cada sector es un ejercicio y, al girarla, te propone un ejercicio aleatorio con su número de repeticiones (por ejemplo, «20 Burpees») para entrenar en casa, en el gimnasio o al aire libre. Gira varias veces y tendrás una rutina aleatoria distinta cada día. Pensada para dar variedad a tus sesiones, para circuitos, para retos con amigos y para quien quiere entrenar sin complicarse.
 
 <b>Cómo funciona</b>
 • Pulsa “Girar ruleta” o lanza la ruleta con el dedo.
@@ -205,7 +205,7 @@ Biratu gurpila eta entrenatzera.`,
     ]),
     full: `Sen ganas de decidir que adestrar hoxe? Xira a ruleta e deixa que GymRoulette escolla por ti.
 
-GymRoulette é unha ruleta de exercicios: cada sector é un exercicio e, ao xirala, proponche un exercicio aleatorio co seu número de repeticións (por exemplo, «20 Burpee») para adestrar na casa, no ximnasio ou ao aire libre. Xira varias veces e terás cada día unha rutina aleatoria diferente. Pensada para darlle variedade ás túas sesións, para circuítos, para retos con amizades e para quen quere adestrar sen complicarse.
+GymRoulette é unha ruleta de exercicios: cada sector é un exercicio e, ao xirala, proponche un exercicio aleatorio co seu número de repeticións (por exemplo, «20 Burpees») para adestrar na casa, no ximnasio ou ao aire libre. Xira varias veces e terás cada día unha rutina aleatoria diferente. Pensada para darlle variedade ás túas sesións, para circuítos, para retos con amizades e para quen quere adestrar sen complicarse.
 
 <b>Como funciona</b>
 • Preme “Xirar a ruleta” ou lanza a ruleta co dedo.
@@ -303,7 +303,7 @@ GymRoulette عجلة للتمارين: كل قطاع هو تمرين، وعند�
     ]),
     full: `No tens ganes de decidir què entrenar avui? Gira la ruleta i deixa que GymRoulette triï per tu.
 
-GymRoulette és una ruleta d'exercicis: cada sector és un exercici i, en girar-la, et proposa un exercici aleatori amb el seu nombre de repeticions (per exemple, «20 Burpee») per entrenar a casa, al gimnàs o a l'aire lliure. Gira diverses vegades i tindràs cada dia una rutina aleatòria diferent. Pensada per donar varietat a les teves sessions, per a circuits, per a reptes amb amics i per a qui vol entrenar sense complicar-se.
+GymRoulette és una ruleta d'exercicis: cada sector és un exercici i, en girar-la, et proposa un exercici aleatori amb el seu nombre de repeticions (per exemple, «20 Burpees») per entrenar a casa, al gimnàs o a l'aire lliure. Gira diverses vegades i tindràs cada dia una rutina aleatòria diferent. Pensada per donar varietat a les teves sessions, per a circuits, per a reptes amb amics i per a qui vol entrenar sense complicar-se.
 
 <b>Com funciona</b>
 • Prem “Gira la ruleta” o llança la ruleta amb el dit.
@@ -499,7 +499,7 @@ Gira la ruota e allenati.`,
     ]),
     full: `Sem vontade de decidir o que treinar hoje? Gire a roleta e deixe o GymRoulette escolher por você.
 
-O GymRoulette é uma roleta de exercícios: cada setor é um exercício e, ao girá-la, propõe um exercício aleatório com o seu número de repetições (por exemplo, “20 Burpee”) para treinar em casa, na academia ou ao ar livre. Gire várias vezes e terá uma rotina aleatória diferente a cada dia. Pensada para dar variedade aos seus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicação.
+O GymRoulette é uma roleta de exercícios: cada setor é um exercício e, ao girá-la, propõe um exercício aleatório com o seu número de repetições (por exemplo, “20 Burpees”) para treinar em casa, na academia ou ao ar livre. Gire várias vezes e terá uma rotina aleatória diferente a cada dia. Pensada para dar variedade aos seus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicação.
 
 <b>Como funciona</b>
 • Toque em “Girar roleta” ou lance a roleta com o dedo.
@@ -548,7 +548,7 @@ Gire a roleta e vá treinar.`,
     ]),
     full: `Sem vontade de decidir o que treinar hoje? Gira a roleta e deixa o GymRoulette escolher por ti.
 
-O GymRoulette é uma roleta de exercícios: cada setor é um exercício e, ao girá-la, propõe-te um exercício aleatório com o seu número de repetições (por exemplo, “20 Burpee”) para treinares em casa, no ginásio ou ao ar livre. Gira várias vezes e terás uma rotina aleatória diferente todos os dias. Pensada para dar variedade aos teus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicações.
+O GymRoulette é uma roleta de exercícios: cada setor é um exercício e, ao girá-la, propõe-te um exercício aleatório com o seu número de repetições (por exemplo, “20 Burpees”) para treinares em casa, no ginásio ou ao ar livre. Gira várias vezes e terás uma rotina aleatória diferente todos os dias. Pensada para dar variedade aos teus treinos, para circuitos, desafios com amigos e para quem quer treinar sem complicações.
 
 <b>Como funciona</b>
 • Toca em “Girar roleta” ou lança a roleta com o dedo.
@@ -792,7 +792,7 @@ GymRouletteは完全オフラインで、データを一切収集しません。
     ]),
     full: `Kun je niet kiezen wat je vandaag gaat trainen? Draai aan het rad en laat GymRoulette voor je kiezen.
 
-GymRoulette is een oefeningenrad: elk vak is een oefening, en als je het rad draait, krijg je een willekeurige oefening met het bijbehorende aantal herhalingen (bijvoorbeeld “20 Burpee”) om thuis, in de sportschool of buiten te trainen. Draai meerdere keren en je hebt elke dag een andere willekeurige workout. Gemaakt om variatie in je trainingen te brengen, voor circuits, voor uitdagingen met vrienden en voor iedereen die wil sporten zonder er lang over na te denken.
+GymRoulette is een oefeningenrad: elk vak is een oefening, en als je het rad draait, krijg je een willekeurige oefening met het bijbehorende aantal herhalingen (bijvoorbeeld “20 Burpees”) om thuis, in de sportschool of buiten te trainen. Draai meerdere keren en je hebt elke dag een andere willekeurige workout. Gemaakt om variatie in je trainingen te brengen, voor circuits, voor uitdagingen met vrienden en voor iedereen die wil sporten zonder er lang over na te denken.
 
 <b>Zo werkt het</b>
 • Tik op “Draai het rad” of geef het rad een zwieper met je vinger.
