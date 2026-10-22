@@ -6,7 +6,7 @@
 | Política de privacidad | https://gymroul.web.app/privacy.html |
 | Eliminación de datos | https://gymroul.web.app/data-deletion.html |
 | Créditos | https://gymroul.web.app/credits.html |
-| Correo de contacto | javimelex@gmail.com |
+| Correo de contacto | pointedio@proton.me |
 | Identificador de la app | eus.jabibi.gymroul |
 | Versión | 1.17 (Muted Tones) (versionCode 17); se define en `package.json` |
 

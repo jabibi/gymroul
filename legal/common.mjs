@@ -1,5 +1,5 @@
 // Piezas que se repiten en los documentos legales de todos los idiomas.
-export const CONTACT_EMAIL = 'javimelex@gmail.com';
+export const CONTACT_EMAIL = 'pointedio@proton.me';
 export const MAIL = `<a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>`;
 /** Enlace de correo con asunto precargado (ya codificado para la URL) */
 export const mailWithSubject = subject => `<a href="mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}">${CONTACT_EMAIL}</a>`;
