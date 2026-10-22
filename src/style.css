@@ -54,6 +54,11 @@
     --wheel-line: #020617;
     --wheel-ring: #1e293b;
     --wheel-drop: rgba(0, 0, 0, 0.85);
+    /* Ruleta: texto de los sectores (blanco con sombra oscura), velo sobre los no activos y sector «Editar» de la ruleta vacía */
+    --wheel-label: #ffffff;
+    --wheel-label-shadow: rgba(0, 0, 0, 0.9);
+    --wheel-veil: rgba(2, 6, 23, 0.34);
+    --wheel-config: #475569;
 }
 /* Apariencia Clásico: el verde intenso y los colores vivos de la ruleta de las primeras versiones */
 :root[data-theme="classic"] {
@@ -65,30 +70,36 @@
     --pointer-share: #22c55e;
     --spinner-share: conic-gradient(#ef4444 0 14.28%, #f97316 0 28.57%, #eab308 0 42.85%, #22c55e 0 57.14%, #06b6d4 0 71.42%, #8b5cf6 0 85.71%, #ec4899 0);
 }
-/* Apariencia Claro: los mismos colores de marca y de ruleta que Oscuro, con la escala de neutros invertida y el
-   texto de marca más oscuro para que se lea sobre fondo claro */
+/* Apariencia Claro: la marca esmeralda de Oscuro, con neutros cálidos invertidos, el texto de marca más oscuro para que
+   se lea sobre fondo claro y una ruleta de tonos cálidos pastel con texto oscuro (LIGHT_COLOR_PALETTE) */
 :root[data-theme="light"] {
     color-scheme: light;
     --brand-text: 4 120 87;
-    --slate-50: 2 6 23;
-    --slate-100: 15 23 42;
-    --slate-200: 30 41 59;
-    --slate-300: 51 65 85;
-    --slate-400: 71 85 105;
-    --slate-500: 100 116 139;
-    --slate-600: 148 163 184;
-    --slate-700: 203 213 225;
-    --slate-800: 226 232 240;
-    --slate-900: 241 245 249;
-    --slate-950: 248 250 252;
-    --ink: 15 23 42;
+    /* Neutros cálidos (Tailwind stone, invertidos: el 950 es el fondo y el 100 el texto principal) */
+    --slate-50: 12 10 9;
+    --slate-100: 28 25 23;
+    --slate-200: 41 37 36;
+    --slate-300: 68 64 60;
+    --slate-400: 87 83 78;
+    --slate-500: 120 113 108;
+    --slate-600: 168 162 158;
+    --slate-700: 214 211 209;
+    --slate-800: 231 229 228;
+    --slate-900: 245 245 244;
+    --slate-950: 250 250 249;
+    --ink: 28 25 23;
     --glass: 255 255 255;
-    --glass-border: rgba(15, 23, 42, 0.1);
+    --glass-border: rgba(28, 25, 23, 0.1);
     --marker-bg: rgba(255, 255, 255, 0.9);
-    --scrollbar: #cbd5e1;
-    --wheel-line: #f8fafc;
-    --wheel-ring: #cbd5e1;
-    --wheel-drop: rgba(15, 23, 42, 0.25);
+    --scrollbar: #d6d3d1;
+    --wheel-line: #fafaf9;
+    --wheel-ring: #d6d3d1;
+    --wheel-drop: rgba(28, 25, 23, 0.25);
+    /* Sectores pastel: texto casi negro, sin sombra, y velo claro sobre los no activos (uno oscuro les quitaría contraste) */
+    --wheel-label: #1c1917;
+    --wheel-label-shadow: rgba(0, 0, 0, 0);
+    --wheel-veil: rgba(250, 250, 249, 0.55);
+    --wheel-config: #d6d3d1;
 }
 /* Logo de la cabecera: en Oscuro es solo la ruleta, sin fondo; en Claro, la misma con colores para fondo claro; en Clásico, el icono original de esquinas redondeadas */
 .logo-classic, .logo-light { display: none; }

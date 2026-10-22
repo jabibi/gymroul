@@ -35,6 +35,8 @@ export const COLOR_PALETTE = ['#0f766e', '#475569', '#15803d', '#2563eb', '#0e74
 const FIRST_CALM_PALETTE = ['#0d9488', '#475569', '#059669', '#2563eb', '#0891b2', '#4f46e5', '#64748b', '#0369a1'];
 /** Paleta de la apariencia Clásico (la original, arcoíris); misma posición que COLOR_PALETTE. También sirve para migrar (v8 -> v9) */
 export const CLASSIC_COLOR_PALETTE = ['#ef4444', '#f97316', '#f59e0b', '#22c55e', '#06b6d4', '#8b5cf6', '#ec4899', '#3b82f6'];
+/** Paleta de la apariencia Claro: tonos cálidos pastel con tres acentos fríos suaves; todos distan al menos 15 de diferencia de color (ΔE) entre sí, vengan o no contiguos, porque el orden en la ruleta depende de los nombres; misma posición que COLOR_PALETTE. Con el texto casi negro de la ruleta llegan a más de 9:1 (lo comprueba npm test) */
+export const LIGHT_COLOR_PALETTE = ['#fdba74', '#fda4af', '#fde68a', '#93c5fd', '#d4b8f4', '#a7d8b4', '#e7c8a0', '#f4a38a'];
 
 const KEY_EXERCISES = 'gym_exercises';
 // Claves de la lista global de repeticiones, que ya no existe (migración v7 -> v8)

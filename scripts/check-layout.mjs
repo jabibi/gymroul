@@ -14,6 +14,7 @@
 //   npm run check:layout -- --shots=dir       además guarda una captura de cada pantalla en ese directorio
 //   npm run check:layout -- --stress          con 12 ejercicios de nombres larguísimos (más que el límite actual, como
 //                                             los que guardaron versiones anteriores) y repeticiones de hasta 999999
+//   npm run check:layout -- --theme=light     con el dispositivo en modo claro (la apariencia por defecto es «Sistema»; por defecto, modo oscuro)
 //   CHROME_PATH=/ruta/a/chrome npm run check:layout   si Chrome no está en /usr/bin/google-chrome
 //
 // Sale con código 1 si encuentra algún problema. Requiere haber compilado antes (npm run build).
@@ -33,6 +34,7 @@ const arg = name => process.argv.find(a => a.startsWith(`--${name}=`))?.slice(na
 const only = arg('lang')?.split(',');
 const shotsDir = arg('shots');
 const stress = process.argv.includes('--stress');
+const colorScheme = arg('theme') === 'light' ? 'light' : 'dark';
 const jobs = Math.max(1, Number(arg('jobs')) || Math.min(4, availableParallelism()));
 const part = arg('part')?.split('/').map(Number); // --part=2/4: el segundo de cuatro bloques de idiomas
 const languages = LANGUAGES.map(l => l.code).filter(code => !only || only.includes(code))
@@ -194,6 +196,7 @@ const browsers = [];
 /** @param {string} lang @param {{ width: number, height: number }} vp */
 async function openApp(browser, lang, vp, existingUser = false) {
   const page = await browser.newPage();
+  await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: colorScheme }]);
   await page.setViewport({ ...vp, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
   await page.setRequestInterception(true);
   page.on('request', req => (req.url().startsWith(BASE) || req.url().startsWith('data:') ? req.continue() : req.abort()));

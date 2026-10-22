@@ -46,6 +46,8 @@ const browser = await puppeteer.launch({ executablePath: CHROME, headless: true,
 /** Abre la app en un móvil de 360x640 con factor 3 => capturas de 1080x1920, en el idioma pedido. */
 async function openApp(appLang) {
   const page = await browser.newPage();
+  // La apariencia por defecto es «Sistema»: las capturas se hacen con el dispositivo en modo oscuro
+  await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'dark' }]);
   await page.setViewport({ width: 360, height: 640, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
   // Solo se permite la propia app: no se contacta con ningún otro servidor
   await page.setRequestInterception(true);

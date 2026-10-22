@@ -33,13 +33,13 @@ Solicitud enviada el 18 oct 2026 a las 21:53, con 15 testers y la 1.16 en las pr
 ## En desarrollo: versión 1.18 «GymTonic» (versionCode 18)
 
 Va en la rama `roadmap-18`, sin publicar. Un toque más fresco, elegante y suave, con el ruso como gran novedad y el tema claro. Incluye:
-- **Tema Claro** y **Sistema**: cuatro opciones en Apariencia: Sistema (sigue el modo claro u oscuro del dispositivo; nunca elige Clásico), Oscuro (antes Suave; el identificador guardado sigue siendo `calm`), Claro (nuevo, con `public/logo-light.svg` generado por `scripts/build-icons.mjs`) y Clásico. La escala de neutros de Tailwind y el texto «blanco» salen de variables CSS que Claro invierte. La imagen de compartir y las barras del sistema de Android también siguen la apariencia. Por defecto sigue siendo Oscuro (decidir si «Sistema» debería ser el valor para instalaciones nuevas).
+- **Tema Claro** y **Sistema** (por defecto): cuatro opciones en Apariencia: Sistema (sigue el modo claro u oscuro del dispositivo; nunca elige Clásico), Oscuro (antes Suave; el identificador guardado sigue siendo `calm`), Claro (nuevo, con `public/logo-light.svg` generado por `scripts/build-icons.mjs`) y Clásico. La escala de neutros de Tailwind y el texto «blanco» salen de variables CSS que Claro invierte. La imagen de compartir y las barras del sistema de Android también siguen la apariencia. La apariencia por defecto es Sistema; el aviso de novedades vuelve a ofrecer elegir la apariencia. Claro lleva una ruleta de tonos cálidos pastel con texto casi negro (más de 9:1 de contraste) y neutros cálidos, y la pantalla de arranque de Android tiene versión clara y oscura.
 - **Ruso** como idioma 21 (app, ficha de Play y páginas legales), con Manrope para el cirílico.
 - **Visor de documentos** que siempre abre desde arriba y sin añadir entradas al historial al navegar entre páginas legales.
 - **Imagen de compartir** con los colores de la apariencia activa.
 - Aviso de novedades de la 1.18 (`WHATS_NEW_VERSION`) y novedades de Play con la 1.18 y la 1.17.
 
-Pendiente antes de publicar: revisión nativa del ruso, probar el tema claro en dispositivo (barras del sistema; el fondo nativo de la ventana sigue siendo oscuro durante el arranque), pasar la CI del Android y subir los textos, el CSV y las imágenes de `store/` en Play Console.
+Pendiente antes de publicar: probar el tema claro y la pantalla de arranque en dispositivo (barras del sistema; el arranque sigue el modo claro u oscuro del dispositivo, no la apariencia elegida en la app), pasar la CI del Android y subir los textos, el CSV y las imágenes de `store/` en Play Console.
 
 ## Hecho: versión 1.17 «Muted Tones» (versionCode 17)
 
@@ -103,7 +103,7 @@ Detectado probando la 1.17 en el móvil. Los documentos (política de privacidad
 
 ## Hecho en la 1.18 — ruso como idioma nuevo
 
-Hecho: app, ficha de Play y las cinco páginas legales en ruso (21 idiomas). Como Plus Jakarta Sans no trae el cirílico básico, se añade Manrope para el cirílico. Pendiente: que un hablante nativo revise la traducción antes de publicar. Lo que sigue es el análisis original.
+Hecho: app, ficha de Play y las cinco páginas legales en ruso (21 idiomas). Como Plus Jakarta Sans no trae el cirílico básico, se añade Manrope para el cirílico. Traducción revisada por un hablante nativo. Lo que sigue es el análisis original.
 
 **Qué implicaría** (según `CLAUDE.md`, un idioma nuevo hay que añadirlo en tres sitios):
 - **La app**: `src/i18n/locales/ru.js` con todas las claves de `en.js` (incluidos `exercise.<clave>` de los seis ejercicios por defecto y las etiquetas de los iconos) y alta en `LANGUAGES` de `src/i18n/index.js`. `npm test` falla si falta alguna clave o si cambian los parámetros `{x}`. Pasa de 20 a 21 idiomas, y todos los textos que hablan de «20 idiomas» (`CLAUDE.md`, ficha de Play, solicitud de producción) hay que actualizarlos.
