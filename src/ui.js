@@ -558,7 +558,7 @@ const THEME_DESC_KEYS = { system: 'appearance.systemDesc', calm: 'appearance.cal
 export function showSettingsView(view, moveFocus = true) {
   settingsView = view;
   document.querySelectorAll('#configCard [data-view]').forEach(el => {
-    el.classList.toggle('hidden', /** @type {HTMLElement} */ (el).dataset.view !== view);
+    el.classList.toggle('invisible', /** @type {HTMLElement} */ (el).dataset.view !== view);
   });
   $('configTitle').textContent = t(VIEW_TITLE_KEYS[view]);
   $('settingsBack').classList.toggle('hidden', view === 'menu');
@@ -566,9 +566,8 @@ export function showSettingsView(view, moveFocus = true) {
   setDisclosure('configHelpBtn', 'configHelp', false);
   // Todo se guarda al momento: sin botones de guardar. El menú cierra con la X; las pantallas internas solo vuelven con la flecha
   $('settingsClose').classList.toggle('hidden', view !== 'menu');
-  $('settingsLinks').classList.toggle('hidden', view !== 'menu');
-  const scroller = $('configCard').querySelector('.overflow-y-auto');
-  if (scroller) scroller.scrollTop = 0;
+  // Cada pantalla empieza arriba (las otras siguen ahí, ocultas, con su propio desplazamiento)
+  document.querySelectorAll('#configCard [data-view], #languageOptions').forEach(el => { el.scrollTop = 0; });
   if (moveFocus) $('configTitle').focus({ preventScroll: true });
 }
 
