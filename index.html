@@ -198,9 +198,12 @@
                 </button>
             </div>
 
-            <div class="flex-1 min-h-0 flex flex-col overflow-y-auto overflow-x-hidden pe-1 my-1">
+            <!-- Las cuatro pantallas están apiladas en la misma celda: el panel mide lo que mide la más alta (con tope en el espacio disponible,
+                 que baja con el teclado) y no cambia de altura al navegar. Como la lista de idiomas es larga, en la práctica el panel usa todo el
+                 espacio disponible y las listas (ejercicios e idiomas) se desplazan por dentro. La oculta usa invisible, no hidden, para seguir ocupando sitio. -->
+            <div class="flex-1 min-h-0 grid grid-rows-[minmax(0,1fr)] overflow-hidden pe-1 my-1">
                 <!-- Menú: cada fila abre una pantalla dentro de este mismo panel (o un visor) -->
-                <section id="settingsMenu" data-view="menu" class="space-y-3">
+                <section id="settingsMenu" data-view="menu" class="col-start-1 row-start-1 min-h-0 overflow-y-auto overscroll-contain flex flex-col justify-between gap-3">
                     <div class="rounded-2xl bg-dark-900/60 border border-slate-800 overflow-hidden divide-y divide-slate-800/80">
                         <button type="button" data-action="settings-open" data-arg="wheel" class="w-full flex items-center gap-3 min-h-[52px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors">
                             <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-text flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-sliders"></i></span>
@@ -220,11 +223,18 @@
                             <i class="fa-solid fa-chevron-right text-[10px] text-slate-500 shrink-0 rtl:-scale-x-100" aria-hidden="true"></i>
                         </button>
                     </div>
+
+                        <!-- Pie del menú, como en las apps de Google: dos enlaces discretos, centrados y fijos abajo -->
+                <div class="flex flex-wrap items-center justify-center gap-x-1 pt-1 text-xs text-slate-400">
+                    <button type="button" data-action="open-commitment" class="inline-flex items-center min-h-[48px] px-3 hover:text-slate-200 transition-colors" data-i18n="settings.privacy">Privacy</button>
+                    <span aria-hidden="true" class="text-[10px]">•</span>
+                    <button type="button" data-action="open-credits" class="inline-flex items-center min-h-[48px] px-3 hover:text-slate-200 transition-colors" data-i18n="settings.about">About</button>
+                </div>
                 </section>
 
                 <!-- Editar ruleta: la lista de ejercicios se desplaza dentro de su tarjeta y el botón de añadir queda siempre a la vista -->
-                <section id="settingsWheel" data-view="wheel" class="hidden [&:not(.hidden)]:flex flex-col gap-3 min-h-0">
-                <div class="bg-dark-900/60 rounded-2xl border border-slate-800 overflow-hidden flex flex-col min-h-0">
+                <section id="settingsWheel" data-view="wheel" class="invisible col-start-1 row-start-1 min-h-0 flex flex-col gap-3">
+                <div class="bg-dark-900/60 rounded-2xl border border-slate-800 overflow-hidden flex flex-col flex-1 min-h-0">
                     <div class="flex justify-between items-center gap-2 ps-3.5 pe-2 shrink-0">
                         <div class="flex items-center min-w-0">
                             <span class="text-sm font-black text-slate-200" data-i18n="config.exercises">Exercises</span>
@@ -248,21 +258,14 @@
                 </section>
 
                 <!-- Apariencia -->
-                <section id="settingsAppearance" data-view="appearance" class="hidden space-y-3">
+                <section id="settingsAppearance" data-view="appearance" class="invisible col-start-1 row-start-1 min-h-0 overflow-y-auto overscroll-contain space-y-3">
                     <div id="themeOptions" role="radiogroup" aria-labelledby="configTitle" class="space-y-3"></div>
                 </section>
 
                 <!-- Idioma -->
-                <section id="settingsLanguage" data-view="language" class="hidden">
-                    <div id="languageOptions" role="radiogroup" aria-labelledby="configTitle" class="rounded-2xl bg-dark-900/60 border border-slate-800 overflow-y-auto overscroll-contain max-h-[calc(100dvh-7rem-var(--sat)-var(--sab))] divide-y divide-slate-800/80"></div>
+                <section id="settingsLanguage" data-view="language" class="invisible col-start-1 row-start-1 min-h-0 flex flex-col">
+                    <div id="languageOptions" role="radiogroup" aria-labelledby="configTitle" class="rounded-2xl bg-dark-900/60 border border-slate-800 flex-1 min-h-[9rem] overflow-y-auto overscroll-contain divide-y divide-slate-800/80"></div>
                 </section>
-            </div>
-
-            <!-- Pie del menú, como en las apps de Google: dos enlaces discretos, centrados y fijos abajo -->
-            <div id="settingsLinks" class="flex flex-wrap items-center justify-center gap-x-1 pt-1 -mb-4 text-xs text-slate-400">
-                <button type="button" data-action="open-commitment" class="inline-flex items-center min-h-[48px] px-3 hover:text-slate-200 transition-colors" data-i18n="settings.privacy">Privacy</button>
-                <span aria-hidden="true" class="text-[10px]">•</span>
-                <button type="button" data-action="open-credits" class="inline-flex items-center min-h-[48px] px-3 hover:text-slate-200 transition-colors" data-i18n="settings.about">About</button>
             </div>
 
         </div>
