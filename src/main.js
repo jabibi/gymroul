@@ -204,7 +204,7 @@ function init() {
   applyTranslations();
   const freshInstall = isFreshInstall(); // antes de migrate(), que deja guardada la versión del esquema
   migrate();
-  loadTheme();
+  loadTheme(applyTheme);
   loadActive();
   ui.initModals();
   ui.initKeyboardAvoidance();

@@ -19,11 +19,11 @@ GymRoulette est une roue d'exercices : chaque secteur est un exercice et, quand
 Choisis parmi plus de 100 icônes de nombreuses disciplines, avec recherche : force et poids, callisthénie, cardio, yoga, pilates, tai chi, boxe, karaté et autres arts martiaux, fitness fonctionnel, courses d'obstacles, sports, eau et montagne. Avec des pictogrammes originaux pour les pompes, le gainage, les abdominaux, le burpee, le squat et les mountain climbers.
 
 <b>Dans ta langue</b>
-العربية, English (États-Unis, Royaume-Uni et Australie), Español (Espagne et Amérique latine), Euskara, Galego, Català, Français (France et Canada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe et Português (Brasil et Portugal). L'application suit la langue de ton téléphone et tu peux la changer dans les Réglages.
+العربية, English (États-Unis, Royaume-Uni et Australie), Español (Espagne et Amérique latine), Euskara, Galego, Català, Français (France et Canada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Русский, Türkçe et Português (Brasil et Portugal). L'application suit la langue de ton téléphone et tu peux la changer dans les Réglages.
 
 <b>De bons petits détails</b>
 • <b>Sons de la roue et vibration</b> à l'apparition du résultat.
-• <b>Deux apparences</b>, Doux et Classique, sur un design sombre agréable à l'œil en salle.
+• <b>Trois apparences</b> : Sombre, Claire et Classique, ou Système pour suivre ton appareil, dans un design agréable à l’œil en salle.
 • <b>Sans inscription</b> ni compte utilisateur.
 • <b>Sans publicité.</b>
 • <b>100 % hors connexion</b> : aucune connexion Internet nécessaire.

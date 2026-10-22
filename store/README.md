@@ -24,23 +24,23 @@ store/
 ## Idiomas y longitud de los textos
 | Carpeta | Idioma en Play Console | Descripción breve | Descripción completa | Novedades |
 |---|---|---|---|---|
-| `ar` | Árabe | 62/80 | 2135/4000 | 335/500 |
-| `ca` | Catalán | 64/80 | 2585/4000 | 426/500 |
-| `de-DE` | Alemán | 71/80 | 2798/4000 | 469/500 |
-| `en-US` | Inglés (Estados Unidos) | 60/80 | 2478/4000 | 409/500 |
-| `es-ES` | Español (España) | 73/80 | 2570/4000 | 445/500 |
-| `eu-ES` | Euskera | 63/80 | 2702/4000 | 473/500 |
-| `fr-FR` | Francés (Francia) | 69/80 | 2794/4000 | 485/500 |
-| `gl-ES` | Gallego | 70/80 | 2564/4000 | 444/500 |
-| `hi-IN` | Hindi | 55/80 | 2485/4000 | 432/500 |
-| `it-IT` | Italiano | 64/80 | 2616/4000 | 471/500 |
-| `ja-JP` | Japonés | 29/80 | 1381/4000 | 255/500 |
-| `nl-NL` | Neerlandés | 72/80 | 2723/4000 | 484/500 |
-| `pl-PL` | Polaco | 54/80 | 2536/4000 | 434/500 |
-| `pt-BR` | Portugués (Brasil) | 69/80 | 2583/4000 | 441/500 |
-| `pt-PT` | Portugués (Portugal) | 68/80 | 2607/4000 | 442/500 |
-| `ru-RU` | Ruso | 59/80 | 2638/4000 | 449/500 |
-| `tr-TR` | Turco | 64/80 | 2458/4000 | 422/500 |
+| `ar` | Árabe | 62/80 | 2163/4000 | 368/500 |
+| `ca` | Catalán | 64/80 | 2621/4000 | 394/500 |
+| `de-DE` | Alemán | 71/80 | 2819/4000 | 426/500 |
+| `en-US` | Inglés (Estados Unidos) | 60/80 | 2515/4000 | 406/500 |
+| `es-ES` | Español (España) | 73/80 | 2619/4000 | 429/500 |
+| `eu-ES` | Euskera | 63/80 | 2746/4000 | 445/500 |
+| `fr-FR` | Francés (Francia) | 69/80 | 2837/4000 | 452/500 |
+| `gl-ES` | Gallego | 70/80 | 2603/4000 | 419/500 |
+| `hi-IN` | Hindi | 55/80 | 2517/4000 | 378/500 |
+| `it-IT` | Italiano | 64/80 | 2658/4000 | 434/500 |
+| `ja-JP` | Japonés | 29/80 | 1397/4000 | 245/500 |
+| `nl-NL` | Neerlandés | 72/80 | 2739/4000 | 419/500 |
+| `pl-PL` | Polaco | 54/80 | 2578/4000 | 419/500 |
+| `pt-BR` | Portugués (Brasil) | 69/80 | 2625/4000 | 423/500 |
+| `pt-PT` | Portugués (Portugal) | 68/80 | 2652/4000 | 425/500 |
+| `ru-RU` | Ruso | 59/80 | 2672/4000 | 443/500 |
+| `tr-TR` | Turco | 64/80 | 2486/4000 | 397/500 |
 
 ## Dónde sube cada archivo en Play Console
 En **Presencia en Google Play Store → Fichas de Play Store**, elige el idioma arriba (*Gestionar idiomas* para añadirlos) y rellena:

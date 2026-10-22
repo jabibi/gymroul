@@ -8,7 +8,7 @@
 import { readStorage, writeStorage } from './store.js';
 
 /** Versión a la que se refieren los textos whatsnew.*; se muestra en el título */
-export const WHATS_NEW_VERSION = '1.17';
+export const WHATS_NEW_VERSION = '1.18';
 
 const KEY_SEEN = 'gym_whatsnew_seen';
 

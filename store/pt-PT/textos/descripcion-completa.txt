@@ -19,11 +19,11 @@ O GymRoulette é uma roleta de exercícios: cada setor é um exercício e, ao gi
 Escolhe entre mais de 100 ícones de muitas modalidades, com pesquisa: força e pesos, calistenia, cardio, yoga, pilates, tai chi, boxe, karaté e outras artes marciais, treino funcional, corridas de obstáculos, desportos, água e montanha. Inclui pictogramas próprios de flexões, prancha, abdominais, burpee, agachamento e mountain climbers.
 
 <b>No teu idioma</b>
-العربية, English (EUA, Reino Unido e Austrália), Español (Espanha e América Latina), Euskara, Galego, Català, Français (França e Canadá), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe e Português (Brasil e Portugal). A aplicação segue o idioma do teu telemóvel e podes alterá-lo em Definições.
+العربية, English (EUA, Reino Unido e Austrália), Español (Espanha e América Latina), Euskara, Galego, Català, Français (França e Canadá), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Русский, Türkçe e Português (Brasil e Portugal). A aplicação segue o idioma do teu telemóvel e podes alterá-lo em Definições.
 
 <b>Detalhes que fazem diferença</b>
 • <b>Som da roleta e vibração</b> quando aparece o resultado.
-• <b>Duas aparências</b>, Suave e Clássico, num visual escuro e confortável para usar no ginásio.
+• <b>Três aparências</b>: Escuro, Claro e Clássico, ou Sistema para acompanhar o teu dispositivo, num visual confortável para usar no ginásio.
 • <b>Sem registo</b> nem contas de utilizador.
 • <b>Sem anúncios.</b>
 • <b>100% offline</b>: não precisa de ligação à Internet.

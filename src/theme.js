@@ -1,46 +1,71 @@
 // @ts-check
-// Apariencia de la app: «calm» (se muestra como «Suave»; el identificador interno es el que se guarda en gym_theme y no se cambia) o «classic» (Clásico, la original con colores vivos).
+// Apariencia de la app. Lo que se ve es una de tres: «calm» (se muestra como «Oscuro»; el identificador interno es el que
+// se guarda en gym_theme y no se cambia), «light» (Claro) o «classic» (Clásico, la original con colores vivos).
+// Lo que se elige en Ajustes son esas tres más «system»: sigue al sistema (Oscuro si el dispositivo está en modo oscuro y
+// Claro si está en modo claro). Clásico nunca se aplica solo.
 // El tema se aplica con data-theme en <html>: las variables --brand-* y demás colores de src/style.css cambian solos.
 // Los colores de los ejercicios se guardan siempre con la paleta de «calm» (COLOR_PALETTE); con «classic» se
 // sustituyen al mostrarlos por el de la misma posición en CLASSIC_COLOR_PALETTE, así cambiar de apariencia no toca los datos.
 
+import { Capacitor, SystemBars } from '@capacitor/core';
 import { COLOR_PALETTE, CLASSIC_COLOR_PALETTE, readStorage, writeStorage } from './store.js';
 
-export const THEMES = /** @type {const} */ (['calm', 'classic']);
+/** Apariencias que se ven. */
+export const THEMES = /** @type {const} */ (['calm', 'light', 'classic']);
 /** @typedef {typeof THEMES[number]} Theme */
+/** Lo que se elige en Ajustes: seguir al sistema o una apariencia fija. */
+export const THEME_CHOICES = /** @type {const} */ (['system', 'calm', 'light', 'classic']);
+/** @typedef {typeof THEME_CHOICES[number]} ThemeChoice */
 /** Color de marca de cada apariencia (el mismo de --brand-500 en src/style.css), para las vistas previas */
-export const THEME_BRAND = /** @type {Record<Theme, string>} */ ({ calm: '#10b981', classic: '#22c55e' });
-export const DEFAULT_THEME = /** @type {Theme} */ ('calm');
+export const THEME_BRAND = /** @type {Record<Theme, string>} */ ({ calm: '#10b981', light: '#10b981', classic: '#22c55e' });
+export const DEFAULT_THEME = /** @type {ThemeChoice} */ ('calm');
 
 const KEY_THEME = 'gym_theme';
 
-/** @param {any} value @returns {value is Theme} */
-export const isTheme = value => THEMES.includes(value);
+/** @param {any} value @returns {value is ThemeChoice} */
+export const isThemeChoice = value => THEME_CHOICES.includes(value);
 
-/** @type {Theme} */
-let current = DEFAULT_THEME;
+/** @type {ThemeChoice} */
+let choice = DEFAULT_THEME;
 
-export const getTheme = () => current;
+const darkQuery = typeof matchMedia === 'function' ? matchMedia('(prefers-color-scheme: dark)') : null;
+
+/** Apariencia que se ve ahora: la elegida o, con «system», la que pide el dispositivo. */
+export const getTheme = () => /** @type {Theme} */ (choice === 'system' ? (darkQuery && !darkQuery.matches ? 'light' : 'calm') : choice);
+/** Lo que está elegido en Ajustes (puede ser «system»). */
+export const getThemeChoice = () => choice;
+
+/** @type {(() => void) | null} */
+let onSystemChange = null;
 
 function applyThemeAttribute() {
-  document.documentElement.dataset.theme = current;
+  const theme = getTheme();
+  document.documentElement.dataset.theme = theme;
+  // Barras del sistema de Android: iconos claros sobre fondo oscuro y oscuros sobre fondo claro
+  if (Capacitor.isNativePlatform()) SystemBars.setStyle({ style: /** @type {any} */ (theme === 'light' ? 'LIGHT' : 'DARK') }).catch(() => {});
 }
 
-/** Lee la apariencia guardada y la aplica (se llama al arrancar). */
-export function loadTheme() {
-  current = readStorage(KEY_THEME, DEFAULT_THEME, isTheme);
+/** Lee la apariencia guardada y la aplica (se llama al arrancar). @param {() => void} [onChange] se llama si, con «system», el dispositivo cambia de modo */
+export function loadTheme(onChange) {
+  choice = readStorage(KEY_THEME, DEFAULT_THEME, isThemeChoice);
   applyThemeAttribute();
+  onSystemChange = onChange ?? null;
+  darkQuery?.addEventListener?.('change', () => {
+    if (choice !== 'system') return;
+    applyThemeAttribute();
+    onSystemChange?.();
+  });
 }
 
 /**
  * Cambia y guarda la apariencia.
- * @param {string} theme
+ * @param {string} next
  * @returns {boolean} true si cambió
  */
-export function setTheme(theme) {
-  if (!isTheme(theme) || theme === current) return false;
-  current = theme;
-  writeStorage(KEY_THEME, theme);
+export function setTheme(next) {
+  if (!isThemeChoice(next) || next === choice) return false;
+  choice = next;
+  writeStorage(KEY_THEME, next);
   applyThemeAttribute();
   return true;
 }
@@ -50,7 +75,7 @@ export function setTheme(theme) {
  * @param {string} color color guardado (paleta de «calm»)
  * @param {Theme} [theme]
  */
-export function themeColor(color, theme = current) {
+export function themeColor(color, theme = getTheme()) {
   if (theme !== 'classic') return color;
   const i = COLOR_PALETTE.indexOf(color);
   return i === -1 ? color : CLASSIC_COLOR_PALETTE[i];

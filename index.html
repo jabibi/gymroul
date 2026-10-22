@@ -13,6 +13,7 @@
         <div class="flex items-center min-w-0 space-x-2 min-[380px]:space-x-3 rtl:space-x-reverse">
             <div class="logo-box w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 shrink-0">
                 <img src="logo-mark.svg" alt="" width="40" height="40" class="logo-calm w-full h-full">
+                <img src="logo-light.svg" alt="" width="40" height="40" class="logo-light w-full h-full">
                 <img src="logo-classic.svg" alt="" width="40" height="40" class="logo-classic w-full h-full">
             </div>
             <div>
@@ -22,11 +23,11 @@
 
         <div class="flex items-center space-x-1.5 min-[380px]:space-x-2 rtl:space-x-reverse">
             <button id="soundToggleBtn" data-action="toggle-sound" aria-label="Turn sound on or off" data-i18n-aria-label="header.sound" class="w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
-                <i id="soundIcon" class="fa-solid fa-volume-high text-sm text-brand-400"></i>
+                <i id="soundIcon" class="fa-solid fa-volume-high text-sm text-brand-text"></i>
             </button>
             <button data-action="open-history" aria-label="Open history" data-i18n-aria-label="header.history" class="relative w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95 disabled:opacity-40 disabled:active:scale-100">
                 <i class="fa-solid fa-clock-rotate-left text-sm"></i>
-                <span id="historyBadge" class="absolute -top-1.5 -end-1.5 w-5 h-5 bg-brand-500 text-dark-950 font-black text-xs rounded-full flex items-center justify-center hidden border-2 border-dark-950">0</span>
+                <span id="historyBadge" class="absolute -top-1.5 -end-1.5 w-5 h-5 bg-brand-500 text-on-brand font-black text-xs rounded-full flex items-center justify-center hidden border-2 border-dark-950">0</span>
             </button>
             <button data-action="open-settings" aria-label="Open settings" data-i18n-aria-label="header.settings" class="w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95 disabled:opacity-40 disabled:active:scale-100">
                 <i class="fa-solid fa-sliders text-sm"></i>
@@ -40,7 +41,7 @@
         <!-- Un único marcador: [icono] ejercicio, sobre la púa de la ruleta -->
         <div class="flex justify-center w-full">
             <div id="liveIndicator" role="img" class="live-marker relative flex items-center justify-center gap-3 min-w-[260px] max-w-full h-[52px] px-2.5 rounded-full border-2 border-brand-500 font-bold text-white">
-                <span id="liveIndicatorIcon" class="w-9 h-9 shrink-0 rounded-full bg-brand-500/15 border border-brand-500/30 text-brand-400 flex items-center justify-center text-xl"></span>
+                <span id="liveIndicatorIcon" class="w-9 h-9 shrink-0 rounded-full bg-brand-500/15 border border-brand-500/30 text-brand-text flex items-center justify-center text-xl"></span>
                 <span id="liveIndicatorText" class="min-w-0 truncate text-[18px] tracking-wide" data-i18n="live.drag">Drag the wheel to spin</span>
             </div>
         </div>
@@ -66,13 +67,13 @@
 
             <!-- Botón Central de Giro -->
             <button type="button" data-action="spin" aria-label="Spin the wheel" data-i18n-aria-label="wheel.centerAria" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/4 aspect-square rounded-full bg-gradient-to-br from-dark-800 via-dark-900 to-dark-950 border-4 border-brand-500 flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:scale-105 active:scale-95 transition-transform z-20 glow-brand">
-                <i class="fa-solid fa-play text-brand-400 text-xl ml-0.5 mb-0.5"></i>
+                <i class="fa-solid fa-play text-brand-text text-xl ml-0.5 mb-0.5"></i>
                 <span class="text-xs font-black text-slate-200" data-i18n="wheel.center">Spin</span>
             </button>
         </div>
 
         <div class="w-full mt-6 px-2">
-            <button data-action="spin" id="spinBtn" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 text-dark-950 font-black text-lg tracking-wide shadow-xl shadow-brand-500/25 hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-3">
+            <button data-action="spin" id="spinBtn" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 text-on-brand font-black text-lg tracking-wide shadow-xl shadow-brand-500/25 hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-3">
                 <i class="fa-solid fa-rotate text-xl"></i> <span data-i18n="spin.button">Spin the wheel</span>
             </button>
         </div>
@@ -81,17 +82,17 @@
     <!-- Modal de Resultado -->
     <div id="resultModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="winnerText" aria-hidden="true" class="outline-none safe-edge fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
         <div class="glass-card result-card relative w-full max-w-sm rounded-3xl p-6 text-center transform scale-90 transition-transform duration-300 shadow-2xl border border-brand-500/50 glow-brand" id="resultCard">
-            <div id="winnerIconContainer" class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
+            <div id="winnerIconContainer" class="w-16 h-16 bg-brand-500/20 text-brand-text rounded-2xl mx-auto flex items-center justify-center mb-4 text-3xl border border-brand-500/40">
                 <i id="winnerIcon" class="fa-solid fa-fire"></i>
             </div>
-            <span class="text-sm font-bold text-brand-400 bg-brand-500/10 px-3.5 py-1.5 rounded-full border border-brand-500/20" data-i18n="result.badge">
+            <span class="text-sm font-bold text-brand-text bg-brand-500/10 px-3.5 py-1.5 rounded-full border border-brand-500/20" data-i18n="result.badge">
                 Exercise selected
             </span>
 
             <!-- El reto: repeticiones grandes, su etiqueta debajo y el ejercicio. El h2 oculto da el reto entero al lector de pantalla -->
             <h2 id="winnerText" class="sr-only">20 Burpee</h2>
             <div class="mt-4 mb-6" aria-hidden="true">
-                <div id="winnerReps" class="text-7xl font-black text-brand-400 tabular-nums leading-none tracking-tight">20</div>
+                <div id="winnerReps" class="text-7xl font-black text-brand-text tabular-nums leading-none tracking-tight">20</div>
                 <div class="mt-0.5 text-sm font-bold text-slate-400" data-i18n="result.reps">reps</div>
                 <div id="winnerName" dir="auto" class="mt-5 text-2xl font-black text-white break-words leading-tight">Burpee</div>
                 <!-- Barra con el color del sector de la ruleta (se pone al mostrar el resultado) -->
@@ -99,10 +100,10 @@
             </div>
 
             <div class="grid grid-cols-1 gap-3">
-                <button data-action="close-result" data-arg="done" class="min-h-[48px] py-3.5 px-4 rounded-xl bg-brand-500 text-dark-950 font-black text-xs hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30 active:scale-95" data-i18n="result.done">
+                <button data-action="close-result" data-arg="done" class="min-h-[48px] py-3.5 px-4 rounded-xl bg-brand-500 text-on-brand font-black text-xs hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30 active:scale-95" data-i18n="result.done">
                     Done!
                 </button>
-                <button data-action="share-result" class="min-h-[48px] py-3.5 px-4 rounded-xl border border-brand-500 text-brand-400 font-black text-xs inline-flex items-center justify-center gap-2 [@media(hover:hover)]:hover:bg-brand-500/10 transition-all active:scale-95">
+                <button data-action="share-result" class="min-h-[48px] py-3.5 px-4 rounded-xl border border-brand-500 text-brand-text font-black text-xs inline-flex items-center justify-center gap-2 [@media(hover:hover)]:hover:bg-brand-500/10 transition-all active:scale-95">
                     <i class="fa-solid fa-share-nodes text-sm" aria-hidden="true"></i>
                     <span data-i18n="result.share">Share challenge</span>
                 </button>
@@ -139,7 +140,7 @@
         <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-5 sm:p-6 max-h-[calc(100dvh-0.5rem-var(--sat)-var(--sab))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="whatsNewCard">
             <div class="flex justify-between items-center gap-3 mb-3">
                 <div class="flex items-center gap-2.5 min-w-0">
-                    <i class="fa-solid fa-wand-magic-sparkles text-brand-400 text-lg" aria-hidden="true"></i>
+                    <i class="fa-solid fa-wand-magic-sparkles text-brand-text text-lg" aria-hidden="true"></i>
                     <h3 id="whatsNewTitle" class="font-black text-lg leading-tight text-white min-w-0 break-words">What's new</h3>
                 </div>
                 <button data-action="close-whatsnew" aria-label="Close" data-i18n-aria-label="whatsnew.closeAria" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
@@ -150,15 +151,15 @@
             <div class="flex-1 overflow-y-auto overflow-x-hidden pe-1 space-y-4">
                 <ul class="space-y-3">
                         <li class="flex items-start gap-3">
-                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-palette"></i></span>
+                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-text flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-palette"></i></span>
                             <span class="min-w-0 text-sm text-slate-200 leading-snug pt-1" data-i18n="whatsnew.look">A softer look and a new icon.</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-sliders"></i></span>
+                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-text flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-sliders"></i></span>
                             <span class="min-w-0 text-sm text-slate-200 leading-snug pt-1" data-i18n="whatsnew.settings">Settings is now a menu: wheel, appearance, language, privacy and credits.</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-font"></i></span>
+                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-text flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-font"></i></span>
                             <span class="min-w-0 text-sm text-slate-200 leading-snug pt-1" data-i18n="whatsnew.text">Full exercise names on the wheel and larger, easier-to-read text.</span>
                         </li>
                 </ul>
@@ -167,14 +168,14 @@
                 <div class="rounded-2xl border border-brand-500/40 bg-brand-500/10 p-3.5">
                     <p class="text-sm font-black text-white" data-i18n="whatsnew.classicTitle">Want the original look?</p>
                     <p id="whatsNewClassicText" class="text-sm text-slate-200 leading-snug mt-1"></p>
-                    <button type="button" data-action="whatsnew-appearance" class="mt-3 w-full min-h-[44px] px-3 py-2 rounded-xl border border-brand-500/50 text-brand-400 font-bold text-sm hover:bg-brand-500/15 transition-colors flex items-center justify-center gap-2">
+                    <button type="button" data-action="whatsnew-appearance" class="mt-3 w-full min-h-[44px] px-3 py-2 rounded-xl border border-brand-500/50 text-brand-text font-bold text-sm hover:bg-brand-500/15 transition-colors flex items-center justify-center gap-2">
                         <i class="fa-solid fa-palette text-xs" aria-hidden="true"></i> <span data-i18n="whatsnew.classicButton">Change appearance</span>
                     </button>
                 </div>
             </div>
 
             <div class="pt-3 mt-2">
-                <button data-action="close-whatsnew" class="w-full py-3 rounded-xl bg-brand-500 text-dark-950 font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30" data-i18n="whatsnew.close">
+                <button data-action="close-whatsnew" class="w-full py-3 rounded-xl bg-brand-500 text-on-brand font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30" data-i18n="whatsnew.close">
                     Get started
                 </button>
             </div>
@@ -201,18 +202,18 @@
                 <section id="settingsMenu" data-view="menu" class="space-y-3">
                     <div class="rounded-2xl bg-dark-900/60 border border-slate-800 overflow-hidden divide-y divide-slate-800/80">
                         <button type="button" data-action="settings-open" data-arg="wheel" class="w-full flex items-center gap-3 min-h-[52px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors">
-                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-sliders"></i></span>
+                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-text flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-sliders"></i></span>
                             <span class="flex-1 min-w-0 text-sm font-bold text-slate-100" data-i18n="settings.wheel">Set up wheel</span>
                             <i class="fa-solid fa-chevron-right text-[10px] text-slate-500 shrink-0 rtl:-scale-x-100" aria-hidden="true"></i>
                         </button>
                         <button type="button" data-action="settings-open" data-arg="appearance" class="w-full flex items-center gap-3 min-h-[52px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors">
-                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-palette"></i></span>
+                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-text flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-palette"></i></span>
                             <span class="flex-1 min-w-0 text-sm font-bold text-slate-100" data-i18n="settings.appearance">Appearance</span>
                             <span id="settingsThemeValue" class="text-xs text-slate-400 text-end min-w-0 max-w-[50%]"></span>
                             <i class="fa-solid fa-chevron-right text-[10px] text-slate-500 shrink-0 rtl:-scale-x-100" aria-hidden="true"></i>
                         </button>
                         <button type="button" data-action="settings-open" data-arg="language" class="w-full flex items-center gap-3 min-h-[52px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors">
-                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-language"></i></span>
+                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-text flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-language"></i></span>
                             <span class="flex-1 min-w-0 text-sm font-bold text-slate-100" data-i18n="config.language">Language</span>
                             <span id="settingsLanguageValue" class="text-xs text-slate-400 text-end min-w-0 max-w-[50%]"></span>
                             <i class="fa-solid fa-chevron-right text-[10px] text-slate-500 shrink-0 rtl:-scale-x-100" aria-hidden="true"></i>
@@ -231,7 +232,7 @@
                             </button>
                         </div>
                         <div class="flex items-center space-x-1 rtl:space-x-reverse">
-                            <button data-action="toggle-exs" data-arg="on" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-xs text-brand-400 font-bold hover:underline" data-i18n="config.exsAll">All</button>
+                            <button data-action="toggle-exs" data-arg="on" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-xs text-brand-text font-bold hover:underline" data-i18n="config.exsAll">All</button>
                             <span class="text-slate-600">|</span>
                             <button data-action="toggle-exs" data-arg="off" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-xs text-slate-400 font-bold hover:underline" data-i18n="config.exsNone">None</button>
                         </div>
@@ -240,7 +241,7 @@
                     <div id="exsCheckboxes" class="px-2 pb-2 space-y-2 flex-1 min-h-[9rem] overflow-y-auto overscroll-contain"></div>
                 </div>
 
-                <button type="button" data-action="open-add-exercise" aria-haspopup="dialog" class="shrink-0 w-full min-h-[48px] px-3 rounded-xl border border-dashed border-slate-700 text-brand-400 text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center justify-center gap-2">
+                <button type="button" data-action="open-add-exercise" aria-haspopup="dialog" class="shrink-0 w-full min-h-[48px] px-3 rounded-xl border border-dashed border-slate-700 text-brand-text text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center justify-center gap-2">
                     <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i> <span data-i18n="config.addExercise">Add a new exercise</span>
                 </button>
                 </section>
@@ -264,10 +265,10 @@
             </div>
 
             <div id="settingsFooter" class="hidden pt-3 mt-2">
-                <button id="saveConfigBtn" data-action="save-config" class="w-full py-3 rounded-xl bg-brand-500 text-dark-950 font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30" data-i18n="config.apply">
+                <button id="saveConfigBtn" data-action="save-config" class="w-full py-3 rounded-xl bg-brand-500 text-on-brand font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30" data-i18n="config.apply">
                     Save changes
                 </button>
-                <button id="closeSettingsBtn" data-action="close-settings" class="hidden w-full py-3 rounded-xl bg-brand-500 text-dark-950 font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30" data-i18n="config.save">
+                <button id="closeSettingsBtn" data-action="close-settings" class="hidden w-full py-3 rounded-xl bg-brand-500 text-on-brand font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30" data-i18n="config.save">
                     Save
                 </button>
             </div>
@@ -308,7 +309,7 @@
             </div>
 
             <div class="pt-3 mt-2">
-                <button data-action="add-exercise" class="w-full py-3 rounded-xl bg-brand-500 text-dark-950 font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30" data-i18n="config.save">
+                <button data-action="add-exercise" class="w-full py-3 rounded-xl bg-brand-500 text-on-brand font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30" data-i18n="config.save">
                     Save
                 </button>
             </div>
@@ -337,7 +338,7 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
-        <iframe id="documentFrame" title="Documento" class="flex-1 w-full bg-white border-0"></iframe>
+        <iframe id="documentFrame" title="Documento" class="flex-1 w-full bg-[#fff] border-0"></iframe>
     </div>
 
     <!-- Compromiso de privacidad: resumen de las prácticas de la app (por debajo del visor de documentos) -->
@@ -353,35 +354,35 @@
                 <p class="text-sm text-slate-200 leading-relaxed mb-3" data-i18n="commitment.intro">GymRoulette is ethical, sovereign software: it does what you ask and nothing else.</p>
                 <ul class="space-y-3">
                 <li class="flex gap-3">
-                    <i class="fa-solid fa-check shrink-0 mt-1 text-brand-400" aria-hidden="true"></i>
+                    <i class="fa-solid fa-check shrink-0 mt-1 text-brand-text" aria-hidden="true"></i>
                     <div>
                         <p class="text-sm font-black text-white" data-i18n="commitment.offline.title">100% offline</p>
                         <p class="text-sm text-slate-300 leading-snug mt-0.5" data-i18n="commitment.offline.text">It works without a connection. The app does not even request Internet permission.</p>
                     </div>
                 </li>
                 <li class="flex gap-3">
-                    <i class="fa-solid fa-check shrink-0 mt-1 text-brand-400" aria-hidden="true"></i>
+                    <i class="fa-solid fa-check shrink-0 mt-1 text-brand-text" aria-hidden="true"></i>
                     <div>
                         <p class="text-sm font-black text-white" data-i18n="commitment.noTrackers.title">No trackers</p>
                         <p class="text-sm text-slate-300 leading-snug mt-0.5" data-i18n="commitment.noTrackers.text">No analytics, no tracking libraries and no profiles.</p>
                     </div>
                 </li>
                 <li class="flex gap-3">
-                    <i class="fa-solid fa-check shrink-0 mt-1 text-brand-400" aria-hidden="true"></i>
+                    <i class="fa-solid fa-check shrink-0 mt-1 text-brand-text" aria-hidden="true"></i>
                     <div>
                         <p class="text-sm font-black text-white" data-i18n="commitment.noAds.title">No ads</p>
                         <p class="text-sm text-slate-300 leading-snug mt-0.5" data-i18n="commitment.noAds.text">No ads and no ad networks.</p>
                     </div>
                 </li>
                 <li class="flex gap-3">
-                    <i class="fa-solid fa-check shrink-0 mt-1 text-brand-400" aria-hidden="true"></i>
+                    <i class="fa-solid fa-check shrink-0 mt-1 text-brand-text" aria-hidden="true"></i>
                     <div>
                         <p class="text-sm font-black text-white" data-i18n="commitment.yourData.title">Your data is yours</p>
                         <p class="text-sm text-slate-300 leading-snug mt-0.5" data-i18n="commitment.yourData.text">Everything you create stays on your device. If you delete the app or its data, no trace is left in the cloud.</p>
                     </div>
                 </li>
                 <li class="flex gap-3">
-                    <i class="fa-solid fa-check shrink-0 mt-1 text-brand-400" aria-hidden="true"></i>
+                    <i class="fa-solid fa-check shrink-0 mt-1 text-brand-text" aria-hidden="true"></i>
                     <div>
                         <p class="text-sm font-black text-white" data-i18n="commitment.noScripts.title">Zero external scripts</p>
                         <p class="text-sm text-slate-300 leading-snug mt-0.5" data-i18n="commitment.noScripts.text">All the code is inside the app. Nothing is loaded from other servers.</p>

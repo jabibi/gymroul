@@ -1,8 +1,8 @@
+Bertsioa 1.18 (GymTonic):
+• Itxura freskoagoa eta leunagoa: Argia itxura berria eta Sistema aukera. Leuna orain Iluna da.
+• Errusiera aplikaziora gehitu da, 21 hizkuntzatan jada.
+
 Bertsioa 1.17 (Muted Tones):
 • Itxura berria: ikono berria eta aukeratzeko bi itxura, Leuna eta Klasikoa.
 • Ezarpenak menu bihurtu dira: gurpila, itxura, hizkuntza, pribatutasuna eta kredituak.
 • Ariketen izen osoak gurpilean eta testu handiago eta irakurgarriagoa.
-
-Bertsioa 1.16 (Six Pack):
-• Historia argiagoa: ariketa bakoitzak bere ikonoa du, eta laburpen batek saioa batzen du.
-• Zuzenduta: errepikapen kopurua ez da gehiago bikoizten historiako errenkada bakoitzean.

@@ -4,7 +4,7 @@
 import { exerciseName, sortedExercises } from './exercise-names.js';
 import { isolate } from './wheel-math.js';
 import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE, COLOR_PALETTE } from './store.js';
-import { THEMES, THEME_BRAND, getTheme, themeColor } from './theme.js';
+import { THEME_CHOICES, THEME_BRAND, getTheme, getThemeChoice, themeColor } from './theme.js';
 import { WHATS_NEW_VERSION } from './whats-new.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
 import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
@@ -50,7 +50,7 @@ export function showToast(message) {
 /** @param {boolean} enabled */
 export function setSoundIcon(enabled) {
   $('soundIcon').className = enabled
-    ? 'fa-solid fa-volume-high text-sm text-brand-400'
+    ? 'fa-solid fa-volume-high text-sm text-brand-text'
     : 'fa-solid fa-volume-xmark text-sm text-slate-500';
 }
 
@@ -372,13 +372,13 @@ export function renderHistory() {
   listEl.innerHTML = sessionHistory.map(h => `
     <div class="px-3.5 py-3 flex justify-between items-center gap-3">
       <div class="flex items-center gap-3 min-w-0">
-        <div class="min-w-10 h-10 px-1.5 shrink-0 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center font-black ${String(h.reps).length > 3 ? 'text-xs' : 'text-sm'} border border-brand-500/20">${h.reps}</div>
+        <div class="min-w-10 h-10 px-1.5 shrink-0 rounded-xl bg-brand-500/10 text-brand-text flex items-center justify-center font-black ${String(h.reps).length > 3 ? 'text-xs' : 'text-sm'} border border-brand-500/20">${h.reps}</div>
         <div class="min-w-0">
           <h4 class="font-bold text-white text-xs break-words">${escapeHTML(isolate(h.exercise))}</h4>
           <span class="text-xs text-slate-300 font-medium">${escapeHTML(h.time)}</span>
         </div>
       </div>
-      <span class="shrink-0 text-xl text-brand-400/80 flex items-center">${renderIconHTML(h.icon)}</span>
+      <span class="shrink-0 text-xl text-brand-text/80 flex items-center">${renderIconHTML(h.icon)}</span>
     </div>`).join('');
 }
 
@@ -424,14 +424,14 @@ export function renderConfig(keepChecks = false) {
     <div class="rounded-xl bg-dark-950 border border-slate-800">
       <div class="flex flex-wrap items-stretch min-h-[48px]">
         <label class="flex items-center gap-2 cursor-pointer flex-1 min-w-[9rem] ps-2.5 pe-2 py-2">
-          <input type="checkbox" value="${escapeHTML(ex.name)}" ${isOn(ex.name) ? 'checked' : ''} class="ex-checkbox w-4 h-4 shrink-0 rounded text-brand-500 focus:ring-brand-500 bg-dark-900 border-slate-700">
+          <input type="checkbox" value="${escapeHTML(ex.name)}" ${isOn(ex.name) ? 'checked' : ''} class="ex-checkbox w-4 h-4 shrink-0 rounded text-brand-text focus:ring-brand-500 bg-dark-900 border-slate-700">
           <span class="text-xs font-bold text-white flex items-center gap-2 min-w-0">
-            <span class="text-brand-400 text-lg flex items-center shrink-0">${renderIconHTML(ex.icon)}</span>
+            <span class="text-brand-text text-lg flex items-center shrink-0">${renderIconHTML(ex.icon)}</span>
             <span class="min-w-0 break-words">${escapeHTML(name)}</span>
           </span>
         </label>
         <div class="flex items-stretch shrink-0 ms-auto">
-          <button data-action="edit-reps" data-arg="${escapeHTML(ex.id)}" aria-expanded="${open}" aria-label="${escapeHTML(t('config.editReps', { name }))}" class="flex items-center justify-center min-h-[44px] px-2 shrink-0 text-xs font-bold text-brand-400 hover:underline">
+          <button data-action="edit-reps" data-arg="${escapeHTML(ex.id)}" aria-expanded="${open}" aria-label="${escapeHTML(t('config.editReps', { name }))}" class="flex items-center justify-center min-h-[44px] px-2 shrink-0 text-xs font-bold text-brand-text hover:underline">
             <bdi dir="ltr">${escapeHTML(range)}</bdi>
           </button>
           <button data-action="delete-exercise" data-arg="${escapeHTML(ex.id)}" aria-label="${escapeHTML(t('config.deleteExercise', { name }))}" class="flex items-center justify-center w-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors">
@@ -446,7 +446,7 @@ export function renderConfig(keepChecks = false) {
         <label class="block text-xs font-bold text-slate-400">${escapeHTML(t('config.repsMax'))}
           <input type="number" dir="ltr" inputmode="numeric" id="${repsInputId(ex.id, 'Max')}" value="${ex.repsMax}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
         </label>
-        <button data-action="save-reps" data-arg="${escapeHTML(ex.id)}" class="min-h-[44px] px-3 py-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all">${escapeHTML(t('config.repsSave'))}</button>
+        <button data-action="save-reps" data-arg="${escapeHTML(ex.id)}" class="min-h-[44px] px-3 py-1.5 bg-brand-500/20 text-brand-text border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all">${escapeHTML(t('config.repsSave'))}</button>
       </div>
     </div>`;
   }).join('');
@@ -516,8 +516,14 @@ const VIEW_TITLE_KEYS = /** @type {Record<SettingsView, string>} */ ({
   appearance: 'settings.appearance',
   language: 'config.language',
 });
-const THEME_NAME_KEYS = { calm: 'appearance.calm', classic: 'appearance.classic' };
-const THEME_DESC_KEYS = { calm: 'appearance.calmDesc', classic: 'appearance.classicDesc' };
+const THEME_NAME_KEYS = { system: 'appearance.system', calm: 'appearance.calm', light: 'appearance.light', classic: 'appearance.classic' };
+/** Nombre de una apariencia; «Sistema» lleva entre paréntesis la que se ve ahora: «Sistema (oscuro)» o «Sistema (claro)». @param {import('./theme.js').ThemeChoice} choice */
+function themeLabel(choice) {
+  const name = t(THEME_NAME_KEYS[choice]);
+  if (choice !== 'system') return name;
+  return `${name} (${t(THEME_NAME_KEYS[getTheme()]).toLocaleLowerCase(getLanguageTag())})`;
+}
+const THEME_DESC_KEYS = { system: 'appearance.systemDesc', calm: 'appearance.calmDesc', light: 'appearance.lightDesc', classic: 'appearance.classicDesc' };
 
 /**
  * @param {SettingsView} view
@@ -560,13 +566,13 @@ export function settingsBack() {
 /** Pinta los textos que se generan por código: título, valores del menú, apariencias e idiomas. */
 export function renderSettings() {
   const lang = getLanguage();
-  const theme = getTheme();
+  const theme = getThemeChoice();
   $('configTitle').textContent = t(VIEW_TITLE_KEYS[settingsView]);
-  $('settingsThemeValue').textContent = t(THEME_NAME_KEYS[theme]);
+  $('settingsThemeValue').textContent = themeLabel(theme);
   $('settingsLanguageValue').textContent = LANGUAGES.find(l => l.code === lang)?.name ?? '';
 
   const row = 'w-full flex items-center justify-between gap-3 min-h-[48px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors';
-  const check = '<i class="fa-solid fa-check text-brand-400 text-sm shrink-0" aria-hidden="true"></i>';
+  const check = '<i class="fa-solid fa-check text-brand-text text-sm shrink-0" aria-hidden="true"></i>';
   $('languageOptions').innerHTML = LANGUAGES.map(l => {
     const selected = l.code === lang;
     return `<button type="button" role="radio" aria-checked="${selected}" data-action="set-language" data-arg="${l.code}" lang="${l.tag}" class="${row}">
@@ -574,11 +580,11 @@ export function renderSettings() {
     </button>`;
   }).join('');
 
-  $('themeOptions').innerHTML = THEMES.map(id => {
+  $('themeOptions').innerHTML = THEME_CHOICES.map(id => {
     const selected = id === theme;
     return `<button type="button" role="radio" aria-checked="${selected}" data-action="set-theme" data-arg="${id}" class="w-full text-start rounded-2xl border p-3.5 transition-colors ${selected ? 'border-brand-500 bg-brand-500/10' : 'border-slate-800 bg-dark-900/60 hover:bg-dark-800/60'}">
       <span class="flex items-center justify-between gap-3">
-        <span class="text-sm font-black text-white">${escapeHTML(t(THEME_NAME_KEYS[id]))}</span>
+        <span class="text-sm font-black text-white">${escapeHTML(themeLabel(id))}</span>
         ${selected ? check : '<span class="w-4 h-4 rounded-full border border-slate-600 shrink-0" aria-hidden="true"></span>'}
       </span>
       <span class="block text-xs text-slate-400 mt-1">${escapeHTML(t(THEME_DESC_KEYS[id]))}</span>
@@ -587,7 +593,9 @@ export function renderSettings() {
   }).join('');
   // Los colores se ponen con el DOM: la CSP prohíbe los estilos en línea escritos en el HTML
   document.querySelectorAll('[data-swatches]').forEach(box => {
-    const id = /** @type {import('./theme.js').Theme} */ (/** @type {HTMLElement} */ (box).dataset.swatches);
+    const choice = /** @type {import('./theme.js').ThemeChoice} */ (/** @type {HTMLElement} */ (box).dataset.swatches);
+    // «Sistema» enseña los colores de la apariencia que se ve ahora
+    const id = choice === 'system' ? getTheme() : choice;
     [THEME_BRAND[id], ...COLOR_PALETTE.slice(0, 6).map(c => themeColor(c, id))].forEach((color, i) => {
       const dot = document.createElement('span');
       dot.className = i === 0 ? 'h-4 w-8 rounded-full' : 'h-4 w-4 rounded-full';
@@ -679,7 +687,7 @@ let selectedIcon = DEFAULT_ICON;
 
 function updateIconButton() {
   const icon = getIcon(selectedIcon);
-  $('iconPickerCurrent').innerHTML = `<span class="text-brand-400 text-xl flex items-center">${renderIconHTML(icon.id)}</span><span>${escapeHTML(iconLabel(icon.id))}</span>`;
+  $('iconPickerCurrent').innerHTML = `<span class="text-brand-text text-xl flex items-center">${renderIconHTML(icon.id)}</span><span>${escapeHTML(iconLabel(icon.id))}</span>`;
 }
 
 /** @param {string} [query] */
@@ -692,7 +700,7 @@ function renderIconGrid(query = '') {
       <div class="col-span-full text-xs font-bold text-slate-400 mt-2 first:mt-0">${escapeHTML(groupName(group.id))}</div>
       ${icons.map(i => `
         <button type="button" data-action="pick-icon" data-arg="${escapeHTML(i.id)}" title="${escapeHTML(iconLabel(i.id))}" aria-label="${escapeHTML(iconLabel(i.id))}" aria-pressed="${i.id === selectedIcon}"
-          class="aspect-square rounded-xl flex items-center justify-center text-xl border transition-colors ${i.id === selectedIcon ? 'bg-brand-500/25 border-brand-500 text-brand-400' : 'bg-dark-950 border-slate-800 text-slate-300 hover:border-slate-600'}">
+          class="aspect-square rounded-xl flex items-center justify-center text-xl border transition-colors ${i.id === selectedIcon ? 'bg-brand-500/25 border-brand-500 text-brand-text' : 'bg-dark-950 border-slate-800 text-slate-300 hover:border-slate-600'}">
           ${renderIconHTML(i.id)}
         </button>`).join('')}`;
   }).join('');

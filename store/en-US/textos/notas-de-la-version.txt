@@ -1,8 +1,8 @@
+Version 1.18 (GymTonic):
+• Fresher, softer look: new Light appearance and a System option. Soft is now called Dark.
+• Russian joins the app, now in 21 languages.
+
 Version 1.17 (Muted Tones):
 • New look: new icon and a choice of two appearances, Soft and Classic.
 • Settings is now a menu: wheel, appearance, language, privacy and credits.
 • Full exercise names on the wheel and larger, easier-to-read text.
-
-Version 1.16 (Six Pack):
-• A tidier history: each exercise shows its icon, and a summary adds up your session.
-• Fixed the reps appearing twice in each history row.

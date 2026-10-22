@@ -89,7 +89,8 @@ describe('colores de la imagen compartida', () => {
 
   it('el color de marca de cada apariencia coincide con el de src/style.css', () => {
     const css = readFileSync('src/style.css', 'utf8');
-    const brand = { calm: css.match(/:root \{[^}]*--brand-500: ([\d ]+);/)?.[1], classic: css.match(/data-theme="classic"\] \{[^}]*--brand-500: ([\d ]+);/)?.[1] };
+    const brand = { calm: css.match(/:root \{[^}]*--brand-500: ([\d ]+);/)?.[1], classic: css.match(/data-theme="classic"\] \{[^}]*--brand-500: ([\d ]+);/)?.[1], light: undefined };
+    brand.light = brand.calm; // Claro comparte el color de marca de Oscuro (solo cambia el del texto)
     for (const theme of THEMES) expect(CARD_THEMES[theme].brand.replace(/, /g, ' ')).toBe(brand[theme]);
   });
 });

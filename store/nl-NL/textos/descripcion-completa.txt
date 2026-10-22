@@ -19,11 +19,11 @@ GymRoulette is een oefeningenrad: elk vak is een oefening, en als je het rad dra
 Kies met zoekfunctie uit meer dan 100 pictogrammen voor allerlei disciplines: kracht en gewichten, calisthenics, cardio, yoga, pilates, tai chi, boksen, karate en andere vechtsporten, functionele fitness, obstacle runs, sporten, water en bergen. Met onze eigen pictogrammen voor push-ups, plank, sit-ups, burpee, squat en mountain climbers.
 
 <b>In jouw taal</b>
-العربية, English (VS, VK en Australië), Español (Spanje en Latijns-Amerika), Euskara, Galego, Català, Français (Frankrijk en Canada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe en Português (Brazilië en Portugal). De app volgt de taal van je telefoon en je kunt die wijzigen in Instellingen.
+العربية, English (VS, VK en Australië), Español (Spanje en Latijns-Amerika), Euskara, Galego, Català, Français (Frankrijk en Canada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Русский, Türkçe en Português (Brazilië en Portugal). De app volgt de taal van je telefoon en je kunt die wijzigen in Instellingen.
 
 <b>Fijne details</b>
 • <b>Radgeluiden en trillingen</b> als de uitslag verschijnt.
-• <b>Twee uiterlijken</b>, Zacht en Klassiek, op een donker ontwerp dat prettig is voor je ogen in de sportschool.
+• <b>Drie uiterlijken</b>: Donker, Licht en Klassiek, of Systeem om je apparaat te volgen, prettig voor je ogen in de sportschool.
 • <b>Geen registratie</b> en geen gebruikersaccounts.
 • <b>Geen advertenties.</b>
 • <b>100% offline</b>: je hebt geen internetverbinding nodig.

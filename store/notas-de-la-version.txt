@@ -1,170 +1,170 @@
 <en-US>
+Version 1.18 (GymTonic):
+• Fresher, softer look: new Light appearance and a System option. Soft is now called Dark.
+• Russian joins the app, now in 21 languages.
+
 Version 1.17 (Muted Tones):
 • New look: new icon and a choice of two appearances, Soft and Classic.
 • Settings is now a menu: wheel, appearance, language, privacy and credits.
 • Full exercise names on the wheel and larger, easier-to-read text.
-
-Version 1.16 (Six Pack):
-• A tidier history: each exercise shows its icon, and a summary adds up your session.
-• Fixed the reps appearing twice in each history row.
 </en-US>
 <ar>
+الإصدار 1.18 (GymTonic):
+• مظهر أكثر انتعاشًا ونعومة: مظهر فاتح جديد وخيار النظام. أصبح الناعم يُسمّى داكنًا.
+• تنضم الروسية إلى التطبيق، وصار متاحًا بـ 21 لغة.
+
 الإصدار 1.17 (Muted Tones):
 • مظهر جديد: أيقونة جديدة ومظهران للاختيار، ناعم وكلاسيكي.
 • أصبحت الإعدادات قائمة: العجلة والمظهر واللغة والخصوصية وشكر وتقدير.
 • أسماء التمارين كاملة على العجلة ونص أكبر وأوضح.
-
-الإصدار 1.16 (Six Pack):
-• سجل أوضح: يعرض كل تمرين أيقونته، وملخص يجمع جلستك.
-• تم إصلاح تكرار عدد التكرارات في كل صف من السجل.
 </ar>
 <ca>
+Versió 1.18 (GymTonic):
+• Aspecte més fresc i suau: nova aparença Clar i opció Sistema. Suau ara es diu Fosc.
+• El rus s’afegeix a l’app, ja en 21 idiomes.
+
 Versió 1.17 (Muted Tones):
 • Nou aspecte: icona nova i dues aparences a triar, Suau i Clàssic.
 • Ajustos en forma de menú: ruleta, aparença, idioma, privadesa i crèdits.
 • Noms d'exercicis complets a la ruleta i text més gran i llegible.
-
-Versió 1.16 (Six Pack):
-• Un historial més clar: cada exercici mostra la seva icona i un resum suma la teva sessió.
-• Corregit el nombre de repeticions repetit a cada fila de l'historial.
 </ca>
 <de-DE>
+Version 1.18 (GymTonic):
+• Frischerer, sanfterer Look: neues helles Design und die Option System. Sanft heißt jetzt Dunkel.
+• Russisch kommt dazu, jetzt in 21 Sprachen.
+
 Version 1.17 (Muted Tones):
 • Neuer Look: neues Symbol und zwei Designs zur Wahl, Sanft und Klassisch.
 • Einstellungen als Menü: Rad, Darstellung, Sprache, Datenschutz und Danksagungen.
 • Vollständige Übungsnamen auf dem Rad und größere, lesbarere Schrift.
-
-Version 1.16 (Six Pack):
-• Ein übersichtlicherer Verlauf: Jede Übung zeigt ihr Symbol, und eine Zusammenfassung zählt dein Training zusammen.
-• Behoben: Die Wiederholungen standen in jeder Verlaufszeile doppelt.
 </de-DE>
 <es-ES>
+Versión 1.18 (GymTonic):
+• Aspecto más fresco y suave: nueva apariencia Claro y opción Sistema. Suave ahora se llama Oscuro.
+• El ruso se suma a la app, ya en 21 idiomas.
+
 Versión 1.17 (Muted Tones):
 • Nuevo aspecto: icono nuevo y dos apariencias a elegir, Suave y Clásico.
 • Ajustes en forma de menú: ruleta, apariencia, idioma, privacidad y créditos.
 • Nombres de ejercicios completos en la ruleta y texto más grande y legible.
-
-Versión 1.16 (Six Pack):
-• Un historial más claro: cada ejercicio muestra su icono y un resumen suma tu sesión.
-• Corregido el número de repeticiones repetido en cada fila del historial.
 </es-ES>
 <eu-ES>
+Bertsioa 1.18 (GymTonic):
+• Itxura freskoagoa eta leunagoa: Argia itxura berria eta Sistema aukera. Leuna orain Iluna da.
+• Errusiera aplikaziora gehitu da, 21 hizkuntzatan jada.
+
 Bertsioa 1.17 (Muted Tones):
 • Itxura berria: ikono berria eta aukeratzeko bi itxura, Leuna eta Klasikoa.
 • Ezarpenak menu bihurtu dira: gurpila, itxura, hizkuntza, pribatutasuna eta kredituak.
 • Ariketen izen osoak gurpilean eta testu handiago eta irakurgarriagoa.
-
-Bertsioa 1.16 (Six Pack):
-• Historia argiagoa: ariketa bakoitzak bere ikonoa du, eta laburpen batek saioa batzen du.
-• Zuzenduta: errepikapen kopurua ez da gehiago bikoizten historiako errenkada bakoitzean.
 </eu-ES>
 <fr-FR>
+Version 1.18 (GymTonic):
+• Un aspect plus frais et plus doux : nouvelle apparence Claire et option Système. Doux devient Sombre.
+• Le russe rejoint l’appli, désormais en 21 langues.
+
 Version 1.17 (Muted Tones):
 • Nouvel aspect : nouvelle icône et deux apparences au choix, Doux et Classique.
 • Les réglages deviennent un menu : roue, apparence, langue, confidentialité et crédits.
 • Noms d'exercices complets sur la roue et texte plus grand et lisible.
-
-Version 1.16 (Six Pack):
-• Un historique plus clair : chaque exercice affiche son icône, et un résumé additionne ta séance.
-• Correction du nombre de répétitions affiché deux fois dans chaque ligne de l'historique.
 </fr-FR>
 <gl-ES>
+Versión 1.18 (GymTonic):
+• Aspecto máis fresco e suave: nova aparencia Claro e opción Sistema. Suave agora chámase Escuro.
+• O ruso súmase á app, xa en 21 idiomas.
+
 Versión 1.17 (Muted Tones):
 • Novo aspecto: icona nova e dúas aparencias para elixir, Suave e Clásico.
 • Axustes en forma de menú: ruleta, aparencia, idioma, privacidade e créditos.
 • Nomes de exercicios completos na ruleta e texto máis grande e lexible.
-
-Versión 1.16 (Six Pack):
-• Un historial máis claro: cada exercicio mostra a súa icona e un resumo suma a túa sesión.
-• Corrixido o número de repeticións repetido en cada fila do historial.
 </gl-ES>
 <hi-IN>
+संस्करण 1.18 (GymTonic):
+• ज़्यादा ताज़ा और नरम रूप: नया लाइट रूप और सिस्टम विकल्प। सॉफ्ट का नाम अब डार्क है।
+• अब रूसी भाषा भी जुड़ी, ऐप 21 भाषाओं में।
+
 संस्करण 1.17 (Muted Tones):
 • नया रूप: नया आइकन और चुनने के लिए दो रूप, सॉफ्ट और क्लासिक।
 • सेटिंग्स अब एक मेन्यू है: व्हील, दिखावट, भाषा, गोपनीयता और श्रेय।
 • व्हील पर एक्सरसाइज़ के पूरे नाम और बड़ा, पढ़ने में आसान टेक्स्ट।
-
-संस्करण 1.16 (Six Pack):
-• ज़्यादा साफ़ इतिहास: हर एक्सरसाइज़ अपने आइकन के साथ दिखती है, और एक सारांश आपके सेशन का जोड़ बताता है।
-• इतिहास की हर पंक्ति में रेप्स की संख्या दो बार दिखने की गड़बड़ी ठीक की गई।
 </hi-IN>
 <it-IT>
+Versione 1.18 (GymTonic):
+• Aspetto più fresco e morbido: nuovo aspetto Chiaro e opzione Sistema. Morbido ora si chiama Scuro.
+• Il russo si aggiunge all’app, ora in 21 lingue.
+
 Versione 1.17 (Muted Tones):
 • Nuovo aspetto: nuova icona e due aspetti a scelta, Morbido e Classico.
 • Le impostazioni diventano un menu: ruota, aspetto, lingua, privacy e crediti.
 • Nomi degli esercizi completi sulla ruota e testo più grande e leggibile.
-
-Versione 1.16 (Six Pack):
-• Una cronologia più chiara: ogni esercizio mostra la sua icona e un riepilogo somma la tua sessione.
-• Corretto il numero di ripetizioni mostrato due volte in ogni riga della cronologia.
 </it-IT>
 <ja-JP>
+バージョン 1.18 (GymTonic):
+• より爽やかでやわらかな見た目：ライトの外観とシステム設定を追加。ソフトはダークになりました。
+• ロシア語に対応し、21言語で使えます。
+
 バージョン 1.17 (Muted Tones):
 • 新しい見た目：アイコンを刷新し、ソフトとクラシックの2つの外観から選べます。
 • 設定がメニューになりました：ルーレット、外観、言語、プライバシー、クレジット。
 • ルーレットにエクササイズ名をそのまま表示し、文字も大きく読みやすくなりました。
-
-バージョン 1.16 (Six Pack):
-• 履歴を見やすくしました。エクササイズごとにアイコンが付き、まとめでセッションの合計がわかります。
-• 履歴の各行で回数が二重に表示される問題を修正しました。
 </ja-JP>
 <nl-NL>
+Versie 1.18 (GymTonic):
+• Frissere, zachtere look: nieuw licht uiterlijk en de optie Systeem. Zacht heet nu Donker.
+• Russisch komt erbij, nu in 21 talen.
+
 Versie 1.17 (Muted Tones):
 • Nieuwe look: nieuw pictogram en twee uiterlijken om uit te kiezen, Zacht en Klassiek.
 • Instellingen is nu een menu: rad, uiterlijk, taal, privacy en dankbetuigingen.
 • Volledige oefennamen op het rad en grotere, beter leesbare tekst.
-
-Versie 1.16 (Six Pack):
-• Een overzichtelijker geschiedenis: elke oefening toont zijn pictogram en een samenvatting telt je training op.
-• Opgelost: het aantal herhalingen stond dubbel in elke regel van de geschiedenis.
 </nl-NL>
 <pl-PL>
+Wersja 1.18 (GymTonic):
+• Świeższy i łagodniejszy wygląd: nowy jasny styl i opcja Systemowy. Delikatny nazywa się teraz Ciemny.
+• Rosyjski dołącza do aplikacji, teraz w 21 językach.
+
 Wersja 1.17 (Muted Tones):
 • Nowy wygląd: nowa ikona i dwa style do wyboru, Delikatny i Klasyczny.
 • Ustawienia jako menu: koło, wygląd, język, prywatność i podziękowania.
 • Pełne nazwy ćwiczeń na kole oraz większy, czytelniejszy tekst.
-
-Wersja 1.16 (Six Pack):
-• Czytelniejsza historia: każde ćwiczenie ma swoją ikonę, a podsumowanie zlicza twój trening.
-• Naprawiono podwójne wyświetlanie liczby powtórzeń w każdym wierszu historii.
 </pl-PL>
 <pt-BR>
+Versão 1.18 (GymTonic):
+• Visual mais fresco e suave: nova aparência Clara e opção Sistema. Suave agora se chama Escuro.
+• O russo entra no app, agora em 21 idiomas.
+
 Versão 1.17 (Muted Tones):
 • Novo visual: ícone novo e duas aparências à escolha, Suave e Clássico.
 • As configurações viram um menu: roleta, aparência, idioma, privacidade e créditos.
 • Nomes de exercícios completos na roleta e texto maior e mais legível.
-
-Versão 1.16 (Six Pack):
-• Um histórico mais claro: cada exercício mostra seu ícone e um resumo soma sua sessão.
-• Corrigido o número de repetições repetido em cada linha do histórico.
 </pt-BR>
 <pt-PT>
+Versão 1.18 (GymTonic):
+• Visual mais fresco e suave: nova aparência Clara e opção Sistema. Suave passa a chamar-se Escuro.
+• O russo junta-se à app, agora em 21 idiomas.
+
 Versão 1.17 (Muted Tones):
 • Novo visual: ícone novo e duas aparências à escolha, Suave e Clássico.
 • As definições passam a menu: roleta, aparência, idioma, privacidade e créditos.
 • Nomes de exercícios completos na roleta e texto maior e mais legível.
-
-Versão 1.16 (Six Pack):
-• Um histórico mais claro: cada exercício mostra o seu ícone e um resumo soma a tua sessão.
-• Corrigido o número de repetições repetido em cada linha do histórico.
 </pt-PT>
 <ru-RU>
+Версия 1.18 (GymTonic):
+• Более свежий и мягкий вид: новый светлый вид и вариант «Системный». «Мягкий» теперь называется «Тёмный».
+• Русский язык пополнил приложение, теперь их 21.
+
 Версия 1.17 (Muted Tones):
 • Новый вид: новый значок и два внешних вида на выбор, Мягкий и Классический.
 • Настройки теперь в виде меню: колесо, внешний вид, язык, конфиденциальность и благодарности.
 • Полные названия упражнений на колесе и более крупный текст.
-
-Версия 1.16 (Six Pack):
-• Более аккуратная история: у каждого упражнения свой значок, а итог подводит всю тренировку.
-• Исправлено двойное отображение повторений в каждой строке истории.
 </ru-RU>
 <tr-TR>
+Sürüm 1.18 (GymTonic):
+• Daha ferah ve yumuşak görünüm: yeni Açık görünüm ve Sistem seçeneği. Yumuşak artık Koyu.
+• Rusça uygulamaya katıldı, artık 21 dilde.
+
 Sürüm 1.17 (Muted Tones):
 • Yeni görünüm: yeni simge ve seçebileceğin iki görünüm, Yumuşak ve Klasik.
 • Ayarlar artık bir menü: çark, görünüm, dil, gizlilik ve katkıda bulunanlar.
 • Çarkta tam egzersiz adları ve daha büyük, okunaklı yazı.
-
-Sürüm 1.16 (Six Pack):
-• Daha net bir geçmiş: her egzersiz simgesiyle görünür ve bir özet antrenmanını toplar.
-• Geçmişin her satırında tekrar sayısının iki kez görünmesi düzeltildi.
 </tr-TR>

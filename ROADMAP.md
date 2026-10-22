@@ -30,9 +30,20 @@ Solicitud enviada el 18 oct 2026 a las 21:53, con 15 testers y la 1.16 en las pr
 - **Novedades de Play con las dos últimas versiones**: hecho, cada idioma muestra «Versión 1.15 (Be Reborn):» y «Versión 1.14 (RandWork):» con sus viñetas (`NOTES_VERSIONS` y `notesText` en `store/listing.mjs`; 500 caracteres por idioma).
 - **Ficha de Play al día con la 1.16**: `NOTES_VERSIONS` en 1.16 y 1.15, novedades de cada idioma con las viñetas de la 1.16, y capturas, textos y CSV regenerados con `npm run store`. Si se añaden más cambios a la versión antes de publicar, hay que sumar su viñeta en los 20 idiomas (cuidado con el límite de 500 caracteres: el francés, el neerlandés y el italiano rozan los 450) y regenerar las capturas afectadas.
 
-## En desarrollo: versión 1.17 «Muted Tones» (versionCode 17)
+## En desarrollo: versión 1.18 «GymTonic» (versionCode 18)
 
-Va en la rama `roadmap-17` (PR #24) y no está publicada. Incluye:
+Va en la rama `roadmap-18`, sin publicar. Un toque más fresco, elegante y suave, con el ruso como gran novedad y el tema claro. Incluye:
+- **Tema Claro** y **Sistema**: cuatro opciones en Apariencia: Sistema (sigue el modo claro u oscuro del dispositivo; nunca elige Clásico), Oscuro (antes Suave; el identificador guardado sigue siendo `calm`), Claro (nuevo, con `public/logo-light.svg` generado por `scripts/build-icons.mjs`) y Clásico. La escala de neutros de Tailwind y el texto «blanco» salen de variables CSS que Claro invierte. La imagen de compartir y las barras del sistema de Android también siguen la apariencia. Por defecto sigue siendo Oscuro (decidir si «Sistema» debería ser el valor para instalaciones nuevas).
+- **Ruso** como idioma 21 (app, ficha de Play y páginas legales), con Manrope para el cirílico.
+- **Visor de documentos** que siempre abre desde arriba y sin añadir entradas al historial al navegar entre páginas legales.
+- **Imagen de compartir** con los colores de la apariencia activa.
+- Aviso de novedades de la 1.18 (`WHATS_NEW_VERSION`) y novedades de Play con la 1.18 y la 1.17.
+
+Pendiente antes de publicar: revisión nativa del ruso, probar el tema claro en dispositivo (barras del sistema; el fondo nativo de la ventana sigue siendo oscuro durante el arranque), pasar la CI del Android y subir los textos, el CSV y las imágenes de `store/` en Play Console.
+
+## Hecho: versión 1.17 «Muted Tones» (versionCode 17)
+
+Fusionada en `main` (PR #24); la 1.18 sale con ella si la 1.17 no se publica antes. Incluye:
 - **Ajustes como menú**: editar ruleta, apariencia, idioma y, abajo, «Privacidad» (resumen del compromiso) y «Acerca de» (créditos y versión). Cabecera común con Historial y el compromiso de privacidad, y paneles inferiores que llegan al borde de abajo (la barra de gestos de Android queda sobre el panel).
 - **Dos apariencias**: Suave (la nueva, por defecto) y Clásico (la original, con colores vivos y verde intenso).
 - **Logo e icono nuevos**, más sobrios, y barras del sistema de Android con el color de la app.

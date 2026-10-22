@@ -1,11 +1,12 @@
 // Genera el logo de GymRoulette y los recursos que consume @capacitor/assets.
 //
-//   node scripts/build-icons.mjs        -> assets/*.png, assets/logo.svg, public/favicon.svg y public/logo-mark.svg
+//   node scripts/build-icons.mjs        -> assets/*.png, assets/logo.svg, public/favicon.svg, public/logo-mark.svg y public/logo-light.svg
 //   npm run icons                       -> lo anterior + capacitor-assets generate --android
 //
 // Un único diseño (la ruleta, en verde neón sobre azul noche) con varias presentaciones:
 //   - logo.svg / favicon.svg   cuadrado redondeado con el fondo oscuro (cabecera de la app y pestaña)
 //   - logo-mark.svg            solo la ruleta, sin fondo (cabecera de la app, que ya pone el suyo)
+//   - logo-light.svg           lo mismo con colores para fondo claro (cabecera con el tema Claro)
 //   - icon-only.png            icono completo a sangre (lanzadores antiguos)
 //   - icon-foreground.png      solo la ruleta, con la circunferencia centrada, sobre transparente (icono
 //                              adaptativo; Android lo reduce al 66 % dentro de la zona segura)
@@ -32,15 +33,16 @@ const DEFS = `<defs>
   </filter>
 </defs>`;
 
-// La ruleta completa (sectores alternos, aro con brillo neón verde y mancuerna central), centrada en 256,256 con radio 190
-const WHEEL = `
-  <g opacity="0.2" fill="#10B981">
+// La ruleta completa (sectores alternos, aro con brillo neón verde y mancuerna central), centrada en 256,256 con radio 190.
+// La variante clara (tema Claro) usa un verde más oscuro y la mancuerna oscura, sin brillo, para leerse sobre fondo claro.
+const wheelShapes = ({ green = '#10B981', dumbbell = '#FFFFFF', ringGlow = 'url(#neon)', dumbbellGlow = 'url(#soft)' } = {}) => `
+  <g opacity="0.2" fill="${green}">
     <path d="M256,66 A190,190 0 0,1 390.35,121.65 L337.28,174.72 A115,115 0 0,0 256,141 Z"/>
     <path d="M446,256 A190,190 0 0,1 390.35,390.35 L337.28,337.28 A115,115 0 0,0 371,256 Z"/>
     <path d="M256,446 A190,190 0 0,1 121.65,390.35 L174.72,337.28 A115,115 0 0,0 256,371 Z"/>
     <path d="M66,256 A190,190 0 0,1 121.65,121.65 L174.72,174.72 A115,115 0 0,0 141,256 Z"/>
   </g>
-  <g filter="url(#neon)" stroke="#10B981" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <g filter="${ringGlow}" stroke="${green}" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <circle cx="256" cy="256" r="190" opacity="0.95"/>
     <circle cx="256" cy="256" r="115" opacity="0.95"/>
     <line x1="256" y1="66" x2="256" y2="141"/>
@@ -52,13 +54,16 @@ const WHEEL = `
     <line x1="66" y1="256" x2="141" y2="256"/>
     <line x1="121.65" y1="121.65" x2="174.72" y2="174.72"/>
   </g>
-  <g filter="url(#soft)" fill="#FFFFFF">
+  <g filter="${dumbbellGlow}" fill="${dumbbell}">
     <rect x="206" y="247" width="100" height="18" rx="9"/>
     <rect x="200" y="221" width="18" height="70" rx="6"/>
     <rect x="294" y="221" width="18" height="70" rx="6"/>
     <rect x="176" y="231" width="18" height="50" rx="5"/>
     <rect x="318" y="231" width="18" height="50" rx="5"/>
   </g>`;
+
+const WHEEL = wheelShapes();
+const WHEEL_LIGHT = wheelShapes({ green: '#047857', dumbbell: '#0F172A', ringGlow: 'none', dumbbellGlow: 'none' });
 
 const svg = (body, { bg = '', size = 512, extra = '' } = {}) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="${size}" height="${size}">${DEFS}${bg}${extra}${body}</svg>`;
@@ -75,6 +80,7 @@ const outputs = {
   foreground: svg(wheelScaled(1)),
   background: svg('', { bg: BG_FULL }),
   wheelOnly: svg(WHEEL),
+  wheelLight: svg(WHEEL_LIGHT),
 };
 
 mkdirSync('assets', { recursive: true });
@@ -82,6 +88,7 @@ mkdirSync('public', { recursive: true });
 writeFileSync('assets/logo.svg', outputs.logo);
 writeFileSync('public/favicon.svg', outputs.logo);
 writeFileSync('public/logo-mark.svg', outputs.wheelOnly);
+writeFileSync('public/logo-light.svg', outputs.wheelLight);
 
 const png = (name, source, size) => sharp(Buffer.from(source), { density: 300 }).resize(size, size).png().toFile(`assets/${name}.png`);
 

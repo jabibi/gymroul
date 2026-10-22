@@ -1,8 +1,8 @@
+Wersja 1.18 (GymTonic):
+• Świeższy i łagodniejszy wygląd: nowy jasny styl i opcja Systemowy. Delikatny nazywa się teraz Ciemny.
+• Rosyjski dołącza do aplikacji, teraz w 21 językach.
+
 Wersja 1.17 (Muted Tones):
 • Nowy wygląd: nowa ikona i dwa style do wyboru, Delikatny i Klasyczny.
 • Ustawienia jako menu: koło, wygląd, język, prywatność i podziękowania.
 • Pełne nazwy ćwiczeń na kole oraz większy, czytelniejszy tekst.
-
-Wersja 1.16 (Six Pack):
-• Czytelniejsza historia: każde ćwiczenie ma swoją ikonę, a podsumowanie zlicza twój trening.
-• Naprawiono podwójne wyświetlanie liczby powtórzeń w każdym wierszu historii.
