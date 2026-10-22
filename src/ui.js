@@ -868,6 +868,9 @@ function renderDocument() {
 /** @param {keyof typeof DOCUMENTS} kind */
 export function openDocument(kind) {
   openedDocument = kind;
+  // Un marco nuevo en cada apertura: así empieza siempre arriba y en el documento pedido, sin recordar el
+  // desplazamiento ni la página a la que se hubiera navegado dentro del visor
+  documentSrc = '';
   renderDocument();
   $('documentModal').classList.remove('hidden');
   $('documentModal').focus({ preventScroll: true });
