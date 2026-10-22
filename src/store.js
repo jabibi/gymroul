@@ -310,15 +310,48 @@ export function addExercise({ name, icon, repsMin = DEFAULT_REPS_MIN, repsMax = 
   return { ok: true };
 }
 
-/** @param {string} id */
+/** @typedef {{ exercise: import('./wheel-math.js').Exercise, index: number, wasActive: boolean }} RemovedExercise */
+
+/**
+ * Borra un ejercicio. Devuelve lo necesario para deshacerlo (restoreExercise), o null si no existe.
+ * @param {string} id
+ * @returns {RemovedExercise | null}
+ */
 export function removeExercise(id) {
   const all = getExercises();
-  const target = all.find(item => item.id === id);
+  const index = all.findIndex(item => item.id === id);
+  if (index === -1) return null;
+  const exercise = all[index];
+  const wasActive = active.exercises.includes(exercise.name);
   saveExercises(all.filter(item => item.id !== id));
-  if (target) {
-    active.exercises = active.exercises.filter(name => name !== target.name);
+  if (wasActive) {
+    active.exercises = active.exercises.filter(name => name !== exercise.name);
     persistActive();
   }
+  return { exercise, index, wasActive };
+}
+
+/**
+ * Deshace un borrado: el ejercicio vuelve con su mismo id (así conserva la traducción de los de por defecto), en su
+ * sitio y con su estado activo. Falla si mientras tanto se creó otro con el mismo nombre o ya hay el máximo.
+ * @param {RemovedExercise} removed
+ * @returns {StoreResult}
+ */
+export function restoreExercise({ exercise, index, wasActive }) {
+  const list = getExercises();
+  if (list.some(item => item.id === exercise.id || item.name.toLowerCase() === exercise.name.toLowerCase())) {
+    return { ok: false, error: { key: 'error.duplicateExercise', params: { name: exercise.name } } };
+  }
+  if (list.length >= MAX_EXERCISES) {
+    return { ok: false, error: { key: 'error.maxExercises', params: { max: MAX_EXERCISES } } };
+  }
+  list.splice(Math.min(index, list.length), 0, exercise);
+  saveExercises(list);
+  if (wasActive && !active.exercises.includes(exercise.name)) {
+    active.exercises.push(exercise.name);
+    persistActive();
+  }
+  return { ok: true };
 }
 
 /**

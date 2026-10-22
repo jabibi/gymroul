@@ -4,7 +4,7 @@
 import { exerciseName, sortedExercises } from './exercise-names.js';
 import { isolate } from './wheel-math.js';
 import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE, COLOR_PALETTE } from './store.js';
-import { THEME_CHOICES, THEME_BRAND, getTheme, getThemeChoice, themeColor } from './theme.js';
+import { THEME_CHOICES, THEME_BRAND, THEME_BG, getTheme, getThemeChoice, themeColor } from './theme.js';
 import { WHATS_NEW_VERSION } from './whats-new.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
 import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
@@ -39,12 +39,37 @@ export function renderIconHTML(iconId) {
 
 /** @type {ReturnType<typeof setTimeout> | undefined} */
 let toastTimer;
-/** @param {string} message */
-export function showToast(message) {
+/** @type {(() => void) | null} */
+let toastAction = null;
+
+/**
+ * Aviso breve. Con `action` lleva un botón (por ejemplo Deshacer) que dura más y se puede tocar.
+ * @param {string} message @param {{ label: string, run: () => void }} [action]
+ */
+export function showToast(message, action) {
   $('toastText').textContent = message;
+  toastAction = action?.run ?? null;
+  $('toastAction').classList.toggle('hidden', !action);
+  if (action) $('toastAction').textContent = action.label;
+  // Con botón, el aviso recibe toques; sin él, deja pasar los de la pantalla
+  $('toast').classList.toggle('pointer-events-none', !action);
   $('toast').classList.remove('opacity-0');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => $('toast').classList.add('opacity-0'), 2500);
+  toastTimer = setTimeout(hideToast, action ? 6000 : 2500);
+}
+
+function hideToast() {
+  $('toast').classList.add('opacity-0');
+  $('toast').classList.add('pointer-events-none');
+  toastAction = null;
+}
+
+/** Pulsación del botón del aviso: ejecuta su acción una sola vez y lo cierra. */
+export function runToastAction() {
+  const run = toastAction;
+  hideToast();
+  clearTimeout(toastTimer);
+  run?.();
 }
 
 /** @param {boolean} enabled */
@@ -539,9 +564,8 @@ export function showSettingsView(view, moveFocus = true) {
   $('settingsBack').classList.toggle('hidden', view === 'menu');
   $('settingsBack').classList.toggle('flex', view !== 'menu');
   setDisclosure('configHelpBtn', 'configHelp', false);
-  $('settingsFooter').classList.toggle('hidden', view !== 'wheel' && view !== 'appearance' && view !== 'language');
-  $('saveConfigBtn').classList.toggle('hidden', view !== 'wheel');
-  $('closeSettingsBtn').classList.toggle('hidden', view !== 'appearance' && view !== 'language');
+  // Todo se guarda al momento: sin botones de guardar. El menú cierra con la X; las pantallas internas solo vuelven con la flecha
+  $('settingsClose').classList.toggle('hidden', view !== 'menu');
   $('settingsLinks').classList.toggle('hidden', view !== 'menu');
   const scroller = $('configCard').querySelector('.overflow-y-auto');
   if (scroller) scroller.scrollTop = 0;
@@ -585,23 +609,29 @@ export function renderSettings() {
     return `<button type="button" role="radio" aria-checked="${selected}" data-action="set-theme" data-arg="${id}" class="w-full text-start rounded-2xl border p-3.5 transition-colors ${selected ? 'border-brand-500 bg-brand-500/10' : 'border-slate-800 bg-dark-900/60 hover:bg-dark-800/60'}">
       <span class="flex items-center justify-between gap-3">
         <span class="text-sm font-black text-white">${escapeHTML(themeLabel(id))}</span>
-        ${selected ? check : '<span class="w-4 h-4 rounded-full border border-slate-600 shrink-0" aria-hidden="true"></span>'}
+        <span class="w-5 h-5 shrink-0 rounded-full border-2 flex items-center justify-center ${selected ? 'border-brand-500' : 'border-slate-600'}" aria-hidden="true">${selected ? '<span class="w-2.5 h-2.5 rounded-full bg-brand-500"></span>' : ''}</span>
       </span>
       <span class="block text-xs text-slate-400 mt-1">${escapeHTML(t(THEME_DESC_KEYS[id]))}</span>
-      <span class="flex items-center gap-1.5 mt-3" aria-hidden="true" data-swatches="${id}"></span>
+      <span class="relative mt-3 h-14 rounded-xl border border-slate-700 flex items-center justify-center overflow-hidden" aria-hidden="true" data-preview="${id}"></span>
     </button>`;
   }).join('');
-  // Los colores se ponen con el DOM: la CSP prohíbe los estilos en línea escritos en el HTML
-  document.querySelectorAll('[data-swatches]').forEach(box => {
-    const choice = /** @type {import('./theme.js').ThemeChoice} */ (/** @type {HTMLElement} */ (box).dataset.swatches);
-    // «Sistema» enseña los colores de la apariencia que se ve ahora
-    const id = choice === 'system' ? getTheme() : choice;
-    [THEME_BRAND[id], ...COLOR_PALETTE.slice(0, 6).map(c => themeColor(c, id))].forEach((color, i) => {
-      const dot = document.createElement('span');
-      dot.className = i === 0 ? 'h-4 w-8 rounded-full' : 'h-4 w-4 rounded-full';
-      dot.style.backgroundColor = color;
-      box.appendChild(dot);
-    });
+  // Vista previa: una mini ruleta sobre el fondo de la apariencia (en «Sistema», mitad oscuro y mitad claro). Los colores se
+  // ponen con el DOM: la CSP prohíbe los estilos en línea escritos en el HTML
+  document.querySelectorAll('[data-preview]').forEach(box => {
+    const choice = /** @type {import('./theme.js').ThemeChoice} */ (/** @type {HTMLElement} */ (box).dataset.preview);
+    const id = choice === 'system' ? getTheme() : choice; // «Sistema» enseña la ruleta de la apariencia que se ve ahora
+    const bg = THEME_BG[id];
+    /** @type {HTMLElement} */ (box).style.background = choice === 'system' ? `linear-gradient(135deg, ${THEME_BG.calm} 50%, ${THEME_BG.light} 50%)` : bg;
+    const slice = 100 / 6;
+    const wheel = document.createElement('span');
+    wheel.className = 'relative block h-10 w-10 rounded-full border-2';
+    wheel.style.borderColor = THEME_BRAND[id];
+    wheel.style.background = `conic-gradient(${COLOR_PALETTE.slice(0, 6).map((c, i) => `${themeColor(c, id)} 0 ${(i + 1) * slice}%`).join(', ')})`;
+    const hub = document.createElement('span');
+    hub.className = 'absolute inset-[30%] block rounded-full';
+    hub.style.background = bg;
+    wheel.appendChild(hub);
+    box.appendChild(wheel);
   });
 }
 

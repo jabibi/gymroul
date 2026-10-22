@@ -193,7 +193,7 @@
                     </button>
                     <h3 id="configTitle" tabindex="-1" class="outline-none font-black text-lg leading-tight text-white min-w-0 break-words">Settings</h3>
                 </div>
-                <button data-action="close-config" aria-label="Close settings" data-i18n-aria-label="config.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <button id="settingsClose" data-action="close-config" aria-label="Close settings" data-i18n-aria-label="config.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -254,7 +254,7 @@
 
                 <!-- Idioma -->
                 <section id="settingsLanguage" data-view="language" class="hidden">
-                    <div id="languageOptions" role="radiogroup" aria-labelledby="configTitle" class="rounded-2xl bg-dark-900/60 border border-slate-800 overflow-y-auto overscroll-contain max-h-[calc(100dvh-11rem-var(--sat)-var(--sab))] divide-y divide-slate-800/80"></div>
+                    <div id="languageOptions" role="radiogroup" aria-labelledby="configTitle" class="rounded-2xl bg-dark-900/60 border border-slate-800 overflow-y-auto overscroll-contain max-h-[calc(100dvh-7rem-var(--sat)-var(--sab))] divide-y divide-slate-800/80"></div>
                 </section>
             </div>
 
@@ -265,14 +265,6 @@
                 <button type="button" data-action="open-credits" class="inline-flex items-center min-h-[48px] px-3 hover:text-slate-200 transition-colors" data-i18n="settings.about">About</button>
             </div>
 
-            <div id="settingsFooter" class="hidden pt-3 mt-2">
-                <button id="saveConfigBtn" data-action="save-config" class="w-full py-3 rounded-xl bg-brand-500 text-on-brand font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30" data-i18n="config.apply">
-                    Save changes
-                </button>
-                <button id="closeSettingsBtn" data-action="close-settings" class="hidden w-full py-3 rounded-xl bg-brand-500 text-on-brand font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30" data-i18n="config.save">
-                    Save
-                </button>
-            </div>
         </div>
     </div>
 
@@ -326,9 +318,12 @@
         </div>
     </div>
 
-    <!-- Mensajes breves -->
+    <!-- Mensajes breves; algunos llevan una acción (Deshacer), y entonces el aviso recibe toques -->
     <div id="toast" role="status" aria-live="polite" class="fixed top-[calc(5rem+var(--sat))] inset-x-0 z-[70] flex justify-center px-4 pointer-events-none opacity-0 transition-opacity duration-300">
-        <div id="toastText" class="glass-card rounded-xl px-4 py-2 text-xs font-bold text-slate-100 border border-brand-500/40 shadow-2xl"></div>
+        <div class="glass-card rounded-xl ps-4 pe-2 py-1 flex items-center gap-2 border border-brand-500/40 shadow-2xl">
+            <span id="toastText" class="text-xs font-bold text-slate-100 py-1"></span>
+            <button id="toastAction" type="button" data-action="toast-action" class="hidden min-h-[44px] px-3 rounded-lg text-xs font-black text-brand-text hover:underline"></button>
+        </div>
     </div>
 
     <!-- Visor de documentos: política de privacidad y créditos  -->
