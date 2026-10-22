@@ -82,9 +82,11 @@ Detectado probando la 1.17 en el móvil. Los documentos (política de privacidad
 
 **Lo que pasa**: si abres, por ejemplo, la política de privacidad, bajas hasta el final y la cierras, la siguiente vez que la abres aparece otra vez abajo del todo, en la posición en la que se dejó.
 
-**Lo esperado**: que no conserve la posición anterior y se abra desde el principio. (Si lo que se quería era lo contrario, que la recordase, habría que decidirlo antes de tocar nada.)
+**Lo esperado** (confirmado): que cualquier documento se abra siempre desde arriba, sin recordar el desplazamiento anterior.
 
-**Dónde mirar**: `renderDocument` y `openDocument` en `src/ui.js`. El marco solo se sustituye cuando cambia el documento (`documentSrc`); si se abre el mismo dos veces seguidas, se reutiliza el mismo marco con su desplazamiento. Hay que volver a empezar arriba al abrirlo (por ejemplo, recrear el marco en cada apertura) sin romper el arreglo de Atrás de la 1.17, que depende de que la primera carga de un marco nuevo no añada una entrada al historial. Conviene reproducirlo en el navegador y en el móvil, con ambos documentos y en varios idiomas, y comprobar también Atrás.
+**Otro documento que se puede abrir**: la página de eliminación de datos (`data-deletion.html`). No tiene entrada propia en Ajustes, pero la política de privacidad la enlaza, y ese enlace (y el de vuelta, desde la eliminación de datos hacia la política) navega dentro del propio visor. Hay que comprobar que ahí también se cumple lo esperado y que, al cerrar y volver a abrir «Privacidad», empieza en la política y arriba, no en la página a la que se hubiera llegado por ese enlace. Además, esa navegación dentro del marco añade entradas al historial del navegador, el mismo problema que se arregló en la 1.17 para Atrás.
+
+**Dónde mirar**: `renderDocument` y `openDocument` en `src/ui.js`. El marco solo se sustituye cuando cambia el documento (`documentSrc`); si se abre el mismo dos veces seguidas, se reutiliza el mismo marco con su desplazamiento. Hay que volver a empezar arriba al abrirlo (por ejemplo, recrear el marco en cada apertura) sin romper el arreglo de Atrás de la 1.17, que depende de que la primera carga de un marco nuevo no añada una entrada al historial. Conviene reproducirlo en el navegador y en el móvil, con los tres documentos (privacidad, créditos y eliminación de datos) y en varios idiomas, y comprobar también Atrás.
 
 ## Por valorar en la versión 1.18 — ruso como idioma nuevo
 
