@@ -43,3 +43,9 @@ describe('claves de traducción', () => {
     expect(unused).toEqual([]);
   });
 });
+
+describe('teclado en el navegador', () => {
+  it('el teclado redimensiona la página (Chrome en Android lo pone encima por defecto y tapaba el panel de nuevo ejercicio)', () => {
+    expect(html).toMatch(/<meta name="viewport"[^>]*interactive-widget=resizes-content/);
+  });
+});
