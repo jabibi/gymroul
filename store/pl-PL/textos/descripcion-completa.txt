@@ -19,11 +19,11 @@ GymRoulette to koło ćwiczeń: każdy sektor to ćwiczenie, a gdy je zakręcisz
 Wybieraj spośród ponad 100 ikon z wielu dyscyplin, z wyszukiwarką: siła i ciężary, kalistenika, cardio, joga, pilates, tai chi, boks, karate i inne sztuki walki, trening funkcjonalny, biegi z przeszkodami, sporty, woda i góry. Zawiera nasze własne piktogramy pompek, deski, brzuszków, burpee, przysiadu i wspinaczki w podporze.
 
 <b>W twoim języku</b>
-العربية, English (USA, Wielka Brytania i Australia), Español (Hiszpania i Ameryka Łacińska), Euskara, Galego, Català, Français (Francja i Kanada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe i Português (Brazylia i Portugalia). Aplikacja korzysta z języka telefonu, a zmienisz go w Ustawieniach.
+العربية, English (USA, Wielka Brytania i Australia), Español (Hiszpania i Ameryka Łacińska), Euskara, Galego, Català, Français (Francja i Kanada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Русский, Türkçe i Português (Brazylia i Portugalia). Aplikacja korzysta z języka telefonu, a zmienisz go w Ustawieniach.
 
 <b>Miłe szczegóły</b>
 • <b>Dźwięki koła i wibracja</b> po wylosowaniu wyniku.
-• <b>Dwa wyglądy</b>, Delikatny i Klasyczny, w ciemnej oprawie wygodnej dla oczu na siłowni.
+• <b>Trzy wyglądy</b>: Ciemny, Jasny i Klasyczny, albo Systemowy, który podąża za urządzeniem, w oprawie wygodnej dla oczu na siłowni.
 • <b>Bez rejestracji</b> i kont użytkowników.
 • <b>Bez reklam.</b>
 • <b>100% offline</b>: nie potrzebuje połączenia z Internetem.

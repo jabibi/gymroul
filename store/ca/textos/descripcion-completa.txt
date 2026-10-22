@@ -19,11 +19,11 @@ GymRoulette és una ruleta d'exercicis: cada sector és un exercici i, en girar-
 Tria entre més de 100 icones de moltes disciplines, amb cercador: força i pesos, calistènia, cardio, ioga, pilates, tai-txi, boxa, karate i altres arts marcials, fitness funcional, curses d'obstacles, esports, aigua i muntanya. Inclou pictogrames propis de flexions, planxa, abdominals, burpee, esquat i mountain climbers.
 
 <b>En el teu idioma</b>
-العربية, English (EUA, Regne Unit i Austràlia), Español (Espanya i Llatinoamèrica), Euskara, Galego, Català, Français (França i Canadà), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe i Português (Brasil i Portugal). L'app segueix l'idioma del teu mòbil i el pots canviar a Ajustos.
+العربية, English (EUA, Regne Unit i Austràlia), Español (Espanya i Llatinoamèrica), Euskara, Galego, Català, Français (França i Canadà), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Русский, Türkçe i Português (Brasil i Portugal). L'app segueix l'idioma del teu mòbil i el pots canviar a Ajustos.
 
 <b>Detalls que s'agraeixen</b>
 • <b>So de ruleta i vibració</b> quan surt el resultat.
-• <b>Dues aparences</b>, Suau i Clàssic, sobre un disseny fosc i còmode per fer servir al gimnàs.
+• <b>Tres aparences</b>: Fosc, Clar i Clàssic, o Sistema per seguir el teu dispositiu, en un disseny còmode per a la vista al gimnàs.
 • <b>Sense registre</b> ni comptes d'usuari.
 • <b>Sense anuncis.</b>
 • <b>100 % sense connexió</b>: no necessita connexió a Internet.

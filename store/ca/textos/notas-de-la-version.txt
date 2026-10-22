@@ -1,8 +1,8 @@
+Versió 1.18 (GymTonic):
+• Aspecte més fresc i suau: nova aparença Clar i opció Sistema. Suau ara es diu Fosc.
+• El rus s’afegeix a l’app, ja en 21 idiomes.
+
 Versió 1.17 (Muted Tones):
 • Nou aspecte: icona nova i dues aparences a triar, Suau i Clàssic.
 • Ajustos en forma de menú: ruleta, aparença, idioma, privadesa i crèdits.
 • Noms d'exercicis complets a la ruleta i text més gran i llegible.
-
-Versió 1.16 (Six Pack):
-• Un historial més clar: cada exercici mostra la seva icona i un resum suma la teva sessió.
-• Corregit el nombre de repeticions repetit a cada fila de l'historial.

@@ -14,6 +14,9 @@ const MIN_SAMPLE_MS = 4;
 
 /** Color de marca (variable CSS --brand-500), para el aro interior de la ruleta */
 let brandColor = '#10b981';
+/** Separación entre sectores y aro exterior: salen de las variables CSS de la apariencia (--wheel-line y --wheel-ring) */
+let lineColor = '#020617';
+let ringColor = '#1e293b';
 
 /** @type {HTMLCanvasElement} */ let canvas;
 /** @type {CanvasRenderingContext2D} */ let ctx;
@@ -105,7 +108,7 @@ function buildCache() {
     c.fillStyle = segments[i].color;
     c.fill();
     c.lineWidth = 1.5;
-    c.strokeStyle = '#020617';
+    c.strokeStyle = lineColor;
     c.stroke();
 
     l.save();
@@ -169,7 +172,7 @@ function draw() {
   ctx.beginPath();
   ctx.arc(center, center, radius, 0, TWO_PI);
   ctx.lineWidth = 8;
-  ctx.strokeStyle = '#1e293b';
+  ctx.strokeStyle = ringColor;
   ctx.stroke();
 
   ctx.beginPath();
@@ -308,8 +311,11 @@ function animate(now) {
 }
 
 function readBrandColor() {
-  const channels = getComputedStyle(document.documentElement).getPropertyValue('--brand-500').trim();
+  const css = getComputedStyle(document.documentElement);
+  const channels = css.getPropertyValue('--brand-500').trim();
   if (channels) brandColor = `rgb(${channels.split(/\s+/).join(',')})`;
+  lineColor = css.getPropertyValue('--wheel-line').trim() || lineColor;
+  ringColor = css.getPropertyValue('--wheel-ring').trim() || ringColor;
 }
 
 /** Vuelve a leer el color de marca y repinta la ruleta (al cambiar de apariencia). */

@@ -43,7 +43,7 @@ Leyenda: `[x]` hecho · `[ ]` pendiente de decidir o de hacer.
 
 - [ ] **Vista previa de Apariencia.** Hoy son solo puntos de color; una mini ruleta mostraría el efecto real.
 - [ ] **Indicador de la opción elegida.** Una opción lleva una marca y la otra un círculo vacío. Unificar con un botón de opción (punto relleno) en ambas.
-- [ ] **Tema claro y «seguir el del sistema».** La app es solo oscura; hoy se espera poder elegir. Es una función nueva, no un ajuste.
+- [x] **Tema claro y «seguir el del sistema».** Hecho en la 1.18: Sistema, Oscuro (antes Suave), Claro y Clásico.
 
 ## Para tener en cuenta al decidir
 

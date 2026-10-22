@@ -11,7 +11,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const HASH_FILE = 'store/.ui-hash';
-const INPUTS = ['index.html', 'src', 'tailwind.config.js', 'public/logo-mark.svg', 'public/logo-classic.svg', 'scripts/build-store-assets.mjs'];
+const INPUTS = ['index.html', 'src', 'tailwind.config.js', 'public/logo-mark.svg', 'public/logo-light.svg', 'public/logo-classic.svg', 'scripts/build-store-assets.mjs'];
 
 /** @param {string} path @returns {string[]} */
 const files = path => (statSync(path).isDirectory() ? readdirSync(path).sort().flatMap(f => files(join(path, f))) : [path]);

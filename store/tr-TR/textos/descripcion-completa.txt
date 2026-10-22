@@ -19,11 +19,11 @@ GymRoulette bir egzersiz çarkıdır: her dilim bir egzersizdir ve çevirdiğind
 Aramalı simge listesinden birçok disiplin arasında seçim yap: kuvvet ve ağırlıklar, calisthenics, kardiyo, yoga, pilates, tai chi, boks, karate ve diğer dövüş sanatları, fonksiyonel fitness, engelli koşular, sporlar, su ve dağ. Şınav, plank, mekik, burpee, squat ve mountain climbers için kendi piktogramlarımız da var.
 
 <b>Kendi dilinde</b>
-العربية, English (ABD, Birleşik Krallık ve Avustralya), Español (İspanya ve Latin Amerika), Euskara, Galego, Català, Français (Fransa ve Kanada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Türkçe ve Português (Brezilya ve Portekiz). Uygulama telefonunun diline uyar; dilini Ayarlar'dan değiştirebilirsin.
+العربية, English (ABD, Birleşik Krallık ve Avustralya), Español (İspanya ve Latin Amerika), Euskara, Galego, Català, Français (Fransa ve Kanada), Deutsch, Italiano, 日本語, Nederlands, Polski, हिन्दी, Русский, Türkçe ve Português (Brezilya ve Portekiz). Uygulama telefonunun diline uyar; dilini Ayarlar'dan değiştirebilirsin.
 
 <b>Güzel detaylar</b>
 • Sonuç çıkınca <b>çark sesleri ve titreşim</b>.
-• Spor salonunda gözlerini yormayan koyu tasarımda <b>iki görünüm</b>: Yumuşak ve Klasik.
+• Spor salonunda gözlerini yormayan tasarımda <b>üç görünüm</b>: Koyu, Açık ve Klasik; ya da cihazını izleyen Sistem.
 • <b>Kayıt yok</b>, kullanıcı hesabı yok.
 • <b>Reklam yok.</b>
 • <b>%100 çevrimdışı</b>: İnternet bağlantısı gerektirmez.

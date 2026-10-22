@@ -32,8 +32,8 @@ export const LIMITS = { title: 30, short: 80, full: 4000, notes: 500 };
  * Al publicar una versión nueva, la actual pasa a ser la anterior y se añade la nueva arriba.
  */
 export const NOTES_VERSIONS = [
+  { version: '1.18', codename: 'GymTonic' },
   { version: '1.17', codename: 'Muted Tones' },
-  { version: '1.16', codename: 'Six Pack' },
 ];
 
 /**
@@ -50,12 +50,12 @@ export const LISTINGS = {
     short: 'The random exercise wheel to work out at home or at the gym.',
     banner: { line1: 'Spin the wheel', line2: 'and get training', tagline: 'Random exercises to challenge you every day', button: 'Spin the wheel' },
     notes: notesText('Version', [
+      'Fresher, softer look: new Light appearance and a System option. Soft is now called Dark.',
+      'Russian joins the app, now in 21 languages.',
+    ], [
       'New look: new icon and a choice of two appearances, Soft and Classic.',
       'Settings is now a menu: wheel, appearance, language, privacy and credits.',
       'Full exercise names on the wheel and larger, easier-to-read text.',
-    ], [
-      'A tidier history: each exercise shows its icon, and a summary adds up your session.',
-      'Fixed the reps appearing twice in each history row.',
     ]),
     full: `Can't decide what to train today? Spin the wheel and let GymRoulette choose for you.
 
@@ -82,7 +82,7 @@ Choose from more than 100 icons across many disciplines, with search: strength a
 
 <b>Nice details</b>
 • <b>Wheel sounds and vibration</b> when the result comes up.
-• <b>Two looks</b>, Soft and Classic, on a dark design that's easy on the eyes at the gym.
+• <b>Three looks</b>: Dark, Light and Classic, or System to follow your device, in a design that's easy on the eyes at the gym.
 • <b>No sign-up</b> or user accounts.
 • <b>No ads.</b>
 • <b>100% offline</b>: it doesn't need an Internet connection.
@@ -99,12 +99,12 @@ Spin the wheel and let's train.`,
     short: 'La ruleta de ejercicios aleatoria para entrenar en casa o en el gimnasio.',
     banner: { line1: 'Gira la ruleta', line2: 'y a entrenar', tagline: 'Ejercicios aleatorios para retarte cada día', button: 'Girar ruleta' },
     notes: notesText('Versión', [
+      'Aspecto más fresco y suave: nueva apariencia Claro y opción Sistema. Suave ahora se llama Oscuro.',
+      'El ruso se suma a la app, ya en 21 idiomas.',
+    ], [
       'Nuevo aspecto: icono nuevo y dos apariencias a elegir, Suave y Clásico.',
       'Ajustes en forma de menú: ruleta, apariencia, idioma, privacidad y créditos.',
       'Nombres de ejercicios completos en la ruleta y texto más grande y legible.',
-    ], [
-      'Un historial más claro: cada ejercicio muestra su icono y un resumen suma tu sesión.',
-      'Corregido el número de repeticiones repetido en cada fila del historial.',
     ]),
     full: `¿Sin ganas de decidir qué entrenar hoy? Gira la ruleta y deja que GymRoulette elija por ti.
 
@@ -131,7 +131,7 @@ Elige entre más de 100 iconos de muchas disciplinas, con buscador: fuerza y pes
 
 <b>Detalles que se agradecen</b>
 • <b>Sonido de ruleta y vibración</b> al salir el resultado.
-• <b>Dos apariencias</b>, Suave y Clásico, sobre un diseño oscuro y cómodo para el gimnasio.
+• <b>Tres apariencias</b>: Oscuro, Claro y Clásico, o Sistema para seguir a tu dispositivo, en un diseño cómodo para la vista en el gimnasio.
 • <b>Sin registro</b> ni cuentas de usuario.
 • <b>Sin anuncios.</b>
 • <b>100 % sin conexión</b>: no necesita conexión a Internet.
@@ -148,12 +148,12 @@ Gira la ruleta y a entrenar.`,
     short: 'Ariketa aleatorioen gurpila etxean edo gimnasioan entrenatzeko.',
     banner: { line1: 'Biratu gurpila', line2: 'eta entrenatzera', tagline: 'Ausazko ariketak egunero zure burua probatzeko', button: 'Biratu gurpila' },
     notes: notesText('Bertsioa', [
+      'Itxura freskoagoa eta leunagoa: Argia itxura berria eta Sistema aukera. Leuna orain Iluna da.',
+      'Errusiera aplikaziora gehitu da, 21 hizkuntzatan jada.',
+    ], [
       'Itxura berria: ikono berria eta aukeratzeko bi itxura, Leuna eta Klasikoa.',
       'Ezarpenak menu bihurtu dira: gurpila, itxura, hizkuntza, pribatutasuna eta kredituak.',
       'Ariketen izen osoak gurpilean eta testu handiago eta irakurgarriagoa.',
-    ], [
-      'Historia argiagoa: ariketa bakoitzak bere ikonoa du, eta laburpen batek saioa batzen du.',
-      'Zuzenduta: errepikapen kopurua ez da gehiago bikoizten historiako errenkada bakoitzean.',
     ]),
     full: `Ez dakizu gaur zer entrenatu? Biratu gurpila eta utzi GymRoulette-ri zure ordez aukeratzen.
 
@@ -180,7 +180,7 @@ Aukeratu 100 ikono baino gehiagoren artean, disziplina askotakoak eta bilatzaile
 
 <b>Xehetasun politak</b>
 • <b>Gurpilaren soinuak eta bibrazioa</b> emaitza ateratzen denean.
-• <b>Bi itxura</b>, Leuna eta Klasikoa, diseinu ilun eta gimnasioan begientzat erosoan.
+• <b>Hiru itxura</b>: Iluna, Argia eta Klasikoa, edo Sistema zure gailuari jarraitzeko, gimnasioan begientzat erosoa den diseinuan.
 • <b>Izen-emate edo erabiltzaile-konturik gabe</b>.
 • <b>Iragarkirik gabe.</b>
 • <b>% 100 konexiorik gabe</b>: ez du Interneteko konexiorik behar.
@@ -197,12 +197,12 @@ Biratu gurpila eta entrenatzera.`,
     short: 'A ruleta de exercicios aleatoria para adestrar na casa ou no ximnasio.',
     banner: { line1: 'Xira a ruleta', line2: 'e a adestrar', tagline: 'Exercicios aleatorios para retarte cada día', button: 'Xirar a ruleta' },
     notes: notesText('Versión', [
+      'Aspecto máis fresco e suave: nova aparencia Claro e opción Sistema. Suave agora chámase Escuro.',
+      'O ruso súmase á app, xa en 21 idiomas.',
+    ], [
       'Novo aspecto: icona nova e dúas aparencias para elixir, Suave e Clásico.',
       'Axustes en forma de menú: ruleta, aparencia, idioma, privacidade e créditos.',
       'Nomes de exercicios completos na ruleta e texto máis grande e lexible.',
-    ], [
-      'Un historial máis claro: cada exercicio mostra a súa icona e un resumo suma a túa sesión.',
-      'Corrixido o número de repeticións repetido en cada fila do historial.',
     ]),
     full: `Sen ganas de decidir que adestrar hoxe? Xira a ruleta e deixa que GymRoulette escolla por ti.
 
@@ -229,7 +229,7 @@ Escolle entre máis de 100 iconas de moitas disciplinas, con buscador: forza e p
 
 <b>Detalles que se agradecen</b>
 • <b>Son de ruleta e vibración</b> ao saír o resultado.
-• <b>Dúas aparencias</b>, Suave e Clásico, sobre un deseño escuro e cómodo para usar no ximnasio.
+• <b>Tres aparencias</b>: Escuro, Claro e Clásico, ou Sistema para seguir o teu dispositivo, nun deseño cómodo para a vista no ximnasio.
 • <b>Sen rexistro</b> nin contas de usuario.
 • <b>Sen anuncios.</b>
 • <b>100 % sen conexión</b>: non necesita conexión a Internet.
@@ -246,12 +246,12 @@ Xira a ruleta e a adestrar.`,
     short: 'عجلة التمارين العشوائية للتمرن في المنزل أو في النادي الرياضي.',
     banner: { line1: 'أدر العجلة', line2: 'وهيّا إلى التمرين', tagline: 'تمارين عشوائية تتحداك كل يوم', button: 'أدر العجلة' },
     notes: notesText('الإصدار', [
+      'مظهر أكثر انتعاشًا ونعومة: مظهر فاتح جديد وخيار النظام. أصبح الناعم يُسمّى داكنًا.',
+      'تنضم الروسية إلى التطبيق، وصار متاحًا بـ 21 لغة.',
+    ], [
       'مظهر جديد: أيقونة جديدة ومظهران للاختيار، ناعم وكلاسيكي.',
       'أصبحت الإعدادات قائمة: العجلة والمظهر واللغة والخصوصية وشكر وتقدير.',
       'أسماء التمارين كاملة على العجلة ونص أكبر وأوضح.',
-    ], [
-      'سجل أوضح: يعرض كل تمرين أيقونته، وملخص يجمع جلستك.',
-      'تم إصلاح تكرار عدد التكرارات في كل صف من السجل.',
     ]),
     full: `لا تعرف ماذا تتمرّن اليوم؟ أدر العجلة ودع GymRoulette تختار لك.
 
@@ -278,7 +278,7 @@ GymRoulette عجلة للتمارين: كل قطاع هو تمرين، وعند�
 
 <b>تفاصيل لطيفة</b>
 • <b>أصوات العجلة والاهتزاز</b> عند ظهور النتيجة.
-• <b>مظهران</b>، ناعم وكلاسيكي، على تصميم داكن مريح للعينين في النادي.
+• <b>ثلاثة مظاهر</b>: داكن وفاتح وكلاسيكي، أو النظام لمتابعة جهازك، بتصميم مريح للعينين في النادي.
 • <b>بلا تسجيل</b> ولا حسابات مستخدمين.
 • <b>بلا إعلانات.</b>
 • <b>يعمل 100% دون اتصال</b>: لا يحتاج إلى اتصال بالإنترنت.
@@ -295,12 +295,12 @@ GymRoulette عجلة للتمارين: كل قطاع هو تمرين، وعند�
     short: 'La ruleta d\'exercicis aleatòria per entrenar a casa o al gimnàs.',
     banner: { line1: 'Gira la ruleta', line2: 'i a entrenar', tagline: 'Exercicis aleatoris per reptar-te cada dia', button: 'Gira la ruleta' },
     notes: notesText('Versió', [
+      'Aspecte més fresc i suau: nova aparença Clar i opció Sistema. Suau ara es diu Fosc.',
+      'El rus s’afegeix a l’app, ja en 21 idiomes.',
+    ], [
       'Nou aspecte: icona nova i dues aparences a triar, Suau i Clàssic.',
       'Ajustos en forma de menú: ruleta, aparença, idioma, privadesa i crèdits.',
       'Noms d\'exercicis complets a la ruleta i text més gran i llegible.',
-    ], [
-      'Un historial més clar: cada exercici mostra la seva icona i un resum suma la teva sessió.',
-      'Corregit el nombre de repeticions repetit a cada fila de l\'historial.',
     ]),
     full: `No tens ganes de decidir què entrenar avui? Gira la ruleta i deixa que GymRoulette triï per tu.
 
@@ -327,7 +327,7 @@ Tria entre més de 100 icones de moltes disciplines, amb cercador: força i peso
 
 <b>Detalls que s'agraeixen</b>
 • <b>So de ruleta i vibració</b> quan surt el resultat.
-• <b>Dues aparences</b>, Suau i Clàssic, sobre un disseny fosc i còmode per fer servir al gimnàs.
+• <b>Tres aparences</b>: Fosc, Clar i Clàssic, o Sistema per seguir el teu dispositiu, en un disseny còmode per a la vista al gimnàs.
 • <b>Sense registre</b> ni comptes d'usuari.
 • <b>Sense anuncis.</b>
 • <b>100 % sense connexió</b>: no necessita connexió a Internet.
@@ -344,12 +344,12 @@ Gira la ruleta i a entrenar.`,
     short: 'La roue d\'exercices aléatoires pour s\'entraîner chez soi ou en salle.',
     banner: { line1: 'Lance la roue', line2: "et c'est parti", tagline: 'Des exercices au hasard pour te défier chaque jour', button: 'Lancer la roue' },
     notes: notesText('Version', [
+      'Un aspect plus frais et plus doux : nouvelle apparence Claire et option Système. Doux devient Sombre.',
+      'Le russe rejoint l’appli, désormais en 21 langues.',
+    ], [
       'Nouvel aspect : nouvelle icône et deux apparences au choix, Doux et Classique.',
       'Les réglages deviennent un menu : roue, apparence, langue, confidentialité et crédits.',
       'Noms d\'exercices complets sur la roue et texte plus grand et lisible.',
-    ], [
-      'Un historique plus clair : chaque exercice affiche son icône, et un résumé additionne ta séance.',
-      'Correction du nombre de répétitions affiché deux fois dans chaque ligne de l\'historique.',
     ]),
     full: `Pas envie de décider quoi t'entraîner aujourd'hui ? Fais tourner la roue et laisse GymRoulette choisir pour toi.
 
@@ -376,7 +376,7 @@ Choisis parmi plus de 100 icônes de nombreuses disciplines, avec recherche : f
 
 <b>De bons petits détails</b>
 • <b>Sons de la roue et vibration</b> à l'apparition du résultat.
-• <b>Deux apparences</b>, Doux et Classique, sur un design sombre agréable à l'œil en salle.
+• <b>Trois apparences</b> : Sombre, Claire et Classique, ou Système pour suivre ton appareil, dans un design agréable à l’œil en salle.
 • <b>Sans inscription</b> ni compte utilisateur.
 • <b>Sans publicité.</b>
 • <b>100 % hors connexion</b> : aucune connexion Internet nécessaire.
@@ -393,12 +393,12 @@ Lance la roue et c'est parti.`,
     short: 'Das Zufalls-Übungsrad für dein Training zu Hause oder im Fitnessstudio.',
     banner: { line1: 'Dreh das Rad', line2: 'und ab ins Training', tagline: 'Zufällige Übungen, die dich jeden Tag fordern', button: 'Rad drehen' },
     notes: notesText('Version', [
+      'Frischerer, sanfterer Look: neues helles Design und die Option System. Sanft heißt jetzt Dunkel.',
+      'Russisch kommt dazu, jetzt in 21 Sprachen.',
+    ], [
       'Neuer Look: neues Symbol und zwei Designs zur Wahl, Sanft und Klassisch.',
       'Einstellungen als Menü: Rad, Darstellung, Sprache, Datenschutz und Danksagungen.',
       'Vollständige Übungsnamen auf dem Rad und größere, lesbarere Schrift.',
-    ], [
-      'Ein übersichtlicherer Verlauf: Jede Übung zeigt ihr Symbol, und eine Zusammenfassung zählt dein Training zusammen.',
-      'Behoben: Die Wiederholungen standen in jeder Verlaufszeile doppelt.',
     ]),
     full: `Keine Lust zu entscheiden, was du heute trainierst? Dreh das Rad und lass GymRoulette für dich wählen.
 
@@ -425,7 +425,7 @@ Wähle mit Suchfunktion aus über 100 Symbolen aus vielen Disziplinen: Kraft und
 
 <b>Praktische Details</b>
 • <b>Radgeräusche und Vibration</b>, wenn das Ergebnis erscheint.
-• <b>Zwei Designs</b>, Sanft und Klassisch, auf einem dunklen Layout, angenehm für die Augen im Fitnessstudio.
+• <b>Drei Designs</b>: Dunkel, Hell und Klassisch, oder System, um deinem Gerät zu folgen, angenehm für die Augen im Fitnessstudio.
 • <b>Ohne Registrierung</b> und ohne Benutzerkonten.
 • <b>Ohne Werbung.</b>
 • <b>100 % offline</b>: sie braucht keine Internetverbindung.
@@ -442,12 +442,12 @@ Dreh das Rad und ab ins Training.`,
     short: 'La ruota di esercizi casuali per allenarti a casa o in palestra.',
     banner: { line1: 'Gira la ruota', line2: 'e allenati', tagline: 'Esercizi casuali per metterti alla prova ogni giorno', button: 'Gira la ruota' },
     notes: notesText('Versione', [
+      'Aspetto più fresco e morbido: nuovo aspetto Chiaro e opzione Sistema. Morbido ora si chiama Scuro.',
+      'Il russo si aggiunge all’app, ora in 21 lingue.',
+    ], [
       'Nuovo aspetto: nuova icona e due aspetti a scelta, Morbido e Classico.',
       'Le impostazioni diventano un menu: ruota, aspetto, lingua, privacy e crediti.',
       'Nomi degli esercizi completi sulla ruota e testo più grande e leggibile.',
-    ], [
-      'Una cronologia più chiara: ogni esercizio mostra la sua icona e un riepilogo somma la tua sessione.',
-      'Corretto il numero di ripetizioni mostrato due volte in ogni riga della cronologia.',
     ]),
     full: `Non hai voglia di decidere cosa allenare oggi? Gira la ruota e lascia scegliere a GymRoulette.
 
@@ -474,7 +474,7 @@ Scegli tra più di 100 icone di tante discipline, con ricerca: forza e pesi, cal
 
 <b>Dettagli che fanno la differenza</b>
 • <b>Suoni della ruota e vibrazione</b> quando esce il risultato.
-• <b>Due aspetti</b>, Morbido e Classico, su un design scuro e comodo per la palestra.
+• <b>Tre aspetti</b>: Scuro, Chiaro e Classico, oppure Sistema per seguire il tuo dispositivo, comodi per gli occhi in palestra.
 • <b>Senza registrazione</b> né account utente.
 • <b>Senza pubblicità.</b>
 • <b>100% offline</b>: non richiede una connessione a Internet.
@@ -491,12 +491,12 @@ Gira la ruota e allenati.`,
     short: 'A roleta de exercícios aleatória para treinar em casa ou na academia.',
     banner: { line1: 'Gire a roleta', line2: 'e vá treinar', tagline: 'Exercícios aleatórios para te desafiar todo dia', button: 'Girar roleta' },
     notes: notesText('Versão', [
+      'Visual mais fresco e suave: nova aparência Clara e opção Sistema. Suave agora se chama Escuro.',
+      'O russo entra no app, agora em 21 idiomas.',
+    ], [
       'Novo visual: ícone novo e duas aparências à escolha, Suave e Clássico.',
       'As configurações viram um menu: roleta, aparência, idioma, privacidade e créditos.',
       'Nomes de exercícios completos na roleta e texto maior e mais legível.',
-    ], [
-      'Um histórico mais claro: cada exercício mostra seu ícone e um resumo soma sua sessão.',
-      'Corrigido o número de repetições repetido em cada linha do histórico.',
     ]),
     full: `Sem vontade de decidir o que treinar hoje? Gire a roleta e deixe o GymRoulette escolher por você.
 
@@ -523,7 +523,7 @@ Escolha entre mais de 100 ícones de muitas modalidades, com busca: força e pes
 
 <b>Detalhes que fazem diferença</b>
 • <b>Som da roleta e vibração</b> quando o resultado aparece.
-• <b>Duas aparências</b>, Suave e Clássico, sobre um visual escuro e confortável para usar na academia.
+• <b>Três aparências</b>: Escuro, Claro e Clássico, ou Sistema para acompanhar o seu dispositivo, em um visual confortável para usar na academia.
 • <b>Sem cadastro</b> nem contas de usuário.
 • <b>Sem anúncios.</b>
 • <b>100% offline</b>: não precisa de conexão com a Internet.
@@ -540,12 +540,12 @@ Gire a roleta e vá treinar.`,
     short: 'A roleta de exercícios aleatória para treinar em casa ou no ginásio.',
     banner: { line1: 'Gira a roleta', line2: 'e vai treinar', tagline: 'Exercícios aleatórios para te desafiares todos os dias', button: 'Girar roleta' },
     notes: notesText('Versão', [
+      'Visual mais fresco e suave: nova aparência Clara e opção Sistema. Suave passa a chamar-se Escuro.',
+      'O russo junta-se à app, agora em 21 idiomas.',
+    ], [
       'Novo visual: ícone novo e duas aparências à escolha, Suave e Clássico.',
       'As definições passam a menu: roleta, aparência, idioma, privacidade e créditos.',
       'Nomes de exercícios completos na roleta e texto maior e mais legível.',
-    ], [
-      'Um histórico mais claro: cada exercício mostra o seu ícone e um resumo soma a tua sessão.',
-      'Corrigido o número de repetições repetido em cada linha do histórico.',
     ]),
     full: `Sem vontade de decidir o que treinar hoje? Gira a roleta e deixa o GymRoulette escolher por ti.
 
@@ -572,7 +572,7 @@ Escolhe entre mais de 100 ícones de muitas modalidades, com pesquisa: força e 
 
 <b>Detalhes que fazem diferença</b>
 • <b>Som da roleta e vibração</b> quando aparece o resultado.
-• <b>Duas aparências</b>, Suave e Clássico, num visual escuro e confortável para usar no ginásio.
+• <b>Três aparências</b>: Escuro, Claro e Clássico, ou Sistema para acompanhar o teu dispositivo, num visual confortável para usar no ginásio.
 • <b>Sem registo</b> nem contas de utilizador.
 • <b>Sem anúncios.</b>
 • <b>100% offline</b>: não precisa de ligação à Internet.
@@ -589,12 +589,12 @@ Gira a roleta e vai treinar.`,
     short: 'Losowe koło ćwiczeń do treningu w domu lub na siłowni.',
     banner: { line1: 'Zakręć kołem', line2: 'i ruszaj na trening', tagline: 'Losowe ćwiczenia, które rzucają ci wyzwanie każdego dnia', button: 'Zakręć kołem' },
     notes: notesText('Wersja', [
+      'Świeższy i łagodniejszy wygląd: nowy jasny styl i opcja Systemowy. Delikatny nazywa się teraz Ciemny.',
+      'Rosyjski dołącza do aplikacji, teraz w 21 językach.',
+    ], [
       'Nowy wygląd: nowa ikona i dwa style do wyboru, Delikatny i Klasyczny.',
       'Ustawienia jako menu: koło, wygląd, język, prywatność i podziękowania.',
       'Pełne nazwy ćwiczeń na kole oraz większy, czytelniejszy tekst.',
-    ], [
-      'Czytelniejsza historia: każde ćwiczenie ma swoją ikonę, a podsumowanie zlicza twój trening.',
-      'Naprawiono podwójne wyświetlanie liczby powtórzeń w każdym wierszu historii.',
     ]),
     full: `Nie wiesz, co dziś trenować? Zakręć kołem i pozwól, by GymRoulette wybrała za ciebie.
 
@@ -621,7 +621,7 @@ Wybieraj spośród ponad 100 ikon z wielu dyscyplin, z wyszukiwarką: siła i ci
 
 <b>Miłe szczegóły</b>
 • <b>Dźwięki koła i wibracja</b> po wylosowaniu wyniku.
-• <b>Dwa wyglądy</b>, Delikatny i Klasyczny, w ciemnej oprawie wygodnej dla oczu na siłowni.
+• <b>Trzy wyglądy</b>: Ciemny, Jasny i Klasyczny, albo Systemowy, który podąża za urządzeniem, w oprawie wygodnej dla oczu na siłowni.
 • <b>Bez rejestracji</b> i kont użytkowników.
 • <b>Bez reklam.</b>
 • <b>100% offline</b>: nie potrzebuje połączenia z Internetem.
@@ -638,12 +638,12 @@ Zakręć kołem i trenujemy.`,
     short: 'घर पर या जिम में वर्कआउट के लिए रैंडम एक्सरसाइज़ व्हील।',
     banner: { line1: 'चक्र घुमाएँ', line2: 'और वर्कआउट करें', tagline: 'हर दिन आपको चुनौती देने वाली रैंडम एक्सरसाइज़', button: 'चक्र घुमाएँ' },
     notes: notesText('संस्करण', [
+      'ज़्यादा ताज़ा और नरम रूप: नया लाइट रूप और सिस्टम विकल्प। सॉफ्ट का नाम अब डार्क है।',
+      'अब रूसी भाषा भी जुड़ी, ऐप 21 भाषाओं में।',
+    ], [
       'नया रूप: नया आइकन और चुनने के लिए दो रूप, सॉफ्ट और क्लासिक।',
       'सेटिंग्स अब एक मेन्यू है: व्हील, दिखावट, भाषा, गोपनीयता और श्रेय।',
       'व्हील पर एक्सरसाइज़ के पूरे नाम और बड़ा, पढ़ने में आसान टेक्स्ट।',
-    ], [
-      'ज़्यादा साफ़ इतिहास: हर एक्सरसाइज़ अपने आइकन के साथ दिखती है, और एक सारांश आपके सेशन का जोड़ बताता है।',
-      'इतिहास की हर पंक्ति में रेप्स की संख्या दो बार दिखने की गड़बड़ी ठीक की गई।',
     ]),
     full: `आज क्या वर्कआउट करें, तय नहीं कर पा रहे? चक्र घुमाएँ और GymRoulette को आपके लिए चुनने दें।
 
@@ -670,7 +670,7 @@ GymRoulette एक्सरसाइज़ का चक्र है: हर �
 
 <b>कुछ अच्छी बातें</b>
 • नतीजा आने पर <b>चक्र की आवाज़ और वाइब्रेशन</b>।
-• डार्क डिज़ाइन में <b>दो रूप</b>: सॉफ्ट और क्लासिक, जो जिम में आँखों को आराम देता है।
+• <b>तीन रूप</b>: डार्क, लाइट और क्लासिक, या अपने डिवाइस के अनुसार चलने वाला सिस्टम, जो जिम में आँखों को आराम देता है।
 • <b>साइन-अप नहीं</b> और कोई यूज़र अकाउंट नहीं।
 • <b>कोई विज्ञापन नहीं।</b>
 • <b>100% ऑफ़लाइन</b>: इसे इंटरनेट कनेक्शन की ज़रूरत नहीं।
@@ -687,12 +687,12 @@ GymRoulette पूरी तरह ऑफ़लाइन है और कोई
     short: 'Evde veya spor salonunda antrenman için rastgele egzersiz çarkı.',
     banner: { line1: 'Çarkı çevir', line2: 've antrenmana başla', tagline: 'Seni her gün zorlayacak rastgele egzersizler', button: 'Çarkı çevir' },
     notes: notesText('Sürüm', [
+      'Daha ferah ve yumuşak görünüm: yeni Açık görünüm ve Sistem seçeneği. Yumuşak artık Koyu.',
+      'Rusça uygulamaya katıldı, artık 21 dilde.',
+    ], [
       'Yeni görünüm: yeni simge ve seçebileceğin iki görünüm, Yumuşak ve Klasik.',
       'Ayarlar artık bir menü: çark, görünüm, dil, gizlilik ve katkıda bulunanlar.',
       'Çarkta tam egzersiz adları ve daha büyük, okunaklı yazı.',
-    ], [
-      'Daha net bir geçmiş: her egzersiz simgesiyle görünür ve bir özet antrenmanını toplar.',
-      'Geçmişin her satırında tekrar sayısının iki kez görünmesi düzeltildi.',
     ]),
     full: `Bugün ne çalışacağına karar veremiyor musun? Çarkı çevir, GymRoulette senin yerine seçsin.
 
@@ -719,7 +719,7 @@ Aramalı simge listesinden birçok disiplin arasında seçim yap: kuvvet ve ağ�
 
 <b>Güzel detaylar</b>
 • Sonuç çıkınca <b>çark sesleri ve titreşim</b>.
-• Spor salonunda gözlerini yormayan koyu tasarımda <b>iki görünüm</b>: Yumuşak ve Klasik.
+• Spor salonunda gözlerini yormayan tasarımda <b>üç görünüm</b>: Koyu, Açık ve Klasik; ya da cihazını izleyen Sistem.
 • <b>Kayıt yok</b>, kullanıcı hesabı yok.
 • <b>Reklam yok.</b>
 • <b>%100 çevrimdışı</b>: İnternet bağlantısı gerektirmez.
@@ -736,12 +736,12 @@ GymRoulette tamamen çevrimdışıdır ve hiçbir veri toplamaz: analiz yok, izl
     short: '自宅でもジムでも使える、ランダムなエクササイズルーレット。',
     banner: { line1: 'ルーレットを回して', line2: 'トレーニングを始めよう', tagline: 'ランダムなエクササイズで毎日チャレンジ', button: 'ルーレットを回す' },
     notes: notesText('バージョン', [
+      'より爽やかでやわらかな見た目：ライトの外観とシステム設定を追加。ソフトはダークになりました。',
+      'ロシア語に対応し、21言語で使えます。',
+    ], [
       '新しい見た目：アイコンを刷新し、ソフトとクラシックの2つの外観から選べます。',
       '設定がメニューになりました：ルーレット、外観、言語、プライバシー、クレジット。',
       'ルーレットにエクササイズ名をそのまま表示し、文字も大きく読みやすくなりました。',
-    ], [
-      '履歴を見やすくしました。エクササイズごとにアイコンが付き、まとめでセッションの合計がわかります。',
-      '履歴の各行で回数が二重に表示される問題を修正しました。',
     ]),
     full: `今日は何を鍛えるか決められない？ルーレットを回して、GymRouletteに選んでもらいましょう。
 
@@ -768,7 +768,7 @@ GymRouletteはエクササイズのルーレットです。各セクターが1�
 
 <b>うれしいポイント</b>
 • 結果が出るときの<b>ルーレットの効果音とバイブレーション</b>。
-• ジムでも目に優しいダークデザインで、<b>ソフトとクラシックの2つの外観</b>。
+• ジムでも目に優しいデザインで、<b>ダーク・ライト・クラシックの3つの外観</b>と、端末に合わせるシステム設定。
 • <b>登録不要</b>、ユーザーアカウントもありません。
 • <b>広告なし。</b>
 • <b>100%オフライン</b>：インターネット接続は不要です。
@@ -784,12 +784,12 @@ GymRouletteは完全オフラインで、データを一切収集しません。
     short: 'Het willekeurige oefeningenrad om thuis of in de sportschool te trainen.',
     banner: { line1: 'Draai aan het rad', line2: 'en ga trainen', tagline: 'Willekeurige oefeningen die je elke dag uitdagen', button: 'Draai het rad' },
     notes: notesText('Versie', [
+      'Frissere, zachtere look: nieuw licht uiterlijk en de optie Systeem. Zacht heet nu Donker.',
+      'Russisch komt erbij, nu in 21 talen.',
+    ], [
       'Nieuwe look: nieuw pictogram en twee uiterlijken om uit te kiezen, Zacht en Klassiek.',
       'Instellingen is nu een menu: rad, uiterlijk, taal, privacy en dankbetuigingen.',
       'Volledige oefennamen op het rad en grotere, beter leesbare tekst.',
-    ], [
-      'Een overzichtelijker geschiedenis: elke oefening toont zijn pictogram en een samenvatting telt je training op.',
-      'Opgelost: het aantal herhalingen stond dubbel in elke regel van de geschiedenis.',
     ]),
     full: `Kun je niet kiezen wat je vandaag gaat trainen? Draai aan het rad en laat GymRoulette voor je kiezen.
 
@@ -816,7 +816,7 @@ Kies met zoekfunctie uit meer dan 100 pictogrammen voor allerlei disciplines: kr
 
 <b>Fijne details</b>
 • <b>Radgeluiden en trillingen</b> als de uitslag verschijnt.
-• <b>Twee uiterlijken</b>, Zacht en Klassiek, op een donker ontwerp dat prettig is voor je ogen in de sportschool.
+• <b>Drie uiterlijken</b>: Donker, Licht en Klassiek, of Systeem om je apparaat te volgen, prettig voor je ogen in de sportschool.
 • <b>Geen registratie</b> en geen gebruikersaccounts.
 • <b>Geen advertenties.</b>
 • <b>100% offline</b>: je hebt geen internetverbinding nodig.
@@ -833,12 +833,12 @@ Draai aan het rad en laten we trainen.`,
     short: 'Случайное колесо упражнений для тренировок дома или в зале.',
     banner: { line1: 'Крути колесо', line2: 'и тренируйся', tagline: 'Случайные упражнения, которые бросают тебе вызов каждый день', button: 'Крутить колесо' },
     notes: notesText('Версия', [
+      'Более свежий и мягкий вид: новый светлый вид и вариант «Системный». «Мягкий» теперь называется «Тёмный».',
+      'Русский язык пополнил приложение, теперь их 21.',
+    ], [
       'Новый вид: новый значок и два внешних вида на выбор, Мягкий и Классический.',
       'Настройки теперь в виде меню: колесо, внешний вид, язык, конфиденциальность и благодарности.',
       'Полные названия упражнений на колесе и более крупный текст.',
-    ], [
-      'Более аккуратная история: у каждого упражнения свой значок, а итог подводит всю тренировку.',
-      'Исправлено двойное отображение повторений в каждой строке истории.',
     ]),
     full: `Не можешь решить, что тренировать сегодня? Покрути колесо, и GymRoulette выберет за тебя.
 
@@ -865,7 +865,7 @@ GymRoulette — это колесо упражнений: каждый сект�
 
 <b>Приятные мелочи</b>
 • <b>Звуки колеса и вибрация</b>, когда появляется результат.
-• <b>Два внешних вида</b>, Мягкий и Классический, в тёмном оформлении, комфортном для глаз в зале.
+• <b>Три внешних вида</b>: Тёмный, Светлый и Классический, или Системный, который следует за устройством, комфортно для глаз в зале.
 • <b>Без регистрации</b> и учётных записей.
 • <b>Без рекламы.</b>
 • <b>100% офлайн</b>: подключение к интернету не нужно.

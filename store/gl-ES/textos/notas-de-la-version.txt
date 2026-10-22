@@ -1,8 +1,8 @@
+Versión 1.18 (GymTonic):
+• Aspecto máis fresco e suave: nova aparencia Claro e opción Sistema. Suave agora chámase Escuro.
+• O ruso súmase á app, xa en 21 idiomas.
+
 Versión 1.17 (Muted Tones):
 • Novo aspecto: icona nova e dúas aparencias para elixir, Suave e Clásico.
 • Axustes en forma de menú: ruleta, aparencia, idioma, privacidade e créditos.
 • Nomes de exercicios completos na ruleta e texto máis grande e lexible.
-
-Versión 1.16 (Six Pack):
-• Un historial máis claro: cada exercicio mostra a súa icona e un resumo suma a túa sesión.
-• Corrixido o número de repeticións repetido en cada fila do historial.
