@@ -23,7 +23,7 @@
         </div>
 
         <div class="flex items-center space-x-1.5 min-[380px]:space-x-2 rtl:space-x-reverse">
-            <button id="soundToggleBtn" data-action="toggle-sound" aria-label="Turn sound on or off" data-i18n-aria-label="header.sound" class="w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
+            <button data-action="toggle-sound" aria-label="Turn sound on or off" data-i18n-aria-label="header.sound" class="w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
                 <i id="soundIcon" class="fa-solid fa-volume-high text-sm text-brand-text"></i>
             </button>
             <button data-action="open-history" aria-label="Open history" data-i18n-aria-label="header.history" class="relative w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95 disabled:opacity-40 disabled:active:scale-100">
@@ -201,7 +201,7 @@
             <!-- Las cuatro pantallas están apiladas en la misma celda: el panel mide lo que mide la más alta (con tope en el espacio disponible,
                  que baja con el teclado) y no cambia de altura al navegar. Como la lista de idiomas es larga, en la práctica el panel usa todo el
                  espacio disponible y las listas (ejercicios e idiomas) se desplazan por dentro. La oculta usa invisible, no hidden, para seguir ocupando sitio. -->
-            <div class="flex-1 min-h-0 grid grid-rows-[minmax(0,1fr)] overflow-hidden pe-1 my-1">
+            <div class="flex-1 min-h-0 grid grid-cols-[minmax(0,1fr)] grid-rows-[minmax(0,1fr)] overflow-hidden pe-1 my-1">
                 <!-- Menú: cada fila abre una pantalla dentro de este mismo panel (o un visor) -->
                 <section id="settingsMenu" data-view="menu" class="col-start-1 row-start-1 min-h-0 overflow-y-auto overscroll-contain flex flex-col justify-between gap-3">
                     <div class="rounded-2xl bg-dark-900/60 border border-slate-800 overflow-hidden divide-y divide-slate-800/80">
@@ -233,7 +233,7 @@
                 </section>
 
                 <!-- Editar ruleta: la lista de ejercicios se desplaza dentro de su tarjeta y el botón de añadir queda siempre a la vista -->
-                <section id="settingsWheel" data-view="wheel" class="invisible col-start-1 row-start-1 min-h-0 flex flex-col gap-3">
+                <section data-view="wheel" class="invisible col-start-1 row-start-1 min-h-0 flex flex-col gap-3">
                 <div class="bg-dark-900/60 rounded-2xl border border-slate-800 overflow-hidden flex flex-col flex-1 min-h-0">
                     <div class="flex justify-between items-center gap-2 ps-3.5 pe-2 shrink-0">
                         <div class="flex items-center min-w-0">
@@ -258,7 +258,7 @@
                 </section>
 
                 <!-- Apariencia -->
-                <section id="settingsAppearance" data-view="appearance" class="invisible col-start-1 row-start-1 min-h-0 overflow-y-auto overscroll-contain space-y-3">
+                <section data-view="appearance" class="invisible col-start-1 row-start-1 min-h-0 overflow-y-auto overscroll-contain space-y-3">
                     <div id="themeOptions" role="radiogroup" aria-labelledby="configTitle" class="space-y-3"></div>
                 </section>
 

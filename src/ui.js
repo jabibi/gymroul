@@ -22,7 +22,7 @@ const $ = id => /** @type {HTMLElement} */ (document.getElementById(id));
 // --- Utilidades ----------------------------------------------------------------------
 
 /** @param {unknown} value */
-export function escapeHTML(value) {
+function escapeHTML(value) {
   /** @type {Record<string, string>} */
   const entities = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
   return String(value).replace(/[&<>"']/g, c => entities[c]);
@@ -33,7 +33,7 @@ export function escapeHTML(value) {
  * sustituye por el icono por defecto: nunca se pinta texto libre.
  * @param {string} [iconId]
  */
-export function renderIconHTML(iconId) {
+function renderIconHTML(iconId) {
   return `<span class="${getIcon(iconId).cls}" aria-hidden="true"></span>`;
 }
 
@@ -329,7 +329,7 @@ export function addToHistory(winner) {
   renderHistory();
 }
 
-export function clearHistory() {
+function clearHistory() {
   sessionHistory.length = 0;
   renderHistory();
 }
@@ -605,13 +605,15 @@ export function renderSettings() {
 
   $('themeOptions').innerHTML = THEME_CHOICES.map(id => {
     const selected = id === theme;
-    return `<button type="button" role="radio" aria-checked="${selected}" data-action="set-theme" data-arg="${id}" class="w-full text-start rounded-2xl border p-3.5 transition-colors ${selected ? 'border-brand-500 bg-brand-500/10' : 'border-slate-800 bg-dark-900/60 hover:bg-dark-800/60'}">
-      <span class="flex items-center justify-between gap-3">
-        <span class="text-sm font-black text-white">${escapeHTML(themeLabel(id))}</span>
-        <span class="w-5 h-5 shrink-0 rounded-full border-2 flex items-center justify-center ${selected ? 'border-brand-500' : 'border-slate-600'}" aria-hidden="true">${selected ? '<span class="w-2.5 h-2.5 rounded-full bg-brand-500"></span>' : ''}</span>
+    return `<button type="button" role="radio" aria-checked="${selected}" data-action="set-theme" data-arg="${id}" class="w-full flex items-center gap-3 text-start rounded-2xl border p-3 transition-colors ${selected ? 'border-brand-500 bg-brand-500/10' : 'border-slate-800 bg-dark-900/60 hover:bg-dark-800/60'}">
+      <span class="min-w-0 flex-1">
+        <span class="flex items-center justify-between gap-3">
+          <span class="text-sm font-black text-white min-w-0 break-words">${escapeHTML(themeLabel(id))}</span>
+          <span class="w-5 h-5 shrink-0 rounded-full border-2 flex items-center justify-center ${selected ? 'border-brand-500' : 'border-slate-600'}" aria-hidden="true">${selected ? '<span class="w-2.5 h-2.5 rounded-full bg-brand-500"></span>' : ''}</span>
+        </span>
+        <span class="block text-xs text-slate-400 mt-1">${escapeHTML(t(THEME_DESC_KEYS[id]))}</span>
       </span>
-      <span class="block text-xs text-slate-400 mt-1">${escapeHTML(t(THEME_DESC_KEYS[id]))}</span>
-      <span class="relative mt-3 h-14 rounded-xl border border-slate-700 flex items-center justify-center overflow-hidden" aria-hidden="true" data-preview="${id}"></span>
+      <span class="relative h-14 w-20 shrink-0 rounded-xl border border-slate-700 flex items-center justify-center overflow-hidden" aria-hidden="true" data-preview="${id}"></span>
     </button>`;
   }).join('');
   // Vista previa: una mini ruleta sobre el fondo de la apariencia (en «Sistema», mitad oscuro y mitad claro). Los colores se
@@ -637,7 +639,7 @@ export function renderSettings() {
 // --- Novedades ---------------------------------------------------------------------------
 
 /** Pinta los textos con parámetros (título y cómo recuperar la apariencia original); el resto va con data-i18n. */
-export function renderWhatsNew() {
+function renderWhatsNew() {
   $('whatsNewTitle').textContent = t('whatsnew.title', { version: WHATS_NEW_VERSION });
   // Los nombres salen de los mismos textos que Ajustes: lo que dice el aviso es siempre lo que se verá en pantalla
   const options = new Intl.ListFormat(getLanguageTag(), { style: 'long', type: 'disjunction' }).format(THEME_CHOICES.map(c => t(THEME_NAME_KEYS[c])));
@@ -771,7 +773,7 @@ export function readNewExerciseForm() {
   return { name, icon: selectedIcon, repsMin, repsMax };
 }
 
-export function resetNewExerciseForm() {
+function resetNewExerciseForm() {
   /** @type {HTMLInputElement} */ ($('newExName')).value = '';
   /** @type {HTMLInputElement} */ ($('newExRepsMin')).value = String(DEFAULT_REPS_MIN);
   /** @type {HTMLInputElement} */ ($('newExRepsMax')).value = String(DEFAULT_REPS_MAX);

@@ -70,7 +70,7 @@ export const RTL_LANGUAGES = /** @type {LanguageCode[]} */ (['ar']);
 export const isRtl = code => RTL_LANGUAGES.includes(code);
 
 export const DEFAULT_LANGUAGE = /** @type {LanguageCode} */ ('en');
-export const STORAGE_LANGUAGE_KEY = 'gymroulette_language';
+const STORAGE_LANGUAGE_KEY = 'gymroulette_language';
 
 /**
  * Las variantes regionales (pt-PT, en-GB, en-AU, es-419, fr-CA) heredan de su idioma base y solo redefinen lo que cambia.

@@ -17,7 +17,6 @@ export default {
           400: 'rgb(var(--brand-400) / <alpha-value>)',
           500: 'rgb(var(--brand-500) / <alpha-value>)',
           600: 'rgb(var(--brand-600) / <alpha-value>)',
-          900: 'rgb(var(--brand-900) / <alpha-value>)',
         },
         // Neutros: también salen de variables, para que el tema Claro los invierta (la escala slate y el blanco de los textos)
         slate: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map(n => [n, `rgb(var(--slate-${n}) / <alpha-value>)`])),

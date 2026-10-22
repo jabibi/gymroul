@@ -59,7 +59,7 @@ export const getSegments = () => segments;
 export const isBusy = () => isSpinning;
 /** Velocidad angular actual (rad por fotograma a 60 fps), siempre positiva */
 export const getSpinSpeed = () => Math.abs(angularVelocity);
-export const getActiveIndex = () => getWinningIndex(currentAngle, segments.length);
+const getActiveIndex = () => getWinningIndex(currentAngle, segments.length);
 export const getActiveSegment = () => segments[getActiveIndex()];
 
 /** @param {Segment[]} next */
