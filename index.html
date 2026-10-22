@@ -196,7 +196,7 @@
                 </button>
             </div>
 
-            <div class="flex-1 overflow-y-auto overflow-x-hidden pe-1 my-1">
+            <div class="flex-1 min-h-0 flex flex-col overflow-y-auto overflow-x-hidden pe-1 my-1">
                 <!-- Menú: cada fila abre una pantalla dentro de este mismo panel (o un visor) -->
                 <section id="settingsMenu" data-view="menu" class="space-y-3">
                     <div class="rounded-2xl bg-dark-900/60 border border-slate-800 overflow-hidden divide-y divide-slate-800/80">
@@ -221,9 +221,9 @@
                 </section>
 
                 <!-- Editar ruleta: la lista de ejercicios se desplaza dentro de su tarjeta y el botón de añadir queda siempre a la vista -->
-                <section id="settingsWheel" data-view="wheel" class="hidden space-y-3">
-                <div class="bg-dark-900/60 rounded-2xl border border-slate-800 overflow-hidden">
-                    <div class="flex justify-between items-center gap-2 ps-3.5 pe-2">
+                <section id="settingsWheel" data-view="wheel" class="hidden [&:not(.hidden)]:flex flex-col gap-3 min-h-0">
+                <div class="bg-dark-900/60 rounded-2xl border border-slate-800 overflow-hidden flex flex-col min-h-0">
+                    <div class="flex justify-between items-center gap-2 ps-3.5 pe-2 shrink-0">
                         <div class="flex items-center min-w-0">
                             <span class="text-sm font-black text-slate-200" data-i18n="config.exercises">Exercises</span>
                             <button type="button" id="configHelpBtn" data-action="toggle-config-help" aria-expanded="false" aria-controls="configHelp" aria-label="Help" data-i18n-aria-label="config.help" class="w-11 h-11 shrink-0 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
@@ -236,11 +236,11 @@
                             <button data-action="toggle-exs" data-arg="off" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-xs text-slate-400 font-bold hover:underline" data-i18n="config.exsNone">None</button>
                         </div>
                     </div>
-                    <p id="configHelp" class="hidden px-3.5 pb-3 text-sm text-slate-400" data-i18n="config.intro">Turn exercises on or off, set each one's reps range, or create and delete them.</p>
-                    <div id="exsCheckboxes" class="px-2 pb-2 space-y-2 max-h-[max(9rem,calc(100dvh-17.5rem-var(--sat)-var(--sab)))] overflow-y-auto overscroll-contain"></div>
+                    <p id="configHelp" class="hidden shrink-0 px-3.5 pb-3 text-sm text-slate-400" data-i18n="config.intro">Turn exercises on or off, set each one's reps range, or create and delete them.</p>
+                    <div id="exsCheckboxes" class="px-2 pb-2 space-y-2 flex-1 min-h-[9rem] overflow-y-auto overscroll-contain"></div>
                 </div>
 
-                <button type="button" data-action="open-add-exercise" aria-haspopup="dialog" class="w-full min-h-[48px] px-3 rounded-xl border border-dashed border-slate-700 text-brand-400 text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center justify-center gap-2">
+                <button type="button" data-action="open-add-exercise" aria-haspopup="dialog" class="shrink-0 w-full min-h-[48px] px-3 rounded-xl border border-dashed border-slate-700 text-brand-400 text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center justify-center gap-2">
                     <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i> <span data-i18n="config.addExercise">Add a new exercise</span>
                 </button>
                 </section>
