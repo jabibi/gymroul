@@ -76,6 +76,16 @@ Petición de una reseña de Play (ver «Peticiones de usuarios»). Hecho: la rul
 
 **Qué implicaría**: sobre todo maquetación (`index.html`, `src/wheel.js`, `src/style.css`), sin cambios en los datos guardados. Hay que pasar `npm run check:layout`, incluido `--stress`, en los 20 idiomas y con el árabe de derecha a izquierda, y regenerar las capturas de la ficha de Play (`npm run store`).
 
+## Por revisar en la versión 1.18 — apertura de las páginas de Privacidad y Acerca de
+
+Detectado probando la 1.17 en el móvil. Los documentos (política de privacidad y créditos, desde «Privacidad» y «Acerca de» en Ajustes) se abren en un visor dentro de la app (`documentModal`, un `iframe`).
+
+**Lo que pasa**: si abres, por ejemplo, la política de privacidad, bajas hasta el final y la cierras, la siguiente vez que la abres aparece otra vez abajo del todo, en la posición en la que se dejó.
+
+**Lo esperado**: que no conserve la posición anterior y se abra desde el principio. (Si lo que se quería era lo contrario, que la recordase, habría que decidirlo antes de tocar nada.)
+
+**Dónde mirar**: `renderDocument` y `openDocument` en `src/ui.js`. El marco solo se sustituye cuando cambia el documento (`documentSrc`); si se abre el mismo dos veces seguidas, se reutiliza el mismo marco con su desplazamiento. Hay que volver a empezar arriba al abrirlo (por ejemplo, recrear el marco en cada apertura) sin romper el arreglo de Atrás de la 1.17, que depende de que la primera carga de un marco nuevo no añada una entrada al historial. Conviene reproducirlo en el navegador y en el móvil, con ambos documentos y en varios idiomas, y comprobar también Atrás.
+
 ## Por valorar en la versión 1.18 — ruso como idioma nuevo
 
 Aún no está empezado. Se apunta el ruso (`ru`) como el siguiente idioma. No es un compromiso: antes hay que cubrir lo de abajo.
