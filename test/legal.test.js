@@ -53,12 +53,14 @@ describe('páginas legales multilingües', () => {
         // La app publicada nunca ha tenido analítica ni rastreadores: la política no habla de versiones antiguas
         expect(text).not.toContain('Google Analytics');
         expect(text).not.toContain('1.13');
+        expect(text.replace(/eus\.jabibi\.gymroul/g, '')).not.toContain('jabibi');
       });
       it(`${code}: eliminación de datos`, () => {
         const text = flat(LEGAL_PAGES['data-deletion.html'][code]);
         for (const fact of [CONTACT_EMAIL, 'subject=', 'privacy.html', '12', 'gymroul.web.app']) expect(text, fact).toContain(fact);
         expect(text).not.toContain('Google Analytics');
         expect(text).not.toContain('1.13');
+        expect(text.replace(/eus\.jabibi\.gymroul/g, '')).not.toContain('jabibi');
       });
     }
   });

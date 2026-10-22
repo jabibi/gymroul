@@ -7,7 +7,7 @@ export default {
     blocks: [
       ['h1', 'Data Deletion - GymRoulette'],
       ['p', 'Last updated: October 2026'],
-      ['p', `This page explains how to request deletion of the data associated with the <strong>GymRoulette</strong> app (Android, ${APP_ID}, and its web version), developed by Javier Melendez ("jabibi"). GymRoulette has no user accounts: no name, email or password is stored.`],
+      ['p', `This page explains how to request deletion of the data associated with the <strong>GymRoulette</strong> app (Android, ${APP_ID}, and its web version), developed by Javier Melendez. GymRoulette has no user accounts: no name, email or password is stored.`],
 
       ['h2', '1. Data stored on your device'],
       ['p', 'Your exercise and rep settings are stored only on your device and are never sent to our servers. To delete them:'],
@@ -34,7 +34,7 @@ export default {
     blocks: [
       ['h1', 'Eliminación de datos - GymRoulette'],
       ['p', 'Última actualización: octubre 2026'],
-      ['p', `Esta página explica cómo solicitar la eliminación de los datos asociados a la aplicación <strong>GymRoulette</strong> (Android, ${APP_ID}, y su versión web), desarrollada por Javier Melendez ("jabibi"). GymRoulette no tiene cuentas de usuario: no se almacena ningún nombre, correo ni contraseña.`],
+      ['p', `Esta página explica cómo solicitar la eliminación de los datos asociados a la aplicación <strong>GymRoulette</strong> (Android, ${APP_ID}, y su versión web), desarrollada por Javier Melendez. GymRoulette no tiene cuentas de usuario: no se almacena ningún nombre, correo ni contraseña.`],
 
       ['h2', '1. Datos guardados en tu dispositivo'],
       ['p', 'Tu configuración de ejercicios y repeticiones se guarda solo en tu dispositivo y nunca se envía a nuestros servidores. Para eliminarla:'],
@@ -61,7 +61,7 @@ export default {
     blocks: [
       ['h1', 'Datuen ezabaketa - GymRoulette'],
       ['p', 'Azken eguneratzea: 2026ko urria'],
-      ['p', `Orri honek azaltzen du nola eskatu <strong>GymRoulette</strong> aplikazioari (Android, ${APP_ID}, eta bere web bertsioa) lotutako datuak ezabatzea; Javier Melendez-ek ("jabibi") garatua. GymRoulette-k ez du erabiltzaile-konturik: ez da izenik, posta elektronikorik edo pasahitzik gordetzen.`],
+      ['p', `Orri honek azaltzen du nola eskatu <strong>GymRoulette</strong> aplikazioari (Android, ${APP_ID}, eta bere web bertsioa) lotutako datuak ezabatzea; Javier Melendez-ek garatua. GymRoulette-k ez du erabiltzaile-konturik: ez da izenik, posta elektronikorik edo pasahitzik gordetzen.`],
 
       ['h2', '1. Zure gailuan gordetako datuak'],
       ['p', 'Zure ariketen eta errepikapenen konfigurazioa zure gailuan soilik gordetzen da eta ez da inoiz gure zerbitzarietara bidaltzen. Ezabatzeko:'],
@@ -88,7 +88,7 @@ export default {
     blocks: [
       ['h1', 'Eliminación de datos - GymRoulette'],
       ['p', 'Última actualización: outubro de 2026'],
-      ['p', `Esta páxina explica como solicitar a eliminación dos datos asociados á aplicación <strong>GymRoulette</strong> (Android, ${APP_ID}, e a súa versión web), desenvolvida por Javier Melendez ("jabibi"). GymRoulette non ten contas de usuario: non se almacena ningún nome, correo nin contrasinal.`],
+      ['p', `Esta páxina explica como solicitar a eliminación dos datos asociados á aplicación <strong>GymRoulette</strong> (Android, ${APP_ID}, e a súa versión web), desenvolvida por Javier Melendez. GymRoulette non ten contas de usuario: non se almacena ningún nome, correo nin contrasinal.`],
 
       ['h2', '1. Datos gardados no teu dispositivo'],
       ['p', 'A túa configuración de exercicios e repeticións gárdase só no teu dispositivo e nunca se envía aos nosos servidores. Para eliminala:'],
@@ -115,7 +115,7 @@ export default {
     blocks: [
       ['h1', 'Eliminació de dades - GymRoulette'],
       ['p', 'Darrera actualització: octubre de 2026'],
-      ['p', `Aquesta pàgina explica com sol·licitar l'eliminació de les dades associades a l'aplicació <strong>GymRoulette</strong> (Android, ${APP_ID}, i la seva versió web), desenvolupada per Javier Melendez ("jabibi"). GymRoulette no té comptes d'usuari: no s'emmagatzema cap nom, correu ni contrasenya.`],
+      ['p', `Aquesta pàgina explica com sol·licitar l'eliminació de les dades associades a l'aplicació <strong>GymRoulette</strong> (Android, ${APP_ID}, i la seva versió web), desenvolupada per Javier Melendez. GymRoulette no té comptes d'usuari: no s'emmagatzema cap nom, correu ni contrasenya.`],
 
       ['h2', '1. Dades desades al teu dispositiu'],
       ['p', 'La teva configuració d\'exercicis i repeticions es desa només al teu dispositiu i mai no s\'envia als nostres servidors. Per eliminar-la:'],
@@ -142,7 +142,7 @@ export default {
     blocks: [
       ['h1', 'Suppression des données - GymRoulette'],
       ['p', 'Dernière mise à jour : octobre 2026'],
-      ['p', `Cette page explique comment demander la suppression des données associées à l'application <strong>GymRoulette</strong> (Android, ${APP_ID}, et sa version web), développée par Javier Melendez (« jabibi »). GymRoulette n'a pas de comptes utilisateur : aucun nom, e-mail ni mot de passe n'est enregistré.`],
+      ['p', `Cette page explique comment demander la suppression des données associées à l'application <strong>GymRoulette</strong> (Android, ${APP_ID}, et sa version web), développée par Javier Melendez. GymRoulette n'a pas de comptes utilisateur : aucun nom, e-mail ni mot de passe n'est enregistré.`],
 
       ['h2', '1. Données enregistrées sur ton appareil'],
       ['p', 'Ta configuration d\'exercices et de répétitions est enregistrée uniquement sur ton appareil et n\'est jamais envoyée à nos serveurs. Pour la supprimer :'],
@@ -169,7 +169,7 @@ export default {
     blocks: [
       ['h1', 'Exclusão de dados - GymRoulette'],
       ['p', 'Última atualização: outubro de 2026'],
-      ['p', `Esta página explica como solicitar a exclusão dos dados associados ao aplicativo <strong>GymRoulette</strong> (Android, ${APP_ID}, e sua versão web), desenvolvido por Javier Melendez ("jabibi"). O GymRoulette não tem contas de usuário: nenhum nome, e-mail ou senha é armazenado.`],
+      ['p', `Esta página explica como solicitar a exclusão dos dados associados ao aplicativo <strong>GymRoulette</strong> (Android, ${APP_ID}, e sua versão web), desenvolvido por Javier Melendez. O GymRoulette não tem contas de usuário: nenhum nome, e-mail ou senha é armazenado.`],
 
       ['h2', '1. Dados guardados no seu dispositivo'],
       ['p', 'A configuração dos seus exercícios e repetições é guardada apenas no seu dispositivo e nunca é enviada aos nossos servidores. Para excluí-la:'],
@@ -196,7 +196,7 @@ export default {
     blocks: [
       ['h1', 'Eliminação de dados - GymRoulette'],
       ['p', 'Última atualização: outubro de 2026'],
-      ['p', `Esta página explica como solicitar a eliminação dos dados associados à aplicação <strong>GymRoulette</strong> (Android, ${APP_ID}, e a sua versão web), desenvolvida por Javier Melendez ("jabibi"). O GymRoulette não tem contas de utilizador: não é armazenado nenhum nome, e-mail ou palavra-passe.`],
+      ['p', `Esta página explica como solicitar a eliminação dos dados associados à aplicação <strong>GymRoulette</strong> (Android, ${APP_ID}, e a sua versão web), desenvolvida por Javier Melendez. O GymRoulette não tem contas de utilizador: não é armazenado nenhum nome, e-mail ou palavra-passe.`],
 
       ['h2', '1. Dados guardados no teu dispositivo'],
       ['p', 'A configuração dos teus exercícios e repetições é guardada apenas no teu dispositivo e nunca é enviada para os nossos servidores. Para a eliminar:'],
@@ -223,7 +223,7 @@ export default {
     blocks: [
       ['h1', 'Löschung von Daten - GymRoulette'],
       ['p', 'Zuletzt aktualisiert: Oktober 2026'],
-      ['p', `Diese Seite erklärt, wie du die Löschung der Daten beantragen kannst, die mit der App <strong>GymRoulette</strong> (Android, ${APP_ID}, und ihrer Webversion) verbunden sind, entwickelt von Javier Melendez („jabibi“). GymRoulette hat keine Benutzerkonten: Es werden weder Name noch E-Mail-Adresse noch Passwort gespeichert.`],
+      ['p', `Diese Seite erklärt, wie du die Löschung der Daten beantragen kannst, die mit der App <strong>GymRoulette</strong> (Android, ${APP_ID}, und ihrer Webversion) verbunden sind, entwickelt von Javier Melendez. GymRoulette hat keine Benutzerkonten: Es werden weder Name noch E-Mail-Adresse noch Passwort gespeichert.`],
 
       ['h2', '1. Auf deinem Gerät gespeicherte Daten'],
       ['p', 'Deine Einstellungen für Übungen und Wiederholungen werden nur auf deinem Gerät gespeichert und nie an unsere Server gesendet. So löschst du sie:'],
@@ -250,7 +250,7 @@ export default {
     blocks: [
       ['h1', 'Eliminazione dei dati - GymRoulette'],
       ['p', 'Ultimo aggiornamento: ottobre 2026'],
-      ['p', `Questa pagina spiega come richiedere l'eliminazione dei dati associati all'app <strong>GymRoulette</strong> (Android, ${APP_ID}, e la sua versione web), sviluppata da Javier Melendez («jabibi»). GymRoulette non ha account utente: non viene memorizzato alcun nome, e-mail o password.`],
+      ['p', `Questa pagina spiega come richiedere l'eliminazione dei dati associati all'app <strong>GymRoulette</strong> (Android, ${APP_ID}, e la sua versione web), sviluppata da Javier Melendez. GymRoulette non ha account utente: non viene memorizzato alcun nome, e-mail o password.`],
 
       ['h2', '1. Dati salvati sul tuo dispositivo'],
       ['p', 'Le tue impostazioni di esercizi e ripetizioni sono salvate solo sul tuo dispositivo e non vengono mai inviate ai nostri server. Per eliminarle:'],
@@ -276,7 +276,7 @@ export default {
     blocks: [
       ['h1', 'Usuwanie danych - GymRoulette'],
       ['p', 'Ostatnia aktualizacja: październik 2026'],
-      ['p', `Ta strona wyjaśnia, jak zażądać usunięcia danych powiązanych z aplikacją <strong>GymRoulette</strong> (Android, ${APP_ID}, oraz jej wersją internetową), stworzoną przez Javiera Melendeza („jabibi”). GymRoulette nie ma kont użytkowników: nie jest przechowywane żadne imię i nazwisko, adres e-mail ani hasło.`],
+      ['p', `Ta strona wyjaśnia, jak zażądać usunięcia danych powiązanych z aplikacją <strong>GymRoulette</strong> (Android, ${APP_ID}, oraz jej wersją internetową), stworzoną przez Javiera Melendeza. GymRoulette nie ma kont użytkowników: nie jest przechowywane żadne imię i nazwisko, adres e-mail ani hasło.`],
 
       ['h2', '1. Dane przechowywane na urządzeniu Użytkownika'],
       ['p', 'Ustawienia ćwiczeń i powtórzeń są przechowywane wyłącznie na urządzeniu Użytkownika i nigdy nie są wysyłane na nasze serwery. Aby je usunąć:'],
@@ -303,7 +303,7 @@ export default {
     blocks: [
       ['h1', 'حذف البيانات - GymRoulette'],
       ['p', 'آخر تحديث: أكتوبر 2026'],
-      ['p', `توضّح هذه الصفحة كيفية طلب حذف البيانات المرتبطة بتطبيق <strong>GymRoulette</strong> (Android، ${APP_ID}، ونسخته على الويب)، الذي طوّره Javier Melendez («jabibi»). لا يحتوي GymRoulette على حسابات مستخدمين: فلا يُخزَّن أي اسم أو بريد إلكتروني أو كلمة مرور.`],
+      ['p', `توضّح هذه الصفحة كيفية طلب حذف البيانات المرتبطة بتطبيق <strong>GymRoulette</strong> (Android، ${APP_ID}، ونسخته على الويب)، الذي طوّره Javier Melendez. لا يحتوي GymRoulette على حسابات مستخدمين: فلا يُخزَّن أي اسم أو بريد إلكتروني أو كلمة مرور.`],
 
       ['h2', '1. البيانات المخزَّنة على جهازك'],
       ['p', 'تُحفظ إعدادات التمارين والتكرارات لديك على جهازك فقط، ولا تُرسَل أبدًا إلى خوادمنا. لحذفها:'],
@@ -330,7 +330,7 @@ export default {
     blocks: [
       ['h1', 'डेटा मिटाना - GymRoulette'],
       ['p', 'अंतिम अपडेट: अक्टूबर 2026'],
-      ['p', `यह पेज बताता है कि <strong>GymRoulette</strong> ऐप (Android, ${APP_ID}, और इसका वेब संस्करण) से जुड़ा डेटा मिटाने का अनुरोध कैसे करें। इसे Javier Melendez ("jabibi") ने बनाया है। GymRoulette में यूज़र अकाउंट नहीं हैं: कोई नाम, ईमेल या पासवर्ड सहेजा नहीं जाता।`],
+      ['p', `यह पेज बताता है कि <strong>GymRoulette</strong> ऐप (Android, ${APP_ID}, और इसका वेब संस्करण) से जुड़ा डेटा मिटाने का अनुरोध कैसे करें। इसे Javier Melendez ने बनाया है। GymRoulette में यूज़र अकाउंट नहीं हैं: कोई नाम, ईमेल या पासवर्ड सहेजा नहीं जाता।`],
 
       ['h2', '1. आपके डिवाइस पर सहेजा गया डेटा'],
       ['p', 'आपकी एक्सरसाइज़ और रेप्स की सेटिंग केवल आपके डिवाइस पर सहेजी जाती है और हमारे सर्वर को कभी नहीं भेजी जाती। उन्हें मिटाने के लिए:'],
@@ -357,7 +357,7 @@ export default {
     blocks: [
       ['h1', 'Veri Silme - GymRoulette'],
       ['p', 'Son güncelleme: Ekim 2026'],
-      ['p', `Bu sayfa, Javier Melendez ("jabibi") tarafından geliştirilen <strong>GymRoulette</strong> uygulaması (Android, ${APP_ID} ve web sürümü) ile ilişkili verilerin silinmesinin nasıl talep edileceğini açıklar. GymRoulette'te kullanıcı hesabı yoktur: ad, e-posta veya parola saklanmaz.`],
+      ['p', `Bu sayfa, Javier Melendez tarafından geliştirilen <strong>GymRoulette</strong> uygulaması (Android, ${APP_ID} ve web sürümü) ile ilişkili verilerin silinmesinin nasıl talep edileceğini açıklar. GymRoulette'te kullanıcı hesabı yoktur: ad, e-posta veya parola saklanmaz.`],
 
       ['h2', '1. Cihazınızda saklanan veriler'],
       ['p', 'Egzersiz ve tekrar ayarlarınız yalnızca cihazınızda saklanır ve sunucularımıza hiç gönderilmez. Bunları silmek için:'],
@@ -384,7 +384,7 @@ export default {
     blocks: [
       ['h1', 'Gegevens verwijderen - GymRoulette'],
       ['p', 'Laatst bijgewerkt: oktober 2026'],
-      ['p', `Op deze pagina lees je hoe je kunt vragen om verwijdering van de gegevens die bij de app <strong>GymRoulette</strong> horen (Android, ${APP_ID}, en de webversie), ontwikkeld door Javier Melendez ("jabibi"). GymRoulette heeft geen gebruikersaccounts: er worden geen naam, e-mailadres of wachtwoord opgeslagen.`],
+      ['p', `Op deze pagina lees je hoe je kunt vragen om verwijdering van de gegevens die bij de app <strong>GymRoulette</strong> horen (Android, ${APP_ID}, en de webversie), ontwikkeld door Javier Melendez. GymRoulette heeft geen gebruikersaccounts: er worden geen naam, e-mailadres of wachtwoord opgeslagen.`],
 
       ['h2', '1. Gegevens op je apparaat'],
       ['p', 'De instellingen van je oefeningen en herhalingen worden alleen op je apparaat opgeslagen en nooit naar onze servers gestuurd. Zo verwijder je ze:'],
@@ -411,7 +411,7 @@ export default {
     blocks: [
       ['h1', 'データ削除 - GymRoulette'],
       ['p', '最終更新：2026年10月'],
-      ['p', `このページでは、Javier Melendez（「jabibi」）が開発した<strong>GymRoulette</strong>アプリ（Android、${APP_ID}、およびそのウェブ版）に関連するデータの削除を依頼する方法を説明します。GymRouletteにはユーザーアカウントがなく、名前、メールアドレス、パスワードは保存されません。`],
+      ['p', `このページでは、Javier Melendezが開発した<strong>GymRoulette</strong>アプリ（Android、${APP_ID}、およびそのウェブ版）に関連するデータの削除を依頼する方法を説明します。GymRouletteにはユーザーアカウントがなく、名前、メールアドレス、パスワードは保存されません。`],
 
       ['h2', '1. 端末に保存されているデータ'],
       ['p', 'エクササイズと回数の設定は端末内にのみ保存され、当方のサーバーに送信されることはありません。削除するには次の操作を行います。'],
