@@ -5,7 +5,8 @@
   "backgroundColor": "#020617",
   "plugins": {
     "SystemBars": {
-      "style": "DARK"
+      "style": "DARK",
+      "insetsHandling": "disable"
     }
   }
 }

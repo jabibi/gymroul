@@ -7,7 +7,7 @@
 // Los colores de los ejercicios se guardan siempre con la paleta de «calm» (COLOR_PALETTE); con «classic» y «light» se
 // sustituyen al mostrarlos por el de la misma posición en CLASSIC_COLOR_PALETTE o LIGHT_COLOR_PALETTE, así cambiar de apariencia no toca los datos.
 
-import { Capacitor, SystemBars } from '@capacitor/core';
+import { Capacitor, registerPlugin } from '@capacitor/core';
 import { COLOR_PALETTE, CLASSIC_COLOR_PALETTE, LIGHT_COLOR_PALETTE, readStorage, writeStorage } from './store.js';
 
 /** Apariencias que se ven. */
@@ -40,11 +40,14 @@ export const getThemeChoice = () => choice;
 /** @type {(() => void) | null} */
 let onSystemChange = null;
 
+/** Plugin propio de Android (AppBarsPlugin.java): color de las barras del sistema e iconos a juego con la apariencia. */
+const AppBars = registerPlugin('AppBars');
+
 function applyThemeAttribute() {
   const theme = getTheme();
   document.documentElement.dataset.theme = theme;
-  // Barras del sistema de Android: iconos claros sobre fondo oscuro y oscuros sobre fondo claro
-  if (Capacitor.isNativePlatform()) SystemBars.setStyle({ style: /** @type {any} */ (theme === 'light' ? 'LIGHT' : 'DARK') }).catch(() => {});
+  // Barras del sistema de Android: del color de la apariencia (no del modo del dispositivo) y con iconos que contrasten
+  if (Capacitor.isNativePlatform()) AppBars.setBars({ background: THEME_BG[theme], darkIcons: theme === 'light' }).catch(() => {});
 }
 
 /** Lee la apariencia guardada y la aplica (se llama al arrancar). @param {() => void} [onChange] se llama si, con «system», el dispositivo cambia de modo */
