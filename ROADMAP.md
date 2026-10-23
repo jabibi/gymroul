@@ -188,6 +188,7 @@ Aún no está decidida ni empezada. Se apunta aquí para no perderla y porque en
 
 ## Ideas sin fecha
 
+- Diseño horizontal (ruleta a un lado y el botón al otro): hoy la actividad va bloqueada en vertical y `check:layout` no prueba ninguna pantalla en horizontal. Haría falta ambas cosas si se abre la app a tabletas o plegables con pantalla dividida.
 - Valoración dentro de la app (In-App Review): descartada de momento. Añade una dependencia de Google Play que choca con el «sin SDK de terceros ni conexión» de la 1.13 (habría que revisar la política de privacidad y «Seguridad de los datos»), Google limita cuántas veces se muestra y ahora no hay un momento claro de éxito del usuario. Retomarla cuando haya más usuarios y algo como un historial de entrenamientos completados.
 - Exportar e importar la configuración en un archivo local.
 - Revisión de accesibilidad (texto grande, lector de pantalla).
