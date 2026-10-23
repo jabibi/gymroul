@@ -564,8 +564,7 @@ export function showSettingsView(view, moveFocus = true) {
   $('settingsBack').classList.toggle('hidden', view === 'menu');
   $('settingsBack').classList.toggle('flex', view !== 'menu');
   setDisclosure('configHelpBtn', 'configHelp', false);
-  // Todo se guarda al momento: sin botones de guardar. El menú cierra con la X; las pantallas internas solo vuelven con la flecha
-  $('settingsClose').classList.toggle('hidden', view !== 'menu');
+  // Todo se guarda al momento: sin botones de guardar. La X cierra Ajustes desde cualquier pantalla y la flecha vuelve al menú
   // Cada pantalla empieza arriba (las otras siguen ahí, ocultas, con su propio desplazamiento)
   document.querySelectorAll('#configCard [data-view], #languageOptions').forEach(el => { el.scrollTop = 0; });
   if (moveFocus) $('configTitle').focus({ preventScroll: true });
