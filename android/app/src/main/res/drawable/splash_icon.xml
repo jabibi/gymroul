@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Icono de la pantalla de arranque del sistema (Android 12 y posteriores): el logo claro u oscuro (drawable-nodpi y
+     drawable-night-nodpi) con margen, porque el sistema recorta el icono en un círculo de dos tercios de su tamaño. -->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/splash_logo"
+    android:insetLeft="20%"
+    android:insetTop="20%"
+    android:insetRight="20%"
+    android:insetBottom="20%" />
