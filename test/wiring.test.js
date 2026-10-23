@@ -68,3 +68,14 @@ describe('pantallas bajas', () => {
     expect(html.match(/<div [^>]*id="resultCard"[^>]*>/)?.[0]).toMatch(/overflow-y-auto/);
   });
 });
+
+describe('icono adaptativo de Android', () => {
+  // Sin <monochrome>, los «iconos con tema» de Android 13 no pueden teñir el icono; npm run icons lo añade tras capacitor-assets
+  it('lleva el icono monocromo en los dos XML y su recurso existe', () => {
+    for (const file of ['ic_launcher.xml', 'ic_launcher_round.xml']) {
+      const xml = readFileSync(`android/app/src/main/res/mipmap-anydpi-v26/${file}`, 'utf8');
+      expect(xml, file).toMatch(/<monochrome>\s*<inset android:drawable="@drawable\/ic_launcher_monochrome"/);
+    }
+    expect(readFileSync('android/app/src/main/res/drawable-nodpi/ic_launcher_monochrome.png').length).toBeGreaterThan(0);
+  });
+});
