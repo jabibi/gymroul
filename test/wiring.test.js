@@ -49,3 +49,22 @@ describe('teclado en el navegador', () => {
     expect(html).toMatch(/<meta name="viewport"[^>]*interactive-widget=resizes-content/);
   });
 });
+
+describe('pantallas bajas', () => {
+  it('la actividad de Android va bloqueada en vertical', () => {
+    const manifest = readFileSync('android/app/src/main/AndroidManifest.xml', 'utf8');
+    expect(manifest).toContain('android:screenOrientation="portrait"');
+  });
+
+  it('toda ventana con tarjeta limita su altura (si no, en una pantalla baja quedan botones fuera de alcance)', () => {
+    const html = readFileSync('index.html', 'utf8');
+    const cards = [...html.matchAll(/<div [^>]*class="[^"]*glass-card[^"]*"[^>]*>/g)].map(m => m[0]).filter(tag => /rounded-(t-)?3xl/.test(tag));
+    // tarjetas de ventana: resultado, historial, novedades, ajustes, nuevo ejercicio, compromiso de privacidad y la de «preparando imagen» (pequeña)
+    expect(cards.length).toBeGreaterThanOrEqual(7);
+    for (const tag of cards) {
+      if (/share-wheel|max-w-xs/.test(tag)) continue; // la de compartir solo lleva una ruleta de carga y un botón
+      expect(tag).toMatch(/max-h-\[/);
+    }
+    expect(html.match(/<div [^>]*id="resultCard"[^>]*>/)?.[0]).toMatch(/overflow-y-auto/);
+  });
+});
