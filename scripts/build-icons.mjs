@@ -3,7 +3,7 @@
 //   node scripts/build-icons.mjs        -> assets/*.png, public/favicon.svg, public/logo-mark.svg y public/logo-light.svg
 //   npm run icons                       -> lo anterior + capacitor-assets generate --android
 //
-// Un único diseño (la ruleta, en verde neón sobre azul noche) con varias presentaciones:
+// Un único diseño (la ruleta, en verde esmeralda sobre azul noche, sin brillos) con varias presentaciones:
 //   - favicon.svg              cuadrado redondeado con el fondo oscuro (pestaña y páginas legales). No se escribe assets/logo.svg:
 //                              con un logo suelto capacitor-assets genera además las pantallas de arranque PNG a pantalla completa
 //   - logo-mark.svg            solo la ruleta, sin fondo (cabecera de la app, que ya pone el suyo)
