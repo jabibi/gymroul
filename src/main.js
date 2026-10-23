@@ -215,6 +215,10 @@ document.addEventListener('change', e => {
 document.getElementById('iconSearch')?.addEventListener('input', e => ui.filterIcons(/** @type {HTMLInputElement} */ (e.target).value));
 
 function init() {
+  // En Android las zonas seguras las resuelve MainActivity (rellena la vista con el alto de las barras): la web no suma las suyas
+  if (Capacitor.isNativePlatform()) {
+    for (const side of ['top', 'right', 'bottom', 'left']) document.documentElement.style.setProperty(`--safe-area-inset-${side}`, '0px');
+  }
   // El idioma elegido a mano se guarda; el detectado del dispositivo no, para seguir sus cambios
   setLanguage(detectLanguage(), { persist: false });
   applyTranslations();
@@ -245,21 +249,12 @@ function init() {
   }
 }
 
-/**
- * Quita la clase booting (la interfaz estaba invisible, ver theme-init.js) cuando ya no va a moverse nada: con las fuentes cargadas
- * y, en Android, con las zonas seguras que inyecta SystemBars, que llegan después del primer pintado y movían toda la cabecera.
- */
+/** Quita la clase booting (la interfaz estaba invisible, ver theme-init.js) cuando ya no va a moverse nada: con las fuentes cargadas. */
 async function revealApp() {
   const root = document.documentElement;
   if (!root.classList.contains('booting')) return;
   try {
     await document.fonts?.ready;
-    if (Capacitor.isNativePlatform()) {
-      const start = performance.now();
-      while (!root.style.getPropertyValue('--safe-area-inset-top') && performance.now() - start < 600) {
-        await new Promise(resolve => requestAnimationFrame(resolve));
-      }
-    }
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
   } finally {
     root.classList.remove('booting');
