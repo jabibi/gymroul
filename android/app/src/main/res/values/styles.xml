@@ -15,7 +15,7 @@
         <item name="android:background">@null</item>
         <!-- Fondo de la ventana (franjas bajo las barras del sistema): el de la app (claro u oscuro según el modo del sistema), no el gris del tema -->
         <item name="android:windowBackground">@color/gym_background</item>
-        <!-- Android 14 e inferiores (sin pantalla completa forzada): las barras toman el fondo de la app, no el índigo del tema -->
+        <!-- Con la pantalla completa (EdgeToEdge en MainActivity) las barras son transparentes y se ve el fondo de la app; estos colores solo valen mientras no se aplica -->
         <item name="android:statusBarColor">@color/gym_background</item>
         <item name="android:navigationBarColor">@color/gym_background</item>
     </style>

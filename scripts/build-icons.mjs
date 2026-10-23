@@ -1,22 +1,22 @@
 // Genera el logo de GymRoulette y los recursos que consume @capacitor/assets.
 //
-//   node scripts/build-icons.mjs        -> assets/*.png, assets/logo.svg, public/favicon.svg, public/logo-mark.svg y public/logo-light.svg
+//   node scripts/build-icons.mjs        -> assets/*.png, public/favicon.svg, public/logo-mark.svg y public/logo-light.svg
 //   npm run icons                       -> lo anterior + capacitor-assets generate --android
 //
 // Un único diseño (la ruleta, en verde neón sobre azul noche) con varias presentaciones:
-//   - logo.svg / favicon.svg   cuadrado redondeado con el fondo oscuro (cabecera de la app y pestaña)
+//   - favicon.svg              cuadrado redondeado con el fondo oscuro (pestaña y páginas legales). No se escribe assets/logo.svg:
+//                              con un logo suelto capacitor-assets genera además las pantallas de arranque PNG a pantalla completa
 //   - logo-mark.svg            solo la ruleta, sin fondo (cabecera de la app, que ya pone el suyo)
 //   - logo-light.svg           lo mismo con colores para fondo claro (cabecera con el tema Claro)
 //   - icon-only.png            icono completo a sangre (lanzadores antiguos)
 //   - icon-foreground.png      solo la ruleta, con la circunferencia centrada, sobre transparente (icono
 //                              adaptativo; Android lo reduce al 66 % dentro de la zona segura)
 //   - icon-background.png      solo el degradado de fondo (icono adaptativo)
-//   - splash.png / splash-dark.png   pantalla de arranque, clara y oscura (Android elige según el modo del sistema)
+//   - splash_logo.png          logo de la pantalla de arranque de Android, claro y oscuro (res/drawable-nodpi y drawable-night-nodpi)
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 import sharp from 'sharp';
 
-const APP_BG = '#020617';
 
 const DEFS = `<defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -86,7 +86,6 @@ const outputs = {
 
 mkdirSync('assets', { recursive: true });
 mkdirSync('public', { recursive: true });
-writeFileSync('assets/logo.svg', outputs.logo);
 writeFileSync('public/favicon.svg', outputs.logo);
 writeFileSync('public/logo-mark.svg', outputs.wheelOnly);
 writeFileSync('public/logo-light.svg', outputs.wheelLight);
@@ -99,17 +98,13 @@ await Promise.all([
   png('icon-background', outputs.background, 1024),
 ]);
 
-// Pantalla de arranque de Android: capacitor-assets usa splash.png con el modo claro del sistema y splash-dark.png con el
-// oscuro (carpetas drawable-night). Claro: la ruleta clara sobre el fondo cálido de la apariencia Claro; oscuro: la de siempre.
-const splashSize = 2732;
-const wheelPx = 760;
-const LIGHT_BG = '#FAFAF9';
-for (const [name, source, background] of [['splash', outputs.wheelLight, LIGHT_BG], ['splash-dark', outputs.wheelOnly, APP_BG]]) {
-  const wheelBuf = await sharp(Buffer.from(source), { density: 300 }).resize(wheelPx, wheelPx).png().toBuffer();
-  await sharp({ create: { width: splashSize, height: splashSize, channels: 4, background } })
-    .composite([{ input: wheelBuf, gravity: 'center' }])
-    .png()
-    .toFile(`assets/${name}.png`);
+// Pantalla de arranque de Android: solo el logo, que res/drawable/splash.xml centra sobre el color de fondo de la app (claro u
+// oscuro según el modo del sistema) sin estirarlo. Un PNG a pantalla completa se estiraba en los móviles alargados.
+// Claro: la ruleta clara; oscuro (drawable-night-nodpi): la de siempre.
+const RES = 'android/app/src/main/res';
+for (const [dir, source] of [['drawable-nodpi', outputs.wheelLight], ['drawable-night-nodpi', outputs.wheelOnly]]) {
+  mkdirSync(`${RES}/${dir}`, { recursive: true });
+  await sharp(Buffer.from(source), { density: 300 }).resize(512, 512).png().toFile(`${RES}/${dir}/splash_logo.png`);
 }
 
 console.log('Recursos generados en assets/ y public/favicon.svg');
