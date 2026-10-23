@@ -25,7 +25,7 @@ export default {
     ['h2', 'Interface icons'],
     ['ul', [`<strong>Font Awesome Free</strong>, icons under ${ccBy4}, fonts under SIL OFL 1.1 and code under MIT. ${faSite}`]],
     ['h2', 'Typography'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>, SIL Open Font License 1.1.']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>, SIL Open Font License 1.1.']],
   ] },
   es: { title: 'Créditos y licencias - GymRoulette', blocks: [
     ['h1', 'Créditos y licencias'],
@@ -39,7 +39,7 @@ export default {
     ['h2', 'Iconos de la interfaz'],
     ['ul', [`<strong>Font Awesome Free</strong>, iconos bajo ${ccBy4}, fuentes bajo SIL OFL 1.1 y código bajo MIT. ${faSite}`]],
     ['h2', 'Tipografía'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>, licencia SIL Open Font License 1.1.']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>, licencia SIL Open Font License 1.1.']],
   ] },
   eu: { title: 'Kredituak eta lizentziak - GymRoulette', blocks: [
     ['h1', 'Kredituak eta lizentziak'],
@@ -53,7 +53,7 @@ export default {
     ['h2', 'Interfazearen ikonoak'],
     ['ul', [`<strong>Font Awesome Free</strong>, ikonoak ${ccBy4} lizentziapean, letra-tipoak SIL OFL 1.1 lizentziapean eta kodea MIT lizentziapean. ${faSite}`]],
     ['h2', 'Tipografia'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>, SIL Open Font License 1.1 lizentzia.']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>, SIL Open Font License 1.1 lizentzia.']],
   ] },
   gl: { title: 'Créditos e licenzas - GymRoulette', blocks: [
     ['h1', 'Créditos e licenzas'],
@@ -67,7 +67,7 @@ export default {
     ['h2', 'Iconas da interface'],
     ['ul', [`<strong>Font Awesome Free</strong>, iconas baixo ${ccBy4}, fontes baixo SIL OFL 1.1 e código baixo MIT. ${faSite}`]],
     ['h2', 'Tipografía'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>, licenza SIL Open Font License 1.1.']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>, licenza SIL Open Font License 1.1.']],
   ] },
   ca: { title: 'Crèdits i llicències - GymRoulette', blocks: [
     ['h1', 'Crèdits i llicències'],
@@ -81,7 +81,7 @@ export default {
     ['h2', 'Icones de la interfície'],
     ['ul', [`<strong>Font Awesome Free</strong>, icones sota ${ccBy4}, tipus de lletra sota SIL OFL 1.1 i codi sota MIT. ${faSite}`]],
     ['h2', 'Tipografia'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>, llicència SIL Open Font License 1.1.']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>, llicència SIL Open Font License 1.1.']],
   ] },
   fr: { title: 'Crédits et licences - GymRoulette', blocks: [
     ['h1', 'Crédits et licences'],
@@ -95,7 +95,7 @@ export default {
     ['h2', 'Icônes de l\'interface'],
     ['ul', [`<strong>Font Awesome Free</strong>, icônes sous ${ccBy4}, polices sous SIL OFL 1.1 et code sous MIT. ${faSite}`]],
     ['h2', 'Typographie'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>, licence SIL Open Font License 1.1.']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>, licence SIL Open Font License 1.1.']],
   ] },
   'pt-BR': { title: 'Créditos e licenças - GymRoulette', blocks: [
     ['h1', 'Créditos e licenças'],
@@ -109,7 +109,7 @@ export default {
     ['h2', 'Ícones da interface'],
     ['ul', [`<strong>Font Awesome Free</strong>, ícones sob ${ccBy4}, fontes sob SIL OFL 1.1 e código sob MIT. ${faSite}`]],
     ['h2', 'Tipografia'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>, licença SIL Open Font License 1.1.']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>, licença SIL Open Font License 1.1.']],
   ] },
   'pt-PT': { title: 'Créditos e licenças - GymRoulette', blocks: [
     ['h1', 'Créditos e licenças'],
@@ -123,7 +123,7 @@ export default {
     ['h2', 'Ícones da interface'],
     ['ul', [`<strong>Font Awesome Free</strong>, ícones sob ${ccBy4}, tipos de letra sob SIL OFL 1.1 e código sob MIT. ${faSite}`]],
     ['h2', 'Tipografia'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>, licença SIL Open Font License 1.1.']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>, licença SIL Open Font License 1.1.']],
   ] },
   de: { title: 'Danksagungen und Lizenzen - GymRoulette', blocks: [
     ['h1', 'Danksagungen und Lizenzen'],
@@ -137,7 +137,7 @@ export default {
     ['h2', 'Symbole der Oberfläche'],
     ['ul', [`<strong>Font Awesome Free</strong>, Symbole unter ${ccBy4}, Schriften unter SIL OFL 1.1 und Code unter MIT. ${faSite}`]],
     ['h2', 'Typografie'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>, Lizenz SIL Open Font License 1.1.']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>, Lizenz SIL Open Font License 1.1.']],
   ] },
   it: { title: 'Crediti e licenze - GymRoulette', blocks: [
     ['h1', 'Crediti e licenze'],
@@ -151,7 +151,7 @@ export default {
     ['h2', 'Icone dell\'interfaccia'],
     ['ul', [`<strong>Font Awesome Free</strong>, icone con licenza ${ccBy4}, font con licenza SIL OFL 1.1 e codice con licenza MIT. ${faSite}`]],
     ['h2', 'Tipografia'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>, licenza SIL Open Font License 1.1.']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>, licenza SIL Open Font License 1.1.']],
   ] },
   pl: { title: 'Podziękowania i licencje - GymRoulette', blocks: [
     ['h1', 'Podziękowania i licencje'],
@@ -165,7 +165,7 @@ export default {
     ['h2', 'Ikony interfejsu'],
     ['ul', [`<strong>Font Awesome Free</strong>, ikony na licencji ${ccBy4}, czcionki na licencji SIL OFL 1.1, a kod na licencji MIT. ${faSite}`]],
     ['h2', 'Typografia'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>, licencja SIL Open Font License 1.1.']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>, licencja SIL Open Font License 1.1.']],
   ] },
 
   ar: { title: 'الشكر والتراخيص - GymRoulette', blocks: [
@@ -180,7 +180,7 @@ export default {
     ['h2', 'أيقونات الواجهة'],
     ['ul', [`<strong>Font Awesome Free</strong>، الأيقونات بترخيص ${ccBy4}، والخطوط بترخيص SIL OFL 1.1، والشيفرة البرمجية بترخيص MIT. ${faSite}`]],
     ['h2', 'الخطوط'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>، بترخيص SIL Open Font License 1.1.']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>، بترخيص SIL Open Font License 1.1.']],
   ] },
 
   hi: { title: 'श्रेय और लाइसेंस - GymRoulette', blocks: [
@@ -195,7 +195,7 @@ export default {
     ['h2', 'इंटरफ़ेस के आइकन'],
     ['ul', [`<strong>Font Awesome Free</strong>, आइकन ${ccBy4} के अंतर्गत, फ़ॉन्ट SIL OFL 1.1 के अंतर्गत और कोड MIT के अंतर्गत। ${faSite}`]],
     ['h2', 'टाइपोग्राफ़ी'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>, SIL Open Font License 1.1 लाइसेंस।']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>, SIL Open Font License 1.1 लाइसेंस।']],
   ] },
 
   tr: { title: 'Katkıda bulunanlar ve lisanslar - GymRoulette', blocks: [
@@ -210,7 +210,7 @@ export default {
     ['h2', 'Arayüz simgeleri'],
     ['ul', [`<strong>Font Awesome Free</strong>, simgeler ${ccBy4} altında, yazı tipleri SIL OFL 1.1 altında ve kod MIT altında. ${faSite}`]],
     ['h2', 'Tipografi'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>, SIL Open Font License 1.1.']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>, SIL Open Font License 1.1.']],
   ] },
 
   nl: { title: 'Dankwoord en licenties - GymRoulette', blocks: [
@@ -225,7 +225,7 @@ export default {
     ['h2', 'Interfacepictogrammen'],
     ['ul', [`<strong>Font Awesome Free</strong>, pictogrammen onder ${ccBy4}, lettertypen onder SIL OFL 1.1 en code onder MIT. ${faSite}`]],
     ['h2', 'Typografie'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>, SIL Open Font License 1.1.']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>, SIL Open Font License 1.1.']],
   ] },
 
   ja: { title: 'クレジットとライセンス - GymRoulette', blocks: [
@@ -240,7 +240,7 @@ export default {
     ['h2', 'インターフェースのアイコン'],
     ['ul', [`<strong>Font Awesome Free</strong>、アイコンは${ccBy4}、フォントはSIL OFL 1.1、コードはMITライセンス。${faSite}`]],
     ['h2', 'フォント'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>、SIL Open Font License 1.1。']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>、SIL Open Font License 1.1。']],
   ] },
 
   ru: { title: 'Благодарности и лицензии - GymRoulette', blocks: [
@@ -255,6 +255,6 @@ export default {
     ['h2', 'Значки интерфейса'],
     ['ul', [`<strong>Font Awesome Free</strong>, значки по лицензии ${ccBy4}, шрифты по SIL OFL 1.1, код по MIT. ${faSite}`]],
     ['h2', 'Типографика'],
-    ['ul', ['<strong>Plus Jakarta Sans</strong>, лицензия SIL Open Font License 1.1.']],
+    ['ul', ['<strong>Plus Jakarta Sans</strong> / <strong>Manrope</strong>, лицензия SIL Open Font License 1.1.']],
   ] },
 };
