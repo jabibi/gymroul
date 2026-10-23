@@ -14,7 +14,7 @@ import { toggleSound, initAudio } from './audio.js';
 import * as ui from './ui.js';
 import { cleanShareCache } from './share.js';
 import { exerciseName, sortedExercises } from './exercise-names.js';
-import { loadTheme, setTheme, themeColor } from './theme.js';
+import { initSafeArea, loadTheme, setTheme, themeColor } from './theme.js';
 import { shouldShowWhatsNew, markWhatsNewSeen } from './whats-new.js';
 import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from './i18n/index.js';
 
@@ -215,10 +215,8 @@ document.addEventListener('change', e => {
 document.getElementById('iconSearch')?.addEventListener('input', e => ui.filterIcons(/** @type {HTMLInputElement} */ (e.target).value));
 
 function init() {
-  // En Android las zonas seguras las resuelve MainActivity (rellena la vista con el alto de las barras): la web no suma las suyas
-  if (Capacitor.isNativePlatform()) {
-    for (const side of ['top', 'right', 'bottom', 'left']) document.documentElement.style.setProperty(`--safe-area-inset-${side}`, '0px');
-  }
+  // En Android las zonas seguras las calcula MainActivity (la web va bajo las barras); Capacitor ya no las reparte
+  initSafeArea();
   // El idioma elegido a mano se guarda; el detectado del dispositivo no, para seguir sus cambios
   setLanguage(detectLanguage(), { persist: false });
   applyTranslations();

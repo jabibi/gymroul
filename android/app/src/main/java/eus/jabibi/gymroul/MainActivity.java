@@ -3,7 +3,6 @@ package eus.jabibi.gymroul;
 import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import androidx.activity.EdgeToEdge;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
@@ -26,19 +25,16 @@ public class MainActivity extends BridgeActivity {
         getWindow().setBackgroundDrawable(new ColorDrawable(background));
         getWindow().getDecorView().setBackgroundColor(background);
 
-        // Las zonas seguras se resuelven aquí, igual en todos los Android y WebView: la web se rellena con el alto de las barras
-        // (y del teclado) y no suma nada por su cuenta (capacitor.config.json desactiva el reparto de SystemBars, que en Android 10 con
-        // recorte de pantalla duplicaba el margen, y main.js pone --safe-area-inset-* a 0).
+        // La web se extiende por detrás de las barras (así se integra con ellas) y recibe su alto como zonas seguras
+        // (AppBars.getInsets / evento insets; capacitor.config.json desactiva el reparto de SystemBars, que en Android 10 con recorte
+        // de pantalla duplicaba el margen). Solo con el teclado abierto se rellena la vista por abajo, para que la web mida lo que queda.
         ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (view, insets) -> {
             Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout());
             Insets ime = insets.getInsets(WindowInsetsCompat.Type.ime());
-            view.setPadding(bars.left, bars.top, bars.right, Math.max(bars.bottom, ime.bottom));
-            Log.d("GymInsets", "estado=" + insets.getInsets(WindowInsetsCompat.Type.statusBars())
-                + " recorte=" + insets.getInsets(WindowInsetsCompat.Type.displayCutout())
-                + " navegacion=" + insets.getInsets(WindowInsetsCompat.Type.navigationBars())
-                + " titulo=" + insets.getInsets(WindowInsetsCompat.Type.captionBar())
-                + " total=" + bars + " teclado=" + ime
-                + " densidad=" + getResources().getDisplayMetrics().density + " api=" + android.os.Build.VERSION.SDK_INT);
+            boolean keyboard = ime.bottom > bars.bottom;
+            view.setPadding(0, 0, 0, keyboard ? ime.bottom : 0);
+            float density = getResources().getDisplayMetrics().density;
+            AppBarsPlugin.publishInsets(bars.top / density, bars.right / density, keyboard ? 0 : bars.bottom / density, bars.left / density);
             return WindowInsetsCompat.CONSUMED;
         });
         ViewCompat.requestApplyInsets(getWindow().getDecorView());

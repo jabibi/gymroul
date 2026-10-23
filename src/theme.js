@@ -43,6 +43,17 @@ let onSystemChange = null;
 /** Plugin propio de Android (AppBarsPlugin.java): color de las barras del sistema e iconos a juego con la apariencia. */
 const AppBars = registerPlugin('AppBars');
 
+/** En Android la web se extiende bajo las barras y MainActivity le dice cuánto miden: se aplican como zonas seguras. */
+export function initSafeArea() {
+  if (!Capacitor.isNativePlatform()) return;
+  /** @param {{top: number, right: number, bottom: number, left: number}} i */
+  const apply = i => {
+    for (const side of /** @type {const} */ (['top', 'right', 'bottom', 'left'])) document.documentElement.style.setProperty(`--safe-area-inset-${side}`, `${i[side]}px`);
+  };
+  AppBars.addListener('insets', apply);
+  AppBars.getInsets().then(apply).catch(() => {});
+}
+
 function applyThemeAttribute() {
   const theme = getTheme();
   document.documentElement.dataset.theme = theme;
