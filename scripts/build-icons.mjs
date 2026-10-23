@@ -12,6 +12,8 @@
 //   - icon-foreground.png      solo la ruleta, con la circunferencia centrada, sobre transparente (icono
 //                              adaptativo; Android lo reduce al 66 % dentro de la zona segura)
 //   - icon-background.png      solo el degradado de fondo (icono adaptativo)
+//   - ic_launcher_monochrome.png  silueta de un solo color para los «iconos con tema» de Android 13 (res/drawable-nodpi); el
+//                              sistema solo mira su transparencia y la tiñe con el color del fondo de pantalla del usuario
 //   - splash_logo.png          logo de la pantalla de arranque de Android, claro y oscuro (res/drawable-nodpi y drawable-night-nodpi)
 
 import { writeFileSync, mkdirSync } from 'node:fs';
@@ -63,6 +65,29 @@ const wheelShapes = ({ green = '#10B981', dumbbell = '#FFFFFF', ringGlow = 'url(
   </g>`;
 
 const WHEEL = wheelShapes();
+
+// Silueta de un solo color para el icono monocromo: aros, radios y mancuerna a trazo grueso (20; con el 12 del icono normal
+// se veía débil una vez reducida a la zona segura), sin brillos ni relleno de sectores.
+const WHEEL_MONO = `
+  <g stroke="#000" stroke-width="20" fill="none" stroke-linecap="round">
+    <circle cx="256" cy="256" r="190"/>
+    <circle cx="256" cy="256" r="115"/>
+    <line x1="256" y1="66" x2="256" y2="141"/>
+    <line x1="390.35" y1="121.65" x2="337.28" y2="174.72"/>
+    <line x1="446" y1="256" x2="371" y2="256"/>
+    <line x1="390.35" y1="390.35" x2="337.28" y2="337.28"/>
+    <line x1="256" y1="446" x2="256" y2="371"/>
+    <line x1="121.65" y1="390.35" x2="174.72" y2="337.28"/>
+    <line x1="66" y1="256" x2="141" y2="256"/>
+    <line x1="121.65" y1="121.65" x2="174.72" y2="174.72"/>
+  </g>
+  <g fill="#000">
+    <rect x="206" y="245" width="100" height="22" rx="10"/>
+    <rect x="198" y="217" width="22" height="78" rx="7"/>
+    <rect x="292" y="217" width="22" height="78" rx="7"/>
+    <rect x="170" y="229" width="22" height="54" rx="6"/>
+    <rect x="320" y="229" width="22" height="54" rx="6"/>
+  </g>`;
 // Ruleta clara: sectores en los tonos cálidos pastel de la apariencia Claro (LIGHT_COLOR_PALETTE), aro esmeralda oscuro y mancuerna oscura
 const WHEEL_LIGHT = wheelShapes({ green: '#047857', dumbbell: '#1C1917', ringGlow: 'none', dumbbellGlow: 'none', sectors: ['#fdba74', '#fde68a', '#fda4af', '#a7d8b4'] });
 
@@ -82,6 +107,8 @@ const outputs = {
   background: svg('', { bg: BG_FULL }),
   wheelOnly: svg(WHEEL),
   wheelLight: svg(WHEEL_LIGHT),
+  // Lienzo del icono adaptativo (108 dp = 432 px); el margen del 16,7 % lo pone el XML, como en el primer plano
+  monochrome: svg(WHEEL_MONO),
 };
 
 mkdirSync('assets', { recursive: true });
@@ -106,5 +133,9 @@ for (const [dir, source] of [['drawable-nodpi', outputs.wheelLight], ['drawable-
   mkdirSync(`${RES}/${dir}`, { recursive: true });
   await sharp(Buffer.from(source), { density: 300 }).resize(512, 512).png().toFile(`${RES}/${dir}/splash_logo.png`);
 }
+
+// Icono monocromo (Android 13 y posteriores): lo engancha fix-adaptive-icon.mjs en los XML del icono adaptativo
+mkdirSync(`${RES}/drawable-nodpi`, { recursive: true });
+await sharp(Buffer.from(outputs.monochrome), { density: 300 }).resize(432, 432).png().toFile(`${RES}/drawable-nodpi/ic_launcher_monochrome.png`);
 
 console.log('Recursos generados en assets/ y public/favicon.svg');
