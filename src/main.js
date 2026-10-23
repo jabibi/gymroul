@@ -14,7 +14,7 @@ import { toggleSound, initAudio } from './audio.js';
 import * as ui from './ui.js';
 import { cleanShareCache } from './share.js';
 import { exerciseName, sortedExercises } from './exercise-names.js';
-import { initSafeArea, loadTheme, setTheme, themeColor } from './theme.js';
+import { getThemeChoice, initSafeArea, loadTheme, setTheme, themeColor, withThemeTransition } from './theme.js';
 import { shouldShowWhatsNew, markWhatsNewSeen } from './whats-new.js';
 import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from './i18n/index.js';
 
@@ -131,7 +131,7 @@ const actions = {
   'settings-open': arg => arg && ui.showSettingsView(/** @type {'wheel' | 'appearance' | 'language'} */ (arg)),
   'settings-back': () => ui.settingsBack(),
   'set-language': arg => { if (arg && isSupported(arg) && setLanguage(arg)) applyLanguage(); },
-  'set-theme': arg => { if (arg && setTheme(arg)) applyTheme(); },
+  'set-theme': arg => { if (arg && arg !== getThemeChoice()) withThemeTransition(() => { if (setTheme(arg)) applyTheme(); }); },
   'close-config': () => ui.closeConfig(),
   'spin': () => handleSpin(),
   'close-result': arg => ui.closeResult(arg === 'done'),
