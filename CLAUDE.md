@@ -19,7 +19,7 @@ npm run release-notes  # notas de la versión y CSV de la ficha de Play desde st
 npm run deploy       # build + firebase deploy (hosting); su predeploy (scripts/check-deploy.mjs) exige estar en main, sin cambios sin commitear y al día con origin/main
 ```
 
-Chromium en la nube: está en `/opt/pw-browsers/chromium-<versión>/…/chrome` y la carpeta cambia con cada imagen del entorno, así que no la escribas a mano: `export CHROME_PATH=$(ls /opt/pw-browsers/chromium-*/chrome-linux*/chrome | head -1)` antes de `check:layout` y `store`.
+Chromium en la nube: está en `/opt/pw-browsers/chromium-<versión>/…/chrome` y la carpeta cambia con cada imagen del entorno, así que no la escribas a mano: `export CHROME_PATH=$(ls /opt/pw-browsers/chromium-*/chrome-linux*/chrome | head -1)` antes de `check:layout` y `store`. En local no hace falta si tienes Chrome en `/usr/bin/google-chrome` (la ruta por defecto de los scripts); en macOS o Windows indica la tuya con `CHROME_PATH`. Solo lo usan `check:layout` y `store`.
 
 CI (`.github/workflows/ci.yml`) ejecuta `typecheck`, `test` y `build`, y en un job aparte compila el Android (`assembleRelease` y `bundleRelease`). Antes de dar algo por terminado, pasa los tres.
 
