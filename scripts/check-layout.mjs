@@ -221,6 +221,8 @@ async function openApp(browser, lang, vp, existingUser = false) {
     });
   }
   await page.goto(`${BASE}?lang=${lang}`, { waitUntil: 'networkidle0' });
+  await page.waitForFunction(() => !document.documentElement.classList.contains('booting')); // el fundido de arranque
+  await wait(300);
   await page.evaluate(() => document.fonts.ready);
   await wait(400);
   return page;

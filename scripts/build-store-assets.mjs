@@ -56,6 +56,8 @@ async function openApp(appLang) {
     Math.random = () => 0.5; // giros reproducibles
   });
   await page.goto(`${BASE}?lang=${appLang}`, { waitUntil: 'networkidle0' });
+  await page.waitForFunction(() => !document.documentElement.classList.contains('booting')); // el fundido de arranque
+  await wait(300);
   await page.evaluate(() => document.fonts.ready);
   await wait(500);
   return page;

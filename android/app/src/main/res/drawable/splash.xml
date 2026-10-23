@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pantalla de arranque: el logo centrado sobre el fondo de la app. Un PNG a pantalla completa como fondo de la ventana se
+     estira hasta rellenarla, y en un móvil alargado el logo salía deformado. El color y el logo tienen versión oscura
+     (values-night y drawable-night-nodpi). Lo genera scripts/build-icons.mjs (el logo); el resto es a mano. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/gym_background" />
+    <item android:width="140dp" android:height="140dp" android:gravity="center">
+        <bitmap android:src="@drawable/splash_logo" android:gravity="fill" />
+    </item>
+</layer-list>

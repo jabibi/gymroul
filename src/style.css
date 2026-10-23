@@ -196,6 +196,14 @@ input, textarea {
     .live-marker.is-spinning #liveIndicatorText { filter: none; }
 }
 
+/* Arranque: la interfaz espera invisible (el fondo de la página ya está, del color de la pantalla de arranque) y aparece con un
+   fundido cuando las fuentes y las zonas seguras han llegado (revealApp en src/main.js); si no, se vería cómo se coloca todo */
+body { transition: opacity 0.2s ease-out; }
+html.booting body { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+    body { transition: none; }
+}
+
 /* Árabe (escritura cursiva, de derecha a izquierda): el espaciado entre letras rompe las uniones entre ellas,
    así que se anula el de las clases de Tailwind (tracking-*) y el de los textos con mayúsculas. */
 :lang(ar), :lang(ar) * {
