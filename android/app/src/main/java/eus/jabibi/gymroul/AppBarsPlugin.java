@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.Window;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
+import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
@@ -24,6 +25,39 @@ public class AppBarsPlugin extends Plugin {
     private static int background = Color.TRANSPARENT;
     private static boolean darkIcons = false;
     private static boolean applied = false;
+    private static AppBarsPlugin instance = null;
+    /** Últimas zonas seguras (en píxeles CSS): arriba, derecha, abajo, izquierda. */
+    private static final float[] insets = new float[4];
+
+    @Override
+    public void load() {
+        instance = this;
+    }
+
+    @PluginMethod
+    public void getInsets(PluginCall call) {
+        call.resolve(insetsObject());
+    }
+
+    /** Guarda las zonas seguras que calcula MainActivity y avisa a la web, que las usa como --safe-area-inset-*. */
+    static void publishInsets(float top, float right, float bottom, float left) {
+        insets[0] = top;
+        insets[1] = right;
+        insets[2] = bottom;
+        insets[3] = left;
+        if (instance != null) {
+            instance.notifyListeners("insets", insetsObject());
+        }
+    }
+
+    private static JSObject insetsObject() {
+        JSObject result = new JSObject();
+        result.put("top", insets[0]);
+        result.put("right", insets[1]);
+        result.put("bottom", insets[2]);
+        result.put("left", insets[3]);
+        return result;
+    }
 
     @PluginMethod
     public void setBars(PluginCall call) {
@@ -58,8 +92,13 @@ public class AppBarsPlugin extends Plugin {
         Window window = activity.getWindow();
         View decor = window.getDecorView();
         decor.setBackgroundColor(background);
-        window.setStatusBarColor(background);
-        window.setNavigationBarColor(background);
+        // Barras transparentes: se ve la propia web por debajo (integración con la interfaz) y, si no llega, el fondo de la ventana
+        window.setStatusBarColor(Color.TRANSPARENT);
+        window.setNavigationBarColor(Color.TRANSPARENT);
+        if (android.os.Build.VERSION.SDK_INT >= 29) {
+            window.setNavigationBarContrastEnforced(false);
+            window.setStatusBarContrastEnforced(false);
+        }
         WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(window, decor);
         controller.setAppearanceLightStatusBars(darkIcons);
         controller.setAppearanceLightNavigationBars(darkIcons);
