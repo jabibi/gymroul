@@ -16,6 +16,7 @@ npm run store:check  # compara esa huella con la interfaz actual y falla si las 
 npm run legal        # public/*.html desde legal/*.mjs (también lo hace build)
 npm run icons        # iconos, logos y pantallas de arranque desde scripts/build-icons.mjs
 npm run release-notes  # notas de la versión y CSV de la ficha de Play desde store/listing.mjs
+npm run deploy       # build + firebase deploy (hosting); su predeploy (scripts/check-deploy.mjs) exige estar en main, sin cambios sin commitear y al día con origin/main
 ```
 
 Chromium en la nube: `CHROME_PATH=/opt/pw-browsers/chromium-1194/chrome-linux/chrome` para `check:layout` y `store`.

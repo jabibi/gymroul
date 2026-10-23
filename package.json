@@ -11,6 +11,7 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit -p jsconfig.json",
     "cap:sync": "cap sync android",
+    "predeploy": "node scripts/check-deploy.mjs",
     "deploy": "npm run build && firebase deploy --only hosting",
     "build:android": "npm run build && npm run cap:sync",
     "icons": "node scripts/build-icons.mjs && capacitor-assets generate --android && node scripts/fix-adaptive-icon.mjs",
