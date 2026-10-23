@@ -61,6 +61,23 @@ function applyThemeAttribute() {
   if (Capacitor.isNativePlatform()) AppBars.setBars({ background: THEME_BG[theme], darkIcons: theme === 'light' }).catch(() => {});
 }
 
+/**
+ * Aplica un cambio de apariencia con un fundido corto entre la interfaz de antes y la de después. Sin él, los colores del
+ * HTML cambian al instante y la ruleta (canvas) y los ajustes se repintan después, y de Oscuro a Claro o de Claro a Clásico
+ * se ve un parpadeo. Con View Transitions el navegador guarda una captura de lo anterior, ejecuta el cambio entero y funde
+ * hacia el resultado ya completo. Sin soporte (o con «reducir movimiento») el cambio es directo, como antes.
+ * @param {() => void} update cambia el atributo y repinta lo que depende de la apariencia
+ */
+export function withThemeTransition(update) {
+  const doc = /** @type {any} */ (document);
+  const reduced = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (typeof doc.startViewTransition !== 'function' || reduced) {
+    update();
+    return;
+  }
+  doc.startViewTransition(update);
+}
+
 /** Lee la apariencia guardada y la aplica (se llama al arrancar). @param {() => void} [onChange] se llama si, con «system», el dispositivo cambia de modo */
 export function loadTheme(onChange) {
   choice = readStorage(KEY_THEME, DEFAULT_THEME, isThemeChoice);
@@ -68,8 +85,10 @@ export function loadTheme(onChange) {
   onSystemChange = onChange ?? null;
   darkQuery?.addEventListener?.('change', () => {
     if (choice !== 'system') return;
-    applyThemeAttribute();
-    onSystemChange?.();
+    withThemeTransition(() => {
+      applyThemeAttribute();
+      onSystemChange?.();
+    });
   });
 }
 
