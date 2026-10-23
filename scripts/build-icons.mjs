@@ -24,27 +24,18 @@ const DEFS = `<defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
     <stop offset="0" stop-color="#0F172A"/><stop offset="1" stop-color="#0B1120"/>
   </linearGradient>
-  <filter id="neon" x="-30%" y="-30%" width="160%" height="160%">
-    <feGaussianBlur stdDeviation="6" result="b1"/>
-    <feGaussianBlur stdDeviation="14" result="b2"/>
-    <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-    <feGaussianBlur stdDeviation="3" result="b"/>
-    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
 </defs>`;
 
-// La ruleta completa (sectores alternos, aro con brillo neón verde y mancuerna central), centrada en 256,256 con radio 190.
-// La variante clara (tema Claro) usa un verde más oscuro y la mancuerna oscura, sin brillo, para leerse sobre fondo claro.
-const wheelShapes = ({ green = '#10B981', dumbbell = '#FFFFFF', ringGlow = 'url(#neon)', dumbbellGlow = 'url(#soft)', sectors = null } = {}) => `
+// La ruleta completa (sectores alternos, aro verde de trazo 16 y mancuerna central), sin brillos, centrada en 256,256 con radio 190.
+// La variante clara (tema Claro) usa un verde más oscuro y la mancuerna oscura para leerse sobre fondo claro.
+const wheelShapes = ({ green = '#10B981', dumbbell = '#FFFFFF', sectors = null } = {}) => `
   <g opacity="${sectors ? 1 : 0.2}" fill="${green}">
     <path${sectors ? ` fill="${sectors[0]}"` : ''} d="M256,66 A190,190 0 0,1 390.35,121.65 L337.28,174.72 A115,115 0 0,0 256,141 Z"/>
     <path${sectors ? ` fill="${sectors[1]}"` : ''} d="M446,256 A190,190 0 0,1 390.35,390.35 L337.28,337.28 A115,115 0 0,0 371,256 Z"/>
     <path${sectors ? ` fill="${sectors[2]}"` : ''} d="M256,446 A190,190 0 0,1 121.65,390.35 L174.72,337.28 A115,115 0 0,0 256,371 Z"/>
     <path${sectors ? ` fill="${sectors[3]}"` : ''} d="M66,256 A190,190 0 0,1 121.65,121.65 L174.72,174.72 A115,115 0 0,0 141,256 Z"/>
   </g>
-  <g filter="${ringGlow}" stroke="${green}" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <g stroke="${green}" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <circle cx="256" cy="256" r="190" opacity="0.95"/>
     <circle cx="256" cy="256" r="115" opacity="0.95"/>
     <line x1="256" y1="66" x2="256" y2="141"/>
@@ -56,7 +47,7 @@ const wheelShapes = ({ green = '#10B981', dumbbell = '#FFFFFF', ringGlow = 'url(
     <line x1="66" y1="256" x2="141" y2="256"/>
     <line x1="121.65" y1="121.65" x2="174.72" y2="174.72"/>
   </g>
-  <g filter="${dumbbellGlow}" fill="${dumbbell}">
+  <g fill="${dumbbell}">
     <rect x="206" y="247" width="100" height="18" rx="9"/>
     <rect x="200" y="221" width="18" height="70" rx="6"/>
     <rect x="294" y="221" width="18" height="70" rx="6"/>
@@ -66,8 +57,8 @@ const wheelShapes = ({ green = '#10B981', dumbbell = '#FFFFFF', ringGlow = 'url(
 
 const WHEEL = wheelShapes();
 
-// Silueta de un solo color para el icono monocromo: aros, radios y mancuerna a trazo grueso (20; con el 12 del icono normal
-// se veía débil una vez reducida a la zona segura), sin brillos ni relleno de sectores.
+// Silueta de un solo color para el icono monocromo: aros, radios y mancuerna a trazo grueso (20, algo más que el 16 del logo:
+// el sistema la reduce y la tiñe de un solo color, y ahí un trazo fino se pierde), sin relleno de sectores.
 const WHEEL_MONO = `
   <g stroke="#000" stroke-width="20" fill="none" stroke-linecap="round">
     <circle cx="256" cy="256" r="190"/>
@@ -89,7 +80,7 @@ const WHEEL_MONO = `
     <rect x="320" y="229" width="22" height="54" rx="6"/>
   </g>`;
 // Ruleta clara: sectores en los tonos cálidos pastel de la apariencia Claro (LIGHT_COLOR_PALETTE), aro esmeralda oscuro y mancuerna oscura
-const WHEEL_LIGHT = wheelShapes({ green: '#047857', dumbbell: '#1C1917', ringGlow: 'none', dumbbellGlow: 'none', sectors: ['#fdba74', '#fde68a', '#fda4af', '#a7d8b4'] });
+const WHEEL_LIGHT = wheelShapes({ green: '#047857', dumbbell: '#1C1917', sectors: ['#fdba74', '#fde68a', '#fda4af', '#a7d8b4'] });
 
 const svg = (body, { bg = '', size = 512, extra = '' } = {}) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="${size}" height="${size}">${DEFS}${bg}${extra}${body}</svg>`;
