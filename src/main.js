@@ -14,7 +14,7 @@ import { toggleSound, initAudio } from './audio.js';
 import * as ui from './ui.js';
 import { cleanShareCache } from './share.js';
 import { exerciseName, sortedExercises } from './exercise-names.js';
-import { getThemeChoice, initSafeArea, isThemeChoice, loadTheme, resolveTheme, setTheme, themeColor, withThemeTransition } from './theme.js';
+import { getThemeChoice, initSafeArea, loadTheme, setTheme, themeColor, withThemeTransition } from './theme.js';
 import { shouldShowWhatsNew, markWhatsNewSeen } from './whats-new.js';
 import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from './i18n/index.js';
 
@@ -119,9 +119,6 @@ function applyTheme() {
   ui.renderSettings();
 }
 
-/** @type {import('./theme.js').ThemeChoice | null} */
-let requestedTheme = null;
-
 /** @type {Record<string, (arg: string | undefined) => void>} */
 const actions = {
   'toggle-sound': () => ui.setSoundIcon(toggleSound()),
@@ -134,13 +131,7 @@ const actions = {
   'settings-open': arg => arg && ui.showSettingsView(/** @type {'wheel' | 'appearance' | 'language'} */ (arg)),
   'settings-back': () => ui.settingsBack(),
   'set-language': arg => { if (arg && isSupported(arg) && setLanguage(arg)) applyLanguage(); },
-  'set-theme': arg => {
-    // El cambio se aplica con el velo ya subido: se compara con lo último pedido, no con lo guardado, para no perder pulsaciones seguidas
-    requestedTheme ??= getThemeChoice();
-    if (!arg || !isThemeChoice(arg) || arg === requestedTheme) return;
-    requestedTheme = arg;
-    withThemeTransition(() => { if (setTheme(arg)) applyTheme(); }, resolveTheme(arg));
-  },
+  'set-theme': arg => { if (arg && arg !== getThemeChoice()) withThemeTransition(() => { if (setTheme(arg)) applyTheme(); }); },
   'close-config': () => ui.closeConfig(),
   'spin': () => handleSpin(),
   'close-result': arg => ui.closeResult(arg === 'done'),
