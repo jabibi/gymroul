@@ -4,7 +4,7 @@
 import { exerciseName, sortedExercises } from './exercise-names.js';
 import { isolate } from './wheel-math.js';
 import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE, COLOR_PALETTE } from './store.js';
-import { THEME_CHOICES, THEME_BRAND, THEME_BG, getTheme, getThemeChoice, themeColor } from './theme.js';
+import { THEME_CHOICES, THEME_BRAND, THEME_BG, getThemeChoice, resolveTheme, themeColor } from './theme.js';
 import { WHATS_NEW_VERSION } from './whats-new.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
 import { ICON_GROUPS, DEFAULT_ICON, getIcon, isValidIcon, searchIcons } from './icons.js';
@@ -542,11 +542,11 @@ const VIEW_TITLE_KEYS = /** @type {Record<SettingsView, string>} */ ({
   language: 'config.language',
 });
 const THEME_NAME_KEYS = { system: 'appearance.system', calm: 'appearance.calm', light: 'appearance.light', classic: 'appearance.classic' };
-/** Nombre de una apariencia; «Sistema» lleva entre paréntesis la que se ve ahora: «Sistema (oscuro)» o «Sistema (claro)». @param {import('./theme.js').ThemeChoice} choice */
+/** Nombre de una apariencia; «Sistema» lleva entre paréntesis la que pide el dispositivo (no la que se ve ahora, que puede ser otra elegida a mano): «Sistema (oscuro)» o «Sistema (claro)». @param {import('./theme.js').ThemeChoice} choice */
 function themeLabel(choice) {
   const name = t(THEME_NAME_KEYS[choice]);
   if (choice !== 'system') return name;
-  return `${name} (${t(THEME_NAME_KEYS[getTheme()]).toLocaleLowerCase(getLanguageTag())})`;
+  return `${name} (${t(THEME_NAME_KEYS[resolveTheme('system')]).toLocaleLowerCase(getLanguageTag())})`;
 }
 const THEME_DESC_KEYS = { system: 'appearance.systemDesc', calm: 'appearance.calmDesc', light: 'appearance.lightDesc', classic: 'appearance.classicDesc' };
 
@@ -619,7 +619,7 @@ export function renderSettings() {
   // ponen con el DOM: la CSP prohíbe los estilos en línea escritos en el HTML
   document.querySelectorAll('[data-preview]').forEach(box => {
     const choice = /** @type {import('./theme.js').ThemeChoice} */ (/** @type {HTMLElement} */ (box).dataset.preview);
-    const id = choice === 'system' ? getTheme() : choice; // «Sistema» enseña la ruleta de la apariencia que se ve ahora
+    const id = choice === 'system' ? resolveTheme('system') : choice; // «Sistema» enseña la ruleta de la apariencia que pide el dispositivo, aunque ahora se vea otra
     const bg = THEME_BG[id];
     /** @type {HTMLElement} */ (box).style.background = choice === 'system' ? `linear-gradient(135deg, ${THEME_BG.calm} 50%, ${THEME_BG.light} 50%)` : bg;
     const slice = 100 / 6;
