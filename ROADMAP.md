@@ -29,6 +29,8 @@ Aún no está decidida ni empezada. Es el prerrequisito para retomar la valoraci
 
 **Mantenimiento previsto**: Vite actualizado a la 8.3.5 (la 8.3.2 tenía avisos de seguridad del servidor de desarrollo; no afectaban a lo publicado). Los avisos que quedan de `npm audit` vienen de `@capacitor/assets` y `@capacitor/cli`, solo de desarrollo: se resuelven cuando esos paquetes actualicen sus dependencias, sin `npm audit fix --force`.
 
+**Revisar el máximo de ejercicios por ruleta** (límite de 12, `MAX_EXERCISES` en `src/store.js`): con los 12 ya creados, Ajustes deja pulsar «Añadir nuevo ejercicio», rellenar todos los campos y guardar, y solo entonces sale el aviso de número máximo. Debería avisarse antes de hacer el trabajo: por ejemplo, desactivar el botón o avisar al pulsarlo, con el motivo a la vista, y que el aviso de `error.maxExercises` quede como respaldo. Revisar también el resto de caminos que crean ejercicios (restaurar uno borrado con «Deshacer», `restoreExercise`) y probarlo con `npm run check:layout`.
+
 **La idea**: que el historial sea un registro real de entrenamientos hechos, que sobreviva al cierre de la app, y que su resumen acumule totales (retos completados y repeticiones) más allá de la sesión.
 
 **Qué hay ya**:
