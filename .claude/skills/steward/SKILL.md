@@ -18,7 +18,7 @@ Complementa a `CLAUDE.md` (que sigue mandando en la estructura del código y en 
 
 ## Qué hacer ante cada fallo de CI
 
-La CI (`.github/workflows/ci.yml`) tiene dos trabajos: `check` (`typecheck`, `test`, `build`) y `android` (`build:android` y `assembleRelease`/`bundleRelease`). Reproduce el fallo en local antes de corregirlo y comprueba que la misma orden pasa después.
+La CI (`.github/workflows/ci.yml`) tiene dos trabajos: `check` (`typecheck`, `test`, `build`, `store:check`) y `android` (`build:android` y `assembleRelease`/`bundleRelease`). Reproduce el fallo en local antes de corregirlo y comprueba que la misma orden pasa después.
 
 | Fallo | Qué hacer |
 |---|---|
@@ -50,9 +50,10 @@ Edita siempre la fuente y regenera:
 
 1. `npm run typecheck`, `npm test` y `npm run build`.
 2. Si cambias la interfaz o los textos: `npm run check:layout` (con `--stress` si tocas el editor de la ruleta y con `--theme=light` si tocas colores), y después `npm run store` y `npm run store:check`.
-3. Relee tu propio diff con ojo crítico: qué haría que la CI lo rechace.
-4. No dejes ficheros temporales sin seguimiento dentro del repositorio (el hook de parada exige que todo esté commiteado). Los scripts de prueba van al directorio temporal de la sesión o a `node_modules/.cache`.
-5. No subas credenciales, keystores ni `google-services.json`.
+3. Pasa `npm run store:check` en toda PR a `main`, toque o no la interfaz a simple vista: la CI lo ejecuta y la huella cubre `index.html`, `src/` y los logos de `public/`, así que una PR con la huella vieja sale en rojo. Si falla, `npm run store` en una rama aparte.
+4. Relee tu propio diff con ojo crítico: qué haría que la CI lo rechace.
+5. No dejes ficheros temporales sin seguimiento dentro del repositorio (el hook de parada exige que todo esté commiteado). Los scripts de prueba van al directorio temporal de la sesión o a `node_modules/.cache`.
+6. No subas credenciales, keystores ni `google-services.json`.
 
 ## Cuándo actuar y cuándo preguntar
 
