@@ -24,7 +24,7 @@ import kotlin.math.roundToInt
 /**
  * Pantalla de arranque propia: el logo de la apariencia, del mismo tamaño y en el mismo sitio que el icono de la pantalla de arranque
  * del sistema (que en Android 12 y posteriores solo admite un icono sobre un fondo, sin texto), y abajo «from PointedIO».
- * Se pone encima de la web en cuanto nace la actividad y se retira con un fundido cuando la web avisa (AppBars.hideSplash),
+ * Se pone encima de la web en cuanto nace la actividad (antes de crear el WebView) y se retira con un fundido cuando la web avisa (AppBars.hideSplash),
  * pero no antes de [MIN_VISIBLE_MS] desde que arrancó el proceso, para que dé tiempo a leer la firma. «from» va siempre en inglés.
  *
  * La apariencia de la última vez la guarda AppBarsPlugin.setBars; sin ella (primera vez) o con «Sistema», manda el modo del dispositivo.
@@ -89,7 +89,7 @@ class SplashOverlay private constructor(
             }
         }
 
-        /** Crea la pantalla y la pone encima de todo; hay que llamarlo cuando la actividad ya tiene su contenido (tras super.onCreate). */
+        /** Crea la pantalla y la pone encima de todo; va en la ventana (no en el contenido), así que puede llamarse antes de super.onCreate. */
         fun show(activity: Activity): SplashOverlay {
             val look = look(activity)
             val density = activity.resources.displayMetrics.density
@@ -128,7 +128,7 @@ class SplashOverlay private constructor(
                 addView(logo, FrameLayout.LayoutParams(dp(144), dp(144), Gravity.CENTER))
                 addView(textBlock, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM))
             }
-            activity.addContentView(root, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
+            (activity.window.decorView as ViewGroup).addView(root, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
             return SplashOverlay(root, textBlock, paddingBottom)
         }
     }
