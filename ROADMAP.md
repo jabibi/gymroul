@@ -14,10 +14,12 @@ Sin publicar. La rama de trabajo es `roadmap-19` (PR #28 contra `main`; la 1.18 
 - **Logo sin resplandor** (trazo de 16) en Oscuro y Claro: cabecera, favicon, icono del launcher, pantalla de arranque, imagen de compartir y ficha de Play. El Clásico es otro diseño y no cambia.
 - **Icono monocromo** para los «iconos con tema» de Android 13 (trazo de 20; `drawable-nodpi/ic_launcher_monochrome.png`, enlazado por `scripts/fix-adaptive-icon.mjs`).
 - **Pantalla de arranque en Android 12 y posteriores**: fondo e icono del sistema según el modo del dispositivo (antes salía el logo oscuro sobre el fondo claro).
+- **Código nativo de Android en Kotlin** (`MainActivity`, `AppBarsPlugin` y la nueva `SplashOverlay`; ya no queda Java propio).
+- **Pantalla de arranque nativa con la firma «from PointedIO»**: el logo de la apariencia y la firma abajo desde el primer fotograma de la actividad (`SplashOverlay.kt`), que se retira con un fundido cuando la web avisa (`AppBars.hideSplash`), con un mínimo de 900 ms. Sustituye a la pantalla de arranque en HTML.
 - Aviso de novedades de la 1.18 (`WHATS_NEW_VERSION`) y novedades de Play con la 1.18 y la 1.17.
 
 Pendiente antes de publicar:
-- Probar en dispositivo (Pixel 8 Pro): el tema claro, la pantalla de arranque en claro y en oscuro (sigue el modo del dispositivo, no la apariencia elegida en la app), las barras del sistema y el icono con «Iconos con tema» activado (Ajustes → Fondo de pantalla y estilo).
+- Probar en dispositivo (Pixel 8 Pro) la pantalla de arranque nativa (logo y firma en Oscuro, Claro y Clásico, la barra de gestos y el tiempo mínimo) y un arranque con la apariencia elegida distinta del modo del dispositivo. Además: el tema claro, la pantalla de arranque en claro y en oscuro (sigue el modo del dispositivo, no la apariencia elegida en la app), las barras del sistema y el icono con «Iconos con tema» activado (Ajustes → Fondo de pantalla y estilo).
 - Pasar la CI del Android (PR #28).
 - Subir en Play Console los textos, el CSV, el icono (`store/icon.png`) y las imágenes de `store/`.
 - La ficha de `pt-PT` se queda como está: decisión congelada.

@@ -42,8 +42,13 @@ export const getThemeChoice = () => choice;
 /** @type {(() => void) | null} */
 let onSystemChange = null;
 
-/** Plugin propio de Android (AppBarsPlugin.java): color de las barras del sistema e iconos a juego con la apariencia. */
+/** Plugin propio de Android (AppBarsPlugin.kt): color de las barras del sistema e iconos a juego con la apariencia, zonas seguras y pantalla de arranque. */
 const AppBars = registerPlugin('AppBars');
+
+/** Avisa a la app de Android de que la web ya está pintada: retira su pantalla de arranque nativa (SplashOverlay.kt). No hace nada fuera de Android. */
+export function hideSplash() {
+  if (Capacitor.isNativePlatform()) AppBars.hideSplash().catch(() => {});
+}
 
 /** En Android la web se extiende bajo las barras y MainActivity le dice cuánto miden: se aplican como zonas seguras. */
 export function initSafeArea() {
@@ -63,7 +68,7 @@ function applyThemeAttribute() {
   const theme = getTheme();
   document.documentElement.dataset.theme = theme;
   // Barras del sistema de Android: del color de la apariencia (no del modo del dispositivo) y con iconos que contrasten
-  if (Capacitor.isNativePlatform()) barsApplied = AppBars.setBars({ background: THEME_BG[theme], darkIcons: theme === 'light' }).catch(() => {});
+  if (Capacitor.isNativePlatform()) barsApplied = AppBars.setBars({ background: THEME_BG[theme], darkIcons: theme === 'light', choice }).catch(() => {});
 }
 
 const nextFrames = () => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve(undefined))));

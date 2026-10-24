@@ -15,8 +15,9 @@
 //   - ic_launcher_monochrome.png  silueta de un solo color para los «iconos con tema» de Android 13 (res/drawable-nodpi); el
 //                              sistema solo mira su transparencia y la tiñe con el color del fondo de pantalla del usuario
 //   - splash_logo.png          logo de la pantalla de arranque de Android, claro y oscuro (res/drawable-nodpi y drawable-night-nodpi)
+//   - splash_logo_<apariencia>.png  logo de la pantalla de arranque nativa de cada apariencia (calm, light y classic, en res/drawable-nodpi)
 
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, readFileSync } from 'node:fs';
 import sharp from 'sharp';
 
 
@@ -123,6 +124,12 @@ const RES = 'android/app/src/main/res';
 for (const [dir, source] of [['drawable-nodpi', outputs.wheelLight], ['drawable-night-nodpi', outputs.wheelOnly]]) {
   mkdirSync(`${RES}/${dir}`, { recursive: true });
   await sharp(Buffer.from(source), { density: 300 }).resize(512, 512).png().toFile(`${RES}/${dir}/splash_logo.png`);
+}
+
+// Pantalla de arranque nativa (SplashOverlay.kt): el logo de cada apariencia, sin depender del modo del dispositivo. Clásico es el
+// logo original, fijo (public/logo-classic.svg).
+for (const [name, source] of [['calm', outputs.wheelOnly], ['light', outputs.wheelLight], ['classic', readFileSync('public/logo-classic.svg')]]) {
+  await sharp(Buffer.from(source), { density: 300 }).resize(512, 512).png().toFile(`${RES}/drawable-nodpi/splash_logo_${name}.png`);
 }
 
 // Icono monocromo (Android 13 y posteriores): lo engancha fix-adaptive-icon.mjs en los XML del icono adaptativo

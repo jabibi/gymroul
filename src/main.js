@@ -14,7 +14,7 @@ import { toggleSound, initAudio } from './audio.js';
 import * as ui from './ui.js';
 import { cleanShareCache } from './share.js';
 import { exerciseName, sortedExercises } from './exercise-names.js';
-import { getThemeChoice, initSafeArea, loadTheme, setTheme, themeColor, withThemeTransition } from './theme.js';
+import { getThemeChoice, hideSplash, initSafeArea, loadTheme, setTheme, themeColor, withThemeTransition } from './theme.js';
 import { shouldShowWhatsNew, markWhatsNewSeen } from './whats-new.js';
 import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from './i18n/index.js';
 
@@ -247,21 +247,19 @@ function init() {
   }
 }
 
-/** Tiempo mínimo, desde que empieza a cargar la página, que se ve la pantalla de arranque con la firma (solo en la app de Android) */
-const BOOT_MIN_MS = 900;
-
-/** Quita la clase booting (la pantalla de arranque tapa la interfaz, ver theme-init.js) cuando ya no va a moverse nada: con las fuentes cargadas. */
+/** Quita la clase booting (la interfaz estaba invisible, ver theme-init.js) cuando ya no va a moverse nada: con las fuentes cargadas. Después avisa a la app de Android, que retira su pantalla de arranque nativa. */
 async function revealApp() {
   const root = document.documentElement;
-  if (!root.classList.contains('booting')) return;
+  if (!root.classList.contains('booting')) {
+    hideSplash();
+    return;
+  }
   try {
     await document.fonts?.ready;
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-    // Los scripts de Chromium (webdriver) no esperan: abren cientos de páginas
-    const wait = BOOT_MIN_MS - performance.now();
-    if (Capacitor.isNativePlatform() && !navigator.webdriver && wait > 0) await new Promise(resolve => setTimeout(resolve, wait));
   } finally {
     root.classList.remove('booting');
+    hideSplash();
   }
 }
 
