@@ -6,8 +6,12 @@
   var dark = !window.matchMedia || window.matchMedia('(prefers-color-scheme: dark)').matches;
   var theme = choice === 'calm' || choice === 'light' || choice === 'classic' ? choice : (dark ? 'calm' : 'light');
   document.documentElement.setAttribute('data-theme', theme);
-  // Arranque: la interfaz se mantiene invisible (clase booting, ver src/style.css) hasta que src/main.js la revela con un
-  // fundido, cuando las fuentes y las zonas seguras ya están; así no se ve cómo se colocan. Si algo fallara, se revela sola.
+  // En la app de Android, Capacitor ya está inyectado y la pantalla de arranque es la nativa (SplashOverlay.kt): la de HTML solo es para la web
+  var cap = window.Capacitor;
+  if (cap && (cap.isNativePlatform ? cap.isNativePlatform() : cap.getPlatform && cap.getPlatform() !== 'web')) document.documentElement.classList.add('native');
+  // Arranque: la pantalla de arranque (#bootSplash en index.html) tapa la interfaz mientras dure la clase booting (ver src/style.css)
+  // hasta que src/main.js la quita con un fundido, cuando las fuentes y las zonas seguras ya están; así no se ve cómo se
+  // colocan. Si algo fallara, se quita sola.
   document.documentElement.classList.add('booting');
   setTimeout(function () { document.documentElement.classList.remove('booting'); }, 2500);
 })();

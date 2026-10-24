@@ -15,7 +15,7 @@ Sin publicar. La rama de trabajo es `roadmap-19` (PR #28 contra `main`; la 1.18 
 - **Icono monocromo** para los «iconos con tema» de Android 13 (trazo de 20; `drawable-nodpi/ic_launcher_monochrome.png`, enlazado por `scripts/fix-adaptive-icon.mjs`).
 - **Pantalla de arranque en Android 12 y posteriores**: fondo e icono del sistema según el modo del dispositivo (antes salía el logo oscuro sobre el fondo claro).
 - **Código nativo de Android en Kotlin** (`MainActivity`, `AppBarsPlugin` y la nueva `SplashOverlay`; ya no queda Java propio).
-- **Pantalla de arranque nativa con la firma «from PointedIO»**: el logo de la apariencia y la firma abajo desde el primer fotograma de la actividad (`SplashOverlay.kt`), que se retira con un fundido cuando la web avisa (`AppBars.hideSplash`), con un mínimo de 900 ms. Sustituye a la pantalla de arranque en HTML.
+- **Pantalla de arranque nativa con la firma «from PointedIO»**: el logo de la apariencia y la firma abajo desde el primer fotograma de la actividad (`SplashOverlay.kt`), que se retira con un fundido cuando la web avisa (`AppBars.hideSplash`), con un mínimo de 900 ms. La web conserva la suya en HTML (`#bootSplash`), sin tiempo mínimo y oculta en la app: el diseño está en dos sitios.
 - Aviso de novedades de la 1.18 (`WHATS_NEW_VERSION`) y novedades de Play con la 1.18 y la 1.17.
 
 Pendiente antes de publicar:
