@@ -32,8 +32,10 @@ let choice = DEFAULT_THEME;
 
 const darkQuery = typeof matchMedia === 'function' ? matchMedia('(prefers-color-scheme: dark)') : null;
 
+/** Apariencia que se vería con esta elección (con «system», la que pide el dispositivo ahora). @param {ThemeChoice} next */
+export const resolveTheme = next => /** @type {Theme} */ (next === 'system' ? (darkQuery && !darkQuery.matches ? 'light' : 'calm') : next);
 /** Apariencia que se ve ahora: la elegida o, con «system», la que pide el dispositivo. */
-export const getTheme = () => /** @type {Theme} */ (choice === 'system' ? (darkQuery && !darkQuery.matches ? 'light' : 'calm') : choice);
+export const getTheme = () => resolveTheme(choice);
 /** Lo que está elegido en Ajustes (puede ser «system»). */
 export const getThemeChoice = () => choice;
 
@@ -64,78 +66,26 @@ function applyThemeAttribute() {
   if (Capacitor.isNativePlatform()) barsApplied = AppBars.setBars({ background: THEME_BG[theme], darkIcons: theme === 'light' }).catch(() => {});
 }
 
-/** Apariencia que se vería con esta elección (con «system», la que pide el dispositivo ahora). @param {ThemeChoice} next */
-export const resolveTheme = next => /** @type {Theme} */ (next === 'system' ? (darkQuery && !darkQuery.matches ? 'light' : 'calm') : next);
-
-/** Opacidad máxima del velo: opaco del todo, para que no se vea nada del cambio que ocurre debajo */
-const VEIL_PEAK = 1;
-const VEIL_IN_MS = 50;
-const VEIL_OUT_MS = 100;
-/** Margen tras confirmar el cambio nativo: el sistema repinta las barras y sus iconos un poco después de que el plugin responda */
-const BARS_SETTLE_MS = 0;
-/** @type {HTMLDivElement | null} */
-let veil = null;
-/** @type {Animation | null} */
-let veilAnimation = null;
-/** Número del último cambio pedido: los anteriores que sigan en marcha se abandonan */
-let veilTurn = 0;
-
-/** Capa a pantalla completa que tapa el cambio de apariencia; se crea la primera vez. */
-function getVeil() {
-  if (!veil) {
-    veil = document.createElement('div');
-    veil.className = 'theme-veil';
-    veil.setAttribute('aria-hidden', 'true');
-    veil.hidden = true;
-    document.body.appendChild(veil);
-  }
-  return veil;
-}
-
 const nextFrames = () => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve(undefined))));
 
+/** Número del último cambio pedido: solo el último reactiva las transiciones */
+let changeTurn = 0;
+
 /**
- * Aplica un cambio de apariencia tapándolo con un velo del color de la apariencia nueva: sube hasta opaco, el cambio
- * ocurre debajo (atributo, ruleta, Ajustes y barras del sistema) y el velo se retira. Sin él, los colores del HTML cambian
- * al instante y la ruleta (canvas), Ajustes y las barras de Android (capa nativa) se repintan a destiempo, y de Oscuro a
- * Claro o de Claro a Clásico se veía un parpadeo. Con «reducir movimiento» (o sin Web Animations) el cambio es directo.
+ * Aplica un cambio de apariencia con las transiciones CSS apagadas (clase `theme-switching` en <html>, ver src/style.css).
+ * Los elementos llevan transition-colors y transition-all: sin apagarlas, al cambiar `data-theme` cada color se animaba por
+ * su cuenta unos 150 ms y la ruleta (canvas), Ajustes y las barras de Android (capa nativa) iban a destiempo, lo que se veía
+ * como un parpadeo. Con ellas apagadas todo cambia de golpe, en el mismo fotograma. Se reactivan cuando las barras del
+ * sistema ya han respondido y la web se ha pintado.
  * @param {() => void} update cambia el atributo y repinta lo que depende de la apariencia
- * @param {Theme} [target] apariencia que se verá al terminar (por defecto, la que hay al llamar)
  */
-export async function withThemeTransition(update, target = getTheme()) {
-  const reduced = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduced || typeof Element === 'undefined' || typeof Element.prototype.animate !== 'function') {
-    update();
-    return;
-  }
-  const layer = getVeil();
-  const mine = ++veilTurn;
-  // Si ya había un velo a medias (pulsaciones seguidas), se sube desde donde estaba
-  const from = layer.hidden ? 0 : Number(getComputedStyle(layer).opacity) || 0;
-  veilAnimation?.cancel();
-  layer.style.backgroundColor = THEME_BG[target];
-  layer.hidden = false;
-  // Sin transiciones CSS mientras dura el cambio: si no, los colores (transition-colors, transition-all, el filtro de la
-  // ruleta…) seguían animándose bajo el velo y se veían al bajarlo
+export async function withThemeTransition(update) {
+  const mine = ++changeTurn;
   document.documentElement.classList.add('theme-switching');
-  const rise = layer.animate([{ opacity: from }, { opacity: VEIL_PEAK }], { duration: VEIL_IN_MS * (1 - from / VEIL_PEAK), easing: 'ease-out', fill: 'forwards' });
-  veilAnimation = rise;
-  await rise.finished.catch(() => {});
-  if (mine !== veilTurn) return; // otra pulsación tomó el relevo: ella aplica su cambio y retira el velo
   update();
-  // El velo no baja hasta que las barras nativas estén cambiadas y repintadas: si baja antes, se ve la franja de la barra de
-  // estado con el color o los iconos de la apariencia anterior
   await barsApplied;
   await nextFrames();
-  await new Promise(resolve => setTimeout(resolve, BARS_SETTLE_MS));
-  if (mine !== veilTurn) return;
-  const fall = layer.animate([{ opacity: VEIL_PEAK }, { opacity: 0 }], { duration: VEIL_OUT_MS, easing: 'ease-in', fill: 'forwards' });
-  veilAnimation = fall;
-  await fall.finished.catch(() => {});
-  if (mine !== veilTurn) return;
-  fall.cancel();
-  layer.hidden = true;
-  document.documentElement.classList.remove('theme-switching');
+  if (mine === changeTurn) document.documentElement.classList.remove('theme-switching');
 }
 
 /** Lee la apariencia guardada y la aplica (se llama al arrancar). @param {() => void} [onChange] se llama si, con «system», el dispositivo cambia de modo */
@@ -148,7 +98,7 @@ export function loadTheme(onChange) {
     withThemeTransition(() => {
       applyThemeAttribute();
       onSystemChange?.();
-    }, resolveTheme(choice));
+    });
   });
 }
 

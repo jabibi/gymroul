@@ -204,17 +204,8 @@ html.booting body { opacity: 0; }
     body { transition: none; }
 }
 
-/* Velo que tapa el cambio de apariencia (withThemeTransition en src/theme.js): a pantalla completa, por encima de todo, sin
-   interceptar toques; su color y su opacidad los pone el script */
-.theme-veil {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    pointer-events: none;
-    opacity: 0;
-}
-.theme-veil[hidden] { display: none; }
-/* Mientras el velo tapa un cambio de apariencia, los colores cambian de golpe (sin transition-colors ni transition-all) */
+/* Cambio de apariencia (withThemeTransition en src/theme.js): sin transition-colors ni transition-all mientras dura, para que todo
+   cambie de golpe y no se vea cada color animándose por su cuenta */
 html.theme-switching *,
 html.theme-switching *::before,
 html.theme-switching *::after { transition: none !important; }
