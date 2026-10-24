@@ -17,10 +17,6 @@ class MainActivity : BridgeActivity() {
         // Pantalla completa en todas las versiones de Android (Android 15 o superior ya la fuerza)
         enableEdgeToEdge()
         registerPlugin(AppBarsPlugin::class.java)
-        // Pantalla de arranque nativa, con el logo y la firma, encima de todo hasta que la web avisa (AppBars.hideSplash). Se pone antes de
-        // super.onCreate (que crea el puente y el WebView, lo más lento) para que sea lo primero que se pinte, y va en la ventana y no en el
-        // contenido, que super.onCreate sustituye.
-        splash = SplashOverlay.show(this)
         super.onCreate(savedInstanceState)
 
         // El fondo de la ventana y de la raíz, del color de la app desde el primer momento: lo que no cubre la web (las franjas de las
@@ -28,6 +24,9 @@ class MainActivity : BridgeActivity() {
         val background = ContextCompat.getColor(this, R.color.gym_background)
         window.setBackgroundDrawable(ColorDrawable(background))
         window.decorView.setBackgroundColor(background)
+
+        // Pantalla de arranque nativa, con el logo y la firma, encima de la web hasta que esta avisa (AppBars.hideSplash)
+        splash = SplashOverlay.show(this)
 
         // La web se extiende por detrás de las barras (así se integra con ellas) y recibe su alto como zonas seguras
         // (AppBars.getInsets / evento insets; capacitor.config.json desactiva el reparto de SystemBars, que en Android 10 con recorte
