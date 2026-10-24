@@ -8,7 +8,9 @@
 // (no se contacta con ningún servidor).
 //
 //   npm run store                              compila y genera todos los idiomas
-//   npm run store -- --only es-ES,en-US        solo algunos idiomas (códigos de Play)
+//   STORE_ONLY=es-ES,en-US npm run store      solo algunos idiomas (códigos de Play); no guarda la huella de store:check
+//   node scripts/build-store-assets.mjs --only es-ES   solo las capturas y textos de algunos idiomas, sin compilar (hace falta www/)
+//   (`npm run store -- --only …` no sirve: npm añade los argumentos al último comando de la cadena, no a este)
 //   CHROME_PATH=/ruta/a/chrome npm run store   si Chrome no está en /usr/bin/google-chrome
 
 import { mkdirSync, readFileSync, writeFileSync, existsSync, rmSync } from 'node:fs';
@@ -23,10 +25,10 @@ const PORT = 4179;
 const BASE = `http://127.0.0.1:${PORT}/`;
 const OUT = 'store';
 
-const onlyArg = process.argv.find(a => a.startsWith('--only='))?.slice(7) ?? (process.argv.includes('--only') ? process.argv[process.argv.indexOf('--only') + 1] : '');
+const onlyArg = process.env.STORE_ONLY || process.argv.find(a => a.startsWith('--only='))?.slice(7) || (process.argv.includes('--only') ? process.argv[process.argv.indexOf('--only') + 1] : '');
 const only = onlyArg ? onlyArg.split(',') : null;
 const locales = STORE_LOCALES.filter(l => !only || only.includes(l.play));
-if (locales.length === 0) throw new Error(`Ningún idioma coincide con --only=${onlyArg}`);
+if (locales.length === 0) throw new Error(`Ningún idioma coincide con «${onlyArg}» (códigos de Play, por ejemplo es-ES,en-US)`);
 
 if (!existsSync('www/index.html')) throw new Error('Falta www/: ejecuta "npm run build" antes (o usa "npm run store").');
 if (!existsSync(CHROME)) throw new Error(`No encuentro Chrome en ${CHROME}. Indica la ruta con CHROME_PATH.`);
@@ -232,8 +234,9 @@ Recomendación: deja **en-US** como idioma predeterminado, porque es el que ve q
 ## Regenerar
 \`\`\`bash
 npm run store                                  # todos los idiomas
-npm run store -- --only=es-ES,en-US            # solo algunos (códigos de Play)
+STORE_ONLY=es-ES,en-US npm run store          # solo algunos (códigos de Play); no guarda la huella de \`npm run store:check\`
 \`\`\`
+(\`npm run store -- --only=…\` no filtra: npm añade esos argumentos al último comando de la cadena, no al generador.)
 Compila la app y la renderiza con Chrome sin interfaz y sin red: no se contacta con ningún servidor. Si Chrome no está en
 \`/usr/bin/google-chrome\`, indica su ruta con \`CHROME_PATH=/ruta/a/chrome npm run store\`. Las capturas son de la app real y salen en
 el idioma de cada ficha; si cambias la interfaz o los textos, vuelve a ejecutarlo.
@@ -264,13 +267,13 @@ try {
     const page = await openApp(loc.app);
     await shot(page, '01-ruleta');
     const wheel = await captureWheel(page);
-    await page.reload({ waitUntil: 'networkidle0' });
-    await page.evaluate(() => document.fonts.ready);
-    await wait(500);
-
-    await spinAndWait(page);
-    await shot(page, '02-resultado');
     await page.close();
+
+    // Resultado con la app en Clásico: la barra de color del sector y los verdes se ven con la paleta original
+    const result = await openApp(loc.app, 'classic');
+    await spinAndWait(result);
+    await shot(result, '02-resultado');
+    await result.close();
 
     // Selector de apariencia, con la app ya en Claro: enseña a la vez las cuatro opciones y el aspecto claro
     const appearance = await openApp(loc.app, 'light');
@@ -281,8 +284,8 @@ try {
     await shot(appearance, '03-apariencia');
     await appearance.close();
 
-    // Ajustes de la ruleta (ejercicios con sus iconos), con la app en Clásico
-    const config = await openApp(loc.app, 'classic');
+    // Ajustes de la ruleta (ejercicios con sus iconos)
+    const config = await openApp(loc.app);
     await config.click('[data-action=open-settings]');
     await wait(700);
     await config.click('#settingsMenu [data-arg=wheel]');
