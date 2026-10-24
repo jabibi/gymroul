@@ -247,13 +247,19 @@ function init() {
   }
 }
 
-/** Quita la clase booting (la interfaz estaba invisible, ver theme-init.js) cuando ya no va a moverse nada: con las fuentes cargadas. */
+/** Tiempo mínimo, desde que empieza a cargar la página, que se ve la pantalla de arranque con la firma (solo en la app de Android) */
+const BOOT_MIN_MS = 900;
+
+/** Quita la clase booting (la pantalla de arranque tapa la interfaz, ver theme-init.js) cuando ya no va a moverse nada: con las fuentes cargadas. */
 async function revealApp() {
   const root = document.documentElement;
   if (!root.classList.contains('booting')) return;
   try {
     await document.fonts?.ready;
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    // Los scripts de Chromium (webdriver) no esperan: abren cientos de páginas
+    const wait = BOOT_MIN_MS - performance.now();
+    if (Capacitor.isNativePlatform() && !navigator.webdriver && wait > 0) await new Promise(resolve => setTimeout(resolve, wait));
   } finally {
     root.classList.remove('booting');
   }
