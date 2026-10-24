@@ -196,13 +196,12 @@ input, textarea {
     .live-marker.is-spinning #liveIndicatorText { filter: none; }
 }
 
-/* Arranque: la pantalla de arranque (#bootSplash en index.html: el logo y «from PointedIO») tapa la interfaz mientras dura la
-   clase booting y se desvanece cuando revealApp (src/main.js) la quita, con las fuentes y las zonas seguras ya en su sitio; si
-   no, se vería cómo se coloca todo */
-#bootSplash { transition: opacity 0.25s ease-out, visibility 0s linear 0.25s; }
-html:not(.booting) #bootSplash { opacity: 0; visibility: hidden; }
+/* Arranque: la interfaz espera invisible (el fondo de la página ya está, del color de la pantalla de arranque) y aparece con un
+   fundido cuando las fuentes y las zonas seguras han llegado (revealApp en src/main.js); si no, se vería cómo se coloca todo */
+body { transition: opacity 0.2s ease-out; }
+html.booting body { opacity: 0; }
 @media (prefers-reduced-motion: reduce) {
-    #bootSplash { transition: none; }
+    body { transition: none; }
 }
 
 /* Cambio de apariencia (withThemeTransition en src/theme.js): sin transition-colors ni transition-all mientras dura, para que todo
