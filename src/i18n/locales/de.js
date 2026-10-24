@@ -76,7 +76,7 @@ export default {
     'whatsnew.close': 'Los geht\'s',
     'whatsnew.closeAria': 'Neuigkeiten schließen',
     'config.deleteExercise': '{name} löschen',
-    'config.deleted': '{name} gelöscht',
+    'config.deleted': 'Übung gelöscht',
     'config.undo': 'Rückgängig',
     'exercise.burpee': 'Burpees',
     'exercise.lunge': 'Ausfallschritte',

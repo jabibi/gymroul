@@ -76,7 +76,7 @@ export default {
     'whatsnew.close': 'शुरू करें',
     'whatsnew.closeAria': 'नया क्या है बंद करें',
     'config.deleteExercise': '{name} हटाएँ',
-    'config.deleted': '{name} हटाया गया',
+    'config.deleted': 'व्यायाम हटाया गया',
     'config.undo': 'पूर्ववत करें',
     'exercise.burpee': 'बर्पी',
     'exercise.lunge': 'लंज',

@@ -76,7 +76,7 @@ export default {
     'whatsnew.close': 'Начать',
     'whatsnew.closeAria': 'Закрыть новости',
     'config.deleteExercise': 'Удалить: {name}',
-    'config.deleted': 'Удалено: {name}',
+    'config.deleted': 'Упражнение удалено',
     'config.undo': 'Отменить',
     'exercise.burpee': 'Бёрпи',
     'exercise.lunge': 'Выпады',

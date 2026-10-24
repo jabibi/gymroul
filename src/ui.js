@@ -1,7 +1,7 @@
 // @ts-check
 // Modales, historial, configuración y avisos
 
-import { exerciseName, sortedExercises } from './exercise-names.js';
+import { exerciseName, sortExercises } from './exercise-names.js';
 import { isolate } from './wheel-math.js';
 import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE, COLOR_PALETTE } from './store.js';
 import { THEME_CHOICES, THEME_BRAND, THEME_BG, getThemeChoice, resolveTheme, themeColor } from './theme.js';
@@ -39,37 +39,13 @@ function renderIconHTML(iconId) {
 
 /** @type {ReturnType<typeof setTimeout> | undefined} */
 let toastTimer;
-/** @type {(() => void) | null} */
-let toastAction = null;
 
-/**
- * Aviso breve. Con `action` lleva un botón (por ejemplo Deshacer) que dura más y se puede tocar.
- * @param {string} message @param {{ label: string, run: () => void }} [action]
- */
-export function showToast(message, action) {
+/** Aviso breve que deja pasar los toques. @param {string} message */
+export function showToast(message) {
   $('toastText').textContent = message;
-  toastAction = action?.run ?? null;
-  $('toastAction').classList.toggle('hidden', !action);
-  if (action) $('toastAction').textContent = action.label;
-  // Con botón, el aviso recibe toques; sin él, deja pasar los de la pantalla
-  $('toast').classList.toggle('pointer-events-none', !action);
   $('toast').classList.remove('opacity-0');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(hideToast, action ? 6000 : 2500);
-}
-
-function hideToast() {
-  $('toast').classList.add('opacity-0');
-  $('toast').classList.add('pointer-events-none');
-  toastAction = null;
-}
-
-/** Pulsación del botón del aviso: ejecuta su acción una sola vez y lo cierra. */
-export function runToastAction() {
-  const run = toastAction;
-  hideToast();
-  clearTimeout(toastTimer);
-  run?.();
+  toastTimer = setTimeout(() => $('toast').classList.add('opacity-0'), 2500);
 }
 
 /** @param {boolean} enabled */
@@ -433,6 +409,99 @@ let repsEditorOpen = '';
 /** @param {string} id */
 const repsInputId = (id, /** @type {string} */ kind) => `reps${kind}-${id}`;
 
+/** Segundos que la línea borrada sigue en la lista con su aviso «Deshacer» */
+const UNDO_MS = 5000;
+/** Lo que dura el fundido de la línea al borrarla y el plegado al terminar el plazo */
+const FADE_MS = 300;
+
+/**
+ * Ejercicio ya borrado del almacén cuya línea sigue en la lista (atenuada, con «Deshacer») hasta que pasa el plazo.
+ * @type {{ exercise: import('./wheel-math.js').Exercise, checked: boolean, startedAt: number, undo: () => void, timer: ReturnType<typeof setTimeout>, state: 'fresh' | 'shown' | 'folding' } | null}
+ */
+let removal = null;
+
+/**
+ * Empieza el plazo para deshacer un borrado: la línea se desvanece y se superpone «Ejercicio eliminado · Deshacer».
+ * Si ya había otra línea en plazo, esa queda borrada del todo.
+ * @param {import('./wheel-math.js').Exercise} exercise @param {() => void} undo restaura el ejercicio en el almacén
+ */
+export function startRemoval(exercise, undo) {
+  settleRemoval();
+  // La casilla se lee antes de repintar: la línea desvanecida conserva el aspecto que tenía
+  const box = Array.from(document.querySelectorAll('.ex-checkbox')).find(cb => /** @type {HTMLInputElement} */ (cb).value === exercise.name);
+  removal = { exercise, checked: !!(/** @type {HTMLInputElement | undefined} */ (box)?.checked), startedAt: Date.now(), undo, state: 'fresh', timer: setTimeout(foldRemoval, UNDO_MS) };
+  renderConfig(true);
+  // El primer pintado lleva la línea visible; el siguiente la desvanece (sin esto no habría transición)
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    if (removal?.exercise !== exercise) return;
+    removal.state = 'shown';
+    // Se alternan las clases de los elementos ya pintados: si se repintara el HTML no habría transición
+    const row = document.querySelector('#exsCheckboxes [data-removed]');
+    row?.querySelector('[data-removed-old]')?.classList.add('opacity-0');
+    row?.querySelector('[data-removed-note]')?.classList.remove('opacity-0');
+    const undoButton = row?.querySelector('[data-action="undo-delete"]');
+    undoButton?.removeAttribute('tabindex');
+    // El botón que se pulsó ya no existe: el foco pasa a «Deshacer» para quien navega con teclado o lector de pantalla
+    if (!document.activeElement || document.activeElement === document.body) /** @type {HTMLElement | null | undefined} */ (undoButton)?.focus({ preventScroll: true });
+    $('removalLive').textContent = t('config.deleted');
+    syncRemovalBar();
+  }));
+}
+
+/** Pulsación de «Deshacer»: el ejercicio vuelve y su línea reaparece. */
+export function undoRemoval() {
+  if (!removal) return;
+  const { undo, exercise } = removal;
+  clearTimeout(removal.timer);
+  removal = null;
+  $('removalLive').textContent = '';
+  undo();
+  const box = Array.from(document.querySelectorAll('.ex-checkbox')).find(cb => /** @type {HTMLInputElement} */ (cb).value === exercise.name);
+  /** @type {HTMLElement | undefined} */ (box)?.focus({ preventScroll: true });
+}
+
+/** Pasado el plazo: la línea se pliega y desaparece. */
+function foldRemoval() {
+  if (!removal) return;
+  removal.state = 'folding';
+  const row = document.querySelector('#exsCheckboxes [data-removed]');
+  row?.classList.replace('grid-rows-[1fr]', 'grid-rows-[0fr]');
+  row?.classList.add('-mb-2', 'opacity-0');
+  if (row?.contains(document.activeElement)) /** @type {HTMLElement} */ (document.querySelector('[data-action="open-add-exercise"]')).focus({ preventScroll: true });
+  row?.querySelector('[data-action="undo-delete"]')?.setAttribute('tabindex', '-1');
+  $('removalLive').textContent = '';
+  const current = removal;
+  removal.timer = setTimeout(() => {
+    if (removal !== current) return;
+    removal = null;
+    renderConfig(true);
+  }, FADE_MS);
+}
+
+/**
+ * Barra fina en el borde de la línea borrada que se vacía a lo largo del plazo. Se ajusta con el tiempo que queda
+ * (un repintado a mitad de plazo no la reinicia) y por JS, porque la duración depende de ese resto.
+ */
+function syncRemovalBar() {
+  const bar = /** @type {HTMLElement | null} */ (document.querySelector('#exsCheckboxes [data-removed-bar]'));
+  if (!bar || !removal || removal.state === 'fresh') return;
+  const left = Math.max(0, UNDO_MS - (Date.now() - removal.startedAt));
+  bar.style.transition = 'none';
+  bar.style.width = `${(left / UNDO_MS) * 100}%`;
+  void bar.offsetWidth; // fija el ancho de partida antes de animar
+  bar.style.transition = `width ${left}ms linear`;
+  bar.style.width = '0%';
+}
+
+/** Da el borrado por definitivo sin esperar: el ejercicio ya no está en el almacén, solo se quita la línea. */
+export function settleRemoval() {
+  if (!removal) return;
+  clearTimeout(removal.timer);
+  removal = null;
+  $('removalLive').textContent = '';
+  renderConfig(true);
+}
+
 /** @param {boolean} [keepChecks] conserva las casillas marcadas que aún no se han guardado */
 export function renderConfig(keepChecks = false) {
   const pending = keepChecks
@@ -441,7 +510,9 @@ export function renderConfig(keepChecks = false) {
   const isOn = (/** @type {string} */ name) => (pending?.has(name) ? !!pending.get(name) : active.exercises.includes(name));
   const inputClass = 'min-h-[44px] w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500';
 
-  $('exsCheckboxes').innerHTML = sortedExercises().map(ex => {
+  const ghost = removal?.exercise;
+  $('exsCheckboxes').innerHTML = sortExercises(ghost ? [...getExercises(), ghost] : getExercises()).map(ex => {
+    if (removal && ex === ghost) return renderRemovedRow(ex, removal.state, removal.checked);
     const open = repsEditorOpen === ex.id;
     const range = t('config.repsRange', { min: ex.repsMin, max: ex.repsMax });
     const name = exerciseName(ex);
@@ -475,6 +546,39 @@ export function renderConfig(keepChecks = false) {
       </div>
     </div>`;
   }).join('');
+  syncRemovalBar();
+}
+
+/**
+ * Línea de un ejercicio recién borrado: su contenido se desvanece (conserva el alto) y encima queda el aviso (con el
+ * texto a la izquierda, a la altura de la casilla y gris como la papelera) y «Deshacer»; al terminar el plazo se pliega. Clases literales para que Tailwind las genere.
+ * @param {import('./wheel-math.js').Exercise} ex @param {'fresh' | 'shown' | 'folding'} state @param {boolean} checked
+ */
+function renderRemovedRow(ex, state, checked) {
+  const faded = state !== 'fresh';
+  const folded = state === 'folding';
+  const name = exerciseName(ex);
+  return `
+    <div data-removed class="grid transition-all duration-300 ${folded ? 'grid-rows-[0fr] -mb-2 opacity-0' : 'grid-rows-[1fr]'}">
+      <div class="relative min-h-0 overflow-hidden rounded-xl bg-dark-950 border border-slate-800">
+        <div data-removed-old aria-hidden="true" class="flex items-stretch min-h-[48px] transition-opacity duration-500 ease-in-out ${faded ? 'opacity-0' : ''}">
+          <div class="flex items-center gap-2 flex-1 min-w-0 ps-2.5 pe-2 py-2">
+            <input type="checkbox" tabindex="-1" ${checked ? 'checked' : ''} class="pointer-events-none w-4 h-4 shrink-0 rounded text-brand-text bg-dark-900 border-slate-700">
+            <span class="text-brand-text text-lg flex items-center shrink-0">${renderIconHTML(ex.icon)}</span>
+            <span class="text-xs font-bold text-white min-w-0 break-words">${escapeHTML(name)}</span>
+          </div>
+          <div class="flex items-stretch shrink-0 ms-auto">
+            <span class="flex items-center px-2 text-xs font-bold text-brand-text"><bdi dir="ltr">${escapeHTML(t('config.repsRange', { min: ex.repsMin, max: ex.repsMax }))}</bdi></span>
+            <span class="flex items-center justify-center w-11 text-slate-500 text-xs"><i class="fa-solid fa-trash-can"></i></span>
+          </div>
+        </div>
+        <div data-removed-note class="absolute inset-0 flex items-center gap-2 ps-2.5 pe-1 transition-opacity duration-500 ease-in-out ${faded ? '' : 'opacity-0'}">
+          <span class="flex-1 text-xs font-bold text-slate-400 min-w-0 break-words">${escapeHTML(t('config.deleted'))}</span>
+          <button data-action="undo-delete" ${faded && !folded ? '' : 'tabindex="-1"'} class="group shrink-0 flex items-center gap-1.5 min-h-[44px] px-3 rounded-lg whitespace-nowrap text-xs font-black text-brand-text"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i><span class="group-hover:underline">${escapeHTML(t('config.undo'))}</span></button>
+        </div>
+        <div data-removed-bar aria-hidden="true" class="absolute bottom-0 start-0 h-0.5 w-full bg-brand-500/50"></div>
+      </div>
+    </div>`;
 }
 
 /**
@@ -695,6 +799,7 @@ function openSettingsAt(view, replacing) {
 }
 
 export function closeConfig() {
+  settleRemoval(); // salir antes de que acabe el plazo deja el ejercicio borrado
   setSheetVisible('configModal', 'configCard', false);
   dismissModal('config');
 }

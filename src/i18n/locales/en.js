@@ -76,7 +76,7 @@ export default {
     'whatsnew.close': 'Get started',
     'whatsnew.closeAria': 'Close what\'s new',
     'config.deleteExercise': 'Delete {name}',
-    'config.deleted': 'Deleted {name}',
+    'config.deleted': 'Exercise deleted',
     'config.undo': 'Undo',
     'exercise.burpee': 'Burpee',
     'exercise.lunge': 'Lunge',

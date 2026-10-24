@@ -76,7 +76,7 @@ export default {
     'whatsnew.close': 'Hasi',
     'whatsnew.closeAria': 'Itxi berrikuntzak',
     'config.deleteExercise': 'Ezabatu {name}',
-    'config.deleted': '{name} ezabatu da',
+    'config.deleted': 'Ariketa ezabatu da',
     'config.undo': 'Desegin',
     'exercise.burpee': 'Burpeeak',
     'exercise.lunge': 'Zangadak',
