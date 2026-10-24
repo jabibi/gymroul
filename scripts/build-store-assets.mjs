@@ -1,6 +1,6 @@
 // Genera la ficha de Google Play de cada idioma en store/<idioma-de-Play>/:
 //   grafico-de-funciones-1024x500.png   Gráfico de funciones con el texto traducido y la ruleta real
-//   capturas-telefono/01..07-*.png      Capturas 1080x1920 (9:16) de la app real, en ese idioma
+//   capturas-telefono/01..04-*.png      Capturas 1080x1920 (9:16) de la app real, en ese idioma
 //   textos/*.txt                        Título, descripción corta y completa y novedades (de store/listing.mjs)
 // y store/icon.png (512x512), igual para todos los idiomas.
 //
@@ -11,7 +11,7 @@
 //   npm run store -- --only es-ES,en-US        solo algunos idiomas (códigos de Play)
 //   CHROME_PATH=/ruta/a/chrome npm run store   si Chrome no está en /usr/bin/google-chrome
 
-import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync, existsSync, rmSync } from 'node:fs';
 import puppeteer from 'puppeteer-core';
 import { preview } from 'vite';
 import sharp from 'sharp';
@@ -43,8 +43,12 @@ const savePng = async (input, path) => {
 const server = await preview({ preview: { port: PORT, host: '127.0.0.1', open: false }, logLevel: 'silent' });
 const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--no-sandbox'] });
 
-/** Abre la app en un móvil de 360x640 con factor 3 => capturas de 1080x1920, en el idioma pedido. */
-async function openApp(appLang) {
+/**
+ * Abre la app en un móvil de 360x640 con factor 3 => capturas de 1080x1920, en el idioma pedido.
+ * @param {string} appLang
+ * @param {'calm' | 'light' | 'classic'} [theme] apariencia elegida en Ajustes; sin ella, la de por defecto («Sistema», con el dispositivo en modo oscuro)
+ */
+async function openApp(appLang, theme) {
   const page = await browser.newPage();
   // La apariencia por defecto es «Sistema»: las capturas se hacen con el dispositivo en modo oscuro
   await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'dark' }]);
@@ -55,6 +59,7 @@ async function openApp(appLang) {
   await page.evaluateOnNewDocument(() => {
     Math.random = () => 0.5; // giros reproducibles
   });
+  if (theme) await page.evaluateOnNewDocument(t => localStorage.setItem('gym_theme', JSON.stringify(t)), theme);
   await page.goto(`${BASE}?lang=${appLang}`, { waitUntil: 'networkidle0' });
   await page.waitForFunction(() => !document.documentElement.classList.contains('booting')); // el fundido de arranque
   await wait(300);
@@ -190,7 +195,7 @@ store/
 ├── listing.mjs                              Fuente de los textos de cada idioma
 └── <idioma de Play>/                        ${STORE_LOCALES.map(l => l.play).join(', ')}
     ├── grafico-de-funciones-1024x500.png    Gráfico de funciones con el texto traducido
-    ├── capturas-telefono/                   Siete capturas 1080 x 1920 (9:16) con la app en ese idioma
+    ├── capturas-telefono/                   Cuatro capturas 1080 x 1920 (9:16) con la app en ese idioma
     └── textos/
         ├── titulo.txt                       Nombre de la aplicación
         ├── descripcion-corta.txt            Descripción breve
@@ -251,6 +256,7 @@ try {
   for (const loc of locales) {
     console.log(`\n${loc.play} (${loc.name})`);
     const dir = `${OUT}/${loc.play}`;
+    rmSync(`${dir}/capturas-telefono`, { recursive: true, force: true }); // por si quedan capturas de una numeración anterior
     mkdirSync(`${dir}/capturas-telefono`, { recursive: true });
     const listing = LISTINGS[loc.app];
     const shot = async (page, name) => savePng(await page.screenshot(), `${dir}/capturas-telefono/${name}.png`);
@@ -264,54 +270,27 @@ try {
 
     await spinAndWait(page);
     await shot(page, '02-resultado');
-    await page.click('[data-action=close-result][data-arg=done]');
-    await wait(500);
-
-    // Historial con varios retos completados
-    for (let i = 0; i < 3; i++) {
-      await spinAndWait(page);
-      await page.click('[data-action=close-result][data-arg=done]');
-      await wait(500);
-    }
-    await page.click('[data-action=open-history]');
-    await wait(700);
-    await shot(page, '03-historial');
-    await page.click('[data-action=close-history]');
-    await wait(600);
-
-    // Configuración: ejercicios con sus iconos
-    await page.click('[data-action=open-settings]');
-    await wait(700);
-    await page.click('#settingsMenu [data-arg=wheel]');
-    await wait(400);
-    await page.evaluate(() => document.getElementById('exsCheckboxes').scrollIntoView({ block: 'start' }));
-    await wait(400);
-    await shot(page, '04-configuracion');
-
-    // Selector de iconos y búsqueda
-    await page.click('[data-action=open-add-exercise]');
-    await wait(500);
-    await page.click('#iconPickerBtn');
-    await wait(300);
-    // La ventana de nuevo ejercicio se enseña desde arriba: con el nombre cortado la captura quedaba descuidada
-    await page.evaluate(() => { document.getElementById('iconPicker').closest('.overflow-y-auto').scrollTop = 0; });
-    await wait(400);
-    await shot(page, '05-selector-de-iconos');
-    await page.type('#iconSearch', 'karate');
-    await wait(400);
-    await page.evaluate(() => document.getElementById('iconPicker').scrollIntoView({ block: 'center' }));
-    await wait(400);
-    await shot(page, '06-busqueda-de-iconos');
     await page.close();
 
-    // Compromiso de privacidad: resumen de lo que la app no hace con tus datos
-    const commitment = await openApp(loc.app);
-    await commitment.click('[data-action=open-settings]');
+    // Selector de apariencia, con la app ya en Claro: enseña a la vez las cuatro opciones y el aspecto claro
+    const appearance = await openApp(loc.app, 'light');
+    await appearance.click('[data-action=open-settings]');
     await wait(700);
-    await commitment.evaluate(() => document.querySelector('#configModal [data-action=open-commitment]').click());
+    await appearance.click('#settingsMenu [data-arg=appearance]');
     await wait(500);
-    await shot(commitment, '07-compromiso-de-privacidad');
-    await commitment.close();
+    await shot(appearance, '03-apariencia');
+    await appearance.close();
+
+    // Ajustes de la ruleta (ejercicios con sus iconos), con la app en Clásico
+    const config = await openApp(loc.app, 'classic');
+    await config.click('[data-action=open-settings]');
+    await wait(700);
+    await config.click('#settingsMenu [data-arg=wheel]');
+    await wait(400);
+    await config.evaluate(() => document.getElementById('exsCheckboxes').scrollIntoView({ block: 'start' }));
+    await wait(400);
+    await shot(config, '04-configuracion');
+    await config.close();
 
     await buildBanner(listing, wheel, `${dir}/grafico-de-funciones-1024x500.png`, isRtl(loc.app));
     writeTexts(listing, `${dir}/textos`);
