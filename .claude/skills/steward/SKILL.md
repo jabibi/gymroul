@@ -27,7 +27,7 @@ La CI (`.github/workflows/ci.yml`) tiene tres trabajos: `check` (`typecheck`, `t
 | `test`: una clave de `en.js` sin usar | Quítala de todos los idiomas, o úsala. |
 | `test`: `public/credits.html` no coincide | `npm run legal` y sube el resultado. |
 | `test`: las notas de Play no están al día | `npm run release-notes`. |
-| `store` (`store:check`, capturas viejas) | `npm run store` (tarda unos 30 minutos; necesita Chromium: `CHROME_PATH=/opt/pw-browsers/chromium-1194/chrome-linux/chrome`) y sube el resultado completo. |
+| `store` (`store:check`, capturas viejas) | `npm run store` (tarda unos 30 minutos; necesita Chromium: la ruta depende del entorno, ver «Chromium en la nube» en `CLAUDE.md`) y sube el resultado completo. |
 | `build` | Mira el aviso o error de Vite/Tailwind (por ejemplo, ejemplos de clases escritos en comentarios). |
 | `android` | Lee el registro del trabajo: suele ser un recurso de `android/app/src/main/res` o `app/build.gradle`. No toques `android/` por otra cosa que el fallo. |
 | Conflicto con `main` | Fusiona `main` en la rama (no `rebase`); los ficheros generados se regeneran con su orden, nunca a mano. |
