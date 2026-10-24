@@ -6,7 +6,7 @@ Solo lo que está en marcha o por hacer: la versión en desarrollo y las siguien
 
 ## En desarrollo: versión 1.18 «GymTonic» (versionCode 18)
 
-Sin publicar. La rama de trabajo es `roadmap-19` (PR #28 contra `main`; la 1.18 ya está fusionada en `main`), pero estos cambios salen en la 1.18. Un toque más fresco, elegante y suave, con el ruso como gran novedad y el tema claro. Incluye:
+Sin publicar y cerrada: no se añaden más cambios a la 1.18 (el trabajo nuevo va a la 1.19). Ya está fusionada en `main`. Un toque más fresco, elegante y suave, con el ruso como gran novedad y el tema claro. Incluye:
 - **Tema Claro** y **Sistema** (por defecto): cuatro opciones en Apariencia: Sistema (sigue el modo claro u oscuro del dispositivo; nunca elige Clásico), Oscuro (antes Suave; el identificador guardado sigue siendo `calm`), Claro (nuevo) y Clásico. Claro lleva una ruleta de tonos cálidos pastel con texto casi negro y neutros cálidos. La imagen de compartir y las barras del sistema de Android también siguen la apariencia, y la pantalla de arranque de Android tiene versión clara y oscura.
 - **Ruso** como idioma 21 (app, ficha de Play y páginas legales), con Manrope para el cirílico, y Manrope en los créditos.
 - **Ajustes sin botones de guardar**, **deshacer al borrar un ejercicio** y **vista previa con mini ruleta** en Apariencia.
@@ -20,13 +20,14 @@ Sin publicar. La rama de trabajo es `roadmap-19` (PR #28 contra `main`; la 1.18 
 
 Pendiente antes de publicar:
 - Probar en dispositivo (Pixel 8 Pro) la pantalla de arranque nativa (logo y firma en Oscuro, Claro y Clásico, la barra de gestos y el tiempo mínimo) y un arranque con la apariencia elegida distinta del modo del dispositivo. Además: el tema claro, la pantalla de arranque en claro y en oscuro (sigue el modo del dispositivo, no la apariencia elegida en la app), las barras del sistema y el icono con «Iconos con tema» activado (Ajustes → Fondo de pantalla y estilo).
-- Pasar la CI del Android (PR #28).
 - Subir en Play Console los textos, el CSV, el icono (`store/icon.png`) y las imágenes de `store/`.
 - La ficha de `pt-PT` se queda como está: decisión congelada.
 
 ## Probable: versión 1.19 — historial que se guarda y resumen acumulado
 
 Aún no está decidida ni empezada. Es el prerrequisito para retomar la valoración dentro de la app (ver «Ideas sin fecha»).
+
+**Mantenimiento previsto**: Vite actualizado a la 8.3.5 (la 8.3.2 tenía avisos de seguridad del servidor de desarrollo; no afectaban a lo publicado). Los avisos que quedan de `npm audit` vienen de `@capacitor/assets` y `@capacitor/cli`, solo de desarrollo: se resuelven cuando esos paquetes actualicen sus dependencias, sin `npm audit fix --force`.
 
 **La idea**: que el historial sea un registro real de entrenamientos hechos, que sobreviva al cierre de la app, y que su resumen acumule totales (retos completados y repeticiones) más allá de la sesión.
 
