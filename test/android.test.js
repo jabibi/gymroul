@@ -30,4 +30,19 @@ describe('código nativo de Android', () => {
     for (const [, name] of splash.matchAll(/R\.font\.(\w+)/g)) expect(res, name).toContain(`font/${name}.ttf`);
     expect(splash).toContain('PointedIO');
   });
+
+  // La pantalla de arranque está escrita en dos sitios (la web, en HTML, y Android, en Kotlin): al cambiar una hay que cambiar la otra
+  it('la pantalla de arranque de la web y la de Android llevan la misma firma, y la web se oculta en la app', () => {
+    const html = readFileSync('index.html', 'utf8');
+    const splash = readFileSync('android/app/src/main/kotlin/eus/jabibi/gymroul/SplashOverlay.kt', 'utf8');
+    const block = html.match(/<div id="bootSplash"[\s\S]*?<\/p>/)?.[0] ?? '';
+    for (const text of ['from', 'PointedIO']) {
+      expect(block, `index.html: ${text}`).toContain(`>${text}<`);
+      expect(splash, `SplashOverlay.kt: ${text}`).toContain(`"${text}"`);
+    }
+    expect(block).toContain('w-36 h-36'); // 144 px, como los 144 dp de SplashOverlay.kt
+    expect(splash).toContain('dp(144)');
+    expect(readFileSync('src/style.css', 'utf8')).toContain('html.native #bootSplash { display: none; }');
+    expect(readFileSync('public/theme-init.js', 'utf8')).toContain("classList.add('native')");
+  });
 });
