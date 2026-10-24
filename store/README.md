@@ -66,8 +66,9 @@ Recomendación: deja **en-US** como idioma predeterminado, porque es el que ve q
 ## Regenerar
 ```bash
 npm run store                                  # todos los idiomas
-npm run store -- --only=es-ES,en-US            # solo algunos (códigos de Play)
+STORE_ONLY=es-ES,en-US npm run store          # solo algunos (códigos de Play); no guarda la huella de `npm run store:check`
 ```
+(`npm run store -- --only=…` no filtra: npm añade esos argumentos al último comando de la cadena, no al generador.)
 Compila la app y la renderiza con Chrome sin interfaz y sin red: no se contacta con ningún servidor. Si Chrome no está en
 `/usr/bin/google-chrome`, indica su ruta con `CHROME_PATH=/ruta/a/chrome npm run store`. Las capturas son de la app real y salen en
 el idioma de cada ficha; si cambias la interfaz o los textos, vuelve a ejecutarlo.

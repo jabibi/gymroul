@@ -3,7 +3,7 @@
 // con la actual y avisa si la interfaz ha cambiado desde la última vez que se generaron las capturas.
 //
 //   node scripts/store-ui-hash.mjs           compara (sale con error si las capturas están viejas)
-//   node scripts/store-ui-hash.mjs --write   guarda la huella actual
+//   node scripts/store-ui-hash.mjs --write   guarda la huella actual (no con STORE_ONLY: generación parcial)
 
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync, statSync, writeFileSync, existsSync } from 'node:fs';
@@ -26,6 +26,11 @@ export function uiHash() {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const current = uiHash();
   if (process.argv.includes('--write')) {
+    if (process.env.STORE_ONLY) {
+      // Con solo algunos idiomas regenerados, el resto de capturas sigue siendo de la interfaz anterior
+      console.log('  · Generación parcial (STORE_ONLY): no se guarda la huella; ejecuta npm run store completo antes de subir a Play.');
+      process.exit(0);
+    }
     writeFileSync(HASH_FILE, current + '\n');
     console.log('  ✓', HASH_FILE);
   } else {
