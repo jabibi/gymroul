@@ -61,7 +61,11 @@ async function openApp(appLang, theme) {
   await page.evaluateOnNewDocument(() => {
     Math.random = () => 0.5; // giros reproducibles
   });
-  if (theme) await page.evaluateOnNewDocument(t => localStorage.setItem('gym_theme', JSON.stringify(t)), theme);
+  // Todas las páginas comparten el almacenamiento del navegador: sin limpiarlo, la apariencia de una captura pasaba a la siguiente
+  await page.evaluateOnNewDocument(t => {
+    localStorage.clear();
+    if (t) localStorage.setItem('gym_theme', JSON.stringify(t));
+  }, theme ?? null);
   await page.goto(`${BASE}?lang=${appLang}`, { waitUntil: 'networkidle0' });
   await page.waitForFunction(() => !document.documentElement.classList.contains('booting')); // el fundido de arranque
   await wait(300);
@@ -267,13 +271,13 @@ try {
     const page = await openApp(loc.app);
     await shot(page, '01-ruleta');
     const wheel = await captureWheel(page);
-    await page.close();
+    await page.reload({ waitUntil: 'networkidle0' });
+    await page.evaluate(() => document.fonts.ready);
+    await wait(500);
 
-    // Resultado con la app en Clásico: la barra de color del sector y los verdes se ven con la paleta original
-    const result = await openApp(loc.app, 'classic');
-    await spinAndWait(result);
-    await shot(result, '02-resultado');
-    await result.close();
+    await spinAndWait(page);
+    await shot(page, '02-resultado');
+    await page.close();
 
     // Selector de apariencia, con la app ya en Claro: enseña a la vez las cuatro opciones y el aspecto claro
     const appearance = await openApp(loc.app, 'light');
@@ -284,8 +288,8 @@ try {
     await shot(appearance, '03-apariencia');
     await appearance.close();
 
-    // Ajustes de la ruleta (ejercicios con sus iconos)
-    const config = await openApp(loc.app);
+    // Ajustes de la ruleta (ejercicios con sus iconos), también en Claro. Clásico no sale en las capturas más que como opción del selector
+    const config = await openApp(loc.app, 'light');
     await config.click('[data-action=open-settings]');
     await wait(700);
     await config.click('#settingsMenu [data-arg=wheel]');
