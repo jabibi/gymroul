@@ -204,16 +204,20 @@ html.booting body { opacity: 0; }
     body { transition: none; }
 }
 
-/* Cambio de apariencia (withThemeTransition en src/theme.js): fundido corto entre la captura anterior y la nueva */
-::view-transition-old(root),
-::view-transition-new(root) {
-    animation-duration: 0.3s;
-    animation-timing-function: ease-in-out;
+/* Velo que tapa el cambio de apariencia (withThemeTransition en src/theme.js): a pantalla completa, por encima de todo, sin
+   interceptar toques; su color y su opacidad los pone el script */
+.theme-veil {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
 }
-@media (prefers-reduced-motion: reduce) {
-    ::view-transition-old(root),
-    ::view-transition-new(root) { animation: none; }
-}
+.theme-veil[hidden] { display: none; }
+/* Mientras el velo tapa un cambio de apariencia, los colores cambian de golpe (sin transition-colors ni transition-all) */
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after { transition: none !important; }
 
 /* Árabe (escritura cursiva, de derecha a izquierda): el espaciado entre letras rompe las uniones entre ellas,
    así que se anula el de las clases de Tailwind (tracking-*) y el de los textos con mayúsculas. */
