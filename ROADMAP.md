@@ -31,6 +31,8 @@ Aún no está decidida ni empezada. Es el prerrequisito para retomar la valoraci
 
 **Revisar el máximo de ejercicios por ruleta** (límite de 12, `MAX_EXERCISES` en `src/store.js`): con los 12 ya creados, Ajustes deja pulsar «Añadir nuevo ejercicio», rellenar todos los campos y guardar, y solo entonces sale el aviso de número máximo. Debería avisarse antes de hacer el trabajo: por ejemplo, desactivar el botón o avisar al pulsarlo, con el motivo a la vista, y que el aviso de `error.maxExercises` quede como respaldo. Revisar también el resto de caminos que crean ejercicios (restaurar uno borrado con «Deshacer», `restoreExercise`) y probarlo con `npm run check:layout`.
 
+**Pulir la pantalla del historial** (`historyModal` en `index.html`, `requestClearHistory` y `historySummary` en `src/ui.js`): el texto del resumen y el botón «Limpiar historial» del pie quedan colgando, sin integrarse con la lista. Rediseñar el pie para que forme un conjunto con ella (por ejemplo, el resumen dentro o pegado al recuadro de la lista y el botón como acción secundaria de su misma fila o tarjeta). Con el historial vacío, ocultar el botón (hoy `requestClearHistory` ya no hace nada si está vacío, pero el botón se ve). Comprobarlo con `npm run check:layout` (incluido `--stress`) y en árabe; cambia la interfaz, así que la PR dejará `store:check` en rojo hasta regenerar las capturas.
+
 **La idea**: que el historial sea un registro real de entrenamientos hechos, que sobreviva al cierre de la app, y que su resumen acumule totales (retos completados y repeticiones) más allá de la sesión.
 
 **Qué hay ya**:
