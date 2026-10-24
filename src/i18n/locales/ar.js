@@ -79,7 +79,7 @@ export default {
     'whatsnew.close': 'ابدأ',
     'whatsnew.closeAria': 'إغلاق الجديد',
     'config.deleteExercise': 'حذف {name}',
-    'config.deleted': 'تم حذف {name}',
+    'config.deleted': 'تم حذف التمرين',
     'config.undo': 'تراجع',
     'exercise.burpee': 'بيربي',
     'exercise.lunge': 'اندفاع',

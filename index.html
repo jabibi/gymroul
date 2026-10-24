@@ -335,13 +335,15 @@
         </div>
     </div>
 
-    <!-- Mensajes breves; algunos llevan una acción (Deshacer), y entonces el aviso recibe toques -->
+    <!-- Mensajes breves que dejan pasar los toques -->
     <div id="toast" role="status" aria-live="polite" class="fixed top-[calc(5rem+var(--sat))] inset-x-0 z-[70] flex justify-center px-4 pointer-events-none opacity-0 transition-opacity duration-300">
         <div class="glass-card rounded-xl ps-4 pe-2 py-1 flex items-center gap-2 border border-brand-500/40 shadow-2xl">
             <span id="toastText" class="text-xs font-bold text-slate-100 py-1"></span>
-            <button id="toastAction" type="button" data-action="toast-action" class="hidden min-h-[44px] px-3 rounded-lg text-xs font-black text-brand-text hover:underline"></button>
         </div>
     </div>
+
+    <!-- Anuncia a los lectores de pantalla el borrado de un ejercicio (la línea desvanecida está oculta para ellos) -->
+    <div id="removalLive" role="status" aria-live="polite" class="sr-only"></div>
 
     <!-- Visor de documentos: política de privacidad y créditos  -->
     <div id="documentModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="documentTitle" class="outline-none safe-edge hidden fixed inset-0 z-[110] bg-dark-950 flex flex-col">

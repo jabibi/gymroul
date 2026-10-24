@@ -76,7 +76,7 @@ export default {
     'whatsnew.close': 'Başla',
     'whatsnew.closeAria': 'Yenilikleri kapat',
     'config.deleteExercise': '{name} egzersizini sil',
-    'config.deleted': '{name} silindi',
+    'config.deleted': 'Egzersiz silindi',
     'config.undo': 'Geri al',
     'exercise.burpee': 'Burpee',
     'exercise.lunge': 'Hamleler',

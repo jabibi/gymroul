@@ -76,7 +76,7 @@ export default {
     'whatsnew.close': 'はじめる',
     'whatsnew.closeAria': '新機能を閉じる',
     'config.deleteExercise': '{name}を削除',
-    'config.deleted': '{name}を削除しました',
+    'config.deleted': 'エクササイズを削除しました',
     'config.undo': '元に戻す',
     'exercise.burpee': 'バーピー',
     'exercise.lunge': 'ランジ',

@@ -76,7 +76,7 @@ export default {
     'whatsnew.close': 'Aan de slag',
     'whatsnew.closeAria': 'Nieuw sluiten',
     'config.deleteExercise': '{name} verwijderen',
-    'config.deleted': '{name} verwijderd',
+    'config.deleted': 'Oefening verwijderd',
     'config.undo': 'Ongedaan maken',
     'exercise.burpee': 'Burpees',
     'exercise.lunge': 'Lunges',

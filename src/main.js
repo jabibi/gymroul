@@ -160,21 +160,17 @@ const actions = {
   'delete-exercise': arg => {
     const removed = arg ? removeExercise(arg) : null;
     rebuildWheel();
-    ui.renderConfig(true);
-    if (!removed) return;
-    // Borrar es inmediato, pero se puede deshacer unos segundos (vuelve con el mismo id, así conserva la traducción)
-    ui.showToast(t('config.deleted', { name: exerciseName(removed.exercise) }), {
-      label: t('config.undo'),
-      run: () => {
-        const result = restoreExercise(removed);
-        reportError(result);
-        if (!result.ok) return;
-        rebuildWheel();
-        ui.renderConfig(true);
-      },
+    if (!removed) return ui.renderConfig(true);
+    // Borrar es inmediato; la línea sigue unos segundos en la lista con «Deshacer» (el ejercicio vuelve con su mismo id,
+    // así conserva la traducción). Salir de Ajustes antes del plazo lo deja borrado.
+    ui.startRemoval(removed.exercise, () => {
+      const result = restoreExercise(removed);
+      reportError(result);
+      if (result.ok) rebuildWheel();
+      ui.renderConfig(true);
     });
   },
-  'toast-action': () => ui.runToastAction(),
+  'undo-delete': () => ui.undoRemoval(),
 
   'share-result': () => ui.shareResult(),
   'cancel-share': () => ui.cancelShare(),
