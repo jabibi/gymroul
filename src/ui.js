@@ -3,7 +3,7 @@
 
 import { exerciseName, sortExercises } from './exercise-names.js';
 import { isolate } from './wheel-math.js';
-import { getExercises, active, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE, COLOR_PALETTE } from './store.js';
+import { getExercises, active, MAX_EXERCISES, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE, COLOR_PALETTE } from './store.js';
 import { THEME_CHOICES, THEME_BRAND, THEME_BG, getThemeChoice, resolveTheme, themeColor } from './theme.js';
 import { WHATS_NEW_VERSION } from './whats-new.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
@@ -547,6 +547,16 @@ export function renderConfig(keepChecks = false) {
     </div>`;
   }).join('');
   syncRemovalBar();
+  syncAddExercise();
+}
+
+/** Con el máximo de ejercicios, «Añadir nuevo ejercicio» se desactiva y el motivo queda a la vista (no tras rellenar el formulario). */
+function syncAddExercise() {
+  // La línea recién borrada aún ocupa su sitio: si se llenara la lista, «Deshacer» ya no podría devolverla
+  const full = getExercises().length + (removal ? 1 : 0) >= MAX_EXERCISES;
+  /** @type {HTMLButtonElement} */ ($('addExerciseBtn')).disabled = full;
+  $('addExerciseHint').textContent = full ? t('error.maxExercises', { max: MAX_EXERCISES }) : '';
+  $('addExerciseHint').classList.toggle('hidden', !full);
 }
 
 /**

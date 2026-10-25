@@ -266,7 +266,8 @@
                     <div id="exsCheckboxes" class="px-2 pb-2 space-y-2 flex-1 min-h-[9rem] overflow-y-auto overscroll-contain"></div>
                 </div>
 
-                <button type="button" data-action="open-add-exercise" aria-haspopup="dialog" class="shrink-0 w-full min-h-[48px] px-3 rounded-xl border border-dashed border-slate-700 text-brand-text text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center justify-center gap-2">
+                <p id="addExerciseHint" class="hidden shrink-0 text-center text-xs text-slate-400"></p>
+                <button type="button" id="addExerciseBtn" data-action="open-add-exercise" aria-haspopup="dialog" aria-describedby="addExerciseHint" class="shrink-0 w-full min-h-[48px] px-3 rounded-xl border border-dashed border-slate-700 text-brand-text text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:border-slate-700">
                     <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i> <span data-i18n="config.addExercise">Add a new exercise</span>
                 </button>
                 </section>
