@@ -292,6 +292,9 @@ async function checkViewport(browser, lang, vp) {
   await wait(300);
   await check(page, lang, vp, '05b-ayuda-del-editor');
   await page.click('#configHelpBtn');
+  // Con --stress la lista está llena y el botón de añadir sale desactivado (con su aviso, que ya recoge 05-ejercicios):
+  // se reactiva solo para poder revisar la ventana de nuevo ejercicio
+  await page.evaluate(() => { /** @type {HTMLButtonElement} */ (document.getElementById('addExerciseBtn')).disabled = false; });
   await page.click('[data-action=open-add-exercise]');
   await wait(500);
   await check(page, lang, vp, '05c-nuevo-ejercicio');
