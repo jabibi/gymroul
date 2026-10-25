@@ -8,7 +8,6 @@ Solo lo que está en marcha o por hacer: la versión en desarrollo y las siguien
 
 En la rama `roadmap-19`. La versión ya está subida en `package.json`, con el diseño horizontal, las novedades de la app (también para quien abre la app por primera vez) y las de la ficha de Play escritas. Sin publicar. Pendiente antes de publicar:
 - Regenerar las capturas de Play con `npm run store` (unos 30 minutos) y pasar `npm run store:check`. El script solo hace capturas de teléfono: las de tableta no se suben de momento.
-- Si se puede, probar en un Android 7 u 8 (barra de navegación, donde `enableEdgeToEdge()` puede dejar un velo y ya no se asignan los colores de las barras). Probado en un Huawei ANA-NX9 con Android 10, un Pixel 8 Pro con Android 17 (recorte de pantalla y vista de extremo a extremo) y una Samsung SM-X210 con Android 16: vertical, horizontal, arranque nativo, resultado y paneles.
 - Subir en Play Console los textos, el CSV, el icono y las imágenes de `store/`.
 
 Se comprueba en Play Console cuando la 1.19 esté enviada («Para tu siguiente versión», categoría Experiencia de usuario):

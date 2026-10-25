@@ -18,6 +18,7 @@ import puppeteer from 'puppeteer-core';
 import { preview } from 'vite';
 import sharp from 'sharp';
 import { STORE_LOCALES, LISTINGS, LIMITS } from '../store/listing.mjs';
+import { WHATS_NEW_VERSION } from '../src/whats-new.js';
 import { isRtl } from '../src/i18n/index.js';
 
 const CHROME = process.env.CHROME_PATH || '/usr/bin/google-chrome';
@@ -62,10 +63,12 @@ async function openApp(appLang, theme) {
     Math.random = () => 0.5; // giros reproducibles
   });
   // Todas las páginas comparten el almacenamiento del navegador: sin limpiarlo, la apariencia de una captura pasaba a la siguiente
-  await page.evaluateOnNewDocument(t => {
+  // (y las novedades ya vistas: al abrir la app por primera vez salen solas y taparían la ruleta)
+  await page.evaluateOnNewDocument((t, seen) => {
     localStorage.clear();
+    localStorage.setItem('gym_whatsnew_seen', JSON.stringify(seen));
     if (t) localStorage.setItem('gym_theme', JSON.stringify(t));
-  }, theme ?? null);
+  }, theme ?? null, WHATS_NEW_VERSION);
   await page.goto(`${BASE}?lang=${appLang}`, { waitUntil: 'networkidle0' });
   await page.waitForFunction(() => !document.documentElement.classList.contains('booting')); // el fundido de arranque
   await wait(300);

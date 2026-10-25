@@ -1,8 +1,7 @@
+Version 1.19 (Jump-Over):
+• Querformat für Tablets und gedrehte Smartphones.
+• Klareres Rad, übersichtlicherer Verlauf und Rückgängig direkt in der Zeile beim Löschen einer Übung.
+
 Version 1.18 (GymTonic):
 • Frischerer, sanfterer Look: neues helles Design und die Option System. Sanft heißt jetzt Dunkel.
 • Russisch kommt dazu, jetzt in 21 Sprachen.
-
-Version 1.17 (Muted Tones):
-• Neuer Look: neues Symbol und zwei Designs zur Wahl, Sanft und Klassisch.
-• Einstellungen als Menü: Rad, Darstellung, Sprache, Datenschutz und Danksagungen.
-• Vollständige Übungsnamen auf dem Rad und größere, lesbarere Schrift.

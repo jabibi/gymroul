@@ -1,170 +1,153 @@
 <en-US>
+Version 1.19 (Jump-Over):
+• Landscape view for tablets and rotated phones.
+• Clearer wheel, tidier history, and undo right on the row when you delete an exercise.
+
 Version 1.18 (GymTonic):
 • Fresher, softer look: new Light appearance and a System option. Soft is now called Dark.
 • Russian joins the app, now in 21 languages.
-
-Version 1.17 (Muted Tones):
-• New look: new icon and a choice of two appearances, Soft and Classic.
-• Settings is now a menu: wheel, appearance, language, privacy and credits.
-• Full exercise names on the wheel and larger, easier-to-read text.
 </en-US>
 <ar>
+الإصدار 1.19 (Jump-Over):
+• عرض أفقي للأجهزة اللوحية والهواتف المُدارة.
+• عجلة أوضح وسجل أكثر تنظيمًا وإمكانية التراجع في السطر نفسه عند حذف تمرين.
+
 الإصدار 1.18 (GymTonic):
 • مظهر أكثر انتعاشًا ونعومة: مظهر فاتح جديد وخيار النظام. أصبح الناعم يُسمّى داكنًا.
 • تنضم الروسية إلى التطبيق، وصار متاحًا بـ 21 لغة.
-
-الإصدار 1.17 (Muted Tones):
-• مظهر جديد: أيقونة جديدة ومظهران للاختيار، ناعم وكلاسيكي.
-• أصبحت الإعدادات قائمة: العجلة والمظهر واللغة والخصوصية وشكر وتقدير.
-• أسماء التمارين كاملة على العجلة ونص أكبر وأوضح.
 </ar>
 <ca>
+Versió 1.19 (Jump-Over):
+• Vista horitzontal per a tauletes i mòbils girats.
+• Ruleta més clara, historial més ordenat i desfer a la mateixa línia en esborrar un exercici.
+
 Versió 1.18 (GymTonic):
 • Aspecte més fresc i suau: nova aparença Clar i opció Sistema. Suau ara es diu Fosc.
 • El rus s’afegeix a l’app, ja en 21 idiomes.
-
-Versió 1.17 (Muted Tones):
-• Nou aspecte: icona nova i dues aparences a triar, Suau i Clàssic.
-• Ajustos en forma de menú: ruleta, aparença, idioma, privadesa i crèdits.
-• Noms d'exercicis complets a la ruleta i text més gran i llegible.
 </ca>
 <de-DE>
+Version 1.19 (Jump-Over):
+• Querformat für Tablets und gedrehte Smartphones.
+• Klareres Rad, übersichtlicherer Verlauf und Rückgängig direkt in der Zeile beim Löschen einer Übung.
+
 Version 1.18 (GymTonic):
 • Frischerer, sanfterer Look: neues helles Design und die Option System. Sanft heißt jetzt Dunkel.
 • Russisch kommt dazu, jetzt in 21 Sprachen.
-
-Version 1.17 (Muted Tones):
-• Neuer Look: neues Symbol und zwei Designs zur Wahl, Sanft und Klassisch.
-• Einstellungen als Menü: Rad, Darstellung, Sprache, Datenschutz und Danksagungen.
-• Vollständige Übungsnamen auf dem Rad und größere, lesbarere Schrift.
 </de-DE>
 <es-ES>
+Versión 1.19 (Jump-Over):
+• Vista horizontal para tablets y móviles girados.
+• Ruleta más clara, historial más ordenado y deshacer en la propia línea al borrar un ejercicio.
+
 Versión 1.18 (GymTonic):
 • Aspecto más fresco y suave: nueva apariencia Claro y opción Sistema. Suave ahora se llama Oscuro.
 • El ruso se suma a la app, ya en 21 idiomas.
-
-Versión 1.17 (Muted Tones):
-• Nuevo aspecto: icono nuevo y dos apariencias a elegir, Suave y Clásico.
-• Ajustes en forma de menú: ruleta, apariencia, idioma, privacidad y créditos.
-• Nombres de ejercicios completos en la ruleta y texto más grande y legible.
 </es-ES>
 <eu-ES>
+Bertsioa 1.19 (Jump-Over):
+• Ikuspegi horizontala tabletetarako eta biratutako telefonoetarako.
+• Erruleta argiagoa, historia ordenatuagoa eta ariketa bat ezabatzean bere lerroan bertan desegiteko aukera.
+
 Bertsioa 1.18 (GymTonic):
 • Itxura freskoagoa eta leunagoa: Argia itxura berria eta Sistema aukera. Leuna orain Iluna da.
 • Errusiera aplikaziora gehitu da, 21 hizkuntzatan jada.
-
-Bertsioa 1.17 (Muted Tones):
-• Itxura berria: ikono berria eta aukeratzeko bi itxura, Leuna eta Klasikoa.
-• Ezarpenak menu bihurtu dira: gurpila, itxura, hizkuntza, pribatutasuna eta kredituak.
-• Ariketen izen osoak gurpilean eta testu handiago eta irakurgarriagoa.
 </eu-ES>
 <fr-FR>
+Version 1.19 (Jump-Over):
+• Affichage horizontal pour les tablettes et les téléphones inclinés.
+• Roue plus claire, historique mieux rangé et annulation sur la ligne en supprimant un exercice.
+
 Version 1.18 (GymTonic):
 • Un aspect plus frais et plus doux : nouvelle apparence Claire et option Système. Doux devient Sombre.
 • Le russe rejoint l’appli, désormais en 21 langues.
-
-Version 1.17 (Muted Tones):
-• Nouvel aspect : nouvelle icône et deux apparences au choix, Doux et Classique.
-• Les réglages deviennent un menu : roue, apparence, langue, confidentialité et crédits.
-• Noms d'exercices complets sur la roue et texte plus grand et lisible.
 </fr-FR>
 <gl-ES>
+Versión 1.19 (Jump-Over):
+• Vista horizontal para tabletas e móbiles xirados.
+• Ruleta máis clara, historial máis ordenado e desfacer na mesma liña ao borrar un exercicio.
+
 Versión 1.18 (GymTonic):
 • Aspecto máis fresco e suave: nova aparencia Claro e opción Sistema. Suave agora chámase Escuro.
 • O ruso súmase á app, xa en 21 idiomas.
-
-Versión 1.17 (Muted Tones):
-• Novo aspecto: icona nova e dúas aparencias para elixir, Suave e Clásico.
-• Axustes en forma de menú: ruleta, aparencia, idioma, privacidade e créditos.
-• Nomes de exercicios completos na ruleta e texto máis grande e lexible.
 </gl-ES>
 <hi-IN>
+संस्करण 1.19 (Jump-Over):
+• टैबलेट और घुमाए गए फ़ोन के लिए क्षैतिज दृश्य।
+• ज़्यादा साफ़ पहिया, सुव्यवस्थित इतिहास, और अभ्यास हटाने पर उसी पंक्ति में पूर्ववत करने की सुविधा।
+
 संस्करण 1.18 (GymTonic):
 • ज़्यादा ताज़ा और नरम रूप: नया लाइट रूप और सिस्टम विकल्प। सॉफ्ट का नाम अब डार्क है।
 • अब रूसी भाषा भी जुड़ी, ऐप 21 भाषाओं में।
-
-संस्करण 1.17 (Muted Tones):
-• नया रूप: नया आइकन और चुनने के लिए दो रूप, सॉफ्ट और क्लासिक।
-• सेटिंग्स अब एक मेन्यू है: व्हील, दिखावट, भाषा, गोपनीयता और श्रेय।
-• व्हील पर एक्सरसाइज़ के पूरे नाम और बड़ा, पढ़ने में आसान टेक्स्ट।
 </hi-IN>
 <it-IT>
+Versione 1.19 (Jump-Over):
+• Visualizzazione orizzontale per tablet e telefoni ruotati.
+• Ruota più chiara, cronologia più ordinata e annullamento sulla riga quando elimini un esercizio.
+
 Versione 1.18 (GymTonic):
 • Aspetto più fresco e morbido: nuovo aspetto Chiaro e opzione Sistema. Morbido ora si chiama Scuro.
 • Il russo si aggiunge all’app, ora in 21 lingue.
-
-Versione 1.17 (Muted Tones):
-• Nuovo aspetto: nuova icona e due aspetti a scelta, Morbido e Classico.
-• Le impostazioni diventano un menu: ruota, aspetto, lingua, privacy e crediti.
-• Nomi degli esercizi completi sulla ruota e testo più grande e leggibile.
 </it-IT>
 <ja-JP>
+バージョン 1.19 (Jump-Over):
+• タブレットや横向きのスマートフォン向けの横画面表示。
+• ルーレットが見やすくなり、履歴が整理され、エクササイズの削除をその行で元に戻せます。
+
 バージョン 1.18 (GymTonic):
 • より爽やかでやわらかな見た目：ライトの外観とシステム設定を追加。ソフトはダークになりました。
 • ロシア語に対応し、21言語で使えます。
-
-バージョン 1.17 (Muted Tones):
-• 新しい見た目：アイコンを刷新し、ソフトとクラシックの2つの外観から選べます。
-• 設定がメニューになりました：ルーレット、外観、言語、プライバシー、クレジット。
-• ルーレットにエクササイズ名をそのまま表示し、文字も大きく読みやすくなりました。
 </ja-JP>
 <nl-NL>
+Versie 1.19 (Jump-Over):
+• Liggende weergave voor tablets en gedraaide telefoons.
+• Duidelijker rad, overzichtelijkere geschiedenis en ongedaan maken op de regel bij het verwijderen van een oefening.
+
 Versie 1.18 (GymTonic):
 • Frissere, zachtere look: nieuw licht uiterlijk en de optie Systeem. Zacht heet nu Donker.
 • Russisch komt erbij, nu in 21 talen.
-
-Versie 1.17 (Muted Tones):
-• Nieuwe look: nieuw pictogram en twee uiterlijken om uit te kiezen, Zacht en Klassiek.
-• Instellingen is nu een menu: rad, uiterlijk, taal, privacy en dankbetuigingen.
-• Volledige oefennamen op het rad en grotere, beter leesbare tekst.
 </nl-NL>
 <pl-PL>
+Wersja 1.19 (Jump-Over):
+• Widok poziomy dla tabletów i obróconych telefonów.
+• Czytelniejsze koło, bardziej uporządkowana historia i cofanie w wierszu po usunięciu ćwiczenia.
+
 Wersja 1.18 (GymTonic):
 • Świeższy i łagodniejszy wygląd: nowy jasny styl i opcja Systemowy. Delikatny nazywa się teraz Ciemny.
 • Rosyjski dołącza do aplikacji, teraz w 21 językach.
-
-Wersja 1.17 (Muted Tones):
-• Nowy wygląd: nowa ikona i dwa style do wyboru, Delikatny i Klasyczny.
-• Ustawienia jako menu: koło, wygląd, język, prywatność i podziękowania.
-• Pełne nazwy ćwiczeń na kole oraz większy, czytelniejszy tekst.
 </pl-PL>
 <pt-BR>
+Versão 1.19 (Jump-Over):
+• Visão horizontal para tablets e aparelhos girados.
+• Roleta mais clara, histórico mais organizado e desfazer na própria linha ao apagar um exercício.
+
 Versão 1.18 (GymTonic):
 • Visual mais fresco e suave: nova aparência Clara e opção Sistema. Suave agora se chama Escuro.
 • O russo entra no app, agora em 21 idiomas.
-
-Versão 1.17 (Muted Tones):
-• Novo visual: ícone novo e duas aparências à escolha, Suave e Clássico.
-• As configurações viram um menu: roleta, aparência, idioma, privacidade e créditos.
-• Nomes de exercícios completos na roleta e texto maior e mais legível.
 </pt-BR>
 <pt-PT>
+Versão 1.19 (Jump-Over):
+• Vista horizontal para tablets e telemóveis rodados.
+• Roleta mais clara, histórico mais organizado e desfazer na própria linha ao eliminar um exercício.
+
 Versão 1.18 (GymTonic):
 • Visual mais fresco e suave: nova aparência Clara e opção Sistema. Suave passa a chamar-se Escuro.
 • O russo junta-se à app, agora em 21 idiomas.
-
-Versão 1.17 (Muted Tones):
-• Novo visual: ícone novo e duas aparências à escolha, Suave e Clássico.
-• As definições passam a menu: roleta, aparência, idioma, privacidade e créditos.
-• Nomes de exercícios completos na roleta e texto maior e mais legível.
 </pt-PT>
 <ru-RU>
+Версия 1.19 (Jump-Over):
+• Горизонтальный вид для планшетов и повёрнутых телефонов.
+• Колесо стало понятнее, история аккуратнее, а удаление упражнения можно отменить прямо в его строке.
+
 Версия 1.18 (GymTonic):
 • Более свежий и мягкий вид: новый светлый вид и вариант «Системный». «Мягкий» теперь называется «Тёмный».
 • Русский язык пополнил приложение, теперь их 21.
-
-Версия 1.17 (Muted Tones):
-• Новый вид: новый значок и два внешних вида на выбор, Мягкий и Классический.
-• Настройки теперь в виде меню: колесо, внешний вид, язык, конфиденциальность и благодарности.
-• Полные названия упражнений на колесе и более крупный текст.
 </ru-RU>
 <tr-TR>
+Sürüm 1.19 (Jump-Over):
+• Tabletler ve çevrilmiş telefonlar için yatay görünüm.
+• Daha net çark, daha derli toplu geçmiş ve egzersiz silerken satırında geri alma.
+
 Sürüm 1.18 (GymTonic):
 • Daha ferah ve yumuşak görünüm: yeni Açık görünüm ve Sistem seçeneği. Yumuşak artık Koyu.
 • Rusça uygulamaya katıldı, artık 21 dilde.
-
-Sürüm 1.17 (Muted Tones):
-• Yeni görünüm: yeni simge ve seçebileceğin iki görünüm, Yumuşak ve Klasik.
-• Ayarlar artık bir menü: çark, görünüm, dil, gizlilik ve katkıda bulunanlar.
-• Çarkta tam egzersiz adları ve daha büyük, okunaklı yazı.
 </tr-TR>
