@@ -25,8 +25,32 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    // Firma de release: opcional y fuera del repositorio. Se lee de ~/.gradle/gradle.properties (o de la línea de órdenes con -P),
+    // así que vale igual desde Android Studio que desde la terminal. Sin esas propiedades, la release sale sin firmar (como en la CI).
+    //   GYMROUL_KEYSTORE_FILE=/ruta/al/keystore.jks
+    //   GYMROUL_KEYSTORE_PASSWORD=...
+    //   GYMROUL_KEY_ALIAS=...
+    //   GYMROUL_KEY_PASSWORD=...
+    def signingProps = ['GYMROUL_KEYSTORE_FILE', 'GYMROUL_KEYSTORE_PASSWORD', 'GYMROUL_KEY_ALIAS', 'GYMROUL_KEY_PASSWORD']
+    def hasSigning = signingProps.every { project.hasProperty(it) } && file(project.property('GYMROUL_KEYSTORE_FILE')).exists()
+    if (hasSigning) {
+        signingConfigs {
+            release {
+                storeFile file(project.property('GYMROUL_KEYSTORE_FILE'))
+                storePassword project.property('GYMROUL_KEYSTORE_PASSWORD')
+                keyAlias project.property('GYMROUL_KEY_ALIAS')
+                keyPassword project.property('GYMROUL_KEY_PASSWORD')
+            }
+        }
+    }
     buildTypes {
+        debug {
+            // Otra app para Android: se instala al lado de la de Play (que va firmada con otra clave y no se puede pisar)
+            // y con sus propios datos. El nombre en el lanzador lo pone src/debug/res/values/strings.xml.
+            applicationIdSuffix ".debug"
+        }
         release {
+            if (hasSigning) signingConfig = signingConfigs.release
             minifyEnabled = true
             shrinkResources = true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
