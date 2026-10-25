@@ -29,7 +29,11 @@ import { LANGUAGES } from '../src/i18n/index.js';
 const CHROME = process.env.CHROME_PATH || '/usr/bin/google-chrome';
 const PORT = 4183;
 const BASE = `http://127.0.0.1:${PORT}/`;
-const VIEWPORTS = [{ width: 320, height: 568 }, { width: 360, height: 640 }, { width: 412, height: 915 }];
+// Tres móviles en vertical y, en horizontal (modo horizontal de src/style.css), un móvil girado y una tableta
+const VIEWPORTS = [
+  { width: 320, height: 568 }, { width: 360, height: 640 }, { width: 412, height: 915 },
+  { width: 667, height: 375 }, { width: 1280, height: 800 },
+];
 
 const arg = name => process.argv.find(a => a.startsWith(`--${name}=`))?.slice(name.length + 3);
 const only = arg('lang')?.split(',');
@@ -213,12 +217,14 @@ async function openApp(browser, lang, vp, existingUser = false) {
       localStorage.setItem('gym_exercises', JSON.stringify(list));
     }, STRESS_EXERCISES, WHATS_NEW_VERSION, existingUser);
   } else if (existingUser) {
-    // Quien ya tenía la app: la instalación nueva no ve las novedades
-    // (el almacenamiento se comparte entre las páginas de un mismo Chrome: la primera ya dio las novedades por vistas)
+    // La pantalla de novedades: sin nada de «visto» guardado (el almacenamiento se comparte entre las páginas de un mismo Chrome)
     await page.evaluateOnNewDocument(() => {
       localStorage.setItem('gym_schema_version', '11');
       localStorage.removeItem('gym_whatsnew_seen');
     });
+  } else {
+    // El resto de pantallas: las novedades ya vistas, que si no tapan la ruleta al abrir la app por primera vez
+    await page.evaluateOnNewDocument(seen => localStorage.setItem('gym_whatsnew_seen', JSON.stringify(seen)), WHATS_NEW_VERSION);
   }
   await page.goto(`${BASE}?lang=${lang}`, { waitUntil: 'networkidle0' });
   await page.waitForFunction(() => !document.documentElement.classList.contains('booting')); // el fundido de arranque
@@ -229,7 +235,7 @@ async function openApp(browser, lang, vp, existingUser = false) {
 }
 
 /** Con --stress, el marcador de la ruleta recorta con «…» los nombres largos a propósito (es lo que se quiere ver). */
-const isExpectedStressTruncation = problem => stress && /^(truncado con|recortado:)/.test(problem) && problem.includes('liveIndicatorText');
+const isExpectedStressTruncation = problem => stress && /^(truncado con|recortado:|fuera de la pantalla)/.test(problem) && problem.includes('liveIndicatorText');
 
 async function check(page, lang, vp, screen) {
   await wait(300);
@@ -311,7 +317,10 @@ async function checkViewport(browser, lang, vp) {
   await check(page, lang, vp, '06b-teclado-abierto');
   const gridCut = await page.evaluate(() => {
     const grid = document.getElementById('iconGrid').getBoundingClientRect();
-    const box = document.getElementById('iconPicker').closest('.overflow-y-auto').getBoundingClientRect();
+    // La zona que se desplaza de verdad: el ascendiente más cercano con overflow-y auto o scroll (en horizontal es el propio panel)
+    let scroller = document.getElementById('iconPicker').parentElement;
+    while (scroller && !['auto', 'scroll'].includes(getComputedStyle(scroller).overflowY)) scroller = scroller.parentElement;
+    const box = /** @type {HTMLElement} */ (scroller).getBoundingClientRect();
     return grid.bottom > box.bottom + 1 || grid.top < box.top - 1;
   });
   if (gridCut) {

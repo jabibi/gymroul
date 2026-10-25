@@ -7,7 +7,7 @@ import { App as CapacitorApp } from '@capacitor/app';
 import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, getSpinSpeed, refreshBrand, isBusy } from './wheel.js';
 import { generateSegments, rollReps, CONFIG_SEGMENT } from './wheel-math.js';
 import {
-  migrate, isFreshInstall, loadActive, active, setActive,
+  migrate, loadActive, active, setActive,
   addExercise, removeExercise, restoreExercise, updateExerciseReps,
 } from './store.js';
 import { toggleSound, initAudio } from './audio.js';
@@ -216,7 +216,6 @@ function init() {
   // El idioma elegido a mano se guarda; el detectado del dispositivo no, para seguir sus cambios
   setLanguage(detectLanguage(), { persist: false });
   applyTranslations();
-  const freshInstall = isFreshInstall(); // antes de migrate(), que deja guardada la versión del esquema
   migrate();
   loadTheme(applyTheme);
   loadActive();
@@ -238,7 +237,7 @@ function init() {
   cleanShareCache(); // por si quedó la imagen temporal de un reto compartido en otra sesión
 
   // Novedades tras actualizar: un instante después de pintar la ruleta, y se dan por vistas al enseñarlas para no repetirlas
-  if (shouldShowWhatsNew(freshInstall)) {
+  if (shouldShowWhatsNew()) {
     markWhatsNewSeen();
     setTimeout(() => ui.openWhatsNew(), WHATS_NEW_DELAY_MS);
   }

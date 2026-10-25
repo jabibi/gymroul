@@ -5,7 +5,7 @@ export default {
     'history.clearConfirm': 'Toca outra vez',
     'settings.title': 'Definições',
     'config.deleted': 'Exercício eliminado',
-    'whatsnew.settings': 'A aparência Suave passa a chamar-se Escuro, e Sistema acompanha o teu dispositivo.',
+    'whatsnew.text': 'Histórico mais organizado e, ao eliminar um exercício, podes desfazer na própria linha.',
     'whatsnew.classicTitle': 'Preferes outra aparência?',
     'whatsnew.classicText': 'Agora a app segue o teu dispositivo por defeito. Abre {settings}, depois {appearance} e escolhe {options} para voltar ao que preferires.',
     'header.settings': 'Abrir definições',
