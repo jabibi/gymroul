@@ -6,6 +6,8 @@ export default {
     'header.sound': 'Turn sound on or off',
     'header.history': 'Open history',
     'header.settings': 'Open settings',
+    'menu.sound': 'Sound',
+    'menu.history': 'History',
 
     'live.drag': 'Drag the wheel to spin',
     'live.configure': 'Edit wheel',

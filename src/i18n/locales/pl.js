@@ -6,6 +6,8 @@ export default {
     'header.sound': 'Włącz lub wyłącz dźwięk',
     'header.history': 'Otwórz historię',
     'header.settings': 'Otwórz ustawienia',
+    'menu.sound': 'Dźwięk',
+    'menu.history': 'Historia',
 
     'live.drag': 'Przeciągnij koło, aby je zakręcić',
     'live.configure': 'Edytuj koło',

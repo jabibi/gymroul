@@ -6,6 +6,8 @@ export default {
     'header.sound': 'Activa o desactiva el so',
     'header.history': "Obre l'historial",
     'header.settings': 'Obre els ajustos',
+    'menu.sound': 'So',
+    'menu.history': 'Historial',
 
     'live.drag': 'Arrossega la ruleta per girar',
     'live.configure': 'Edita la ruleta',

@@ -6,6 +6,8 @@ export default {
     'header.sound': 'サウンドのオン・オフ',
     'header.history': '履歴を開く',
     'header.settings': '設定を開く',
+    'menu.sound': 'サウンド',
+    'menu.history': '履歴',
 
     'live.drag': 'ルーレットをドラッグして回す',
     'live.configure': 'ルーレットを編集',

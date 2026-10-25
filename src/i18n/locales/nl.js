@@ -6,6 +6,8 @@ export default {
     'header.sound': 'Geluid aan of uit',
     'header.history': 'Geschiedenis openen',
     'header.settings': 'Instellingen openen',
+    'menu.sound': 'Geluid',
+    'menu.history': 'Geschiedenis',
 
     'live.drag': 'Sleep aan het rad om te draaien',
     'live.configure': 'Rad bewerken',

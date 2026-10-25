@@ -283,3 +283,105 @@ input[type='checkbox'],
 input[type='radio'] {
     accent-color: rgb(var(--brand-500));
 }
+
+
+/* Modo horizontal (tabletas, plegables, móviles girados y ventanas anchas del navegador: cuando el ancho supera con claridad el alto).
+   El marcado es el mismo que en vertical: la cabecera y <main> pasan a display: contents y sus piezas se colocan en una rejilla
+   (barra lateral a la izquierda, o a la derecha en árabe, con el logo y el menú arriba y el botón de girar abajo, y la ruleta con su
+   marcador encima ocupando el resto, con el puntero arriba, como siempre). Los paneles (Ajustes, historial, nuevo ejercicio y novedades) salen por el lado
+   contrario a la barra. Con poca altura (móviles) el menú pasa a una fila de iconos para que todo quepa. */
+.app-sidebar-bg, .menu-label { display: none; }
+@media (min-aspect-ratio: 6/5) {
+    #app {
+        --edge: var(--sal);
+        --far: var(--sar);
+        display: grid;
+        grid-template-columns: clamp(15rem, 26vw, 19rem) minmax(0, 1fr);
+        grid-template-rows: auto auto minmax(0, 1fr) auto;
+        justify-content: stretch;
+        align-content: stretch;
+        height: 100dvh;
+        padding: 0;
+        padding-inline-end: var(--far);
+        overflow: hidden;
+    }
+    :root[dir="rtl"] #app { --edge: var(--sar); --far: var(--sal); }
+
+    .app-sidebar-bg {
+        display: block;
+        grid-column: 1;
+        grid-row: 1 / -1;
+        background: rgb(var(--glass) / 0.85);
+        border-inline-end: 1px solid var(--glass-border);
+    }
+    #app .app-header, #app .app-main { display: contents; }
+
+    #app .app-logo {
+        grid-column: 1; grid-row: 1;
+        padding: calc(1rem + var(--sat)) 1rem 0.5rem;
+        padding-inline-start: calc(1rem + var(--edge));
+    }
+    /* El ejercicio elegido: encima de la ruleta, sobre la púa, como en vertical */
+    #app .app-chip {
+        grid-column: 2; grid-row: 1;
+        place-self: center;
+        width: auto; max-width: 100%;
+        padding: calc(0.75rem + var(--sat)) 1rem 0;
+    }
+    /* El botón de girar, abajo del todo: lo más cerca de los dedos */
+    #app .app-spin {
+        grid-column: 1; grid-row: 4;
+        margin: 0;
+        padding: 0.75rem 1rem calc(1rem + var(--sab));
+        padding-inline-start: calc(1rem + var(--edge));
+    }
+    /* El menú, arriba, bajo el logo */
+    #app .app-menu {
+        grid-column: 1; grid-row: 2;
+        flex-direction: column; align-items: stretch; gap: 0.5rem;
+        padding: 0.5rem 1rem 0;
+        padding-inline-start: calc(1rem + var(--edge));
+    }
+    #app .app-menu > * { margin: 0; }
+    #app .app-menu button {
+        width: 100%; height: 3rem; justify-content: flex-start; gap: 0.75rem; padding-inline: 0.9rem;
+    }
+    #app .app-menu button i:not(.menu-label) { width: 1.25rem; text-align: center; }
+    #app .menu-label { display: inline; min-width: 0; font-size: 0.875rem; font-weight: 700; text-align: start; }
+    #app #historyBadge { top: 50%; inset-inline-end: 0.75rem; transform: translateY(-50%); }
+
+    /* La ruleta: la altura que quede bajo el marcador (menos el hueco de la púa y el aire de abajo), sin el mínimo de 320 px de vertical */
+    #app .app-wheel {
+        grid-column: 2; grid-row: 2 / -1;
+        place-self: start center;
+        margin: 1.5rem 0 1rem;
+        width: min(calc(100% - 2rem), calc(100dvh - 6.75rem - var(--sat) - var(--sab)));
+    }
+
+    /* Paneles: salen por el lado contrario a la barra, a toda la altura */
+    #historyModal, #configModal, #addExerciseModal, #whatsNewModal {
+        align-items: stretch; justify-content: flex-end; padding: 0;
+    }
+    #historyCard, #configCard, #addExerciseCard, #whatsNewCard {
+        --tw-translate-y: 0px; --tw-scale-x: 1; --tw-scale-y: 1;
+        width: min(100%, 26rem); max-width: none; height: 100%; max-height: none;
+        border-start-start-radius: 1.5rem; border-end-start-radius: 1.5rem;
+        border-start-end-radius: 0; border-end-end-radius: 0;
+    }
+    #historyCard.translate-y-full, #configCard.translate-y-full, #addExerciseCard.translate-y-full, #whatsNewCard.translate-y-full { --tw-translate-x: 100%; }
+    :root[dir="rtl"] #historyCard.translate-y-full, :root[dir="rtl"] #configCard.translate-y-full,
+    :root[dir="rtl"] #addExerciseCard.translate-y-full, :root[dir="rtl"] #whatsNewCard.translate-y-full { --tw-translate-x: -100%; }
+}
+/* Poco alto (un móvil girado): el menú, en una fila de iconos, y menos holgura para que la barra quepa entera */
+@media (min-aspect-ratio: 6/5) and (max-height: 520px) {
+    #app .app-logo { padding-top: calc(0.75rem + var(--sat)); padding-bottom: 0.25rem; }
+    #app .app-chip { padding-top: calc(0.5rem + var(--sat)); }
+    #app .app-spin { padding-top: 0.5rem; padding-bottom: calc(0.75rem + var(--sab)); }
+    #app .app-spin #spinBtn { padding-block: 0.75rem; font-size: 1rem; }
+    #app .app-menu { flex-direction: row; padding-top: 0.25rem; }
+    #app .app-menu button { flex: 1 1 0; height: 2.75rem; justify-content: center; padding-inline: 0; }
+    #app .menu-label { display: none; }
+    #app #historyBadge { top: -0.375rem; inset-inline-end: -0.375rem; transform: none; }
+    /* Los paneles, con menos relleno: cada línea de altura cuenta */
+    #historyCard, #configCard, #addExerciseCard, #whatsNewCard { padding: 1rem; padding-bottom: calc(1rem + var(--sab)); }
+}

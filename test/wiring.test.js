@@ -51,9 +51,12 @@ describe('teclado en el navegador', () => {
 });
 
 describe('pantallas bajas', () => {
-  it('la actividad de Android va bloqueada en vertical', () => {
+  // Play Console pide quitar el bloqueo de orientación (Android 16 lo ignora en pantallas grandes): la app tiene diseño horizontal
+  // (modo horizontal de src/style.css) y girar no debe recrear la actividad ni la web
+  it('la actividad de Android no bloquea la orientación y gestiona el giro sin recrearse', () => {
     const manifest = readFileSync('android/app/src/main/AndroidManifest.xml', 'utf8');
-    expect(manifest).toContain('android:screenOrientation="portrait"');
+    expect(manifest).not.toContain('screenOrientation');
+    expect(manifest).toMatch(/android:configChanges="[^"]*orientation[^"]*screenSize[^"]*"/);
   });
 
   it('toda ventana con tarjeta limita su altura (si no, en una pantalla baja quedan botones fuera de alcance)', () => {

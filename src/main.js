@@ -234,6 +234,7 @@ function init() {
   rebuildWheel();
   resize();
   ui.renderHistory();
+  ui.initSpinHub();
   cleanShareCache(); // por si quedó la imagen temporal de un reto compartido en otra sesión
 
   // Novedades tras actualizar: un instante después de pintar la ruleta, y se dan por vistas al enseñarlas para no repetirlas

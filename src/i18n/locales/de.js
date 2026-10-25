@@ -6,6 +6,8 @@ export default {
     'header.sound': 'Ton ein- oder ausschalten',
     'header.history': 'Verlauf öffnen',
     'header.settings': 'Einstellungen öffnen',
+    'menu.sound': 'Ton',
+    'menu.history': 'Verlauf',
 
     'live.drag': 'Zieh am Rad, um es zu drehen',
     'live.configure': 'Rad bearbeiten',

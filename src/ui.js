@@ -400,9 +400,50 @@ export function renderHistory() {
     </div>`).join('');
 }
 
-/** Bloquea o libera los botones de Historial y Ajustes de la cabecera (mientras gira la ruleta). @param {boolean} locked */
+const HUB_LABEL_MAX = 24;
+const HUB_LABEL_MIN = 9;
+const HUB_LABEL_RATIO = 0.92;
+/** @type {CanvasRenderingContext2D | null} */
+let hubMeasure = null;
+
+/**
+ * Botón central de girar: el texto (y el icono, que va en proporción) rellena el hueco cuando sobra sitio y baja de tamaño si
+ * no cabe (palabras largas en otros idiomas, ruletas pequeñas), así que nunca desborda. Se vuelve a ajustar al cambiar el tamaño
+ * del botón (giro de pantalla, barra lateral), el idioma y al cargar las fuentes.
+ */
+export function fitSpinHub() {
+  const hub = $('spinHub');
+  const icon = $('spinHubIcon');
+  const label = $('spinHubLabel');
+  const width = hub.clientWidth;
+  const height = hub.clientHeight;
+  const text = label.textContent || '';
+  if (!width || !height || !text) return;
+  hubMeasure ??= document.createElement('canvas').getContext('2d');
+  if (!hubMeasure) return;
+  const cs = getComputedStyle(label);
+  hubMeasure.font = `${cs.fontWeight} 100px ${cs.fontFamily}`;
+  const textAt100 = hubMeasure.measureText(text).width || 1;
+  // El texto va en la mitad baja del círculo: de borde a borde no tiene todo el ancho. Icono (casi el doble que el texto), hueco y texto caben en el alto sin llenarlo
+  const byWidth = (100 * 0.64 * width) / textAt100;
+  const byHeight = 0.19 * height;
+  const size = Math.max(HUB_LABEL_MIN, Math.min(HUB_LABEL_MAX, byWidth, byHeight));
+  label.style.fontSize = `${(size * HUB_LABEL_RATIO).toFixed(1)}px`; // el texto, un pelín por debajo de la medida con la que se calcula el icono
+  icon.style.fontSize = `${(size * 1.9).toFixed(1)}px`;
+  icon.style.marginBottom = `${(size * 0.2).toFixed(1)}px`;
+}
+
+/** Ajusta el botón central ahora y cada vez que cambie de tamaño o terminen de cargar las fuentes. */
+export function initSpinHub() {
+  fitSpinHub();
+  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(fitSpinHub).observe($('spinHub'));
+  document.fonts?.ready.then(fitSpinHub);
+}
+
+/** Bloquea o libera los botones de Historial, Ajustes y girar (mientras gira la ruleta). @param {boolean} locked */
 export function setPanelsLocked(locked) {
-  document.querySelectorAll('[data-action=open-history], [data-action=open-settings]').forEach(btn => {
+  // También los dos botones de girar (el central y el de la barra o del pie): mientras gira, quedan apagados
+  document.querySelectorAll('[data-action=open-history], [data-action=open-settings], [data-action=spin]').forEach(btn => {
     /** @type {HTMLButtonElement} */ (btn).disabled = locked;
   });
 }
@@ -1058,6 +1099,7 @@ export function closeDocument() {
 
 /** Vuelve a pintar lo que se genera por código cuando cambia el idioma (el marcado fijo lo hace applyTranslations). */
 export function refreshLanguage() {
+  fitSpinHub();
   renderSettings();
   renderWhatsNew();
   renderConfig(true);

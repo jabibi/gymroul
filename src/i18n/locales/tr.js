@@ -6,6 +6,8 @@ export default {
     'header.sound': 'Sesi aç veya kapat',
     'header.history': 'Geçmişi aç',
     'header.settings': 'Ayarları aç',
+    'menu.sound': 'Ses',
+    'menu.history': 'Geçmiş',
 
     'live.drag': 'Çevirmek için çarkı sürükle',
     'live.configure': 'Çarkı düzenle',

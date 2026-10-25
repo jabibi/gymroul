@@ -6,6 +6,8 @@ export default {
     'header.sound': 'Ativar ou desativar o som',
     'header.history': 'Abrir histórico',
     'header.settings': 'Abrir configurações',
+    'menu.sound': 'Som',
+    'menu.history': 'Histórico',
 
     'live.drag': 'Arraste a roleta para girar',
     'live.configure': 'Editar a roleta',
