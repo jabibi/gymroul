@@ -23,7 +23,7 @@ Pendiente antes de publicar:
 - Subir en Play Console los textos, el CSV, el icono (`store/icon.png`) y las imágenes de `store/`.
 - La ficha de `pt-PT` se queda como está: decisión congelada.
 
-## En desarrollo: versión 1.19 — pulido del historial, pantallas grandes y avisos de Play
+## En desarrollo: versión 1.19 «Jump-Over» — pulido del historial, pantallas grandes y avisos de Play
 
 En la rama `roadmap-19`. El historial que se guarda y acumula se descartó de esta versión (ver «Ideas sin fecha»).
 
@@ -45,7 +45,7 @@ En la rama `roadmap-19`. El historial que se guarda y acumula se descartó de es
   - Al terminar, actualizar `CLAUDE.md` (hoy dice que la actividad va bloqueada en vertical y que no hay diseño horizontal) y quitar el apartado de «Ideas sin fecha».
 - **«Es posible que la vista de extremo a extremo no funcione para todos los usuarios»** (apuntando al SDK 35 o superior): Google recomienda gestionar los bajorrelieves y llamar a `enableEdgeToEdge()`. La app ya hace ambas cosas (`MainActivity.kt` y las zonas seguras con `AppBars.getInsets`), así que probablemente sea un aviso genérico; confirmarlo en un Android 15 o posterior con recorte de pantalla y comprobar que desaparece del panel con la siguiente versión.
 
-## Probable: versión 1.20 — plantillas de ejercicios
+## Probable: versión 1.20 «Toes2Bar» — plantillas de ejercicios
 
 Aún no está decidida ni empezada. Encaja con la regla de dar valor en menos de 10 segundos.
 
