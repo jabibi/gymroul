@@ -314,13 +314,21 @@ const CLEAR_CONFIRM_MS = 3000;
 /** @type {ReturnType<typeof setTimeout> | undefined} */
 let clearConfirmTimer;
 
+/** Pone «Limpiar historial» en su estado normal o en el de confirmación (rojo, «Pulsa otra vez»). @param {boolean} armed */
+function setClearArmed(armed) {
+  $('clearHistoryLabel').textContent = t(armed ? 'history.clearConfirm' : 'history.clear');
+  const btn = $('clearHistoryBtn');
+  btn.classList.toggle('text-red-300', armed);
+  btn.classList.toggle('border-red-400/40', armed);
+  btn.classList.toggle('text-slate-400', !armed);
+  btn.classList.toggle('border-slate-700', !armed);
+}
+
 /** Vuelve «Limpiar historial» a su estado normal. */
 function disarmClearHistory() {
   clearTimeout(clearConfirmTimer);
   clearConfirmTimer = undefined;
-  const btn = $('clearHistoryBtn');
-  btn.textContent = t('history.clear');
-  btn.classList.remove('text-red-300');
+  setClearArmed(false);
 }
 
 /**
@@ -330,9 +338,7 @@ function disarmClearHistory() {
 export function requestClearHistory() {
   if (clearConfirmTimer === undefined) {
     if (sessionHistory.length === 0) return;
-    const btn = $('clearHistoryBtn');
-    btn.textContent = t('history.clearConfirm');
-    btn.classList.add('text-red-300');
+    setClearArmed(true);
     clearConfirmTimer = setTimeout(disarmClearHistory, CLEAR_CONFIRM_MS);
     return;
   }
@@ -346,18 +352,25 @@ function historySummary() {
   return t('history.total', { n: sessionHistory.length, reps: reps.toLocaleString(getLanguageTag()) });
 }
 
-/** Con ejercicios, la lista es un recuadro redondeado con una fila por ejercicio separadas por una línea; vacía, solo el aviso. */
-const HISTORY_BOX = ['rounded-2xl', 'bg-dark-900/60', 'border', 'border-slate-800', 'divide-y', 'divide-slate-800/80'];
+/**
+ * Con ejercicios, la lista es un recuadro redondeado: arriba, fijo, el resumen y debajo una fila por ejercicio separadas por
+ * una línea; «Limpiar historial» queda fuera, en el pie. Vacía, solo el aviso (sin recuadro, resumen ni botón).
+ */
+const HISTORY_BOX = ['bg-dark-900/60', 'border', 'border-slate-800'];
 
 export function renderHistory() {
   const listEl = $('historyList');
+  const box = $('historyBox');
+  const header = $('historyHeader');
   const badge = $('historyBadge');
-  const total = $('totalCompletedText');
 
   if (sessionHistory.length === 0) {
     badge.classList.add('hidden');
-    total.textContent = historySummary();
-    listEl.classList.remove(...HISTORY_BOX);
+    header.classList.add('hidden');
+    header.classList.remove('flex');
+    $('clearHistoryBtn').classList.add('hidden');
+    $('clearHistoryBtn').classList.remove('flex');
+    box.classList.remove(...HISTORY_BOX);
     listEl.innerHTML = `
       <div class="text-center py-8 text-slate-500 text-xs">
         <i class="fa-solid fa-clipboard-list text-2xl mb-2 block opacity-40"></i>
@@ -368,8 +381,12 @@ export function renderHistory() {
 
   badge.textContent = String(sessionHistory.length);
   badge.classList.remove('hidden');
-  total.textContent = historySummary();
-  listEl.classList.add(...HISTORY_BOX);
+  $('totalCompletedText').textContent = historySummary();
+  header.classList.remove('hidden');
+  header.classList.add('flex');
+  $('clearHistoryBtn').classList.remove('hidden');
+  $('clearHistoryBtn').classList.add('flex');
+  box.classList.add(...HISTORY_BOX);
   listEl.innerHTML = sessionHistory.map(h => `
     <div class="px-3.5 py-3 flex justify-between items-center gap-3">
       <div class="flex items-center gap-3 min-w-0">
