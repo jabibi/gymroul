@@ -104,7 +104,7 @@ npm run build:android
 npx cap open android
 ```
 
-Generar el bundle de release. La firma no está en el repositorio: pon la ruta de tu keystore (que no debe subirse), el alias y las contraseñas en `~/.gradle/gradle.properties` (`GYMROUL_KEYSTORE_FILE`, `GYMROUL_KEYSTORE_PASSWORD`, `GYMROUL_KEY_ALIAS`, `GYMROUL_KEY_PASSWORD`) y Gradle las usará, desde Android Studio o desde la terminal; sin ellas el bundle sale sin firmar. Las pruebas en un dispositivo (`./gradlew assembleDebug`) se instalan como «GymRoulette Debug» (`eus.jabibi.gymroul.debug`), al lado de la app de Play:
+Generar el bundle de release. La firma no está en el repositorio: pon la ruta de tu keystore (que no debe subirse), el alias y las contraseñas en `~/.gradle/gradle.properties` (`GYMROUL_KEYSTORE_FILE`, `GYMROUL_KEYSTORE_PASSWORD`, `GYMROUL_KEY_ALIAS`, `GYMROUL_KEY_PASSWORD`) y Gradle las usará, desde Android Studio o desde la terminal; sin ellas el bundle sale sin firmar. Las pruebas en un dispositivo (`./gradlew assembleDebug`) se instalan como «D/GymRoulette» (`eus.jabibi.gymroul.debug`), al lado de la app de Play:
 
 ```bash
 cd android && ./gradlew bundleRelease

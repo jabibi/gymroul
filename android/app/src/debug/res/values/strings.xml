@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">GymRoulette Debug</string>
-    <string name="title_activity_main">GymRoulette Debug</string>
+    <string name="app_name">D/GymRoulette</string>
+    <string name="title_activity_main">D/GymRoulette</string>
 </resources>
