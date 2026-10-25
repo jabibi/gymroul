@@ -2,26 +2,7 @@
 
 Solo lo que está en marcha o por hacer: la versión en desarrollo y las siguientes. Lo ya publicado no se guarda aquí (está en el historial de commits y en `store/notas-de-la-version.txt`). Al empezar a trabajar en una versión nueva, se borra de este fichero la anterior.
 
-Última versión publicada en producción: la 1.16 «Six Pack» (versionCode 16, 20 oct 2026). Cada cambio de la ficha o de la versión llega ya a usuarios reales.
-
-## En desarrollo: versión 1.18 «GymTonic» (versionCode 18)
-
-Sin publicar y cerrada: no se añaden más cambios a la 1.18 (el trabajo nuevo va a la 1.19). Ya está fusionada en `main`. Un toque más fresco, elegante y suave, con el ruso como gran novedad y el tema claro. Incluye:
-- **Tema Claro** y **Sistema** (por defecto): cuatro opciones en Apariencia: Sistema (sigue el modo claro u oscuro del dispositivo; nunca elige Clásico), Oscuro (antes Suave; el identificador guardado sigue siendo `calm`), Claro (nuevo) y Clásico. Claro lleva una ruleta de tonos cálidos pastel con texto casi negro y neutros cálidos. La imagen de compartir y las barras del sistema de Android también siguen la apariencia, y la pantalla de arranque de Android tiene versión clara y oscura.
-- **Ruso** como idioma 21 (app, ficha de Play y páginas legales), con Manrope para el cirílico, y Manrope en los créditos.
-- **Ajustes sin botones de guardar**, **deshacer al borrar un ejercicio** y **vista previa con mini ruleta** en Apariencia.
-- **Visor de documentos** que siempre abre desde arriba y sin añadir entradas al historial al navegar entre páginas legales.
-- **Logo sin resplandor** (trazo de 16) en Oscuro y Claro: cabecera, favicon, icono del launcher, pantalla de arranque, imagen de compartir y ficha de Play. El Clásico es otro diseño y no cambia.
-- **Icono monocromo** para los «iconos con tema» de Android 13 (trazo de 20; `drawable-nodpi/ic_launcher_monochrome.png`, enlazado por `scripts/fix-adaptive-icon.mjs`).
-- **Pantalla de arranque en Android 12 y posteriores**: fondo e icono del sistema según el modo del dispositivo (antes salía el logo oscuro sobre el fondo claro).
-- **Código nativo de Android en Kotlin** (`MainActivity`, `AppBarsPlugin` y la nueva `SplashOverlay`; ya no queda Java propio).
-- **Pantalla de arranque nativa con la firma «from PointedIO»**: el logo de la apariencia y la firma abajo desde el primer fotograma de la actividad (`SplashOverlay.kt`), que se retira con un fundido cuando la web avisa (`AppBars.hideSplash`), con un mínimo de 900 ms. La web conserva la suya en HTML (`#bootSplash`), sin tiempo mínimo y oculta en la app: el diseño está en dos sitios.
-- Aviso de novedades de la 1.18 (`WHATS_NEW_VERSION`) y novedades de Play con la 1.18 y la 1.17.
-
-Pendiente antes de publicar:
-- Probar en dispositivo (Pixel 8 Pro) la pantalla de arranque nativa (logo y firma en Oscuro, Claro y Clásico, la barra de gestos y el tiempo mínimo) y un arranque con la apariencia elegida distinta del modo del dispositivo. Además: el tema claro, la pantalla de arranque en claro y en oscuro (sigue el modo del dispositivo, no la apariencia elegida en la app), las barras del sistema y el icono con «Iconos con tema» activado (Ajustes → Fondo de pantalla y estilo).
-- Subir en Play Console los textos, el CSV, el icono (`store/icon.png`) y las imágenes de `store/`.
-- La ficha de `pt-PT` se queda como está: decisión congelada.
+Última versión publicada en producción: la 1.18 «GymTonic» (versionCode 18, 25 oct 2026). Cada cambio de la ficha o de la versión llega ya a usuarios reales.
 
 ## En desarrollo: versión 1.19 «Jump-Over» — pulido del historial, pantallas grandes y avisos de Play
 
