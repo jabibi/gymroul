@@ -6,6 +6,8 @@ export default {
     'header.sound': 'Activar ou desactivar o son',
     'header.history': 'Abrir historial',
     'header.settings': 'Abrir axustes',
+    'menu.sound': 'Son',
+    'menu.history': 'Historial',
 
     'live.drag': 'Arrastra a ruleta para xirar',
     'live.configure': 'Editar a ruleta',

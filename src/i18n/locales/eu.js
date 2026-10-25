@@ -6,6 +6,8 @@ export default {
     'header.sound': 'Soinua aktibatu edo desaktibatu',
     'header.history': 'Ireki historia',
     'header.settings': 'Ireki ezarpenak',
+    'menu.sound': 'Soinua',
+    'menu.history': 'Historia',
 
     'live.drag': 'Arrastatu gurpila biratzeko',
     'live.configure': 'Editatu gurpila',

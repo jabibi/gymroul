@@ -6,6 +6,8 @@ export default {
     'header.sound': 'Attiva o disattiva il suono',
     'header.history': 'Apri la cronologia',
     'header.settings': 'Apri le impostazioni',
+    'menu.sound': 'Audio',
+    'menu.history': 'Cronologia',
 
     'live.drag': 'Trascina la ruota per farla girare',
     'live.configure': 'Modifica la ruota',

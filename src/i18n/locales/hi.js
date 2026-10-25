@@ -6,6 +6,8 @@ export default {
     'header.sound': 'आवाज़ चालू या बंद करें',
     'header.history': 'इतिहास खोलें',
     'header.settings': 'सेटिंग खोलें',
+    'menu.sound': 'ध्वनि',
+    'menu.history': 'इतिहास',
 
     'live.drag': 'चक्र को घुमाने के लिए खींचें',
     'live.configure': 'चक्र संपादित करें',

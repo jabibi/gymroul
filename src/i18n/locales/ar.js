@@ -9,6 +9,8 @@ export default {
     'header.sound': 'تشغيل الصوت أو إيقافه',
     'header.history': 'فتح السجل',
     'header.settings': 'فتح الإعدادات',
+    'menu.sound': 'الصوت',
+    'menu.history': 'السجل',
 
     'live.drag': 'اسحب العجلة لتدويرها',
     'live.configure': 'تعديل العجلة',

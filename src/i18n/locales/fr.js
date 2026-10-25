@@ -6,6 +6,8 @@ export default {
     'header.sound': 'Activer ou couper le son',
     'header.history': "Ouvrir l'historique",
     'header.settings': 'Ouvrir les réglages',
+    'menu.sound': 'Son',
+    'menu.history': 'Historique',
 
     'live.drag': 'Fais glisser la roue pour la faire tourner',
     'live.configure': 'Modifier la roue',

@@ -15,6 +15,7 @@ Disponible como aplicación web (Firebase Hosting) y como app Android (Capacitor
 - Interfaz en 21 idiomas: árabe (de derecha a izquierda), inglés (EE. UU., Reino Unido y Australia), español (España y Latinoamérica), euskera, gallego, catalán, francés (Francia y Canadá), alemán, italiano, japonés, neerlandés, polaco, ruso, hindi, turco y portugués (Brasil y Portugal). Se elige según el dispositivo y se puede cambiar en Ajustes.
 - Historial de la sesión con los retos completados. Mientras la ruleta gira, Historial y Ajustes no se abren; tocar fuera de un panel no lo cierra.
 - La configuración se guarda en `localStorage` (con versión de esquema y migraciones).
+- Diseño horizontal para tabletas, plegables y móviles girados (y ventanas anchas del navegador): barra lateral con el logo, el menú y el botón de girar, y la ruleta a la derecha; los paneles salen por el lado contrario.
 - Funciona sin conexión: Tailwind, Font Awesome y la fuente van empaquetados. La app de Android no declara el permiso de Internet.
 - Sin analítica, sin anuncios, sin rastreadores y sin acceso a la ubicación: no envía ningún dato fuera del dispositivo.
 - Se abre directamente la ruleta, sin introducción: el enlace «Privacidad» (en Ajustes) resume qué no hace la app con tus datos.
