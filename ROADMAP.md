@@ -23,9 +23,9 @@ Pendiente antes de publicar:
 - Subir en Play Console los textos, el CSV, el icono (`store/icon.png`) y las imágenes de `store/`.
 - La ficha de `pt-PT` se queda como está: decisión congelada.
 
-## Probable: versión 1.19 — historial que se guarda y resumen acumulado
+## En desarrollo: versión 1.19 — pulido del historial, pantallas grandes y avisos de Play
 
-Aún no está decidida ni empezada. Es el prerrequisito para retomar la valoración dentro de la app (ver «Ideas sin fecha»).
+En la rama `roadmap-19`. El historial que se guarda y acumula se descartó de esta versión (ver «Ideas sin fecha»).
 
 **Mantenimiento previsto**: Vite actualizado a la 8.3.5 (la 8.3.2 tenía avisos de seguridad del servidor de desarrollo; no afectaban a lo publicado). Los avisos que quedan de `npm audit` vienen de `@capacitor/assets` y `@capacitor/cli`, solo de desarrollo: se resuelven cuando esos paquetes actualicen sus dependencias, sin `npm audit fix --force`.
 
@@ -44,31 +44,6 @@ Aún no está decidida ni empezada. Es el prerrequisito para retomar la valoraci
   - Ficha de Play: las capturas se hacen en vertical y pueden seguir así; valorar capturas de tableta, que Play pide si la app se declara compatible con pantalla grande.
   - Al terminar, actualizar `CLAUDE.md` (hoy dice que la actividad va bloqueada en vertical y que no hay diseño horizontal) y quitar el apartado de «Ideas sin fecha».
 - **«Es posible que la vista de extremo a extremo no funcione para todos los usuarios»** (apuntando al SDK 35 o superior): Google recomienda gestionar los bajorrelieves y llamar a `enableEdgeToEdge()`. La app ya hace ambas cosas (`MainActivity.kt` y las zonas seguras con `AppBars.getInsets`), así que probablemente sea un aviso genérico; confirmarlo en un Android 15 o posterior con recorte de pantalla y comprobar que desaparece del panel con la siguiente versión.
-
-**La idea**: que el historial sea un registro real de entrenamientos hechos, que sobreviva al cierre de la app, y que su resumen acumule totales (retos completados y repeticiones) más allá de la sesión.
-
-**Qué hay ya**:
-- Solo se registra lo completado: `closeResult(true)` llama a `addToHistory`; si el usuario salta el reto, no entra.
-- Cada fila lleva el ejercicio, las repeticiones, la hora y el icono, y el pie resume ejercicios y repeticiones totales de la sesión (`history.total`).
-
-**Qué falta**:
-- **Guardarlo**: hoy es una lista en memoria (`sessionHistory` en `src/ui.js`) y se pierde al cerrar la app. Moverlo a `src/store.js`, que gestiona lo guardado en `localStorage`.
-- **Guardar la fecha completa**: ahora solo se guarda la hora ya formateada en el idioma del momento. Guardar la marca de tiempo y dar formato al pintar, para que el cambio de idioma lo respete.
-- **Guardar la identidad del ejercicio, no su etiqueta**: la entrada guarda `winner.exercise`, el nombre ya traducido al girar (`generateSegments` aplica `exerciseLabels`). Al persistir, un historial hecho en un idioma se quedaría fijo en él. Guardar el nombre original (o el id) y traducirlo al mostrarlo. Si el usuario borra o renombra un ejercicio, conservar el nombre guardado es lo más simple.
-- **Totales acumulados**: contador de retos completados y repeticiones totales de siempre, y quizá por día o semana. Qué mostrar exactamente es lo primero que hay que decidir: el resumen debe seguir siendo sencillo.
-- **Tope de tamaño**: limitar las entradas guardadas (por ejemplo las últimas 200) y mantener los acumulados aparte, para que `localStorage` no crezca sin límite.
-- **«Limpiar historial»**: decidir si borra solo la lista o también los acumulados; lo razonable es separarlo o dejar claro qué se borra.
-- **El contador del botón del historial** (`historyBadge`): hoy cuenta los retos de la sesión. Decidir si sigue así o pasa a otra cosa.
-
-**Qué implicaría**:
-- **Datos guardados**: nueva clave en `src/store.js`, subir `SCHEMA_VERSION` (hoy 8) y añadir la migración, con validación al leer por si el dato está corrupto, como las demás claves.
-- **Privacidad**: los datos siguen solo en el dispositivo y no hay red, así que la política no cambia, pero hay que confirmarlo y reflejar en «Seguridad de los datos» que se guarda un historial local. Revisar también el modal «Compromiso de privacidad» y la página de eliminación de datos.
-- **Textos**: etiquetas nuevas del resumen acumulado en los 21 idiomas (`npm test` falla si falta alguna).
-- **Interfaz**: el modal del historial deja de ser «de la sesión» (título actual «Historial de sesión»); decidir el nombre y si se separa «hoy» de «total».
-- **Comprobaciones**: `npm run check:layout` (incluido `--stress`) y pruebas de la migración, con un historial grande y con datos corruptos.
-- **Ficha de Play**: novedades y capturas del historial, y revisar «Seguridad de los datos».
-
-**Riesgos**: un historial que crece necesita un tope y una forma clara de borrarlo; y no debe romper la idea de que la app abra directamente la ruleta y sea inmediata.
 
 ## Probable: versión 1.20 — plantillas de ejercicios
 
@@ -99,7 +74,8 @@ Aún no está decidida ni empezada. Encaja con la regla de dar valor en menos de
 
 ## Ideas sin fecha
 
-- Valoración dentro de la app (In-App Review): descartada de momento. Añade una dependencia de Google Play que choca con el «sin SDK de terceros ni conexión» (habría que revisar la política de privacidad y «Seguridad de los datos»), Google limita cuántas veces se muestra y no hay un momento claro de éxito del usuario. Retomarla con más usuarios y un historial de entrenamientos completados (versión 1.19).
+- Valoración dentro de la app (In-App Review): descartada de momento. Añade una dependencia de Google Play que choca con el «sin SDK de terceros ni conexión» (habría que revisar la política de privacidad y «Seguridad de los datos»), Google limita cuántas veces se muestra y no hay un momento claro de éxito del usuario. Retomarla con más usuarios y, si se hiciera, un historial de entrenamientos completados que sobreviva al cierre de la app.
+- Historial que se guarda y resumen acumulado: descartado de momento, sin demanda clara entre los usuarios de la app. Hoy el historial es de la sesión: `sessionHistory` en `src/ui.js`, en memoria, con ejercicio, repeticiones, hora ya formateada e icono (solo se registra lo completado: `closeResult(true)` llama a `addToHistory`). Si se retomara: moverlo a `src/store.js` (nueva clave, subir `SCHEMA_VERSION`, hoy 8, con migración y validación al leer), guardar la marca de tiempo y el nombre original del ejercicio (no la etiqueta traducida) y dar formato al pintar, con un tope de entradas (por ejemplo las últimas 200) y totales acumulados aparte; decidir qué borra «Limpiar historial» y qué cuenta el contador del botón (`historyBadge`). Implicaría revisar la política de privacidad, «Seguridad de los datos», el compromiso de privacidad y la página de eliminación de datos (se guardaría un historial local, sin red), textos nuevos en los 21 idiomas y las capturas de Play.
 - Exportar e importar la configuración en un archivo local.
 - Revisión de accesibilidad (texto grande, lector de pantalla).
 - Cambiar el icono del launcher según la apariencia (alias de actividad): descartado por ahora. El lanzador puede parpadear o perder accesos directos, «Sistema» no se puede seguir con la app cerrada y cada tema nuevo exigiría otro icono. El icono monocromo de la 1.18 cubre lo razonable.
