@@ -118,7 +118,7 @@ function buildCache() {
 
     l.save();
     l.rotate(start + slice / 2);
-    l.textAlign = 'right';
+    l.textAlign = 'center';
     l.textBaseline = 'middle';
     l.fillStyle = labelColor;
     l.shadowColor = labelShadow;
@@ -138,7 +138,9 @@ function buildCache() {
     const fitted = fitLabel((text, px) => (l.font = labelFont(px), l.measureText(text).width), label, textEnd - textStart, Math.max(maxSize, MIN_LABEL_SIZE), MIN_LABEL_SIZE, maxLines);
     l.font = labelFont(fitted.size);
     const lineGap = fitted.size * LABEL_LINE_HEIGHT;
-    fitted.lines.forEach((line, n) => l.fillText(line, textEnd, (n - (fitted.lines.length - 1) / 2) * lineGap));
+    // Centrado en el sector: a mitad del tramo libre entre el botón central y el aro, no pegado al borde exterior
+    const textMid = (textStart + textEnd) / 2;
+    fitted.lines.forEach((line, n) => l.fillText(line, textMid, (n - (fitted.lines.length - 1) / 2) * lineGap));
     l.restore();
   }
   cacheDirty = false;
