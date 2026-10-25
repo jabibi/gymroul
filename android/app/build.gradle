@@ -32,7 +32,20 @@ android {
     //   GYMROUL_KEY_ALIAS=...
     //   GYMROUL_KEY_PASSWORD=...
     def signingProps = ['GYMROUL_KEYSTORE_FILE', 'GYMROUL_KEYSTORE_PASSWORD', 'GYMROUL_KEY_ALIAS', 'GYMROUL_KEY_PASSWORD']
-    def hasSigning = signingProps.every { project.hasProperty(it) } && file(project.property('GYMROUL_KEYSTORE_FILE')).exists()
+    def signingSet = signingProps.findAll { project.hasProperty(it) }
+    def hasSigning = signingSet.size() == signingProps.size() && file(project.property('GYMROUL_KEYSTORE_FILE')).exists()
+    if (signingSet && !hasSigning) {
+        // Hay propiedades de firma, pero no sirven (faltan unas o el keystore no existe): la release saldría sin firmar sin que nadie lo notara.
+        // Se avisa siempre y, si se compila una release, se para.
+        def why = signingSet.size() < signingProps.size() ? "faltan ${signingProps - signingSet}" : "no existe el keystore ${project.property('GYMROUL_KEYSTORE_FILE')}"
+        def signingProblem = "Firma de release mal configurada (gradle.properties): ${why}."
+        logger.warn("AVISO: ${signingProblem}")
+        project.gradle.taskGraph.whenReady { graph ->
+            if (graph.allTasks.any { it.project == project && it.name ==~ /(assemble|bundle|package)\w*Release/ }) {
+                throw new GradleException("${signingProblem} La release saldría sin firmar.")
+            }
+        }
+    }
     if (hasSigning) {
         signingConfigs {
             release {
