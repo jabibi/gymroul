@@ -372,8 +372,8 @@ export function renderHistory() {
     $('clearHistoryBtn').classList.remove('flex');
     box.classList.remove(...HISTORY_BOX);
     listEl.innerHTML = `
-      <div class="text-center py-8 text-slate-500 text-xs">
-        <i class="fa-solid fa-clipboard-list text-2xl mb-2 block opacity-40"></i>
+      <div class="flex flex-col items-center text-center py-8 text-slate-500 text-xs">
+        <i class="fa-solid fa-clipboard-list text-2xl mb-2 opacity-40"></i>
         ${escapeHTML(t('history.empty'))}
       </div>`;
     return;
@@ -402,7 +402,7 @@ export function renderHistory() {
 
 const HUB_LABEL_MAX = 24;
 const HUB_LABEL_MIN = 9;
-const HUB_LABEL_RATIO = 0.92;
+const HUB_LABEL_RATIO = 0.85;
 /** @type {CanvasRenderingContext2D | null} */
 let hubMeasure = null;
 
@@ -525,7 +525,7 @@ function foldRemoval() {
   const row = document.querySelector('#exsCheckboxes [data-removed]');
   row?.classList.replace('grid-rows-[1fr]', 'grid-rows-[0fr]');
   row?.classList.add('-mb-2', 'opacity-0');
-  if (row?.contains(document.activeElement)) /** @type {HTMLElement} */ (document.querySelector('[data-action="open-add-exercise"]')).focus({ preventScroll: true });
+  const hadFocus = !!row?.contains(document.activeElement);
   row?.querySelector('[data-action="undo-delete"]')?.setAttribute('tabindex', '-1');
   $('removalLive').textContent = '';
   const current = removal;
@@ -533,6 +533,13 @@ function foldRemoval() {
     if (removal !== current) return;
     removal = null;
     renderConfig(true);
+    if (hadFocus && (!document.activeElement || document.activeElement === document.body)) {
+      // La línea desapareció con el foco dentro: pasa a «Añadir» (que ya se puede usar si la lista estaba llena) o, si no, a la primera casilla.
+      // Se hace tras repintar la lista: antes, la casilla enfocada se destruía con el repintado
+      const add = /** @type {HTMLButtonElement} */ ($('addExerciseBtn'));
+      const target = add.disabled ? document.querySelector('#exsCheckboxes .ex-checkbox') ?? document.querySelector('[data-action="toggle-exs"]') : add;
+      /** @type {HTMLElement | null} */ (target)?.focus({ preventScroll: true });
+    }
   }, FADE_MS);
 }
 

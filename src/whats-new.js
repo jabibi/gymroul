@@ -1,6 +1,6 @@
 // @ts-check
-// Aviso de novedades al abrir la app tras actualizarla. Sale una sola vez por versión de novedades y no a quien acaba
-// de instalar la app (ya ve la versión nueva; no hay nada que explicarle).
+// Aviso de novedades al abrir la app: sale una sola vez por versión de novedades, tanto a quien la actualiza como a quien la
+// abre por primera vez (el aviso lleva un acceso directo a Apariencia, útil para quien llega nuevo).
 //
 // Al sacar una versión con cambios que merezcan aviso: sube WHATS_NEW_VERSION y reescribe los textos whatsnew.* (en todos
 // los idiomas). Una versión sin cambios que contar no toca nada y no vuelve a mostrar el aviso.
@@ -8,19 +8,12 @@
 import { readStorage, writeStorage } from './store.js';
 
 /** Versión a la que se refieren los textos whatsnew.*; se muestra en el título */
-export const WHATS_NEW_VERSION = '1.18';
+export const WHATS_NEW_VERSION = '1.19';
 
 const KEY_SEEN = 'gym_whatsnew_seen';
 
-/**
- * ¿Hay que enseñar las novedades? En una instalación nueva se da por vistas sin mostrarlas.
- * @param {boolean} freshInstall resultado de isFreshInstall(), consultado antes de migrate()
- */
-export function shouldShowWhatsNew(freshInstall) {
-  if (freshInstall) {
-    markWhatsNewSeen();
-    return false;
-  }
+/** ¿Hay que enseñar las novedades? Sí si no se han visto todavía (una instalación nueva tampoco las ha visto). */
+export function shouldShowWhatsNew() {
   return readStorage(KEY_SEEN, /** @type {string} */ (''), v => typeof v === 'string') !== WHATS_NEW_VERSION;
 }
 
