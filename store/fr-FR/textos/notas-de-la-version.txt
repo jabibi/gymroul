@@ -1,8 +1,7 @@
+Version 1.19 (Jump-Over):
+• Affichage horizontal pour les tablettes et les téléphones inclinés.
+• Roue plus claire, historique mieux rangé et annulation sur la ligne en supprimant un exercice.
+
 Version 1.18 (GymTonic):
 • Un aspect plus frais et plus doux : nouvelle apparence Claire et option Système. Doux devient Sombre.
 • Le russe rejoint l’appli, désormais en 21 langues.
-
-Version 1.17 (Muted Tones):
-• Nouvel aspect : nouvelle icône et deux apparences au choix, Doux et Classique.
-• Les réglages deviennent un menu : roue, apparence, langue, confidentialité et crédits.
-• Noms d'exercices complets sur la roue et texte plus grand et lisible.

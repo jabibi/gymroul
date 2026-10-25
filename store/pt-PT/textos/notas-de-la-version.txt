@@ -1,8 +1,7 @@
+Versão 1.19 (Jump-Over):
+• Vista horizontal para tablets e telemóveis rodados.
+• Roleta mais clara, histórico mais organizado e desfazer na própria linha ao eliminar um exercício.
+
 Versão 1.18 (GymTonic):
 • Visual mais fresco e suave: nova aparência Clara e opção Sistema. Suave passa a chamar-se Escuro.
 • O russo junta-se à app, agora em 21 idiomas.
-
-Versão 1.17 (Muted Tones):
-• Novo visual: ícone novo e duas aparências à escolha, Suave e Clássico.
-• As definições passam a menu: roleta, aparência, idioma, privacidade e créditos.
-• Nomes de exercícios completos na roleta e texto maior e mais legível.

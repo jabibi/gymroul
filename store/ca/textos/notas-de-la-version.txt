@@ -1,8 +1,7 @@
+Versió 1.19 (Jump-Over):
+• Vista horitzontal per a tauletes i mòbils girats.
+• Ruleta més clara, historial més ordenat i desfer a la mateixa línia en esborrar un exercici.
+
 Versió 1.18 (GymTonic):
 • Aspecte més fresc i suau: nova aparença Clar i opció Sistema. Suau ara es diu Fosc.
 • El rus s’afegeix a l’app, ja en 21 idiomes.
-
-Versió 1.17 (Muted Tones):
-• Nou aspecte: icona nova i dues aparences a triar, Suau i Clàssic.
-• Ajustos en forma de menú: ruleta, aparença, idioma, privadesa i crèdits.
-• Noms d'exercicis complets a la ruleta i text més gran i llegible.

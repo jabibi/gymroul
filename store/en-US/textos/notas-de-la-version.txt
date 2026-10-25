@@ -1,8 +1,7 @@
+Version 1.19 (Jump-Over):
+• Landscape view for tablets and rotated phones.
+• Clearer wheel, tidier history, and undo right on the row when you delete an exercise.
+
 Version 1.18 (GymTonic):
 • Fresher, softer look: new Light appearance and a System option. Soft is now called Dark.
 • Russian joins the app, now in 21 languages.
-
-Version 1.17 (Muted Tones):
-• New look: new icon and a choice of two appearances, Soft and Classic.
-• Settings is now a menu: wheel, appearance, language, privacy and credits.
-• Full exercise names on the wheel and larger, easier-to-read text.
