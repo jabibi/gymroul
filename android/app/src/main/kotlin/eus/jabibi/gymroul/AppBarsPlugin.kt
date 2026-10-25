@@ -15,7 +15,7 @@ import com.getcapacitor.annotation.CapacitorPlugin
  * Puente con la web: color de las barras del sistema, zonas seguras y pantalla de arranque.
  *
  * Barras: pone a la vez el color de fondo y el estilo de los iconos según la apariencia de la app. El fondo (el de la
- * apariencia, no el del modo del dispositivo) es lo que se ve tras las barras, y los iconos tienen que contrastar con él:
+ * apariencia, no el del modo del dispositivo) es lo que se ve tras las barras (que son transparentes), y los iconos tienen que contrastar con él:
  * antes, con el móvil en claro y la app en oscuro, salían iconos claros sobre fondo claro. SystemBars de Capacitor
  * restablece el fondo de la ventana cada vez que se llama a su setStyle y al cambiar la configuración, por eso no se usa su
  * setStyle y MainActivity vuelve a aplicar esto al cambiar la configuración.
@@ -96,14 +96,13 @@ class AppBarsPlugin : Plugin() {
             if (applied) apply(activity)
         }
 
-        @Suppress("DEPRECATION")
         private fun apply(activity: Activity) {
             val window = activity.window
             val decor = window.decorView
             decor.setBackgroundColor(background)
-            // Barras transparentes: se ve la propia web por debajo (integración con la interfaz) y, si no llega, el fondo de la ventana
-            window.statusBarColor = Color.TRANSPARENT
-            window.navigationBarColor = Color.TRANSPARENT
+            // Las barras ya son transparentes por enableEdgeToEdge() (MainActivity): se ve la propia web por debajo (integración con
+            // la interfaz) y, si no llega, el fondo de la ventana. No se asigna statusBarColor ni navigationBarColor: están obsoletos
+            // y Android 15 o superior los ignora (Play Console lo avisa), así que aquí solo se ajusta el contraste y el color de los iconos.
             if (Build.VERSION.SDK_INT >= 29) {
                 window.isNavigationBarContrastEnforced = false
                 window.isStatusBarContrastEnforced = false
