@@ -32,8 +32,8 @@ export const LIMITS = { title: 30, short: 80, full: 4000, notes: 500 };
  * Al publicar una versión nueva, la actual pasa a ser la anterior y se añade la nueva arriba.
  */
 export const NOTES_VERSIONS = [
+  { version: '1.20', codename: 'Toes2Bar' },
   { version: '1.19', codename: 'Jump-Over' },
-  { version: '1.18', codename: 'GymTonic' },
 ];
 
 /**
@@ -50,11 +50,11 @@ export const LISTINGS = {
     short: 'The random exercise wheel to work out at home or at the gym.',
     banner: { line1: 'Spin the wheel', line2: 'and get training', tagline: 'Random exercises to challenge you every day', button: 'Spin the wheel' },
     notes: notesText('Version', [
+      'Exercise templates: cardio, weights, abs and more. Load one or create your own.',
+      '24 new exercises in 21 languages, and wheel colors that never repeat side by side.',
+    ], [
       'Landscape view for tablets and rotated phones.',
       'Clearer wheel, tidier history, and undo right on the row when you delete an exercise.',
-    ], [
-      'Fresher, softer look: new Light appearance and a System option. Soft is now called Dark.',
-      'Russian joins the app, now in 21 languages.',
     ]),
     full: `Can't decide what to train today? Spin the wheel and let GymRoulette choose for you.
 
@@ -98,11 +98,11 @@ Spin the wheel and let's train.`,
     short: 'La ruleta de ejercicios aleatoria para entrenar en casa o en el gimnasio.',
     banner: { line1: 'Gira la ruleta', line2: 'y a entrenar', tagline: 'Ejercicios aleatorios para retarte cada día', button: 'Girar ruleta' },
     notes: notesText('Versión', [
+      'Plantillas de ejercicios: cardio, pesas, abdominales y más. Cárgalas en la ruleta o crea las tuyas.',
+      '24 ejercicios nuevos en 21 idiomas y colores de la ruleta que no se repiten uno junto a otro.',
+    ], [
       'Vista horizontal para tablets y móviles girados.',
       'Ruleta más clara, historial más ordenado y deshacer en la propia línea al borrar un ejercicio.',
-    ], [
-      'Aspecto más fresco y suave: nueva apariencia Claro y opción Sistema. Suave ahora se llama Oscuro.',
-      'El ruso se suma a la app, ya en 21 idiomas.',
     ]),
     full: `¿Sin ganas de decidir qué entrenar hoy? Gira la ruleta y deja que GymRoulette elija por ti.
 
@@ -146,11 +146,11 @@ Gira la ruleta y a entrenar.`,
     short: 'Ariketa aleatorioen gurpila etxean edo gimnasioan entrenatzeko.',
     banner: { line1: 'Biratu gurpila', line2: 'eta entrenatzera', tagline: 'Ausazko ariketak egunero zure burua probatzeko', button: 'Biratu gurpila' },
     notes: notesText('Bertsioa', [
+      'Ariketa-txantiloiak: kardioa, pisuak, sabelekoak eta gehiago. Kargatu erruletan edo sortu zureak.',
+      '24 ariketa berri 21 hizkuntzatan, eta erruletaren koloreak ez dira elkarren ondoan errepikatzen.',
+    ], [
       'Ikuspegi horizontala tabletetarako eta biratutako telefonoetarako.',
       'Erruleta argiagoa, historia ordenatuagoa eta ariketa bat ezabatzean bere lerroan bertan desegiteko aukera.',
-    ], [
-      'Itxura freskoagoa eta leunagoa: Argia itxura berria eta Sistema aukera. Leuna orain Iluna da.',
-      'Errusiera aplikaziora gehitu da, 21 hizkuntzatan jada.',
     ]),
     full: `Ez dakizu gaur zer entrenatu? Biratu gurpila eta utzi GymRoulette-ri zure ordez aukeratzen.
 
@@ -194,11 +194,11 @@ Biratu gurpila eta entrenatzera.`,
     short: 'A ruleta de exercicios aleatoria para adestrar na casa ou no ximnasio.',
     banner: { line1: 'Xira a ruleta', line2: 'e a adestrar', tagline: 'Exercicios aleatorios para retarte cada día', button: 'Xirar a ruleta' },
     notes: notesText('Versión', [
+      'Modelos de exercicios: cardio, pesas, abdominais e máis. Cárgaos na ruleta ou crea os teus.',
+      '24 exercicios novos en 21 idiomas e cores da ruleta que non se repiten xuntas.',
+    ], [
       'Vista horizontal para tabletas e móbiles xirados.',
       'Ruleta máis clara, historial máis ordenado e desfacer na mesma liña ao borrar un exercicio.',
-    ], [
-      'Aspecto máis fresco e suave: nova aparencia Claro e opción Sistema. Suave agora chámase Escuro.',
-      'O ruso súmase á app, xa en 21 idiomas.',
     ]),
     full: `Sen ganas de decidir que adestrar hoxe? Xira a ruleta e deixa que GymRoulette escolla por ti.
 
@@ -242,11 +242,11 @@ Xira a ruleta e a adestrar.`,
     short: 'عجلة التمارين العشوائية للتمرن في المنزل أو في النادي الرياضي.',
     banner: { line1: 'أدر العجلة', line2: 'وهيّا إلى التمرين', tagline: 'تمارين عشوائية تتحداك كل يوم', button: 'أدر العجلة' },
     notes: notesText('الإصدار', [
+      'قوالب التمارين: كارديو وأوزان وعضلات البطن وغيرها. حمّلها على العجلة أو أنشئ قوالبك.',
+      '24 تمرينًا جديدًا بـ 21 لغة، وألوان عجلة لا تتكرر متجاورة.',
+    ], [
       'عرض أفقي للأجهزة اللوحية والهواتف المُدارة.',
       'عجلة أوضح وسجل أكثر تنظيمًا وإمكانية التراجع في السطر نفسه عند حذف تمرين.',
-    ], [
-      'مظهر أكثر انتعاشًا ونعومة: مظهر فاتح جديد وخيار النظام. أصبح الناعم يُسمّى داكنًا.',
-      'تنضم الروسية إلى التطبيق، وصار متاحًا بـ 21 لغة.',
     ]),
     full: `لا تعرف ماذا تتمرّن اليوم؟ أدر العجلة ودع GymRoulette تختار لك.
 
@@ -290,11 +290,11 @@ GymRoulette عجلة للتمارين: كل قطاع هو تمرين، وعند�
     short: 'La ruleta d\'exercicis aleatòria per entrenar a casa o al gimnàs.',
     banner: { line1: 'Gira la ruleta', line2: 'i a entrenar', tagline: 'Exercicis aleatoris per reptar-te cada dia', button: 'Gira la ruleta' },
     notes: notesText('Versió', [
+      'Plantilles d’exercicis: cardio, pesos, abdominals i més. Carrega-les a la ruleta o crea les teves.',
+      '24 exercicis nous en 21 idiomes i colors de la ruleta que no es repeteixen un al costat de l’altre.',
+    ], [
       'Vista horitzontal per a tauletes i mòbils girats.',
       'Ruleta més clara, historial més ordenat i desfer a la mateixa línia en esborrar un exercici.',
-    ], [
-      'Aspecte més fresc i suau: nova aparença Clar i opció Sistema. Suau ara es diu Fosc.',
-      'El rus s’afegeix a l’app, ja en 21 idiomes.',
     ]),
     full: `No tens ganes de decidir què entrenar avui? Gira la ruleta i deixa que GymRoulette triï per tu.
 
@@ -338,11 +338,11 @@ Gira la ruleta i a entrenar.`,
     short: 'La roue d\'exercices aléatoires pour s\'entraîner chez soi ou en salle.',
     banner: { line1: 'Lance la roue', line2: "et c'est parti", tagline: 'Des exercices au hasard pour te défier chaque jour', button: 'Lancer la roue' },
     notes: notesText('Version', [
+      'Modèles d’exercices : cardio, poids, abdominaux et plus. Charge-les dans la roue ou crée les tiens.',
+      '24 nouveaux exercices en 21 langues et des couleurs de roue qui ne se répètent pas côte à côte.',
+    ], [
       'Affichage horizontal pour les tablettes et les téléphones inclinés.',
       'Roue plus claire, historique mieux rangé et annulation sur la ligne en supprimant un exercice.',
-    ], [
-      'Un aspect plus frais et plus doux : nouvelle apparence Claire et option Système. Doux devient Sombre.',
-      'Le russe rejoint l’appli, désormais en 21 langues.',
     ]),
     full: `Pas envie de décider quoi t'entraîner aujourd'hui ? Fais tourner la roue et laisse GymRoulette choisir pour toi.
 
@@ -386,11 +386,11 @@ Lance la roue et c'est parti.`,
     short: 'Das Zufalls-Übungsrad für dein Training zu Hause oder im Fitnessstudio.',
     banner: { line1: 'Dreh das Rad', line2: 'und ab ins Training', tagline: 'Zufällige Übungen, die dich jeden Tag fordern', button: 'Rad drehen' },
     notes: notesText('Version', [
+      'Übungsvorlagen: Cardio, Gewichte, Bauch und mehr. Lade sie ins Rad oder erstelle eigene.',
+      '24 neue Übungen in 21 Sprachen und Radfarben, die sich nie nebeneinander wiederholen.',
+    ], [
       'Querformat für Tablets und gedrehte Smartphones.',
       'Klareres Rad, übersichtlicherer Verlauf und Rückgängig direkt in der Zeile beim Löschen einer Übung.',
-    ], [
-      'Frischerer, sanfterer Look: neues helles Design und die Option System. Sanft heißt jetzt Dunkel.',
-      'Russisch kommt dazu, jetzt in 21 Sprachen.',
     ]),
     full: `Keine Lust zu entscheiden, was du heute trainierst? Dreh das Rad und lass GymRoulette für dich wählen.
 
@@ -434,11 +434,11 @@ Dreh das Rad und ab ins Training.`,
     short: 'La ruota di esercizi casuali per allenarti a casa o in palestra.',
     banner: { line1: 'Gira la ruota', line2: 'e allenati', tagline: 'Esercizi casuali per metterti alla prova ogni giorno', button: 'Gira la ruota' },
     notes: notesText('Versione', [
+      'Modelli di esercizi: cardio, pesi, addominali e altro. Caricali nella ruota o creane di tuoi.',
+      '24 nuovi esercizi in 21 lingue e colori della ruota che non si ripetono affiancati.',
+    ], [
       'Visualizzazione orizzontale per tablet e telefoni ruotati.',
       'Ruota più chiara, cronologia più ordinata e annullamento sulla riga quando elimini un esercizio.',
-    ], [
-      'Aspetto più fresco e morbido: nuovo aspetto Chiaro e opzione Sistema. Morbido ora si chiama Scuro.',
-      'Il russo si aggiunge all’app, ora in 21 lingue.',
     ]),
     full: `Non hai voglia di decidere cosa allenare oggi? Gira la ruota e lascia scegliere a GymRoulette.
 
@@ -482,11 +482,11 @@ Gira la ruota e allenati.`,
     short: 'A roleta de exercícios aleatória para treinar em casa ou na academia.',
     banner: { line1: 'Gire a roleta', line2: 'e vá treinar', tagline: 'Exercícios aleatórios para te desafiar todo dia', button: 'Girar roleta' },
     notes: notesText('Versão', [
+      'Modelos de exercícios: cardio, pesos, abdominais e mais. Carregue-os na roleta ou crie os seus.',
+      '24 exercícios novos em 21 idiomas e cores da roleta que não se repetem lado a lado.',
+    ], [
       'Visão horizontal para tablets e aparelhos girados.',
       'Roleta mais clara, histórico mais organizado e desfazer na própria linha ao apagar um exercício.',
-    ], [
-      'Visual mais fresco e suave: nova aparência Clara e opção Sistema. Suave agora se chama Escuro.',
-      'O russo entra no app, agora em 21 idiomas.',
     ]),
     full: `Sem vontade de decidir o que treinar hoje? Gire a roleta e deixe o GymRoulette escolher por você.
 
@@ -530,11 +530,11 @@ Gire a roleta e vá treinar.`,
     short: 'A roleta de exercícios aleatória para treinar em casa ou no ginásio.',
     banner: { line1: 'Gira a roleta', line2: 'e vai treinar', tagline: 'Exercícios aleatórios para te desafiares todos os dias', button: 'Girar roleta' },
     notes: notesText('Versão', [
+      'Modelos de exercícios: cardio, pesos, abdominais e mais. Carrega-os na roleta ou cria os teus.',
+      '24 exercícios novos em 21 idiomas e cores da roleta que não se repetem lado a lado.',
+    ], [
       'Vista horizontal para tablets e telemóveis rodados.',
       'Roleta mais clara, histórico mais organizado e desfazer na própria linha ao eliminar um exercício.',
-    ], [
-      'Visual mais fresco e suave: nova aparência Clara e opção Sistema. Suave passa a chamar-se Escuro.',
-      'O russo junta-se à app, agora em 21 idiomas.',
     ]),
     full: `Sem vontade de decidir o que treinar hoje? Gira a roleta e deixa o GymRoulette escolher por ti.
 
@@ -578,11 +578,11 @@ Gira a roleta e vai treinar.`,
     short: 'Losowe koło ćwiczeń do treningu w domu lub na siłowni.',
     banner: { line1: 'Zakręć kołem', line2: 'i ruszaj na trening', tagline: 'Losowe ćwiczenia, które rzucają ci wyzwanie każdego dnia', button: 'Zakręć kołem' },
     notes: notesText('Wersja', [
+      'Szablony ćwiczeń: kardio, ciężary, brzuch i więcej. Wczytaj je do koła albo stwórz własne.',
+      '24 nowe ćwiczenia w 21 językach i kolory koła, które nie powtarzają się obok siebie.',
+    ], [
       'Widok poziomy dla tabletów i obróconych telefonów.',
       'Czytelniejsze koło, bardziej uporządkowana historia i cofanie w wierszu po usunięciu ćwiczenia.',
-    ], [
-      'Świeższy i łagodniejszy wygląd: nowy jasny styl i opcja Systemowy. Delikatny nazywa się teraz Ciemny.',
-      'Rosyjski dołącza do aplikacji, teraz w 21 językach.',
     ]),
     full: `Nie wiesz, co dziś trenować? Zakręć kołem i pozwól, by GymRoulette wybrała za ciebie.
 
@@ -626,11 +626,11 @@ Zakręć kołem i trenujemy.`,
     short: 'घर पर या जिम में वर्कआउट के लिए रैंडम एक्सरसाइज़ व्हील।',
     banner: { line1: 'चक्र घुमाएँ', line2: 'और वर्कआउट करें', tagline: 'हर दिन आपको चुनौती देने वाली रैंडम एक्सरसाइज़', button: 'चक्र घुमाएँ' },
     notes: notesText('संस्करण', [
+      'एक्सरसाइज़ टेम्पलेट: कार्डियो, वज़न, पेट की कसरत और बहुत कुछ। उन्हें पहिये में लोड करें या अपने बनाएँ।',
+      '21 भाषाओं में 24 नई एक्सरसाइज़, और पहिये के रंग जो कभी एक-दूसरे के बगल में नहीं दोहराए जाते।',
+    ], [
       'टैबलेट और घुमाए गए फ़ोन के लिए क्षैतिज दृश्य।',
       'ज़्यादा साफ़ पहिया, सुव्यवस्थित इतिहास, और अभ्यास हटाने पर उसी पंक्ति में पूर्ववत करने की सुविधा।',
-    ], [
-      'ज़्यादा ताज़ा और नरम रूप: नया लाइट रूप और सिस्टम विकल्प। सॉफ्ट का नाम अब डार्क है।',
-      'अब रूसी भाषा भी जुड़ी, ऐप 21 भाषाओं में।',
     ]),
     full: `आज क्या वर्कआउट करें, तय नहीं कर पा रहे? चक्र घुमाएँ और GymRoulette को आपके लिए चुनने दें।
 
@@ -674,11 +674,11 @@ GymRoulette पूरी तरह ऑफ़लाइन है और कोई
     short: 'Evde veya spor salonunda antrenman için rastgele egzersiz çarkı.',
     banner: { line1: 'Çarkı çevir', line2: 've antrenmana başla', tagline: 'Seni her gün zorlayacak rastgele egzersizler', button: 'Çarkı çevir' },
     notes: notesText('Sürüm', [
+      'Egzersiz şablonları: kardiyo, ağırlıklar, karın ve daha fazlası. Çarka yükle ya da kendin oluştur.',
+      '21 dilde 24 yeni egzersiz ve yan yana tekrar etmeyen çark renkleri.',
+    ], [
       'Tabletler ve çevrilmiş telefonlar için yatay görünüm.',
       'Daha net çark, daha derli toplu geçmiş ve egzersiz silerken satırında geri alma.',
-    ], [
-      'Daha ferah ve yumuşak görünüm: yeni Açık görünüm ve Sistem seçeneği. Yumuşak artık Koyu.',
-      'Rusça uygulamaya katıldı, artık 21 dilde.',
     ]),
     full: `Bugün ne çalışacağına karar veremiyor musun? Çarkı çevir, GymRoulette senin yerine seçsin.
 
@@ -722,11 +722,11 @@ GymRoulette tamamen çevrimdışıdır ve hiçbir veri toplamaz: analiz yok, izl
     short: '自宅でもジムでも使える、ランダムなエクササイズルーレット。',
     banner: { line1: 'ルーレットを回して', line2: 'トレーニングを始めよう', tagline: 'ランダムなエクササイズで毎日チャレンジ', button: 'ルーレットを回す' },
     notes: notesText('バージョン', [
+      'エクササイズのテンプレート：有酸素、ウェイト、腹筋など。ルーレットに読み込むか、自分で作れます。',
+      '21言語で新しいエクササイズを24個追加。ルーレットの色は隣り合って重なりません。',
+    ], [
       'タブレットや横向きのスマートフォン向けの横画面表示。',
       'ルーレットが見やすくなり、履歴が整理され、エクササイズの削除をその行で元に戻せます。',
-    ], [
-      'より爽やかでやわらかな見た目：ライトの外観とシステム設定を追加。ソフトはダークになりました。',
-      'ロシア語に対応し、21言語で使えます。',
     ]),
     full: `今日は何を鍛えるか決められない？ルーレットを回して、GymRouletteに選んでもらいましょう。
 
@@ -769,11 +769,11 @@ GymRouletteは完全オフラインで、データを一切収集しません。
     short: 'Het willekeurige oefeningenrad om thuis of in de sportschool te trainen.',
     banner: { line1: 'Draai aan het rad', line2: 'en ga trainen', tagline: 'Willekeurige oefeningen die je elke dag uitdagen', button: 'Draai het rad' },
     notes: notesText('Versie', [
+      'Oefeningsjablonen: cardio, gewichten, buikspieren en meer. Laad ze in het rad of maak je eigen.',
+      '24 nieuwe oefeningen in 21 talen en radkleuren die zich niet naast elkaar herhalen.',
+    ], [
       'Liggende weergave voor tablets en gedraaide telefoons.',
       'Duidelijker rad, overzichtelijkere geschiedenis en ongedaan maken op de regel bij het verwijderen van een oefening.',
-    ], [
-      'Frissere, zachtere look: nieuw licht uiterlijk en de optie Systeem. Zacht heet nu Donker.',
-      'Russisch komt erbij, nu in 21 talen.',
     ]),
     full: `Kun je niet kiezen wat je vandaag gaat trainen? Draai aan het rad en laat GymRoulette voor je kiezen.
 
@@ -817,11 +817,11 @@ Draai aan het rad en laten we trainen.`,
     short: 'Случайное колесо упражнений для тренировок дома или в зале.',
     banner: { line1: 'Крути колесо', line2: 'и тренируйся', tagline: 'Случайные упражнения, которые бросают тебе вызов каждый день', button: 'Крутить колесо' },
     notes: notesText('Версия', [
+      'Шаблоны упражнений: кардио, отягощения, пресс и другое. Загружайте их на колесо или создавайте свои.',
+      '24 новых упражнения на 21 языке и цвета колеса, которые не повторяются рядом.',
+    ], [
       'Горизонтальный вид для планшетов и повёрнутых телефонов.',
       'Колесо стало понятнее, история аккуратнее, а удаление упражнения можно отменить прямо в его строке.',
-    ], [
-      'Более свежий и мягкий вид: новый светлый вид и вариант «Системный». «Мягкий» теперь называется «Тёмный».',
-      'Русский язык пополнил приложение, теперь их 21.',
     ]),
     full: `Не можешь решить, что тренировать сегодня? Покрути колесо, и GymRoulette выберет за тебя.
 

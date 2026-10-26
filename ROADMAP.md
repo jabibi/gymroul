@@ -4,46 +4,26 @@ Solo lo que está en marcha o por hacer: la versión en desarrollo y las siguien
 
 Última versión publicada en producción: la 1.18 «GymTonic» (versionCode 18, 25 oct 2026). Cada cambio de la ficha o de la versión llega ya a usuarios reales.
 
-## En desarrollo: versión 1.19 «Jump-Over» (versionCode 19)
+## En desarrollo: versión 1.20 «Toes2Bar» (versionCode 20): plantillas de ejercicios
 
-En la rama `roadmap-19`. La versión ya está subida en `package.json`, con el diseño horizontal, las novedades de la app (también para quien abre la app por primera vez) y las de la ficha de Play escritas. Sin publicar. Pendiente antes de publicar:
-- Subir en Play Console los textos, el CSV, el icono y las imágenes de `store/`.
+En la rama `roadmap-20`. La versión ya está subida en `package.json`, con las novedades de la app y de la ficha de Play escritas. Sin publicar. Pendiente antes de publicar:
+- Regenerar las capturas de Play (`npm run store`, en un commit aparte: la interfaz ha cambiado) y subir en Play Console los textos, el CSV y las imágenes de `store/`.
+- Valorar si la descripción larga de la ficha debe nombrar las plantillas (hoy solo lo hacen las novedades).
+
+Lo que lleva, por si hay que retomarlo:
+- **Plantillas del sistema** (`src/templates.js`): peso corporal (la lista de fábrica), cardio, con pesas, en casa sin ruido y abdominales (8 ejercicios). No se modifican ni se borran: se cargan en la ruleta o se copian. Sus ejercicios tienen id propio (`'1'` a `'30'`) y nombre inglés guardado, y se traducen con `exercise.<clave>` (24 ejercicios nuevos en los 21 idiomas); el nombre de cada plantilla es `template.<clave>`. Un ejercicio puede estar en varias plantillas con rangos distintos (la plancha, en casa y abdominales; los escaladores, en peso corporal y cardio).
+- **Plantillas del usuario** (`gym_templates`, hasta 20): se crean desde cero, desde una del sistema (copia) o desde la ruleta actual, y se editan, copian y borran (con segunda pulsación). Una plantilla es una copia: al copiar una del sistema los nombres se quedan en el idioma de ese momento y ya no se traducen; cargar una en la ruleta no la enlaza con ella. Ajustes → Plantillas muestra las del usuario arriba y las del sistema debajo; «Editar ruleta» → «Cargar plantilla» abre el selector (las del usuario por orden alfabético y después las del sistema) y **sustituye todos los ejercicios de la ruleta**.
+- **Colores por posición**: el ejercicio ya no guarda color; la ruleta lo reparte al pintar (`sectorColorIndexes`). Esquema 12 (migración v11 → v12 que borra el color guardado).
+- Si el usuario no toca las plantillas, la app funciona como siempre (la ruleta de fábrica es la plantilla de peso corporal).
 
 Se comprueba en Play Console cuando la 1.19 esté enviada («Para tu siguiente versión», categoría Experiencia de usuario):
 - Que desaparezca el aviso de pantallas grandes («Quita las restricciones de redimensionamiento y orientación…»): ya no hay `screenOrientation` en el manifiesto.
 - Los avisos de la vista de extremo a extremo: los de las APIs obsoletas deberían desaparecer, porque el código compilado ya no tiene ninguna de esas llamadas (antes las hacían cinco clases de `androidx.activity`, la librería de `enableEdgeToEdge()`; ahora la pantalla completa va a mano con el tema y `WindowCompat.setDecorFitsSystemWindows`, ver `CLAUDE.md`). Probado en Android 10, 16 y 17; sin probar en Android 9 y 11 a 14. Si Play los sigue mostrando, comparar sus clases con el `mapping.txt` del AAB publicado (Play Console, la versión, Descargas) y buscar las llamadas con `dexdump` sobre su `classes.dex`. El aviso genérico «es posible que la vista de extremo a extremo no funcione para todos los usuarios» debería desaparecer también (la app se ve bien con recorte de pantalla en Android 17); falta ver si Play lo retira. `androidxActivityVersion` (1.13.0) está en `android/variables.gradle`, que Capacitor respeta en lugar de su 1.11.0 por defecto; sigue siendo necesaria como dependencia de AppCompat y Capacitor.
 
-## Probable: versión 1.20 «Toes2Bar» — plantillas de ejercicios
-
-Aún no está decidida ni empezada. Encaja con la regla de dar valor en menos de 10 segundos.
-
-**La idea**: conjuntos de ejercicios ya preparados para cambiar de tipo de entrenamiento sin crear ni borrar ejercicios uno a uno. Al elegir una plantilla, la ruleta pasa a llevar esos ejercicios, cada uno con su icono, su color y su rango de repeticiones, y después se ajusta como siempre.
-
-**Plantillas candidatas** (por decidir; 6-8 ejercicios cada una, para dejar margen hasta el máximo de 12):
-- Peso corporal: flexiones, sentadillas, burpees, zancadas, plancha, abdominales… Parecida a la lista por defecto actual.
-- Cardio: saltos, escaladores, rodillas altas, cuerda, carrera en el sitio…
-- Con pesas: mancuernas, kettlebell o barra, con rangos de repeticiones más bajos.
-- Sin material y en casa: para espacios pequeños y sin ruido.
-
-**Cómo podría funcionar**:
-- Un acceso en Ajustes, junto a la lista de ejercicios, que abre un modal con las plantillas y una vista previa de sus ejercicios.
-- Qué pasa con los ejercicios que el usuario ya tiene es la decisión principal. Opciones: reemplazarlos (con confirmación), añadir los de la plantilla hasta llegar a 12, u ofrecer las dos. Lo más sencillo y seguro es reemplazar solo los ejercicios por defecto y conservar siempre los del usuario.
-- Las repeticiones que el usuario haya editado en un ejercicio por defecto no se pisan sin avisar.
-
-**Qué implicaría**:
-- **Textos**: cada ejercicio nuevo necesita su nombre en los 21 idiomas (`exercise.<clave>`), igual que los seis por defecto. Es el grueso del trabajo. Además, nombre y descripción de la plantilla y textos del modal.
-- **Identidad del ejercicio**: hoy `exerciseLabels` (`src/exercise-names.js`) traduce un ejercicio solo si su id está en `DEFAULT_EXERCISE_KEYS` y su nombre guardado sigue siendo el inglés original (`DEFAULT_EXERCISES` de `src/store.js`, ids `'1'` a `'6'`). Las plantillas necesitarían ids propios y ampliar esa tabla.
-- **Datos guardados**: si solo se copian ejercicios a la lista, el esquema no cambia (hoy versión 8). Si se guarda qué plantilla está activa, subir la versión y añadir la migración.
-- **Iconos**: clases de Tailwind literales y etiquetas de cualquier icono nuevo en todos los idiomas.
-- **Interfaz**: modal nuevo con botón Atrás (`src/ui.js`), propiedades lógicas para el árabe y `npm run check:layout` (incluido `--stress`).
-- **Ficha de Play**: novedades y capturas, y valorar una captura propia.
-
-**Riesgos**: más ejercicios por defecto significan más texto que mantener en 21 idiomas, y las plantillas deben quedar bien en pantallas pequeñas y en árabe.
-
 ## Ideas sin fecha
 
 - Valoración dentro de la app (In-App Review): descartada de momento. Añade una dependencia de Google Play que choca con el «sin SDK de terceros ni conexión» (habría que revisar la política de privacidad y «Seguridad de los datos»), Google limita cuántas veces se muestra y no hay un momento claro de éxito del usuario. Retomarla con más usuarios y, si se hiciera, un historial de entrenamientos completados que sobreviva al cierre de la app.
-- Historial que se guarda y resumen acumulado: descartado de momento, sin demanda clara entre los usuarios de la app. Hoy el historial es de la sesión: `sessionHistory` en `src/ui.js`, en memoria, con ejercicio, repeticiones, hora ya formateada e icono (solo se registra lo completado: `closeResult(true)` llama a `addToHistory`). Si se retomara: moverlo a `src/store.js` (nueva clave, subir `SCHEMA_VERSION`, hoy 8, con migración y validación al leer), guardar la marca de tiempo y el nombre original del ejercicio (no la etiqueta traducida) y dar formato al pintar, con un tope de entradas (por ejemplo las últimas 200) y totales acumulados aparte; decidir qué borra «Limpiar historial» y qué cuenta el contador del botón (`historyBadge`). Implicaría revisar la política de privacidad, «Seguridad de los datos», el compromiso de privacidad y la página de eliminación de datos (se guardaría un historial local, sin red), textos nuevos en los 21 idiomas y las capturas de Play.
+- Historial que se guarda y resumen acumulado: descartado de momento, sin demanda clara entre los usuarios de la app. Hoy el historial es de la sesión: `sessionHistory` en `src/ui.js`, en memoria, con ejercicio, repeticiones, hora ya formateada e icono (solo se registra lo completado: `closeResult(true)` llama a `addToHistory`). Si se retomara: moverlo a `src/store.js` (nueva clave, subir `SCHEMA_VERSION`, hoy 12, con migración y validación al leer), guardar la marca de tiempo y el nombre original del ejercicio (no la etiqueta traducida) y dar formato al pintar, con un tope de entradas (por ejemplo las últimas 200) y totales acumulados aparte; decidir qué borra «Limpiar historial» y qué cuenta el contador del botón (`historyBadge`). Implicaría revisar la política de privacidad, «Seguridad de los datos», el compromiso de privacidad y la página de eliminación de datos (se guardaría un historial local, sin red), textos nuevos en los 21 idiomas y las capturas de Play.
 - Avisos de `npm audit` que quedan, de `@capacitor/assets` y `@capacitor/cli` (solo desarrollo): se resuelven cuando esos paquetes actualicen sus dependencias, sin `npm audit fix --force`.
 - Exportar e importar la configuración en un archivo local.
 - Revisión de accesibilidad (texto grande, lector de pantalla).

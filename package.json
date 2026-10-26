@@ -1,8 +1,8 @@
 {
   "name": "gymroul",
-  "version": "1.19.0",
-  "versionCode": 19,
-  "versionCodename": "Jump-Over",
+  "version": "1.20.0",
+  "versionCode": 20,
+  "versionCodename": "Toes2Bar",
   "description": "GymRoulette: ruleta de ejercicios (web + Android con Capacitor)",
   "main": "index.js",
   "scripts": {

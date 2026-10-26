@@ -1,153 +1,153 @@
 <en-US>
+Version 1.20 (Toes2Bar):
+• Exercise templates: cardio, weights, abs and more. Load one or create your own.
+• 24 new exercises in 21 languages, and wheel colors that never repeat side by side.
+
 Version 1.19 (Jump-Over):
 • Landscape view for tablets and rotated phones.
 • Clearer wheel, tidier history, and undo right on the row when you delete an exercise.
-
-Version 1.18 (GymTonic):
-• Fresher, softer look: new Light appearance and a System option. Soft is now called Dark.
-• Russian joins the app, now in 21 languages.
 </en-US>
 <ar>
+الإصدار 1.20 (Toes2Bar):
+• قوالب التمارين: كارديو وأوزان وعضلات البطن وغيرها. حمّلها على العجلة أو أنشئ قوالبك.
+• 24 تمرينًا جديدًا بـ 21 لغة، وألوان عجلة لا تتكرر متجاورة.
+
 الإصدار 1.19 (Jump-Over):
 • عرض أفقي للأجهزة اللوحية والهواتف المُدارة.
 • عجلة أوضح وسجل أكثر تنظيمًا وإمكانية التراجع في السطر نفسه عند حذف تمرين.
-
-الإصدار 1.18 (GymTonic):
-• مظهر أكثر انتعاشًا ونعومة: مظهر فاتح جديد وخيار النظام. أصبح الناعم يُسمّى داكنًا.
-• تنضم الروسية إلى التطبيق، وصار متاحًا بـ 21 لغة.
 </ar>
 <ca>
+Versió 1.20 (Toes2Bar):
+• Plantilles d’exercicis: cardio, pesos, abdominals i més. Carrega-les a la ruleta o crea les teves.
+• 24 exercicis nous en 21 idiomes i colors de la ruleta que no es repeteixen un al costat de l’altre.
+
 Versió 1.19 (Jump-Over):
 • Vista horitzontal per a tauletes i mòbils girats.
 • Ruleta més clara, historial més ordenat i desfer a la mateixa línia en esborrar un exercici.
-
-Versió 1.18 (GymTonic):
-• Aspecte més fresc i suau: nova aparença Clar i opció Sistema. Suau ara es diu Fosc.
-• El rus s’afegeix a l’app, ja en 21 idiomes.
 </ca>
 <de-DE>
+Version 1.20 (Toes2Bar):
+• Übungsvorlagen: Cardio, Gewichte, Bauch und mehr. Lade sie ins Rad oder erstelle eigene.
+• 24 neue Übungen in 21 Sprachen und Radfarben, die sich nie nebeneinander wiederholen.
+
 Version 1.19 (Jump-Over):
 • Querformat für Tablets und gedrehte Smartphones.
 • Klareres Rad, übersichtlicherer Verlauf und Rückgängig direkt in der Zeile beim Löschen einer Übung.
-
-Version 1.18 (GymTonic):
-• Frischerer, sanfterer Look: neues helles Design und die Option System. Sanft heißt jetzt Dunkel.
-• Russisch kommt dazu, jetzt in 21 Sprachen.
 </de-DE>
 <es-ES>
+Versión 1.20 (Toes2Bar):
+• Plantillas de ejercicios: cardio, pesas, abdominales y más. Cárgalas en la ruleta o crea las tuyas.
+• 24 ejercicios nuevos en 21 idiomas y colores de la ruleta que no se repiten uno junto a otro.
+
 Versión 1.19 (Jump-Over):
 • Vista horizontal para tablets y móviles girados.
 • Ruleta más clara, historial más ordenado y deshacer en la propia línea al borrar un ejercicio.
-
-Versión 1.18 (GymTonic):
-• Aspecto más fresco y suave: nueva apariencia Claro y opción Sistema. Suave ahora se llama Oscuro.
-• El ruso se suma a la app, ya en 21 idiomas.
 </es-ES>
 <eu-ES>
+Bertsioa 1.20 (Toes2Bar):
+• Ariketa-txantiloiak: kardioa, pisuak, sabelekoak eta gehiago. Kargatu erruletan edo sortu zureak.
+• 24 ariketa berri 21 hizkuntzatan, eta erruletaren koloreak ez dira elkarren ondoan errepikatzen.
+
 Bertsioa 1.19 (Jump-Over):
 • Ikuspegi horizontala tabletetarako eta biratutako telefonoetarako.
 • Erruleta argiagoa, historia ordenatuagoa eta ariketa bat ezabatzean bere lerroan bertan desegiteko aukera.
-
-Bertsioa 1.18 (GymTonic):
-• Itxura freskoagoa eta leunagoa: Argia itxura berria eta Sistema aukera. Leuna orain Iluna da.
-• Errusiera aplikaziora gehitu da, 21 hizkuntzatan jada.
 </eu-ES>
 <fr-FR>
+Version 1.20 (Toes2Bar):
+• Modèles d’exercices : cardio, poids, abdominaux et plus. Charge-les dans la roue ou crée les tiens.
+• 24 nouveaux exercices en 21 langues et des couleurs de roue qui ne se répètent pas côte à côte.
+
 Version 1.19 (Jump-Over):
 • Affichage horizontal pour les tablettes et les téléphones inclinés.
 • Roue plus claire, historique mieux rangé et annulation sur la ligne en supprimant un exercice.
-
-Version 1.18 (GymTonic):
-• Un aspect plus frais et plus doux : nouvelle apparence Claire et option Système. Doux devient Sombre.
-• Le russe rejoint l’appli, désormais en 21 langues.
 </fr-FR>
 <gl-ES>
+Versión 1.20 (Toes2Bar):
+• Modelos de exercicios: cardio, pesas, abdominais e máis. Cárgaos na ruleta ou crea os teus.
+• 24 exercicios novos en 21 idiomas e cores da ruleta que non se repiten xuntas.
+
 Versión 1.19 (Jump-Over):
 • Vista horizontal para tabletas e móbiles xirados.
 • Ruleta máis clara, historial máis ordenado e desfacer na mesma liña ao borrar un exercicio.
-
-Versión 1.18 (GymTonic):
-• Aspecto máis fresco e suave: nova aparencia Claro e opción Sistema. Suave agora chámase Escuro.
-• O ruso súmase á app, xa en 21 idiomas.
 </gl-ES>
 <hi-IN>
+संस्करण 1.20 (Toes2Bar):
+• एक्सरसाइज़ टेम्पलेट: कार्डियो, वज़न, पेट की कसरत और बहुत कुछ। उन्हें पहिये में लोड करें या अपने बनाएँ।
+• 21 भाषाओं में 24 नई एक्सरसाइज़, और पहिये के रंग जो कभी एक-दूसरे के बगल में नहीं दोहराए जाते।
+
 संस्करण 1.19 (Jump-Over):
 • टैबलेट और घुमाए गए फ़ोन के लिए क्षैतिज दृश्य।
 • ज़्यादा साफ़ पहिया, सुव्यवस्थित इतिहास, और अभ्यास हटाने पर उसी पंक्ति में पूर्ववत करने की सुविधा।
-
-संस्करण 1.18 (GymTonic):
-• ज़्यादा ताज़ा और नरम रूप: नया लाइट रूप और सिस्टम विकल्प। सॉफ्ट का नाम अब डार्क है।
-• अब रूसी भाषा भी जुड़ी, ऐप 21 भाषाओं में।
 </hi-IN>
 <it-IT>
+Versione 1.20 (Toes2Bar):
+• Modelli di esercizi: cardio, pesi, addominali e altro. Caricali nella ruota o creane di tuoi.
+• 24 nuovi esercizi in 21 lingue e colori della ruota che non si ripetono affiancati.
+
 Versione 1.19 (Jump-Over):
 • Visualizzazione orizzontale per tablet e telefoni ruotati.
 • Ruota più chiara, cronologia più ordinata e annullamento sulla riga quando elimini un esercizio.
-
-Versione 1.18 (GymTonic):
-• Aspetto più fresco e morbido: nuovo aspetto Chiaro e opzione Sistema. Morbido ora si chiama Scuro.
-• Il russo si aggiunge all’app, ora in 21 lingue.
 </it-IT>
 <ja-JP>
+バージョン 1.20 (Toes2Bar):
+• エクササイズのテンプレート：有酸素、ウェイト、腹筋など。ルーレットに読み込むか、自分で作れます。
+• 21言語で新しいエクササイズを24個追加。ルーレットの色は隣り合って重なりません。
+
 バージョン 1.19 (Jump-Over):
 • タブレットや横向きのスマートフォン向けの横画面表示。
 • ルーレットが見やすくなり、履歴が整理され、エクササイズの削除をその行で元に戻せます。
-
-バージョン 1.18 (GymTonic):
-• より爽やかでやわらかな見た目：ライトの外観とシステム設定を追加。ソフトはダークになりました。
-• ロシア語に対応し、21言語で使えます。
 </ja-JP>
 <nl-NL>
+Versie 1.20 (Toes2Bar):
+• Oefeningsjablonen: cardio, gewichten, buikspieren en meer. Laad ze in het rad of maak je eigen.
+• 24 nieuwe oefeningen in 21 talen en radkleuren die zich niet naast elkaar herhalen.
+
 Versie 1.19 (Jump-Over):
 • Liggende weergave voor tablets en gedraaide telefoons.
 • Duidelijker rad, overzichtelijkere geschiedenis en ongedaan maken op de regel bij het verwijderen van een oefening.
-
-Versie 1.18 (GymTonic):
-• Frissere, zachtere look: nieuw licht uiterlijk en de optie Systeem. Zacht heet nu Donker.
-• Russisch komt erbij, nu in 21 talen.
 </nl-NL>
 <pl-PL>
+Wersja 1.20 (Toes2Bar):
+• Szablony ćwiczeń: kardio, ciężary, brzuch i więcej. Wczytaj je do koła albo stwórz własne.
+• 24 nowe ćwiczenia w 21 językach i kolory koła, które nie powtarzają się obok siebie.
+
 Wersja 1.19 (Jump-Over):
 • Widok poziomy dla tabletów i obróconych telefonów.
 • Czytelniejsze koło, bardziej uporządkowana historia i cofanie w wierszu po usunięciu ćwiczenia.
-
-Wersja 1.18 (GymTonic):
-• Świeższy i łagodniejszy wygląd: nowy jasny styl i opcja Systemowy. Delikatny nazywa się teraz Ciemny.
-• Rosyjski dołącza do aplikacji, teraz w 21 językach.
 </pl-PL>
 <pt-BR>
+Versão 1.20 (Toes2Bar):
+• Modelos de exercícios: cardio, pesos, abdominais e mais. Carregue-os na roleta ou crie os seus.
+• 24 exercícios novos em 21 idiomas e cores da roleta que não se repetem lado a lado.
+
 Versão 1.19 (Jump-Over):
 • Visão horizontal para tablets e aparelhos girados.
 • Roleta mais clara, histórico mais organizado e desfazer na própria linha ao apagar um exercício.
-
-Versão 1.18 (GymTonic):
-• Visual mais fresco e suave: nova aparência Clara e opção Sistema. Suave agora se chama Escuro.
-• O russo entra no app, agora em 21 idiomas.
 </pt-BR>
 <pt-PT>
+Versão 1.20 (Toes2Bar):
+• Modelos de exercícios: cardio, pesos, abdominais e mais. Carrega-os na roleta ou cria os teus.
+• 24 exercícios novos em 21 idiomas e cores da roleta que não se repetem lado a lado.
+
 Versão 1.19 (Jump-Over):
 • Vista horizontal para tablets e telemóveis rodados.
 • Roleta mais clara, histórico mais organizado e desfazer na própria linha ao eliminar um exercício.
-
-Versão 1.18 (GymTonic):
-• Visual mais fresco e suave: nova aparência Clara e opção Sistema. Suave passa a chamar-se Escuro.
-• O russo junta-se à app, agora em 21 idiomas.
 </pt-PT>
 <ru-RU>
+Версия 1.20 (Toes2Bar):
+• Шаблоны упражнений: кардио, отягощения, пресс и другое. Загружайте их на колесо или создавайте свои.
+• 24 новых упражнения на 21 языке и цвета колеса, которые не повторяются рядом.
+
 Версия 1.19 (Jump-Over):
 • Горизонтальный вид для планшетов и повёрнутых телефонов.
 • Колесо стало понятнее, история аккуратнее, а удаление упражнения можно отменить прямо в его строке.
-
-Версия 1.18 (GymTonic):
-• Более свежий и мягкий вид: новый светлый вид и вариант «Системный». «Мягкий» теперь называется «Тёмный».
-• Русский язык пополнил приложение, теперь их 21.
 </ru-RU>
 <tr-TR>
+Sürüm 1.20 (Toes2Bar):
+• Egzersiz şablonları: kardiyo, ağırlıklar, karın ve daha fazlası. Çarka yükle ya da kendin oluştur.
+• 21 dilde 24 yeni egzersiz ve yan yana tekrar etmeyen çark renkleri.
+
 Sürüm 1.19 (Jump-Over):
 • Tabletler ve çevrilmiş telefonlar için yatay görünüm.
 • Daha net çark, daha derli toplu geçmiş ve egzersiz silerken satırında geri alma.
-
-Sürüm 1.18 (GymTonic):
-• Daha ferah ve yumuşak görünüm: yeni Açık görünüm ve Sistem seçeneği. Yumuşak artık Koyu.
-• Rusça uygulamaya katıldı, artık 21 dilde.
 </tr-TR>
