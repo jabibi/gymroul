@@ -1,7 +1,7 @@
+Wersja 1.20 (Toes2Bar):
+• Szablony ćwiczeń: kardio, ciężary, brzuch i więcej. Wczytaj je do koła albo stwórz własne.
+• 24 nowe ćwiczenia w 21 językach i kolory koła, które nie powtarzają się obok siebie.
+
 Wersja 1.19 (Jump-Over):
 • Widok poziomy dla tabletów i obróconych telefonów.
 • Czytelniejsze koło, bardziej uporządkowana historia i cofanie w wierszu po usunięciu ćwiczenia.
-
-Wersja 1.18 (GymTonic):
-• Świeższy i łagodniejszy wygląd: nowy jasny styl i opcja Systemowy. Delikatny nazywa się teraz Ciemny.
-• Rosyjski dołącza do aplikacji, teraz w 21 językach.

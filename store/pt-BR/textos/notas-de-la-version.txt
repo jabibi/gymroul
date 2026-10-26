@@ -1,7 +1,7 @@
+Versão 1.20 (Toes2Bar):
+• Modelos de exercícios: cardio, pesos, abdominais e mais. Carregue-os na roleta ou crie os seus.
+• 24 exercícios novos em 21 idiomas e cores da roleta que não se repetem lado a lado.
+
 Versão 1.19 (Jump-Over):
 • Visão horizontal para tablets e aparelhos girados.
 • Roleta mais clara, histórico mais organizado e desfazer na própria linha ao apagar um exercício.
-
-Versão 1.18 (GymTonic):
-• Visual mais fresco e suave: nova aparência Clara e opção Sistema. Suave agora se chama Escuro.
-• O russo entra no app, agora em 21 idiomas.

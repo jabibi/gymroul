@@ -1,7 +1,7 @@
+Bertsioa 1.20 (Toes2Bar):
+• Ariketa-txantiloiak: kardioa, pisuak, sabelekoak eta gehiago. Kargatu erruletan edo sortu zureak.
+• 24 ariketa berri 21 hizkuntzatan, eta erruletaren koloreak ez dira elkarren ondoan errepikatzen.
+
 Bertsioa 1.19 (Jump-Over):
 • Ikuspegi horizontala tabletetarako eta biratutako telefonoetarako.
 • Erruleta argiagoa, historia ordenatuagoa eta ariketa bat ezabatzean bere lerroan bertan desegiteko aukera.
-
-Bertsioa 1.18 (GymTonic):
-• Itxura freskoagoa eta leunagoa: Argia itxura berria eta Sistema aukera. Leuna orain Iluna da.
-• Errusiera aplikaziora gehitu da, 21 hizkuntzatan jada.

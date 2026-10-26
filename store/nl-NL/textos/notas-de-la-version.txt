@@ -1,7 +1,7 @@
+Versie 1.20 (Toes2Bar):
+• Oefeningsjablonen: cardio, gewichten, buikspieren en meer. Laad ze in het rad of maak je eigen.
+• 24 nieuwe oefeningen in 21 talen en radkleuren die zich niet naast elkaar herhalen.
+
 Versie 1.19 (Jump-Over):
 • Liggende weergave voor tablets en gedraaide telefoons.
 • Duidelijker rad, overzichtelijkere geschiedenis en ongedaan maken op de regel bij het verwijderen van een oefening.
-
-Versie 1.18 (GymTonic):
-• Frissere, zachtere look: nieuw licht uiterlijk en de optie Systeem. Zacht heet nu Donker.
-• Russisch komt erbij, nu in 21 talen.

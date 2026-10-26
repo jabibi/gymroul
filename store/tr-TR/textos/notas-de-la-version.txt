@@ -1,7 +1,7 @@
+Sürüm 1.20 (Toes2Bar):
+• Egzersiz şablonları: kardiyo, ağırlıklar, karın ve daha fazlası. Çarka yükle ya da kendin oluştur.
+• 21 dilde 24 yeni egzersiz ve yan yana tekrar etmeyen çark renkleri.
+
 Sürüm 1.19 (Jump-Over):
 • Tabletler ve çevrilmiş telefonlar için yatay görünüm.
 • Daha net çark, daha derli toplu geçmiş ve egzersiz silerken satırında geri alma.
-
-Sürüm 1.18 (GymTonic):
-• Daha ferah ve yumuşak görünüm: yeni Açık görünüm ve Sistem seçeneği. Yumuşak artık Koyu.
-• Rusça uygulamaya katıldı, artık 21 dilde.

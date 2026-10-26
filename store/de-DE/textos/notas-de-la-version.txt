@@ -1,7 +1,7 @@
+Version 1.20 (Toes2Bar):
+• Übungsvorlagen: Cardio, Gewichte, Bauch und mehr. Lade sie ins Rad oder erstelle eigene.
+• 24 neue Übungen in 21 Sprachen und Radfarben, die sich nie nebeneinander wiederholen.
+
 Version 1.19 (Jump-Over):
 • Querformat für Tablets und gedrehte Smartphones.
 • Klareres Rad, übersichtlicherer Verlauf und Rückgängig direkt in der Zeile beim Löschen einer Übung.
-
-Version 1.18 (GymTonic):
-• Frischerer, sanfterer Look: neues helles Design und die Option System. Sanft heißt jetzt Dunkel.
-• Russisch kommt dazu, jetzt in 21 Sprachen.
