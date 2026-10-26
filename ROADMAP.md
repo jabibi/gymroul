@@ -7,7 +7,6 @@ Solo lo que está en marcha o por hacer: la versión en desarrollo y las siguien
 ## En desarrollo: versión 1.19 «Jump-Over» (versionCode 19)
 
 En la rama `roadmap-19`. La versión ya está subida en `package.json`, con el diseño horizontal, las novedades de la app (también para quien abre la app por primera vez) y las de la ficha de Play escritas. Sin publicar. Pendiente antes de publicar:
-- Regenerar las capturas de Play con `npm run store` (unos 30 minutos) y pasar `npm run store:check`. El script solo hace capturas de teléfono: las de tableta no se suben de momento.
 - Subir en Play Console los textos, el CSV, el icono y las imágenes de `store/`.
 
 Se comprueba en Play Console cuando la 1.19 esté enviada («Para tu siguiente versión», categoría Experiencia de usuario):

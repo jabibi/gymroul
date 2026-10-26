@@ -816,7 +816,7 @@ export function renderSettings() {
 
 // --- Novedades ---------------------------------------------------------------------------
 
-/** Pinta los textos con parámetros (título y cómo recuperar la apariencia original); el resto va con data-i18n. */
+/** Pinta los textos con parámetros (título y tarjeta para elegir la apariencia); el resto va con data-i18n. */
 function renderWhatsNew() {
   $('whatsNewTitle').textContent = t('whatsnew.title', { version: WHATS_NEW_VERSION });
   // Los nombres salen de los mismos textos que Ajustes: lo que dice el aviso es siempre lo que se verá en pantalla
