@@ -50,7 +50,7 @@ Edita siempre la fuente y regenera:
 
 1. `npm run typecheck`, `npm test` y `npm run build`.
 2. Si cambias la interfaz o los textos: `npm run check:layout` (con `--stress` si tocas el editor de la ruleta y con `--theme=light` si tocas colores), y después `npm run store` y `npm run store:check`.
-3. Pasa `npm run store:check` en toda PR a `main`, toque o no la interfaz a simple vista: la CI lo ejecuta y la huella cubre `index.html`, `src/` y los logos de `public/`, así que una PR con la huella vieja sale en rojo. Si falla, `npm run store` en una rama aparte.
+3. Pasa `npm run store:check` en toda PR a `main`, toque o no la interfaz a simple vista: la CI lo ejecuta y la huella cubre `index.html`, `src/` y los logos de `public/` (ignora comentarios y formato), así que una PR con la huella vieja sale en rojo. Si falla, `npm run store` en una rama aparte.
 4. Relee tu propio diff con ojo crítico: qué haría que la CI lo rechace.
 5. No dejes ficheros temporales sin seguimiento dentro del repositorio (el hook de parada exige que todo esté commiteado). Los scripts de prueba van al directorio temporal de la sesión o a `node_modules/.cache`.
 6. No subas credenciales, keystores ni `google-services.json`.
