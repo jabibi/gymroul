@@ -31,6 +31,20 @@ describe('código nativo de Android', () => {
     expect(splash).toContain('PointedIO');
   });
 
+  // Un logo en la pantalla de arranque del sistema (que lo coloca entre las barras y con otro tamaño) saltaría al aparecer el de SplashOverlay
+  it('la pantalla de arranque del sistema no lleva logo: solo SplashOverlay lo pinta', () => {
+    const res = 'android/app/src/main/res';
+    const styles = readFileSync(`${res}/values/styles.xml`, 'utf8');
+    expect(styles).toContain('windowSplashScreenAnimatedIcon">@drawable/splash_icon<');
+    for (const file of ['splash.xml', 'splash_icon.xml']) {
+      const xml = readFileSync(`${res}/drawable/${file}`, 'utf8').replace(/<!--[\s\S]*?-->/g, '');
+      expect(xml, file).not.toMatch(/splash_logo|<bitmap|<vector|<inset/);
+    }
+    expect(readFileSync(`${res}/drawable/splash_icon.xml`, 'utf8')).toContain('@android:color/transparent');
+    const files = readdirSync(res, { recursive: true }).map(String);
+    expect(files.filter(f => /(^|\/)splash_logo\.png$/.test(f))).toEqual([]);
+  });
+
   // La pantalla de arranque está escrita en dos sitios (la web, en HTML, y Android, en Kotlin): al cambiar una hay que cambiar la otra
   it('la pantalla de arranque de la web y la de Android llevan la misma firma, y la web se oculta en la app', () => {
     const html = readFileSync('index.html', 'utf8');

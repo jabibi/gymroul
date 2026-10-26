@@ -14,7 +14,6 @@
 //   - icon-background.png      solo el degradado de fondo (icono adaptativo)
 //   - ic_launcher_monochrome.png  silueta de un solo color para los «iconos con tema» de Android 13 (res/drawable-nodpi); el
 //                              sistema solo mira su transparencia y la tiñe con el color del fondo de pantalla del usuario
-//   - splash_logo.png          logo de la pantalla de arranque de Android, claro y oscuro (res/drawable-nodpi y drawable-night-nodpi)
 //   - splash_logo_<apariencia>.png  logo de la pantalla de arranque nativa de cada apariencia (calm, light y classic, en res/drawable-nodpi)
 
 import { writeFileSync, mkdirSync, readFileSync } from 'node:fs';
@@ -117,14 +116,8 @@ await Promise.all([
   png('icon-background', outputs.background, 1024),
 ]);
 
-// Pantalla de arranque de Android: solo el logo, que res/drawable/splash.xml centra sobre el color de fondo de la app (claro u
-// oscuro según el modo del sistema) sin estirarlo. Un PNG a pantalla completa se estiraba en los móviles alargados.
-// Claro: la ruleta clara; oscuro (drawable-night-nodpi): la de siempre.
 const RES = 'android/app/src/main/res';
-for (const [dir, source] of [['drawable-nodpi', outputs.wheelLight], ['drawable-night-nodpi', outputs.wheelOnly]]) {
-  mkdirSync(`${RES}/${dir}`, { recursive: true });
-  await sharp(Buffer.from(source), { density: 300 }).resize(512, 512).png().toFile(`${RES}/${dir}/splash_logo.png`);
-}
+mkdirSync(`${RES}/drawable-nodpi`, { recursive: true });
 
 // Pantalla de arranque nativa (SplashOverlay.kt): el logo de cada apariencia, sin depender del modo del dispositivo. Clásico es el
 // logo original, fijo (public/logo-classic.svg).

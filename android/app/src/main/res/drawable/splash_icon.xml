@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Icono de la pantalla de arranque del sistema (Android 12 y posteriores): el logo claro u oscuro (drawable-nodpi y
-     drawable-night-nodpi) con margen, porque el sistema recorta el icono en un círculo de dos tercios de su tamaño. -->
-<inset xmlns:android="http://schemas.android.com/apk/res/android"
-    android:drawable="@drawable/splash_logo"
-    android:insetLeft="20%"
-    android:insetTop="20%"
-    android:insetRight="20%"
-    android:insetBottom="20%" />
+<!-- Icono de la pantalla de arranque del sistema (Android 12 y posteriores): transparente a propósito. El sistema coloca su icono por su
+     cuenta (entre las barras, no sobre la pantalla entera) y al aparecer SplashOverlay el logo daba un salto. Así, mientras el sistema
+     pinta su pantalla solo se ve el color de fondo y el logo sale ya en su sitio, centrado sobre la pantalla entera (SplashOverlay). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <size android:width="48dp" android:height="48dp" />
+    <solid android:color="@android:color/transparent" />
+</shape>
