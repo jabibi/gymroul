@@ -2,6 +2,7 @@
 // Combined with it in src/i18n/index.js.
 export default {
   strings: {
+    'whatsnew.colors': 'Wheel colours now follow each slice\'s position, so the same colour never sits next to itself.',
     'doc.credits': 'Credits and licences',
   },
 

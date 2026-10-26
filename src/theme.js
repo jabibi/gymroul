@@ -4,7 +4,7 @@
 // Lo que se elige en Ajustes son esas tres más «system»: sigue al sistema (Oscuro si el dispositivo está en modo oscuro y
 // Claro si está en modo claro). Clásico nunca se aplica solo.
 // El tema se aplica con data-theme en <html>: las variables --brand-* y demás colores de src/style.css cambian solos.
-// Los colores de los ejercicios se guardan siempre con la paleta de «calm» (COLOR_PALETTE); con «classic» y «light» se
+// Los colores de los sectores se reparten por posición con la paleta de «calm» (COLOR_PALETTE); con «classic» y «light» se
 // sustituyen al mostrarlos por el de la misma posición en CLASSIC_COLOR_PALETTE o LIGHT_COLOR_PALETTE, así cambiar de apariencia no toca los datos.
 
 import { Capacitor, registerPlugin } from '@capacitor/core';

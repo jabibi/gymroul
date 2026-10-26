@@ -12,6 +12,8 @@ import { isValidIcon, normalizeIcon, migrateLegacyIcon } from './icons.js';
 
 export const MAX_EXERCISES = 12;
 export const MAX_REP_VALUE = 999999;
+/** Plantillas del usuario como máximo */
+export const MAX_TEMPLATES = 20;
 /** Longitud máxima (en caracteres) del nombre de un ejercicio */
 export const MAX_NAME_LENGTH = 30;
 /** Rango de repeticiones de los ejercicios por defecto y de los nuevos */
@@ -20,16 +22,16 @@ export const DEFAULT_REPS_MAX = 60;
 
 /** @type {Exercise[]} */
 export const DEFAULT_EXERCISES = [
-  { id: '1', name: 'Burpee', icon: 'burpee', color: '#0f766e', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '2', name: 'Lunge', icon: 'walk', color: '#475569', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '3', name: 'Push-up', icon: 'pushup', color: '#15803d', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '4', name: 'Air Squat', icon: 'squat', color: '#2563eb', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '5', name: 'Mountain Climbers', icon: 'climbers', color: '#0e7490', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
-  { id: '6', name: 'Split Jumps', icon: 'jump', color: '#4f46e5', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '1', name: 'Burpee', icon: 'burpee', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '2', name: 'Lunge', icon: 'walk', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '3', name: 'Push-up', icon: 'pushup', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '4', name: 'Air Squat', icon: 'squat', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '5', name: 'Mountain Climbers', icon: 'climbers', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
+  { id: '6', name: 'Split Jumps', icon: 'jump', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX },
 ];
 /** Lista global de repeticiones de la versión 1.14, solo para migrar (v7 -> v8) */
 const LEGACY_DEFAULT_REPS = [10, 20, 30, 40, 50, 60];
-/** Paleta de los sectores tal como se guarda en cada ejercicio (apariencia Suave) */
+/** Paleta de los sectores (apariencia Suave). Los ejercicios ya no guardan color: lo da la posición del sector (sectorColorIndexes en src/wheel-math.js) */
 export const COLOR_PALETTE = ['#0f766e', '#475569', '#15803d', '#2563eb', '#0e7490', '#4f46e5', '#64748b', '#0369a1'];
 /** Primera versión de la paleta Suave (tonos más claros, con poco contraste con el texto blanco), solo para migrar (v10 -> v11) */
 const FIRST_CALM_PALETTE = ['#0d9488', '#475569', '#059669', '#2563eb', '#0891b2', '#4f46e5', '#64748b', '#0369a1'];
@@ -43,13 +45,14 @@ const KEY_EXERCISES = 'gym_exercises';
 const KEY_LEGACY_REPS = 'gym_reps';
 const KEY_LEGACY_ACTIVE_REPS = 'gymroulette_active_reps';
 const KEY_ACTIVE_EXS = 'gymroulette_active_exs';
+const KEY_TEMPLATES = 'gym_templates';
 const KEY_SCHEMA = 'gym_schema_version';
 // Claves de funciones que ya no existen: la analítica opcional (migración v5 -> v6) y el aviso de introducción vista (v6 -> v7)
 const KEY_LEGACY_ANALYTICS_CONSENT = 'gymroulette_analytics_consent';
 const KEY_LEGACY_INTRO_SEEN = 'gymroulette_intro_seen';
 
 /** Versión actual del esquema de datos guardados; sube al cambiar su formato */
-export const SCHEMA_VERSION = 11;
+export const SCHEMA_VERSION = 12;
 
 /** Selección activa (se muta con setActive/loadActive) */
 export const active = {
@@ -94,9 +97,10 @@ const isStringList = (/** @type {any} */ l) => Array.isArray(l) && l.every(n => 
 /**
  * Migraciones por versión: MIGRATIONS[n] convierte los datos de la versión n a la n+1.
  * Añadir aquí un paso cada vez que cambie el formato guardado y subir SCHEMA_VERSION.
+ * Exportado para probar cada paso por separado.
  * @type {Record<number, () => void>}
  */
-const MIGRATIONS = {
+export const MIGRATIONS = {
   // v0 -> v1: datos sin versionar; se normalizan descartando entradas inválidas
   0: () => {
     writeStorage(KEY_EXERCISES, readStorage(KEY_EXERCISES, DEFAULT_EXERCISES, isExerciseList));
@@ -160,7 +164,7 @@ const MIGRATIONS = {
     const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
     if (!list) return;
     writeStorage(KEY_EXERCISES, list.map(e => {
-      const i = CLASSIC_COLOR_PALETTE.indexOf(e.color);
+      const i = CLASSIC_COLOR_PALETTE.indexOf(/** @type {any} */ (e).color);
       return i === -1 ? e : { ...e, color: COLOR_PALETTE[i] };
     }));
   },
@@ -178,8 +182,17 @@ const MIGRATIONS = {
     const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
     if (!list) return;
     writeStorage(KEY_EXERCISES, list.map(e => {
-      const i = FIRST_CALM_PALETTE.indexOf(e.color);
+      const i = FIRST_CALM_PALETTE.indexOf(/** @type {any} */ (e).color);
       return i === -1 ? e : { ...e, color: COLOR_PALETTE[i] };
+    }));
+  },
+  // v11 -> v12: el color deja de ser del ejercicio; la ruleta lo reparte por la posición del sector
+  11: () => {
+    const list = readStorage(KEY_EXERCISES, /** @type {Exercise[] | null} */ (null), isExerciseList);
+    if (!list) return;
+    writeStorage(KEY_EXERCISES, list.map(e => {
+      const { color, ...rest } = /** @type {any} */ (e);
+      return rest;
     }));
   },
 };
@@ -236,15 +249,6 @@ export function setActive(exercises) {
 // --- CRUD ----------------------------------------------------------------------------
 
 /**
- * Primer color de la paleta sin usar; si están todos usados, se reutilizan en orden.
- * @param {Exercise[]} list
- */
-export function pickColor(list) {
-  const used = list.map(e => e.color);
-  return COLOR_PALETTE.find(c => !used.includes(c)) || COLOR_PALETTE[list.length % COLOR_PALETTE.length];
-}
-
-/**
  * Valida y convierte un rango de repeticiones escrito por el usuario.
  * @param {string | number} min
  * @param {string | number} max
@@ -263,11 +267,11 @@ export function parseRepRange(min, max) {
 }
 
 /**
- * Crea un ejercicio nuevo y lo activa.
+ * Valida los datos de un ejercicio escritos por el usuario (nombre, icono y rango de repeticiones).
  * @param {{ name: string, icon: string, repsMin?: string | number, repsMax?: string | number }} input
- * @returns {StoreResult}
+ * @returns {{ ok: true, name: string, icon: string, repsMin: number, repsMax: number } | { ok: false, error: StoreError }}
  */
-export function addExercise({ name, icon, repsMin = DEFAULT_REPS_MIN, repsMax = DEFAULT_REPS_MAX }) {
+export function parseExerciseInput({ name, icon, repsMin = DEFAULT_REPS_MIN, repsMax = DEFAULT_REPS_MAX }) {
   name = (name || '').replace(/\s+/g, ' ').trim();
   if (!name) return { ok: false, error: { key: 'error.nameRequired' } };
   if (name.length > MAX_NAME_LENGTH) return { ok: false, error: { key: 'error.maxLength', params: { max: MAX_NAME_LENGTH } } };
@@ -276,6 +280,18 @@ export function addExercise({ name, icon, repsMin = DEFAULT_REPS_MIN, repsMax = 
 
   const range = parseRepRange(repsMin, repsMax);
   if (!range.ok) return range;
+  return { ok: true, name, icon, repsMin: range.min, repsMax: range.max };
+}
+
+/**
+ * Crea un ejercicio nuevo y lo activa.
+ * @param {{ name: string, icon: string, repsMin?: string | number, repsMax?: string | number }} input
+ * @returns {StoreResult}
+ */
+export function addExercise(input) {
+  const parsed = parseExerciseInput(input);
+  if (!parsed.ok) return parsed;
+  const { name, icon } = parsed;
 
   const list = getExercises();
   if (list.some(item => item.name.toLowerCase() === name.toLowerCase())) {
@@ -289,9 +305,8 @@ export function addExercise({ name, icon, repsMin = DEFAULT_REPS_MIN, repsMax = 
     id: Date.now().toString(),
     name,
     icon,
-    color: pickColor(list),
-    repsMin: range.min,
-    repsMax: range.max,
+    repsMin: parsed.repsMin,
+    repsMax: parsed.repsMax,
   });
   saveExercises(list);
 
@@ -362,5 +377,124 @@ export function updateExerciseReps(id, min, max) {
   target.repsMin = range.min;
   target.repsMax = range.max;
   saveExercises(list);
+  return { ok: true };
+}
+
+// --- Plantillas del usuario ------------------------------------------------------------
+// Las del sistema son datos fijos (src/templates.js). Las del usuario se guardan en su propia clave: una lista de
+// ejercicios sin id (se les da uno al cargarlas en la ruleta), con su nombre tal como se escribió. Una plantilla es una
+// copia: cargarla no la enlaza con la ruleta ni editar la ruleta la cambia.
+
+/**
+ * @typedef {{ name: string, icon: string, repsMin: number, repsMax: number }} TemplateExercise
+ * @typedef {{ id: string, name: string, exercises: TemplateExercise[] }} UserTemplate
+ */
+
+const isTemplateExercise = (/** @type {any} */ e) => !!e && typeof e.name === 'string' && e.name.trim() !== '';
+const isTemplate = (/** @type {any} */ t) => !!t && typeof t.id === 'string' && typeof t.name === 'string' && t.name.trim() !== '' && Array.isArray(t.exercises) && t.exercises.every(isTemplateExercise);
+const isTemplateList = (/** @type {any} */ l) => Array.isArray(l) && l.every(isTemplate);
+
+/**
+ * Plantillas del usuario por orden alfabético (sin distinguir mayúsculas ni acentos, según el idioma dado).
+ * Un icono fuera del catálogo o un rango inválido (datos manipulados) se sustituyen por los de por defecto.
+ * @param {string} [locale] etiqueta de idioma para ordenar
+ * @returns {UserTemplate[]}
+ */
+export function getTemplates(locale = 'es') {
+  const collator = new Intl.Collator(locale, { sensitivity: 'base', numeric: true });
+  return readStorage(KEY_TEMPLATES, /** @type {UserTemplate[]} */ ([]), isTemplateList)
+    .slice(0, MAX_TEMPLATES)
+    .map(t => ({
+      ...t,
+      exercises: t.exercises.slice(0, MAX_EXERCISES).map(e => ({
+        name: e.name,
+        icon: normalizeIcon(e.icon),
+        ...(isRepRange(e.repsMin, e.repsMax) ? { repsMin: e.repsMin, repsMax: e.repsMax } : { repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX }),
+      })),
+    }))
+    .sort((a, b) => collator.compare(a.name, b.name));
+}
+
+/**
+ * Crea o actualiza una plantilla del usuario (con id, la actualiza). Valida el nombre, que no se repita entre las del
+ * usuario, que lleve al menos un ejercicio (hasta el máximo de la ruleta), sin repetir nombre, y el rango de cada uno.
+ * @param {{ id?: string, name: string, exercises: { name: string, icon: string, repsMin?: string | number, repsMax?: string | number }[] }} input
+ * @returns {{ ok: true, id: string } | { ok: false, error: StoreError }}
+ */
+export function saveTemplate({ id, name, exercises }) {
+  name = (name || '').replace(/\s+/g, ' ').trim();
+  if (!name) return { ok: false, error: { key: 'error.templateNameRequired' } };
+  if (name.length > MAX_NAME_LENGTH) return { ok: false, error: { key: 'error.maxLength', params: { max: MAX_NAME_LENGTH } } };
+  if (exercises.length === 0) return { ok: false, error: { key: 'error.templateEmpty' } };
+  if (exercises.length > MAX_EXERCISES) return { ok: false, error: { key: 'error.maxExercises', params: { max: MAX_EXERCISES } } };
+
+  /** @type {TemplateExercise[]} */
+  const parsed = [];
+  for (const ex of exercises) {
+    const one = parseExerciseInput(ex);
+    if (!one.ok) return one;
+    if (parsed.some(p => p.name.toLowerCase() === one.name.toLowerCase())) {
+      return { ok: false, error: { key: 'error.duplicateExercise', params: { name: one.name } } };
+    }
+    parsed.push({ name: one.name, icon: one.icon, repsMin: one.repsMin, repsMax: one.repsMax });
+  }
+
+  const list = getTemplates();
+  const index = id ? list.findIndex(t => t.id === id) : -1;
+  if (list.some((t, i) => i !== index && t.name.toLowerCase() === name.toLowerCase())) {
+    return { ok: false, error: { key: 'error.duplicateTemplate', params: { name } } };
+  }
+  if (index === -1 && list.length >= MAX_TEMPLATES) {
+    return { ok: false, error: { key: 'error.maxTemplates', params: { max: MAX_TEMPLATES } } };
+  }
+
+  let stamp = Date.now(); // dos plantillas creadas en el mismo milisegundo no pueden compartir id
+  while (list.some(t => t.id === String(stamp))) stamp++;
+  const saved = { id: index === -1 ? String(stamp) : list[index].id, name, exercises: parsed };
+  if (index === -1) list.push(saved);
+  else list[index] = saved;
+  writeStorage(KEY_TEMPLATES, list);
+  return { ok: true, id: saved.id };
+}
+
+/** @param {string} id */
+export function deleteTemplate(id) {
+  writeStorage(KEY_TEMPLATES, getTemplates().filter(t => t.id !== id));
+}
+
+/**
+ * Nombre libre para una copia: el base si no está en uso y, si no, con un número detrás. Cabe en MAX_NAME_LENGTH.
+ * @param {string} base
+ */
+export function uniqueTemplateName(base) {
+  const taken = new Set(getTemplates().map(t => t.name.toLowerCase()));
+  const fit = (/** @type {string} */ text, /** @type {string} */ suffix = '') => text.slice(0, MAX_NAME_LENGTH - suffix.length).trimEnd() + suffix;
+  if (!taken.has(fit(base).toLowerCase())) return fit(base);
+  for (let n = 2; ; n++) {
+    const candidate = fit(base, ` ${n}`);
+    if (!taken.has(candidate.toLowerCase())) return candidate;
+  }
+}
+
+/**
+ * Carga una plantilla en la ruleta: sustituye todos los ejercicios del catálogo por los suyos y los activa todos. Los
+ * del sistema traen id (así siguen traduciéndose); a los del usuario se les da uno nuevo.
+ * @param {{ id?: string, name: string, icon: string, repsMin: number, repsMax: number }[]} exercises
+ * @returns {StoreResult}
+ */
+export function loadTemplate(exercises) {
+  if (exercises.length === 0) return { ok: false, error: { key: 'error.templateEmpty' } };
+  if (exercises.length > MAX_EXERCISES) return { ok: false, error: { key: 'error.maxExercises', params: { max: MAX_EXERCISES } } };
+  const now = Date.now();
+  /** @type {Exercise[]} */
+  const list = exercises.map((e, i) => ({
+    id: e.id ?? String(now + i),
+    name: e.name,
+    icon: normalizeIcon(e.icon),
+    repsMin: e.repsMin,
+    repsMax: e.repsMax,
+  }));
+  saveExercises(list);
+  setActive(list.map(e => e.name));
   return { ok: true };
 }

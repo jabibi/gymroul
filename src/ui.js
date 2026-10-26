@@ -3,7 +3,11 @@
 
 import { exerciseName, sortExercises } from './exercise-names.js';
 import { isolate } from './wheel-math.js';
-import { getExercises, active, MAX_EXERCISES, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE, COLOR_PALETTE } from './store.js';
+import {
+  getExercises, active, MAX_EXERCISES, MAX_NAME_LENGTH, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_REP_VALUE, COLOR_PALETTE,
+  getTemplates, parseExerciseInput,
+} from './store.js';
+import { SYSTEM_TEMPLATES, systemExercise, systemTemplateExercises } from './templates.js';
 import { THEME_CHOICES, THEME_BRAND, THEME_BG, getThemeChoice, resolveTheme, themeColor } from './theme.js';
 import { WHATS_NEW_VERSION } from './whats-new.js';
 import { playWinFanfare, vibrateResult } from './audio.js';
@@ -84,7 +88,7 @@ export function pulseIndicator() {
 // Cada modal que se abre añade una entrada al historial del navegador: así el botón
 // "Atrás" de Android (o del navegador) lo cierra en lugar de salir de la app.
 
-/** @typedef {'result' | 'history' | 'config' | 'share' | 'commitment' | 'document' | 'whatsnew' | 'addexercise'} ModalName */
+/** @typedef {'result' | 'history' | 'config' | 'share' | 'commitment' | 'document' | 'whatsnew' | 'addexercise' | 'template' | 'templatepicker'} ModalName */
 // Pila de modales abiertos (el último es el que está encima): la política de privacidad
 // puede abrirse sobre la configuración y Atrás debe cerrar primero la de arriba
 /** @type {ModalName[]} */
@@ -102,6 +106,8 @@ const closers = {
   document: () => closeDocument(),
   whatsnew: () => closeWhatsNew(),
   addexercise: () => closeAddExercise(),
+  template: () => closeTemplate(),
+  templatepicker: () => closeTemplatePicker(),
 };
 
 /** @param {ModalName} name */
@@ -670,8 +676,18 @@ export function toggleConfigHelp() {
   setDisclosure('configHelpBtn', 'configHelp', $('configHelp').classList.contains('hidden'));
 }
 
-/** Abre la ventana de nuevo ejercicio (encima de Ajustes), con el formulario vacío y el cursor en el nombre. */
-export function openAddExercise() {
+/** A dónde va el ejercicio que se escribe en la ventana de nuevo ejercicio: a la ruleta o al borrador de una plantilla */
+/** @type {'wheel' | 'template'} */
+let addTarget = 'wheel';
+
+export const addExerciseTarget = () => addTarget;
+
+/**
+ * Abre la ventana de nuevo ejercicio (encima de Ajustes o de una plantilla), con el formulario vacío y el cursor en el nombre.
+ * @param {'wheel' | 'template'} [target]
+ */
+export function openAddExercise(target = 'wheel') {
+  addTarget = target;
   resetNewExerciseForm();
   setSheetVisible('addExerciseModal', 'addExerciseCard', true);
   pushModal('addexercise');
@@ -707,16 +723,17 @@ export function readRepsEditor(id) {
 }
 
 // --- Ajustes ---------------------------------------------------------------------------
-// Un único panel con cuatro pantallas: el menú (Configurar ruleta, Apariencia, Idioma, Compromiso de
-// privacidad y Créditos) y, dentro, el editor de ejercicios, la apariencia y el idioma. Las pantallas no
+// Un único panel con cinco pantallas: el menú (Editar ruleta, Plantillas, Apariencia, Idioma, Compromiso de
+// privacidad y Créditos) y, dentro, el editor de ejercicios, las plantillas, la apariencia y el idioma. Las pantallas no
 // añaden entradas al historial: Atrás vuelve al menú y, desde el menú, cierra el panel.
 
-/** @typedef {'menu' | 'wheel' | 'appearance' | 'language'} SettingsView */
+/** @typedef {'menu' | 'wheel' | 'templates' | 'appearance' | 'language'} SettingsView */
 /** @type {SettingsView} */
 let settingsView = 'menu';
 const VIEW_TITLE_KEYS = /** @type {Record<SettingsView, string>} */ ({
   menu: 'settings.title',
   wheel: 'config.title',
+  templates: 'settings.templates',
   appearance: 'settings.appearance',
   language: 'config.language',
 });
@@ -771,6 +788,7 @@ export function renderSettings() {
   $('configTitle').textContent = t(VIEW_TITLE_KEYS[settingsView]);
   $('settingsThemeValue').textContent = themeLabel(theme);
   $('settingsLanguageValue').textContent = LANGUAGES.find(l => l.code === lang)?.name ?? '';
+  renderTemplateLists();
 
   const row = 'w-full flex items-center justify-between gap-3 min-h-[48px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors';
   const check = '<i class="fa-solid fa-check text-brand-text text-sm shrink-0" aria-hidden="true"></i>';
@@ -816,15 +834,13 @@ export function renderSettings() {
 
 // --- Novedades ---------------------------------------------------------------------------
 
-/** Pinta los textos con parámetros (título y tarjeta para elegir la apariencia); el resto va con data-i18n. */
+/** Pinta los textos con parámetros (título y tarjeta para probar las plantillas); el resto va con data-i18n. */
 function renderWhatsNew() {
   $('whatsNewTitle').textContent = t('whatsnew.title', { version: WHATS_NEW_VERSION });
   // Los nombres salen de los mismos textos que Ajustes: lo que dice el aviso es siempre lo que se verá en pantalla
-  const options = new Intl.ListFormat(getLanguageTag(), { style: 'long', type: 'disjunction' }).format(THEME_CHOICES.map(c => t(THEME_NAME_KEYS[c])));
-  $('whatsNewClassicText').textContent = t('whatsnew.classicText', {
+  $('whatsNewTemplatesText').textContent = t('whatsnew.templatesText', {
     settings: t('settings.title'),
-    appearance: t('settings.appearance'),
-    options,
+    templates: t('settings.templates'),
   });
 }
 
@@ -839,10 +855,10 @@ export function closeWhatsNew() {
   dismissModal('whatsnew');
 }
 
-/** Del aviso a Apariencia: Ajustes ocupa el sitio de las novedades en la pila, así que Atrás lo cierra sin volver al aviso. */
-export function whatsNewToAppearance() {
+/** Del aviso a Plantillas: Ajustes ocupa el sitio de las novedades en la pila, así que Atrás lo cierra sin volver al aviso. */
+export function whatsNewToTemplates() {
   setSheetVisible('whatsNewModal', 'whatsNewCard', false);
-  openSettingsAt('appearance', 'whatsnew');
+  openSettingsAt('templates', 'whatsnew');
 }
 
 /** Abre Ajustes en el menú. */
@@ -889,6 +905,298 @@ export function readCheckedExercises() {
   return Array.from(document.querySelectorAll('.ex-checkbox'))
     .filter(cb => /** @type {HTMLInputElement} */ (cb).checked)
     .map(cb => /** @type {HTMLInputElement} */ (cb).value);
+}
+
+// --- Plantillas -------------------------------------------------------------------------------
+// Las del sistema (src/templates.js) solo se ven, se cargan o se copian; las del usuario (src/store.js) se crean, editan,
+// copian y borran. La ventana de plantilla trabaja con un borrador que solo se guarda con «Guardar». Cargar una plantilla
+// en la ruleta sustituye sus ejercicios (selector `templatePickerModal`).
+
+/**
+ * @typedef {{ name: string, icon: string, repsMin: string | number, repsMax: string | number }} DraftExercise
+ * @typedef {{ source: 'user' | 'system', id: string | null, slug: string | null, name: string, exercises: DraftExercise[] }} TemplateDraft
+ */
+
+/** @type {TemplateDraft | null} */
+let templateDraft = null;
+/** Plantilla marcada en el selector: «user:<id>» o «sys:<slug>»; vacío si aún no se ha elegido */
+let pickedTemplate = '';
+
+const TEMPLATE_ROW = 'w-full flex items-center gap-3 min-h-[52px] px-3.5 py-2.5 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors';
+
+/** Las plantillas del sistema con su nombre en el idioma activo, por orden alfabético. */
+function systemTemplates() {
+  const collator = new Intl.Collator(getLanguageTag(), { sensitivity: 'base', numeric: true });
+  return SYSTEM_TEMPLATES
+    .map(template => ({ template, name: t(`template.${template.slug}`) }))
+    .sort((a, b) => collator.compare(a.name, b.name));
+}
+
+/** Iconos de los ejercicios de una plantilla del sistema. @param {import('./templates.js').SystemTemplate} template */
+const systemIcons = template => template.exercises.map(e => /** @type {NonNullable<ReturnType<typeof systemExercise>>} */ (systemExercise(e.id)).icon);
+
+/**
+ * Fila de una plantilla: su nombre y la tira de iconos de sus ejercicios. Sin `selected` es un botón que abre la
+ * plantilla; con él, una opción del selector.
+ * @param {string} ref @param {string} name @param {string[]} icons @param {boolean | null} [selected]
+ */
+function templateRowHTML(ref, name, icons, selected = null) {
+  const strip = icons.map(icon => `<span class="text-brand-text text-base flex items-center">${renderIconHTML(icon)}</span>`).join('');
+  const radio = `<span class="w-5 h-5 shrink-0 rounded-full border-2 flex items-center justify-center ${selected ? 'border-brand-500' : 'border-slate-600'}" aria-hidden="true">${selected ? '<span class="w-2.5 h-2.5 rounded-full bg-brand-500"></span>' : ''}</span>`;
+  const chevron = '<i class="fa-solid fa-chevron-right text-[10px] text-slate-500 shrink-0 rtl:-scale-x-100" aria-hidden="true"></i>';
+  return `<button type="button" ${selected === null ? '' : `role="radio" aria-checked="${selected}"`} ${selected === null ? 'data-action="template-open"' : 'data-action="pick-template"'} data-arg="${escapeHTML(ref)}" class="${TEMPLATE_ROW}">
+    <span class="min-w-0 flex-1">
+      <span class="block text-sm font-bold break-words ${selected === false ? 'text-slate-300' : 'text-white'}">${escapeHTML(name)}</span>
+      <span class="flex flex-wrap gap-x-2 gap-y-1 mt-1.5" aria-hidden="true">${strip}</span>
+    </span>
+    ${selected === null ? chevron : radio}
+  </button>`;
+}
+
+/** Pinta las dos listas de la pantalla Plantillas de Ajustes. */
+export function renderTemplateLists() {
+  const mine = getTemplates(getLanguageTag());
+  $('userTemplates').innerHTML = mine.length
+    ? mine.map(tpl => templateRowHTML(`user:${tpl.id}`, tpl.name, tpl.exercises.map(e => e.icon))).join('')
+    : `<p class="px-3.5 py-3 text-xs text-slate-400">${escapeHTML(t('templates.empty'))}</p>`;
+  $('systemTemplates').innerHTML = systemTemplates()
+    .map(({ template, name }) => templateRowHTML(`sys:${template.slug}`, name, systemIcons(template))).join('');
+}
+
+/** @param {string} ref «new», «user:<id>» o «sys:<slug>» @returns {TemplateDraft | null} */
+function draftFromRef(ref) {
+  if (ref === 'new') return { source: 'user', id: null, slug: null, name: '', exercises: [] };
+  if (ref.startsWith('user:')) {
+    const tpl = getTemplates().find(item => item.id === ref.slice(5));
+    return tpl ? { source: 'user', id: tpl.id, slug: null, name: tpl.name, exercises: tpl.exercises.map(e => ({ ...e })) } : null;
+  }
+  const template = SYSTEM_TEMPLATES.find(item => `sys:${item.slug}` === ref);
+  if (!template) return null;
+  // Al copiarla, los nombres se quedan como se ven ahora (en el idioma activo): la copia es del usuario y ya no se traduce
+  return {
+    source: 'system',
+    id: null,
+    slug: template.slug,
+    name: t(`template.${template.slug}`),
+    exercises: systemTemplateExercises(template).map(e => ({ name: exerciseName(e).slice(0, MAX_NAME_LENGTH), icon: e.icon, repsMin: e.repsMin, repsMax: e.repsMax })),
+  };
+}
+
+const templateRepsId = (/** @type {number} */ index, /** @type {string} */ kind) => `tplReps${kind}-${index}`;
+
+/** Pinta la ventana de plantilla según su borrador: del sistema (solo lectura), nueva o del usuario ya guardada. */
+function renderTemplateModal() {
+  const draft = templateDraft;
+  if (!draft) return;
+  const system = draft.source === 'system';
+  const isNew = draft.source === 'user' && draft.id === null;
+  const inputClass = 'min-h-[44px] w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500';
+
+  $('templateTitle').textContent = system ? draft.name : t(isNew ? 'templates.new' : 'templates.edit');
+  /** @type {HTMLInputElement} */ ($('templateName')).value = draft.name;
+  $('templateName').classList.toggle('hidden', system);
+  $('templateNote').classList.toggle('hidden', !system);
+
+  $('templateExercises').innerHTML = draft.exercises.map((ex, i) => {
+    const icon = `<span class="text-brand-text text-lg flex items-center shrink-0">${renderIconHTML(ex.icon)}</span>`;
+    if (system) {
+      return `<div class="flex items-center gap-2 min-h-[48px] px-2.5 py-2 rounded-xl bg-dark-950 border border-slate-800">
+        ${icon}
+        <span class="text-xs font-bold text-white flex-1 min-w-0 break-words">${escapeHTML(ex.name)}</span>
+        <span class="shrink-0 text-xs font-bold text-brand-text"><bdi dir="ltr">${escapeHTML(t('config.repsRange', { min: ex.repsMin, max: ex.repsMax }))}</bdi></span>
+      </div>`;
+    }
+    return `<div class="rounded-xl bg-dark-950 border border-slate-800 ps-2.5 pe-1 pt-1 pb-2.5">
+      <div class="flex items-center gap-2 min-w-0">
+        ${icon}
+        <span class="text-xs font-bold text-white flex-1 min-w-0 break-words">${escapeHTML(ex.name)}</span>
+        <button type="button" data-action="template-remove-exercise" data-arg="${i}" aria-label="${escapeHTML(t('templates.removeExercise', { name: ex.name }))}" class="flex items-center justify-center w-11 h-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors"><i class="fa-solid fa-trash-can"></i></button>
+      </div>
+      <div class="grid grid-cols-2 gap-2 pe-1.5">
+        <label class="block text-xs font-bold text-slate-400">${escapeHTML(t('config.repsMin'))}
+          <input type="number" dir="ltr" inputmode="numeric" id="${templateRepsId(i, 'Min')}" value="${escapeHTML(ex.repsMin)}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
+        </label>
+        <label class="block text-xs font-bold text-slate-400">${escapeHTML(t('config.repsMax'))}
+          <input type="number" dir="ltr" inputmode="numeric" id="${templateRepsId(i, 'Max')}" value="${escapeHTML(ex.repsMax)}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
+        </label>
+      </div>
+    </div>`;
+  }).join('');
+
+  const full = draft.exercises.length >= MAX_EXERCISES;
+  /** @type {HTMLButtonElement} */ ($('templateAddBtn')).disabled = full;
+  $('templateAddHint').textContent = full ? t('error.maxExercises', { max: MAX_EXERCISES }) : '';
+  $('templateAddHint').classList.toggle('hidden', system || !full);
+  $('templateAddBtn').classList.toggle('hidden', system);
+  $('templateFromWheelBtn').classList.toggle('hidden', !(isNew && draft.exercises.length === 0));
+  $('templateSaveBtn').classList.toggle('hidden', system);
+  $('templateLoadBtn').classList.toggle('hidden', !system);
+  $('templateCopyBtn').classList.toggle('hidden', isNew);
+  $('templateDeleteBtn').classList.toggle('hidden', system || isNew);
+  disarmDeleteTemplate();
+}
+
+/**
+ * Abre la ventana de plantilla (encima de Ajustes). Si ya estaba abierta, solo cambia su contenido (por ejemplo, al
+ * copiar una del sistema se sigue en la copia).
+ * @param {string} ref «new», «user:<id>» o «sys:<slug>»
+ */
+export function openTemplate(ref) {
+  const draft = draftFromRef(ref);
+  if (!draft) return;
+  const wasOpen = modalStack.includes('template');
+  templateDraft = draft;
+  renderTemplateModal();
+  if (wasOpen) return;
+  setSheetVisible('templateModal', 'templateCard', true);
+  pushModal('template');
+}
+
+/** Cierra la ventana de plantilla sin guardar el borrador. */
+export function closeTemplate() {
+  setSheetVisible('templateModal', 'templateCard', false);
+  dismissModal('template');
+  disarmDeleteTemplate();
+  templateDraft = null;
+}
+
+/** Id de la plantilla del usuario que se está editando (null si es nueva o del sistema). */
+export const openTemplateId = () => templateDraft?.id ?? null;
+/**
+ * Los ejercicios de la plantilla del sistema que está abierta, con sus ids y nombres originales (así siguen traduciéndose),
+ * listos para cargarlos en la ruleta; null si lo abierto no es una del sistema.
+ * @returns {import('./wheel-math.js').Exercise[] | null}
+ */
+export function openSystemTemplateExercises() {
+  const template = SYSTEM_TEMPLATES.find(item => item.slug === templateDraft?.slug);
+  return template ? systemTemplateExercises(template) : null;
+}
+
+/** Recoge lo escrito (nombre y repeticiones) en el borrador y lo devuelve; null si no hay ventana abierta. */
+export function readTemplateDraft() {
+  const draft = templateDraft;
+  if (!draft) return null;
+  if (draft.source === 'user') {
+    draft.name = /** @type {HTMLInputElement} */ ($('templateName')).value;
+    draft.exercises.forEach((ex, i) => {
+      ex.repsMin = /** @type {HTMLInputElement | null} */ (document.getElementById(templateRepsId(i, 'Min')))?.value ?? ex.repsMin;
+      ex.repsMax = /** @type {HTMLInputElement | null} */ (document.getElementById(templateRepsId(i, 'Max')))?.value ?? ex.repsMax;
+    });
+  }
+  return draft;
+}
+
+/**
+ * Añade al borrador el ejercicio escrito en la ventana de nuevo ejercicio.
+ * @param {{ name: string, icon: string, repsMin?: string | number, repsMax?: string | number }} input
+ * @returns {import('./store.js').StoreResult}
+ */
+export function addTemplateExercise(input) {
+  const draft = readTemplateDraft();
+  if (!draft) return { ok: true };
+  const parsed = parseExerciseInput(input);
+  if (!parsed.ok) return parsed;
+  if (draft.exercises.some(e => e.name.toLowerCase() === parsed.name.toLowerCase())) {
+    return { ok: false, error: { key: 'error.duplicateExercise', params: { name: parsed.name } } };
+  }
+  if (draft.exercises.length >= MAX_EXERCISES) {
+    return { ok: false, error: { key: 'error.maxExercises', params: { max: MAX_EXERCISES } } };
+  }
+  draft.exercises.push({ name: parsed.name, icon: parsed.icon, repsMin: parsed.repsMin, repsMax: parsed.repsMax });
+  renderTemplateModal();
+  return { ok: true };
+}
+
+/** @param {number} index posición del ejercicio en el borrador */
+export function removeTemplateExercise(index) {
+  const draft = readTemplateDraft();
+  if (!draft) return;
+  draft.exercises.splice(index, 1);
+  renderTemplateModal();
+}
+
+/** Rellena una plantilla nueva con los ejercicios que están ahora en la ruleta (los marcados). */
+export function fillTemplateFromWheel() {
+  const draft = readTemplateDraft();
+  if (!draft) return;
+  draft.exercises = sortExercises(getExercises().filter(ex => active.exercises.includes(ex.name))).map(ex => ({
+    name: exerciseName(ex).slice(0, MAX_NAME_LENGTH),
+    icon: ex.icon,
+    repsMin: ex.repsMin,
+    repsMax: ex.repsMax,
+  }));
+  renderTemplateModal();
+}
+
+/** «Borrar plantilla» pide una segunda pulsación, como «Limpiar historial». */
+let deleteArmed = false;
+/** @type {ReturnType<typeof setTimeout> | undefined} */
+let deleteTimer;
+
+function disarmDeleteTemplate() {
+  deleteArmed = false;
+  clearTimeout(deleteTimer);
+  $('templateDeleteLabel').textContent = t('templates.delete');
+}
+
+/** @returns {boolean} true si era la segunda pulsación y hay que borrar */
+export function requestDeleteTemplate() {
+  if (deleteArmed) {
+    disarmDeleteTemplate();
+    return true;
+  }
+  deleteArmed = true;
+  $('templateDeleteLabel').textContent = t('history.clearConfirm');
+  clearTimeout(deleteTimer);
+  deleteTimer = setTimeout(disarmDeleteTemplate, CLEAR_CONFIRM_MS);
+  return false;
+}
+
+/** Pinta el selector: las plantillas del usuario primero, ordenadas, y después las del sistema. */
+function renderTemplatePicker() {
+  const mine = getTemplates(getLanguageTag());
+  const group = (/** @type {string} */ title, /** @type {string[]} */ rows) => `<div>
+    <h4 class="px-1 pb-2 text-sm font-black text-slate-200">${escapeHTML(title)}</h4>
+    <div class="rounded-2xl bg-dark-900/60 border border-slate-800 overflow-hidden divide-y divide-slate-800/80">${rows.join('')}</div>
+  </div>`;
+  const userRows = mine.map(tpl => templateRowHTML(`user:${tpl.id}`, tpl.name, tpl.exercises.map(e => e.icon), pickedTemplate === `user:${tpl.id}`));
+  const systemRows = systemTemplates().map(({ template, name }) => templateRowHTML(`sys:${template.slug}`, name, systemIcons(template), pickedTemplate === `sys:${template.slug}`));
+  $('templatePickerList').innerHTML = (mine.length ? group(t('templates.mine'), userRows) : '') + group(t('templates.system'), systemRows);
+  /** @type {HTMLButtonElement} */ ($('templatePickerLoadBtn')).disabled = !pickedTemplate;
+}
+
+/** Abre el selector de plantilla para la ruleta, sin nada elegido. */
+export function openTemplatePicker() {
+  pickedTemplate = '';
+  renderTemplatePicker();
+  $('templatePickerList').scrollTop = 0;
+  setSheetVisible('templatePickerModal', 'templatePickerCard', true);
+  pushModal('templatepicker');
+}
+
+export function closeTemplatePicker() {
+  setSheetVisible('templatePickerModal', 'templatePickerCard', false);
+  dismissModal('templatepicker');
+}
+
+/** @param {string} ref «user:<id>» o «sys:<slug>» */
+export function pickTemplate(ref) {
+  pickedTemplate = ref;
+  const scroll = $('templatePickerList').scrollTop;
+  renderTemplatePicker();
+  $('templatePickerList').scrollTop = scroll;
+  // El repintado destruye el botón pulsado: el foco pasa al que queda marcado para no perderlo
+  /** @type {HTMLElement | null} */ ($('templatePickerList').querySelector('[aria-checked="true"]'))?.focus({ preventScroll: true });
+}
+
+/**
+ * Los ejercicios de la plantilla marcada en el selector, listos para cargarlos en la ruleta; null si no hay ninguna.
+ * @returns {{ id?: string, name: string, icon: string, repsMin: number, repsMax: number }[] | null}
+ */
+export function pickedTemplateExercises() {
+  if (pickedTemplate.startsWith('user:')) return getTemplates().find(tpl => tpl.id === pickedTemplate.slice(5))?.exercises ?? null;
+  const template = SYSTEM_TEMPLATES.find(item => `sys:${item.slug}` === pickedTemplate);
+  return template ? systemTemplateExercises(template) : null;
 }
 
 // --- Selector de iconos ----------------------------------------------------------------

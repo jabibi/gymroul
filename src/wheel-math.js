@@ -2,7 +2,7 @@
 // Lógica pura de la ruleta (sin DOM) para poder testearla
 
 /**
- * @typedef {{ id: string, name: string, icon: string, color: string, repsMin: number, repsMax: number }} Exercise
+ * @typedef {{ id: string, name: string, icon: string, repsMin: number, repsMax: number }} Exercise
  * @typedef {{ text: string, exercise: string, color: string, icon: string, repsMin: number, repsMax: number }} Segment
  * Reto resultante de un giro: el sector ganador con las repeticiones ya tiradas
  * @typedef {Segment & { reps: number }} Challenge
@@ -24,22 +24,59 @@ export const CONFIG_SEGMENT = /** @type {Segment} */ ({
 const storedName = (/** @type {Exercise} */ ex) => ex.name;
 
 /**
- * Un sector por ejercicio activo; las repeticiones no se ven en la ruleta, salen al terminar el giro.
- * @param {Exercise[]} exercises catálogo completo
+ * Posición de la paleta de cada sector. Los colores se reparten por posición, no por ejercicio: hasta el tamaño de la
+ * paleta salen en orden; a partir de ahí cada sector toma el color cuya aparición más cercana quede más lejos (midiendo
+ * sobre el círculo, porque el último sector es vecino del primero), así ningún color se repite en sectores contiguos
+ * ni cerca. En empate, el primero de la paleta.
+ * @param {number} count número de sectores
+ * @param {number} paletteSize número de colores de la paleta
+ * @returns {number[]}
+ */
+export function sectorColorIndexes(count, paletteSize) {
+  /** @type {number[]} */
+  const indexes = [];
+  for (let i = 0; i < count; i++) {
+    if (i < paletteSize) {
+      indexes.push(i);
+      continue;
+    }
+    let best = 0;
+    let bestGap = -1;
+    for (let color = 0; color < paletteSize; color++) {
+      let gap = Infinity;
+      indexes.forEach((used, j) => {
+        if (used === color) gap = Math.min(gap, Math.abs(i - j), count - Math.abs(i - j));
+      });
+      if (gap > bestGap) {
+        best = color;
+        bestGap = gap;
+      }
+    }
+    indexes.push(best);
+  }
+  return indexes;
+}
+
+/**
+ * Un sector por ejercicio activo; las repeticiones no se ven en la ruleta, salen al terminar el giro. El color de cada
+ * sector lo da su posición (sectorColorIndexes), no el ejercicio.
+ * @param {Exercise[]} exercises catálogo completo, en el orden en que se pintan
  * @param {string[]} activeExercises nombres activos (los guardados)
  * @param {(ex: Exercise) => string} [displayName] nombre que se muestra
+ * @param {string[]} [palette] colores de los sectores
  * @returns {Segment[]}
  */
-export function generateSegments(exercises, activeExercises, displayName = storedName) {
+export function generateSegments(exercises, activeExercises, displayName = storedName, palette = [CONFIG_SEGMENT.color]) {
   const exs = exercises.filter(ex => activeExercises.includes(ex.name));
   if (exs.length === 0) return [CONFIG_SEGMENT];
 
-  return exs.map(ex => {
+  const colors = sectorColorIndexes(exs.length, palette.length);
+  return exs.map((ex, i) => {
     const name = displayName(ex);
     return {
       text: name,
       exercise: name,
-      color: ex.color || '#475569',
+      color: palette[colors[i]],
       icon: ex.icon || 'dumbbell',
       repsMin: ex.repsMin,
       repsMax: ex.repsMax,

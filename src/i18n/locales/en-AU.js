@@ -4,6 +4,7 @@
 // Australia "football" is ambiguous and "soccer" is the usual word).
 export default {
   strings: {
+    'whatsnew.colors': 'Wheel colours now follow each slice\'s position, so the same colour never sits next to itself.',
     'doc.credits': 'Credits and licences',
   },
 

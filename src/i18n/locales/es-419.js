@@ -3,6 +3,7 @@
 // Se combina con es.js en src/i18n/index.js.
 export default {
   strings: {
+    'error.templateEmpty': 'Agrega al menos un ejercicio a la plantilla',
     'history.clearConfirm': 'Presiona otra vez',
     'config.addExercise': 'Agregar nuevo ejercicio',
 

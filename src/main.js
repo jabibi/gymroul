@@ -8,7 +8,8 @@ import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, ge
 import { generateSegments, rollReps, CONFIG_SEGMENT } from './wheel-math.js';
 import {
   migrate, loadActive, active, setActive,
-  addExercise, removeExercise, restoreExercise, updateExerciseReps,
+  addExercise, removeExercise, restoreExercise, updateExerciseReps, COLOR_PALETTE,
+  saveTemplate, deleteTemplate, uniqueTemplateName, loadTemplate,
 } from './store.js';
 import { toggleSound, initAudio } from './audio.js';
 import * as ui from './ui.js';
@@ -22,9 +23,17 @@ import { t, detectLanguage, setLanguage, applyTranslations, isSupported } from '
 
 /** Reconstruye los sectores a partir del catálogo y la selección activa. */
 function rebuildWheel() {
-  const segments = generateSegments(sortedExercises(), active.exercises, exerciseName);
-  // Los colores guardados son los de la apariencia Suave; con Clásico se cambian al mostrarlos (el sector «Configurar» se deja tal cual: se reconoce por identidad)
+  const segments = generateSegments(sortedExercises(), active.exercises, exerciseName, COLOR_PALETTE);
+  // Los colores se reparten por posición con la paleta de la apariencia Suave; con Clásico y Claro se cambian al mostrarlos (el sector «Configurar» se deja tal cual: se reconoce por identidad)
   setSegments(segments.map(s => (s === CONFIG_SEGMENT ? s : { ...s, color: themeColor(s.color) })));
+}
+
+/** Tras cargar una plantilla en la ruleta (sustituye todos sus ejercicios): repinta la ruleta y la lista del editor. */
+function applyLoadedTemplate() {
+  ui.settleRemoval();
+  rebuildWheel();
+  refreshMarker();
+  ui.renderConfig();
 }
 
 /** Guarda al momento qué ejercicios están marcados: Ajustes no tiene botón de guardar. */
@@ -127,8 +136,8 @@ const actions = {
   'clear-history': () => ui.requestClearHistory(),
   'open-settings': () => { if (!isTurning()) ui.openSettings(); },
   'close-whatsnew': () => ui.closeWhatsNew(),
-  'whatsnew-appearance': () => ui.whatsNewToAppearance(),
-  'settings-open': arg => arg && ui.showSettingsView(/** @type {'wheel' | 'appearance' | 'language'} */ (arg)),
+  'whatsnew-templates': () => ui.whatsNewToTemplates(),
+  'settings-open': arg => arg && ui.showSettingsView(/** @type {'wheel' | 'templates' | 'appearance' | 'language'} */ (arg)),
   'settings-back': () => ui.settingsBack(),
   'set-language': arg => { if (arg && isSupported(arg) && setLanguage(arg)) applyLanguage(); },
   'set-theme': arg => { if (arg && arg !== getThemeChoice()) withThemeTransition(() => { if (setTheme(arg)) applyTheme(); }); },
@@ -149,6 +158,13 @@ const actions = {
   },
   'add-exercise': () => {
     const form = ui.readNewExerciseForm();
+    if (ui.addExerciseTarget() === 'template') {
+      // Se está escribiendo una plantilla: el ejercicio va a su borrador, no a la ruleta
+      const added = ui.addTemplateExercise(form);
+      reportError(added);
+      if (added.ok) ui.closeAddExercise();
+      return;
+    }
     const result = addExercise(form);
     reportError(result);
     if (!result.ok) return;
@@ -171,6 +187,62 @@ const actions = {
     });
   },
   'undo-delete': () => ui.undoRemoval(),
+
+  'template-new': () => ui.openTemplate('new'),
+  'template-open': arg => arg && ui.openTemplate(arg),
+  'close-template': () => ui.closeTemplate(),
+  'template-add-exercise': () => ui.openAddExercise('template'),
+  'template-remove-exercise': arg => ui.removeTemplateExercise(Number(arg)),
+  'template-from-wheel': () => ui.fillTemplateFromWheel(),
+  'template-save': () => {
+    const draft = ui.readTemplateDraft();
+    if (!draft || draft.source !== 'user') return;
+    const result = saveTemplate({ id: draft.id ?? undefined, name: draft.name, exercises: draft.exercises });
+    reportError(result);
+    if (!result.ok) return;
+    ui.closeTemplate();
+    ui.renderTemplateLists();
+    ui.showToast(t('templates.saved'));
+  },
+  'template-copy': () => {
+    const draft = ui.readTemplateDraft();
+    if (!draft) return;
+    // La copia es del usuario: el nombre y los ejercicios quedan tal como se ven ahora, y se sigue editando la copia
+    const result = saveTemplate({ name: uniqueTemplateName(t('templates.copyName', { name: draft.name })), exercises: draft.exercises });
+    reportError(result);
+    if (!result.ok) return;
+    ui.renderTemplateLists();
+    ui.openTemplate(`user:${result.id}`);
+    ui.showToast(t('templates.copied'));
+  },
+  'template-delete': () => {
+    const id = ui.openTemplateId();
+    if (!id || !ui.requestDeleteTemplate()) return;
+    deleteTemplate(id);
+    ui.closeTemplate();
+    ui.renderTemplateLists();
+  },
+  'template-load': () => {
+    const exercises = ui.openSystemTemplateExercises();
+    if (!exercises) return;
+    const result = loadTemplate(exercises);
+    reportError(result);
+    if (!result.ok) return;
+    ui.closeTemplate();
+    applyLoadedTemplate();
+  },
+  'open-template-picker': () => ui.openTemplatePicker(),
+  'close-template-picker': () => ui.closeTemplatePicker(),
+  'pick-template': arg => arg && ui.pickTemplate(arg),
+  'load-template': () => {
+    const exercises = ui.pickedTemplateExercises();
+    if (!exercises) return;
+    const result = loadTemplate(exercises);
+    reportError(result);
+    if (!result.ok) return;
+    ui.closeTemplatePicker();
+    applyLoadedTemplate();
+  },
 
   'share-result': () => ui.shareResult(),
   'cancel-share': () => ui.cancelShare(),

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getWinningIndex, normalizeDelta, generateSegments, rollReps, fitText, fitLabel, isolate, CONFIG_SEGMENT } from '../src/wheel-math.js';
+import { getWinningIndex, normalizeDelta, generateSegments, sectorColorIndexes, rollReps, fitText, fitLabel, isolate, CONFIG_SEGMENT } from '../src/wheel-math.js';
 
 const exercises = [
   { id: '1', name: 'Burpee', icon: 'fa-fire', color: '#ef4444', repsMin: 10, repsMax: 30 },
@@ -65,6 +65,49 @@ describe('generateSegments', () => {
 
   it('devuelve el sector de configuración si no hay nada activo', () => {
     expect(generateSegments(exercises, [])).toEqual([CONFIG_SEGMENT]);
+  });
+});
+
+describe('colores de los sectores por posición', () => {
+  it('hasta el tamaño de la paleta salen en orden', () => {
+    expect(sectorColorIndexes(0, 6)).toEqual([]);
+    expect(sectorColorIndexes(4, 6)).toEqual([0, 1, 2, 3]);
+    expect(sectorColorIndexes(6, 6)).toEqual([0, 1, 2, 3, 4, 5]);
+  });
+
+  it('con un sector más que colores, el repetido no es ni vecino ni casi vecino', () => {
+    // Azul, verde, amarillo, rojo, marrón y gris: el séptimo es amarillo (el más lejano de su otra aparición), no azul ni verde
+    expect(sectorColorIndexes(7, 6)).toEqual([0, 1, 2, 3, 4, 5, 2]);
+  });
+
+  it('nunca repite color en sectores contiguos, contando que la ruleta es un círculo (con tres colores o más)', () => {
+    for (let size = 3; size <= 8; size++) {
+      for (let count = 2; count <= 12; count++) {
+        const colors = sectorColorIndexes(count, size);
+        expect(colors).toHaveLength(count);
+        colors.forEach((c, i) => {
+          expect(c, `${size} colores, ${count} sectores, sector ${i}`).not.toBe(colors[(i + 1) % count]);
+        });
+      }
+    }
+  });
+
+  it('con la paleta de 8 y hasta 12 sectores, los iguales quedan a 4 o más sectores de distancia', () => {
+    for (let count = 9; count <= 12; count++) {
+      const colors = sectorColorIndexes(count, 8);
+      colors.forEach((c, i) => colors.forEach((d, j) => {
+        if (i < j && c === d) expect(Math.min(j - i, count - (j - i)), `${count} sectores: ${i} y ${j}`).toBeGreaterThanOrEqual(3);
+      }));
+    }
+  });
+
+  it('generateSegments pinta cada sector con el color de su posición', () => {
+    const palette = ['#a', '#b', '#c'];
+    const list = ['A', 'B', 'C', 'D'].map((name, i) => ({ id: String(i), name, icon: 'dumbbell', repsMin: 1, repsMax: 2 }));
+    const segs = generateSegments(list, ['A', 'B', 'C', 'D'], undefined, palette);
+    expect(segs.map(s => s.color)).toEqual(['#a', '#b', '#c', '#b']);
+    // Solo cuentan los activos: la posición es la del sector, no la del ejercicio en el catálogo
+    expect(generateSegments(list, ['B', 'D'], undefined, palette).map(s => s.color)).toEqual(['#a', '#b']);
   });
 });
 

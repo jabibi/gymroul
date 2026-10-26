@@ -2,14 +2,22 @@
 // Se combina con él en src/i18n/index.js.
 export default {
   strings: {
+    'templates.mine': 'Os meus modelos',
+    'templates.empty': 'Ainda não tens modelos.',
+    'templates.copy': 'Copiar para os meus modelos',
+    'templates.systemNote': 'Modelo do sistema: não pode ser alterado. Ao carregá-lo, os exercícios da tua roleta são substituídos; copia-o para fazer a tua própria versão.',
+    'templates.delete': 'Eliminar modelo',
+    'templates.loadWarn': 'Ao carregar um modelo, os exercícios da tua roleta são substituídos.',
+    'templates.saved': 'Modelo guardado',
+    'error.templateEmpty': 'Adiciona pelo menos um exercício ao modelo',
+    'error.templateNameRequired': 'Escreve um nome para o modelo',
     'history.clearConfirm': 'Toca outra vez',
     'settings.title': 'Definições',
     'config.deleted': 'Exercício eliminado',
-    'whatsnew.landscape': 'Vista horizontal para tablets e telemóveis rodados.',
-    'whatsnew.wheel': 'Roleta mais clara: nomes centrados em cada setor e botão de girar mais legível.',
-    'whatsnew.history': 'Histórico mais organizado e, ao eliminar um exercício, podes desfazer na própria linha.',
-    'whatsnew.classicTitle': 'Escolhe a aparência',
-    'whatsnew.classicText': 'Por defeito, a app segue o teu dispositivo. Abre {settings}, depois {appearance} e escolhe {options}.',
+    'whatsnew.templates': 'Modelos de exercícios: cardio, pesos, abdominais e mais. Carrega um na roleta ou cria os teus.',
+    'whatsnew.colors': 'As cores da roleta passam a seguir a posição de cada setor, por isso a mesma cor nunca fica ao lado de si própria.',
+    'whatsnew.templatesTitle': 'Experimenta os modelos',
+    'whatsnew.templatesText': 'Abre {settings} e escolhe {templates}.',
     'header.settings': 'Abrir definições',
 
     'live.drag': 'Arrasta a roleta para girar',
@@ -28,6 +36,10 @@ export default {
     'config.deleteExercise': 'Eliminar {name}',
     'exercise.lunge': 'Avanços',
     'exercise.splitjump': 'Avanços com salto',
+    'exercise.jumprope': 'Saltar à corda',
+    'exercise.calfraises': 'Elevação dos gémeos',
+    'exercise.dumbbellrow': 'Remada com haltere',
+    'template.home': 'Em casa, sem ruído',
 
     'error.nameRequired': 'Escreve um nome para o exercício',
     'error.iconRequired': 'Escolhe um ícone da lista',

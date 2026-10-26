@@ -175,25 +175,25 @@
             <div class="flex-1 overflow-y-auto overflow-x-hidden pe-1 space-y-4">
                 <ul class="space-y-3">
                         <li class="flex items-start gap-3">
-                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-text flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-tablet-screen-button"></i></span>
-                            <span class="min-w-0 text-sm text-slate-200 leading-snug pt-1" data-i18n="whatsnew.landscape">Landscape view for tablets and rotated phones.</span>
+                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-text flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-clipboard-list"></i></span>
+                            <span class="min-w-0 text-sm text-slate-200 leading-snug pt-1" data-i18n="whatsnew.templates">Exercise templates: cardio, weights, abs and more. Load one onto the wheel or create your own.</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-text flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-bullseye"></i></span>
-                            <span class="min-w-0 text-sm text-slate-200 leading-snug pt-1" data-i18n="whatsnew.wheel">A clearer wheel: names centered in each slice and a more readable spin button.</span>
+                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-text flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-palette"></i></span>
+                            <span class="min-w-0 text-sm text-slate-200 leading-snug pt-1" data-i18n="whatsnew.colors">Wheel colors now follow each slice's position, so the same color never sits next to itself.</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-text flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-clock-rotate-left"></i></span>
-                            <span class="min-w-0 text-sm text-slate-200 leading-snug pt-1" data-i18n="whatsnew.history">A tidier history, and when you delete an exercise you can undo it right on its row.</span>
+                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-text flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-dumbbell"></i></span>
+                            <span class="min-w-0 text-sm text-slate-200 leading-snug pt-1" data-i18n="whatsnew.exercises">24 new exercises, translated into all 21 languages.</span>
                         </li>
                 </ul>
 
-                <!-- Elegir la apariencia: acceso directo a Ajustes → Apariencia -->
+                <!-- Probar las plantillas: acceso directo a Ajustes → Plantillas -->
                 <div class="rounded-2xl border border-brand-500/40 bg-brand-500/10 p-3.5">
-                    <p class="text-sm font-black text-white" data-i18n="whatsnew.classicTitle">Choose your look</p>
-                    <p id="whatsNewClassicText" class="text-sm text-slate-200 leading-snug mt-1"></p>
-                    <button type="button" data-action="whatsnew-appearance" class="mt-3 w-full min-h-[44px] px-3 py-2 rounded-xl border border-brand-500/50 text-brand-text font-bold text-sm hover:bg-brand-500/15 transition-colors flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-palette text-xs" aria-hidden="true"></i> <span data-i18n="whatsnew.classicButton">Change appearance</span>
+                    <p class="text-sm font-black text-white" data-i18n="whatsnew.templatesTitle">Try the templates</p>
+                    <p id="whatsNewTemplatesText" class="text-sm text-slate-200 leading-snug mt-1"></p>
+                    <button type="button" data-action="whatsnew-templates" class="mt-3 w-full min-h-[44px] px-3 py-2 rounded-xl border border-brand-500/50 text-brand-text font-bold text-sm hover:bg-brand-500/15 transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-clipboard-list text-xs" aria-hidden="true"></i> <span data-i18n="whatsnew.templatesButton">See templates</span>
                     </button>
                 </div>
             </div>
@@ -221,7 +221,7 @@
                 </button>
             </div>
 
-            <!-- Las cuatro pantallas están apiladas en la misma celda: el panel mide lo que mide la más alta (con tope en el espacio disponible,
+            <!-- Las cinco pantallas están apiladas en la misma celda: el panel mide lo que mide la más alta (con tope en el espacio disponible,
                  que baja con el teclado) y no cambia de altura al navegar. Como la lista de idiomas es larga, en la práctica el panel usa todo el
                  espacio disponible y las listas (ejercicios e idiomas) se desplazan por dentro. La oculta usa invisible, no hidden, para seguir ocupando sitio. -->
             <div class="flex-1 min-h-0 grid grid-cols-[minmax(0,1fr)] grid-rows-[minmax(0,1fr)] overflow-hidden pe-1 my-1">
@@ -231,6 +231,11 @@
                         <button type="button" data-action="settings-open" data-arg="wheel" class="w-full flex items-center gap-3 min-h-[52px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors">
                             <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-text flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-sliders"></i></span>
                             <span class="flex-1 min-w-0 text-sm font-bold text-slate-100" data-i18n="settings.wheel">Set up wheel</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-500 shrink-0 rtl:-scale-x-100" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" data-action="settings-open" data-arg="templates" class="w-full flex items-center gap-3 min-h-[52px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors">
+                            <span class="w-8 h-8 shrink-0 rounded-xl bg-brand-500/15 text-brand-text flex items-center justify-center text-sm" aria-hidden="true"><i class="fa-solid fa-clipboard-list"></i></span>
+                            <span class="flex-1 min-w-0 text-sm font-bold text-slate-100" data-i18n="settings.templates">Templates</span>
                             <i class="fa-solid fa-chevron-right text-[10px] text-slate-500 shrink-0 rtl:-scale-x-100" aria-hidden="true"></i>
                         </button>
                         <button type="button" data-action="settings-open" data-arg="appearance" class="w-full flex items-center gap-3 min-h-[52px] px-3.5 py-2 text-start hover:bg-dark-800/60 active:bg-dark-800 transition-colors">
@@ -276,9 +281,29 @@
                 </div>
 
                 <p id="addExerciseHint" class="hidden shrink-0 text-center text-xs text-slate-400"></p>
-                <button type="button" id="addExerciseBtn" data-action="open-add-exercise" aria-haspopup="dialog" aria-describedby="addExerciseHint" class="shrink-0 w-full min-h-[48px] px-3 rounded-xl border border-dashed border-slate-700 text-brand-text text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:border-slate-700">
-                    <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i> <span data-i18n="config.addExercise">Add a new exercise</span>
-                </button>
+                <div class="shrink-0 grid grid-cols-2 gap-2">
+                    <button type="button" id="addExerciseBtn" data-action="open-add-exercise" aria-haspopup="dialog" aria-describedby="addExerciseHint" class="w-full min-h-[48px] px-3 py-1.5 rounded-xl border border-dashed border-slate-700 text-brand-text text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:border-slate-700">
+                        <i class="fa-solid fa-plus text-xs shrink-0" aria-hidden="true"></i> <span class="min-w-0 break-words" data-i18n="config.addExercise">Add a new exercise</span>
+                    </button>
+                    <button type="button" id="loadTemplateBtn" data-action="open-template-picker" aria-haspopup="dialog" class="w-full min-h-[48px] px-3 py-1.5 rounded-xl border border-slate-700 text-slate-200 text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-clipboard-list text-xs shrink-0" aria-hidden="true"></i> <span class="min-w-0 break-words" data-i18n="templates.load">Load template</span>
+                    </button>
+                </div>
+                </section>
+
+                <!-- Plantillas: las del usuario arriba (se crean, editan, copian y borran) y las del sistema debajo (solo se cargan o se copian) -->
+                <section data-view="templates" class="invisible col-start-1 row-start-1 min-h-0 overflow-y-auto overscroll-contain space-y-4">
+                    <div>
+                        <h4 class="px-1 pb-2 text-sm font-black text-slate-200" data-i18n="templates.mine">My templates</h4>
+                        <div id="userTemplates" class="rounded-2xl bg-dark-900/60 border border-slate-800 overflow-hidden divide-y divide-slate-800/80"></div>
+                        <button type="button" data-action="template-new" aria-haspopup="dialog" class="mt-2 w-full min-h-[48px] px-3 rounded-xl border border-dashed border-slate-700 text-brand-text text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i> <span data-i18n="templates.new">New template</span>
+                        </button>
+                    </div>
+                    <div>
+                        <h4 class="px-1 pb-2 text-sm font-black text-slate-200" data-i18n="templates.system">System templates</h4>
+                        <div id="systemTemplates" class="rounded-2xl bg-dark-900/60 border border-slate-800 overflow-hidden divide-y divide-slate-800/80"></div>
+                    </div>
                 </section>
 
                 <!-- Apariencia -->
@@ -292,6 +317,53 @@
                 </section>
             </div>
 
+        </div>
+    </div>
+
+    <!-- Plantilla: ver una del sistema o crear y editar una del usuario. Es un borrador: no se guarda hasta «Guardar»; Atrás o la X vuelven sin guardar -->
+    <div id="templateModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="templateTitle" aria-hidden="true" class="outline-none safe-edge-sheet fixed inset-0 z-[55] bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 pb-[calc(1rem+var(--sab))] sm:p-6 max-h-[calc(100dvh-0.5rem-var(--sat))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="templateCard">
+            <div class="flex justify-between items-center gap-3 mb-3">
+                <h3 id="templateTitle" class="font-black text-lg leading-tight text-white min-w-0 break-words">Template</h3>
+                <button data-action="close-template" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="flex-1 min-h-[9rem] overflow-y-auto overflow-x-hidden overscroll-contain space-y-2 my-1 pe-1">
+                <input type="text" id="templateName" maxlength="30" autocomplete="off" aria-label="Template name" data-i18n-aria-label="templates.name" placeholder="Template name" data-i18n-placeholder="templates.name" class="min-h-[44px] w-full px-2.5 py-1.5 text-sm bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500">
+                <p id="templateNote" class="hidden text-xs text-slate-400" data-i18n="templates.systemNote">System template: it can't be changed. Loading it replaces the exercises on your wheel; copy it to make your own version.</p>
+                <div id="templateExercises" class="space-y-2"></div>
+                <p id="templateAddHint" class="hidden text-center text-xs text-slate-400"></p>
+                <button type="button" id="templateAddBtn" data-action="template-add-exercise" aria-haspopup="dialog" aria-describedby="templateAddHint" class="w-full min-h-[48px] px-3 rounded-xl border border-dashed border-slate-700 text-brand-text text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:border-slate-700">
+                    <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i> <span data-i18n="config.addExercise">Add a new exercise</span>
+                </button>
+                <button type="button" id="templateFromWheelBtn" data-action="template-from-wheel" class="w-full min-h-[48px] px-3 rounded-xl border border-slate-700 text-slate-200 text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors" data-i18n="templates.fromWheel">Use the wheel's exercises</button>
+            </div>
+
+            <div class="pt-3 mt-2 space-y-2">
+                <button type="button" id="templateSaveBtn" data-action="template-save" class="w-full min-h-[48px] py-3 rounded-xl bg-brand-500 text-on-brand font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30" data-i18n="config.save">Save</button>
+                <button type="button" id="templateLoadBtn" data-action="template-load" class="w-full min-h-[48px] py-3 rounded-xl bg-brand-500 text-on-brand font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30" data-i18n="templates.loadButton">Load onto the wheel</button>
+                <button type="button" id="templateCopyBtn" data-action="template-copy" class="w-full min-h-[48px] py-3 rounded-xl bg-dark-900 border border-slate-700 font-bold text-sm text-slate-200 hover:bg-dark-800 transition-all" data-i18n="templates.copy">Copy to my templates</button>
+                <button type="button" id="templateDeleteBtn" data-action="template-delete" class="w-full min-h-[48px] py-3 rounded-xl bg-dark-900 border border-slate-700 font-bold text-sm text-red-400 hover:bg-dark-800 transition-all"><span id="templateDeleteLabel" data-i18n="templates.delete">Delete template</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cargar plantilla en la ruleta: las del usuario primero y después las del sistema; sustituye los ejercicios de la ruleta -->
+    <div id="templatePickerModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="templatePickerTitle" aria-hidden="true" class="outline-none safe-edge-sheet fixed inset-0 z-[55] bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 pb-[calc(1rem+var(--sab))] sm:p-6 max-h-[calc(100dvh-0.5rem-var(--sat))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="templatePickerCard">
+            <div class="flex justify-between items-center gap-3 mb-3">
+                <h3 id="templatePickerTitle" class="font-black text-lg leading-tight text-white min-w-0 break-words" data-i18n="templates.load">Load template</h3>
+                <button data-action="close-template-picker" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <p class="shrink-0 pb-2 text-xs text-slate-400" data-i18n="templates.loadWarn">Loading a template replaces the exercises on your wheel.</p>
+            <div id="templatePickerList" role="radiogroup" aria-labelledby="templatePickerTitle" class="flex-1 min-h-[9rem] overflow-y-auto overflow-x-hidden overscroll-contain space-y-3 my-1 pe-1"></div>
+            <div class="pt-3 mt-2">
+                <button type="button" id="templatePickerLoadBtn" data-action="load-template" disabled class="w-full min-h-[48px] py-3 rounded-xl bg-brand-500 text-on-brand font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-brand-500" data-i18n="templates.loadButton">Load onto the wheel</button>
+            </div>
         </div>
     </div>
 

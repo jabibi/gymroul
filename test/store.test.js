@@ -1,7 +1,8 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import {
   readStorage, getExercises, loadActive, active, migrate, SCHEMA_VERSION,
-  addExercise, removeExercise, restoreExercise, updateExerciseReps, parseRepRange, MAX_NAME_LENGTH, MAX_REP_VALUE, DEFAULT_EXERCISES, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_EXERCISES, pickColor, COLOR_PALETTE,
+  addExercise, removeExercise, restoreExercise, updateExerciseReps, parseRepRange, MAX_NAME_LENGTH, MAX_REP_VALUE, DEFAULT_EXERCISES, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_EXERCISES, COLOR_PALETTE, MIGRATIONS,
+  getTemplates, saveTemplate, deleteTemplate, uniqueTemplateName, loadTemplate, parseExerciseInput, MAX_TEMPLATES,
 } from '../src/store.js';
 
 function installLocalStorage() {
@@ -117,11 +118,6 @@ describe('ejercicios', () => {
       expect(addExercise({ name: `Ej ${i}`, icon: 'dumbbell' }).ok).toBe(true);
     }
     expect(addExercise({ name: 'Uno más', icon: 'dumbbell' }).ok).toBe(false);
-  });
-
-  it('pickColor usa primero los colores libres', () => {
-    const used = COLOR_PALETTE.slice(0, 3).map(c => ({ color: c }));
-    expect(pickColor(used)).toBe(COLOR_PALETTE[3]);
   });
 });
 
@@ -379,13 +375,12 @@ describe('migración v2 -> v3', () => {
 
 describe('migración v8 -> v9', () => {
   it('cambia los colores de la paleta antigua por los de la nueva y respeta los demás', () => {
-    data.set('gym_schema_version', '8');
     data.set('gym_exercises', JSON.stringify([
       { id: '1', name: 'A', icon: 'dumbbell', color: '#ef4444', repsMin: 10, repsMax: 20 },
       { id: '2', name: 'B', icon: 'dumbbell', color: '#3b82f6', repsMin: 10, repsMax: 20 },
       { id: '3', name: 'C', icon: 'dumbbell', color: '#123456', repsMin: 10, repsMax: 20 },
     ]));
-    migrate();
+    MIGRATIONS[8]();
     expect(JSON.parse(data.get('gym_exercises')).map(e => e.color)).toEqual(['#0f766e', '#0369a1', '#123456']);
   });
 });
@@ -395,19 +390,123 @@ describe('migración v9 -> v10', () => {
     data.set('gym_schema_version', '9');
     data.set('gym_exercises', JSON.stringify([{ id: '1', name: 'Burpee', shortName: 'Burp', icon: 'burpee', color: '#fff', repsMin: 10, repsMax: 20 }]));
     migrate();
-    expect(JSON.parse(data.get('gym_exercises'))).toEqual([{ id: '1', name: 'Burpee', icon: 'burpee', color: '#fff', repsMin: 10, repsMax: 20 }]);
+    expect(JSON.parse(data.get('gym_exercises'))).toEqual([{ id: '1', name: 'Burpee', icon: 'burpee', repsMin: 10, repsMax: 20 }]);
   });
 });
 
 describe('migración v10 -> v11', () => {
   it('cambia los colores de la primera paleta Suave por los oscurecidos y respeta los demás', () => {
-    data.set('gym_schema_version', '10');
     data.set('gym_exercises', JSON.stringify([
       { id: '1', name: 'A', icon: 'dumbbell', color: '#0d9488', repsMin: 10, repsMax: 20 },
       { id: '2', name: 'B', icon: 'dumbbell', color: '#059669', repsMin: 10, repsMax: 20 },
       { id: '3', name: 'C', icon: 'dumbbell', color: '#123456', repsMin: 10, repsMax: 20 },
     ]));
-    migrate();
+    MIGRATIONS[10]();
     expect(JSON.parse(data.get('gym_exercises')).map(e => e.color)).toEqual(['#0f766e', '#15803d', '#123456']);
+  });
+});
+
+describe('migración v11 -> v12', () => {
+  it('quita el color de los ejercicios guardados y conserva el resto', () => {
+    data.set('gym_schema_version', '11');
+    data.set('gym_exercises', JSON.stringify([
+      { id: '1', name: 'Burpee', icon: 'burpee', color: '#0f766e', repsMin: 10, repsMax: 20 },
+      { id: '1700000000000', name: 'Mío', icon: 'dumbbell', color: '#123456', repsMin: 5, repsMax: 9 },
+    ]));
+    migrate();
+    expect(JSON.parse(data.get('gym_exercises'))).toEqual([
+      { id: '1', name: 'Burpee', icon: 'burpee', repsMin: 10, repsMax: 20 },
+      { id: '1700000000000', name: 'Mío', icon: 'dumbbell', repsMin: 5, repsMax: 9 },
+    ]);
+    expect(data.get('gym_schema_version')).toBe('12');
+  });
+});
+
+describe('plantillas del usuario', () => {
+  const ex = (name, extra = {}) => ({ name, icon: 'dumbbell', repsMin: 5, repsMax: 10, ...extra });
+
+  it('sin plantillas guardadas no hay ninguna y la ruleta sigue igual', () => {
+    expect(getTemplates()).toEqual([]);
+    expect(getExercises()).toHaveLength(DEFAULT_EXERCISES.length);
+    expect(data.has('gym_templates')).toBe(false);
+  });
+
+  it('guarda, actualiza y borra, y las devuelve por orden alfabético', () => {
+    const b = saveTemplate({ name: 'Beta', exercises: [ex('A')] });
+    const a = saveTemplate({ name: 'alfa', exercises: [ex('B'), ex('C')] });
+    expect(b.ok && a.ok).toBe(true);
+    expect(getTemplates().map(t => t.name)).toEqual(['alfa', 'Beta']);
+    expect(saveTemplate({ id: b.id, name: 'Beta 2', exercises: [ex('Z', { repsMin: 1, repsMax: 2 })] })).toEqual({ ok: true, id: b.id });
+    expect(getTemplates().find(t => t.id === b.id)).toMatchObject({ name: 'Beta 2', exercises: [{ name: 'Z', repsMin: 1, repsMax: 2 }] });
+    deleteTemplate(a.id);
+    expect(getTemplates().map(t => t.name)).toEqual(['Beta 2']);
+  });
+
+  it('valida el nombre, que no se repita (ni al renombrar), que haya ejercicios y sus rangos', () => {
+    expect(saveTemplate({ name: ' ', exercises: [ex('A')] }).error.key).toBe('error.templateNameRequired');
+    expect(saveTemplate({ name: 'x'.repeat(MAX_NAME_LENGTH + 1), exercises: [ex('A')] }).error.key).toBe('error.maxLength');
+    expect(saveTemplate({ name: 'Vacía', exercises: [] }).error.key).toBe('error.templateEmpty');
+    expect(saveTemplate({ name: 'Mala', exercises: [ex('A', { repsMin: 20, repsMax: 10 })] }).error.key).toBe('error.repMinMax');
+    expect(saveTemplate({ name: 'Mala', exercises: [ex('A', { icon: '🔥' })] }).error.key).toBe('error.iconRequired');
+    expect(saveTemplate({ name: 'Repe', exercises: [ex('A'), ex('a')] }).error.key).toBe('error.duplicateExercise');
+    const many = Array.from({ length: MAX_EXERCISES + 1 }, (_, i) => ex(`E${i}`));
+    expect(saveTemplate({ name: 'Grande', exercises: many }).error.key).toBe('error.maxExercises');
+
+    const one = saveTemplate({ name: 'Uno', exercises: [ex('A')] });
+    expect(saveTemplate({ name: 'UNO', exercises: [ex('A')] }).error.key).toBe('error.duplicateTemplate');
+    const two = saveTemplate({ name: 'Dos', exercises: [ex('A')] });
+    expect(saveTemplate({ id: two.id, name: 'uno', exercises: [ex('A')] }).error.key).toBe('error.duplicateTemplate');
+    expect(saveTemplate({ id: one.id, name: 'UNO', exercises: [ex('B')] }).ok).toBe(true); // se puede cambiar su propia capitalización
+    expect(getTemplates()).toHaveLength(2);
+  });
+
+  it('respeta el máximo de plantillas', () => {
+    for (let i = 0; i < MAX_TEMPLATES; i++) expect(saveTemplate({ name: `P${i}`, exercises: [ex('A')] }).ok).toBe(true);
+    expect(saveTemplate({ name: 'Una más', exercises: [ex('A')] }).error.key).toBe('error.maxTemplates');
+  });
+
+  it('ignora datos guardados con formato inválido y arregla iconos y rangos', () => {
+    data.set('gym_templates', JSON.stringify([{ id: 1, name: 'mal' }]));
+    expect(getTemplates()).toEqual([]);
+    data.set('gym_templates', JSON.stringify([{ id: 'a', name: 'Rara', exercises: [{ name: 'X', icon: '🔥', repsMin: 30, repsMax: 10 }] }]));
+    expect(getTemplates()[0].exercises[0]).toEqual({ name: 'X', icon: 'dumbbell', repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX });
+  });
+
+  it('propone un nombre libre para una copia, que cabe en el máximo', () => {
+    expect(uniqueTemplateName('Cardio (copia)')).toBe('Cardio (copia)');
+    saveTemplate({ name: 'Cardio (copia)', exercises: [ex('A')] });
+    expect(uniqueTemplateName('Cardio (copia)')).toBe('Cardio (copia) 2');
+    saveTemplate({ name: 'Cardio (copia) 2', exercises: [ex('A')] });
+    expect(uniqueTemplateName('Cardio (copia)')).toBe('Cardio (copia) 3');
+    const long = uniqueTemplateName('y'.repeat(60));
+    expect(long).toHaveLength(MAX_NAME_LENGTH);
+  });
+
+  it('cargarla sustituye todos los ejercicios de la ruleta y los activa; los del usuario reciben id nuevo', () => {
+    addExercise({ name: 'Mío', icon: 'dumbbell' });
+    expect(loadTemplate([
+      { id: '30', name: 'Forearm Plank', icon: 'plank', repsMin: 10, repsMax: 30 },
+      { name: 'Saltos', icon: 'jump', repsMin: 5, repsMax: 9 },
+      { name: 'Giros', icon: 'repeat', repsMin: 5, repsMax: 9 },
+    ])).toEqual({ ok: true });
+    const list = getExercises();
+    expect(list.map(e => e.name).sort()).toEqual(['Forearm Plank', 'Giros', 'Saltos']);
+    expect(list.find(e => e.name === 'Forearm Plank')).toMatchObject({ id: '30', repsMin: 10, repsMax: 30 });
+    const ids = list.map(e => e.id);
+    expect(new Set(ids).size).toBe(3);
+    expect(active.exercises.sort()).toEqual(['Forearm Plank', 'Giros', 'Saltos']);
+    loadActive(); // lo guardado es lo mismo que lo que había en memoria
+    expect(active.exercises).toHaveLength(3);
+  });
+
+  it('no carga una plantilla vacía ni que no quepa en la ruleta, y entonces no toca nada', () => {
+    expect(loadTemplate([]).error.key).toBe('error.templateEmpty');
+    const many = Array.from({ length: MAX_EXERCISES + 1 }, (_, i) => ({ name: `E${i}`, icon: 'dumbbell', repsMin: 1, repsMax: 2 }));
+    expect(loadTemplate(many).error.key).toBe('error.maxExercises');
+    expect(getExercises()).toHaveLength(DEFAULT_EXERCISES.length);
+  });
+
+  it('parseExerciseInput limpia espacios y devuelve el rango como números', () => {
+    expect(parseExerciseInput({ name: '  Press   banca ', icon: 'bench', repsMin: '5', repsMax: ' 8' })).toEqual({ ok: true, name: 'Press banca', icon: 'bench', repsMin: 5, repsMax: 8 });
   });
 });

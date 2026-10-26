@@ -39,7 +39,7 @@ describe('elementos por id', () => {
 describe('claves de traducción', () => {
   it('ninguna clave de en.js se queda sin usar', () => {
     // Los nombres de los ejercicios por defecto se piden por clave compuesta (exercise.<clave>, ver exercise-names.js)
-    const unused = Object.keys(en.strings).filter(k => !k.startsWith('exercise.') && !code.includes(`'${k}'`) && !html.includes(`"${k}"`));
+    const unused = Object.keys(en.strings).filter(k => !k.startsWith('exercise.') && !k.startsWith('template.') && !code.includes(`'${k}'`) && !html.includes(`"${k}"`));
     expect(unused).toEqual([]);
   });
 });

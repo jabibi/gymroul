@@ -65,7 +65,6 @@ const STRESS_EXERCISES = [
   'Lunge',
 ].map((name, i) => ({
   id: `s${i}`, name, icon: ['burpee', 'walk', 'pushup', 'squat', 'climbers', 'jump', 'dumbbell', 'karate', 'yoga', 'timer', 'run', 'boxing'][i % 12],
-  color: ['#0f766e', '#475569', '#15803d', '#2563eb', '#0e7490', '#4f46e5', '#64748b', '#0369a1'][i % 8],
   repsMin: i % 3 === 0 ? 1 : 10, repsMax: i % 3 === 0 ? 999999 : 60,
 }));
 
@@ -219,7 +218,7 @@ async function openApp(browser, lang, vp, existingUser = false) {
   } else if (existingUser) {
     // La pantalla de novedades: sin nada de «visto» guardado (el almacenamiento se comparte entre las páginas de un mismo Chrome)
     await page.evaluateOnNewDocument(() => {
-      localStorage.setItem('gym_schema_version', '11');
+      localStorage.setItem('gym_schema_version', '12');
       localStorage.removeItem('gym_whatsnew_seen');
     });
   } else {
@@ -342,16 +341,55 @@ async function checkViewport(browser, lang, vp) {
     total++;
     console.log(`  ✗ ${lang} ${vp.width}x${vp.height} 07b-atras: Atrás no cierra solo la ventana de nuevo ejercicio`);
   }
+
+  // Plantillas: el selector desde el editor de la ruleta, la pantalla de Ajustes, una del sistema, su copia y una nueva
+  // rellenada con los ejercicios de la ruleta (con --stress, de nombres larguísimos). Atrás cierra solo la ventana de encima
+  await page.click('[data-action=open-template-picker]');
+  await wait(500);
+  await check(page, lang, vp, '07c-cargar-plantilla');
+  await page.click('[data-action=pick-template][data-arg="sys:abs"]');
+  await wait(300);
+  await check(page, lang, vp, '07d-plantilla-elegida');
+  await page.evaluate(() => history.back());
+  await wait(500);
+  await page.click('[data-action=settings-back]');
+  await wait(300);
+  await page.click('#settingsMenu [data-arg=templates]');
+  await wait(300);
+  await check(page, lang, vp, '07e-plantillas');
+  await page.click('[data-action=template-open][data-arg="sys:abs"]');
+  await wait(500);
+  await check(page, lang, vp, '07f-plantilla-del-sistema');
+  await page.click('#templateCopyBtn');
+  await wait(600);
+  await check(page, lang, vp, '07g-plantilla-del-usuario');
+  await page.evaluate(() => history.back());
+  await wait(500);
+  await check(page, lang, vp, '07h-plantillas-con-una-propia');
+  await page.click('[data-action=template-new]');
+  await wait(500);
+  await page.click('[data-action=template-from-wheel]');
+  await wait(300);
+  await check(page, lang, vp, '07i-plantilla-nueva-desde-la-ruleta');
+  await page.evaluate(() => history.back());
+  await wait(500);
+  const templateBackOk = await page.evaluate(() => document.getElementById('templateModal').getAttribute('aria-hidden') === 'true'
+    && document.getElementById('configModal').getAttribute('aria-hidden') === 'false');
+  if (!templateBackOk) {
+    total++;
+    console.log(`  ✗ ${lang} ${vp.width}x${vp.height} 07j-atras: Atrás no cierra solo la ventana de plantilla`);
+  }
+  await page.evaluate(() => localStorage.removeItem('gym_templates')); // el almacenamiento se comparte entre las páginas de un mismo Chrome
   await page.close();
 
-  // Novedades tras actualizar (salen solas un instante después de abrir la app) y el salto a Apariencia
+  // Novedades tras actualizar (salen solas un instante después de abrir la app) y el salto a Plantillas
   const news = await openApp(browser, lang, vp, true);
   await news.waitForFunction(() => !document.getElementById('whatsNewModal').classList.contains('pointer-events-none'), { timeout: 10000 });
   await wait(600);
   await check(news, lang, vp, '10-novedades');
-  await news.click('[data-action=whatsnew-appearance]');
+  await news.click('[data-action=whatsnew-templates]');
   await wait(600);
-  await check(news, lang, vp, '10b-novedades-a-apariencia');
+  await check(news, lang, vp, '10b-novedades-a-plantillas');
   await news.close();
 
   // Compromiso de privacidad (desde Configuración) y, encima, la política completa

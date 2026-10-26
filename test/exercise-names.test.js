@@ -2,15 +2,16 @@ import { describe, it, expect, afterEach } from 'vitest';
 import { LANGUAGES, DICTIONARIES, setLanguage, DEFAULT_LANGUAGE } from '../src/i18n/index.js';
 import { exerciseName, sortExercises, DEFAULT_EXERCISE_KEYS } from '../src/exercise-names.js';
 import { DEFAULT_EXERCISES } from '../src/store.js';
+import { SYSTEM_EXERCISES } from '../src/templates.js';
 
 afterEach(() => setLanguage(DEFAULT_LANGUAGE, { persist: false }));
 
-describe('nombres de los ejercicios por defecto', () => {
-  it('hay una clave para cada ejercicio por defecto y su traducción existe en todos los idiomas', () => {
-    expect(Object.keys(DEFAULT_EXERCISE_KEYS).sort()).toEqual(DEFAULT_EXERCISES.map(e => e.id).sort());
+describe('nombres de los ejercicios del sistema', () => {
+  it('hay una clave para cada ejercicio del sistema y su traducción existe en todos los idiomas', () => {
+    expect(Object.keys(DEFAULT_EXERCISE_KEYS).sort()).toEqual(SYSTEM_EXERCISES.map(e => e.id).sort());
     for (const { code } of LANGUAGES) {
       setLanguage(code, { persist: false });
-      for (const ex of DEFAULT_EXERCISES) {
+      for (const ex of SYSTEM_EXERCISES) {
         const name = exerciseName(ex);
         const key = DEFAULT_EXERCISE_KEYS[ex.id];
         expect(name, `${code}:${key}`).not.toBe(`exercise.${key}`);
@@ -20,7 +21,7 @@ describe('nombres de los ejercicios por defecto', () => {
   });
 
   it('en inglés se ven igual que los nombres guardados', () => {
-    for (const ex of DEFAULT_EXERCISES) {
+    for (const ex of SYSTEM_EXERCISES) {
       expect(exerciseName(ex)).toBe(ex.name);
     }
   });
@@ -45,7 +46,7 @@ describe('nombres de los ejercicios por defecto', () => {
 
   it('todos los textos son distintos de vacío y mantienen las mismas claves en cada idioma', () => {
     const keys = Object.keys(DICTIONARIES.en.strings).filter(k => k.startsWith('exercise.'));
-    expect(keys).toHaveLength(6);
+    expect(keys.sort()).toEqual(SYSTEM_EXERCISES.map(e => `exercise.${e.slug}`).sort());
   });
 
   it('se ordenan alfabéticamente por el nombre que se ve, sin distinguir mayúsculas ni acentos', () => {

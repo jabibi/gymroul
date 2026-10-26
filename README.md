@@ -8,9 +8,10 @@ Disponible como aplicación web (Firebase Hosting) y como app Android (Capacitor
 
 - Ruleta en `canvas` con física de inercia independiente de la frecuencia de pantalla, sonido de "tick", fanfarria y vibración.
 - Un sector por ejercicio activo (por defecto 6); las repeticiones se sortean al parar, entre el mínimo y el máximo de ese ejercicio.
-- Ajustes en forma de menú: editar la ruleta, apariencia, idioma y, abajo, privacidad y acerca de (créditos y versión).
+- Ajustes en forma de menú: editar la ruleta, plantillas, apariencia, idioma y, abajo, privacidad y acerca de (créditos y versión).
 - Dos apariencias: Suave (la actual, tonos suaves) y Clásico (la original, con colores vivos en la ruleta y un verde más intenso).
 - Editor de la ruleta: activar/desactivar, crear (en una ventana aparte) y eliminar ejercicios (nombre e icono) y rango de repeticiones de cada uno (máx. 12 ejercicios). Los ejercicios salen por orden alfabético del idioma activo.
+- Plantillas de ejercicios: cinco del sistema (peso corporal, cardio, con pesas, en casa sin ruido y abdominales), que se cargan en la ruleta o se copian, y las tuyas, que se crean desde cero, desde una del sistema o desde la ruleta actual. Los colores de la ruleta se reparten por posición, sin repetirse en sectores contiguos.
 - Selector con ≈100 iconos de muchas disciplinas (fuerza, calistenia, cardio, fitness funcional, OCR, artes marciales, yoga, pilates, tai chi, deportes…) con búsqueda; no se admite texto libre ni emojis.
 - Interfaz en 21 idiomas: árabe (de derecha a izquierda), inglés (EE. UU., Reino Unido y Australia), español (España y Latinoamérica), euskera, gallego, catalán, francés (Francia y Canadá), alemán, italiano, japonés, neerlandés, polaco, ruso, hindi, turco y portugués (Brasil y Portugal). Se elige según el dispositivo y se puede cambiar en Ajustes.
 - Historial de la sesión con los retos completados. Mientras la ruleta gira, Historial y Ajustes no se abren; tocar fuera de un panel no lo cierra.
@@ -31,7 +32,8 @@ Los objetivos de las próximas versiones están en [`ROADMAP.md`](ROADMAP.md).
 index.html             Marcado de la app (entrada de Vite)
 src/
   main.js              Arranque y conexión de módulos (delegación de eventos data-action)
-  store.js             Catálogo y selección activa, localStorage y migraciones
+  store.js             Catálogo, selección activa y plantillas del usuario, localStorage y migraciones
+  templates.js         Plantillas y ejercicios del sistema (datos)
   wheel-math.js        Lógica pura: sector ganador, combinaciones, normalización de ángulos
   wheel.js             Canvas, física y arrastre
   ui.js                Modales (con soporte de botón Atrás), historial, Ajustes y novedades
