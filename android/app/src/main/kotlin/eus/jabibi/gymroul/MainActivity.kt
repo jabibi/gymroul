@@ -3,9 +3,9 @@ package eus.jabibi.gymroul
 import android.content.res.Configuration
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import com.getcapacitor.BridgeActivity
 
@@ -14,10 +14,13 @@ class MainActivity : BridgeActivity() {
     private var splash: SplashOverlay? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Pantalla completa en todas las versiones de Android (Android 15 o superior ya la fuerza)
-        enableEdgeToEdge()
         registerPlugin(AppBarsPlugin::class.java)
         super.onCreate(savedInstanceState)
+
+        // Pantalla completa en todas las versiones de Android (Android 15 o superior ya la fuerza), hecha a mano: enableEdgeToEdge de
+        // androidx.activity llama a Window.setStatusBarColor, setNavigationBarColor y al modo de recorte SHORT_EDGES, obsoletos en
+        // Android 15 (Play Console lo avisa). Las barras transparentes y el recorte salen del tema (AppTheme.NoActionBar y sus values-v28/29/30).
+        WindowCompat.setDecorFitsSystemWindows(window, false)
 
         // El fondo de la ventana y de la raíz, del color de la app desde el primer momento: lo que no cubre la web (las franjas de las
         // barras) no puede enseñar el dibujo de arranque, que era el fondo de la ventana con el tema de lanzamiento.

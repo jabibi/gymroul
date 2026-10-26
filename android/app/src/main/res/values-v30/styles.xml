@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Android 11 y posteriores: el recorte se usa en todos los bordes (shortEdges está obsoleto en Android 15) -->
+    <style name="AppTheme.NoActionBar" parent="Base.AppTheme.NoActionBar">
+        <item name="android:windowLayoutInDisplayCutoutMode">always</item>
+        <item name="android:enforceStatusBarContrast">false</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+    </style>
+</resources>

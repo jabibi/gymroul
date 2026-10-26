@@ -103,7 +103,7 @@ class AppBarsPlugin : Plugin() {
             val window = activity.window
             val decor = window.decorView
             decor.setBackgroundColor(background)
-            // Las barras ya son transparentes por enableEdgeToEdge() (MainActivity): se ve la propia web por debajo (integración con
+            // Las barras ya son transparentes por el tema (AppTheme.NoActionBar) y MainActivity: se ve la propia web por debajo (integración con
             // la interfaz) y, si no llega, el fondo de la ventana. No se asigna statusBarColor ni navigationBarColor: están obsoletos
             // y Android 15 o superior los ignora (Play Console lo avisa), así que aquí solo se ajusta el contraste y el color de los iconos.
             if (Build.VERSION.SDK_INT >= 29) {
