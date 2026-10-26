@@ -96,6 +96,9 @@ class AppBarsPlugin : Plugin() {
             if (applied) apply(activity)
         }
 
+        // isStatusBarContrastEnforced está obsoleto desde Android 15 (obsoleto, no desactivado: sigue valiendo) y es lo que quita el velo
+        // que el sistema pone a la barra de estado en Android 10 a 14; la llamada es necesaria, de ahí que se silencie el aviso.
+        @Suppress("DEPRECATION")
         private fun apply(activity: Activity) {
             val window = activity.window
             val decor = window.decorView
