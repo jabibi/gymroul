@@ -58,7 +58,7 @@ class SplashOverlay private constructor(
         }, wait)
     }
 
-    private class Look(val background: Int, val muted: Int, val strong: Int, @DrawableRes val logo: Int)
+    private class Look(val background: Int, val muted: Int, val strong: Int, @param:DrawableRes val logo: Int)
 
     companion object {
         /** Tiempo mínimo, desde que arranca el proceso, que se ve la pantalla */
