@@ -250,6 +250,8 @@ async function openApp(browser, lang, vp, existingUser = false) {
   await page.waitForFunction(() => !document.documentElement.classList.contains('booting')); // el fundido de arranque
   // Las barras del sistema de Android: la de estado arriba y la de gestos abajo (en la app las pone MainActivity; aquí, a mano).
   // Sin ellas, en pantallas bajas todo cabe un poco mejor que en un móvil de verdad
+  // Valores fijos (28 px y 16 px) y solo arriba y abajo: MainActivity los calcula por dispositivo (recortes, barra de navegación
+  // con botones, laterales en horizontal), así que esto detecta recortes pero no sustituye probar en móviles reales
   await page.evaluate(() => {
     document.documentElement.style.setProperty('--safe-area-inset-top', '28px');
     document.documentElement.style.setProperty('--safe-area-inset-bottom', '16px');
