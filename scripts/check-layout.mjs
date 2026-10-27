@@ -29,10 +29,11 @@ import { LANGUAGES } from '../src/i18n/index.js';
 const CHROME = process.env.CHROME_PATH || '/usr/bin/google-chrome';
 const PORT = 4183;
 const BASE = `http://127.0.0.1:${PORT}/`;
-// Tres móviles en vertical y, en horizontal (modo horizontal de src/style.css), un móvil girado y una tableta
+// Tres móviles en vertical y, en horizontal (modo horizontal de src/style.css), dos móviles girados (el segundo, de 360 px de alto,
+// es el caso más justo: los Android de verdad tienen 360 px de alto girados) y una tableta
 const VIEWPORTS = [
   { width: 320, height: 568 }, { width: 360, height: 640 }, { width: 412, height: 915 },
-  { width: 667, height: 375 }, { width: 1280, height: 800 },
+  { width: 667, height: 375 }, { width: 640, height: 360 }, { width: 1280, height: 800 },
 ];
 
 const arg = name => process.argv.find(a => a.startsWith(`--${name}=`))?.slice(name.length + 3);
@@ -146,6 +147,26 @@ function inspectPage() {
       }
     }
   }
+  // Controles (botones, enlaces, campos) cortados por un contenedor con overflow oculto: aunque su texto aún asome, el control no se
+  // ve entero ni se puede tocar entero (una fila de un menú recortada por la tarjeta que la contiene). Dentro de una zona con
+  // desplazamiento no cuenta: es una fila que se alcanza desplazando.
+  for (const el of document.querySelectorAll('button, a[href], input:not([type=hidden]), select, textarea, [role=button]')) {
+    if (!visible(el)) continue;
+    const r = el.getBoundingClientRect();
+    if (scrolledOut(el, r)) continue;
+    const top = document.elementFromPoint(Math.min(Math.max((r.left + r.right) / 2, 0), innerWidth - 1), Math.min(Math.max((r.top + r.bottom) / 2, 0), innerHeight - 1));
+    if (top && !(el.contains(top) || top.contains(el))) continue;
+    let inScroller = false;
+    for (const c of clipOf(el)) {
+      if (c.n === el) continue;
+      if (c.scrolls) inScroller = true;
+      if (c.clipsY && !c.scrolls && !inScroller && (r.top < c.r.top - 2 || r.bottom > c.r.bottom + 2)) {
+        const key = `ctl|${label(el)}|${label(c.n)}|${(el.textContent || el.getAttribute('aria-label') || '').trim()}`;
+        if (!seen.has(key)) { seen.add(key); problems.push(`control cortado: «${(el.textContent || el.getAttribute('aria-label') || '').trim().slice(0, 40)}» (${label(el)}) sobresale de ${label(c.n)}`); }
+        break;
+      }
+    }
+  }
   // Textos con puntos suspensivos (truncate) que no caben enteros
   for (const el of document.querySelectorAll('*')) {
     if (!visible(el)) continue;
@@ -227,6 +248,12 @@ async function openApp(browser, lang, vp, existingUser = false) {
   }
   await page.goto(`${BASE}?lang=${lang}`, { waitUntil: 'networkidle0' });
   await page.waitForFunction(() => !document.documentElement.classList.contains('booting')); // el fundido de arranque
+  // Las barras del sistema de Android: la de estado arriba y la de gestos abajo (en la app las pone MainActivity; aquí, a mano).
+  // Sin ellas, en pantallas bajas todo cabe un poco mejor que en un móvil de verdad
+  await page.evaluate(() => {
+    document.documentElement.style.setProperty('--safe-area-inset-top', '28px');
+    document.documentElement.style.setProperty('--safe-area-inset-bottom', '16px');
+  });
   await wait(300);
   await page.evaluate(() => document.fonts.ready);
   await wait(400);
