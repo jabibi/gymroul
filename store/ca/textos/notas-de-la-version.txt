@@ -1,4 +1,4 @@
-Versió 1.20 (Toes2Bar):
+Versió 1.20 (Toes 2 Bar):
 • Plantilles d’exercicis: cardio, pesos, abdominals i més. Carrega-les a la ruleta o crea les teves.
 • 24 exercicis nous en 21 idiomes i colors de la ruleta que no es repeteixen un al costat de l’altre.
 

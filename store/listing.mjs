@@ -32,7 +32,7 @@ export const LIMITS = { title: 30, short: 80, full: 4000, notes: 500 };
  * Al publicar una versión nueva, la actual pasa a ser la anterior y se añade la nueva arriba.
  */
 export const NOTES_VERSIONS = [
-  { version: '1.20', codename: 'Toes2Bar' },
+  { version: '1.20', codename: 'Toes 2 Bar' },
   { version: '1.19', codename: 'Jump-Over' },
 ];
 

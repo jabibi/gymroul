@@ -2,7 +2,7 @@
   "name": "gymroul",
   "version": "1.20.0",
   "versionCode": 20,
-  "versionCodename": "Toes2Bar",
+  "versionCodename": "Toes 2 Bar",
   "description": "GymRoulette: ruleta de ejercicios (web + Android con Capacitor)",
   "main": "index.js",
   "scripts": {
