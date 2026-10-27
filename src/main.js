@@ -153,8 +153,10 @@ const actions = {
     const result = updateExerciseReps(arg, min, max);
     reportError(result);
     if (!result.ok) return;
+    ui.closeRepsEditor();
     rebuildWheel();
     ui.renderConfig(true);
+    ui.showToast(t('config.repsSaved', { range: t('config.repsRange', { min: Number(min), max: Number(max) }) }));
   },
   'add-exercise': () => {
     const form = ui.readNewExerciseForm();
@@ -194,6 +196,11 @@ const actions = {
   'template-add-exercise': () => ui.openAddExercise('template'),
   'template-remove-exercise': arg => ui.removeTemplateExercise(Number(arg)),
   'template-from-wheel': () => ui.fillTemplateFromWheel(),
+  'save-wheel-as-template': () => {
+    ui.swapTemplateMenu('template');
+    ui.openTemplate('new');
+    ui.fillTemplateFromWheel();
+  },
   'template-save': () => {
     const draft = ui.readTemplateDraft();
     if (!draft || draft.source !== 'user') return;
@@ -231,7 +238,12 @@ const actions = {
     ui.closeTemplate();
     applyLoadedTemplate();
   },
-  'open-template-picker': () => ui.openTemplatePicker(),
+  'open-template-menu': () => ui.openTemplateMenu(),
+  'close-template-menu': () => ui.closeTemplateMenu(),
+  'open-template-picker': () => {
+    ui.swapTemplateMenu('templatepicker');
+    ui.openTemplatePicker();
+  },
   'close-template-picker': () => ui.closeTemplatePicker(),
   'pick-template': arg => arg && ui.pickTemplate(arg),
   'load-template': () => {

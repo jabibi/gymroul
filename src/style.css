@@ -131,6 +131,13 @@ input, textarea {
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
 }
+/* Un panel cerrado no necesita su desenfoque (es invisible). Con todos los paneles desenfocando a la vez, al desbloquear el móvil
+   la cabecera y el fondo de los paneles abiertos tardaban en volver a pintarse (Pixel 8 Pro, Android 17; con la 1.19, que tenía
+   menos paneles, no pasaba): se supone que son demasiadas capas de desenfoque a pantalla completa */
+[aria-hidden="true"].backdrop-blur-md, [aria-hidden="true"] .glass-card {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
 .glow-brand {
     box-shadow: 0 0 30px rgb(var(--brand-500) / 0.35);
 }
@@ -359,20 +366,23 @@ input[type='radio'] {
     }
 
     /* Paneles: salen por el lado contrario a la barra, a toda la altura */
-    #historyModal, #configModal, #addExerciseModal, #whatsNewModal, #templateModal, #templatePickerModal {
+    #historyModal, #configModal, #addExerciseModal, #whatsNewModal, #templateModal, #templatePickerModal, #templateMenuModal {
         align-items: stretch; justify-content: flex-end; padding: 0;
     }
-    #historyCard, #configCard, #addExerciseCard, #whatsNewCard, #templateCard, #templatePickerCard {
+    #historyCard, #configCard, #addExerciseCard, #whatsNewCard, #templateCard, #templatePickerCard, #templateMenuCard {
         --tw-translate-y: 0px; --tw-scale-x: 1; --tw-scale-y: 1;
         width: min(100%, 26rem); max-width: none; height: 100%; max-height: none;
         border-start-start-radius: 1.5rem; border-end-start-radius: 1.5rem;
         border-start-end-radius: 0; border-end-end-radius: 0;
     }
+    /* Con solo dos opciones, el panel de plantillas del editor mide lo que ocupa y queda abajo */
+    #templateMenuCard { height: auto; align-self: flex-end; }
     #historyCard.translate-y-full, #configCard.translate-y-full, #addExerciseCard.translate-y-full, #whatsNewCard.translate-y-full,
-    #templateCard.translate-y-full, #templatePickerCard.translate-y-full { --tw-translate-x: 100%; }
+    #templateCard.translate-y-full, #templatePickerCard.translate-y-full, #templateMenuCard.translate-y-full { --tw-translate-x: 100%; }
     :root[dir="rtl"] #historyCard.translate-y-full, :root[dir="rtl"] #configCard.translate-y-full,
     :root[dir="rtl"] #addExerciseCard.translate-y-full, :root[dir="rtl"] #whatsNewCard.translate-y-full,
-    :root[dir="rtl"] #templateCard.translate-y-full, :root[dir="rtl"] #templatePickerCard.translate-y-full { --tw-translate-x: -100%; }
+    :root[dir="rtl"] #templateCard.translate-y-full, :root[dir="rtl"] #templatePickerCard.translate-y-full,
+    :root[dir="rtl"] #templateMenuCard.translate-y-full { --tw-translate-x: -100%; }
 }
 /* Poco alto (un móvil girado): el menú, en una fila de iconos, y menos holgura para que la barra quepa entera */
 @media (min-aspect-ratio: 6/5) and (max-height: 520px) {
@@ -419,7 +429,7 @@ input[type='radio'] {
     #addExerciseCard { overflow-y: auto; overscroll-behavior: contain; }
     #addExerciseCard > .overflow-y-auto { flex: none; overflow: visible; }
     /* Los paneles, con menos relleno: cada línea de altura cuenta */
-    #historyCard, #configCard, #addExerciseCard, #whatsNewCard, #templateCard, #templatePickerCard { padding: 1rem; padding-bottom: calc(1rem + var(--sab)); }
+    #historyCard, #configCard, #addExerciseCard, #whatsNewCard, #templateCard, #templatePickerCard, #templateMenuCard { padding: 1rem; padding-bottom: calc(1rem + var(--sab)); }
     /* Las listas de las plantillas ceden altura (el mínimo de 9 rem de vertical dejaba el botón de abajo fuera de la pantalla) */
     #templateCard > .flex-1, #templatePickerCard > .flex-1 { min-height: 3.5rem; }
     /* Lo mismo con la lista de ejercicios del editor de la ruleta, que si no se sale del recuadro con las barras del sistema */

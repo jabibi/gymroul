@@ -274,21 +274,18 @@
                             <button data-action="toggle-exs" data-arg="on" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-xs text-brand-text font-bold hover:underline" data-i18n="config.exsAll">All</button>
                             <span class="text-slate-600">|</span>
                             <button data-action="toggle-exs" data-arg="off" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-xs text-slate-400 font-bold hover:underline" data-i18n="config.exsNone">None</button>
+                            <button type="button" id="templateMenuBtn" data-action="open-template-menu" aria-haspopup="dialog" aria-label="Templates" data-i18n-aria-label="settings.templates" class="inline-flex items-center justify-center w-11 h-11 text-slate-400 hover:text-white transition-colors">
+                                <i class="fa-solid fa-ellipsis" aria-hidden="true"></i>
+                            </button>
                         </div>
                     </div>
                     <p id="configHelp" class="hidden shrink-0 px-3.5 pb-3 text-sm text-slate-400" data-i18n="config.intro">Turn exercises on or off, set each one's reps range, or create and delete them.</p>
                     <div id="exsCheckboxes" class="px-2 pb-2 space-y-2 flex-1 min-h-[9rem] overflow-y-auto overscroll-contain"></div>
                 </div>
 
-                <p id="addExerciseHint" class="hidden shrink-0 text-center text-xs text-slate-400"></p>
-                <div class="shrink-0 grid grid-cols-2 gap-2">
-                    <button type="button" id="addExerciseBtn" data-action="open-add-exercise" aria-haspopup="dialog" aria-describedby="addExerciseHint" class="w-full min-h-[48px] px-3 py-1.5 rounded-xl border border-dashed border-slate-700 text-brand-text text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:border-slate-700">
-                        <i class="fa-solid fa-plus text-xs shrink-0" aria-hidden="true"></i> <span class="min-w-0 break-words" data-i18n="config.addExercise">Add a new exercise</span>
+                <button type="button" id="addExerciseBtn" data-action="open-add-exercise" aria-haspopup="dialog" class="shrink-0 w-full min-h-[48px] px-3 py-1.5 rounded-xl border border-dashed border-slate-700 text-brand-text text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:border-slate-700 disabled:opacity-100 disabled:text-slate-400">
+                        <i id="addExerciseIcon" class="fa-solid fa-plus text-xs shrink-0" aria-hidden="true"></i> <span id="addExerciseLabel" class="min-w-0 break-words">Add a new exercise</span>
                     </button>
-                    <button type="button" id="loadTemplateBtn" data-action="open-template-picker" aria-haspopup="dialog" class="w-full min-h-[48px] px-3 py-1.5 rounded-xl border border-slate-700 text-slate-200 text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-clipboard-list text-xs shrink-0" aria-hidden="true"></i> <span class="min-w-0 break-words" data-i18n="templates.load">Load template</span>
-                    </button>
-                </div>
                 </section>
 
                 <!-- Plantillas: las del usuario arriba (se crean, editan, copian y borran) y las del sistema debajo (solo se cargan o se copian) -->
@@ -346,6 +343,26 @@
                 <button type="button" id="templateLoadBtn" data-action="template-load" class="w-full min-h-[48px] py-3 rounded-xl bg-brand-500 text-on-brand font-black text-sm hover:bg-brand-400 transition-all shadow-lg shadow-brand-500/30" data-i18n="templates.loadButton">Load onto the wheel</button>
                 <button type="button" id="templateCopyBtn" data-action="template-copy" class="w-full min-h-[48px] py-3 rounded-xl bg-dark-900 border border-slate-700 font-bold text-sm text-slate-200 hover:bg-dark-800 transition-all" data-i18n="templates.copy">Copy to my templates</button>
                 <button type="button" id="templateDeleteBtn" data-action="template-delete" class="w-full min-h-[48px] py-3 rounded-xl bg-dark-900 border border-slate-700 font-bold text-sm text-red-400 hover:bg-dark-800 transition-all"><span id="templateDeleteLabel" data-i18n="templates.delete">Delete template</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plantillas del editor de la ruleta: panel inferior con cargar y guardar (Cargar abre el selector) -->
+    <div id="templateMenuModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="templateMenuTitle" aria-hidden="true" class="outline-none safe-edge-sheet fixed inset-0 z-[56] bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 pb-[calc(1rem+var(--sab))] sm:p-6 max-h-[calc(100dvh-0.5rem-var(--sat))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="templateMenuCard">
+            <div class="flex justify-between items-center gap-3 mb-3">
+                <h3 id="templateMenuTitle" class="font-black text-lg leading-tight text-white min-w-0 break-words" data-i18n="settings.templates">Templates</h3>
+                <button data-action="close-template-menu" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="space-y-2">
+                <button type="button" data-action="open-template-picker" aria-haspopup="dialog" class="w-full min-h-[52px] px-3 rounded-xl border border-slate-700 text-slate-200 text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center gap-3 text-start">
+                    <i class="fa-solid fa-clipboard-list text-brand-text w-5 text-center shrink-0" aria-hidden="true"></i> <span class="min-w-0 break-words" data-i18n="templates.load">Load template</span>
+                </button>
+                <button type="button" data-action="save-wheel-as-template" aria-haspopup="dialog" class="w-full min-h-[52px] px-3 rounded-xl border border-slate-700 text-slate-200 text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center gap-3 text-start">
+                    <i class="fa-solid fa-floppy-disk text-brand-text w-5 text-center shrink-0" aria-hidden="true"></i> <span class="min-w-0 break-words" data-i18n="templates.saveWheel">Save as template</span>
+                </button>
             </div>
         </div>
     </div>
@@ -418,7 +435,7 @@
     </div>
 
     <!-- Mensajes breves que dejan pasar los toques -->
-    <div id="toast" role="status" aria-live="polite" class="fixed top-[calc(5rem+var(--sat))] inset-x-0 z-[70] flex justify-center px-4 pointer-events-none opacity-0 transition-opacity duration-300">
+    <div id="toast" role="status" aria-live="polite" class="fixed top-[40%] inset-x-0 z-[70] flex justify-center px-4 pointer-events-none opacity-0 transition-opacity duration-300">
         <div class="glass-card rounded-xl ps-4 pe-2 py-1 flex items-center gap-2 border border-brand-500/40 shadow-2xl">
             <span id="toastText" class="text-xs font-bold text-slate-100 py-1"></span>
         </div>

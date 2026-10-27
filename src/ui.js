@@ -88,7 +88,7 @@ export function pulseIndicator() {
 // Cada modal que se abre añade una entrada al historial del navegador: así el botón
 // "Atrás" de Android (o del navegador) lo cierra en lugar de salir de la app.
 
-/** @typedef {'result' | 'history' | 'config' | 'share' | 'commitment' | 'document' | 'whatsnew' | 'addexercise' | 'template' | 'templatepicker'} ModalName */
+/** @typedef {'result' | 'history' | 'config' | 'share' | 'commitment' | 'document' | 'whatsnew' | 'addexercise' | 'template' | 'templatepicker' | 'templatemenu'} ModalName */
 // Pila de modales abiertos (el último es el que está encima): la política de privacidad
 // puede abrirse sobre la configuración y Atrás debe cerrar primero la de arriba
 /** @type {ModalName[]} */
@@ -108,6 +108,7 @@ const closers = {
   addexercise: () => closeAddExercise(),
   template: () => closeTemplate(),
   templatepicker: () => closeTemplatePicker(),
+  templatemenu: () => closeTemplateMenu(),
 };
 
 /** @param {ModalName} name */
@@ -600,6 +601,7 @@ export function renderConfig(keepChecks = false) {
         <div class="flex items-stretch shrink-0 ms-auto">
           <button data-action="edit-reps" data-arg="${escapeHTML(ex.id)}" aria-expanded="${open}" aria-label="${escapeHTML(t('config.editReps', { name }))}" class="flex items-center justify-center min-h-[44px] px-2 shrink-0 text-xs font-bold text-brand-text hover:underline">
             <bdi dir="ltr">${escapeHTML(range)}</bdi>
+            <i class="fa-solid fa-pen ms-1.5 text-[0.65rem]" aria-hidden="true"></i>
           </button>
           <button data-action="delete-exercise" data-arg="${escapeHTML(ex.id)}" aria-label="${escapeHTML(t('config.deleteExercise', { name }))}" class="flex items-center justify-center w-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors">
             <i class="fa-solid fa-trash-can"></i>
@@ -621,13 +623,13 @@ export function renderConfig(keepChecks = false) {
   syncAddExercise();
 }
 
-/** Con el máximo de ejercicios, «Añadir nuevo ejercicio» se desactiva y el motivo queda a la vista (no tras rellenar el formulario). */
+/** Con el máximo de ejercicios, «Añadir nuevo ejercicio» se desactiva y el propio botón dice el motivo (no tras rellenar el formulario, ni en una línea aparte que gaste altura). */
 function syncAddExercise() {
   // La línea recién borrada aún ocupa su sitio: si se llenara la lista, «Deshacer» ya no podría devolverla
   const full = getExercises().length + (removal ? 1 : 0) >= MAX_EXERCISES;
   /** @type {HTMLButtonElement} */ ($('addExerciseBtn')).disabled = full;
-  $('addExerciseHint').textContent = full ? t('error.maxExercises', { max: MAX_EXERCISES }) : '';
-  $('addExerciseHint').classList.toggle('hidden', !full);
+  $('addExerciseLabel').textContent = full ? t('error.maxExercises', { max: MAX_EXERCISES }) : t('config.addExercise');
+  $('addExerciseIcon').classList.toggle('hidden', full);
 }
 
 /**
@@ -712,6 +714,11 @@ export function revealLastExercise() {
 export function toggleRepsEditor(id) {
   repsEditorOpen = repsEditorOpen === id ? '' : id;
   renderConfig(true);
+}
+
+/** Pliega el editor de repeticiones (tras guardar). */
+export function closeRepsEditor() {
+  repsEditorOpen = '';
 }
 
 /** Lee el rango escrito en el editor de un ejercicio. @param {string} id */
@@ -1044,7 +1051,7 @@ function renderTemplateModal() {
 export function openTemplate(ref) {
   const draft = draftFromRef(ref);
   if (!draft) return;
-  const wasOpen = modalStack.includes('template');
+  const wasOpen = templateDraft !== null;
   templateDraft = draft;
   renderTemplateModal();
   if (wasOpen) return;
@@ -1166,6 +1173,30 @@ function renderTemplatePicker() {
 }
 
 /** Abre el selector de plantilla para la ruleta, sin nada elegido. */
+/** Panel inferior del editor de la ruleta (botón ⋯): cargar una plantilla o guardar la ruleta como plantilla. */
+export function openTemplateMenu() {
+  setSheetVisible('templateMenuModal', 'templateMenuCard', true);
+  pushModal('templatemenu');
+}
+
+export function closeTemplateMenu() {
+  setSheetVisible('templateMenuModal', 'templateMenuCard', false);
+  dismissModal('templatemenu');
+}
+
+/**
+ * Cierra el panel para abrir otro en su lugar: reutiliza su entrada del historial (con un history.back() seguido de un
+ * pushState, el retroceso, que es asíncrono, se llevaría la entrada nueva).
+ * @param {'template' | 'templatepicker'} next
+ */
+export function swapTemplateMenu(next) {
+  const index = modalStack.lastIndexOf('templatemenu');
+  if (index === -1) return;
+  setSheetVisible('templateMenuModal', 'templateMenuCard', false);
+  modalStack[index] = next;
+  window.history.replaceState({ modal: next }, '');
+}
+
 export function openTemplatePicker() {
   pickedTemplate = '';
   renderTemplatePicker();

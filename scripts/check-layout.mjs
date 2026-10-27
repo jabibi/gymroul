@@ -373,7 +373,10 @@ async function checkViewport(browser, lang, vp) {
 
   // Plantillas: el selector desde el editor de la ruleta, la pantalla de Ajustes, una del sistema, su copia y una nueva
   // rellenada con los ejercicios de la ruleta (con --stress, de nombres larguísimos). Atrás cierra solo la ventana de encima
-  await page.click('[data-action=open-template-picker]');
+  await page.click('#templateMenuBtn');
+  await wait(500);
+  await check(page, lang, vp, '07b2-panel-de-plantillas');
+  await page.click('#templateMenuModal [data-action=open-template-picker]');
   await wait(500);
   await check(page, lang, vp, '07c-cargar-plantilla');
   await page.click('[data-action=pick-template][data-arg="sys:abs"]');
@@ -407,6 +410,25 @@ async function checkViewport(browser, lang, vp) {
   if (!templateBackOk) {
     total++;
     console.log(`  ✗ ${lang} ${vp.width}x${vp.height} 07j-atras: Atrás no cierra solo la ventana de plantilla`);
+  }
+  // «Guardar como plantilla» del panel del editor: abre la plantilla nueva con la ruleta volcada; Atrás vuelve al editor
+  await page.click('[data-action=settings-back]');
+  await wait(300);
+  await page.click('#settingsMenu [data-arg=wheel]');
+  await wait(300);
+  await page.click('#templateMenuBtn');
+  await wait(500);
+  await page.click('#templateMenuModal [data-action=save-wheel-as-template]');
+  await wait(600);
+  await check(page, lang, vp, '07k-guardar-ruleta-como-plantilla');
+  await page.evaluate(() => history.back());
+  await wait(500);
+  const saveBackOk = await page.evaluate(() => document.getElementById('templateModal').getAttribute('aria-hidden') === 'true'
+    && document.getElementById('templateMenuModal').getAttribute('aria-hidden') === 'true'
+    && document.getElementById('configModal').getAttribute('aria-hidden') === 'false');
+  if (!saveBackOk) {
+    total++;
+    console.log(`  ✗ ${lang} ${vp.width}x${vp.height} 07l-atras: Atrás no vuelve al editor tras «Guardar como plantilla»`);
   }
   await page.evaluate(() => localStorage.removeItem('gym_templates')); // el almacenamiento se comparte entre las páginas de un mismo Chrome
   await page.close();
