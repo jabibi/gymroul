@@ -125,6 +125,7 @@ export default {
     'templates.name': 'Nom du modèle',
     'templates.fromWheel': 'Utiliser les exercices de la roue',
     'templates.saveWheel': 'Enregistrer comme modèle',
+    'templates.menu': 'Modèles : charger ou enregistrer',
     'templates.copy': 'Copier dans mes modèles',
     'templates.copyName': '{name} (copie)',
     'templates.delete': 'Supprimer le modèle',

@@ -1172,7 +1172,6 @@ function renderTemplatePicker() {
   /** @type {HTMLButtonElement} */ ($('templatePickerLoadBtn')).disabled = !pickedTemplate;
 }
 
-/** Abre el selector de plantilla para la ruleta, sin nada elegido. */
 /** Panel inferior del editor de la ruleta (botón ⋯): cargar una plantilla o guardar la ruleta como plantilla. */
 export function openTemplateMenu() {
   setSheetVisible('templateMenuModal', 'templateMenuCard', true);
@@ -1197,6 +1196,7 @@ export function swapTemplateMenu(next) {
   window.history.replaceState({ modal: next }, '');
 }
 
+/** Abre el selector de plantilla para la ruleta, sin nada elegido. */
 export function openTemplatePicker() {
   pickedTemplate = '';
   renderTemplatePicker();

@@ -125,6 +125,7 @@ export default {
     'templates.name': 'テンプレート名',
     'templates.fromWheel': 'ルーレットのエクササイズを使う',
     'templates.saveWheel': 'テンプレートとして保存',
+    'templates.menu': 'テンプレート：読み込みまたは保存',
     'templates.copy': 'マイテンプレートにコピー',
     'templates.copyName': '{name}（コピー）',
     'templates.delete': 'テンプレートを削除',

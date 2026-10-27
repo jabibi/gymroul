@@ -138,6 +138,19 @@ input, textarea {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
 }
+/* Al cerrar, el desenfoque se quita cuando acaba el fundido (300 ms) y no de golpe, que se veía como un parpadeo */
+[aria-hidden="true"].backdrop-blur-md {
+    transition-property: opacity, -webkit-backdrop-filter, backdrop-filter;
+    transition-duration: 300ms, 0s, 0s;
+    transition-delay: 0s, 300ms, 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+[aria-hidden="true"] .glass-card {
+    transition-property: transform, -webkit-backdrop-filter, backdrop-filter;
+    transition-duration: 300ms, 0s, 0s;
+    transition-delay: 0s, 300ms, 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 .glow-brand {
     box-shadow: 0 0 30px rgb(var(--brand-500) / 0.35);
 }

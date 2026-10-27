@@ -125,6 +125,7 @@ export default {
     'templates.name': 'Şablon adı',
     'templates.fromWheel': 'Çarktaki egzersizleri kullan',
     'templates.saveWheel': 'Şablon olarak kaydet',
+    'templates.menu': 'Şablonlar: yükle veya kaydet',
     'templates.copy': 'Şablonlarıma kopyala',
     'templates.copyName': '{name} (kopya)',
     'templates.delete': 'Şablonu sil',

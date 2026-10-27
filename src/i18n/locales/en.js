@@ -125,6 +125,7 @@ export default {
     'templates.name': 'Template name',
     'templates.fromWheel': 'Use the wheel\'s exercises',
     'templates.saveWheel': 'Save as template',
+    'templates.menu': 'Templates: load or save',
     'templates.copy': 'Copy to my templates',
     'templates.copyName': '{name} (copy)',
     'templates.delete': 'Delete template',

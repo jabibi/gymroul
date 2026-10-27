@@ -125,6 +125,7 @@ export default {
     'templates.name': 'Название шаблона',
     'templates.fromWheel': 'Взять упражнения с колеса',
     'templates.saveWheel': 'Сохранить как шаблон',
+    'templates.menu': 'Шаблоны: загрузить или сохранить',
     'templates.copy': 'Копировать в мои шаблоны',
     'templates.copyName': '{name} (копия)',
     'templates.delete': 'Удалить шаблон',

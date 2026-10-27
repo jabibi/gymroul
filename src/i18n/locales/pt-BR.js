@@ -125,6 +125,7 @@ export default {
     'templates.name': 'Nome do modelo',
     'templates.fromWheel': 'Usar os exercícios da roleta',
     'templates.saveWheel': 'Salvar como modelo',
+    'templates.menu': 'Modelos: carregar ou salvar',
     'templates.copy': 'Copiar para meus modelos',
     'templates.copyName': '{name} (cópia)',
     'templates.delete': 'Excluir modelo',

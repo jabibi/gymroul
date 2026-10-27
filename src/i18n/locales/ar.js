@@ -128,6 +128,7 @@ export default {
     'templates.name': 'اسم القالب',
     'templates.fromWheel': 'استخدام تمارين العجلة',
     'templates.saveWheel': 'حفظ كقالب',
+    'templates.menu': 'القوالب: تحميل أو حفظ',
     'templates.copy': 'نسخ إلى قوالبي',
     'templates.copyName': '{name} (نسخة)',
     'templates.delete': 'حذف القالب',

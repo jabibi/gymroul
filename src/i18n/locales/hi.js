@@ -125,6 +125,7 @@ export default {
     'templates.name': 'टेम्पलेट का नाम',
     'templates.fromWheel': 'चक्र की एक्सरसाइज़ इस्तेमाल करें',
     'templates.saveWheel': 'टेम्पलेट के रूप में सहेजें',
+    'templates.menu': 'टेम्पलेट: लोड करें या सहेजें',
     'templates.copy': 'मेरे टेम्पलेट में कॉपी करें',
     'templates.copyName': '{name} (कॉपी)',
     'templates.delete': 'टेम्पलेट हटाएँ',

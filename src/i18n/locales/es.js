@@ -125,6 +125,7 @@ export default {
     'templates.name': 'Nombre de la plantilla',
     'templates.fromWheel': 'Usar los ejercicios de la ruleta',
     'templates.saveWheel': 'Guardar como plantilla',
+    'templates.menu': 'Plantillas: cargar o guardar',
     'templates.copy': 'Copiar a mis plantillas',
     'templates.copyName': '{name} (copia)',
     'templates.delete': 'Eliminar plantilla',

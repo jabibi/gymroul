@@ -125,6 +125,7 @@ export default {
     'templates.name': 'Name der Vorlage',
     'templates.fromWheel': 'Übungen des Rads übernehmen',
     'templates.saveWheel': 'Als Vorlage speichern',
+    'templates.menu': 'Vorlagen: laden oder speichern',
     'templates.copy': 'In meine Vorlagen kopieren',
     'templates.copyName': '{name} (Kopie)',
     'templates.delete': 'Vorlage löschen',

@@ -125,6 +125,7 @@ export default {
     'templates.name': 'Naam van het sjabloon',
     'templates.fromWheel': 'Oefeningen van het rad gebruiken',
     'templates.saveWheel': 'Opslaan als sjabloon',
+    'templates.menu': 'Sjablonen: laden of opslaan',
     'templates.copy': 'Kopiëren naar mijn sjablonen',
     'templates.copyName': '{name} (kopie)',
     'templates.delete': 'Sjabloon verwijderen',

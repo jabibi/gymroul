@@ -125,6 +125,7 @@ export default {
     'templates.name': 'Txantiloiaren izena',
     'templates.fromWheel': 'Erabili gurpilaren ariketak',
     'templates.saveWheel': 'Gorde txantiloi gisa',
+    'templates.menu': 'Txantiloiak: kargatu edo gorde',
     'templates.copy': 'Kopiatu nire txantiloietara',
     'templates.copyName': '{name} (kopia)',
     'templates.delete': 'Ezabatu txantiloia',

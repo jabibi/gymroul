@@ -125,6 +125,7 @@ export default {
     'templates.name': 'Nazwa szablonu',
     'templates.fromWheel': 'Użyj ćwiczeń z koła',
     'templates.saveWheel': 'Zapisz jako szablon',
+    'templates.menu': 'Szablony: wczytaj lub zapisz',
     'templates.copy': 'Kopiuj do moich szablonów',
     'templates.copyName': '{name} (kopia)',
     'templates.delete': 'Usuń szablon',
