@@ -40,16 +40,16 @@
         </div>
 
         <div class="app-menu flex items-center space-x-1.5 min-[380px]:space-x-2 rtl:space-x-reverse">
-            <button data-action="toggle-sound" aria-label="Turn sound on or off" data-i18n-aria-label="header.sound" class="w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95">
+            <button data-action="toggle-sound" aria-label="Turn sound on or off" data-i18n-aria-label="header.sound" class="w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 [@media(hover:hover)]:hover:text-white transition-all active:scale-95">
                 <i id="soundIcon" class="fa-solid fa-volume-high text-sm text-brand-text"></i>
                 <span class="menu-label" data-i18n="menu.sound">Sound</span>
             </button>
-            <button data-action="open-history" aria-label="Open history" data-i18n-aria-label="header.history" class="relative w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95 disabled:opacity-40 disabled:active:scale-100">
+            <button data-action="open-history" aria-label="Open history" data-i18n-aria-label="header.history" class="relative w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 [@media(hover:hover)]:hover:text-white transition-all active:scale-95 disabled:opacity-40 disabled:active:scale-100">
                 <i class="fa-solid fa-clock-rotate-left text-sm"></i>
                 <span class="menu-label" data-i18n="menu.history">History</span>
                 <span id="historyBadge" class="absolute -top-1.5 -end-1.5 w-5 h-5 bg-brand-500 text-on-brand font-black text-xs rounded-full flex items-center justify-center hidden border-2 border-dark-950">0</span>
             </button>
-            <button data-action="open-settings" aria-label="Open settings" data-i18n-aria-label="header.settings" class="w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95 disabled:opacity-40 disabled:active:scale-100">
+            <button data-action="open-settings" aria-label="Open settings" data-i18n-aria-label="header.settings" class="w-11 h-11 rounded-xl bg-dark-900 border border-slate-800 flex items-center justify-center text-slate-300 [@media(hover:hover)]:hover:text-white transition-all active:scale-95 disabled:opacity-40 disabled:active:scale-100">
                 <i class="fa-solid fa-sliders text-sm"></i>
                 <span class="menu-label" data-i18n="settings.title">Settings</span>
             </button>
@@ -140,7 +140,7 @@
         <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-6 pb-[calc(1.5rem+var(--sab))] max-h-[calc(100dvh-0.5rem-var(--sat))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="historyCard">
             <div class="flex justify-between items-center gap-3 mb-3">
                 <h3 id="historyTitle" class="font-black text-lg leading-tight text-white min-w-0 break-words" data-i18n="history.title">Session history</h3>
-                <button data-action="close-history" aria-label="Close history" data-i18n-aria-label="history.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <button data-action="close-history" aria-label="Close history" data-i18n-aria-label="history.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 [@media(hover:hover)]:hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -167,7 +167,7 @@
                     <i class="fa-solid fa-wand-magic-sparkles text-brand-text text-lg" aria-hidden="true"></i>
                     <h3 id="whatsNewTitle" class="font-black text-lg leading-tight text-white min-w-0 break-words">What's new</h3>
                 </div>
-                <button data-action="close-whatsnew" aria-label="Close" data-i18n-aria-label="whatsnew.closeAria" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <button data-action="close-whatsnew" aria-label="Close" data-i18n-aria-label="whatsnew.closeAria" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 [@media(hover:hover)]:hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -211,12 +211,12 @@
         <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 pb-[calc(1rem+var(--sab))] sm:p-6 max-h-[calc(100dvh-0.5rem-var(--sat))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="configCard">
             <div class="flex justify-between items-center gap-3 mb-3">
                 <div class="flex items-center gap-2.5 min-w-0">
-                    <button id="settingsBack" type="button" data-action="settings-back" aria-label="Back" data-i18n-aria-label="settings.back" class="hidden w-11 h-11 -ms-2 shrink-0 rounded-xl text-slate-300 hover:text-white items-center justify-center">
+                    <button id="settingsBack" type="button" data-action="settings-back" aria-label="Back" data-i18n-aria-label="settings.back" class="hidden w-11 h-11 -ms-2 shrink-0 rounded-xl text-slate-300 [@media(hover:hover)]:hover:text-white items-center justify-center">
                         <i class="fa-solid fa-arrow-left rtl:-scale-x-100"></i>
                     </button>
                     <h3 id="configTitle" tabindex="-1" class="outline-none font-black text-lg leading-tight text-white min-w-0 break-words">Settings</h3>
                 </div>
-                <button id="settingsClose" data-action="close-config" aria-label="Close settings" data-i18n-aria-label="config.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <button id="settingsClose" data-action="close-config" aria-label="Close settings" data-i18n-aria-label="config.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 [@media(hover:hover)]:hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -274,7 +274,7 @@
                             <button data-action="toggle-exs" data-arg="on" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-xs text-brand-text font-bold hover:underline" data-i18n="config.exsAll">All</button>
                             <span class="text-slate-600">|</span>
                             <button data-action="toggle-exs" data-arg="off" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-xs text-slate-400 font-bold hover:underline" data-i18n="config.exsNone">None</button>
-                            <button type="button" id="templateMenuBtn" data-action="open-template-menu" aria-haspopup="dialog" aria-label="Templates: load or save" data-i18n-aria-label="templates.menu" class="inline-flex items-center justify-center w-11 h-11 text-slate-400 hover:text-white transition-colors">
+                            <button type="button" id="templateMenuBtn" data-action="open-template-menu" aria-haspopup="dialog" aria-label="Templates: load or save" data-i18n-aria-label="templates.menu" class="inline-flex items-center justify-center w-11 h-11 text-slate-400 [@media(hover:hover)]:hover:text-white transition-colors">
                                 <i class="fa-solid fa-ellipsis" aria-hidden="true"></i>
                             </button>
                         </div>
@@ -322,7 +322,7 @@
         <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 pb-[calc(1rem+var(--sab))] sm:p-6 max-h-[calc(100dvh-0.5rem-var(--sat))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="templateCard">
             <div class="flex justify-between items-center gap-3 mb-3">
                 <h3 id="templateTitle" class="font-black text-lg leading-tight text-white min-w-0 break-words">Template</h3>
-                <button data-action="close-template" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <button data-action="close-template" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 [@media(hover:hover)]:hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -352,7 +352,7 @@
         <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 pb-[calc(1rem+var(--sab))] sm:p-6 max-h-[calc(100dvh-0.5rem-var(--sat))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="templateMenuCard">
             <div class="flex justify-between items-center gap-3 mb-3">
                 <h3 id="templateMenuTitle" class="font-black text-lg leading-tight text-white min-w-0 break-words" data-i18n="settings.templates">Templates</h3>
-                <button data-action="close-template-menu" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <button data-action="close-template-menu" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 [@media(hover:hover)]:hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -372,7 +372,7 @@
         <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 pb-[calc(1rem+var(--sab))] sm:p-6 max-h-[calc(100dvh-0.5rem-var(--sat))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="templatePickerCard">
             <div class="flex justify-between items-center gap-3 mb-3">
                 <h3 id="templatePickerTitle" class="font-black text-lg leading-tight text-white min-w-0 break-words" data-i18n="templates.load">Load template</h3>
-                <button data-action="close-template-picker" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <button data-action="close-template-picker" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 [@media(hover:hover)]:hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -389,7 +389,7 @@
         <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 pb-[calc(1rem+var(--sab))] sm:p-6 max-h-[calc(100dvh-0.5rem-var(--sat))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="addExerciseCard">
             <div class="flex justify-between items-center gap-3 mb-3">
                 <h3 id="addExerciseTitle" class="font-black text-lg leading-tight text-white min-w-0 break-words" data-i18n="config.addExercise">Add a new exercise</h3>
-                <button data-action="close-add-exercise" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <button data-action="close-add-exercise" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 [@media(hover:hover)]:hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -448,7 +448,7 @@
     <div id="documentModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="documentTitle" class="outline-none safe-edge hidden fixed inset-0 z-[110] bg-dark-950 flex flex-col">
         <div class="flex justify-between items-center px-5 py-3.5 glass-card border-b border-slate-800/80">
             <h2 id="documentTitle" class="font-black text-base text-white">Privacy policy</h2>
-            <button data-action="close-document" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+            <button data-action="close-document" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 rounded-xl bg-dark-900 text-slate-400 [@media(hover:hover)]:hover:text-white flex items-center justify-center">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
@@ -460,7 +460,7 @@
         <div class="glass-card w-full max-w-sm max-h-[calc(100dvh-2rem-var(--sat)-var(--sab))] rounded-3xl p-5 flex flex-col shadow-2xl border border-brand-500/50 glow-brand">
             <div class="flex justify-between items-center gap-3 mb-3">
                 <h2 id="commitmentTitle" class="font-black text-lg leading-tight text-white min-w-0 break-words" data-i18n="config.commitment">Privacy commitment</h2>
-                <button data-action="close-commitment" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 hover:text-white flex items-center justify-center">
+                <button data-action="close-commitment" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 [@media(hover:hover)]:hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
