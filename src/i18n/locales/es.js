@@ -45,7 +45,6 @@ export default {
     'config.editReps': 'Editar repeticiones de {name}',
     'config.repsSave': 'Guardar',
     'config.repsSaved': 'Guardado: {range}',
-    'config.exercises': 'Ejercicios',
     'config.exsAll': 'Todos',
     'config.exsNone': 'Ninguno',
     'config.addExercise': 'Añadir nuevo ejercicio',

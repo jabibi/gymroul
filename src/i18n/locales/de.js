@@ -45,7 +45,6 @@ export default {
     'config.editReps': 'Wiederholungen von {name} bearbeiten',
     'config.repsSave': 'Speichern',
     'config.repsSaved': 'Gespeichert: {range}',
-    'config.exercises': 'Übungen',
     'config.exsAll': 'Alle',
     'config.exsNone': 'Keine',
     'config.addExercise': 'Neue Übung hinzufügen',

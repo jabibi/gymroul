@@ -45,7 +45,6 @@ export default {
     'config.editReps': 'Editatu {name} ariketaren errepikapenak',
     'config.repsSave': 'Gorde',
     'config.repsSaved': 'Gordeta: {range}',
-    'config.exercises': 'Ariketak',
     'config.exsAll': 'Guztiak',
     'config.exsNone': 'Bat ere ez',
     'config.addExercise': 'Gehitu ariketa berria',

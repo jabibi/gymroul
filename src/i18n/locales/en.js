@@ -45,7 +45,6 @@ export default {
     'config.editReps': 'Edit reps for {name}',
     'config.repsSave': 'Save',
     'config.repsSaved': 'Saved: {range}',
-    'config.exercises': 'Exercises',
     'config.exsAll': 'All',
     'config.exsNone': 'None',
     'config.addExercise': 'Add a new exercise',

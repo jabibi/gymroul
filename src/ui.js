@@ -766,6 +766,9 @@ export function showSettingsView(view, moveFocus = true) {
   $('configTitle').textContent = t(VIEW_TITLE_KEYS[view]);
   $('settingsBack').classList.toggle('hidden', view === 'menu');
   $('settingsBack').classList.toggle('flex', view !== 'menu');
+  // La ayuda (?) va junto al título y solo en el editor de la ruleta
+  $('configHelpBtn').classList.toggle('hidden', view !== 'wheel');
+  $('configHelpBtn').classList.toggle('flex', view === 'wheel');
   setDisclosure('configHelpBtn', 'configHelp', false);
   // Todo se guarda al momento: sin botones de guardar. La X cierra Ajustes desde cualquier pantalla y la flecha vuelve al menú
   // Cada pantalla empieza arriba (las otras siguen ahí, ocultas, con su propio desplazamiento)

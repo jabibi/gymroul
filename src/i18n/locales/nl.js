@@ -45,7 +45,6 @@ export default {
     'config.editReps': 'Herhalingen van {name} bewerken',
     'config.repsSave': 'Opslaan',
     'config.repsSaved': 'Opgeslagen: {range}',
-    'config.exercises': 'Oefeningen',
     'config.exsAll': 'Alle',
     'config.exsNone': 'Geen',
     'config.addExercise': 'Nieuwe oefening toevoegen',

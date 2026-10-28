@@ -48,7 +48,6 @@ export default {
     'config.editReps': 'تعديل تكرارات {name}',
     'config.repsSave': 'حفظ',
     'config.repsSaved': 'تم الحفظ: {range}',
-    'config.exercises': 'التمارين',
     'config.exsAll': 'الكل',
     'config.exsNone': 'لا شيء',
     'config.addExercise': 'أضف تمرينًا جديدًا',

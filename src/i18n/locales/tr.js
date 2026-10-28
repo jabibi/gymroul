@@ -45,7 +45,6 @@ export default {
     'config.editReps': '{name} tekrarlarını düzenle',
     'config.repsSave': 'Kaydet',
     'config.repsSaved': 'Kaydedildi: {range}',
-    'config.exercises': 'Egzersizler',
     'config.exsAll': 'Tümü',
     'config.exsNone': 'Hiçbiri',
     'config.addExercise': 'Yeni egzersiz ekle',

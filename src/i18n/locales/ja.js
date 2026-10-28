@@ -45,7 +45,6 @@ export default {
     'config.editReps': '{name}の回数を編集',
     'config.repsSave': '保存',
     'config.repsSaved': '保存しました: {range}',
-    'config.exercises': 'エクササイズ',
     'config.exsAll': 'すべて',
     'config.exsNone': 'なし',
     'config.addExercise': '新しいエクササイズを追加',

@@ -45,7 +45,6 @@ export default {
     'config.editReps': '{name} के रेप्स बदलें',
     'config.repsSave': 'सहेजें',
     'config.repsSaved': 'सहेजा गया: {range}',
-    'config.exercises': 'एक्सरसाइज़',
     'config.exsAll': 'सभी',
     'config.exsNone': 'कोई नहीं',
     'config.addExercise': 'नई एक्सरसाइज़ जोड़ें',

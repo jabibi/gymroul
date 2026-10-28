@@ -215,6 +215,9 @@
                         <i class="fa-solid fa-arrow-left rtl:-scale-x-100"></i>
                     </button>
                     <h3 id="configTitle" tabindex="-1" class="outline-none font-black text-lg leading-tight text-white min-w-0 break-words">Settings</h3>
+                    <button type="button" id="configHelpBtn" data-action="toggle-config-help" aria-expanded="false" aria-controls="configHelp" aria-label="Help" data-i18n-aria-label="config.help" class="hidden w-11 h-11 -ms-1.5 shrink-0 items-center justify-center text-sm text-slate-400 aria-expanded:text-white [@media(hover:hover)]:hover:text-white transition-colors">
+                        <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+                    </button>
                 </div>
                 <button id="settingsClose" data-action="close-config" aria-label="Close settings" data-i18n-aria-label="config.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 [@media(hover:hover)]:hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
@@ -263,13 +266,7 @@
                 <!-- Editar ruleta: la lista de ejercicios se desplaza dentro de su tarjeta y el botón de añadir queda siempre a la vista -->
                 <section data-view="wheel" class="invisible col-start-1 row-start-1 min-h-0 flex flex-col gap-3">
                 <div class="bg-dark-900/60 rounded-2xl border border-slate-800 overflow-hidden flex flex-col flex-1 min-h-0">
-                    <div class="flex justify-between items-center gap-2 ps-3.5 pe-2 shrink-0">
-                        <div class="flex items-center min-w-0">
-                            <span class="text-sm font-black text-slate-200" data-i18n="config.exercises">Exercises</span>
-                            <button type="button" id="configHelpBtn" data-action="toggle-config-help" aria-expanded="false" aria-controls="configHelp" aria-label="Help" data-i18n-aria-label="config.help" class="w-11 h-11 shrink-0 flex items-center justify-center text-slate-400 aria-expanded:text-white [@media(hover:hover)]:hover:text-white transition-colors">
-                                <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
-                            </button>
-                        </div>
+                    <div class="flex justify-end items-center gap-2 ps-3.5 pe-2 shrink-0">
                         <div class="flex items-center space-x-1 rtl:space-x-reverse">
                             <button data-action="toggle-exs" data-arg="on" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-xs text-brand-text font-bold hover:underline" data-i18n="config.exsAll">All</button>
                             <span class="text-slate-600">|</span>
