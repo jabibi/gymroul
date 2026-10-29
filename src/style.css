@@ -131,6 +131,9 @@ input, textarea {
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
 }
+/* Editor de ejercicios: flecha y botones arriba, y el título (con la ayuda) debajo, con todo el ancho */
+#configHead.two-rows { flex-wrap: wrap; row-gap: 0.25rem; }
+#configHead.two-rows #configTitleGroup { order: 3; flex: 1 1 100%; }
 /* Un panel cerrado no necesita su desenfoque (es invisible). Con todos los paneles desenfocando a la vez, al desbloquear el móvil
    la cabecera y el fondo de los paneles abiertos tardaban en volver a pintarse (Pixel 8 Pro, Android 17; con la 1.19, que tenía
    menos paneles, no pasaba): se supone que son demasiadas capas de desenfoque a pantalla completa */
@@ -447,4 +450,6 @@ input[type='radio'] {
     #templateCard > .flex-1, #templatePickerCard > .flex-1 { min-height: 3.5rem; }
     /* Lo mismo con la lista de ejercicios del editor de la ruleta, que si no se sale del recuadro con las barras del sistema */
     #app #exsCheckboxes { min-height: 4rem; }
+    /* Con la ayuda abierta y la cabecera en dos filas no cabe todo: la pantalla se desplaza y «Añadir» sigue alcanzable */
+    #app [data-view="wheel"] { overflow-y: auto; overscroll-behavior: contain; }
 }

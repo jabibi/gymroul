@@ -544,7 +544,7 @@ function foldRemoval() {
       // La línea desapareció con el foco dentro: pasa a «Añadir» (que ya se puede usar si la lista estaba llena) o, si no, a la primera casilla.
       // Se hace tras repintar la lista: antes, la casilla enfocada se destruía con el repintado
       const add = /** @type {HTMLButtonElement} */ ($('addExerciseBtn'));
-      const target = add.disabled ? document.querySelector('#exsCheckboxes .ex-checkbox') ?? document.querySelector('[data-action="toggle-exs"]') : add;
+      const target = add.disabled ? document.querySelector('#exsCheckboxes .ex-checkbox') ?? $('templateMenuBtn') : add;
       /** @type {HTMLElement | null} */ (target)?.focus({ preventScroll: true });
     }
   }, FADE_MS);
@@ -730,7 +730,7 @@ export function readRepsEditor(id) {
 }
 
 // --- Ajustes ---------------------------------------------------------------------------
-// Un único panel con cinco pantallas: el menú (Editar ruleta, Plantillas, Apariencia, Idioma, Compromiso de
+// Un único panel con cinco pantallas: el menú (Editar ejercicios, Plantillas, Apariencia, Idioma, Compromiso de
 // privacidad y Créditos) y, dentro, el editor de ejercicios, las plantillas, la apariencia y el idioma. Las pantallas no
 // añaden entradas al historial: Atrás vuelve al menú y, desde el menú, cierra el panel.
 
@@ -766,9 +766,12 @@ export function showSettingsView(view, moveFocus = true) {
   $('configTitle').textContent = t(VIEW_TITLE_KEYS[view]);
   $('settingsBack').classList.toggle('hidden', view === 'menu');
   $('settingsBack').classList.toggle('flex', view !== 'menu');
-  // La ayuda (?) va junto al título y solo en el editor de la ruleta
+  // La ayuda (?) junto al título y el menú de plantillas (⋯) junto a la X, solo en el editor de la ruleta
   $('configHelpBtn').classList.toggle('hidden', view !== 'wheel');
   $('configHelpBtn').classList.toggle('flex', view === 'wheel');
+  $('configHead').classList.toggle('two-rows', view === 'wheel');
+  $('templateMenuBtn').classList.toggle('hidden', view !== 'wheel');
+  $('templateMenuBtn').classList.toggle('flex', view === 'wheel');
   setDisclosure('configHelpBtn', 'configHelp', false);
   // Todo se guarda al momento: sin botones de guardar. La X cierra Ajustes desde cualquier pantalla y la flecha vuelve al menú
   // Cada pantalla empieza arriba (las otras siguen ahí, ocultas, con su propio desplazamiento)
@@ -903,11 +906,6 @@ export function closeConfig() {
   settleRemoval(); // salir antes de que acabe el plazo deja el ejercicio borrado
   setSheetVisible('configModal', 'configCard', false);
   dismissModal('config');
-}
-
-/** @param {boolean} checked */
-export function setAllChecked(checked) {
-  document.querySelectorAll('.ex-checkbox').forEach(cb => { /** @type {HTMLInputElement} */ (cb).checked = checked; });
 }
 
 /** Nombres de los ejercicios marcados en el formulario de configuración. */

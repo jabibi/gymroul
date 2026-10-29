@@ -167,6 +167,16 @@ function inspectPage() {
       }
     }
   }
+  // Títulos partidos en muchas líneas: con break-words una palabra que no cabe se corta letra a letra («Ra-d-be-arb-eit-en») y
+  // nada se sale de su caja, así que las demás comprobaciones no lo ven
+  for (const el of document.querySelectorAll('h1, h2, h3')) {
+    if (!visible(el)) continue;
+    const lines = el.getBoundingClientRect().height / (parseFloat(getComputedStyle(el).lineHeight) || parseFloat(getComputedStyle(el).fontSize) * 1.2);
+    if (lines > 3.5) {
+      const key = `title|${label(el)}`;
+      if (!seen.has(key)) { seen.add(key); problems.push(`título partido en ${Math.round(lines)} líneas: «${(el.textContent || '').trim().slice(0, 40)}» (${label(el)})`); }
+    }
+  }
   // Textos con puntos suspensivos (truncate) que no caben enteros
   for (const el of document.querySelectorAll('*')) {
     if (!visible(el)) continue;

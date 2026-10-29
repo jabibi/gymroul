@@ -209,19 +209,26 @@
     <!-- Modal de Configuración & CRUD -->
     <div id="configModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="configTitle" aria-hidden="true" class="outline-none safe-edge-sheet fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
         <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 pb-[calc(1rem+var(--sab))] sm:p-6 max-h-[calc(100dvh-0.5rem-var(--sat))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="configCard">
-            <div class="flex justify-between items-center gap-3 mb-3">
-                <div class="flex items-center gap-2.5 min-w-0">
-                    <button id="settingsBack" type="button" data-action="settings-back" aria-label="Back" data-i18n-aria-label="settings.back" class="hidden w-11 h-11 -ms-2 shrink-0 rounded-xl text-slate-300 [@media(hover:hover)]:hover:text-white items-center justify-center">
-                        <i class="fa-solid fa-arrow-left rtl:-scale-x-100"></i>
-                    </button>
+            <!-- Cabecera: flecha, título y botones en una fila; en el editor de ejercicios (two-rows) el título baja a una fila propia con
+                 todo el ancho, porque con la flecha, la ayuda, «Plantillas» y la X no cabe en 320 px y el título se partía letra a letra -->
+            <div id="configHead" class="flex items-center gap-3 mb-3">
+                <button id="settingsBack" type="button" data-action="settings-back" aria-label="Back" data-i18n-aria-label="settings.back" class="hidden w-11 h-11 -ms-2 shrink-0 rounded-xl text-slate-300 [@media(hover:hover)]:hover:text-white items-center justify-center">
+                    <i class="fa-solid fa-arrow-left rtl:-scale-x-100"></i>
+                </button>
+                <div id="configTitleGroup" class="flex items-center gap-1 flex-1 min-w-0">
                     <h3 id="configTitle" tabindex="-1" class="outline-none font-black text-lg leading-tight text-white min-w-0 break-words">Settings</h3>
                     <button type="button" id="configHelpBtn" data-action="toggle-config-help" aria-expanded="false" aria-controls="configHelp" aria-label="Help" data-i18n-aria-label="config.help" class="hidden w-11 h-11 -ms-1.5 shrink-0 items-center justify-center text-sm text-slate-400 aria-expanded:text-white [@media(hover:hover)]:hover:text-white transition-colors">
                         <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
                     </button>
                 </div>
-                <button id="settingsClose" data-action="close-config" aria-label="Close settings" data-i18n-aria-label="config.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 [@media(hover:hover)]:hover:text-white flex items-center justify-center">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
+                <div class="flex items-center gap-1 shrink-0 ms-auto">
+                    <button type="button" id="templateMenuBtn" data-action="open-template-menu" aria-haspopup="dialog" aria-label="Templates: load or save" data-i18n-aria-label="templates.menu" class="hidden min-h-[44px] px-3 gap-1.5 rounded-xl border border-slate-700 text-slate-200 text-xs font-bold [@media(hover:hover)]:hover:bg-dark-800/60 [@media(hover:hover)]:hover:border-slate-600 items-center justify-center transition-colors">
+                        <i class="fa-solid fa-clipboard-list text-brand-text" aria-hidden="true"></i> <span class="min-w-0" data-i18n="settings.templates">Templates</span>
+                    </button>
+                    <button id="settingsClose" data-action="close-config" aria-label="Close settings" data-i18n-aria-label="config.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 [@media(hover:hover)]:hover:text-white flex items-center justify-center">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
             </div>
 
             <!-- Las cinco pantallas están apiladas en la misma celda: el panel mide lo que mide la más alta (con tope en el espacio disponible,
@@ -263,21 +270,11 @@
                 </div>
                 </section>
 
-                <!-- Editar ruleta: la lista de ejercicios se desplaza dentro de su tarjeta y el botón de añadir queda siempre a la vista -->
+                <!-- Editar ejercicios: la lista de ejercicios se desplaza dentro de su tarjeta y el botón de añadir queda siempre a la vista -->
                 <section data-view="wheel" class="invisible col-start-1 row-start-1 min-h-0 flex flex-col gap-3">
+                <p id="configHelp" class="hidden shrink-0 rounded-2xl bg-dark-900/60 border border-slate-800 px-3.5 py-3 text-sm text-slate-400" data-i18n="config.intro">Turn exercises on or off, set each one's reps range, or create and delete them.</p>
                 <div class="bg-dark-900/60 rounded-2xl border border-slate-800 overflow-hidden flex flex-col flex-1 min-h-0">
-                    <div class="flex justify-end items-center gap-2 ps-3.5 pe-2 shrink-0">
-                        <div class="flex items-center space-x-1 rtl:space-x-reverse">
-                            <button data-action="toggle-exs" data-arg="on" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-xs text-brand-text font-bold hover:underline" data-i18n="config.exsAll">All</button>
-                            <span class="text-slate-600">|</span>
-                            <button data-action="toggle-exs" data-arg="off" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 text-xs text-slate-400 font-bold hover:underline" data-i18n="config.exsNone">None</button>
-                            <button type="button" id="templateMenuBtn" data-action="open-template-menu" aria-haspopup="dialog" aria-label="Templates: load or save" data-i18n-aria-label="templates.menu" class="inline-flex items-center justify-center w-11 h-11 text-slate-400 [@media(hover:hover)]:hover:text-white transition-colors">
-                                <i class="fa-solid fa-ellipsis" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <p id="configHelp" class="hidden shrink-0 px-3.5 pb-3 text-sm text-slate-400" data-i18n="config.intro">Turn exercises on or off, set each one's reps range, or create and delete them.</p>
-                    <div id="exsCheckboxes" class="px-2 pb-2 space-y-2 flex-1 min-h-[9rem] overflow-y-auto overscroll-contain"></div>
+                    <div id="exsCheckboxes" class="p-2 space-y-2 flex-1 min-h-[9rem] overflow-y-auto overscroll-contain"></div>
                 </div>
 
                 <button type="button" id="addExerciseBtn" data-action="open-add-exercise" aria-haspopup="dialog" class="shrink-0 w-full min-h-[48px] px-3 py-1.5 rounded-xl border border-dashed border-slate-700 text-brand-text text-sm font-bold hover:bg-dark-800/60 hover:border-slate-600 transition-colors flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:border-slate-700 disabled:opacity-100 disabled:text-slate-400">

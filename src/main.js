@@ -144,7 +144,6 @@ const actions = {
   'close-config': () => ui.closeConfig(),
   'spin': () => handleSpin(),
   'close-result': arg => ui.closeResult(arg === 'done'),
-  'toggle-exs': arg => { ui.setAllChecked(arg === 'on'); saveSelection(); },
 
   'edit-reps': arg => arg && ui.toggleRepsEditor(arg),
   'save-reps': arg => {
