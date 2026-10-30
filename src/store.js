@@ -31,8 +31,10 @@ export const DEFAULT_EXERCISES = [
 ];
 /** Lista global de repeticiones de la versión 1.14, solo para migrar (v7 -> v8) */
 const LEGACY_DEFAULT_REPS = [10, 20, 30, 40, 50, 60];
-/** Paleta de los sectores (apariencia Suave). Los ejercicios ya no guardan color: lo da la posición del sector (sectorColorIndexes en src/wheel-math.js) */
-export const COLOR_PALETTE = ['#0f766e', '#475569', '#15803d', '#2563eb', '#0e7490', '#4f46e5', '#64748b', '#0369a1'];
+/** Paleta de los sectores (apariencia Suave; el texto blanco llega a 4,5:1 sobre cada color, lo comprueba npm test). Los ejercicios ya no guardan color: lo da la posición del sector (sectorColorIndexes en src/wheel-math.js) */
+export const COLOR_PALETTE = ['#0d8656', '#097db5', '#7855d7', '#0b8475', '#286ee6', '#913cb9', '#976f10', '#4b5565'];
+/** Paleta Suave de las versiones 1.15 a 1.19 (antes de la actual), solo para migrar (v8 -> v9 y v10 -> v11): las migraciones no deben depender de COLOR_PALETTE, que cambia */
+const CALM_PALETTE_V11 = ['#0f766e', '#475569', '#15803d', '#2563eb', '#0e7490', '#4f46e5', '#64748b', '#0369a1'];
 /** Primera versión de la paleta Suave (tonos más claros, con poco contraste con el texto blanco), solo para migrar (v10 -> v11) */
 const FIRST_CALM_PALETTE = ['#0d9488', '#475569', '#059669', '#2563eb', '#0891b2', '#4f46e5', '#64748b', '#0369a1'];
 /** Paleta de la apariencia Clásico (la original, arcoíris); misma posición que COLOR_PALETTE. También sirve para migrar (v8 -> v9) */
@@ -165,7 +167,7 @@ export const MIGRATIONS = {
     if (!list) return;
     writeStorage(KEY_EXERCISES, list.map(e => {
       const i = CLASSIC_COLOR_PALETTE.indexOf(/** @type {any} */ (e).color);
-      return i === -1 ? e : { ...e, color: COLOR_PALETTE[i] };
+      return i === -1 ? e : { ...e, color: CALM_PALETTE_V11[i] };
     }));
   },
   // v9 -> v10: desaparece el nombre corto; la ruleta muestra el nombre completo
@@ -183,7 +185,7 @@ export const MIGRATIONS = {
     if (!list) return;
     writeStorage(KEY_EXERCISES, list.map(e => {
       const i = FIRST_CALM_PALETTE.indexOf(/** @type {any} */ (e).color);
-      return i === -1 ? e : { ...e, color: COLOR_PALETTE[i] };
+      return i === -1 ? e : { ...e, color: CALM_PALETTE_V11[i] };
     }));
   },
   // v11 -> v12: el color deja de ser del ejercicio; la ruleta lo reparte por la posición del sector

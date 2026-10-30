@@ -71,6 +71,15 @@ describe('apariencias', () => {
     for (const color of [...LIGHT_COLOR_PALETTE, ...['#d6d3d1']]) expect(contrast(label, color), color).toBeGreaterThanOrEqual(7);
   });
 
+  it('el texto blanco de la ruleta oscura llega a 4,5:1 sobre cada color de la paleta, incluso sin el velo del sector activo', () => {
+    expect(readFileSync('src/style.css', 'utf8')).toMatch(/--wheel-label: #ffffff;/);
+    for (const color of COLOR_PALETTE) expect(contrast('#ffffff', color), color).toBeGreaterThanOrEqual(4.5);
+  });
+
+  it('la paleta oscura no repite colores', () => {
+    expect(new Set(COLOR_PALETTE).size).toBe(COLOR_PALETTE.length);
+  });
+
   it('ningún par de colores de la paleta clara se parece (ΔE de al menos 15)', () => {
     LIGHT_COLOR_PALETTE.forEach((a, i) => LIGHT_COLOR_PALETTE.slice(i + 1).forEach(b => expect(distance(a, b), `${a} ${b}`).toBeGreaterThanOrEqual(15)));
   });
