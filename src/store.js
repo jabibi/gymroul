@@ -364,21 +364,36 @@ export function restoreExercise({ exercise, index, wasActive }) {
 }
 
 /**
- * Cambia el rango de repeticiones de un ejercicio.
+ * Cambia el nombre, el icono y el rango de un ejercicio (el id no cambia). Si cambia el nombre, la selección activa lo
+ * sigue; el nombre no puede coincidir con el de otro ejercicio. Un ejercicio del sistema que se renombra deja de
+ * traducirse (exerciseName compara con el nombre original).
  * @param {string} id
- * @param {string | number} min
- * @param {string | number} max
+ * @param {{ name: string, icon: string, repsMin?: string | number, repsMax?: string | number }} input
  * @returns {StoreResult}
  */
-export function updateExerciseReps(id, min, max) {
-  const range = parseRepRange(min, max);
-  if (!range.ok) return range;
+export function updateExercise(id, input) {
+  const parsed = parseExerciseInput(input);
+  if (!parsed.ok) return parsed;
+  const { name, icon } = parsed;
+
   const list = getExercises();
   const target = list.find(item => item.id === id);
   if (!target) return { ok: true };
-  target.repsMin = range.min;
-  target.repsMax = range.max;
+  if (list.some(item => item.id !== id && item.name.toLowerCase() === name.toLowerCase())) {
+    return { ok: false, error: { key: 'error.duplicateExercise', params: { name } } };
+  }
+
+  const oldName = target.name;
+  target.name = name;
+  target.icon = icon;
+  target.repsMin = parsed.repsMin;
+  target.repsMax = parsed.repsMax;
   saveExercises(list);
+
+  if (oldName !== name && active.exercises.includes(oldName)) {
+    active.exercises = active.exercises.map(n => (n === oldName ? name : n));
+    persistActive();
+  }
   return { ok: true };
 }
 

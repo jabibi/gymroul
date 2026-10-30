@@ -382,7 +382,11 @@
     <div id="addExerciseModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="addExerciseTitle" aria-hidden="true" class="outline-none safe-edge-sheet fixed inset-0 z-[60] bg-slate-950/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-all duration-300">
         <div class="glass-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl p-4 pb-[calc(1rem+var(--sab))] sm:p-6 max-h-[calc(100dvh-0.5rem-var(--sat))] sm:max-h-[88dvh] flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300 shadow-2xl border border-slate-800" id="addExerciseCard">
             <div class="flex justify-between items-center gap-3 mb-3">
-                <h3 id="addExerciseTitle" class="font-black text-lg leading-tight text-white min-w-0 break-words" data-i18n="config.addExercise">Add a new exercise</h3>
+                <div class="min-w-0">
+                    <!-- Al editar o añadir un ejercicio de una plantilla: «Plantilla: nombre» (vacío y oculto con los de la ruleta) -->
+                    <p id="addExerciseContext" class="hidden text-xs font-bold text-brand-text break-words mb-0.5"></p>
+                    <h3 id="addExerciseTitle" class="font-black text-lg leading-tight text-white break-words" data-i18n="config.addExercise">Add a new exercise</h3>
+                </div>
                 <button data-action="close-add-exercise" aria-label="Close" data-i18n-aria-label="doc.close" class="w-11 h-11 shrink-0 rounded-xl bg-dark-900 text-slate-400 [@media(hover:hover)]:hover:text-white flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>

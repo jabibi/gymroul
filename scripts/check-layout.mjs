@@ -381,6 +381,19 @@ async function checkViewport(browser, lang, vp) {
     console.log(`  ✗ ${lang} ${vp.width}x${vp.height} 07b-atras: Atrás no cierra solo la ventana de nuevo ejercicio`);
   }
 
+  // Editar un ejercicio: la misma ventana, con sus datos y otro título (con --stress, de nombre larguísimo)
+  await page.$eval('[data-action=edit-exercise]', e => e.click());
+  await wait(500);
+  await check(page, lang, vp, '07b1-editar-ejercicio');
+  await page.evaluate(() => history.back());
+  await wait(500);
+  const editBackOk = await page.evaluate(() => document.getElementById('addExerciseModal').getAttribute('aria-hidden') === 'true'
+    && document.getElementById('configModal').getAttribute('aria-hidden') === 'false');
+  if (!editBackOk) {
+    total++;
+    console.log(`  ✗ ${lang} ${vp.width}x${vp.height} 07b1-atras: Atrás no cierra solo la ventana de editar ejercicio`);
+  }
+
   // Plantillas: el selector desde el editor de la ruleta, la pantalla de Ajustes, una del sistema, su copia y una nueva
   // rellenada con los ejercicios de la ruleta (con --stress, de nombres larguísimos). Atrás cierra solo la ventana de encima
   await page.click('#templateMenuBtn');
@@ -413,6 +426,18 @@ async function checkViewport(browser, lang, vp) {
   await page.click('[data-action=template-from-wheel]');
   await wait(300);
   await check(page, lang, vp, '07i-plantilla-nueva-desde-la-ruleta');
+  // Editar un ejercicio de la plantilla: la misma ventana, con «Plantilla: nombre» encima del título; Atrás vuelve a la plantilla
+  await page.$eval('[data-action=template-edit-exercise]', e => e.click());
+  await wait(500);
+  await check(page, lang, vp, '07i2-editar-ejercicio-de-plantilla');
+  await page.evaluate(() => history.back());
+  await wait(500);
+  const tplEditBackOk = await page.evaluate(() => document.getElementById('addExerciseModal').getAttribute('aria-hidden') === 'true'
+    && document.getElementById('templateModal').getAttribute('aria-hidden') === 'false');
+  if (!tplEditBackOk) {
+    total++;
+    console.log(`  ✗ ${lang} ${vp.width}x${vp.height} 07i2-atras: Atrás no cierra solo la ventana de editar ejercicio de la plantilla`);
+  }
   await page.evaluate(() => history.back());
   await wait(500);
   const templateBackOk = await page.evaluate(() => document.getElementById('templateModal').getAttribute('aria-hidden') === 'true'

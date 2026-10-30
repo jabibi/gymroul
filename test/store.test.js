@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import {
   readStorage, getExercises, loadActive, active, migrate, SCHEMA_VERSION,
-  addExercise, removeExercise, restoreExercise, updateExerciseReps, parseRepRange, MAX_NAME_LENGTH, MAX_REP_VALUE, DEFAULT_EXERCISES, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_EXERCISES, COLOR_PALETTE, MIGRATIONS,
+  addExercise, removeExercise, restoreExercise, updateExercise, parseRepRange, MAX_NAME_LENGTH, MAX_REP_VALUE, DEFAULT_EXERCISES, DEFAULT_REPS_MIN, DEFAULT_REPS_MAX, MAX_EXERCISES, COLOR_PALETTE, MIGRATIONS,
   getTemplates, saveTemplate, deleteTemplate, uniqueTemplateName, loadTemplate, parseExerciseInput, MAX_TEMPLATES,
 } from '../src/store.js';
 
@@ -145,12 +145,29 @@ describe('repeticiones por ejercicio', () => {
     expect(getExercises().some(e => e.name === 'Mal')).toBe(false);
   });
 
-  it('actualiza el rango de un ejercicio y rechaza uno inválido sin cambiarlo', () => {
+  it('actualiza nombre, icono y rango de un ejercicio y rechaza lo inválido sin cambiarlo', () => {
     const id = DEFAULT_EXERCISES[0].id;
-    expect(updateExerciseReps(id, 5, 8).ok).toBe(true);
+    const before = getExercises().find(e => e.id === id);
+    expect(updateExercise(id, { name: before.name, icon: before.icon, repsMin: 5, repsMax: 8 }).ok).toBe(true);
     expect(getExercises().find(e => e.id === id)).toMatchObject({ repsMin: 5, repsMax: 8 });
-    expect(updateExerciseReps(id, 9, 2).ok).toBe(false);
-    expect(getExercises().find(e => e.id === id)).toMatchObject({ repsMin: 5, repsMax: 8 });
+    expect(updateExercise(id, { name: before.name, icon: before.icon, repsMin: 9, repsMax: 2 }).ok).toBe(false);
+    expect(updateExercise(id, { name: '  ', icon: before.icon, repsMin: 5, repsMax: 8 }).ok).toBe(false);
+    expect(updateExercise(id, { name: before.name, icon: 'no-existe', repsMin: 5, repsMax: 8 }).ok).toBe(false);
+    expect(getExercises().find(e => e.id === id)).toMatchObject({ name: before.name, icon: before.icon, repsMin: 5, repsMax: 8 });
+  });
+
+  it('al renombrar un ejercicio la selección activa lo sigue y no se admite el nombre de otro', () => {
+    const [a, b] = getExercises();
+    expect(active.exercises).toContain(a.name);
+    const result = updateExercise(a.id, { name: 'Mi ejercicio', icon: a.icon, repsMin: a.repsMin, repsMax: a.repsMax });
+    expect(result.ok).toBe(true);
+    expect(getExercises().find(e => e.id === a.id).name).toBe('Mi ejercicio');
+    expect(active.exercises).toContain('Mi ejercicio');
+    expect(active.exercises).not.toContain(a.name);
+    const dup = updateExercise(a.id, { name: b.name.toUpperCase(), icon: a.icon, repsMin: a.repsMin, repsMax: a.repsMax });
+    expect(dup.ok).toBe(false);
+    expect(dup.error.key).toBe('error.duplicateExercise');
+    expect(getExercises().find(e => e.id === a.id).name).toBe('Mi ejercicio');
   });
 });
 
@@ -159,7 +176,7 @@ describe('límites de lo que escribe el usuario', () => {
     const id = DEFAULT_EXERCISES[0].id;
     for (const big of ['999999999999999', 999999999999999, 1e21, '9'.repeat(400), String(MAX_REP_VALUE + 1)]) {
       expect(parseRepRange(10, big).error.key, String(big)).toBe('error.repRange');
-      expect(updateExerciseReps(id, 10, big).ok).toBe(false);
+      expect(updateExercise(id, { name: 'Enorme', icon: 'dumbbell', repsMin: 10, repsMax: big }).ok).toBe(false);
       expect(addExercise({ name: 'Enorme', icon: 'dumbbell', repsMin: 1, repsMax: big }).ok).toBe(false);
     }
     expect(getExercises().find(e => e.id === id)).toMatchObject({ repsMin: DEFAULT_REPS_MIN, repsMax: DEFAULT_REPS_MAX });

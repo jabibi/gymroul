@@ -8,7 +8,7 @@ import { initWheel, setSegments, spin, getActiveSegment, getSegments, resize, ge
 import { generateSegments, rollReps, CONFIG_SEGMENT } from './wheel-math.js';
 import {
   migrate, loadActive, active, setActive,
-  addExercise, removeExercise, restoreExercise, updateExerciseReps, COLOR_PALETTE,
+  addExercise, updateExercise, removeExercise, restoreExercise, COLOR_PALETTE,
   saveTemplate, deleteTemplate, uniqueTemplateName, loadTemplate,
 } from './store.js';
 import { toggleSound, initAudio } from './audio.js';
@@ -145,34 +145,25 @@ const actions = {
   'spin': () => handleSpin(),
   'close-result': arg => ui.closeResult(arg === 'done'),
 
-  'edit-reps': arg => arg && ui.toggleRepsEditor(arg),
-  'save-reps': arg => {
-    if (!arg) return;
-    const { min, max } = ui.readRepsEditor(arg);
-    const result = updateExerciseReps(arg, min, max);
-    reportError(result);
-    if (!result.ok) return;
-    ui.closeRepsEditor();
-    rebuildWheel();
-    ui.renderConfig(true);
-    ui.flashExerciseRow(arg, t('config.repsSaved', { range: t('config.repsRange', { min: Number(min), max: Number(max) }) }));
-  },
+  'edit-exercise': arg => arg && ui.openAddExercise('wheel', arg),
   'add-exercise': () => {
     const form = ui.readNewExerciseForm();
+    const editRef = ui.editingExercise();
     if (ui.addExerciseTarget() === 'template') {
       // Se está escribiendo una plantilla: el ejercicio va a su borrador, no a la ruleta
-      const added = ui.addTemplateExercise(form);
-      reportError(added);
-      if (added.ok) ui.closeAddExercise();
+      const done = editRef === '' ? ui.addTemplateExercise(form) : ui.updateTemplateExercise(Number(editRef), form);
+      reportError(done);
+      if (done.ok) ui.closeAddExercise();
       return;
     }
-    const result = addExercise(form);
+    const result = editRef === '' ? addExercise(form) : updateExercise(editRef, form);
     reportError(result);
     if (!result.ok) return;
     ui.closeAddExercise();
     rebuildWheel();
     ui.renderConfig(true);
-    ui.revealLastExercise();
+    if (editRef === '') ui.revealLastExercise();
+    else ui.flashExerciseRow(editRef);
   },
   'delete-exercise': arg => {
     const removed = arg ? removeExercise(arg) : null;
@@ -193,6 +184,7 @@ const actions = {
   'template-open': arg => arg && ui.openTemplate(arg),
   'close-template': () => ui.closeTemplate(),
   'template-add-exercise': () => ui.openAddExercise('template'),
+  'template-edit-exercise': arg => arg !== undefined && ui.openAddExercise('template', arg),
   'template-remove-exercise': arg => ui.removeTemplateExercise(Number(arg)),
   'template-from-wheel': () => ui.fillTemplateFromWheel(),
   'save-wheel-as-template': () => {

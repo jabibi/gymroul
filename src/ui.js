@@ -468,12 +468,6 @@ export function closeHistory() {
 
 // --- Configuración -------------------------------------------------------------------
 
-/** Id del ejercicio con el editor de repeticiones abierto (solo uno a la vez) */
-let repsEditorOpen = '';
-
-/** @param {string} id */
-const repsInputId = (id, /** @type {string} */ kind) => `reps${kind}-${id}`;
-
 /** Segundos que la línea borrada sigue en la lista con su aviso «Deshacer» */
 const UNDO_MS = 5000;
 /** Lo que dura el fundido de la línea al borrarla y el plegado al terminar el plazo */
@@ -514,18 +508,21 @@ export function startRemoval(exercise, undo) {
 }
 
 /**
- * Confirma un cambio en la línea de un ejercicio sin aviso flotante (que tapaba la lista): la línea se tiñe un momento
- * y el mensaje se anuncia a los lectores de pantalla.
+ * Confirma que se guardó un ejercicio sin aviso flotante (que tapaba la lista): su línea se tiñe un momento, queda a la
+ * vista (al renombrarlo puede cambiar de sitio en el orden alfabético) y el mensaje se anuncia a los lectores de pantalla.
  * @param {string} id
- * @param {string} message
  */
-export function flashExerciseRow(id, message) {
-  const row = Array.from(document.querySelectorAll('#exsCheckboxes [data-ex-id]')).find(r => /** @type {HTMLElement} */ (r).dataset.exId === id);
+export function flashExerciseRow(id) {
+  const row = /** @type {HTMLElement | undefined} */ (Array.from(document.querySelectorAll('#exsCheckboxes [data-ex-id]')).find(r => /** @type {HTMLElement} */ (r).dataset.exId === id));
+  const ex = getExercises().find(e => e.id === id);
   if (row) {
+    row.scrollIntoView({ block: 'nearest' });
     row.classList.remove('row-saved');
-    void /** @type {HTMLElement} */ (row).offsetWidth;
+    void row.offsetWidth;
     row.classList.add('row-saved');
   }
+  if (!ex) return;
+  const message = t('config.exerciseSaved', { name: exerciseName(ex) });
   const live = $('removalLive');
   live.textContent = message;
   setTimeout(() => { if (live.textContent === message) live.textContent = ''; }, 4000);
@@ -598,12 +595,10 @@ export function renderConfig(keepChecks = false) {
     ? new Map(Array.from(document.querySelectorAll('.ex-checkbox')).map(cb => [/** @type {HTMLInputElement} */ (cb).value, /** @type {HTMLInputElement} */ (cb).checked]))
     : null;
   const isOn = (/** @type {string} */ name) => (pending?.has(name) ? !!pending.get(name) : active.exercises.includes(name));
-  const inputClass = 'min-h-[44px] w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500';
 
   const ghost = removal?.exercise;
   $('exsCheckboxes').innerHTML = sortExercises(ghost ? [...getExercises(), ghost] : getExercises()).map(ex => {
     if (removal && ex === ghost) return renderRemovedRow(ex, removal.state, removal.checked);
-    const open = repsEditorOpen === ex.id;
     const range = t('config.repsRange', { min: ex.repsMin, max: ex.repsMax });
     const name = exerciseName(ex);
     return `
@@ -617,7 +612,7 @@ export function renderConfig(keepChecks = false) {
           </span>
         </label>
         <div class="flex items-stretch shrink-0 ms-auto">
-          <button data-action="edit-reps" data-arg="${escapeHTML(ex.id)}" aria-expanded="${open}" aria-label="${escapeHTML(t('config.editReps', { name }))}" class="flex items-center justify-center min-h-[44px] px-2 shrink-0 text-xs font-bold text-brand-text hover:underline">
+          <button data-action="edit-exercise" data-arg="${escapeHTML(ex.id)}" aria-haspopup="dialog" aria-label="${escapeHTML(t('config.editExerciseAria', { name }))}" class="flex items-center justify-center min-h-[44px] px-2 shrink-0 text-xs font-bold text-brand-text hover:underline">
             <bdi dir="ltr">${escapeHTML(range)}</bdi>
             <i class="fa-solid fa-pen ms-1.5 text-[0.65rem]" aria-hidden="true"></i>
           </button>
@@ -625,15 +620,6 @@ export function renderConfig(keepChecks = false) {
             <i class="fa-solid fa-trash-can"></i>
           </button>
         </div>
-      </div>
-      <div class="${open ? '' : 'hidden'} grid grid-cols-[1fr_1fr_auto] items-end gap-2 px-2.5 pb-2.5 pt-1 border-t border-slate-800/80">
-        <label class="block text-xs font-bold text-slate-400">${escapeHTML(t('config.repsMin'))}
-          <input type="number" dir="ltr" inputmode="numeric" id="${repsInputId(ex.id, 'Min')}" value="${ex.repsMin}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
-        </label>
-        <label class="block text-xs font-bold text-slate-400">${escapeHTML(t('config.repsMax'))}
-          <input type="number" dir="ltr" inputmode="numeric" id="${repsInputId(ex.id, 'Max')}" value="${ex.repsMax}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
-        </label>
-        <button data-action="save-reps" data-arg="${escapeHTML(ex.id)}" class="min-h-[44px] px-3 py-1.5 bg-brand-500/20 text-brand-text border border-brand-500/30 rounded-xl text-xs font-bold hover:bg-brand-500/30 transition-all">${escapeHTML(t('config.repsSave'))}</button>
       </div>
     </div>`;
   }).join('');
@@ -702,16 +688,47 @@ let addTarget = 'wheel';
 
 export const addExerciseTarget = () => addTarget;
 
+/** Qué se está editando en la ventana: el id del ejercicio de la ruleta o la posición (como texto) del de la plantilla; '' si se crea uno */
+let editingRef = '';
+
+export const editingExercise = () => editingRef;
+
 /**
  * Abre la ventana de nuevo ejercicio (encima de Ajustes o de una plantilla), con el formulario vacío y el cursor en el nombre.
+ * Con `editRef` (el id de un ejercicio de la ruleta o la posición de uno de la plantilla) la misma ventana sirve para
+ * editarlo: sale con sus datos, otro título y sin teclado al abrirse (casi siempre se cambia solo el rango o el icono).
+ * Si es de una plantilla, encima del título se lee «Plantilla: <nombre>» para que quede claro que no es la ruleta.
  * @param {'wheel' | 'template'} [target]
+ * @param {string} [editRef]
  */
-export function openAddExercise(target = 'wheel') {
+export function openAddExercise(target = 'wheel', editRef = '') {
   addTarget = target;
+  const draft = target === 'template' ? readTemplateDraft() : null;
+  /** @type {{ name: string, icon: string, repsMin: string | number, repsMax: string | number } | undefined} */
+  let ex;
+  if (editRef !== '') {
+    if (draft) ex = draft.exercises[Number(editRef)];
+    else {
+      const found = getExercises().find(e => e.id === editRef);
+      ex = found && { name: exerciseName(found), icon: found.icon, repsMin: found.repsMin, repsMax: found.repsMax };
+    }
+  }
+  editingRef = ex ? editRef : '';
   resetNewExerciseForm();
+  if (ex) {
+    /** @type {HTMLInputElement} */ ($('newExName')).value = ex.name;
+    /** @type {HTMLInputElement} */ ($('newExRepsMin')).value = String(ex.repsMin);
+    /** @type {HTMLInputElement} */ ($('newExRepsMax')).value = String(ex.repsMax);
+    selectedIcon = isValidIcon(ex.icon) ? ex.icon : DEFAULT_ICON;
+    updateIconButton();
+  }
+  $('addExerciseTitle').textContent = t(ex ? 'config.editExercise' : 'config.addExercise');
+  const context = $('addExerciseContext');
+  context.textContent = draft ? t('templates.context', { name: draft.name.trim() || t('templates.new') }) : '';
+  context.classList.toggle('hidden', !draft);
   setSheetVisible('addExerciseModal', 'addExerciseCard', true);
   pushModal('addexercise');
-  $('newExName').focus({ preventScroll: true });
+  $(ex ? 'addExerciseModal' : 'newExName').focus({ preventScroll: true });
 }
 
 /** Cierra la ventana de nuevo ejercicio sin guardar nada: se vuelve a la lista. */
@@ -726,25 +743,6 @@ export function revealLastExercise() {
   if (!last) return;
   const box = Array.from(document.querySelectorAll('.ex-checkbox')).find(cb => /** @type {HTMLInputElement} */ (cb).value === last.name);
   box?.closest('label')?.scrollIntoView({ block: 'nearest' });
-}
-
-/** Abre o cierra el editor de repeticiones de un ejercicio. @param {string} id */
-export function toggleRepsEditor(id) {
-  repsEditorOpen = repsEditorOpen === id ? '' : id;
-  renderConfig(true);
-}
-
-/** Pliega el editor de repeticiones (tras guardar). */
-export function closeRepsEditor() {
-  repsEditorOpen = '';
-}
-
-/** Lee el rango escrito en el editor de un ejercicio. @param {string} id */
-export function readRepsEditor(id) {
-  return {
-    min: /** @type {HTMLInputElement} */ ($(repsInputId(id, 'Min'))).value,
-    max: /** @type {HTMLInputElement} */ ($(repsInputId(id, 'Max'))).value,
-  };
 }
 
 // --- Ajustes ---------------------------------------------------------------------------
@@ -907,7 +905,6 @@ export function openConfig() {
  * @param {ModalName} [replacing] panel de la cima de la pila al que sustituye Ajustes (sin añadir otra entrada al historial)
  */
 function openSettingsAt(view, replacing) {
-  repsEditorOpen = '';
   renderConfig();
   renderSettings();
   showSettingsView(view, false); // al abrir, manageFocus ya lleva el foco al panel
@@ -1008,15 +1005,12 @@ function draftFromRef(ref) {
   };
 }
 
-const templateRepsId = (/** @type {number} */ index, /** @type {string} */ kind) => `tplReps${kind}-${index}`;
-
 /** Pinta la ventana de plantilla según su borrador: del sistema (solo lectura), nueva o del usuario ya guardada. */
 function renderTemplateModal() {
   const draft = templateDraft;
   if (!draft) return;
   const system = draft.source === 'system';
   const isNew = draft.source === 'user' && draft.id === null;
-  const inputClass = 'min-h-[44px] w-full px-2.5 py-1.5 text-xs bg-dark-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-brand-500';
 
   $('templateTitle').textContent = system ? draft.name : t(isNew ? 'templates.new' : 'templates.edit');
   /** @type {HTMLInputElement} */ ($('templateName')).value = draft.name;
@@ -1032,19 +1026,17 @@ function renderTemplateModal() {
         <span class="shrink-0 text-xs font-bold text-brand-text"><bdi dir="ltr">${escapeHTML(t('config.repsRange', { min: ex.repsMin, max: ex.repsMax }))}</bdi></span>
       </div>`;
     }
-    return `<div class="rounded-xl bg-dark-950 border border-slate-800 ps-2.5 pe-1 pt-1 pb-2.5">
-      <div class="flex items-center gap-2 min-w-0">
+    return `<div class="flex items-stretch min-h-[48px] rounded-xl bg-dark-950 border border-slate-800">
+      <div class="flex items-center gap-2 flex-1 min-w-[9rem] ps-2.5 pe-2 py-2">
         ${icon}
         <span class="text-xs font-bold text-white flex-1 min-w-0 break-words">${escapeHTML(ex.name)}</span>
-        <button type="button" data-action="template-remove-exercise" data-arg="${i}" aria-label="${escapeHTML(t('templates.removeExercise', { name: ex.name }))}" class="flex items-center justify-center w-11 h-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors"><i class="fa-solid fa-trash-can"></i></button>
       </div>
-      <div class="grid grid-cols-2 gap-2 pe-1.5">
-        <label class="block text-xs font-bold text-slate-400">${escapeHTML(t('config.repsMin'))}
-          <input type="number" dir="ltr" inputmode="numeric" id="${templateRepsId(i, 'Min')}" value="${escapeHTML(ex.repsMin)}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
-        </label>
-        <label class="block text-xs font-bold text-slate-400">${escapeHTML(t('config.repsMax'))}
-          <input type="number" dir="ltr" inputmode="numeric" id="${templateRepsId(i, 'Max')}" value="${escapeHTML(ex.repsMax)}" min="1" max="${MAX_REP_VALUE}" class="${inputClass} mt-1">
-        </label>
+      <div class="flex items-stretch shrink-0 ms-auto">
+        <button type="button" data-action="template-edit-exercise" data-arg="${i}" aria-haspopup="dialog" aria-label="${escapeHTML(t('config.editExerciseAria', { name: ex.name }))}" class="flex items-center justify-center min-h-[44px] px-2 shrink-0 text-xs font-bold text-brand-text hover:underline">
+          <bdi dir="ltr">${escapeHTML(t('config.repsRange', { min: ex.repsMin, max: ex.repsMax }))}</bdi>
+          <i class="fa-solid fa-pen ms-1.5 text-[0.65rem]" aria-hidden="true"></i>
+        </button>
+        <button type="button" data-action="template-remove-exercise" data-arg="${i}" aria-label="${escapeHTML(t('templates.removeExercise', { name: ex.name }))}" class="flex items-center justify-center w-11 shrink-0 text-slate-500 hover:text-red-400 text-xs transition-colors"><i class="fa-solid fa-trash-can"></i></button>
       </div>
     </div>`;
   }).join('');
@@ -1098,16 +1090,12 @@ export function openSystemTemplateExercises() {
   return template ? systemTemplateExercises(template) : null;
 }
 
-/** Recoge lo escrito (nombre y repeticiones) en el borrador y lo devuelve; null si no hay ventana abierta. */
+/** Recoge lo escrito (el nombre) en el borrador y lo devuelve; null si no hay ventana abierta. */
 export function readTemplateDraft() {
   const draft = templateDraft;
   if (!draft) return null;
   if (draft.source === 'user') {
     draft.name = /** @type {HTMLInputElement} */ ($('templateName')).value;
-    draft.exercises.forEach((ex, i) => {
-      ex.repsMin = /** @type {HTMLInputElement | null} */ (document.getElementById(templateRepsId(i, 'Min')))?.value ?? ex.repsMin;
-      ex.repsMax = /** @type {HTMLInputElement | null} */ (document.getElementById(templateRepsId(i, 'Max')))?.value ?? ex.repsMax;
-    });
   }
   return draft;
 }
@@ -1129,6 +1117,25 @@ export function addTemplateExercise(input) {
     return { ok: false, error: { key: 'error.maxExercises', params: { max: MAX_EXERCISES } } };
   }
   draft.exercises.push({ name: parsed.name, icon: parsed.icon, repsMin: parsed.repsMin, repsMax: parsed.repsMax });
+  renderTemplateModal();
+  return { ok: true };
+}
+
+/**
+ * Cambia un ejercicio del borrador con lo escrito en la ventana de editar ejercicio.
+ * @param {number} index posición del ejercicio en el borrador
+ * @param {{ name: string, icon: string, repsMin?: string | number, repsMax?: string | number }} input
+ * @returns {import('./store.js').StoreResult}
+ */
+export function updateTemplateExercise(index, input) {
+  const draft = readTemplateDraft();
+  if (!draft || !draft.exercises[index]) return { ok: true };
+  const parsed = parseExerciseInput(input);
+  if (!parsed.ok) return parsed;
+  if (draft.exercises.some((e, i) => i !== index && e.name.toLowerCase() === parsed.name.toLowerCase())) {
+    return { ok: false, error: { key: 'error.duplicateExercise', params: { name: parsed.name } } };
+  }
+  draft.exercises[index] = { name: parsed.name, icon: parsed.icon, repsMin: parsed.repsMin, repsMax: parsed.repsMax };
   renderTemplateModal();
   return { ok: true };
 }
@@ -1304,7 +1311,10 @@ export function filterIcons(query) {
 
 /** Lee el formulario de nuevo ejercicio. */
 export function readNewExerciseForm() {
-  const name = /** @type {HTMLInputElement} */ ($('newExName')).value.trim();
+  let name = /** @type {HTMLInputElement} */ ($('newExName')).value.trim();
+  // Editando un ejercicio del sistema sin tocar el nombre, se queda el guardado (el inglés) y sigue traduciéndose
+  const editing = editingRef !== '' && addTarget === 'wheel' ? getExercises().find(e => e.id === editingRef) : undefined;
+  if (editing && name === exerciseName(editing)) name = editing.name;
   const repsMin = /** @type {HTMLInputElement} */ ($('newExRepsMin')).value;
   const repsMax = /** @type {HTMLInputElement} */ ($('newExRepsMax')).value;
   return { name, icon: selectedIcon, repsMin, repsMax };
