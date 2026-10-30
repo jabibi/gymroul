@@ -205,6 +205,11 @@ input, textarea {
 .live-marker.is-spinning #liveIndicatorText {
     filter: blur(1.2px);
 }
+/* Línea de ejercicio recién guardada: se tiñe con el color de marca y vuelve a su fondo (sin «to», termina en el fondo de la línea) */
+@keyframes row-saved {
+    from { background-color: rgb(var(--brand-500) / 0.28); border-color: rgb(var(--brand-500) / 0.6); }
+}
+.row-saved { animation: row-saved 1.4s ease-out; }
 /* Al detenerse: rebote ligero y destello en el borde */
 @keyframes marker-pop {
     0%   { transform: scale(1); box-shadow: 0 0 24px rgb(var(--brand-500) / 0.4); border-color: rgb(var(--brand-500)); }

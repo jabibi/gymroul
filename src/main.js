@@ -155,7 +155,7 @@ const actions = {
     ui.closeRepsEditor();
     rebuildWheel();
     ui.renderConfig(true);
-    ui.showToast(t('config.repsSaved', { range: t('config.repsRange', { min: Number(min), max: Number(max) }) }));
+    ui.flashExerciseRow(arg, t('config.repsSaved', { range: t('config.repsRange', { min: Number(min), max: Number(max) }) }));
   },
   'add-exercise': () => {
     const form = ui.readNewExerciseForm();

@@ -513,6 +513,24 @@ export function startRemoval(exercise, undo) {
   }));
 }
 
+/**
+ * Confirma un cambio en la línea de un ejercicio sin aviso flotante (que tapaba la lista): la línea se tiñe un momento
+ * y el mensaje se anuncia a los lectores de pantalla.
+ * @param {string} id
+ * @param {string} message
+ */
+export function flashExerciseRow(id, message) {
+  const row = Array.from(document.querySelectorAll('#exsCheckboxes [data-ex-id]')).find(r => /** @type {HTMLElement} */ (r).dataset.exId === id);
+  if (row) {
+    row.classList.remove('row-saved');
+    void /** @type {HTMLElement} */ (row).offsetWidth;
+    row.classList.add('row-saved');
+  }
+  const live = $('removalLive');
+  live.textContent = message;
+  setTimeout(() => { if (live.textContent === message) live.textContent = ''; }, 4000);
+}
+
 /** Pulsación de «Deshacer»: el ejercicio vuelve y su línea reaparece. */
 export function undoRemoval() {
   if (!removal) return;
@@ -589,7 +607,7 @@ export function renderConfig(keepChecks = false) {
     const range = t('config.repsRange', { min: ex.repsMin, max: ex.repsMax });
     const name = exerciseName(ex);
     return `
-    <div class="rounded-xl bg-dark-950 border border-slate-800">
+    <div data-ex-id="${escapeHTML(ex.id)}" class="rounded-xl bg-dark-950 border border-slate-800">
       <div class="flex flex-wrap items-stretch min-h-[48px]">
         <label class="flex items-center gap-2 cursor-pointer flex-1 min-w-[9rem] ps-2.5 pe-2 py-2">
           <input type="checkbox" value="${escapeHTML(ex.name)}" ${isOn(ex.name) ? 'checked' : ''} class="ex-checkbox w-4 h-4 shrink-0 rounded text-brand-text focus:ring-brand-500 bg-dark-900 border-slate-700">
